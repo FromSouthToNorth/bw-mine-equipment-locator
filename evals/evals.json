@@ -1,0 +1,23 @@
+{
+  "skill_name": "bw-mine-equipment-locator",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "帮我定位一下 F18795450 的所有设备，输出每个设备匹配到的巷道名称和坐标",
+      "expected_output": "返回 1400+ 台设备的完整定位结果 JSON，含 matched_name、coordinates、匹配率统计",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "查一下寺河煤矿有哪些设备没匹配到巷道，列出它们的 description",
+      "expected_output": "未匹配设备的列表（~21 个），包含设备 ID 和 description，分析未匹配原因",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "F18795450 的设备里，带「迎头」关键词的有哪些？列出它们的名字和坐标",
+      "expected_output": "筛选出 description 包含「迎头」的设备列表，显示匹配的巷道名称和坐标",
+      "files": []
+    }
+  ]
+}
