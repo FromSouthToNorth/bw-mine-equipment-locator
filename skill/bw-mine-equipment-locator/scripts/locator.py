@@ -476,9 +476,9 @@ def _polyline_interpolate(line: list, ratio: float) -> dict:
 
 
 def _assign_distances(count: int, keyword: str, line_length: float,
-                      sensor_type: str = None, tunnel_type: str = None, step: float = 5.0) -> list:
+                      sensor_type: str = None, tunnel_type: str = None, step: float = 1.0) -> list:
     """
-    按固定步长（默认 5m）分配距起点的距离。
+    按固定步长（默认 1m）分配距起点的距离。
     优先使用精确米数规则，次选百分比规则。
     若区间放不下所有设备，则在该区间内均匀分布。
     """
@@ -676,57 +676,266 @@ def _extract_candidates(items) -> tuple:
     return candidates, code_to_candidates, coalbed_map
 
 
+# ── 数据校验 ──────────────────────────────────────────────────────
+_X_MIN, _X_MAX = 3.7e7, 4.0e7
+_Y_MIN, _Y_MAX = 3.5e6, 4.5e6
+_Z_MIN, _Z_MAX = -2000.0, 2000.0
+
+
+def _validate_devices(devices: list) -> list:
+    """校验设备数据，返回清洗后的列表。校验失败抛 ValueError。"""
+    if not isinstance(devices, list):
+        raise ValueError("devices 必须是 list")
+    if not devices:
+        return []
+    cleaned = []
+    auto_id = 1
+    for i, dev in enumerate(devices):
+        if not isinstance(dev, dict):
+            raise ValueError(f"devices[{i}] 必须是 dict")
+        desc = dev.get("description", "")
+        if not isinstance(desc, str) or not desc.strip():
+            raise ValueError(f"devices[{i}] description 必填且非空")
+        item = {
+            "id": dev.get("id") or f"AUTO_{auto_id:03d}",
+            "description": desc.strip(),
+        }
+        for field, expected in [("sensor_type", str), ("mark_type", str), ("sysaliasname", str)]:
+            val = dev.get(field)
+            if val is not None and not isinstance(val, expected):
+                raise ValueError(f"devices[{i}] {field} 必须是 {expected.__name__}")
+            if val is not None:
+                item[field] = val
+        cleaned.append(item)
+        if not dev.get("id"):
+            auto_id += 1
+    return cleaned
+
+
+def _validate_line(line: list, ctx: str) -> list:
+    """校验折线数据，返回清洗后的列表。"""
+    if not isinstance(line, list):
+        raise ValueError(f"{ctx} line 必须是 list")
+    if len(line) == 0:
+        raise ValueError(f"{ctx} line 至少要有 1 个点")
+    cleaned = []
+    for j, pt in enumerate(line):
+        if not isinstance(pt, dict):
+            raise ValueError(f"{ctx} line[{j}] 必须是 dict")
+        for axis in ("x", "y", "z"):
+            val = pt.get(axis)
+            if val is None:
+                raise ValueError(f"{ctx} line[{j}] 缺少 {axis}")
+            if not isinstance(val, (int, float)):
+                raise ValueError(f"{ctx} line[{j}] {axis} 必须是数字")
+        x, y, z = pt["x"], pt["y"], pt["z"]
+        if not (_X_MIN <= x <= _X_MAX):
+            raise ValueError(f"{ctx} line[{j}] x={x} 超出范围 [{_X_MIN}, {_X_MAX}]")
+        if not (_Y_MIN <= y <= _Y_MAX):
+            raise ValueError(f"{ctx} line[{j}] y={y} 超出范围 [{_Y_MIN}, {_Y_MAX}]")
+        if not (_Z_MIN <= z <= _Z_MAX):
+            raise ValueError(f"{ctx} line[{j}] z={z} 超出范围 [{_Z_MIN}, {_Z_MAX}]")
+        cleaned.append({"x": float(x), "y": float(y), "z": float(z)})
+    return cleaned
+
+
+def _validate_tunnels(tunnels: list) -> list:
+    """校验巷道数据，返回清洗后的列表。"""
+    if not isinstance(tunnels, list):
+        raise ValueError("tunnels 必须是 list")
+    cleaned = []
+    for i, t in enumerate(tunnels):
+        if not isinstance(t, dict):
+            raise ValueError(f"tunnels[{i}] 必须是 dict")
+        name = t.get("name", "")
+        if not isinstance(name, str) or not name.strip():
+            raise ValueError(f"tunnels[{i}] name 必填且非空")
+        line = _validate_line(t.get("line", []), f"tunnels[{i}] '{name}'")
+        item = {"name": name.strip(), "line": line}
+        for field in ("id", "type", "coalbed"):
+            val = t.get(field)
+            if val is not None:
+                if not isinstance(val, str):
+                    raise ValueError(f"tunnels[{i}] {field} 必须是 str")
+                item[field] = val
+        cleaned.append(item)
+    return cleaned
+
+
+def _validate_workfaces(workfaces: list) -> list:
+    """校验工作面数据，返回清洗后的列表。"""
+    if not isinstance(workfaces, list):
+        raise ValueError("workfaces 必须是 list")
+    cleaned = []
+    for i, w in enumerate(workfaces):
+        if not isinstance(w, dict):
+            raise ValueError(f"workfaces[{i}] 必须是 dict")
+        name = w.get("workFaceName", "")
+        if not isinstance(name, str) or not name.strip():
+            raise ValueError(f"workfaces[{i}] workFaceName 必填且非空")
+        line = _validate_line(w.get("line", []), f"workfaces[{i}] '{name}'")
+        item = {"workFaceName": name.strip(), "line": line}
+        for field in ("id", "type", "tunnelId", "coalbed"):
+            val = w.get(field)
+            if val is not None:
+                if not isinstance(val, str):
+                    raise ValueError(f"workfaces[{i}] {field} 必须是 str")
+                item[field] = val
+        cleaned.append(item)
+    return cleaned
+
+
+def _load_json_file(path: str) -> dict or list:
+    """加载 JSON 文件，返回解析后的对象。"""
+    p = Path(path)
+    if not p.exists():
+        raise FileNotFoundError(f"文件不存在: {p}")
+    with open(p, "r", encoding="utf-8") as f:
+        data = json.load(f)
+    if not isinstance(data, (dict, list)):
+        raise ValueError(f"JSON 根必须是 dict 或 list")
+    return data
+
+
 # ── 主流程 ────────────────────────────────────────────────────────
 def main():
     parser = argparse.ArgumentParser(description="煤矿设备定位")
     parser.add_argument("username", help="用户名（如 F18795450）")
     parser.add_argument("--load", metavar="PATH",
-                        help="从本地文件加载 8373 数据，跳过 API 调用")
+                        help="从本地文件加载完整 8373 数据（含 devices/tunnels/workfaces）")
+    parser.add_argument("--load-devices", metavar="PATH",
+                        help="从本地文件加载设备数据")
+    parser.add_argument("--load-tunnels", metavar="PATH",
+                        help="从本地文件加载巷道数据")
+    parser.add_argument("--load-workfaces", metavar="PATH",
+                        help="从本地文件加载工作面数据")
     args = parser.parse_args()
     username = args.username
+
+    # 判断哪些数据需要从文件加载
+    file_devices = args.load_devices or (args.load and "devices")
+    file_tunnels = args.load_tunnels or (args.load and "tunnels")
+    file_workfaces = args.load_workfaces or (args.load and "workfaces")
+    use_file = bool(args.load or args.load_devices or args.load_tunnels or args.load_workfaces)
 
     # ── Step 1: Token ──
     print(f"[1/2] 获取 token (username={username})...", file=sys.stderr)
     tokens, mine_name = get_token_and_mine_name(username)
     print(f"  → mineName: {mine_name}", file=sys.stderr)
 
-    # ── Step 2: 获取 8373 数据 ──
-    # 策略 8373: get_json → {devices, tunnels, workfaces}, get_data → 工作面列表
-    if args.load:
-        load_path = Path(args.load)
-        print(f"[2/2] 从文件加载 8373 数据: {load_path}", file=sys.stderr)
-        with open(load_path, "r", encoding="utf-8") as f:
-            items3 = json.load(f)
-        devices = []
-        candidates = []
-        code_to_candidates = {}
-        coalbed_map = {}
-        if isinstance(items3, dict):
-            devices = items3.get("devices", [])
-            candidates, code_to_candidates, coalbed_map = _extract_candidates(items3)
-        elif isinstance(items3, list):
-            devices, candidates = classify_items(items3)
-    else:
-        print(f"[2/2] 获取策略 8373...", file=sys.stderr)
+    # ── Step 2: 加载数据（文件优先，缺失部分从 API 补全）──
+    devices, candidates = [], []
+    code_to_candidates, coalbed_map = {}, {}
+
+    # 2a. 从文件加载
+    if use_file:
+        # 处理 --load 单一文件（含 devices/tunnels/workfaces）
+        if args.load:
+            load_path = Path(args.load)
+            print(f"[2/2] 从文件加载: {load_path}", file=sys.stderr)
+            data = _load_json_file(str(load_path))
+            if isinstance(data, dict):
+                if "devices" in data:
+                    devices = _validate_devices(data["devices"])
+                    print(f"  → 文件 devices: {len(devices)} 个", file=sys.stderr)
+                if "tunnels" in data or "workfaces" in data:
+                    # 先校验再提取
+                    validated = {}
+                    if "tunnels" in data:
+                        validated["tunnels"] = _validate_tunnels(data["tunnels"])
+                    if "workfaces" in data:
+                        validated["workfaces"] = _validate_workfaces(data["workfaces"])
+                    candidates, code_to_candidates, coalbed_map = _extract_candidates(validated)
+                    print(f"  → 文件候选: {len(candidates)} 个", file=sys.stderr)
+            elif isinstance(data, list):
+                devices, candidates = classify_items(data)
+                devices = _validate_devices(devices)
+                print(f"  → 文件 devices: {len(devices)} 个, 候选: {len(candidates)} 个", file=sys.stderr)
+
+        # 处理单独的 --load-* 参数
+        if args.load_devices:
+            print(f"  → 加载设备: {args.load_devices}", file=sys.stderr)
+            data = _load_json_file(args.load_devices)
+            if isinstance(data, dict) and "devices" in data:
+                devices = _validate_devices(data["devices"])
+            elif isinstance(data, list):
+                devices = _validate_devices(data)
+            else:
+                raise ValueError(f"--load-devices 文件必须含 devices 数组或本身就是设备数组")
+            print(f"    devices: {len(devices)} 个", file=sys.stderr)
+
+        # 收集所有来源的 tunnels 和 workfaces，合并后统一提取 candidates
+        merged_tunnels, merged_workfaces = [], []
+        if args.load_tunnels:
+            print(f"  → 加载巷道: {args.load_tunnels}", file=sys.stderr)
+            data = _load_json_file(args.load_tunnels)
+            if isinstance(data, dict) and "tunnels" in data:
+                merged_tunnels = _validate_tunnels(data["tunnels"])
+            elif isinstance(data, list):
+                merged_tunnels = _validate_tunnels(data)
+            else:
+                raise ValueError("--load-tunnels 文件必须含 tunnels 数组或本身就是巷道数组")
+            print(f"    tunnels: {len(merged_tunnels)} 个", file=sys.stderr)
+
+        if args.load_workfaces:
+            print(f"  → 加载工作面: {args.load_workfaces}", file=sys.stderr)
+            data = _load_json_file(args.load_workfaces)
+            if isinstance(data, dict) and "workfaces" in data:
+                merged_workfaces = _validate_workfaces(data["workfaces"])
+            elif isinstance(data, list):
+                merged_workfaces = _validate_workfaces(data)
+            else:
+                raise ValueError("--load-workfaces 文件必须含 workfaces 数组或本身就是工作面数组")
+            print(f"    workfaces: {len(merged_workfaces)} 个", file=sys.stderr)
+
+        if merged_tunnels or merged_workfaces:
+            merged_cand = {}
+            if merged_tunnels:
+                merged_cand["tunnels"] = merged_tunnels
+            if merged_workfaces:
+                merged_cand["workfaces"] = merged_workfaces
+            candidates, code_to_candidates, coalbed_map = _extract_candidates(merged_cand)
+            print(f"  → 文件候选合计: {len(candidates)} 个", file=sys.stderr)
+
+    # 2b. 从 API 补全缺失的数据
+    need_api_devices = not devices
+    need_api_candidates = not candidates
+
+    if need_api_devices or need_api_candidates:
+        print(f"[2/2] 从 API 补全数据...", file=sys.stderr)
         resp_dev = call_strategy_api(8373, username, f"MineName={mine_name}", action="get_json")
         raw_data = resp_dev.get("data", {})
 
-        # get_json 返回 dict {devices, tunnels, workfaces} → 直接提取
-        code_to_candidates = {}
-        coalbed_map = {}
         if isinstance(raw_data, dict) and "devices" in raw_data:
-            devices = raw_data.get("devices", [])
-            candidates, code_to_candidates, coalbed_map = _extract_candidates(raw_data)
+            if need_api_devices:
+                devices = _validate_devices(raw_data.get("devices", []))
+                print(f"  → API devices: {len(devices)} 个", file=sys.stderr)
+            if need_api_candidates:
+                candidates, code_to_candidates, coalbed_map = _extract_candidates(raw_data)
+                print(f"  → API 候选: {len(candidates)} 个", file=sys.stderr)
         else:
-            # get_json 返回扁平数组 → classify_items 分类
             device_items = extract_items(raw_data)
-            devices, _ = classify_items(device_items)
-            # 额外调用 get_data 获取工作面候选
-            print(f"  → 获取工作面/巷道 (get_data)...", file=sys.stderr)
-            resp_cand = call_strategy_api(8373, username, f"MineName={mine_name}", action="get_data")
-            cand_items = extract_items(resp_cand.get("data"))
-            candidates, code_to_candidates, coalbed_map = _extract_candidates(cand_items)
+            if need_api_devices:
+                api_devices, _ = classify_items(device_items)
+                devices = _validate_devices(api_devices)
+                print(f"  → API devices: {len(devices)} 个", file=sys.stderr)
+            if need_api_candidates:
+                print(f"  → 获取工作面/巷道 (get_data)...", file=sys.stderr)
+                resp_cand = call_strategy_api(8373, username, f"MineName={mine_name}", action="get_data")
+                cand_items = extract_items(resp_cand.get("data"))
+                candidates, code_to_candidates, coalbed_map = _extract_candidates(cand_items)
+                print(f"  → API 候选: {len(candidates)} 个", file=sys.stderr)
 
+    # 如果用了文件+API混合，保存合并结果
+    if use_file and (args.load_devices or args.load_tunnels or args.load_workfaces):
+        save_dir = PROJECT_ROOT / "data" / "output"
+        save_dir.mkdir(parents=True, exist_ok=True)
+        save_path = save_dir / f"data_8373_{mine_name}.json"
+        merged = {"devices": devices, "candidates": candidates}
+        with open(save_path, "w", encoding="utf-8") as f:
+            json.dump(merged, f, ensure_ascii=False, indent=2)
+        print(f"  → 合并结果已保存: {save_path}", file=sys.stderr)
+    elif not use_file:
         save_dir = PROJECT_ROOT / "data" / "output"
         save_dir.mkdir(parents=True, exist_ok=True)
         save_path = save_dir / f"data_8373_{mine_name}.json"
@@ -772,11 +981,11 @@ def main():
             continue
         match_entries.append((device, match, cleaned, sensor_type))
 
-    # 按 (matched_name, keyword, sensor_type) 分组
+    # 按 (matched_name, keyword) 分组（同一巷道同一关键词的设备在同一组）
     groups = {}
     for device, match, cleaned, sensor_type in match_entries:
         keyword = _classify_keyword(cleaned)
-        group_key = (match["name"], keyword, sensor_type)
+        group_key = (match["name"], keyword)
         groups.setdefault(group_key, []).append((device, match, cleaned, sensor_type))
 
     def _calc_confidence(match: dict, cleaned: str, sensor_type: str = None) -> str:
@@ -803,13 +1012,18 @@ def main():
     results = []
     matched_count = 0
     for group_key, entries in groups.items():
-        name, keyword, sensor_type = group_key
+        name, keyword = group_key
         candidate = entries[0][1]["candidate"]
         line = candidate.get("line", [])
         tunnel_type = candidate.get("type", "")
         total_len = _polyline_length(line)
+        # 取组内出现最多的 sensor_type 作为代表
+        st_counts = {}
+        for _, _, _, st in entries:
+            st_counts[st] = st_counts.get(st, 0) + 1
+        representative_st = max(st_counts, key=st_counts.get) if st_counts else None
         distances = _assign_distances(len(entries), keyword, total_len,
-                                       sensor_type=sensor_type, tunnel_type=tunnel_type)
+                                       sensor_type=representative_st, tunnel_type=tunnel_type)
         for (device, match, cleaned, sensor_type), dist in zip(entries, distances):
             matched_count += 1
             ratio = dist / total_len if total_len > 0 else 0.5

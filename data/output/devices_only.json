@@ -1,0 +1,54 @@
+{
+  "devices": [
+    {
+      "id": "JKYHMK0030120001A01",
+      "description": "1号分站模拟量001A019308皮顺联络巷迎头激光甲烷瓦斯",
+      "mark_type": "B14"
+    },
+    {
+      "id": "JKYHMK0030120001A02",
+      "description": "1号分站模拟量001A029308皮顺联络巷粉尘粉尘",
+      "mark_type": "B14"
+    },
+    {
+      "id": "JKYHMK0030120001A05",
+      "description": "1号分站模拟量001A059308皮顺联络巷回风流激光甲烷瓦斯",
+      "mark_type": "B14"
+    },
+    {
+      "id": "JKYHMK0030120001A06",
+      "description": "1号分站模拟量001A069308皮顺联络巷回风流一氧化碳一氧化碳",
+      "mark_type": "B14"
+    },
+    {
+      "id": "JKYHMK0030120001A07",
+      "description": "1号分站模拟量001A079308皮顺联络巷回风流温度温度",
+      "mark_type": "B14"
+    },
+    {
+      "id": "JKYHMK0030120001C02",
+      "description": "1号分站开关量001C02九采区皮带联络巷高防断电器断电",
+      "mark_type": "B14"
+    },
+    {
+      "id": "JKYHMK0030120001C07",
+      "description": "1号分站开关量001C079308皮顺联络巷主扇断电器断电",
+      "mark_type": "B14"
+    },
+    {
+      "id": "JKYHMK0030120001C08",
+      "description": "1号分站开关量001C089308皮顺联络巷备扇断电器断电",
+      "mark_type": "B14"
+    },
+    {
+      "id": "JKYHMK0030120001D04",
+      "description": "1号分站开关量001D049308皮顺联络巷皮带烟雾烟雾",
+      "mark_type": "B14"
+    },
+    {
+      "id": "JKYHMK0030120001D08",
+      "description": "1号分站开关量001D089308皮顺一部皮带烟雾烟雾",
+      "mark_type": "B14"
+    }
+  ]
+}
