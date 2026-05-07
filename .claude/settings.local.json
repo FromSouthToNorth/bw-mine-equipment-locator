@@ -57,7 +57,18 @@
       "Bash(/c/Users/bw/AppData/Local/Programs/Python/Python313/python.exe *)",
       "Bash(BW_LOCATOR_PYTHON=\"/c/Users/bw/AppData/Local/Programs/Python/Python310/python.exe\" python3 *)",
       "Bash(/c/Users/bw/AppData/Local/Programs/Python/Python310/python.exe *)",
-      "mcp__ide__executeCode"
+      "mcp__ide__executeCode",
+      "Bash(where pdftotext *)",
+      "Bash(where pdftoppm *)",
+      "Bash(where gs *)",
+      "Bash(F:/Git/mingw64/bin/pdftotext.exe -layout -enc UTF-8 \"F:/gis/Point/data/pdf/AQ 1029-2019 煤矿安全监控系统及检测仪器使用管理规范.pdf\" \"F:/gis/Point/data/pdf/AQ1029.txt\")",
+      "Bash(F:/Git/mingw64/bin/pdftotext.exe -layout -enc UTF-8 \"F:/gis/Point/data/pdf/AQ 1029-2019 煤矿安全监控系统及检测仪器使用管理规范.pdf\" -)",
+      "Bash(F:/Git/mingw64/bin/pdftotext.exe -enc GBK \"F:/gis/Point/data/pdf/AQ 1029-2019 煤矿安全监控系统及检测仪器使用管理规范.pdf\" -)",
+      "Bash(F:/Git/mingw64/bin/pdftotext.exe -enc GB18030 \"F:/gis/Point/data/pdf/AQ 1029-2019 煤矿安全监控系统及检测仪器使用管理规范.pdf\" -)",
+      "Bash(F:/Git/mingw64/bin/pdftotext.exe -listenc)",
+      "Bash(where tesseract *)",
+      "Bash(F:/Git/mingw64/bin/pdfimages.exe -list \"F:/gis/Point/data/pdf/AQ 1029-2019 煤矿安全监控系统及检测仪器使用管理规范.pdf\")",
+      "Bash(/f/Git/mingw64/bin/pdftotext.exe -layout \"F:/gis/Point/data/pdf/AQ 1029-2019 煤矿安全监控系统及检测仪器使用管理规范.pdf\" -)"
     ]
   }
 }

@@ -186,6 +186,12 @@ def strip_prefix(description: str) -> str:
 def _infer_sensor_type(description: str) -> str:
     """从 description 关键词推断传感器类型（兜底）。"""
     d = description
+    if "二氧化碳" in d or "CO2" in d:
+        return "二氧化碳"
+    if "氧气" in d or re.search(r'\bO2\b', d):
+        return "氧气"
+    if "负压" in d or "风压" in d:
+        return "负压"
     if "风速" in d:
         return "风速"
     if "烟雾" in d:
@@ -211,16 +217,19 @@ def _infer_sensor_type(description: str) -> str:
 
 # ── sensor_type 巷道偏好 ──────────────────────────────────────────
 _SENSOR_TUNNEL_PREF = {
-    "瓦斯": ["回风巷", "进风巷", "切巷", "工作面", "顺槽", "石门", "大巷"],
-    "一氧化碳": ["隅角", "皮带", "硐室", "石门", "滚筒"],
-    "风速": ["测风站", "总回风", "回风巷", "一翼回风"],
-    "温度": ["硐室", "压风机", "工作面", "机电"],
-    "烟雾": ["皮带", "运输", "机头", "机尾", "滚筒"],
-    "粉尘": ["采煤", "掘进", "转载", "破碎", "装煤"],
+    "瓦斯": ["回风巷", "进风巷", "切巷", "工作面", "顺槽", "石门", "大巷", "采空", "排瓦斯", "高冒"],
+    "一氧化碳": ["隅角", "皮带", "硐室", "石门", "滚筒", "采空", "封闭火区", "采煤工作面"],
+    "风速": ["测风站", "总回风", "回风巷", "一翼回风", "采区回风", "盘区回风"],
+    "温度": ["硐室", "压风机", "工作面", "机电", "中央变电", "采区变电"],
+    "烟雾": ["皮带", "运输", "机头", "机尾", "滚筒", "胶带", "胶运"],
+    "粉尘": ["采煤", "掘进", "转载", "破碎", "装煤", "综采", "综掘", "回采"],
     "馈电": ["配电", "变电", "开关", "馈电"],
     "断电": ["配电", "变电", "开关", "馈电"],
     "开停": ["配电", "变电", "开关", "风机"],
-    "人员定位": ["井口", "交叉口", "大巷", "入口"],
+    "人员定位": ["井口", "交叉口", "大巷", "入口", "硐室", "工作面", "联络巷"],
+    "氧气": ["工作面", "硐室", "采空"],
+    "二氧化碳": ["采空", "封闭火区", "回风巷"],
+    "负压": ["风机", "通风机", "风筒"],
 }
 
 
@@ -241,11 +250,11 @@ def _candidate_matches_sensor_pref(name: str, sensor_type: str) -> bool:
 
 # ── T 标识位置规则 (AQ 1029-2019) ─────────────────────────────────
 _T_POSITION_RULES = {
-    "T0": (0.00, 0.05),    # 上隅角 → 工作面回风端 0-5%
-    "T1": (0.00, 0.05),    # 掘进迎头 → 距起点 0-5%
-    "T2": (0.85, 1.00),    # 掘进回风流 → 距终点 10-15%
-    "T3": (0.30, 0.50),    # 混合风流 → 风机附近
-    "T4": (0.90, 1.00),    # 掘进回风巷口 → 距终点 0-10%
+    "T0": (0.00, 0.05),    # 上隅角/回风隅角，采煤工作面回风端（6.2.1 图1）
+    "T1": (0.00, 0.05),    # 掘进迎头 → 距起点 ≤5m（6.3.1 图3）；采煤回风巷距工作面≤10m（6.2.1）
+    "T2": (0.85, 1.00),    # 采煤进风巷距工作面≤10m（6.2.1 突出矿井）；掘进进风风门口（6.3.1）
+    "T3": (0.30, 0.50),    # 混合风流处 → 风机附近（6.3.1）
+    "T4": (0.90, 1.00),    # 掘进回风巷口（6.3.1）
 }
 
 
@@ -259,31 +268,32 @@ _LOCATION_SEMANTICS = {
 }
 
 
-# ── 巷道类型 × sensor_type 坐标规则 ──────────────────────────────
+# ── 巷道类型 × sensor_type 坐标规则 (AQ 1029-2019) ─────────────────
 _TUNNEL_TYPE_RULES = {
     "26-工作面回风巷(辅运顺槽)": {
-        "瓦斯": {"from": "end", "meters": 10, "tolerance": 3},
-        "风速": {"from": "mid", "meters": 0, "station": True},
-        "一氧化碳": {"from": "end", "meters": 10, "tolerance": 3},
+        # 6.2.1: 采煤工作面回风巷距工作面≤10m；6.4.1: 采区/一翼/总回风巷测风站设风速
+        "瓦斯": {"from": "end", "meters": 10, "tolerance": 3},      # 距工作面≤10m
+        "风速": {"from": "mid", "meters": 0, "station": True},     # 测风站(7.2.1)
+        "一氧化碳": {"from": "end", "meters": 10, "tolerance": 3}, # 回风巷(7.1.2)
     },
     "27-工作面进风巷(胶运顺槽)": {
-        "风速": {"from": "mid", "meters": 0, "station": True},
-        "烟雾": {"from": "start", "meters": 3, "tolerance": 1},
-        "粉尘": {"from": "start", "meters": 3, "tolerance": 1},
+        "风速": {"from": "mid", "meters": 0, "station": True},     # 测风站(7.2.1)
+        "烟雾": {"from": "start", "meters": 3, "tolerance": 1},   # 皮带机头(7.6)
+        "粉尘": {"from": "start", "meters": 3, "tolerance": 1},   # 产尘点(7.8)
     },
     "28-工作面切眼": {
-        "瓦斯": {"from": "start", "meters": 5, "tolerance": 2},
-        "一氧化碳": {"from": "start", "meters": 5, "tolerance": 2},
+        "瓦斯": {"from": "start", "meters": 5, "tolerance": 2},   # 距迎头≤5m(6.3.1 图3)
+        "一氧化碳": {"from": "start", "meters": 5, "tolerance": 2},# 上隅角(7.1.2)
     },
     "3-煤仓": {
-        "瓦斯": {"from": "start", "meters": 2, "tolerance": 1},
+        "瓦斯": {"from": "start", "meters": 2, "tolerance": 1},   # 煤仓上口(6.4.3)
     },
     "25-工作面停采线": {
-        "瓦斯": {"from": "mid", "meters": 0},
+        "瓦斯": {"from": "mid", "meters": 0},                      # 工作面中部
     },
     "29-回采工作面巷道": {
-        "瓦斯": {"from": "mid", "meters": 0},
-        "粉尘": {"from": "start", "meters": 5, "tolerance": 2},
+        "瓦斯": {"from": "mid", "meters": 0},                      # 工作面中部
+        "粉尘": {"from": "start", "meters": 5, "tolerance": 2},   # 采煤机产尘点(7.8)
     },
 }
 
@@ -302,24 +312,28 @@ _TUNNEL_TYPE_MATCH_BONUS = {
 # ── 传感器安装高度 (相对于巷道底板) ──────────────────────────────
 # AQ 1029-2019 对传感器距底板/顶板高度有要求，折线 z 为基础高程
 _SENSOR_INSTALL_HEIGHT = {
-    "瓦斯":   0.3,   # 距底板 ≥0.3m，距顶板 ≤0.2m
+    "瓦斯":   0.3,   # 距顶板(顶梁)≤300mm，距侧壁≥200mm（6.1.1）
     "风速":   0.2,   # 距顶板 ≤0.3m，风速传感器较矮
     "烟雾":   0.2,   # 距顶板 ≤0.3m
     "粉尘":   1.5,   # 距底板 1.5-2m
-    "一氧化碳": 0.2,  # 距顶板 ≤0.3m
-    "温度":   0.2,   # 距顶板 ≤0.3m（硐室）或设备上方
+    "一氧化碳": 0.2,  # 距顶板(顶梁)≤300mm，距侧壁≥200mm（7.1.1）
+    "温度":   0.2,   # 距顶板(顶梁)≤300mm，距侧壁≥200mm（7.7.1）
+    "氧气":   0.2,   # 距顶板 ≤0.3m，O2 与空气近，挂顶
+    "二氧化碳": 0.5, # CO2 重于空气，距底板 0.3-1.5m
+    "负压":   0.0,   # 风压表，贴风筒/风机出口
+    "人员定位": 0.3,   # DB51T1412-2011 5.2.3: 读卡器靠近顶板及帮侧 300mm；分站距底板 ≥300mm
 }
 
 
 # ── AQ 1029-2019 精确距离规则 (米) ────────────────────────────────
 _AQ1029_DISTANCE_RULES = [
     # (keyword, sensor_type, distance_from, meters)
-    ("T1", None, "start", 5),
-    ("T2", None, "end", 12),
-    ("风速", None, "mid", 0),
-    ("烟雾", None, "start", 3),
-    ("粉尘", None, "start", 3),
-    ("温度", "硐室", "mid", 0),
+    ("T1", None, "start", 5),       # 掘进迎头 ≤5m（6.3.1 图3）
+    ("T2", None, "end", 12),        # 掘进进风风门口（6.3.1）/ 回风流末端
+    ("风速", None, "mid", 0),       # 测风站，前后10m无分支（7.2.1）
+    ("烟雾", None, "start", 3),     # 通用场景；皮带机头/滚筒下风侧10-15m见7.6（待按description关键词细分）
+    ("粉尘", None, "start", 3),     # 产尘点（7.8）
+    ("温度", "硐室", "mid", 0),     # 机电硐室温度（7.7.3）
 ]
 
 
@@ -348,8 +362,26 @@ def extract_workface_code(description: str) -> str:
     return None
 
 
-def _semantic_penalty(description: str, candidate_name: str) -> int:
-    """语义惩罚：若描述含某地点关键词但候选不匹配允许列表，返回惩罚值。"""
+def _semantic_penalty(description: str, candidate_name: str, mark_type: str = None) -> int:
+    """语义惩罚：若描述含某地点关键词但候选不匹配允许列表，返回惩罚值。
+    B16/B15 设备放宽部分惩罚，允许匹配到近似候选（粗略坐标）。"""
+    # B16 视频设备：地表设施允许匹配到含相关关键字的候选
+    if mark_type == "B16":
+        if "地面" in description:
+            if any(kw in candidate_name for kw in ["井", "房", "场", "库", "间", "通路", "车场"]):
+                return 0
+        if any(kw in description for kw in ["主井", "副井", "风井"]):
+            if "井" in candidate_name:
+                return 0
+    # B15 人员定位：井口允许匹配到立井；硐室允许匹配到避难相关
+    if mark_type == "B15":
+        if "井口" in description:
+            if "井" in candidate_name:
+                return 0
+        if "避难硐室" in description:
+            if any(kw in candidate_name for kw in ["避难", "硐"]):
+                return 0
+    # 原有规则
     for keyword, rule in _LOCATION_SEMANTICS.items():
         if keyword in description:
             if not any(allow in candidate_name for allow in rule["allow"]):
@@ -374,7 +406,7 @@ def longest_common_substring_len(s1: str, s2: str) -> int:
 
 def find_best_match(cleaned: str, candidates: list, sensor_type: str = None,
                      device_code: str = None, code_to_candidates: dict = None,
-                     coalbed_map: dict = None) -> dict:
+                     coalbed_map: dict = None, mark_type: str = None) -> dict:
     """
     在 candidates 中找最佳匹配项。
     评分规则：LCS + sensor_type 加权 + 编码匹配 + 巷道类型匹配 + 语义过滤 + coalbed 验证。
@@ -417,7 +449,7 @@ def find_best_match(cleaned: str, candidates: list, sensor_type: str = None,
                 score -= 1  # 轻微惩罚，不绝对排除（同名巷道可能跨煤层）
 
         # 语义过滤惩罚
-        sem_penalty = _semantic_penalty(cleaned, name)
+        sem_penalty = _semantic_penalty(cleaned, name, mark_type)
         score += sem_penalty
 
         if score >= 2 and score > best_score:
@@ -560,6 +592,12 @@ def _assign_distances(count: int, keyword: str, line_length: float,
             return [0.0]
         elif keyword == "回风流":
             return [line_length]
+        elif keyword in ("井口", "岔口"):
+            return [line_length * 0.05]
+        elif keyword == "井底":
+            return [line_length * 0.95]
+        elif keyword == "硐室":
+            return [line_length * 0.5]
         elif sensor_type == "风速":
             return [line_length * 0.5]
         elif sensor_type in ("烟雾", "粉尘"):
@@ -575,6 +613,14 @@ def _assign_distances(count: int, keyword: str, line_length: float,
         lo, hi = 0.0, line_length * 0.15
     elif keyword == "回风流":
         lo, hi = line_length * 0.85, line_length
+    elif keyword == "井口":
+        lo, hi = line_length * 0.00, line_length * 0.10  # DB51T1412-2011 5.1.8.1: 井口处
+    elif keyword == "井底":
+        lo, hi = line_length * 0.90, line_length * 1.00  # DB51T1412-2011 5.1.8.1: 井底处
+    elif keyword == "岔口":
+        lo, hi = line_length * 0.10, line_length * 0.25  # DB51T1412-2011 5.1.8.2: 距岔口 F 处
+    elif keyword == "硐室":
+        lo, hi = line_length * 0.40, line_length * 0.60  # DB51T1412-2011 5.1.8.5: 居中(≤2L)或进出口(>2L)，取中更安全
     else:
         if sensor_type == "风速":
             lo, hi = line_length * 0.4, line_length * 0.6
@@ -583,7 +629,7 @@ def _assign_distances(count: int, keyword: str, line_length: float,
         elif sensor_type == "温度":
             lo, hi = line_length * 0.3, line_length * 0.7
         elif sensor_type == "人员定位":
-            lo, hi = line_length * 0.5, line_length * 0.5
+            lo, hi = line_length * 0.4, line_length * 0.6  # DB51T1412-2011 5.1.8.2: 长巷道>1000m时中部增设
         else:
             lo, hi = line_length * 0.1, line_length * 0.9
 
@@ -591,7 +637,7 @@ def _assign_distances(count: int, keyword: str, line_length: float,
 
 
 def _classify_keyword(description: str) -> str:
-    """按关键词分类：T1/T2/T0/T3/T4 / 迎头 / 回风流 / default"""
+    """按关键词分类：T1/T2/T0/T3/T4 / 迎头 / 回风流 / B15关键词 / default"""
     t_kw = _extract_t_keyword(description)
     if t_kw and t_kw in _T_POSITION_RULES:
         return t_kw
@@ -603,6 +649,15 @@ def _classify_keyword(description: str) -> str:
         return "T0"
     if "混合风流" in description:
         return "T3"
+    # B15 人员定位关键词 (DB51T1412-2011 5.1.8)
+    if "井口" in description:
+        return "井口"
+    if "井底" in description:
+        return "井底"
+    if "岔口" in description or "交叉口" in description:
+        return "岔口"
+    if "硐室" in description:
+        return "硐室"
     return "default"
 
 
@@ -965,10 +1020,10 @@ def main():
         device_code = extract_workface_code(desc)
         match = find_best_match(cleaned, candidates, sensor_type=sensor_type,
                                  device_code=device_code, code_to_candidates=code_to_candidates,
-                                 coalbed_map=coalbed_map)
+                                 coalbed_map=coalbed_map, mark_type=device.get("mark_type"))
         if match is None:
             reason = "得分过低"
-            if _semantic_penalty(cleaned, "") != 0:
+            if _semantic_penalty(cleaned, "", mark_type=device.get("mark_type")) != 0:
                 reason = "语义冲突（无合适候选）"
             unmatched.append({
                 "id": device.get("id", ""),
