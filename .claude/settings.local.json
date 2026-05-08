@@ -68,7 +68,16 @@
       "Bash(F:/Git/mingw64/bin/pdftotext.exe -listenc)",
       "Bash(where tesseract *)",
       "Bash(F:/Git/mingw64/bin/pdfimages.exe -list \"F:/gis/Point/data/pdf/AQ 1029-2019 煤矿安全监控系统及检测仪器使用管理规范.pdf\")",
-      "Bash(/f/Git/mingw64/bin/pdftotext.exe -layout \"F:/gis/Point/data/pdf/AQ 1029-2019 煤矿安全监控系统及检测仪器使用管理规范.pdf\" -)"
+      "Bash(/f/Git/mingw64/bin/pdftotext.exe -layout \"F:/gis/Point/data/pdf/AQ 1029-2019 煤矿安全监控系统及检测仪器使用管理规范.pdf\" -)",
+      "Bash(\"C:\\\\Users\\\\bw\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python310\\\\python.exe\" skill/bw-strategy-api-caller/scripts/strategy_api.py get_json --id 8373 --param \"MineName=山西保安煤业\" --username F09795450 --output json)",
+      "Bash(\"C:\\\\Users\\\\bw\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python310\\\\python.exe\" skill/bw-token-manager/scripts/bw_token_manager.py F09795450 --output json)",
+      "Bash(pdftotext -layout \"data/pdf/工业视频.pdf\" \"data/output/工业视频.txt\")",
+      "Bash(pdftotext -layout -enc UTF-8 \"data/pdf/工业视频.pdf\" \"data/output/工业视频_utf8.txt\")",
+      "Bash(pdftotext -h)",
+      "Bash(pdftotext -layout -enc UTF-8 \"data/pdf/DB51T1412—2011煤矿井下人员定位系统安全技术规范.pdf\" \"data/output/DB51T1412.txt\")",
+      "Bash(grep -E '\\\\.txt$')",
+      "Bash(pdftotext -layout -enc UTF-8 \"data/pdf/AQ 1029-2019 煤矿安全监控系统及检测仪器使用管理规范.pdf\" \"data/output/AQ1029-2019.txt\")",
+      "Bash(pdftotext -layout -enc UTF-8 \"data/pdf/煤矿工业视频安装及联网接入规范（试行）.pdf\" \"data/output/工业视频_2024-12.txt\")"
     ]
   }
 }

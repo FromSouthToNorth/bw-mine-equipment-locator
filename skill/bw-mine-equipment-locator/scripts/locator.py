@@ -230,6 +230,10 @@ _SENSOR_TUNNEL_PREF = {
     "氧气": ["工作面", "硐室", "采空"],
     "二氧化碳": ["采空", "封闭火区", "回风巷"],
     "负压": ["风机", "通风机", "风筒"],
+    # B16 工业视频 — 煤矿工业视频安装及联网接入规范（2024-12）附录 A
+    "海康": ["工作面", "顺槽", "运输巷", "回风巷", "进风巷", "大巷", "硐室", "变电所", "水泵房", "车场", "井口", "井底", "煤仓", "皮带", "输送机", "转载点", "机头", "机尾", "避难", "绞车房", "调度", "提升", "通风", "空压", "瓦斯泵", "制氮", "灌浆", "坑木场", "工业广场", "煤场"],
+    "大华": ["工作面", "顺槽", "运输巷", "回风巷", "进风巷", "大巷", "硐室", "变电所", "水泵房", "车场", "井口", "井底", "煤仓", "皮带", "输送机", "转载点", "机头", "机尾", "避难", "绞车房", "调度", "提升", "通风", "空压", "瓦斯泵", "制氮", "灌浆", "坑木场", "工业广场", "煤场"],
+    "宇视": ["工作面", "顺槽", "运输巷", "回风巷", "进风巷", "大巷", "硐室", "变电所", "水泵房", "车场", "井口", "井底", "煤仓", "皮带", "输送机", "转载点", "机头", "机尾", "避难", "绞车房", "调度", "提升", "通风", "空压", "瓦斯泵", "制氮", "灌浆", "坑木场", "工业广场", "煤场"],
 }
 
 
@@ -598,6 +602,27 @@ def _assign_distances(count: int, keyword: str, line_length: float,
             return [line_length * 0.95]
         elif keyword == "硐室":
             return [line_length * 0.5]
+        # B16 工业视频位置 — 煤矿工业视频安装及联网接入规范（2024-12）附录 A
+        elif keyword == "机头":
+            return [0.0]                      # 机头/机头及转载点 → 起点
+        elif keyword == "机尾":
+            return [line_length]              # 机尾/机尾及转载机 → 终点
+        elif keyword == "转载点":
+            return [line_length * 0.05]       # 转载点 → 起点附近
+        elif keyword == "中部":
+            return [line_length * 0.5]        # 皮带/输送机中部 → 中段
+        elif keyword == "超前支护":
+            return [line_length * 0.05]       # 超前支护 → 距工作面煤壁 10-15m，取起点附近
+        elif keyword == "T2处":
+            return [line_length * 0.95]       # T2处 → 回风顺槽外口/回风口附近
+        elif keyword == "支架":
+            return [line_length * 0.5]        # 支架 → 沿工作面均匀分布，取中段代表
+        elif keyword == "煤仓":
+            return [line_length * 0.5]        # 煤仓 → 上/下口落煤处，取中段
+        elif keyword == "车场":
+            return [line_length * 0.5]        # 车场 → 区域全景，取中段
+        elif keyword == "地面":
+            return [line_length * 0.5]        # 地面设施 → 居中
         elif sensor_type == "风速":
             return [line_length * 0.5]
         elif sensor_type in ("烟雾", "粉尘"):
@@ -621,6 +646,27 @@ def _assign_distances(count: int, keyword: str, line_length: float,
         lo, hi = line_length * 0.10, line_length * 0.25  # DB51T1412-2011 5.1.8.2: 距岔口 F 处
     elif keyword == "硐室":
         lo, hi = line_length * 0.40, line_length * 0.60  # DB51T1412-2011 5.1.8.5: 居中(≤2L)或进出口(>2L)，取中更安全
+    # B16 工业视频位置 — 煤矿工业视频安装及联网接入规范（2024-12）附录 A
+    elif keyword == "机头":
+        lo, hi = 0.0, line_length * 0.10                 # 机头 → 起点 0-10%
+    elif keyword == "机尾":
+        lo, hi = line_length * 0.90, line_length         # 机尾 → 终点 90-100%
+    elif keyword == "转载点":
+        lo, hi = 0.0, line_length * 0.15                 # 转载点 → 起点附近 0-15%
+    elif keyword == "中部":
+        lo, hi = line_length * 0.40, line_length * 0.60  # 中部 → 中段 40-60%
+    elif keyword == "超前支护":
+        lo, hi = 0.0, line_length * 0.15                 # 超前支护 → 距工作面煤壁 10-15m，取 0-15%
+    elif keyword == "T2处":
+        lo, hi = line_length * 0.85, line_length         # T2处 → 回风口附近 85-100%
+    elif keyword == "支架":
+        lo, hi = line_length * 0.30, line_length * 0.70  # 支架 → 沿工作面均匀分布 30-70%
+    elif keyword == "煤仓":
+        lo, hi = line_length * 0.30, line_length * 0.70  # 煤仓 → 上/下口落煤处 30-70%
+    elif keyword == "车场":
+        lo, hi = line_length * 0.30, line_length * 0.70  # 车场 → 区域全景 30-70%
+    elif keyword == "地面":
+        lo, hi = line_length * 0.30, line_length * 0.70  # 地面设施 → 居中 30-70%
     else:
         if sensor_type == "风速":
             lo, hi = line_length * 0.4, line_length * 0.6
@@ -637,7 +683,7 @@ def _assign_distances(count: int, keyword: str, line_length: float,
 
 
 def _classify_keyword(description: str) -> str:
-    """按关键词分类：T1/T2/T0/T3/T4 / 迎头 / 回风流 / B15关键词 / default"""
+    """按关键词分类：T1/T2/T0/T3/T4 / 迎头 / 回风流 / B15关键词 / B16关键词 / default"""
     t_kw = _extract_t_keyword(description)
     if t_kw and t_kw in _T_POSITION_RULES:
         return t_kw
@@ -658,6 +704,55 @@ def _classify_keyword(description: str) -> str:
         return "岔口"
     if "硐室" in description:
         return "硐室"
+    # B16 工业视频位置关键词 — 煤矿工业视频安装及联网接入规范（2024-12）附录 A
+    # 机头/机尾/转载点/中部（输送机相关）
+    if "机头及转载点" in description:
+        return "机头"
+    if "机尾及转载机" in description:
+        return "机尾"
+    if "机头" in description:
+        return "机头"
+    if "机尾" in description:
+        return "机尾"
+    if "转载点" in description:
+        return "转载点"
+    if "皮带中部" in description or "输送机中部" in description:
+        return "中部"
+    # 工作面相关
+    if "超前支护" in description:
+        return "超前支护"
+    if "T2处" in description or "T2传感器" in description:
+        return "T2处"
+    if "支架" in description:
+        return "支架"
+    # 硐室/房间类（水泵房、变电所等已在 B15 中通过 "硐室" 处理）
+    if "水泵房" in description:
+        return "硐室"
+    if "变电所" in description:
+        return "硐室"
+    if "绞车房" in description:
+        return "硐室"
+    if "避难硐室" in description:
+        return "硐室"
+    if "调度室" in description or "提升机房" in description:
+        return "硐室"
+    if "通风机房" in description or "空压机房" in description or "空压机站" in description:
+        return "硐室"
+    if "瓦斯泵" in description or "瓦斯抽采" in description:
+        return "硐室"
+    if "制氮" in description or "注氮" in description:
+        return "硐室"
+    if "灌浆站" in description or "注浆站" in description or "充填站" in description:
+        return "硐室"
+    if "坑木场" in description:
+        return "硐室"
+    # 其他特定位置
+    if "煤仓" in description:
+        return "煤仓"
+    if "车场" in description:
+        return "车场"
+    if "工业广场" in description or "煤场" in description:
+        return "地面"
     return "default"
 
 
@@ -738,19 +833,24 @@ _Z_MIN, _Z_MAX = -2000.0, 2000.0
 
 
 def _validate_devices(devices: list) -> list:
-    """校验设备数据，返回清洗后的列表。校验失败抛 ValueError。"""
+    """校验设备数据，返回清洗后的列表。跳过无效条目并输出警告。"""
     if not isinstance(devices, list):
         raise ValueError("devices 必须是 list")
     if not devices:
         return []
     cleaned = []
     auto_id = 1
+    skipped = 0
     for i, dev in enumerate(devices):
         if not isinstance(dev, dict):
-            raise ValueError(f"devices[{i}] 必须是 dict")
+            print(f"  ! 跳过 devices[{i}]: 非 dict 类型", file=sys.stderr)
+            skipped += 1
+            continue
         desc = dev.get("description", "")
         if not isinstance(desc, str) or not desc.strip():
-            raise ValueError(f"devices[{i}] description 必填且非空")
+            print(f"  ! 跳过 devices[{i}] (id={dev.get('id', 'N/A')}): description 为空", file=sys.stderr)
+            skipped += 1
+            continue
         item = {
             "id": dev.get("id") or f"AUTO_{auto_id:03d}",
             "description": desc.strip(),
@@ -758,12 +858,17 @@ def _validate_devices(devices: list) -> list:
         for field, expected in [("sensor_type", str), ("mark_type", str), ("sysaliasname", str)]:
             val = dev.get(field)
             if val is not None and not isinstance(val, expected):
-                raise ValueError(f"devices[{i}] {field} 必须是 {expected.__name__}")
+                print(f"  ! 跳过 devices[{i}] {field}: 类型错误（期望 {expected.__name__}）", file=sys.stderr)
+                skipped += 1
+                break
             if val is not None:
                 item[field] = val
-        cleaned.append(item)
-        if not dev.get("id"):
-            auto_id += 1
+        else:
+            cleaned.append(item)
+            if not dev.get("id"):
+                auto_id += 1
+    if skipped:
+        print(f"  → 跳过 {skipped} 个无效设备", file=sys.stderr)
     return cleaned
 
 
