@@ -185,8 +185,13 @@ def strip_prefix(description: str) -> str:
     return description
 
 
-def _infer_sensor_type(description: str) -> str:
-    """从 description 关键词推断传感器/设备类型。mark_type 与 sensor_type 是完全不同的概念，不要混淆。"""
+def _infer_sensor_type(description: str, mark_type: str = None) -> str:
+    """从 description 关键词推断传感器/设备类型。mark_type 与 sensor_type 是完全不同的概念，不要混淆。
+
+    `mark_type` 是系统大类：B14=安全监测、B15=人员定位、B16=工业视频。
+    当描述无明确关键词、但 mark_type=B16 时，默认返回"摄像仪"——
+    依据 MT/T 1201.6-2023 附录 A：B16 视频系统的设备类型即"摄像仪"。
+    """
     d = description
     if "二氧化碳" in d or "CO2" in d:
         return "二氧化碳"
@@ -217,6 +222,10 @@ def _infer_sensor_type(description: str) -> str:
     # B16 设备类型：摄像仪（不是"工业视频"——那是 mark_type/B16 的系统名称）
     if any(kw in d for kw in ["摄像仪", "摄像头", "视频监控", "视频监测", "工业视频"]):
         return "摄像仪"
+    # mark_type=B16 兜底：若描述未明示但 mark_type=B16，默认设备类型为"摄像仪"
+    # （依据 MT/T 1201.6-2023 附录 A：B16 系统所有设备均为摄像仪）
+    if mark_type == "B16":
+        return "摄像仪"
     return None
 
 
@@ -231,14 +240,34 @@ _SENSOR_TUNNEL_PREF = {
     "馈电": ["配电", "变电", "开关", "馈电"],
     "断电": ["配电", "变电", "开关", "馈电"],
     "开停": ["配电", "变电", "开关", "风机"],
-    "人员定位": ["井口", "交叉口", "大巷", "入口", "硐室", "工作面", "联络巷"],
+    "人员定位": [
+        # MT/T 1198-2023 §5.1.2-5: 出入井口/交叉巷口/采区分区分流路口/采区采面出入口/充电站/副井/运输斜井
+        "井口", "井底", "交叉口", "岔口", "分流", "联络巷",
+        "大巷", "入口", "工作面", "采区", "采面",
+        "运输巷", "回风巷", "进风巷", "副井", "运输斜井",
+        "充电站",
+        # MT/T 1198-2023 §5.2.3-5 + AQ 1119-2023 §3.10/3.13: 重点/准入/限制区域
+        "硐室", "变电所", "水泵房", "重点", "准入", "限制",
+    ],
     "氧气": ["工作面", "硐室", "采空"],
     "二氧化碳": ["采空", "封闭火区", "回风巷"],
     "负压": ["风机", "通风机", "风筒"],
-    # B16 工业视频 — 煤矿工业视频安装及联网接入规范（2024-12）附录 A
-    "海康": ["工作面", "顺槽", "运输巷", "回风巷", "进风巷", "大巷", "硐室", "变电所", "水泵房", "车场", "井口", "井底", "煤仓", "皮带", "输送机", "转载点", "机头", "机尾", "避难", "绞车房", "调度", "提升", "通风", "空压", "瓦斯泵", "制氮", "灌浆", "坑木场", "工业广场", "煤场"],
-    "大华": ["工作面", "顺槽", "运输巷", "回风巷", "进风巷", "大巷", "硐室", "变电所", "水泵房", "车场", "井口", "井底", "煤仓", "皮带", "输送机", "转载点", "机头", "机尾", "避难", "绞车房", "调度", "提升", "通风", "空压", "瓦斯泵", "制氮", "灌浆", "坑木场", "工业广场", "煤场"],
-    "宇视": ["工作面", "顺槽", "运输巷", "回风巷", "进风巷", "大巷", "硐室", "变电所", "水泵房", "车场", "井口", "井底", "煤仓", "皮带", "输送机", "转载点", "机头", "机尾", "避难", "绞车房", "调度", "提升", "通风", "空压", "瓦斯泵", "制氮", "灌浆", "坑木场", "工业广场", "煤场"],
+    # B16 工业视频 — MT/T 1201.6-2023 附录 A.1（井工煤矿 54 处）
+    # 注意：sensor_type 是设备类型（摄像仪），不是厂商名（海康/大华/宇视）。
+    "摄像仪": [
+        # 工作面/巷道
+        "工作面", "顺槽", "运输巷", "回风巷", "进风巷", "大巷", "斜巷",
+        "支架", "超前支护", "迎头",          # A.1#1,2,3,10
+        # 输送/转载
+        "皮带", "输送机", "转载点", "机头", "机尾",  # A.1#6,7,8,12-16,18
+        # 硐室/房间
+        "硐室", "变电所", "水泵房", "泵房", "绞车房", "调度", "提升", "通风",
+        "空压", "瓦斯泵", "制氮", "灌浆", "避难",  # A.1#21,25-29,37-39,45-49
+        # 进出口/车场
+        "井口", "井底", "车场", "煤仓", "乘车", "副立井", "罐笼",  # A.1#20,22,35,36,42-44,54
+        # 地面
+        "工业广场", "煤场", "坑木场",  # A.1#51-53
+    ],
 }
 
 
@@ -329,15 +358,18 @@ _TUNNEL_TYPE_RULES = {
         "瓦斯": {"from": "end", "meters": 10, "tolerance": 3},      # 距工作面≤10m
         "风速": {"from": "mid", "meters": 0, "station": True},     # 测风站(7.2.1)
         "一氧化碳": {"from": "end", "meters": 10, "tolerance": 3}, # 回风巷(7.1.2)
+        "摄像仪": {"from": "end", "meters": 17, "tolerance": 5},   # MT/T 1201.6 A.1#4,11: 回风口外15-20m
     },
     "27-工作面进风巷(胶运顺槽)": {
         "风速": {"from": "mid", "meters": 0, "station": True},     # 测风站(7.2.1)
         "烟雾": {"from": "start", "meters": 3, "tolerance": 1},   # 皮带机头(7.6)
         "粉尘": {"from": "start", "meters": 3, "tolerance": 1},   # 产尘点(7.8)
+        "摄像仪": {"from": "start", "meters": 12, "tolerance": 3}, # MT/T 1201.6 A.1#3: 进风超前支护距煤壁10-15m
     },
     "28-工作面切眼": {
         "瓦斯": {"from": "start", "meters": 5, "tolerance": 2},   # 距迎头≤5m(6.3.1 图3)
         "一氧化碳": {"from": "start", "meters": 5, "tolerance": 2},# 上隅角(7.1.2)
+        "摄像仪": {"from": "mid", "meters": 0},                    # MT/T 1201.6 A.1#1: 支架沿切眼均匀分布
     },
     "3-煤仓": {
         "瓦斯": {"from": "start", "meters": 2, "tolerance": 1},   # 煤仓上口(6.4.3)
@@ -348,6 +380,7 @@ _TUNNEL_TYPE_RULES = {
     "29-回采工作面巷道": {
         "瓦斯": {"from": "mid", "meters": 0},                      # 工作面中部
         "粉尘": {"from": "start", "meters": 5, "tolerance": 2},   # 采煤机产尘点(7.8)
+        "摄像仪": {"from": "start", "meters": 12, "tolerance": 3}, # MT/T 1201.6 A.1#2: 回风超前支护距煤壁10-15m
     },
 }
 
@@ -375,7 +408,8 @@ _SENSOR_INSTALL_HEIGHT = {
     "氧气":   0.2,   # 距顶板 ≤0.3m，O2 与空气近，挂顶
     "二氧化碳": 0.5, # CO2 重于空气，距底板 0.3-1.5m
     "负压":   0.0,   # 风压表，贴风筒/风机出口
-    "人员定位": 0.3,   # DB51T1412-2011 5.2.3: 读卡器靠近顶板及帮侧 300mm；分站距底板 ≥300mm
+    "人员定位": 0.3,   # DB51T1412-2011 5.2.3: 读卡器靠近顶板及帮侧 300mm；分站距底板 ≥300mm。AQ 1119-2023 §5.1.3 + MT/T 1198-2023 §5.1.6 工艺约束：远离人员碰触位置、固定支撑良好
+    "摄像仪": 1.8,    # MT/T 1201.6-2023 §4.2 + 附录 A：以人眼高度近似（巷道/硐室通用）
 }
 
 
@@ -637,6 +671,15 @@ def _assign_distances(count: int, keyword: str, line_length: float,
     优先使用精确米数规则，次选百分比规则。
     若区间放不下所有设备，则在该区间内均匀分布。
     """
+    # B16 摄像仪同组多设备的标准间距（MT/T 1201.6-2023 附录 A）
+    if sensor_type == "摄像仪":
+        if keyword == "支架":
+            step = 75.0     # A.1#1: 两摄像仪间距 ≤50架≈75m
+        elif keyword == "中部":
+            step = 500.0    # A.1#16: 主运输皮带中部每500m一台
+        elif keyword == "架空乘人":
+            step = 100.0    # A.1#23: 架空乘人装置中部每100m一台
+
     # 辅助函数：在区间内按步长分配，溢出则均匀分布
     def _distribute_in_zone(lo: float, hi: float, count: int, step: float) -> list:
         zone = hi - lo
@@ -721,6 +764,8 @@ def _assign_distances(count: int, keyword: str, line_length: float,
             return [line_length * 0.95]
         elif keyword == "硐室":
             return [line_length * 0.5]
+        elif keyword == "充电站":
+            return [line_length * 0.5]  # MT/T 1198-2023 §5.1.4: 井下专用充电站，居中即可
         # B16 工业视频位置 — 煤矿工业视频安装及联网接入规范（2024-12）附录 A
         elif keyword == "机头":
             return [0.0]                      # 机头/机头及转载点 → 起点
@@ -758,13 +803,15 @@ def _assign_distances(count: int, keyword: str, line_length: float,
     elif keyword == "回风流":
         lo, hi = line_length * 0.85, line_length
     elif keyword == "井口":
-        lo, hi = line_length * 0.00, line_length * 0.10  # DB51T1412-2011 5.1.8.1: 井口处
+        lo, hi = line_length * 0.00, line_length * 0.10  # MT/T 1198-2023 §5.1.2 / DB51T1412-2011 5.1.8.1: 井口处
     elif keyword == "井底":
         lo, hi = line_length * 0.90, line_length * 1.00  # DB51T1412-2011 5.1.8.1: 井底处
     elif keyword == "岔口":
-        lo, hi = line_length * 0.10, line_length * 0.25  # DB51T1412-2011 5.1.8.2: 距岔口 F 处
+        lo, hi = line_length * 0.10, line_length * 0.25  # MT/T 1198-2023 §5.1.3 / DB51T1412-2011 5.1.8.2: 主要交叉巷口/分流路口
     elif keyword == "硐室":
-        lo, hi = line_length * 0.40, line_length * 0.60  # DB51T1412-2011 5.1.8.5: 居中(≤2L)或进出口(>2L)，取中更安全
+        lo, hi = line_length * 0.40, line_length * 0.60  # MT/T 1198-2023 §5.2.4 / DB51T1412-2011 5.1.8.5: 准入区域（变电所/水泵房）出入口
+    elif keyword == "充电站":
+        lo, hi = line_length * 0.40, line_length * 0.60  # MT/T 1198-2023 §5.1.4: 井下专用充电站
     # B16 工业视频位置 — 煤矿工业视频安装及联网接入规范（2024-12）附录 A
     elif keyword == "机头":
         lo, hi = 0.0, line_length * 0.10                 # 机头 → 起点 0-10%
@@ -814,13 +861,15 @@ def _classify_keyword(description: str) -> str:
         return "T0"
     if "混合风流" in description:
         return "T3"
-    # B15 人员定位关键词 (DB51T1412-2011 5.1.8)
+    # B15 人员定位关键词 (MT/T 1198-2023 §5.1-5.2，DB51T1412-2011 5.1.8)
     if "井口" in description:
         return "井口"
     if "井底" in description:
         return "井底"
-    if "岔口" in description or "交叉口" in description:
-        return "岔口"
+    if "岔口" in description or "交叉口" in description or "分流" in description:
+        return "岔口"  # MT/T 1198 §5.1.3: 分流路口归为岔口
+    if "充电站" in description:
+        return "充电站"  # MT/T 1198 §5.1.4
     if "硐室" in description:
         return "硐室"
     # B16 工业视频位置关键词 — 煤矿工业视频安装及联网接入规范（2024-12）附录 A
@@ -1344,13 +1393,16 @@ def main():
     for device in devices:
         desc = device.get("description", "")
         cleaned = strip_prefix(desc)
-        sensor_type = device.get("sensor_type") or _infer_sensor_type(desc)
+        mark_type = device.get("mark_type")
+        sensor_type = device.get("sensor_type") or _infer_sensor_type(desc, mark_type)
         # 归一化：上游数据可能把系统名称"工业视频"误填为 sensor_type，纠正为设备类型"摄像仪"
         if sensor_type == "工业视频":
             sensor_type = "摄像仪"
+        # 厂商名归一化：海康/大华/宇视/萤石 是品牌而非设备类型，B16 时统一为"摄像仪"
+        if mark_type == "B16" and sensor_type in ("海康", "大华", "宇视", "萤石"):
+            sensor_type = "摄像仪"
         # 编码从原始描述提取（避免被前缀剥离误删）
         device_code = extract_workface_code(desc)
-        mark_type = device.get("mark_type")
 
         # 先查缓存
         cached = match_cache.get(_make_cache_key(desc, mark_type))
