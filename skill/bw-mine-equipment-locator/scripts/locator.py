@@ -27,6 +27,8 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent.parent  # F:\gis\Point
 TOKEN_MANAGER = PROJECT_ROOT / "skill" / "bw-token-manager" / "scripts" / "bw_token_manager.py"
 STRATEGY_API = PROJECT_ROOT / "skill" / "bw-strategy-api-caller" / "scripts" / "strategy_api.py"
+CACHE_DIR = PROJECT_ROOT / "data" / "cache"
+MATCH_CACHE_PATH = CACHE_DIR / "match_cache.json"
 
 # ── 解释器探测 ────────────────────────────────────────────────────
 @functools.lru_cache(maxsize=1)
@@ -184,7 +186,7 @@ def strip_prefix(description: str) -> str:
 
 
 def _infer_sensor_type(description: str) -> str:
-    """从 description 关键词推断传感器类型（兜底）。"""
+    """从 description 关键词推断传感器/设备类型。mark_type 与 sensor_type 是完全不同的概念，不要混淆。"""
     d = description
     if "二氧化碳" in d or "CO2" in d:
         return "二氧化碳"
@@ -212,6 +214,9 @@ def _infer_sensor_type(description: str) -> str:
         return "断电"
     if "人数" in d or "人员" in d:
         return "人员定位"
+    # B16 设备类型：摄像仪（不是"工业视频"——那是 mark_type/B16 的系统名称）
+    if any(kw in d for kw in ["摄像仪", "摄像头", "视频监控", "视频监测", "工业视频"]):
+        return "摄像仪"
     return None
 
 
@@ -245,6 +250,51 @@ _MARK_TYPE_TO_SYSTEM = {
     "B15": "人员定位系统",
     "B16": "工业视频系统",
 }
+
+
+# ── 巷道别名映射 ──────────────────────────────────────────────────
+_TUNNEL_ALIAS_MAP = {
+    # 核心缩写 -> 全称列表（只放单向映射，避免循环替换）
+    "皮顺": ["皮带顺槽", "辅运顺槽", "胶带顺槽"],
+    "胶顺": ["胶带顺槽", "皮带顺槽"],
+    "辅顺": ["辅运顺槽", "皮带顺槽"],
+    "运顺": ["运输顺槽", "胶带顺槽"],
+    "回顺": ["回风顺槽", "回风巷"],
+    "进顺": ["进风顺槽", "进风巷"],
+    "胶运": ["胶带运输", "进风巷", "胶运顺槽"],
+    "东大": ["东部", "东翼"],
+    "西大": ["西部", "西翼"],
+    "南大": ["南部", "南翼"],
+    "北大": ["北部", "北翼"],
+    "切巷": ["切眼"],
+    "联络巷": ["联巷"],
+    "石门": ["门"],
+    "硐室": ["硐"],
+    "工作面": ["面"],
+    "回风": ["回风巷"],
+    "进风": ["进风巷"],
+}
+
+
+def _expand_aliases(text: str) -> str:
+    """将 text 中的巷道别名扩展为 别名|全称1|全称2 形式，以提升 LCS 匹配覆盖率。
+    使用占位符避免递归替换问题。"""
+    if not text:
+        return text
+    # 按长度降序处理，避免短别名破坏长别名
+    items = sorted(_TUNNEL_ALIAS_MAP.items(), key=lambda x: len(x[0]), reverse=True)
+    placeholders = []
+    expanded = text
+    for i, (abbr, full_forms) in enumerate(items):
+        if abbr in expanded:
+            ph = f"\x00{i}\x00"
+            replacement = "|".join([abbr] + full_forms)
+            expanded = expanded.replace(abbr, ph)
+            placeholders.append((ph, replacement))
+    # 还原占位符
+    for ph, replacement in placeholders:
+        expanded = expanded.replace(ph, replacement)
+    return expanded
 
 
 def _candidate_matches_sensor_pref(name: str, sensor_type: str) -> bool:
@@ -341,6 +391,25 @@ _AQ1029_DISTANCE_RULES = [
 ]
 
 
+# ── 风速传感器最小间距 (AQ 1029-2019 7.2.1: 测风站前后10m无分支) ───
+_WIND_SPEED_MIN_SPACING = 10.0  # 米
+
+
+# ── 分层匹配层级 ──────────────────────────────────────────────────
+_MATCH_LAYER_EXACT = 1      # 编码精确命中（最高置信度）
+_MATCH_LAYER_LCS_PREF = 2   # LCS + 偏好命中（良好置信度）
+_MATCH_LAYER_LOW = 3       # 低分（标记人工复核）
+_MATCH_LAYER_REJECT = 4     # 拒绝
+
+
+# ── 未匹配详细原因 ────────────────────────────────────────────────
+REJECT_NO_CANDIDATE = "NO_CANDIDATE"           # 无可行候选
+REJECT_CODE_MISMATCH = "CODE_MISMATCH"         # 编码存在但候选中无匹配
+REJECT_SEMANTIC_CONFLICT = "SEMANTIC_CONFLICT"  # 语义惩罚阻断所有候选
+REJECT_LOW_LCS = "LOW_LCS"                     # LCS 得分过低 (< 2)
+REJECT_PREFIX_MISMATCH = "PREFIX_MISMATCH"     # 前缀模糊匹配失败
+
+
 def _extract_t_keyword(description: str) -> str:
     """从描述中提取 T 标识，如 T1/T2/T22。"""
     m = re.search(r'T(\d+)', description)
@@ -349,18 +418,37 @@ def _extract_t_keyword(description: str) -> str:
     return None
 
 
+# ── 中文数字映射 ──────────────────────────────────────────────────
+_CN_NUMERALS = {
+    '零': '0', '一': '1', '二': '2', '三': '3', '四': '4',
+    '五': '5', '六': '6', '七': '7', '八': '8', '九': '9',
+    '十': '10', '〇': '0',
+    '壹': '1', '贰': '2', '叁': '3', '肆': '4', '伍': '5',
+    '陆': '6', '柒': '7', '捌': '8', '玖': '9',
+}
+
+
 def extract_workface_code(description: str) -> str:
-    """提取工作面/地点编码，如 C8302、9209、F1302、-490、-725。"""
-    # 优先匹配字母+数字格式（如 C8302、F1302）
+    """提取工作面/地点编码，如 C8302、9209、F1302、-490、-725，支持中文数字（九采区→9）。"""
+    # 0. 中文数字 + 采区/煤层/盘区/水平 模式
+    for cn_char, digit in _CN_NUMERALS.items():
+        pattern = re.escape(cn_char) + r'(采区|煤层|盘区|水平)'
+        if re.search(pattern, description):
+            return digit
+    # 1. 优先匹配字母+数字格式（如 C8302、F1302）
     m = re.search(r'([A-Z]\d{3,4})', description)
     if m:
         return m.group(1)
-    # 匹配 -490、-725 等水平标高
+    # 2. 匹配 -490、-725 等水平标高
     m = re.search(r'(-\d{3,4})', description)
     if m:
         return m.group(1)
-    # 匹配纯数字工作面编号（4位数字如 5318、9209）
+    # 3. 匹配纯数字工作面编号（4位数字如 5318、9209）
     m = re.search(r'(?<![A-Z])(\d{4})(?![A-Z])', description)
+    if m:
+        return m.group(1)
+    # 4. 匹配3位纯数字编号（如 920、518）
+    m = re.search(r'(?<![A-Z])(\d{3})(?![A-Z])', description)
     if m:
         return m.group(1)
     return None
@@ -410,22 +498,31 @@ def longest_common_substring_len(s1: str, s2: str) -> int:
 
 def find_best_match(cleaned: str, candidates: list, sensor_type: str = None,
                      device_code: str = None, code_to_candidates: dict = None,
+                     prefix_to_candidates: dict = None,
                      coalbed_map: dict = None, mark_type: str = None) -> dict:
     """
-    在 candidates 中找最佳匹配项。
-    评分规则：LCS + sensor_type 加权 + 编码匹配 + 巷道类型匹配 + 语义过滤 + coalbed 验证。
-    返回 {"name": ..., "lcs": ..., "score": ..., "candidate": ...} 或 None。
+    在 candidates 中找最佳匹配项（分层策略）。
+    评分规则：LCS(别名扩展后) + sensor_type 加权 + 编码匹配(含前缀模糊) + 巷道类型匹配 + 语义过滤 + coalbed 验证。
+    返回 {"name": ..., "lcs": ..., "score": ..., "candidate": ..., "layer": ...} 或 None。
     """
     best = None
     best_score = 0
     code_indices = set(code_to_candidates.get(device_code, [])) if code_to_candidates and device_code else set()
+    prefix_indices = set()
+    if prefix_to_candidates and device_code:
+        prefix_indices = set(prefix_to_candidates.get(device_code, []))
     device_coalbed = coalbed_map.get(device_code, "") if coalbed_map and device_code else ""
+
+    # 别名扩展后的 cleaned（用于 LCS）
+    cleaned_expanded = _expand_aliases(cleaned)
 
     for cand in candidates:
         name = cand.get("name") or ""
         if not name:
             continue
-        lcs_len = longest_common_substring_len(cleaned, name)
+        # LCS 使用别名扩展后的文本
+        name_expanded = _expand_aliases(name)
+        lcs_len = longest_common_substring_len(cleaned_expanded, name_expanded)
         score = lcs_len
 
         # sensor_type 巷道偏好加权
@@ -433,8 +530,20 @@ def find_best_match(cleaned: str, candidates: list, sensor_type: str = None,
             score += 2
 
         # 编码匹配加权（最高优先级）
+        code_hit = False
         if device_code and device_code in name:
             score += 5
+            code_hit = True
+
+        # 前缀模糊编码匹配（次高优先级）
+        prefix_hit = False
+        if not code_hit and device_code and len(device_code) >= 2:
+            codes_in_name = re.findall(r'\d{3,4}', name)
+            for code_in_name in codes_in_name:
+                if code_in_name.startswith(device_code):
+                    score += 3
+                    prefix_hit = True
+                    break
 
         # workface-tunnel 关联加权
         if cand.get("tunnelId") and device_code and device_code in (cand.get("tunnelId") or ""):
@@ -450,25 +559,35 @@ def find_best_match(cleaned: str, candidates: list, sensor_type: str = None,
         # coalbed 验证惩罚（跨煤层不匹配）
         if device_coalbed and cand.get("coalbed"):
             if cand["coalbed"] != device_coalbed:
-                score -= 1  # 轻微惩罚，不绝对排除（同名巷道可能跨煤层）
+                score -= 1
 
         # 语义过滤惩罚
         sem_penalty = _semantic_penalty(cleaned, name, mark_type)
         score += sem_penalty
 
+        # 分层判定
+        idx = candidates.index(cand)
+        if code_hit or idx in code_indices:
+            layer = _MATCH_LAYER_EXACT
+        elif prefix_hit or idx in prefix_indices or score >= 5:
+            layer = _MATCH_LAYER_LCS_PREF
+        elif score >= 2:
+            layer = _MATCH_LAYER_LOW
+        else:
+            layer = _MATCH_LAYER_REJECT
+
         if score >= 2 and score > best_score:
             best_score = score
-            best = {"name": name, "lcs": lcs_len, "score": score, "candidate": cand}
+            best = {"name": name, "lcs": lcs_len, "score": score, "candidate": cand, "layer": layer}
         elif score == best_score and best is not None and score >= 2:
             # 平局：优先编码匹配，然后 LCS 更长，然后名称更长
-            idx = candidates.index(cand)
             best_idx = candidates.index(best["candidate"])
             if idx in code_indices and best_idx not in code_indices:
-                best = {"name": name, "lcs": lcs_len, "score": score, "candidate": cand}
+                best = {"name": name, "lcs": lcs_len, "score": score, "candidate": cand, "layer": layer}
             elif lcs_len > best["lcs"]:
-                best = {"name": name, "lcs": lcs_len, "score": score, "candidate": cand}
+                best = {"name": name, "lcs": lcs_len, "score": score, "candidate": cand, "layer": layer}
             elif len(name) > len(best["name"]):
-                best = {"name": name, "lcs": lcs_len, "score": score, "candidate": cand}
+                best = {"name": name, "lcs": lcs_len, "score": score, "candidate": cand, "layer": layer}
     return best
 
 
@@ -767,12 +886,18 @@ def _extract_candidates(items) -> tuple:
     """
     candidates = []
     code_to_candidates = {}
+    prefix_to_candidates = {}
     coalbed_map = {}
 
     def _add_code_index(name: str, idx: int):
         code = extract_workface_code(name)
         if code:
             code_to_candidates.setdefault(code, []).append(idx)
+            # 前缀映射（3位及以上数字编码）
+            if code.isdigit() and len(code) >= 3:
+                for i in range(2, len(code)):
+                    prefix = code[:i]
+                    prefix_to_candidates.setdefault(prefix, []).append(idx)
 
     def _add_coalbed(name: str, coalbed: str):
         code = extract_workface_code(name)
@@ -823,7 +948,7 @@ def _extract_candidates(items) -> tuple:
                 })
                 _add_code_index(name, idx)
                 _add_coalbed(name, item.get("coalbed", ""))
-    return candidates, code_to_candidates, coalbed_map
+    return candidates, code_to_candidates, prefix_to_candidates, coalbed_map
 
 
 # ── 数据校验 ──────────────────────────────────────────────────────
@@ -957,6 +1082,101 @@ def _load_json_file(path: str) -> dict or list:
     return data
 
 
+# ── 匹配缓存 ──────────────────────────────────────────────────────
+def _load_match_cache() -> dict:
+    """加载已确认匹配缓存。返回 {description_key: cached_result}。"""
+    if not MATCH_CACHE_PATH.exists():
+        return {}
+    try:
+        with open(MATCH_CACHE_PATH, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        if isinstance(data, dict):
+            return data
+    except (json.JSONDecodeError, IOError):
+        pass
+    return {}
+
+
+def _save_match_cache(cache: dict):
+    """保存已确认匹配缓存。"""
+    CACHE_DIR.mkdir(parents=True, exist_ok=True)
+    with open(MATCH_CACHE_PATH, "w", encoding="utf-8") as f:
+        json.dump(cache, f, ensure_ascii=False, indent=2)
+
+
+def _make_cache_key(description: str, mark_type: str = None) -> str:
+    key = description.strip()
+    if mark_type:
+        key = f"{mark_type}:{key}"
+    return key
+
+
+def _find_cached_candidate(candidates: list, cached: dict) -> dict:
+    """根据缓存信息在候选列表中查找对应 candidate。"""
+    cached_name = cached.get("matched_name")
+    cached_id = cached.get("candidate_id")
+    for cand in candidates:
+        if cand.get("name") == cached_name or cand.get("id") == cached_id:
+            return cand
+    return None
+
+
+def _add_to_cache(cache: dict, description: str, match_result: dict, mark_type: str = None):
+    """将高置信度匹配结果加入缓存。"""
+    key = _make_cache_key(description, mark_type)
+    cache[key] = {
+        "matched_name": match_result.get("name"),
+        "candidate_id": match_result.get("candidate", {}).get("id"),
+        "score": match_result.get("score"),
+        "timestamp": datetime.now().isoformat(),
+    }
+
+
+# ── 风速间距检查 ──────────────────────────────────────────────────
+def _check_wind_speed_spacing(groups: dict) -> list:
+    """
+    检查组内风速传感器是否满足最小间距要求。
+    返回警告列表。
+    """
+    warnings = []
+    for group_key, entries in groups.items():
+        name, keyword = group_key
+        wind_entries = [(i, e) for i, e in enumerate(entries) if e[3] == "风速"]
+        if len(wind_entries) <= 1:
+            continue
+        candidate = entries[0][1]["candidate"]
+        line = candidate.get("line", [])
+        total_len = _polyline_length(line)
+        # 取组内代表 sensor_type 计算距离
+        st_counts = {}
+        for _, _, _, st in entries:
+            st_counts[st] = st_counts.get(st, 0) + 1
+        representative_st = max(st_counts, key=st_counts.get) if st_counts else None
+        distances = _assign_distances(len(entries), keyword, total_len,
+                                       sensor_type=representative_st,
+                                       tunnel_type=candidate.get("type", ""))
+        wind_distances = [(i, distances[i]) for i, _ in wind_entries]
+        wind_distances.sort(key=lambda x: x[1])
+        for j in range(1, len(wind_distances)):
+            prev_idx, prev_dist = wind_distances[j - 1]
+            curr_idx, curr_dist = wind_distances[j]
+            spacing = abs(curr_dist - prev_dist)
+            if spacing < _WIND_SPEED_MIN_SPACING - 1e-6:
+                device1 = entries[prev_idx][0]
+                device2 = entries[curr_idx][0]
+                warnings.append({
+                    "type": "wind_speed_spacing",
+                    "tunnel": name,
+                    "device1_id": device1.get("id", ""),
+                    "device1_desc": device1.get("description", ""),
+                    "device2_id": device2.get("id", ""),
+                    "device2_desc": device2.get("description", ""),
+                    "distance": round(spacing, 2),
+                    "required": _WIND_SPEED_MIN_SPACING,
+                })
+    return warnings
+
+
 # ── 主流程 ────────────────────────────────────────────────────────
 def main():
     parser = argparse.ArgumentParser(description="煤矿设备定位")
@@ -985,7 +1205,7 @@ def main():
 
     # ── Step 2: 加载数据（文件优先，缺失部分从 API 补全）──
     devices, candidates = [], []
-    code_to_candidates, coalbed_map = {}, {}
+    code_to_candidates, prefix_to_candidates, coalbed_map = {}, {}, {}
 
     # 2a. 从文件加载
     if use_file:
@@ -1005,7 +1225,7 @@ def main():
                         validated["tunnels"] = _validate_tunnels(data["tunnels"])
                     if "workfaces" in data:
                         validated["workfaces"] = _validate_workfaces(data["workfaces"])
-                    candidates, code_to_candidates, coalbed_map = _extract_candidates(validated)
+                    candidates, code_to_candidates, prefix_to_candidates, coalbed_map = _extract_candidates(validated)
                     print(f"  → 文件候选: {len(candidates)} 个", file=sys.stderr)
             elif isinstance(data, list):
                 devices, candidates = classify_items(data)
@@ -1054,7 +1274,7 @@ def main():
                 merged_cand["tunnels"] = merged_tunnels
             if merged_workfaces:
                 merged_cand["workfaces"] = merged_workfaces
-            candidates, code_to_candidates, coalbed_map = _extract_candidates(merged_cand)
+            candidates, code_to_candidates, prefix_to_candidates, coalbed_map = _extract_candidates(merged_cand)
             print(f"  → 文件候选合计: {len(candidates)} 个", file=sys.stderr)
 
     # 2b. 从 API 补全缺失的数据
@@ -1071,7 +1291,7 @@ def main():
                 devices = _validate_devices(raw_data.get("devices", []))
                 print(f"  → API devices: {len(devices)} 个", file=sys.stderr)
             if need_api_candidates:
-                candidates, code_to_candidates, coalbed_map = _extract_candidates(raw_data)
+                candidates, code_to_candidates, prefix_to_candidates, coalbed_map = _extract_candidates(raw_data)
                 print(f"  → API 候选: {len(candidates)} 个", file=sys.stderr)
         else:
             device_items = extract_items(raw_data)
@@ -1083,7 +1303,7 @@ def main():
                 print(f"  → 获取工作面/巷道 (get_data)...", file=sys.stderr)
                 resp_cand = call_strategy_api(8373, username, f"MineName={mine_name}", action="get_data")
                 cand_items = extract_items(resp_cand.get("data"))
-                candidates, code_to_candidates, coalbed_map = _extract_candidates(cand_items)
+                candidates, code_to_candidates, prefix_to_candidates, coalbed_map = _extract_candidates(cand_items)
                 print(f"  → API 候选: {len(candidates)} 个", file=sys.stderr)
 
     # 如果用了文件+API混合，保存合并结果
@@ -1113,33 +1333,93 @@ def main():
     # ── Step 3: 匹配（两遍：先分组，再分配坐标偏移）──
     print(f"\n[匹配] 匹配中...", file=sys.stderr)
 
+    # 加载缓存
+    match_cache = _load_match_cache()
+    cache_hits = 0
+
     # 第一遍：匹配所有设备
-    match_entries = []  # [(device, match_info, cleaned), ...]
+    match_entries = []  # [(device, match_info, cleaned, sensor_type), ...]
     unmatched = []
 
     for device in devices:
         desc = device.get("description", "")
         cleaned = strip_prefix(desc)
         sensor_type = device.get("sensor_type") or _infer_sensor_type(desc)
+        # 归一化：上游数据可能把系统名称"工业视频"误填为 sensor_type，纠正为设备类型"摄像仪"
+        if sensor_type == "工业视频":
+            sensor_type = "摄像仪"
         # 编码从原始描述提取（避免被前缀剥离误删）
         device_code = extract_workface_code(desc)
+        mark_type = device.get("mark_type")
+
+        # 先查缓存
+        cached = match_cache.get(_make_cache_key(desc, mark_type))
+        if cached:
+            cand = _find_cached_candidate(candidates, cached)
+            if cand:
+                cache_hits += 1
+                match = {
+                    "name": cand.get("name", ""),
+                    "lcs": 0,
+                    "score": cached.get("score", 10),
+                    "candidate": cand,
+                    "layer": _MATCH_LAYER_EXACT,
+                    "from_cache": True,
+                }
+                match_entries.append((device, match, cleaned, sensor_type))
+                continue
+
+        # 正常匹配流程
         match = find_best_match(cleaned, candidates, sensor_type=sensor_type,
                                  device_code=device_code, code_to_candidates=code_to_candidates,
-                                 coalbed_map=coalbed_map, mark_type=device.get("mark_type"))
+                                 prefix_to_candidates=prefix_to_candidates,
+                                 coalbed_map=coalbed_map, mark_type=mark_type)
         if match is None:
-            reason = "得分过低"
-            if _semantic_penalty(cleaned, "", mark_type=device.get("mark_type")) != 0:
-                reason = "语义冲突（无合适候选）"
+            # 详细拒绝原因分析
+            reason = REJECT_LOW_LCS
+            if not candidates:
+                reason = REJECT_NO_CANDIDATE
+            elif device_code:
+                code_found = any(device_code in (c.get("name") or "") for c in candidates)
+                if not code_found:
+                    # 再试前缀匹配
+                    prefix_found = False
+                    for c in candidates:
+                        codes_in_name = re.findall(r'\d{3,4}', c.get("name", ""))
+                        if any(cn.startswith(device_code) for cn in codes_in_name):
+                            prefix_found = True
+                            break
+                    if not prefix_found:
+                        reason = REJECT_CODE_MISMATCH
+            if reason == REJECT_LOW_LCS:
+                # 检查是否是语义冲突导致所有候选得分过低
+                sem_blocked = True
+                for cand in candidates:
+                    if _semantic_penalty(cleaned, cand.get("name", ""), mark_type=mark_type) > -10:
+                        sem_blocked = False
+                        break
+                if sem_blocked and candidates:
+                    reason = REJECT_SEMANTIC_CONFLICT
             unmatched.append({
                 "id": device.get("id", ""),
                 "description": desc,
-                "mark_type": device.get("mark_type", ""),
+                "mark_type": mark_type or "",
                 "sensor_type": sensor_type,
                 "sysaliasname": device.get("sysaliasname", ""),
                 "reason": reason,
+                "device_code": device_code,
             })
             continue
+
+        # 高置信度匹配写入缓存
+        if match.get("layer") == _MATCH_LAYER_EXACT:
+            _add_to_cache(match_cache, desc, match, mark_type)
+
         match_entries.append((device, match, cleaned, sensor_type))
+
+    if cache_hits > 0:
+        print(f"  → 缓存命中: {cache_hits} 个", file=sys.stderr)
+    _save_match_cache(match_cache)
 
     # 按 (matched_name, keyword) 分组（同一巷道同一关键词的设备在同一组）
     groups = {}
@@ -1149,22 +1429,12 @@ def main():
         groups.setdefault(group_key, []).append((device, match, cleaned, sensor_type))
 
     def _calc_confidence(match: dict, cleaned: str, sensor_type: str = None) -> str:
-        score = match.get("score", 0)
-        lcs = match.get("lcs", 0)
-        device_code = extract_workface_code(cleaned)
-        code_match = device_code and device_code in match["name"]
-        cand_type = match["candidate"].get("type", "")
-
-        # 检查巷道类型是否与传感器类型匹配
-        type_match = False
-        if cand_type and sensor_type and cand_type in _TUNNEL_TYPE_RULES:
-            type_match = sensor_type in _TUNNEL_TYPE_RULES[cand_type]
-
-        if code_match and lcs >= 3 and type_match:
+        layer = match.get("layer", _MATCH_LAYER_REJECT)
+        if layer == _MATCH_LAYER_EXACT:
             return "高"
-        if (code_match and lcs >= 3) or (score >= 5 and type_match):
+        if layer == _MATCH_LAYER_LCS_PREF:
             return "中"
-        if lcs >= 3:
+        if layer == _MATCH_LAYER_LOW:
             return "低"
         return "极低"
 
@@ -1212,6 +1482,11 @@ def main():
                 "coordinates": coords,
             })
 
+    # 风速间距检查
+    wind_warnings = _check_wind_speed_spacing(groups)
+    if wind_warnings:
+        print(f"  ! 风速间距警告: {len(wind_warnings)} 条", file=sys.stderr)
+
     # ── 输出 ──
     output = {
         "username": username,
@@ -1220,9 +1495,11 @@ def main():
             "total": len(devices),
             "matched": matched_count,
             "unmatched": len(unmatched),
+            "wind_spacing_warnings": len(wind_warnings),
         },
         "results": results,
         "unmatched_devices": unmatched,
+        "warnings": wind_warnings,
     }
     print(json.dumps(output, ensure_ascii=False, indent=2))
 

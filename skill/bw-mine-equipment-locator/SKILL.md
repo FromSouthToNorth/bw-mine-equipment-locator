@@ -45,7 +45,7 @@ python3 skill/bw-mine-equipment-locator/scripts/locator.py <username>
 {
   "username": "F06795450",
   "mine_name": "程庄煤矿",
-  "summary": { "total": 1422, "matched": 1401, "unmatched": 21 },
+  "summary": { "total": 1422, "matched": 1401, "unmatched": 21, "wind_spacing_warnings": 0 },
   "results": [
     {
       "id": "CZMK000030120001A06",
@@ -76,6 +76,20 @@ python3 skill/bw-mine-equipment-locator/scripts/locator.py <username>
 
 完整规则在 `scripts/locator.py`,本节列出所有评分常量。代码是 source of truth,本节同步更新。
 
+### 0. 别名映射 (`_TUNNEL_ALIAS_MAP`,locator.py:260-280)
+
+匹配前对 description 和候选 name 双向扩展，解决简称/全称差异：
+
+| description 含 | 扩展为 |
+|---|---|
+| 皮顺 | 皮顺\|皮带顺槽\|辅运顺槽\|胶带顺槽 |
+| 胶运 | 胶运\|胶带运输\|进风巷\|胶运顺槽 |
+| 联络巷 | 联络巷\|联巷 |
+| 切巷 | 切巷\|切眼 |
+| 东大 | 东大\|东部\|东翼 |
+
+使用占位符避免递归替换（如"顺槽"不会二次替换"皮带顺槽"中的内容）。
+
 ### 1. 前缀剥离 (`PREFIX_PATTERNS`,locator.py:172-175)
 
 ```
@@ -91,13 +105,14 @@ python3 skill/bw-mine-equipment-locator/scripts/locator.py <username>
 
 注:**编码提取在原始描述上做**(避免被前缀剥离误删),其他匹配在剥离后描述上做。
 
-### 2. sensor_type 推断 (`_infer_sensor_type`,locator.py:186-209)
+### 2. sensor_type 推断 (`_infer_sensor_type`,locator.py:186-217)
 
 设备字段缺 `sensor_type` 时,从描述关键词推断,顺序敏感:
 
-`二氧化碳(CO2) > 氧气(O2) > 负压(风压) > 风速 > 烟雾 > 粉尘 > 温度 > 一氧化碳(CO/一氧化碳,排除 CO2) > 瓦斯(甲烷/CH4) > 开停 > 馈电 > 断电 > 人员定位(人数/人员)`
+`二氧化碳(CO2) > 氧气(O2) > 负压(风压) > 风速 > 烟雾 > 粉尘 > 温度 > 一氧化碳(CO/一氧化碳,排除 CO2) > 瓦斯(甲烷/CH4) > 开停 > 馈电 > 断电 > 人员定位(人数/人员) > 摄像仪(摄像仪/摄像头/视频监控/视频监测)`
 
-新增 `二氧化碳/氧气/负压` 优先于其他类型识别(基于 AQ 1029-2019 公开知识,条款号 TBD)。
+- 新增 `二氧化碳/氧气/负压` 优先于其他类型识别(基于 AQ 1029-2019 公开知识,条款号 TBD)。
+- **mark_type 与 sensor_type 是完全不同的概念**，B16 是系统大类（工业视频系统），sensor_type 应为设备类型 `摄像仪`，不应混用。
 
 ### 3. 候选来源(均来自 8373)
 
@@ -106,29 +121,42 @@ python3 skill/bw-mine-equipment-locator/scripts/locator.py <username>
 | `tunnels[]` | `name` | tunnel |
 | `workfaces[]` | `workFaceName` | workface |
 
-### 4. 编码提取 (`extract_workface_code`,locator.py:334-348)
+### 4. 编码提取 (`extract_workface_code`,locator.py:354-372)
 
 按优先级:
-1. 字母+3-4 数字: `C8302`、`F1302`
-2. 负号+3-4 数字(水平标高): `-490`、`-725`
-3. 4 位纯数字(前后无字母): `5318`、`9209`
+1. **中文数字 + 采区/煤层/盘区/水平**: `九采区` → `9`、`七煤层` → `7`
+2. 字母+3-4 数字: `C8302`、`F1302`
+3. 负号+3-4 数字(水平标高): `-490`、`-725`
+4. 4 位纯数字(前后无字母): `5318`、`9209`
+5. 3 位纯数字(前后无字母): `920`、`518`
 
-### 5. 评分公式 (`find_best_match`,locator.py:375-436)
+### 5. 评分公式 (`find_best_match`,locator.py:482-543)
+
+**LCS 使用别名扩展后的文本计算。**
 
 ```
-score = LCS_长度
+score = LCS_长度(别名扩展后)
       + 2  if  sensor_type 命中候选名巷道偏好且 LCS≥2
-      + 5  if  device_code 在候选名内
+      + 5  if  device_code 在候选名内(精确匹配)
+      + 3  if  device_code 是候选名中数字编码的前缀(前缀模糊匹配)
       + 3  if  候选 tunnelId 含 device_code  (workface 关联)
       + n  巷道类型匹配关键词加分(见 6)
       - 1  coalbed 不一致
       - 10 _LOCATION_SEMANTICS 语义冲突
 ```
 
+**分层判定(layer):**
+| layer | 条件 | confidence |
+|-------|------|------------|
+| 1 (EXACT) | 编码精确命中 或 code_indices 命中 | 高 |
+| 2 (LCS_PREF) | 前缀模糊命中 或 score≥5 | 中 |
+| 3 (LOW) | score≥2 但无编码/前缀命中 | 低 |
+| 4 (REJECT) | score<2 | 极低(拒绝) |
+
 - 最低门槛: `score ≥ 2`
 - 平局判定: 编码命中 > LCS 长 > 候选名长
 
-#### sensor_type 巷道偏好 (`_SENSOR_TUNNEL_PREF`,locator.py:213-227) — 命中 +2
+#### sensor_type 巷道偏好 (`_SENSOR_TUNNEL_PREF`,locator.py:220-240) — 命中 +2
 
 基于 AQ 1029-2019 公开知识(条款号 TBD)+ 实际数据观察。
 
@@ -147,7 +175,7 @@ score = LCS_长度
 | 氧气       | 工作面, 硐室, 采空 |
 | 二氧化碳   | 采空, 封闭火区, 回风巷 |
 | 负压       | 风机, 通风机, 风筒 |
-| 海康/大华/宇视 (B16) | 工作面, 顺槽, 运输巷, 回风巷, 进风巷, 大巷, 硐室, 变电所, 水泵房, 车场, 井口, 井底, 煤仓, 皮带, 输送机, 转载点, 机头, 机尾, 避难, 绞车房, 调度, 提升, 通风, 空压, 瓦斯泵, 制氮, 灌浆, 坑木场, 工业广场, 煤场 |
+| 摄像仪 (B16) | 工作面, 顺槽, 运输巷, 回风巷, 进风巷, 大巷, 硐室, 变电所, 水泵房, 车场, 井口, 井底, 煤仓, 皮带, 输送机, 转载点, 机头, 机尾, 避难, 绞车房, 调度, 提升, 通风, 空压, 瓦斯泵, 制氮, 灌浆, 坑木场, 工业广场, 煤场 |
 
 ### 6. 巷道类型匹配加分 (`_TUNNEL_TYPE_MATCH_BONUS`,locator.py:292-299)
 
@@ -180,20 +208,44 @@ score = LCS_长度
 
 注:`mark_type` 是系统大类,与 `sensor_type`(具体传感器)是不同维度。
 
-### 9. 置信度 (`_calc_confidence`,locator.py:991-1009)
+### 9. 置信度 (`_calc_confidence`,locator.py:1227-1235)
 
-| 条件 | confidence |
-| ---- | ---------- |
-| 编码匹配 + LCS≥3 + 巷道类型匹配 sensor_type | 高 |
-| 编码匹配 + LCS≥3,或 score≥5 + type_match | 中 |
-| LCS≥3 | 低 |
-| 其他 | 极低 |
+基于分层 `layer`:
+
+| layer | 条件 | confidence |
+|-------|------|------------|
+| EXACT (1) | 编码精确命中(device_code 在候选名内) | 高 |
+| LCS_PREF (2) | 前缀模糊命中 或 score≥5 | 中 |
+| LOW (3) | score≥2 但无编码命中 | 低 |
+| REJECT (4) | score<2 | 极低 |
+
+### 10. 未匹配拒绝原因
+
+`unmatched_devices` 中每个设备带 `reason` 字段:
+
+| reason | 含义 |
+|--------|------|
+| `NO_CANDIDATE` | 无可行候选 |
+| `CODE_MISMATCH` | 提取到编码但所有候选均不匹配(含前缀尝试) |
+| `SEMANTIC_CONFLICT` | 语义惩罚阻断所有候选 |
+| `LOW_LCS` | LCS 得分过低(<2) |
+
+### 11. 匹配缓存
+
+高置信度(layer=EXACT)匹配自动写入 `data/cache/match_cache.json`:
+- 键: `{mark_type}:{description}`
+- 值: `{matched_name, candidate_id, score, timestamp}`
+- 下次运行优先查缓存,命中直接复用
+
+### 12. 风速间距检查
+
+同组风速传感器间距 < 10m 时告警(AQ 1029-2019 7.2.1)。输出 JSON `warnings` 数组包含 `type: wind_speed_spacing` 条目。
 
 ## 坐标计算
 
 匹配成功后,沿命中巷道/工作面的 `line` 折线计算 (x, y, z)。
 
-### 1. 分组键 (`group_key`,locator.py:984-989)
+### 13. 分组键 (`group_key`,locator.py:1420-1425)
 
 ```
 group_key = (matched_name, keyword)
@@ -208,13 +260,13 @@ group_key = (matched_name, keyword)
 
 → 同巷道但不同关键词的设备分到不同组,不冲突。
 
-### 2. 区间确定优先级 (`_assign_distances`,locator.py:478-590)
+### 14. 区间确定优先级 (`_assign_distances`,locator.py:578-682)
 
 ```
 T 标识规则 > 巷道类型×sensor_type 规则 > AQ1029 距离规则 > 关键词区间 > sensor_type 默认百分比
 ```
 
-#### 2a. T 标识区间 (`_T_POSITION_RULES`,locator.py:243-249)
+#### 14a. T 标识区间 (`_T_POSITION_RULES`,locator.py:255-262)
 
 | T 标识 | 比例区间 | 精确米数(若 line 够长) | 含义 |
 | ------ | -------- | ----------------------- | ---- |
@@ -224,7 +276,7 @@ T 标识规则 > 巷道类型×sensor_type 规则 > AQ1029 距离规则 > 关键
 | T3     | 30-50%   | -                       | 混合风流(风机附近) |
 | T4     | 90-100%  | length-10 ~ length      | 掘进回风巷口 |
 
-#### 2b. 巷道类型 × sensor_type 规则 (`_TUNNEL_TYPE_RULES`,locator.py:263-288)
+#### 14b. 巷道类型 × sensor_type 规则 (`_TUNNEL_TYPE_RULES`,locator.py:275-302)
 
 | 巷道类型 | sensor | 方向 | 米数 | 容差 |
 | -------- | ------ | ---- | ---- | ---- |
@@ -241,7 +293,7 @@ T 标识规则 > 巷道类型×sensor_type 规则 > AQ1029 距离规则 > 关键
 | 29-回采工作面巷道        | 瓦斯 | mid | 0 | - |
 | 29-回采工作面巷道        | 粉尘 | start | 5 | 2 |
 
-#### 2c. AQ1029 距离规则 (`_AQ1029_DISTANCE_RULES`,locator.py:315-323)
+#### 14c. AQ1029 距离规则 (`_AQ1029_DISTANCE_RULES`,locator.py:332-341)
 
 | keyword | sensor | 方向 | 米数 |
 | ------- | ------ | ---- | ---- |
@@ -252,7 +304,7 @@ T 标识规则 > 巷道类型×sensor_type 规则 > AQ1029 距离规则 > 关键
 | *       | 粉尘   | start | 3 |
 | *       | 温度(硐室) | mid | 0 |
 
-#### 2d. 关键词区间(无 T 标识)
+#### 14d. 关键词区间(无 T 标识)
 
 | 关键词 | 区间 | 依据 |
 | ------ | ---- | ---- |
@@ -274,7 +326,7 @@ T 标识规则 > 巷道类型×sensor_type 规则 > AQ1029 距离规则 > 关键
 | 车场 | 30-70% | 车场区域全景 |
 | 地面(工业广场/煤场等) | 30-70% | 地面设施居中 |
 
-#### 2e. sensor_type 默认百分比
+#### 14e. sensor_type 默认百分比
 
 | sensor_type | 区间 |
 | ----------- | ---- |
@@ -284,13 +336,13 @@ T 标识规则 > 巷道类型×sensor_type 规则 > AQ1029 距离规则 > 关键
 | 人员定位    | 40-60%(长巷道中部) | DB51T1412-2011 5.1.8.2: >1000m时中部增设 |
 | 其他        | 10-90%(均匀分布) |
 
-### 3. 同组多设备分配 (`_distribute_in_zone`,locator.py:486-494)
+### 15. 同组多设备分配 (`_distribute_in_zone`,locator.py:522-530)
 
-- **默认 1m 步长**(`step=1.0`,locator.py:479)从 `lo` 起递增。
+- **默认 1m 步长**(`step=1.0`,locator.py:515)从 `lo` 起递增。
 - 区间放不下时退化为均匀分布: `step_adj = (hi-lo)/(count-1)`。
 - `count == 1` 取区间中点。
 
-### 4. z 轴安装高度 (`_SENSOR_INSTALL_HEIGHT`,locator.py:304-314)
+### 16. z 轴安装高度 (`_SENSOR_INSTALL_HEIGHT`,locator.py:316-329)
 
 匹配后 z 在折线插值基础上叠加传感器安装高度:
 
@@ -325,4 +377,4 @@ T 标识规则 > 巷道类型×sensor_type 规则 > AQ1029 距离规则 > 关键
 - 坐标计算（几何中心/迎头/回风流）
 - JSON 结果输出
 
-**Step 4（回写 8385）为手动步骤**，使用 locator.py 输出的结果 JSON 调用 `strategy_api.py execute`。详见 CLAUDE.md。
+**Step 4（回写 8385）已内置在 locator.py 末尾**，匹配计算完成后自动调用 `strategy_api.py execute` 回写结果。stderr 会打印回写状态码。详见 CLAUDE.md。

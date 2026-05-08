@@ -78,13 +78,14 @@ F:\gis\Point\
 ├── CLAUDE.md              # 本文件
 ├── data/
 │   ├── pdf/              # 煤矿安全规范等 PDF 文档
+│   ├── test/             # 测试数据
+│   │   └── test_locator.json  # 优化功能验证测试数据
+│   ├── cache/            # 匹配缓存目录
 │   └── sql/
 │       ├── example_8373.json  # 策略 8373 示例数据（设备+巷道+工作面）
 │       └── index.sql      # 策略 8373 的 SQL 查询（表结构参考）
 ├── evals/
 │   └── evals.json         # 测试评估 prompt
-├── tests/
-│   └── test_matching.py   # 离线匹配测试（LCS/前缀剥离/坐标计算）
 └── skill/
     ├── bw-token-manager/           # Step 1: 获取 BW-MES API token, mineName
     │   └── scripts/bw_token_manager.py
@@ -172,32 +173,55 @@ locator.py 启动时自动探测可用解释器，按优先级：
 
 ### sensor_type 推断
 
-设备字段缺 `sensor_type` 时，从描述关键词按顺序推断（`_infer_sensor_type`，locator.py:186-209）：
+设备字段缺 `sensor_type` 时，从描述关键词按顺序推断（`_infer_sensor_type`，locator.py:186-217）：
 
-`二氧化碳（CO2） > 氧气（O2） > 负压（风压） > 风速 > 烟雾 > 粉尘 > 温度 > 一氧化碳（CO/一氧化碳，排除 CO2） > 瓦斯（甲烷/CH4） > 开停 > 馈电 > 断电 > 人员定位（人数/人员）`
+`二氧化碳（CO2） > 氧气（O2） > 负压（风压） > 风速 > 烟雾 > 粉尘 > 温度 > 一氧化碳（CO/一氧化碳，排除 CO2） > 瓦斯（甲烷/CH4） > 开停 > 馈电 > 断电 > 人员定位（人数/人员） > 摄像仪（摄像仪/摄像头/视频监控/视频监测）`
 
-新增 `二氧化碳/氧气/负压` 优先于其他类型识别（基于 AQ 1029-2019 公开知识，条款号 TBD）。
+- 新增 `二氧化碳/氧气/负压` 优先于其他类型识别（基于 AQ 1029-2019 公开知识，条款号 TBD）。
+- **mark_type 与 sensor_type 是完全不同的概念**：B16 是系统大类（工业视频系统），sensor_type 应为设备类型 `摄像仪`，不应混用。
 
 ### 编码提取
 
-`extract_workface_code`（locator.py:334-348），按优先级：
-1. 字母+3-4 数字：`C8302`、`F1302`
-2. 负号+3-4 数字（水平标高）：`-490`、`-725`
-3. 4 位纯数字（前后无字母）：`5318`、`9209`
+`extract_workface_code`（locator.py:354-372），按优先级：
+1. **中文数字 + 采区/煤层/盘区/水平**：`九采区` → `9`、`七煤层` → `7`
+2. 字母+3-4 数字：`C8302`、`F1302`
+3. 负号+3-4 数字（水平标高）：`-490`、`-725`
+4. 4 位纯数字（前后无字母）：`5318`、`9209`
+5. 3 位纯数字（前后无字母）：`920`、`518`
+
+### 别名映射
+
+`_TUNNEL_ALIAS_MAP`（locator.py:260-280）+ `_expand_aliases` — 匹配前对 description 和候选 name 双向扩展，解决简称/全称差异：
+
+| description 中出现 | 扩展为 |
+|---|---|
+| 皮顺 | 皮顺\|皮带顺槽\|辅运顺槽\|胶带顺槽 |
+| 胶运 | 胶运\|胶带运输\|进风巷\|胶运顺槽 |
+| 联络巷 | 联络巷\|联巷 |
+| 切巷 | 切巷\|切眼 |
 
 ### 评分公式
 
-`find_best_match`（locator.py:375-436）：
+`find_best_match`（locator.py:482-543）— **分层匹配策略**：
 
 ```
-score = LCS_长度
+score = LCS_长度(别名扩展后)
       + 2  if  sensor_type 命中候选名巷道偏好且 LCS≥2
-      + 5  if  device_code 在候选名内
-      + 3  if  候选 tunnelId 含 device_code（workface 关联）
+      + 5  if  device_code 在候选名内(精确匹配)
+      + 3  if  device_code 是候选名中数字编码的前缀(前缀模糊匹配)
+      + 3  if  候选 tunnelId 含 device_code(workface 关联)
       + n  巷道类型匹配关键词加分
       - 1  coalbed 不一致
       - 10 _LOCATION_SEMANTICS 语义冲突
 ```
+
+**分层判定（layer）：**
+| layer | 条件 | confidence |
+|-------|------|------------|
+| 1 (EXACT) | 编码精确命中 或 code_indices 命中 | 高 |
+| 2 (LCS_PREF) | 前缀模糊命中 或 score≥5 | 中 |
+| 3 (LOW) | score≥2 但无编码/前缀命中 | 低 |
+| 4 (REJECT) | score<2 | 极低(拒绝) |
 
 - 最低门槛：`score ≥ 2`
 - 平局判定：编码命中 > LCS 长 > 候选名长
@@ -220,7 +244,7 @@ score = LCS_长度
 | 氧气       | 工作面, 硐室, 采空 |
 | 二氧化碳   | 采空, 封闭火区, 回风巷 |
 | 负压       | 风机, 通风机, 风筒 |
-| 海康/大华/宇视 (B16) | 工作面, 顺槽, 运输巷, 回风巷, 进风巷, 大巷, 硐室, 变电所, 水泵房, 车场, 井口, 井底, 煤仓, 皮带, 输送机, 转载点, 机头, 机尾, 避难, 绞车房, 调度, 提升, 通风, 空压, 瓦斯泵, 制氮, 灌浆, 坑木场, 工业广场, 煤场 |
+| 摄像仪 (B16) | 工作面, 顺槽, 运输巷, 回风巷, 进风巷, 大巷, 硐室, 变电所, 水泵房, 车场, 井口, 井底, 煤仓, 皮带, 输送机, 转载点, 机头, 机尾, 避难, 绞车房, 调度, 提升, 通风, 空压, 瓦斯泵, 制氮, 灌浆, 坑木场, 工业广场, 煤场 |
 
 ### 巷道类型匹配加分
 
@@ -261,14 +285,38 @@ score = LCS_长度
 
 ### 置信度
 
-`_calc_confidence`（locator.py:991-1009）：
+`_calc_confidence`（locator.py:1227-1235）— 基于分层 `layer`：
 
-| 条件 | confidence |
-| ---- | ---------- |
-| 编码匹配 + LCS≥3 + 巷道类型匹配 sensor_type | 高 |
-| 编码匹配 + LCS≥3，或 score≥5 + type_match | 中 |
-| LCS≥3 | 低 |
-| 其他 | 极低 |
+| layer | 条件 | confidence |
+|-------|------|------------|
+| EXACT (1) | 编码精确命中（device_code 在候选名内） | 高 |
+| LCS_PREF (2) | 前缀模糊命中 或 score≥5 | 中 |
+| LOW (3) | score≥2 但无编码命中 | 低 |
+| REJECT (4) | score<2 | 极低 |
+
+### 未匹配拒绝原因
+
+`unmatched_devices` 中每个设备带 `reason` 字段（locator.py:1244-1282）：
+
+| reason | 含义 |
+|--------|------|
+| `NO_CANDIDATE` | 无可行候选（candidates 为空） |
+| `CODE_MISMATCH` | 提取到编码但所有候选均不匹配（含前缀尝试） |
+| `SEMANTIC_CONFLICT` | 语义惩罚阻断所有候选（所有候选均扣 -10） |
+| `LOW_LCS` | LCS 得分过低（< 2），无其他匹配途径 |
+
+### 匹配缓存
+
+高置信度（layer=EXACT）匹配自动写入 `data/cache/match_cache.json`（locator.py:1084-1120）：
+- 键：`{mark_type}:{description}`
+- 值：`{matched_name, candidate_id, score, timestamp}`
+- 下次运行时优先查缓存，命中则直接复用匹配结果
+
+### 风速间距检查
+
+`_check_wind_speed_spacing`（locator.py:1155-1195）— 同组风速传感器间距 < 10m 时告警：
+- AQ 1029-2019 7.2.1：测风站前后 10m 无分支
+- 输出 JSON 中 `warnings` 数组包含 `type: wind_speed_spacing` 条目
 
 ---
 
