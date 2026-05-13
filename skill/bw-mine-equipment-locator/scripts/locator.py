@@ -224,7 +224,6 @@ def _infer_sensor_type(description: str, mark_type: str = None) -> str:
         return "工业视频"
     # mark_type=B16 兜底
     if mark_type == "B16":
-    if mark_type == "B16":
         return "工业视频"
     return None
 
@@ -474,6 +473,112 @@ REJECT_SEMANTIC_CONFLICT = "SEMANTIC_CONFLICT"  # 语义惩罚阻断所有候选
 REJECT_LOW_LCS = "LOW_LCS"                     # LCS 得分过低 (< 2)
 REJECT_PREFIX_MISMATCH = "PREFIX_MISMATCH"     # 前缀模糊匹配失败
 REJECT_AREA_SURFACE = "AREA_SURFACE"           # area 语义为地面，不匹配井下候选
+
+
+# ── 坐标分配规则表 ──────────────────────────────────────────────────
+# 各表对应 _assign_distances 的 5→7 步回退策略，修改时请同步更新 _RULES_REGISTRY。
+
+# 关键词→区间比例（多设备分布区间，单设备用 _KEYWORD_SINGLE_RATIO）
+_KEYWORD_ZONE_RULES = {
+    "迎头":      (0.00, 0.15),  # AQ 1029-2019 6.3.1
+    "回风流":    (0.85, 1.00),  # AQ 1029-2019 6.3.1
+    "井口":      (0.00, 0.10),  # MT/T 1198-2023 §5.1.2 / DB51T1412-2011 5.1.8.1
+    "井底":      (0.90, 1.00),  # DB51T1412-2011 5.1.8.1
+    "岔口":      (0.10, 0.25),  # MT/T 1198-2023 §5.1.3 / DB51T1412-2011 5.1.8.2
+    "硐室":      (0.40, 0.60),  # MT/T 1198-2023 §5.2.4 / DB51T1412-2011 5.1.8.5
+    "充电站":    (0.40, 0.60),  # MT/T 1198-2023 §5.1.4
+    "机头":      (0.00, 0.10),  # MT/T 1201.6-2023 A.1
+    "机尾":      (0.90, 1.00),  # MT/T 1201.6-2023 A.1
+    "转载点":    (0.00, 0.15),  # MT/T 1201.6-2023 A.1
+    "中部":      (0.40, 0.60),  # MT/T 1201.6-2023 A.1#16
+    "超前支护":  (0.00, 0.15),  # MT/T 1201.6-2023 A.1#3
+    "T2处":      (0.85, 1.00),  # 回风口附近
+    "支架":      (0.30, 0.70),  # MT/T 1201.6-2023 A.1#1
+    "煤仓":      (0.30, 0.70),  # MT/T 1201.6-2023 A.1#20
+    "车场":      (0.30, 0.70),  # 车场区域全景
+    "地面":      (0.30, 0.70),  # 地面设施居中
+}
+
+# 关键词→精确比例（单设备 count≤1 时使用，终值 = line_length × ratio）
+_KEYWORD_SINGLE_RATIO = {
+    "迎头":      0.0,    # 掘进迎头起点
+    "回风流":    1.0,    # 回风流终点
+    "井口":      0.05,   # 井口处
+    "井底":      0.95,   # 井底处
+    "硐室":      0.5,    # 硐室中部
+    "充电站":    0.5,    # 充电站中部
+    "机头":      0.0,    # 机头起点
+    "机尾":      1.0,    # 机尾终点
+    "转载点":    0.05,   # 转载点起点附近
+    "中部":      0.5,    # 中部点
+    "超前支护":  0.05,   # 超前支护起点附近
+    "T2处":      0.95,   # T2处终点附近
+    "支架":      0.5,    # 支架中部
+    "煤仓":      0.5,    # 煤仓中部
+    "车场":      0.5,    # 车场中部
+    "地面":      0.5,    # 地面中部
+}
+
+# sensor_type 默认区间（多设备回退，单设备用 _SENSOR_SINGLE_RATIO）
+_SENSOR_DEFAULT_ZONES = {
+    "风速":      (0.40, 0.60),  # 测风站
+    "烟雾":      (0.00, 0.20),  # 产尘点（皮带机头）
+    "粉尘":      (0.00, 0.20),  # 产尘点
+    "温度":      (0.30, 0.70),  # 设备上方
+    "人员定位":  (0.40, 0.60),  # DB51T1412-2011 5.1.8.2: 长巷道中部
+}
+_DEFAULT_ZONE = (0.10, 0.90)
+
+# sensor_type 精确比例（单设备 count≤1 回退）
+_SENSOR_SINGLE_RATIO = {
+    "风速":      0.5,
+    "烟雾":      0.0,
+    "粉尘":      0.0,
+    "温度":      0.5,
+    "人员定位":  0.5,
+}
+
+# 关键词分类表（按匹配优先级降序，长字符串在前避免短字符串误匹配）
+_CLASSIFY_KEYWORD_TABLE = [
+    ("机头及转载点", "机头"),
+    ("机尾及转载机", "机尾"),
+    ("皮带中部",     "中部"),
+    ("输送机中部",   "中部"),
+    ("T2传感器",     "T2处"),
+    ("T2处",         "T2处"),
+    ("避难硐室",     "硐室"),
+    ("空压机房",     "硐室"),
+    ("空压机站",     "硐室"),
+    ("提升机房",     "硐室"),
+    ("通风机房",     "硐室"),
+    ("灌浆站",       "硐室"),
+    ("注浆站",       "硐室"),
+    ("充填站",       "硐室"),
+    ("瓦斯抽采",     "硐室"),
+    ("瓦斯泵",       "硐室"),
+    ("水泵房",       "硐室"),
+    ("变电所",       "硐室"),
+    ("绞车房",       "硐室"),
+    ("调度室",       "硐室"),
+    ("坑木场",       "硐室"),
+    ("制氮",         "硐室"),
+    ("注氮",         "硐室"),
+    ("工业广场",     "地面"),
+    ("迎头",         "迎头"),
+    ("回风流",       "回风流"),
+    ("井口",         "井口"),
+    ("井底",         "井底"),
+    ("充电站",       "充电站"),
+    ("机头",         "机头"),
+    ("机尾",         "机尾"),
+    ("转载点",       "转载点"),
+    ("超前支护",     "超前支护"),
+    ("支架",         "支架"),
+    ("硐室",         "硐室"),
+    ("煤仓",         "煤仓"),
+    ("车场",         "车场"),
+    ("煤场",         "地面"),
+]
 
 
 def _extract_t_keyword(description: str) -> str:
@@ -734,21 +839,21 @@ def _polyline_interpolate(line: list, ratio: float) -> dict:
 def _assign_distances(count: int, keyword: str, line_length: float,
                       sensor_type: str = None, tunnel_type: str = None, step: float = 1.0) -> list:
     """
-    按固定步长（默认 1m）分配距起点的距离。
-    优先使用精确米数规则，次选百分比规则。
-    若区间放不下所有设备，则在该区间内均匀分布。
+    沿折线分配距起点的距离（米），分配策略优先级：
+    T 标识规则 > 巷道类型×sensor_type > AQ1029 距离 > 关键词区间 > sensor_type 默认 > 兜底
     """
     # B16 工业视频同组多设备的标准间距（MT/T 1201.6-2023 附录 A）
     if sensor_type == "工业视频":
         if keyword == "支架":
-            step = 75.0     # A.1#1: 两工业视频间距 ≤50架≈75m
+            step = 75.0      # A.1#1: 两工业视频间距 ≤50架≈75m
         elif keyword == "中部":
-            step = 500.0    # A.1#16: 主运输皮带中部每500m一台
+            step = 500.0     # A.1#16: 主运输皮带中部每500m一台
         elif keyword == "架空乘人":
-            step = 100.0    # A.1#23: 架空乘人装置中部每100m一台
+            step = 100.0     # A.1#23: 架空乘人装置中部每100m一台
 
-    # 辅助函数：在区间内按步长分配，溢出则均匀分布
+    # ── 辅助函数 ──
     def _distribute_in_zone(lo: float, hi: float, count: int, step: float) -> list:
+        """在 [lo, hi] 区间内按步长分配，放不下则均匀分布。"""
         zone = hi - lo
         if count <= 1:
             return [(lo + hi) / 2]
@@ -758,19 +863,18 @@ def _assign_distances(count: int, keyword: str, line_length: float,
             distances = [lo + i * step_adj for i in range(count)]
         return distances
 
-    # 辅助函数：将百分比区间转为米数，若折线足够长则使用精确米数
-    def _ratio_to_meters(lo_ratio: float, hi_ratio: float, exact_lo: float = None, exact_hi: float = None) -> tuple:
+    def _ratio_to_meters(lo_ratio: float, hi_ratio: float,
+                         exact_lo: float = None, exact_hi: float = None) -> tuple:
         if line_length <= 0:
             return 0.0, 0.0
-        lo = line_length * lo_ratio
-        hi = line_length * hi_ratio
+        lo, hi = line_length * lo_ratio, line_length * hi_ratio
         if exact_lo is not None:
             lo = min(lo, exact_lo)
         if exact_hi is not None:
             hi = min(hi, exact_hi)
         return lo, hi
 
-    # 1. T 标识规则（最高优先级）— 有精确米数时用精确米数
+    # 1. T 标识规则（AQ 1029-2019 §6.2.1/§6.3.1）
     if keyword in _T_POSITION_RULES:
         lo_ratio, hi_ratio = _T_POSITION_RULES[keyword]
         exact_lo, exact_hi = None, None
@@ -783,28 +887,24 @@ def _assign_distances(count: int, keyword: str, line_length: float,
         lo, hi = _ratio_to_meters(lo_ratio, hi_ratio, exact_lo, exact_hi)
         return _distribute_in_zone(lo, hi, count, step)
 
-    # 2. 巷道类型 × sensor_type 规则（次高优先级）
+    # 2. 巷道类型 × sensor_type 规则（AQ 1029-2019 / MT/T 1201.6-2023 附录 A）
     if tunnel_type and tunnel_type in _TUNNEL_TYPE_RULES:
-        type_rules = _TUNNEL_TYPE_RULES[tunnel_type]
-        rule = type_rules.get(sensor_type) if sensor_type else None
+        rule = _TUNNEL_TYPE_RULES[tunnel_type].get(sensor_type) if sensor_type else None
         if rule:
             direction = rule["from"]
             meters = rule.get("meters", 0)
             tolerance = rule.get("tolerance", 0)
-            if direction == "start" and line_length >= meters:
+            if direction == "start":
                 lo, hi = 0.0, min(line_length * 0.15, meters + tolerance) if tolerance else meters
                 return _distribute_in_zone(lo, hi, count, step)
-            elif direction == "end" and line_length >= meters:
+            elif direction == "end":
                 lo, hi = max(line_length * 0.85, line_length - meters - tolerance) if tolerance else line_length - meters, line_length
                 return _distribute_in_zone(lo, hi, count, step)
             elif direction == "mid":
-                if meters > 0:
-                    lo, hi = max(0.0, line_length * 0.5 - meters), min(line_length, line_length * 0.5 + meters)
-                else:
-                    lo, hi = line_length * 0.4, line_length * 0.6
+                lo, hi = (max(0.0, line_length * 0.5 - meters), min(line_length, line_length * 0.5 + meters)) if meters > 0 else (line_length * 0.4, line_length * 0.6)
                 return _distribute_in_zone(lo, hi, count, step)
 
-    # 3. 精确米数规则（通用）
+    # 3. AQ1029 通用精确米数规则
     if line_length > 0:
         for kw_rule, st_rule, direction, meters in _AQ1029_DISTANCE_RULES:
             if keyword == kw_rule or (kw_rule is None and keyword == "default"):
@@ -819,175 +919,50 @@ def _assign_distances(count: int, keyword: str, line_length: float,
                         continue
                     return _distribute_in_zone(lo, hi, count, step)
 
-    # 4. 回退到百分比规则
+    # 4. 单设备 / 空折线 → 精确位置（查表）
     if line_length <= 0 or count <= 1:
-        if keyword == "迎头":
-            return [0.0]
-        elif keyword == "回风流":
-            return [line_length]
-        elif keyword in ("井口", "岔口"):
-            return [line_length * 0.05]
-        elif keyword == "井底":
-            return [line_length * 0.95]
-        elif keyword == "硐室":
-            return [line_length * 0.5]
-        elif keyword == "充电站":
-            return [line_length * 0.5]  # MT/T 1198-2023 §5.1.4: 井下专用充电站，居中即可
-        # B16 工业视频位置 — 煤矿工业视频安装及联网接入规范（2024-12）附录 A
-        elif keyword == "机头":
-            return [0.0]                      # 机头/机头及转载点 → 起点
-        elif keyword == "机尾":
-            return [line_length]              # 机尾/机尾及转载机 → 终点
-        elif keyword == "转载点":
-            return [line_length * 0.05]       # 转载点 → 起点附近
-        elif keyword == "中部":
-            return [line_length * 0.5]        # 皮带/输送机中部 → 中段
-        elif keyword == "超前支护":
-            return [line_length * 0.05]       # 超前支护 → 距工作面煤壁 10-15m，取起点附近
-        elif keyword == "T2处":
-            return [line_length * 0.95]       # T2处 → 回风顺槽外口/回风口附近
-        elif keyword == "支架":
-            return [line_length * 0.5]        # 支架 → 沿工作面均匀分布，取中段代表
-        elif keyword == "煤仓":
-            return [line_length * 0.5]        # 煤仓 → 上/下口落煤处，取中段
-        elif keyword == "车场":
-            return [line_length * 0.5]        # 车场 → 区域全景，取中段
-        elif keyword == "地面":
-            return [line_length * 0.5]        # 地面设施 → 居中
-        elif sensor_type == "风速":
-            return [line_length * 0.5]
-        elif sensor_type in ("烟雾", "粉尘"):
-            return [0.0]
-        elif sensor_type == "温度":
-            return [line_length * 0.5]
-        elif sensor_type == "人员定位":
-            return [line_length * 0.5]
-        else:
-            return [line_length * 0.5]
+        ratio = _KEYWORD_SINGLE_RATIO.get(keyword)
+        if ratio is not None:
+            return [line_length * ratio] if line_length > 0 else [0.0]
+        ratio = _SENSOR_SINGLE_RATIO.get(sensor_type, 0.5)
+        return [line_length * ratio] if line_length > 0 else [0.0]
 
-    if keyword == "迎头":
-        lo, hi = 0.0, line_length * 0.15
-    elif keyword == "回风流":
-        lo, hi = line_length * 0.85, line_length
-    elif keyword == "井口":
-        lo, hi = line_length * 0.00, line_length * 0.10  # MT/T 1198-2023 §5.1.2 / DB51T1412-2011 5.1.8.1: 井口处
-    elif keyword == "井底":
-        lo, hi = line_length * 0.90, line_length * 1.00  # DB51T1412-2011 5.1.8.1: 井底处
-    elif keyword == "岔口":
-        lo, hi = line_length * 0.10, line_length * 0.25  # MT/T 1198-2023 §5.1.3 / DB51T1412-2011 5.1.8.2: 主要交叉巷口/分流路口
-    elif keyword == "硐室":
-        lo, hi = line_length * 0.40, line_length * 0.60  # MT/T 1198-2023 §5.2.4 / DB51T1412-2011 5.1.8.5: 准入区域（变电所/水泵房）出入口
-    elif keyword == "充电站":
-        lo, hi = line_length * 0.40, line_length * 0.60  # MT/T 1198-2023 §5.1.4: 井下专用充电站
-    # B16 工业视频位置 — 煤矿工业视频安装及联网接入规范（2024-12）附录 A
-    elif keyword == "机头":
-        lo, hi = 0.0, line_length * 0.10                 # 机头 → 起点 0-10%
-    elif keyword == "机尾":
-        lo, hi = line_length * 0.90, line_length         # 机尾 → 终点 90-100%
-    elif keyword == "转载点":
-        lo, hi = 0.0, line_length * 0.15                 # 转载点 → 起点附近 0-15%
-    elif keyword == "中部":
-        lo, hi = line_length * 0.40, line_length * 0.60  # 中部 → 中段 40-60%
-    elif keyword == "超前支护":
-        lo, hi = 0.0, line_length * 0.15                 # 超前支护 → 距工作面煤壁 10-15m，取 0-15%
-    elif keyword == "T2处":
-        lo, hi = line_length * 0.85, line_length         # T2处 → 回风口附近 85-100%
-    elif keyword == "支架":
-        lo, hi = line_length * 0.30, line_length * 0.70  # 支架 → 沿工作面均匀分布 30-70%
-    elif keyword == "煤仓":
-        lo, hi = line_length * 0.30, line_length * 0.70  # 煤仓 → 上/下口落煤处 30-70%
-    elif keyword == "车场":
-        lo, hi = line_length * 0.30, line_length * 0.70  # 车场 → 区域全景 30-70%
-    elif keyword == "地面":
-        lo, hi = line_length * 0.30, line_length * 0.70  # 地面设施 → 居中 30-70%
-    else:
-        if sensor_type == "风速":
-            lo, hi = line_length * 0.4, line_length * 0.6
-        elif sensor_type in ("烟雾", "粉尘"):
-            lo, hi = line_length * 0.0, line_length * 0.2
-        elif sensor_type == "温度":
-            lo, hi = line_length * 0.3, line_length * 0.7
-        elif sensor_type == "人员定位":
-            lo, hi = line_length * 0.4, line_length * 0.6  # DB51T1412-2011 5.1.8.2: 长巷道>1000m时中部增设
-        else:
-            lo, hi = line_length * 0.1, line_length * 0.9
+    # 5. 多设备 → 关键词区间分布（查表）
+    zone = _KEYWORD_ZONE_RULES.get(keyword)
+    if zone:
+        return _distribute_in_zone(line_length * zone[0], line_length * zone[1], count, step)
 
-    return _distribute_in_zone(lo, hi, count, step)
+    # 6. sensor_type 默认区间（查表）
+    zone = _SENSOR_DEFAULT_ZONES.get(sensor_type)
+    if zone:
+        return _distribute_in_zone(line_length * zone[0], line_length * zone[1], count, step)
+
+    # 7. 兜底：10-90%
+    return _distribute_in_zone(line_length * 0.1, line_length * 0.9, count, step)
 
 
 def _classify_keyword(description: str) -> str:
-    """按关键词分类：T1/T2/T0/T3/T4 / 迎头 / 回风流 / B15关键词 / B16关键词 / default"""
-    t_kw = _extract_t_keyword(description)
+    """按关键词分类：T标识 / 迎头 / 回风流 / B15/B16关键词 / default
+
+    分类规则顺序（优先级从高到低）：
+    T标识 ≥ 隅角/混合风流 ≥ 岔口/交叉口/分流 ≥ _CLASSIFY_KEYWORD_TABLE ≥ default
+    """
+    d = description
+    # T标识（最高优先级，AQ 1029-2019 §6.2.1/§6.3.1）
+    t_kw = _extract_t_keyword(d)
     if t_kw and t_kw in _T_POSITION_RULES:
         return t_kw
-    if "迎头" in description:
-        return "迎头"
-    if "回风流" in description:
-        return "回风流"
-    if "隅角" in description or "上隅角" in description:
+    # 特殊词汇（无法用简单子串表达）
+    if "隅角" in d:
         return "T0"
-    if "混合风流" in description:
+    if "混合风流" in d:
         return "T3"
-    # B15 人员定位关键词 (MT/T 1198-2023 §5.1-5.2，DB51T1412-2011 5.1.8)
-    if "井口" in description:
-        return "井口"
-    if "井底" in description:
-        return "井底"
-    if "岔口" in description or "交叉口" in description or "分流" in description:
+    if any(kw in d for kw in ("岔口", "交叉口", "分流")):
         return "岔口"  # MT/T 1198 §5.1.3: 分流路口归为岔口
-    if "充电站" in description:
-        return "充电站"  # MT/T 1198 §5.1.4
-    if "硐室" in description:
-        return "硐室"
-    # B16 工业视频位置关键词 — 煤矿工业视频安装及联网接入规范（2024-12）附录 A
-    # 机头/机尾/转载点/中部（输送机相关）
-    if "机头及转载点" in description:
-        return "机头"
-    if "机尾及转载机" in description:
-        return "机尾"
-    if "机头" in description:
-        return "机头"
-    if "机尾" in description:
-        return "机尾"
-    if "转载点" in description:
-        return "转载点"
-    if "皮带中部" in description or "输送机中部" in description:
-        return "中部"
-    # 工作面相关
-    if "超前支护" in description:
-        return "超前支护"
-    if "T2处" in description or "T2传感器" in description:
-        return "T2处"
-    if "支架" in description:
-        return "支架"
-    # 硐室/房间类（水泵房、变电所等已在 B15 中通过 "硐室" 处理）
-    if "水泵房" in description:
-        return "硐室"
-    if "变电所" in description:
-        return "硐室"
-    if "绞车房" in description:
-        return "硐室"
-    if "避难硐室" in description:
-        return "硐室"
-    if "调度室" in description or "提升机房" in description:
-        return "硐室"
-    if "通风机房" in description or "空压机房" in description or "空压机站" in description:
-        return "硐室"
-    if "瓦斯泵" in description or "瓦斯抽采" in description:
-        return "硐室"
-    if "制氮" in description or "注氮" in description:
-        return "硐室"
-    if "灌浆站" in description or "注浆站" in description or "充填站" in description:
-        return "硐室"
-    if "坑木场" in description:
-        return "硐室"
-    # 其他特定位置
-    if "煤仓" in description:
-        return "煤仓"
-    if "车场" in description:
-        return "车场"
-    if "工业广场" in description or "煤场" in description:
-        return "地面"
+    # 表驱动匹配（_CLASSIFY_KEYWORD_TABLE 已按关键词长度降序）
+    for keyword, result in _CLASSIFY_KEYWORD_TABLE:
+        if keyword in d:
+            return result
     return "default"
 
 
@@ -1293,6 +1268,216 @@ def _check_wind_speed_spacing(groups: dict) -> list:
     return warnings
 
 
+# ── 匹配+坐标分配 ──────────────────────────────────────────────────
+def _match_devices(devices: list, candidates: list,
+                   code_to_candidates: dict, prefix_to_candidates: dict,
+                   coalbed_map: dict) -> tuple:
+    """
+    匹配设备到候选巷道/工作面，分组分配坐标。
+    返回 (results, unmatched, wind_warnings, matched_count)。
+    """
+
+    def _calc_confidence(match: dict, cleaned: str, sensor_type: str = None) -> str:
+        layer = match.get("layer", _MATCH_LAYER_REJECT)
+        if layer == _MATCH_LAYER_EXACT:
+            return "高"
+        if layer == _MATCH_LAYER_LCS_PREF:
+            return "中"
+        if layer == _MATCH_LAYER_LOW:
+            return "低"
+        return "极低"
+
+    match_cache = _load_match_cache()
+    cache_hits = 0
+    match_entries = []
+    unmatched = []
+
+    # 第一遍：匹配所有设备
+    for device in devices:
+        desc = device.get("description", "")
+        cleaned = strip_prefix(desc)
+        mark_type = device.get("mark_type")
+        sensor_type = device.get("sensor_type") or _infer_sensor_type(desc, mark_type)
+        if mark_type == "B16" and sensor_type in ("海康", "大华", "宇视", "萤石"):
+            sensor_type = "工业视频"
+        device_code = extract_workface_code(desc)
+
+        cached = match_cache.get(_make_cache_key(desc, mark_type))
+        if cached:
+            cand = _find_cached_candidate(candidates, cached)
+            if cand:
+                cache_hits += 1
+                match = {
+                    "name": cand.get("name", ""), "lcs": 0,
+                    "score": cached.get("score", 10), "candidate": cand,
+                    "layer": _MATCH_LAYER_EXACT, "from_cache": True,
+                }
+                match_entries.append((device, match, cleaned, sensor_type,
+                                      extract_explicit_distance(desc)))
+                continue
+
+        if _is_surface_area(device.get("area")):
+            unmatched.append({
+                "id": device.get("id", ""), "description": desc,
+                "mark_type": mark_type or "", "sensor_type": sensor_type,
+                "sysaliasname": device.get("sysaliasname", ""),
+                "reason": REJECT_AREA_SURFACE, "device_code": device_code,
+                "area": device.get("area", ""),
+            })
+            continue
+
+        match = find_best_match(cleaned, candidates, sensor_type=sensor_type,
+                                 device_code=device_code,
+                                 code_to_candidates=code_to_candidates,
+                                 prefix_to_candidates=prefix_to_candidates,
+                                 coalbed_map=coalbed_map, mark_type=mark_type)
+        if match is None:
+            reason = REJECT_LOW_LCS
+            if not candidates:
+                reason = REJECT_NO_CANDIDATE
+            elif device_code:
+                code_found = any(device_code in (c.get("name") or "") for c in candidates)
+                if not code_found:
+                    prefix_found = any(
+                        any(cn.startswith(device_code) for cn in re.findall(r'\d{3,4}', c.get("name", "")))
+                        for c in candidates
+                    )
+                    if not prefix_found:
+                        reason = REJECT_CODE_MISMATCH
+            if reason == REJECT_LOW_LCS and candidates:
+                sem_blocked = all(
+                    _semantic_penalty(cleaned, c.get("name", ""), mark_type=mark_type) <= -10
+                    for c in candidates
+                )
+                if sem_blocked:
+                    reason = REJECT_SEMANTIC_CONFLICT
+            unmatched.append({
+                "id": device.get("id", ""), "description": desc,
+                "mark_type": mark_type or "", "sensor_type": sensor_type,
+                "sysaliasname": device.get("sysaliasname", ""),
+                "reason": reason, "device_code": device_code,
+                **({"area": device.get("area", "")} if device.get("area") else {}),
+            })
+            continue
+
+        if match.get("layer") == _MATCH_LAYER_EXACT:
+            _add_to_cache(match_cache, desc, match, mark_type)
+        match_entries.append((device, match, cleaned, sensor_type,
+                              extract_explicit_distance(desc)))
+
+    if cache_hits > 0:
+        print(f"  → 缓存命中: {cache_hits} 个", file=sys.stderr)
+    _save_match_cache(match_cache)
+
+    # 第二遍：按 (matched_name, keyword) 分组 → 分配坐标
+    groups = {}
+    for device, match, cleaned, sensor_type, explicit_dist in match_entries:
+        keyword = _classify_keyword(cleaned)
+        groups.setdefault((match["name"], keyword), []).append(
+            (device, match, cleaned, sensor_type, explicit_dist))
+
+    results = []
+    matched_count = 0
+    for group_key, entries in groups.items():
+        name, keyword = group_key
+        candidate = entries[0][1]["candidate"]
+        line = candidate.get("line", [])
+        tunnel_type = candidate.get("type", "")
+        total_len = _polyline_length(line)
+
+        st_counts = {}
+        for _, _, _, st, _ in entries:
+            st_counts[st] = st_counts.get(st, 0) + 1
+        representative_st = max(st_counts, key=st_counts.get) if st_counts else None
+
+        implicit_count = sum(1 for _, _, _, _, ed in entries if ed is None)
+        explicit_entries = [(i, ed) for i, (_, _, _, _, ed) in enumerate(entries) if ed is not None]
+        implicit_distances = _assign_distances(implicit_count, keyword, total_len,
+                                                sensor_type=representative_st, tunnel_type=tunnel_type)
+
+        distances = [None] * len(entries)
+        for idx, ed in explicit_entries:
+            desc_clean = entries[idx][2]
+            distances[idx] = _apply_keyword_offset(desc_clean, keyword, ed, total_len) if keyword else ed
+        imp_idx = 0
+        for i in range(len(distances)):
+            if distances[i] is None:
+                distances[i] = implicit_distances[imp_idx]
+                imp_idx += 1
+
+        for (device, match, cleaned, sensor_type, explicit_dist), dist in zip(entries, distances):
+            matched_count += 1
+            clamped = False
+            if explicit_dist is not None and total_len > 0 and explicit_dist > total_len:
+                print(f"  ! 显式距离超出: {explicit_dist:.0f}m > {total_len:.0f}m "
+                      f"(matched={match['name']}, desc={device.get('description', '')[:60]})", file=sys.stderr)
+                dist = total_len
+                clamped = True
+            ratio = dist / total_len if total_len > 0 else 0.5
+            coords = _polyline_interpolate(line, ratio) if line else {"x": None, "y": None, "z": None}
+            if coords.get("z") is not None and sensor_type in _SENSOR_INSTALL_HEIGHT:
+                coords = dict(coords)
+                coords["z"] = round(coords["z"] + _SENSOR_INSTALL_HEIGHT[sensor_type], 4)
+
+            results.append({
+                "id": device.get("id", ""),
+                "description": device.get("description", ""),
+                "matched": True,
+                "matched_name": match["name"],
+                "tunnel_id": (match["candidate"].get("tunnelId") or match["candidate"].get("id", "")),
+                "matched_type": match["candidate"].get("category", ""),
+                "tunnel_type": match["candidate"].get("type", ""),
+                "coalbed": match["candidate"].get("coalbed", ""),
+                "match_lcs": match["lcs"],
+                "match_score": match.get("score", 0),
+                "confidence": _calc_confidence(match, cleaned, sensor_type),
+                "mark_type": device.get("mark_type", ""),
+                "sensor_type": sensor_type,
+                "area": device.get("area", ""),
+                "sysaliasname": device.get("sysaliasname", ""),
+                **({"explicit_distance": round(explicit_dist, 1)} if explicit_dist is not None else {}),
+                **({"distance_clamped": True} if clamped else {}),
+                "coordinates": coords,
+            })
+
+    wind_warnings = _check_wind_speed_spacing(groups)
+    if wind_warnings:
+        print(f"  ! 风速间距警告: {len(wind_warnings)} 条", file=sys.stderr)
+
+    return results, unmatched, wind_warnings, matched_count
+
+
+# ── 输出+回写 ──────────────────────────────────────────────────────
+def _save_and_writeback(output: dict, username: str):
+    """输出 JSON 到 stdout，保存到文件，回写策略 8385。"""
+    print(json.dumps(output, ensure_ascii=False, indent=2))
+
+    result_save_dir = PROJECT_ROOT / "data" / "output"
+    result_save_dir.mkdir(parents=True, exist_ok=True)
+    mine_name = output.get("mine_name", "")
+    result_save_path = result_save_dir / f"locator_result_{username}_{mine_name}.json"
+    with open(result_save_path, "w", encoding="utf-8") as f:
+        json.dump(output, f, ensure_ascii=False, indent=2)
+    print(f"\n结果已保存: {result_save_path}", file=sys.stderr)
+
+    print(f"\n=== 汇总 ===", file=sys.stderr)
+    s = output["summary"]
+    print(f"  总计: {s['total']}  匹配: {s['matched']} ✓  未匹配: {s['unmatched']}", file=sys.stderr)
+
+    print(f"\n[3/3] 回写定位结果到策略 8385...", file=sys.stderr)
+    import tempfile
+    data_param = json.dumps(output, ensure_ascii=False)
+    try:
+        with tempfile.NamedTemporaryFile(mode="w", suffix=".json", delete=False, encoding="utf-8") as tf:
+            tf.write(data_param)
+            tmp_path = tf.name
+        resp = call_strategy_api(8385, username, action="execute", param_file=f"data={tmp_path}")
+        print(f"  → 8385 回写结果: {resp.get('code', 'unknown')}", file=sys.stderr)
+        os.unlink(tmp_path)
+    except Exception as e:
+        print(f"  ! 8385 回写失败: {e}", file=sys.stderr)
+
+
 # ── 主流程 ────────────────────────────────────────────────────────
 def main():
     parser = argparse.ArgumentParser(description="煤矿设备定位")
@@ -1449,207 +1634,11 @@ def main():
         print("没有设备数据，退出。", file=sys.stderr)
         return
 
-    # ── Step 3: 匹配（两遍：先分组，再分配坐标偏移）──
-    print(f"\n[匹配] 匹配中...", file=sys.stderr)
+    # ── Step 3: 匹配 → 坐标分配 ──
+    results, unmatched, wind_warnings, matched_count = _match_devices(
+        devices, candidates, code_to_candidates, prefix_to_candidates, coalbed_map)
 
-    # 加载缓存
-    match_cache = _load_match_cache()
-    cache_hits = 0
-
-    # 第一遍：匹配所有设备
-    match_entries = []  # [(device, match_info, cleaned, sensor_type), ...]
-    unmatched = []
-
-    for device in devices:
-        desc = device.get("description", "")
-        cleaned = strip_prefix(desc)
-        mark_type = device.get("mark_type")
-        sensor_type = device.get("sensor_type") or _infer_sensor_type(desc, mark_type)
-        # 厂商名归一化：海康/大华/宇视/萤石 是品牌而非设备类型，B16 时统一为"工业视频"
-        if mark_type == "B16" and sensor_type in ("海康", "大华", "宇视", "萤石"):
-            sensor_type = "工业视频"
-        # 编码从原始描述提取（避免被前缀剥离误删）
-        device_code = extract_workface_code(desc)
-
-        # 先查缓存
-        cached = match_cache.get(_make_cache_key(desc, mark_type))
-        if cached:
-            cand = _find_cached_candidate(candidates, cached)
-            if cand:
-                cache_hits += 1
-                match = {
-                    "name": cand.get("name", ""),
-                    "lcs": 0,
-                    "score": cached.get("score", 10),
-                    "candidate": cand,
-                    "layer": _MATCH_LAYER_EXACT,
-                    "from_cache": True,
-                }
-                explicit_dist = extract_explicit_distance(desc)
-                match_entries.append((device, match, cleaned, sensor_type, explicit_dist))
-                continue
-
-        # area 语义过滤：地面设备不匹配井下候选
-        area_val = device.get("area")
-        if _is_surface_area(area_val):
-            unmatched.append({
-                "id": device.get("id", ""),
-                "description": desc,
-                "mark_type": mark_type or "",
-                "sensor_type": sensor_type,
-                "sysaliasname": device.get("sysaliasname", ""),
-                "reason": REJECT_AREA_SURFACE,
-                "device_code": device_code,
-                "area": area_val,
-            })
-            continue
-
-        # 正常匹配流程
-        match = find_best_match(cleaned, candidates, sensor_type=sensor_type,
-                                 device_code=device_code, code_to_candidates=code_to_candidates,
-                                 prefix_to_candidates=prefix_to_candidates,
-                                 coalbed_map=coalbed_map, mark_type=mark_type)
-        if match is None:
-            # 详细拒绝原因分析
-            reason = REJECT_LOW_LCS
-            if not candidates:
-                reason = REJECT_NO_CANDIDATE
-            elif device_code:
-                code_found = any(device_code in (c.get("name") or "") for c in candidates)
-                if not code_found:
-                    # 再试前缀匹配
-                    prefix_found = False
-                    for c in candidates:
-                        codes_in_name = re.findall(r'\d{3,4}', c.get("name", ""))
-                        if any(cn.startswith(device_code) for cn in codes_in_name):
-                            prefix_found = True
-                            break
-                    if not prefix_found:
-                        reason = REJECT_CODE_MISMATCH
-            if reason == REJECT_LOW_LCS:
-                # 检查是否是语义冲突导致所有候选得分过低
-                sem_blocked = True
-                for cand in candidates:
-                    if _semantic_penalty(cleaned, cand.get("name", ""), mark_type=mark_type) > -10:
-                        sem_blocked = False
-                        break
-                if sem_blocked and candidates:
-                    reason = REJECT_SEMANTIC_CONFLICT
-            unmatched.append({
-                "id": device.get("id", ""),
-                "description": desc,
-                "mark_type": mark_type or "",
-                "sensor_type": sensor_type,
-                "sysaliasname": device.get("sysaliasname", ""),
-                "reason": reason,
-                "device_code": device_code,
-                **({"area": device.get("area", "")} if device.get("area") else {}),
-            })
-            continue
-
-        # 高置信度匹配写入缓存
-        if match.get("layer") == _MATCH_LAYER_EXACT:
-            _add_to_cache(match_cache, desc, match, mark_type)
-
-        explicit_dist = extract_explicit_distance(desc)
-        match_entries.append((device, match, cleaned, sensor_type, explicit_dist))
-
-    if cache_hits > 0:
-        print(f"  → 缓存命中: {cache_hits} 个", file=sys.stderr)
-    _save_match_cache(match_cache)
-
-    # 按 (matched_name, keyword) 分组（同一巷道同一关键词的设备在同一组）
-    groups = {}
-    for device, match, cleaned, sensor_type, explicit_dist in match_entries:
-        keyword = _classify_keyword(cleaned)
-        group_key = (match["name"], keyword)
-        groups.setdefault(group_key, []).append((device, match, cleaned, sensor_type, explicit_dist))
-
-    def _calc_confidence(match: dict, cleaned: str, sensor_type: str = None) -> str:
-        layer = match.get("layer", _MATCH_LAYER_REJECT)
-        if layer == _MATCH_LAYER_EXACT:
-            return "高"
-        if layer == _MATCH_LAYER_LCS_PREF:
-            return "中"
-        if layer == _MATCH_LAYER_LOW:
-            return "低"
-        return "极低"
-
-    # 每组分配距离并计算坐标
-    results = []
-    matched_count = 0
-    for group_key, entries in groups.items():
-        name, keyword = group_key
-        candidate = entries[0][1]["candidate"]
-        line = candidate.get("line", [])
-        tunnel_type = candidate.get("type", "")
-        total_len = _polyline_length(line)
-        # 取组内出现最多的 sensor_type 作为代表
-        st_counts = {}
-        for _, _, _, st, _ in entries:
-            st_counts[st] = st_counts.get(st, 0) + 1
-        representative_st = max(st_counts, key=st_counts.get) if st_counts else None
-        # 剔除有显式距离的设备（不参与默认分配），其余设备按规则分配
-        implicit_count = sum(1 for _, _, _, _, ed in entries if ed is None)
-        explicit_entries = [(i, ed) for i, (_, _, _, _, ed) in enumerate(entries) if ed is not None]
-        implicit_distances = _assign_distances(implicit_count, keyword, total_len,
-                                                sensor_type=representative_st, tunnel_type=tunnel_type)
-        # 合并：按索引回填，显式距离按语义偏移
-        distances = [None] * len(entries)
-        for idx, ed in explicit_entries:
-            desc_clean = entries[idx][2]  # cleaned description
-            distances[idx] = _apply_keyword_offset(desc_clean, keyword, ed, total_len) if keyword else ed
-        imp_idx = 0
-        for i in range(len(distances)):
-            if distances[i] is None:
-                distances[i] = implicit_distances[imp_idx]
-                imp_idx += 1
-
-        for (device, match, cleaned, sensor_type, explicit_dist), dist in zip(entries, distances):
-            matched_count += 1
-            # 显式距离若超出折线总长，clamp 到终点并记录警告
-            if explicit_dist is not None and total_len > 0 and explicit_dist > total_len:
-                print(f"  ! 显式距离超出: {explicit_dist:.0f}m > {total_len:.0f}m "
-                      f"(matched={match['name']}, desc={device.get('description', '')[:60]})", file=sys.stderr)
-                dist = total_len
-                clamped = True
-            else:
-                clamped = False
-            ratio = dist / total_len if total_len > 0 else 0.5
-            coords = _polyline_interpolate(line, ratio) if line else {"x": None, "y": None, "z": None}
-
-            # z 坐标调整：根据 sensor_type 叠加安装高度
-            if coords.get("z") is not None and sensor_type in _SENSOR_INSTALL_HEIGHT:
-                coords = dict(coords)
-                coords["z"] = round(coords["z"] + _SENSOR_INSTALL_HEIGHT[sensor_type], 4)
-
-            results.append({
-                "id": device.get("id", ""),
-                "description": device.get("description", ""),
-                "matched": True,
-                "matched_name": match["name"],
-                "tunnel_id": (match["candidate"].get("tunnelId") or match["candidate"].get("id", "")),
-                "matched_type": match["candidate"].get("category", ""),
-                "tunnel_type": match["candidate"].get("type", ""),
-                "coalbed": match["candidate"].get("coalbed", ""),
-                "match_lcs": match["lcs"],
-                "match_score": match.get("score", 0),
-                "confidence": _calc_confidence(match, cleaned, sensor_type),
-                "mark_type": device.get("mark_type", ""),
-                "sensor_type": sensor_type,
-                "area": device.get("area", ""),
-                "sysaliasname": device.get("sysaliasname", ""),
-                **({"explicit_distance": round(explicit_dist, 1)} if explicit_dist is not None else {}),
-                **({"distance_clamped": True} if clamped else {}),
-                "coordinates": coords,
-            })
-
-    # 风速间距检查
-    wind_warnings = _check_wind_speed_spacing(groups)
-    if wind_warnings:
-        print(f"  ! 风速间距警告: {len(wind_warnings)} 条", file=sys.stderr)
-
-    # ── 输出 ──
+    # ── Step 4: 输出 + 回写 ──
     output = {
         "username": username,
         "mine_name": mine_name,
@@ -1663,33 +1652,90 @@ def main():
         "unmatched_devices": unmatched,
         "warnings": wind_warnings,
     }
-    print(json.dumps(output, ensure_ascii=False, indent=2))
-
-    result_save_dir = PROJECT_ROOT / "data" / "output"
-    result_save_dir.mkdir(parents=True, exist_ok=True)
-    result_save_path = result_save_dir / f"locator_result_{username}_{mine_name}.json"
-    with open(result_save_path, "w", encoding="utf-8") as f:
-        json.dump(output, f, ensure_ascii=False, indent=2)
-    print(f"\n结果已保存: {result_save_path}", file=sys.stderr)
-
-    print(f"\n=== 汇总 ===", file=sys.stderr)
-    print(f"  总计: {len(devices)}  匹配: {matched_count} ✓  未匹配: {len(unmatched)}", file=sys.stderr)
-
-    # ── Step 4: 回写定位结果到策略 8385 ──
-    print(f"\n[3/3] 回写定位结果到策略 8385...", file=sys.stderr)
-    import tempfile
-    data_param = json.dumps(output, ensure_ascii=False)
-    try:
-        with tempfile.NamedTemporaryFile(mode="w", suffix=".json", delete=False, encoding="utf-8") as tf:
-            tf.write(data_param)
-            tmp_path = tf.name
-        resp = call_strategy_api(8385, username, action="execute",
-                                 param_file=f"data={tmp_path}")
-        print(f"  → 8385 回写结果: {resp.get('code', 'unknown')}", file=sys.stderr)
-        os.unlink(tmp_path)
-    except Exception as e:
-        print(f"  ! 8385 回写失败: {e}", file=sys.stderr)
+    _save_and_writeback(output, username)
 
 
 if __name__ == "__main__":
     main()
+
+
+# ── 规则来源注册表（集中登记，便于审计追查）─────────────────────────
+# 修改 _assign_distances 或匹配逻辑中的数据表时，请同步更新此注册表。
+# 每个条目对应一条规则及其行业标准来源。条款号以 PDF 原文为准。
+_RULES_REGISTRY = {
+    "安装高度": {
+        "table": "_SENSOR_INSTALL_HEIGHT",
+        "standard": "AQ 1029-2019 §6.1.1, DB51T1412-2011 §5.2.3, MT/T 1201.6-2023 §4.2",
+        "desc": "各 sensor_type 相对于巷道底板的 z 偏移（含条款依据）",
+    },
+    "T 标识位置": {
+        "table": "_T_POSITION_RULES",
+        "standard": "AQ 1029-2019 §6.2.1, §6.3.1",
+        "desc": "T0-T4 标识→折线区间比例（用于掘进/采煤工作面传感器定位）",
+    },
+    "巷道类型 × sensor_type": {
+        "table": "_TUNNEL_TYPE_RULES",
+        "standard": "AQ 1029-2019 各条, MT/T 1201.6-2023 附录 A",
+        "desc": "特定巷道 type + sensor_type→精确米数/方向规则",
+    },
+    "AQ1029 距离规则（通用）": {
+        "table": "_AQ1029_DISTANCE_RULES",
+        "standard": "AQ 1029-2019 §6.3.1, §7.2.1, §7.6, §7.7.3, §7.8",
+        "desc": "通用精确距离：keyword × sensor_type → start/end/mid 方向+米数",
+    },
+    "关键词区间（多设备）": {
+        "table": "_KEYWORD_ZONE_RULES",
+        "standard": "AQ 1029-2019, MT/T 1198-2023 §5, DB51T1412-2011 §5.1.8, MT/T 1201.6-2023 附录 A",
+        "desc": "关键词→折线区间比例（如迎头0-15%、井口0-10%）→多设备分布",
+    },
+    "关键词精确位置（单设备）": {
+        "table": "_KEYWORD_SINGLE_RATIO",
+        "standard": "同上",
+        "desc": "关键词→折线精确比例（单设备 count≤1 时使用）",
+    },
+    "sensor_type 默认区间": {
+        "table": "_SENSOR_DEFAULT_ZONES + _SENSOR_SINGLE_RATIO",
+        "standard": "AQ 1029-2019, DB51T1412-2011",
+        "desc": "兜底：无 keyword 匹配时按 sensor_type 的默认区间/比例",
+    },
+    "sensor_type 巷道偏好（匹配加分）": {
+        "table": "_SENSOR_TUNNEL_PREF",
+        "standard": "AQ 1029-2019, MT/T 1198-2023, MT/T 1201.6-2023",
+        "desc": "匹配阶段：sensor_type 偏好关键词命中→score +2",
+    },
+    "巷道类型匹配加分": {
+        "table": "_TUNNEL_TYPE_MATCH_BONUS",
+        "standard": "实际数据观察",
+        "desc": "匹配阶段：description 关键词→候选 type 匹配→+1~+3",
+    },
+    "地点语义惩罚": {
+        "table": "_LOCATION_SEMANTICS",
+        "standard": "实际数据观察",
+        "desc": "匹配阶段：洗煤厂/中央变电所/避难硐室/井口/地面 语义不匹配→-10",
+    },
+    "别名映射（LCS 前扩展）": {
+        "table": "_TUNNEL_ALIAS_MAP",
+        "standard": "煤矿术语习惯 + 实际数据观察",
+        "desc": "匹配阶段：皮顺↔皮带顺槽、切巷↔切眼 等缩写/全称双向扩展",
+    },
+    "标记类型→系统大类": {
+        "table": "_MARK_TYPE_TO_SYSTEM",
+        "standard": "煤矿系统分类",
+        "desc": "mark_type（B14/B15/B16）→系统名称",
+    },
+    "关键词分类表": {
+        "table": "_CLASSIFY_KEYWORD_TABLE",
+        "standard": "AQ 1029-2019, MT/T 1201.6-2023 附录 A, MT/T 1198-2023",
+        "desc": "设备描述→位置关键词（按优先级降序排列）",
+    },
+    "工业视频多设备步长": {
+        "table": "内联于 _assign_distances 函数",
+        "standard": "MT/T 1201.6-2023 附录 A.1",
+        "desc": "B16 组内间距：支架75m / 主运输皮带中部500m / 架空乘人100m",
+    },
+    "地面 area 过滤": {
+        "table": "_AREA_SURFACE_PATTERNS",
+        "standard": "实际数据观察",
+        "desc": "area 含地面/洗选/磅房 等关键词时跳过井下候选",
+    },
+}
