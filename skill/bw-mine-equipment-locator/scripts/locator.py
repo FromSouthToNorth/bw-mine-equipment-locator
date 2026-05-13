@@ -326,8 +326,15 @@ def _expand_aliases(text: str) -> str:
 
 
 def _candidate_matches_sensor_pref(name: str, sensor_type: str) -> bool:
+    """返回候选名是否命中 sensor_type 偏好关键词（True/False，用于匹配加分判断）。"""
     prefs = _SENSOR_TUNNEL_PREF.get(sensor_type, [])
     return any(p in name for p in prefs)
+
+
+def _count_sensor_pref_matches(name: str, sensor_type: str) -> int:
+    """返回候选名命中 sensor_type 偏好关键词的数量（用于平局时的质量判断）。"""
+    prefs = _SENSOR_TUNNEL_PREF.get(sensor_type, [])
+    return sum(1 for p in prefs if p in name)
 
 
 # ── T 标识位置规则 (AQ 1029-2019) ─────────────────────────────────
@@ -367,6 +374,38 @@ def _is_surface_area(area: str) -> bool:
         return False
     for pattern in _AREA_SURFACE_PATTERNS:
         if pattern in area:
+            return True
+    return False
+
+
+# ── description 语义分类（地面/井下）────────────────────────────────
+# 补充 area 过滤的不足：当 area 未标记为地面但描述明显是地面设施时，
+# 同样跳过井下候选。
+_DESCRIPTION_SURFACE_PATTERNS = [
+    "调度楼",
+    "办公楼",
+    "宿舍楼",
+    "培训楼",
+    "培训室",
+    "化验室",
+    "会议室",
+    "职工食堂",
+    "澡堂",
+    "灯房",
+    "煤场",
+    "工业广场",
+    "门卫",
+    "机修车间",
+    "加工车间",
+]
+
+
+def _is_surface_description(description: str) -> bool:
+    """根据 description 判断设备是否属于地面设施。"""
+    if not description:
+        return False
+    for pattern in _DESCRIPTION_SURFACE_PATTERNS:
+        if pattern in description:
             return True
     return False
 
@@ -627,14 +666,19 @@ def extract_workface_code(description: str) -> str:
 
 def extract_explicit_distance(description: str) -> float or None:
     """从描述中提取显式距离（米），如 '2730米' → 2730.0, '10米_人数' → 10.0。
+    支持中文小数记法：'50米2' = 50.2米, '10米5' = 10.5米。
     用于精确位置计算，优先级高于所有分类规则。
     对方向偏移型（'东80米'）仍提取距离，但标注为方向型需要二次处理。
     """
-    # 匹配 'NN米' 模式，距离数字 ≥2 位（避免匹配楼层号如 "10米2"中 "10米"）
+    # 0. 中文小数：'50米2' = 50.2米（米后面一位数字是小数，后接结束符或_/)处）
+    m = re.search(r'(\d{2,})\s*米\s*(\d)\s*(?:_|\)|处|$)', description)
+    if m:
+        return float(f"{m.group(1)}.{m.group(2)}")
+    # 1. 匹配 'NN米' 模式，距离数字 ≥2 位（避免匹配楼层号如 "10米2"中 "10米"）
     m = re.search(r'(\d{2,})\s*米', description)
     if m:
         return float(m.group(1))
-    # 匹配 'N米_'/'N米)' 等 1 位数字但当距离用（如 '口5米_', '10米_', '15米处', '20米)'）
+    # 2. 匹配 'N米_'/'N米)' 等 1 位数字但当距离用（如 '口5米_', '10米_', '15米处', '20米)'）
     m = re.search(r'(\d+)\s*米[_\)处]', description)
     if m:
         return float(m.group(1))
@@ -784,9 +828,11 @@ def find_best_match(cleaned: str, candidates: list, sensor_type: str = None,
 
         if score >= 2 and score > best_score:
             best_score = score
-            best = {"name": name, "lcs": lcs_len, "score": score, "candidate": cand, "layer": layer}
+            _best_pref_count = _count_sensor_pref_matches(name, sensor_type) if sensor_type else 0
+            best = {"name": name, "lcs": lcs_len, "score": score, "candidate": cand, "layer": layer,
+                    "_pref_count": _best_pref_count}
         elif score == best_score and best is not None and score >= 2:
-            # 平局：优先编码匹配，然后 LCS 更长，然后名称更短（更精确）
+            # 平局：优先编码匹配，然后 LCS 更长，然后名称更短，然后 sensor_type 偏好匹配数更多
             best_idx = candidates.index(best["candidate"])
             if idx in code_indices and best_idx not in code_indices:
                 best = {"name": name, "lcs": lcs_len, "score": score, "candidate": cand, "layer": layer}
@@ -794,6 +840,11 @@ def find_best_match(cleaned: str, candidates: list, sensor_type: str = None,
                 best = {"name": name, "lcs": lcs_len, "score": score, "candidate": cand, "layer": layer}
             elif len(name) < len(best["name"]):
                 best = {"name": name, "lcs": lcs_len, "score": score, "candidate": cand, "layer": layer}
+            elif sensor_type:
+                cur_pref_count = _count_sensor_pref_matches(name, sensor_type)
+                if cur_pref_count > best.get("_pref_count", 0):
+                    best = {"name": name, "lcs": lcs_len, "score": score, "candidate": cand, "layer": layer,
+                            "_pref_count": cur_pref_count}
     return best
 
 
@@ -1316,7 +1367,7 @@ def _match_devices(devices: list, candidates: list,
                                       extract_explicit_distance(desc)))
                 continue
 
-        if _is_surface_area(device.get("area")):
+        if _is_surface_area(device.get("area")) or _is_surface_description(desc):
             unmatched.append({
                 "id": device.get("id", ""), "description": desc,
                 "mark_type": mark_type or "", "sensor_type": sensor_type,

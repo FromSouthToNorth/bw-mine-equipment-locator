@@ -2,16 +2,54 @@
 
 根据设备描述（description）匹配到对应巷道或工作面，再从巷道/工作面的折线（line）坐标中计算得出设备的 (x, y, z) 坐标。
 
-**输入：** 用户提供的 username（如 `F18795450`）  
+**输入：** 用户提供的 username（如 `F18795450`），可选指定设备数据文件  
 **输出：** 每个设备匹配到巷道/工作面后的 (x, y, z) 坐标
+
+### 自然语言调用
+
+| 用户说 | 执行 |
+|--------|------|
+| `设备定位 F09795450` | `python skill/.../locator.py F09795450` |
+| `定位 F18795450` | `python skill/.../locator.py F18795450` |
+| `跑一下 locator F09795450` | `python skill/.../locator.py F09795450` |
+| `设备定位 F09795450 evals/devices.json` | `python skill/.../locator.py F09795450 evals/devices.json` |
+| `用本地设备文件定位 F09795450` | `python skill/.../locator.py F09795450 <文件路径>` |
+
+触发关键词：`定位`、`设备定位`、`locator` + 用户名（`F\d+` 格式）
 
 ### 快速运行
 
+从 API 拉取数据并定位：
 ```bash
-python3 skill/bw-mine-equipment-locator/scripts/locator.py F18795450
+python skill/bw-mine-equipment-locator/scripts/locator.py F18795450
+```
+
+从本地设备文件定位（巷道/工作面仍从 API 获取）：
+```bash
+python skill/bw-mine-equipment-locator/scripts/locator.py F09795450 evals/devices.json
 ```
 
 输出 JSON 到 stdout（含每个设备的 matched_name 和 coordinates），汇总到 stderr。
+
+### 命令行参数
+
+```
+usage: locator.py [-h] [--load PATH] [--load-devices PATH]
+                  [--load-tunnels PATH] [--load-workfaces PATH]
+                  username [DEVICES_FILE]
+
+positional arguments:
+  username              用户名（如 F18795450）
+  DEVICES_FILE          设备数据文件（自动识别为 --load-devices）
+
+options:
+  --load PATH           从本地文件加载完整 8373 数据（含 devices/tunnels/workfaces）
+  --load-devices PATH   从本地文件加载设备数据
+  --load-tunnels PATH   从本地文件加载巷道数据
+  --load-workfaces PATH 从本地文件加载工作面数据
+```
+
+注：本机 `python3` 不可用，使用 `python` 即可。
 
 ---
 
