@@ -69,7 +69,7 @@ python3 skill/bw-mine-equipment-locator/scripts/locator.py <username>
 
 | 策略 | 来源 | 内容 |
 | ---- | ---- | ---- |
-| 8373 | `bw-strategy-api-caller get_json --id 8373` | 设备、巷道、工作面全量数据。设备含 `description` + `mark_type`；巷道含 `name` + `line`；工作面含 `workFaceName` + `line` |
+| 8373 | `bw-strategy-api-caller get_json --id 8373` | 设备、巷道、工作面全量数据。设备含 `description` + `mark_type` + `area`；巷道含 `name` + `line`；工作面含 `workFaceName` + `line` |
 | 8385 | `bw-strategy-api-caller execute --id 8385 --param data=<JSON>` | 回写定位结果（匹配后的坐标）到系统 |
 
 ## 匹配逻辑
@@ -230,6 +230,7 @@ score = LCS_长度(别名扩展后)
 | `CODE_MISMATCH` | 提取到编码但所有候选均不匹配(含前缀尝试) |
 | `SEMANTIC_CONFLICT` | 语义惩罚阻断所有候选 |
 | `LOW_LCS` | LCS 得分过低(<2) |
+| `AREA_SURFACE` | area 语义为地面(非井下)，排除巷道/工作面候选 |
 
 ### 11. 匹配缓存
 

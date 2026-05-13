@@ -1,0 +1,42 @@
+[
+  {
+    "id": "SXBAMY0030120021A11",
+    "sysaliasname": "安全监测系统",
+    "description": "中央变电所室内温度_环境温度",
+    "sensor_type": "温度",
+    "area": "中央变电所室内温度_环境温度",
+    "mark_type": "B14"
+  },
+  {
+    "id": "SXBAMY0030120021F00",
+    "sysaliasname": "安全监测系统",
+    "description": "中央变电所",
+    "sensor_type": "分站",
+    "area": "中央变电所",
+    "mark_type": "B14"
+  },
+  {
+    "id": "SXBAMY0030140006G02",
+    "sysaliasname": "人员定位系统",
+    "description": "旧1501轨道斜巷第一变电所外西60米_人数",
+    "sensor_type": "人数",
+    "area": "1501轨道斜巷区域",
+    "mark_type": "B15"
+  },
+  {
+    "id": "SXBAMY0030140003G03",
+    "sysaliasname": "人员定位系统",
+    "description": "15103高抽联巷口东5米_人数",
+    "sensor_type": "人数",
+    "area": "15103高抽联巷",
+    "mark_type": "B15"
+  },
+  {
+    "id": "SXBAMY0030121d580e9869bd3c",
+    "sysaliasname": "工业视频监控系统",
+    "description": "保安煤矿中央变电所西",
+    "sensor_type": "工业视频",
+    "area": "井下机房硐室",
+    "mark_type": "B16"
+  }
+]

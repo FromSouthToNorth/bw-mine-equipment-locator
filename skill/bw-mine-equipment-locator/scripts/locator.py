@@ -189,8 +189,8 @@ def _infer_sensor_type(description: str, mark_type: str = None) -> str:
     """从 description 关键词推断传感器/设备类型。mark_type 与 sensor_type 是完全不同的概念，不要混淆。
 
     `mark_type` 是系统大类：B14=安全监测、B15=人员定位、B16=工业视频。
-    当描述无明确关键词、但 mark_type=B16 时，默认返回"摄像仪"——
-    依据 MT/T 1201.6-2023 附录 A：B16 视频系统的设备类型即"摄像仪"。
+    当描述无明确关键词、但 mark_type=B16 时，默认返回"工业视频"——
+    依据 MT/T 1201.6-2023 附录 A：B16 视频系统的设备类型即"工业视频"。
     """
     d = description
     if "二氧化碳" in d or "CO2" in d:
@@ -219,13 +219,13 @@ def _infer_sensor_type(description: str, mark_type: str = None) -> str:
         return "断电"
     if "人数" in d or "人员" in d:
         return "人员定位"
-    # B16 设备类型：摄像仪（不是"工业视频"——那是 mark_type/B16 的系统名称）
-    if any(kw in d for kw in ["摄像仪", "摄像头", "视频监控", "视频监测", "工业视频"]):
-        return "摄像仪"
-    # mark_type=B16 兜底：若描述未明示但 mark_type=B16，默认设备类型为"摄像仪"
-    # （依据 MT/T 1201.6-2023 附录 A：B16 系统所有设备均为摄像仪）
+    # B16 设备类型
+    if any(kw in d for kw in ["工业视频", "摄像头", "视频监控", "视频监测"]):
+        return "工业视频"
+    # mark_type=B16 兜底
     if mark_type == "B16":
-        return "摄像仪"
+    if mark_type == "B16":
+        return "工业视频"
     return None
 
 
@@ -253,8 +253,8 @@ _SENSOR_TUNNEL_PREF = {
     "二氧化碳": ["采空", "封闭火区", "回风巷"],
     "负压": ["风机", "通风机", "风筒"],
     # B16 工业视频 — MT/T 1201.6-2023 附录 A.1（井工煤矿 54 处）
-    # 注意：sensor_type 是设备类型（摄像仪），不是厂商名（海康/大华/宇视）。
-    "摄像仪": [
+    # 注意：sensor_type 是设备类型（工业视频），不是厂商名（海康/大华/宇视）。
+    "工业视频": [
         # 工作面/巷道
         "工作面", "顺槽", "运输巷", "回风巷", "进风巷", "大巷", "斜巷",
         "支架", "超前支护", "迎头",          # A.1#1,2,3,10
@@ -341,6 +341,37 @@ _T_POSITION_RULES = {
 }
 
 
+# ── area 语义分类（地面/井下）────────────────────────────────────
+# area 字段标记设备所属区域，地面设备不应匹配井下巷道/工作面。
+# 匹配前判断 area 语义，地面设备直接跳过所有候选。
+_AREA_SURFACE_PATTERNS = [
+    "地面",     # 地面、地面机房硐室等
+    "洗选",     # 洗选中心、洗选中心化验室
+    "洗煤",     # 洗煤厂…
+    "销售",     # 销售磅房、销售装车视频
+    "磅房",     # 空磅房卡口
+    "风机房",   # 地面风机房
+    "材料大库房",
+    "炸药库",
+    "计算机资源",
+    "档案室",
+    "队组楼",
+    "设备废料",
+    "井上",
+]
+
+
+def _is_surface_area(area: str) -> bool:
+    """根据 area 字段判断设备是否属于地面（非井下），
+    地面设备不应匹配井下巷道/工作面候选。"""
+    if not area:
+        return False
+    for pattern in _AREA_SURFACE_PATTERNS:
+        if pattern in area:
+            return True
+    return False
+
+
 # ── 地点类型语义过滤 ──────────────────────────────────────────────
 _LOCATION_SEMANTICS = {
     "洗煤厂": {"allow": ["洗煤厂"], "penalty": -10},
@@ -358,18 +389,18 @@ _TUNNEL_TYPE_RULES = {
         "瓦斯": {"from": "end", "meters": 10, "tolerance": 3},      # 距工作面≤10m
         "风速": {"from": "mid", "meters": 0, "station": True},     # 测风站(7.2.1)
         "一氧化碳": {"from": "end", "meters": 10, "tolerance": 3}, # 回风巷(7.1.2)
-        "摄像仪": {"from": "end", "meters": 17, "tolerance": 5},   # MT/T 1201.6 A.1#4,11: 回风口外15-20m
+        "工业视频": {"from": "end", "meters": 17, "tolerance": 5},   # MT/T 1201.6 A.1#4,11: 回风口外15-20m
     },
     "27-工作面进风巷(胶运顺槽)": {
         "风速": {"from": "mid", "meters": 0, "station": True},     # 测风站(7.2.1)
         "烟雾": {"from": "start", "meters": 3, "tolerance": 1},   # 皮带机头(7.6)
         "粉尘": {"from": "start", "meters": 3, "tolerance": 1},   # 产尘点(7.8)
-        "摄像仪": {"from": "start", "meters": 12, "tolerance": 3}, # MT/T 1201.6 A.1#3: 进风超前支护距煤壁10-15m
+        "工业视频": {"from": "start", "meters": 12, "tolerance": 3}, # MT/T 1201.6 A.1#3: 进风超前支护距煤壁10-15m
     },
     "28-工作面切眼": {
         "瓦斯": {"from": "start", "meters": 5, "tolerance": 2},   # 距迎头≤5m(6.3.1 图3)
         "一氧化碳": {"from": "start", "meters": 5, "tolerance": 2},# 上隅角(7.1.2)
-        "摄像仪": {"from": "mid", "meters": 0},                    # MT/T 1201.6 A.1#1: 支架沿切眼均匀分布
+        "工业视频": {"from": "mid", "meters": 0},                    # MT/T 1201.6 A.1#1: 支架沿切眼均匀分布
     },
     "3-煤仓": {
         "瓦斯": {"from": "start", "meters": 2, "tolerance": 1},   # 煤仓上口(6.4.3)
@@ -380,7 +411,7 @@ _TUNNEL_TYPE_RULES = {
     "29-回采工作面巷道": {
         "瓦斯": {"from": "mid", "meters": 0},                      # 工作面中部
         "粉尘": {"from": "start", "meters": 5, "tolerance": 2},   # 采煤机产尘点(7.8)
-        "摄像仪": {"from": "start", "meters": 12, "tolerance": 3}, # MT/T 1201.6 A.1#2: 回风超前支护距煤壁10-15m
+        "工业视频": {"from": "start", "meters": 12, "tolerance": 3}, # MT/T 1201.6 A.1#2: 回风超前支护距煤壁10-15m
     },
 }
 
@@ -409,7 +440,7 @@ _SENSOR_INSTALL_HEIGHT = {
     "二氧化碳": 0.5, # CO2 重于空气，距底板 0.3-1.5m
     "负压":   0.0,   # 风压表，贴风筒/风机出口
     "人员定位": 0.3,   # DB51T1412-2011 5.2.3: 读卡器靠近顶板及帮侧 300mm；分站距底板 ≥300mm。AQ 1119-2023 §5.1.3 + MT/T 1198-2023 §5.1.6 工艺约束：远离人员碰触位置、固定支撑良好
-    "摄像仪": 1.8,    # MT/T 1201.6-2023 §4.2 + 附录 A：以人眼高度近似（巷道/硐室通用）
+    "工业视频": 1.8,    # MT/T 1201.6-2023 §4.2 + 附录 A：以人眼高度近似（巷道/硐室通用）
 }
 
 
@@ -442,6 +473,7 @@ REJECT_CODE_MISMATCH = "CODE_MISMATCH"         # 编码存在但候选中无匹�
 REJECT_SEMANTIC_CONFLICT = "SEMANTIC_CONFLICT"  # 语义惩罚阻断所有候选
 REJECT_LOW_LCS = "LOW_LCS"                     # LCS 得分过低 (< 2)
 REJECT_PREFIX_MISMATCH = "PREFIX_MISMATCH"     # 前缀模糊匹配失败
+REJECT_AREA_SURFACE = "AREA_SURFACE"           # area 语义为地面，不匹配井下候选
 
 
 def _extract_t_keyword(description: str) -> str:
@@ -488,6 +520,22 @@ def extract_workface_code(description: str) -> str:
     return None
 
 
+def extract_explicit_distance(description: str) -> float or None:
+    """从描述中提取显式距离（米），如 '2730米' → 2730.0, '10米_人数' → 10.0。
+    用于精确位置计算，优先级高于所有分类规则。
+    对方向偏移型（'东80米'）仍提取距离，但标注为方向型需要二次处理。
+    """
+    # 匹配 'NN米' 模式，距离数字 ≥2 位（避免匹配楼层号如 "10米2"中 "10米"）
+    m = re.search(r'(\d{2,})\s*米', description)
+    if m:
+        return float(m.group(1))
+    # 匹配 'N米_'/'N米)' 等 1 位数字但当距离用（如 '口5米_', '10米_', '15米处', '20米)'）
+    m = re.search(r'(\d+)\s*米[_\)处]', description)
+    if m:
+        return float(m.group(1))
+    return None
+
+
 def _semantic_penalty(description: str, candidate_name: str, mark_type: str = None) -> int:
     """语义惩罚：若描述含某地点关键词但候选不匹配允许列表，返回惩罚值。
     B16/B15 设备放宽部分惩罚，允许匹配到近似候选（粗略坐标）。"""
@@ -513,6 +561,25 @@ def _semantic_penalty(description: str, candidate_name: str, mark_type: str = No
             if not any(allow in candidate_name for allow in rule["allow"]):
                 return rule["penalty"]
     return 0
+
+
+def _apply_keyword_offset(description: str, keyword: str, explicit_dist: float, total_len: float) -> float:
+    """当 keyword 有语义区间且描述含方向+距离时，从区间基准偏移而非从起点算。
+    如"旧1501轨道斜巷第一变电所外西60米"→keyword=硐室(50%)，偏移-60m。"""
+    zone_centers = {
+        "硐室": 0.5, "充电站": 0.5,
+        "井口": 0.05, "井底": 0.95, "岔口": 0.15,
+    }
+    if keyword not in zone_centers or total_len <= 0:
+        return explicit_dist
+    base_pos = total_len * zone_centers[keyword]
+    m = re.search(r'[外内]?([东西南北])\s*(\d+)\s*米', description)
+    if not m:
+        return explicit_dist
+    direction, dist_str = m.groups()
+    factor = {"东": 1, "西": -1, "南": 1, "北": -1}.get(direction, 1)
+    final_pos = base_pos + factor * float(dist_str)
+    return max(0.0, min(total_len, final_pos))
 
 
 def longest_common_substring_len(s1: str, s2: str) -> int:
@@ -554,10 +621,10 @@ def find_best_match(cleaned: str, candidates: list, sensor_type: str = None,
         name = cand.get("name") or ""
         if not name:
             continue
-        # LCS 使用别名扩展后的文本
+        # LCS 使用别名扩展后的文本（归一化到候选名长度，避免长名靠字符多取胜）
         name_expanded = _expand_aliases(name)
         lcs_len = longest_common_substring_len(cleaned_expanded, name_expanded)
-        score = lcs_len
+        score = round(lcs_len * 10 / len(name)) if name else 0
 
         # sensor_type 巷道偏好加权
         if sensor_type and lcs_len >= 2 and _candidate_matches_sensor_pref(name, sensor_type):
@@ -614,13 +681,13 @@ def find_best_match(cleaned: str, candidates: list, sensor_type: str = None,
             best_score = score
             best = {"name": name, "lcs": lcs_len, "score": score, "candidate": cand, "layer": layer}
         elif score == best_score and best is not None and score >= 2:
-            # 平局：优先编码匹配，然后 LCS 更长，然后名称更长
+            # 平局：优先编码匹配，然后 LCS 更长，然后名称更短（更精确）
             best_idx = candidates.index(best["candidate"])
             if idx in code_indices and best_idx not in code_indices:
                 best = {"name": name, "lcs": lcs_len, "score": score, "candidate": cand, "layer": layer}
             elif lcs_len > best["lcs"]:
                 best = {"name": name, "lcs": lcs_len, "score": score, "candidate": cand, "layer": layer}
-            elif len(name) > len(best["name"]):
+            elif len(name) < len(best["name"]):
                 best = {"name": name, "lcs": lcs_len, "score": score, "candidate": cand, "layer": layer}
     return best
 
@@ -671,10 +738,10 @@ def _assign_distances(count: int, keyword: str, line_length: float,
     优先使用精确米数规则，次选百分比规则。
     若区间放不下所有设备，则在该区间内均匀分布。
     """
-    # B16 摄像仪同组多设备的标准间距（MT/T 1201.6-2023 附录 A）
-    if sensor_type == "摄像仪":
+    # B16 工业视频同组多设备的标准间距（MT/T 1201.6-2023 附录 A）
+    if sensor_type == "工业视频":
         if keyword == "支架":
-            step = 75.0     # A.1#1: 两摄像仪间距 ≤50架≈75m
+            step = 75.0     # A.1#1: 两工业视频间距 ≤50架≈75m
         elif keyword == "中部":
             step = 500.0    # A.1#16: 主运输皮带中部每500m一台
         elif keyword == "架空乘人":
@@ -1029,7 +1096,7 @@ def _validate_devices(devices: list) -> list:
             "id": dev.get("id") or f"AUTO_{auto_id:03d}",
             "description": desc.strip(),
         }
-        for field, expected in [("sensor_type", str), ("mark_type", str), ("sysaliasname", str)]:
+        for field, expected in [("sensor_type", str), ("mark_type", str), ("sysaliasname", str), ("area", str)]:
             val = dev.get(field)
             if val is not None and not isinstance(val, expected):
                 print(f"  ! 跳过 devices[{i}] {field}: 类型错误（期望 {expected.__name__}）", file=sys.stderr)
@@ -1198,7 +1265,7 @@ def _check_wind_speed_spacing(groups: dict) -> list:
         total_len = _polyline_length(line)
         # 取组内代表 sensor_type 计算距离
         st_counts = {}
-        for _, _, _, st in entries:
+        for _, _, _, st, _ in entries:
             st_counts[st] = st_counts.get(st, 0) + 1
         representative_st = max(st_counts, key=st_counts.get) if st_counts else None
         distances = _assign_distances(len(entries), keyword, total_len,
@@ -1230,6 +1297,8 @@ def _check_wind_speed_spacing(groups: dict) -> list:
 def main():
     parser = argparse.ArgumentParser(description="煤矿设备定位")
     parser.add_argument("username", help="用户名（如 F18795450）")
+    parser.add_argument("devices_file", nargs="?", metavar="DEVICES_FILE",
+                        help="设备数据文件（自动识别为 --load-devices）")
     parser.add_argument("--load", metavar="PATH",
                         help="从本地文件加载完整 8373 数据（含 devices/tunnels/workfaces）")
     parser.add_argument("--load-devices", metavar="PATH",
@@ -1241,7 +1310,8 @@ def main():
     args = parser.parse_args()
     username = args.username
 
-    # 判断哪些数据需要从文件加载
+    # 判断哪些数据需要从文件加载（裸文件参数自动识别为 --load-devices）
+    args.load_devices = args.load_devices or args.devices_file
     file_devices = args.load_devices or (args.load and "devices")
     file_tunnels = args.load_tunnels or (args.load and "tunnels")
     file_workfaces = args.load_workfaces or (args.load and "workfaces")
@@ -1395,12 +1465,9 @@ def main():
         cleaned = strip_prefix(desc)
         mark_type = device.get("mark_type")
         sensor_type = device.get("sensor_type") or _infer_sensor_type(desc, mark_type)
-        # 归一化：上游数据可能把系统名称"工业视频"误填为 sensor_type，纠正为设备类型"摄像仪"
-        if sensor_type == "工业视频":
-            sensor_type = "摄像仪"
-        # 厂商名归一化：海康/大华/宇视/萤石 是品牌而非设备类型，B16 时统一为"摄像仪"
+        # 厂商名归一化：海康/大华/宇视/萤石 是品牌而非设备类型，B16 时统一为"工业视频"
         if mark_type == "B16" and sensor_type in ("海康", "大华", "宇视", "萤石"):
-            sensor_type = "摄像仪"
+            sensor_type = "工业视频"
         # 编码从原始描述提取（避免被前缀剥离误删）
         device_code = extract_workface_code(desc)
 
@@ -1418,8 +1485,24 @@ def main():
                     "layer": _MATCH_LAYER_EXACT,
                     "from_cache": True,
                 }
-                match_entries.append((device, match, cleaned, sensor_type))
+                explicit_dist = extract_explicit_distance(desc)
+                match_entries.append((device, match, cleaned, sensor_type, explicit_dist))
                 continue
+
+        # area 语义过滤：地面设备不匹配井下候选
+        area_val = device.get("area")
+        if _is_surface_area(area_val):
+            unmatched.append({
+                "id": device.get("id", ""),
+                "description": desc,
+                "mark_type": mark_type or "",
+                "sensor_type": sensor_type,
+                "sysaliasname": device.get("sysaliasname", ""),
+                "reason": REJECT_AREA_SURFACE,
+                "device_code": device_code,
+                "area": area_val,
+            })
+            continue
 
         # 正常匹配流程
         match = find_best_match(cleaned, candidates, sensor_type=sensor_type,
@@ -1460,6 +1543,7 @@ def main():
                 "sysaliasname": device.get("sysaliasname", ""),
                 "reason": reason,
                 "device_code": device_code,
+                **({"area": device.get("area", "")} if device.get("area") else {}),
             })
             continue
 
@@ -1467,7 +1551,8 @@ def main():
         if match.get("layer") == _MATCH_LAYER_EXACT:
             _add_to_cache(match_cache, desc, match, mark_type)
 
-        match_entries.append((device, match, cleaned, sensor_type))
+        explicit_dist = extract_explicit_distance(desc)
+        match_entries.append((device, match, cleaned, sensor_type, explicit_dist))
 
     if cache_hits > 0:
         print(f"  → 缓存命中: {cache_hits} 个", file=sys.stderr)
@@ -1475,10 +1560,10 @@ def main():
 
     # 按 (matched_name, keyword) 分组（同一巷道同一关键词的设备在同一组）
     groups = {}
-    for device, match, cleaned, sensor_type in match_entries:
+    for device, match, cleaned, sensor_type, explicit_dist in match_entries:
         keyword = _classify_keyword(cleaned)
         group_key = (match["name"], keyword)
-        groups.setdefault(group_key, []).append((device, match, cleaned, sensor_type))
+        groups.setdefault(group_key, []).append((device, match, cleaned, sensor_type, explicit_dist))
 
     def _calc_confidence(match: dict, cleaned: str, sensor_type: str = None) -> str:
         layer = match.get("layer", _MATCH_LAYER_REJECT)
@@ -1501,13 +1586,35 @@ def main():
         total_len = _polyline_length(line)
         # 取组内出现最多的 sensor_type 作为代表
         st_counts = {}
-        for _, _, _, st in entries:
+        for _, _, _, st, _ in entries:
             st_counts[st] = st_counts.get(st, 0) + 1
         representative_st = max(st_counts, key=st_counts.get) if st_counts else None
-        distances = _assign_distances(len(entries), keyword, total_len,
-                                       sensor_type=representative_st, tunnel_type=tunnel_type)
-        for (device, match, cleaned, sensor_type), dist in zip(entries, distances):
+        # 剔除有显式距离的设备（不参与默认分配），其余设备按规则分配
+        implicit_count = sum(1 for _, _, _, _, ed in entries if ed is None)
+        explicit_entries = [(i, ed) for i, (_, _, _, _, ed) in enumerate(entries) if ed is not None]
+        implicit_distances = _assign_distances(implicit_count, keyword, total_len,
+                                                sensor_type=representative_st, tunnel_type=tunnel_type)
+        # 合并：按索引回填，显式距离按语义偏移
+        distances = [None] * len(entries)
+        for idx, ed in explicit_entries:
+            desc_clean = entries[idx][2]  # cleaned description
+            distances[idx] = _apply_keyword_offset(desc_clean, keyword, ed, total_len) if keyword else ed
+        imp_idx = 0
+        for i in range(len(distances)):
+            if distances[i] is None:
+                distances[i] = implicit_distances[imp_idx]
+                imp_idx += 1
+
+        for (device, match, cleaned, sensor_type, explicit_dist), dist in zip(entries, distances):
             matched_count += 1
+            # 显式距离若超出折线总长，clamp 到终点并记录警告
+            if explicit_dist is not None and total_len > 0 and explicit_dist > total_len:
+                print(f"  ! 显式距离超出: {explicit_dist:.0f}m > {total_len:.0f}m "
+                      f"(matched={match['name']}, desc={device.get('description', '')[:60]})", file=sys.stderr)
+                dist = total_len
+                clamped = True
+            else:
+                clamped = False
             ratio = dist / total_len if total_len > 0 else 0.5
             coords = _polyline_interpolate(line, ratio) if line else {"x": None, "y": None, "z": None}
 
@@ -1530,7 +1637,10 @@ def main():
                 "confidence": _calc_confidence(match, cleaned, sensor_type),
                 "mark_type": device.get("mark_type", ""),
                 "sensor_type": sensor_type,
+                "area": device.get("area", ""),
                 "sysaliasname": device.get("sysaliasname", ""),
+                **({"explicit_distance": round(explicit_dist, 1)} if explicit_dist is not None else {}),
+                **({"distance_clamped": True} if clamped else {}),
                 "coordinates": coords,
             })
 

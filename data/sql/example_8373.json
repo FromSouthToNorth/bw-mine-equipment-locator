@@ -2,4262 +2,6818 @@
   "devices": [
     {
       "id": "JKYHMK0030120001A01",
+      "sysaliasname": "安全监测系统",
       "description": "1号分站模拟量001A019308皮顺联络巷迎头激光甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "1号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120001A02",
+      "sysaliasname": "安全监测系统",
       "description": "1号分站模拟量001A029308皮顺联络巷粉尘粉尘",
+      "sensor_type": "粉尘",
+      "area": "1号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120001A05",
+      "sysaliasname": "安全监测系统",
       "description": "1号分站模拟量001A059308皮顺联络巷回风流激光甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "1号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120001A06",
+      "sysaliasname": "安全监测系统",
       "description": "1号分站模拟量001A069308皮顺联络巷回风流一氧化碳一氧化碳",
+      "sensor_type": "一氧化碳",
+      "area": "1号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120001A07",
+      "sysaliasname": "安全监测系统",
       "description": "1号分站模拟量001A079308皮顺联络巷回风流温度温度",
+      "sensor_type": "温度",
+      "area": "1号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120001C02",
+      "sysaliasname": "安全监测系统",
       "description": "1号分站开关量001C02九采区皮带联络巷高防断电器断电",
+      "sensor_type": "断电",
+      "area": "1号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120001C07",
+      "sysaliasname": "安全监测系统",
       "description": "1号分站开关量001C079308皮顺联络巷主扇断电器断电",
+      "sensor_type": "断电",
+      "area": "1号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120001C08",
+      "sysaliasname": "安全监测系统",
       "description": "1号分站开关量001C089308皮顺联络巷备扇断电器断电",
+      "sensor_type": "断电",
+      "area": "1号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120001D04",
+      "sysaliasname": "安全监测系统",
       "description": "1号分站开关量001D049308皮顺联络巷皮带烟雾烟雾",
+      "sensor_type": "烟雾",
+      "area": "1号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120001D08",
+      "sysaliasname": "安全监测系统",
       "description": "1号分站开关量001D089308皮顺一部皮带烟雾烟雾",
+      "sensor_type": "烟雾",
+      "area": "1号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120001D09",
+      "sysaliasname": "安全监测系统",
       "description": "1号分站开关量001D099308皮顺联络巷主扇局扇",
+      "sensor_type": "局扇",
+      "area": "1号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120001D10",
+      "sysaliasname": "安全监测系统",
       "description": "1号分站开关量001D109308皮顺联络巷备扇局扇",
+      "sensor_type": "局扇",
+      "area": "1号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120001D11",
+      "sysaliasname": "安全监测系统",
       "description": "1号分站开关量001D11九采区皮带联络巷高防馈电馈电",
+      "sensor_type": "馈电",
+      "area": "1号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120001D13",
+      "sysaliasname": "安全监测系统",
       "description": "1号分站开关量001D13九采区皮带联络巷主扇局扇",
+      "sensor_type": "局扇",
+      "area": "1号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120001D14",
+      "sysaliasname": "安全监测系统",
       "description": "1号分站开关量001D14九采区皮带联络巷备扇局扇",
+      "sensor_type": "局扇",
+      "area": "1号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120001P03",
+      "sysaliasname": "安全监测系统",
       "description": "1号分站模拟量001P03_490东大巷2号分站电源充电电流电流",
+      "sensor_type": "电流",
+      "area": "1号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120001P19",
+      "sysaliasname": "安全监测系统",
       "description": "1号分站多态量001P19_490东大巷2号分站电源状态状态",
+      "sensor_type": "状态",
+      "area": "1号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120002A02",
+      "sysaliasname": "安全监测系统",
       "description": "2号分站模拟量002A02C8302皮带变频器开关甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "2号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120002A05",
+      "sysaliasname": "安全监测系统",
       "description": "2号分站模拟量002A05C8302皮顺回风流激光甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "2号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120002A06",
+      "sysaliasname": "安全监测系统",
       "description": "2号分站模拟量002A06C8302皮顺回风流一氧化碳一氧化碳",
+      "sensor_type": "一氧化碳",
+      "area": "2号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120002A07",
+      "sysaliasname": "安全监测系统",
       "description": "2号分站模拟量002A07C8302皮顺回风流温度温度",
+      "sensor_type": "温度",
+      "area": "2号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120002A09",
+      "sysaliasname": "安全监测系统",
       "description": "2号分站模拟量002A09C8302回风隅角激光甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "2号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120002A10",
+      "sysaliasname": "安全监测系统",
       "description": "2号分站模拟量002A10C8302工作面粉尘粉尘",
+      "sensor_type": "粉尘",
+      "area": "2号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120002A11",
+      "sysaliasname": "安全监测系统",
       "description": "2号分站模拟量002A11C8302工作面激光甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "2号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120002C01",
+      "sysaliasname": "安全监测系统",
       "description": "2号分站开关量002C01C8302工作面断电器断电",
+      "sensor_type": "断电",
+      "area": "2号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120002D01",
+      "sysaliasname": "安全监测系统",
       "description": "2号分站开关量002D01C8302工作面馈电馈电",
+      "sensor_type": "馈电",
+      "area": "2号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120002D03",
+      "sysaliasname": "安全监测系统",
       "description": "2号分站开关量002D03_725西翼皮带风门风门",
+      "sensor_type": "风门",
+      "area": "2号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120002D08",
+      "sysaliasname": "安全监测系统",
       "description": "2号分站开关量002D08C8302皮顺皮带机头烟雾烟雾",
+      "sensor_type": "烟雾",
+      "area": "2号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120002D14",
+      "sysaliasname": "安全监测系统",
       "description": "2号分站开关量002D148304分矸巷风门风门",
+      "sensor_type": "风门",
+      "area": "2号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120002D16",
+      "sysaliasname": "安全监测系统",
       "description": "2号分站开关量002D16_725西大巷风门风门",
+      "sensor_type": "风门",
+      "area": "2号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120002P03",
+      "sysaliasname": "安全监测系统",
       "description": "2号分站模拟量002P03_725综机库1号分站电源充电电流电流",
+      "sensor_type": "电流",
+      "area": "2号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120002P19",
+      "sysaliasname": "安全监测系统",
       "description": "2号分站多态量002P19_725综机库1号分站电源状态状态",
+      "sensor_type": "状态",
+      "area": "2号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120003A01",
+      "sysaliasname": "安全监测系统",
       "description": "3号分站模拟量003A01总回风巷西段甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "3号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120003A02",
+      "sysaliasname": "安全监测系统",
       "description": "3号分站模拟量003A02总回风巷西段一氧化碳一氧化碳",
+      "sensor_type": "一氧化碳",
+      "area": "3号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120003A03",
+      "sysaliasname": "安全监测系统",
       "description": "3号分站模拟量003A03总回风巷西段温度温度",
+      "sensor_type": "温度",
+      "area": "3号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120003A05",
+      "sysaliasname": "安全监测系统",
       "description": "3号分站模拟量003A05_490集中煤仓甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "3号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120003A09",
+      "sysaliasname": "安全监测系统",
       "description": "3号分站模拟量003A09总回风巷甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "3号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120003A10",
+      "sysaliasname": "安全监测系统",
       "description": "3号分站模拟量003A10总回风巷一氧化碳一氧化碳",
+      "sensor_type": "一氧化碳",
+      "area": "3号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120003A11",
+      "sysaliasname": "安全监测系统",
       "description": "3号分站模拟量003A11总回风巷温度温度",
+      "sensor_type": "温度",
+      "area": "3号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120003A14",
+      "sysaliasname": "安全监测系统",
       "description": "3号分站模拟量003A14集中皮带移变硐室甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "3号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120003A16",
+      "sysaliasname": "安全监测系统",
       "description": "3号分站模拟量003A16集中皮带移变硐室温度温度",
+      "sensor_type": "温度",
+      "area": "3号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120003D06",
+      "sysaliasname": "安全监测系统",
       "description": "3号分站开关量003D06_490集中皮带烟雾烟雾",
+      "sensor_type": "烟雾",
+      "area": "3号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120003D07",
+      "sysaliasname": "安全监测系统",
       "description": "3号分站开关量003D07集中皮带机头2号烟雾烟雾",
+      "sensor_type": "烟雾",
+      "area": "3号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120003D08",
+      "sysaliasname": "安全监测系统",
       "description": "3号分站开关量003D08集中皮带机头风门风门",
+      "sensor_type": "风门",
+      "area": "3号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120003D15",
+      "sysaliasname": "安全监测系统",
       "description": "3号分站开关量003D1528度上车场主井风门风门",
+      "sensor_type": "风门",
+      "area": "3号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120003P03",
+      "sysaliasname": "安全监测系统",
       "description": "3号分站模拟量003P0328度上扒钩分站电源充电电流电流",
+      "sensor_type": "电流",
+      "area": "3号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120003P19",
+      "sysaliasname": "安全监测系统",
       "description": "3号分站多态量003P1928度上扒钩分站电源状态状态",
+      "sensor_type": "状态",
+      "area": "3号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120004A05",
+      "sysaliasname": "安全监测系统",
       "description": "4号分站模拟量004A05七采区机电硐室一氧化碳一氧化碳",
+      "sensor_type": "一氧化碳",
+      "area": "4号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120004A06",
+      "sysaliasname": "安全监测系统",
       "description": "4号分站模拟量004A06七采区机电硐室温度温度",
+      "sensor_type": "温度",
+      "area": "4号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120004A08",
+      "sysaliasname": "安全监测系统",
       "description": "4号分站模拟量004A08七采区机电硐室甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "4号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120004A09",
+      "sysaliasname": "安全监测系统",
       "description": "4号分站模拟量004A09七采区皮带机电硐室甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "4号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120004A15",
+      "sysaliasname": "安全监测系统",
       "description": "4号分站模拟量004A15七采区皮带移变硐室甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "4号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120004C01",
+      "sysaliasname": "安全监测系统",
       "description": "4号分站开关量004C01七采区充电硐室总馈断电器断电",
+      "sensor_type": "断电",
+      "area": "4号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120004C08",
+      "sysaliasname": "安全监测系统",
       "description": "4号分站开关量004C08七采区皮带巷断电器断电",
+      "sensor_type": "断电",
+      "area": "4号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120004D02",
+      "sysaliasname": "安全监测系统",
       "description": "4号分站开关量004D02七采区充电硐室总馈馈电馈电",
+      "sensor_type": "馈电",
+      "area": "4号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120004D10",
+      "sysaliasname": "安全监测系统",
       "description": "4号分站开关量004D10七采区一部皮带烟雾烟雾",
+      "sensor_type": "烟雾",
+      "area": "4号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120004D11",
+      "sysaliasname": "安全监测系统",
       "description": "4号分站开关量004D11七采区1号联络巷风门风门",
+      "sensor_type": "风门",
+      "area": "4号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120004D12",
+      "sysaliasname": "安全监测系统",
       "description": "4号分站开关量004D12七采区2号联络巷风门风门",
+      "sensor_type": "风门",
+      "area": "4号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120004D13",
+      "sysaliasname": "安全监测系统",
       "description": "4号分站开关量004D13七采区皮带巷馈电馈电",
+      "sensor_type": "馈电",
+      "area": "4号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120004D14",
+      "sysaliasname": "安全监测系统",
       "description": "4号分站开关量004D14七采区二部机头烟雾烟雾",
+      "sensor_type": "烟雾",
+      "area": "4号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120004D16",
+      "sysaliasname": "安全监测系统",
       "description": "4号分站开关量004D167302轨顺联络巷风门风门",
+      "sensor_type": "风门",
+      "area": "4号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120004P03",
+      "sysaliasname": "安全监测系统",
       "description": "4号分站模拟量004P03七采区机电硐室分站电源充电电流电流",
+      "sensor_type": "电流",
+      "area": "4号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120004P19",
+      "sysaliasname": "安全监测系统",
       "description": "4号分站多态量004P19七采区机电硐室分站电源状态状态",
+      "sensor_type": "状态",
+      "area": "4号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120005A06",
+      "sysaliasname": "安全监测系统",
       "description": "5号分站模拟量005A067304皮带机头回风一氧化碳一氧化碳",
+      "sensor_type": "一氧化碳",
+      "area": "5号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120005A07",
+      "sysaliasname": "安全监测系统",
       "description": "5号分站模拟量005A077304皮带机头回风温度温度",
+      "sensor_type": "温度",
+      "area": "5号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120005D01",
+      "sysaliasname": "安全监测系统",
       "description": "5号分站开关量005D017304皮顺联络巷皮带回风烟雾烟雾",
+      "sensor_type": "烟雾",
+      "area": "5号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120005D02",
+      "sysaliasname": "安全监测系统",
       "description": "5号分站开关量005D027319回风联络巷风门风门",
+      "sensor_type": "风门",
+      "area": "5号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120005D03",
+      "sysaliasname": "安全监测系统",
       "description": "5号分站开关量005D03七采区皮带机尾风门风门",
+      "sensor_type": "风门",
+      "area": "5号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120005D04",
+      "sysaliasname": "安全监测系统",
       "description": "5号分站开关量005D047304联络巷风门风门",
+      "sensor_type": "风门",
+      "area": "5号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120005D05",
+      "sysaliasname": "安全监测系统",
       "description": "5号分站开关量005D057304皮顺外段风门风门",
+      "sensor_type": "风门",
+      "area": "5号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120005D08",
+      "sysaliasname": "安全监测系统",
       "description": "5号分站开关量005D087304皮带机头回风烟雾烟雾",
+      "sensor_type": "烟雾",
+      "area": "5号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120005P03",
+      "sysaliasname": "安全监测系统",
       "description": "5号分站模拟量005P037319轨顺2号分站电源充电电流电流",
+      "sensor_type": "电流",
+      "area": "5号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120005P19",
+      "sysaliasname": "安全监测系统",
       "description": "5号分站多态量005P197319轨顺2号分站电源状态状态",
+      "sensor_type": "状态",
+      "area": "5号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120006A01",
+      "sysaliasname": "安全监测系统",
       "description": "6号分站模拟量006A01_490中央变电所甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "6号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120006A05",
+      "sysaliasname": "安全监测系统",
       "description": "6号分站模拟量006A05_490中央泵房温度温度",
+      "sensor_type": "温度",
+      "area": "6号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120006A06",
+      "sysaliasname": "安全监测系统",
       "description": "6号分站模拟量006A06_490水处理硐室甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "6号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120006A07",
+      "sysaliasname": "安全监测系统",
       "description": "6号分站模拟量006A07_490水处理硐室温度温度",
+      "sensor_type": "温度",
+      "area": "6号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120006A09",
+      "sysaliasname": "安全监测系统",
       "description": "6号分站模拟量006A09_490中央变电所温度温度",
+      "sensor_type": "温度",
+      "area": "6号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120006A10",
+      "sysaliasname": "安全监测系统",
       "description": "6号分站模拟量006A10_490中央变电所一氧化碳一氧化碳",
+      "sensor_type": "一氧化碳",
+      "area": "6号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120006A14",
+      "sysaliasname": "安全监测系统",
       "description": "6号分站模拟量006A14_490主井底甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "6号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120006A16",
+      "sysaliasname": "安全监测系统",
       "description": "6号分站模拟量006A1625米绞车房温度温度",
+      "sensor_type": "温度",
+      "area": "6号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120006C01",
+      "sysaliasname": "安全监测系统",
       "description": "6号分站开关量006C01主井底断电器断电",
+      "sensor_type": "断电",
+      "area": "6号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120006D12",
+      "sysaliasname": "安全监测系统",
       "description": "6号分站开关量006D12主井底馈电馈电",
+      "sensor_type": "馈电",
+      "area": "6号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120006D13",
+      "sysaliasname": "安全监测系统",
       "description": "6号分站开关量006D13_490主井底风门风门",
+      "sensor_type": "风门",
+      "area": "6号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120006P03",
+      "sysaliasname": "安全监测系统",
       "description": "6号分站模拟量006P03_490中央变电所分站电源充电电流电流",
+      "sensor_type": "电流",
+      "area": "6号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120006P19",
+      "sysaliasname": "安全监测系统",
       "description": "6号分站多态量006P19_490中央变电所分站电源状态状态",
+      "sensor_type": "状态",
+      "area": "6号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120007A01",
+      "sysaliasname": "安全监测系统",
       "description": "7号分站模拟量007A01回风暗斜井甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "7号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120007A02",
+      "sysaliasname": "安全监测系统",
       "description": "7号分站模拟量007A02回风暗斜井温度温度",
+      "sensor_type": "温度",
+      "area": "7号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120007A03",
+      "sysaliasname": "安全监测系统",
       "description": "7号分站模拟量007A03回风暗斜井一氧化碳一氧化碳",
+      "sensor_type": "一氧化碳",
+      "area": "7号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120007A04",
+      "sysaliasname": "安全监测系统",
       "description": "7号分站模拟量007A04回风暗斜井风速风速",
+      "sensor_type": "风速",
+      "area": "7号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120007A05",
+      "sysaliasname": "安全监测系统",
       "description": "7号分站模拟量007A05_490采区变电所温度温度",
+      "sensor_type": "温度",
+      "area": "7号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120007A06",
+      "sysaliasname": "安全监测系统",
       "description": "7号分站模拟量007A06_490采区变电所一氧化碳一氧化碳",
+      "sensor_type": "一氧化碳",
+      "area": "7号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120007A09",
+      "sysaliasname": "安全监测系统",
       "description": "7号分站模拟量007A09强力皮带甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "7号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120007A10",
+      "sysaliasname": "安全监测系统",
       "description": "7号分站模拟量007A10强力皮带温度温度",
+      "sensor_type": "温度",
+      "area": "7号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120007A11",
+      "sysaliasname": "安全监测系统",
       "description": "7号分站模拟量007A11强力皮带一氧化碳一氧化碳",
+      "sensor_type": "一氧化碳",
+      "area": "7号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120007A12",
+      "sysaliasname": "安全监测系统",
       "description": "7号分站模拟量007A12强力皮带风速风速",
+      "sensor_type": "风速",
+      "area": "7号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120007C01",
+      "sysaliasname": "安全监测系统",
       "description": "7号分站开关量007C01回风暗斜井断电器断电",
+      "sensor_type": "断电",
+      "area": "7号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120007C03",
+      "sysaliasname": "安全监测系统",
       "description": "7号分站开关量007C03_490强力皮带高压断电器断电",
+      "sensor_type": "断电",
+      "area": "7号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120007C04",
+      "sysaliasname": "安全监测系统",
       "description": "7号分站开关量007C04_490集中东翼断电器断电",
+      "sensor_type": "断电",
+      "area": "7号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120007C05",
+      "sysaliasname": "安全监测系统",
       "description": "7号分站开关量007C05_490强力皮带低压断电器断电",
+      "sensor_type": "断电",
+      "area": "7号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120007C06",
+      "sysaliasname": "安全监测系统",
       "description": "7号分站开关量007C06七采区转载皮带断电器断电",
+      "sensor_type": "断电",
+      "area": "7号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120007D07",
+      "sysaliasname": "安全监测系统",
       "description": "7号分站开关量007D07回风暗斜井馈电馈电",
+      "sensor_type": "馈电",
+      "area": "7号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120007D08",
+      "sysaliasname": "安全监测系统",
       "description": "7号分站开关量007D08_490采区变电所风门风门",
+      "sensor_type": "风门",
+      "area": "7号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120007D13",
+      "sysaliasname": "安全监测系统",
       "description": "7号分站开关量007D13_490强力皮带低压馈电馈电",
+      "sensor_type": "馈电",
+      "area": "7号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120007D14",
+      "sysaliasname": "安全监测系统",
       "description": "7号分站开关量007D14_490集中东翼馈电馈电",
+      "sensor_type": "馈电",
+      "area": "7号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120007D15",
+      "sysaliasname": "安全监测系统",
       "description": "7号分站开关量007D15_490强力皮带高压馈电馈电",
+      "sensor_type": "馈电",
+      "area": "7号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120007D16",
+      "sysaliasname": "安全监测系统",
       "description": "7号分站开关量007D16七采区转载皮带馈电馈电",
+      "sensor_type": "馈电",
+      "area": "7号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120007P03",
+      "sysaliasname": "安全监测系统",
       "description": "7号分站模拟量007P03_490采区变电所分站电源充电电流电流",
+      "sensor_type": "电流",
+      "area": "7号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120007P19",
+      "sysaliasname": "安全监测系统",
       "description": "7号分站多态量007P19_490采区变电所分站电源状态状态",
+      "sensor_type": "状态",
+      "area": "7号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120008C02",
+      "sysaliasname": "安全监测系统",
       "description": "8号分站开关量008C02C8316轨顺综掘机断电器断电",
+      "sensor_type": "断电",
+      "area": "8号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120008C04",
+      "sysaliasname": "安全监测系统",
       "description": "8号分站开关量008C04C8316轨顺断电器断电",
+      "sensor_type": "断电",
+      "area": "8号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120008D01",
+      "sysaliasname": "安全监测系统",
       "description": "8号分站开关量008D01_725东二皮带巷3号联络巷风门风门",
+      "sensor_type": "风门",
+      "area": "8号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120008D02",
+      "sysaliasname": "安全监测系统",
       "description": "8号分站开关量008D02_725东三皮带联络巷风门风门",
+      "sensor_type": "风门",
+      "area": "8号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120008D06",
+      "sysaliasname": "安全监测系统",
       "description": "8号分站开关量008D06C8316皮顺联络巷皮带烟雾烟雾",
+      "sensor_type": "烟雾",
+      "area": "8号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120008D11",
+      "sysaliasname": "安全监测系统",
       "description": "8号分站开关量008D11C8316轨顺风门风门",
+      "sensor_type": "风门",
+      "area": "8号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120008D12",
+      "sysaliasname": "安全监测系统",
       "description": "8号分站开关量008D12C8316皮顺皮带机头烟雾烟雾",
+      "sensor_type": "烟雾",
+      "area": "8号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120008D13",
+      "sysaliasname": "安全监测系统",
       "description": "8号分站开关量008D13C8316轨顺馈电馈电",
+      "sensor_type": "馈电",
+      "area": "8号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120008D14",
+      "sysaliasname": "安全监测系统",
       "description": "8号分站开关量008D14C8316轨顺馈电备馈电",
+      "sensor_type": "馈电",
+      "area": "8号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120008D15",
+      "sysaliasname": "安全监测系统",
       "description": "8号分站开关量008D15C8316轨顺综掘机馈电馈电",
+      "sensor_type": "馈电",
+      "area": "8号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120008D16",
+      "sysaliasname": "安全监测系统",
       "description": "8号分站开关量008D16C8316轨顺综掘机馈电备馈电",
+      "sensor_type": "馈电",
+      "area": "8号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120008P03",
+      "sysaliasname": "安全监测系统",
       "description": "8号分站模拟量008P03_725延伸巷1号分站电源充电电流电流",
+      "sensor_type": "电流",
+      "area": "8号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120008P19",
+      "sysaliasname": "安全监测系统",
       "description": "8号分站多态量008P19_725延伸巷1号分站电源状态状态",
+      "sensor_type": "状态",
+      "area": "8号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120009A01",
+      "sysaliasname": "安全监测系统",
       "description": "9号分站模拟量009A01地面5号煤仓激光甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "9号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120009A02",
+      "sysaliasname": "安全监测系统",
       "description": "9号分站模拟量009A02洗煤厂入仓皮带机头激光甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "9号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120009A03",
+      "sysaliasname": "安全监测系统",
       "description": "9号分站模拟量009A03洗煤厂入仓皮带机头一氧化碳一氧化碳",
+      "sensor_type": "一氧化碳",
+      "area": "9号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120009A06",
+      "sysaliasname": "安全监测系统",
       "description": "9号分站模拟量009A06沫煤皮带机头甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "9号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120009A07",
+      "sysaliasname": "安全监测系统",
       "description": "9号分站模拟量009A07负压负压",
+      "sensor_type": "负压",
+      "area": "9号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120009A10",
+      "sysaliasname": "安全监测系统",
       "description": "9号分站模拟量009A10洗煤厂矸石皮带机头甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "9号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120009C04",
+      "sysaliasname": "安全监测系统",
       "description": "9号分站开关量009C04洗煤厂2楼控制室断电器断电",
+      "sensor_type": "断电",
+      "area": "9号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120009C06",
+      "sysaliasname": "安全监测系统",
       "description": "9号分站开关量009C06煤流变控制室断电器断电",
+      "sensor_type": "断电",
+      "area": "9号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120009C07",
+      "sysaliasname": "安全监测系统",
       "description": "9号分站开关量009C07洗煤厂4楼控制室断电器断电",
+      "sensor_type": "断电",
+      "area": "9号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120009C08",
+      "sysaliasname": "安全监测系统",
       "description": "9号分站开关量009C08洗煤厂1楼控制室断电器断电",
+      "sensor_type": "断电",
+      "area": "9号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120009D11",
+      "sysaliasname": "安全监测系统",
       "description": "9号分站开关量009D11主通风机2号机主扇",
+      "sensor_type": "主扇",
+      "area": "9号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120009D12",
+      "sysaliasname": "安全监测系统",
       "description": "9号分站开关量009D12主通风机1号机主扇",
+      "sensor_type": "主扇",
+      "area": "9号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120009D13",
+      "sysaliasname": "安全监测系统",
       "description": "9号分站开关量009D13洗煤厂2楼控制室馈电馈电",
+      "sensor_type": "馈电",
+      "area": "9号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120009D14",
+      "sysaliasname": "安全监测系统",
       "description": "9号分站开关量009D14煤流变控制室馈电馈电",
+      "sensor_type": "馈电",
+      "area": "9号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120009D15",
+      "sysaliasname": "安全监测系统",
       "description": "9号分站开关量009D15洗煤厂4楼控制室馈电馈电",
+      "sensor_type": "馈电",
+      "area": "9号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120009D16",
+      "sysaliasname": "安全监测系统",
       "description": "9号分站开关量009D16洗煤厂1楼控制室馈电馈电",
+      "sensor_type": "馈电",
+      "area": "9号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120009P03",
+      "sysaliasname": "安全监测系统",
       "description": "9号分站模拟量009P03注氮机房1号分站电源充电电流电流",
+      "sensor_type": "电流",
+      "area": "9号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120009P19",
+      "sysaliasname": "安全监测系统",
       "description": "9号分站多态量009P19注氮机房1号分站电源状态状态",
+      "sensor_type": "状态",
+      "area": "9号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120010A01",
+      "sysaliasname": "安全监测系统",
       "description": "10号分站模拟量010A01_725东翼皮带甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "10号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120010A02",
+      "sysaliasname": "安全监测系统",
       "description": "10号分站模拟量010A02_725东翼皮带一氧化碳一氧化碳",
+      "sensor_type": "一氧化碳",
+      "area": "10号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120010A03",
+      "sysaliasname": "安全监测系统",
       "description": "10号分站模拟量010A03_725东翼皮带温度温度",
+      "sensor_type": "温度",
+      "area": "10号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120010A05",
+      "sysaliasname": "安全监测系统",
       "description": "10号分站模拟量010A05_725集中煤仓甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "10号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120010A07",
+      "sysaliasname": "安全监测系统",
       "description": "10号分站模拟量010A07_725东翼煤仓一氧化碳一氧化碳",
+      "sensor_type": "一氧化碳",
+      "area": "10号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120010A15",
+      "sysaliasname": "安全监测系统",
       "description": "10号分站模拟量010A15_725中央变电所温度温度",
+      "sensor_type": "温度",
+      "area": "10号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120010A16",
+      "sysaliasname": "安全监测系统",
       "description": "10号分站模拟量010A16_725中央变电所一氧化碳一氧化碳",
+      "sensor_type": "一氧化碳",
+      "area": "10号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120010D06",
+      "sysaliasname": "安全监测系统",
       "description": "10号分站开关量010D06_725东翼皮带烟雾烟雾",
+      "sensor_type": "烟雾",
+      "area": "10号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120010D13",
+      "sysaliasname": "安全监测系统",
       "description": "10号分站开关量010D13_725管子道风门风门",
+      "sensor_type": "风门",
+      "area": "10号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120010D14",
+      "sysaliasname": "安全监测系统",
       "description": "10号分站开关量010D14强力皮带机尾风门风门",
+      "sensor_type": "风门",
+      "area": "10号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120010P03",
+      "sysaliasname": "安全监测系统",
       "description": "10号分站模拟量010P03_725中央泵房分站电源充电电流电流",
+      "sensor_type": "电流",
+      "area": "10号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120010P19",
+      "sysaliasname": "安全监测系统",
       "description": "10号分站多态量010P19_725中央泵房分站电源状态状态",
+      "sensor_type": "状态",
+      "area": "10号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120011P03",
+      "sysaliasname": "安全监测系统",
       "description": "11号分站模拟量011P03_725延伸巷3号分站电源充电电流电流",
+      "sensor_type": "电流",
+      "area": "11号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120011P19",
+      "sysaliasname": "安全监测系统",
       "description": "11号分站多态量011P19_725延伸巷3号分站电源状态状态",
+      "sensor_type": "状态",
+      "area": "11号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120012A01",
+      "sysaliasname": "安全监测系统",
       "description": "12号分站模拟量012A01七采区皮带巷甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "12号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120012A02",
+      "sysaliasname": "安全监测系统",
       "description": "12号分站模拟量012A02七采区皮带巷温度温度",
+      "sensor_type": "温度",
+      "area": "12号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120012A03",
+      "sysaliasname": "安全监测系统",
       "description": "12号分站模拟量012A03七采区皮带机头一氧化碳一氧化碳",
+      "sensor_type": "一氧化碳",
+      "area": "12号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120012A04",
+      "sysaliasname": "安全监测系统",
       "description": "12号分站模拟量012A04七采区皮带巷风速风速",
+      "sensor_type": "风速",
+      "area": "12号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120012A05",
+      "sysaliasname": "安全监测系统",
       "description": "12号分站模拟量012A05强力皮带煤仓甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "12号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120012A08",
+      "sysaliasname": "安全监测系统",
       "description": "12号分站模拟量012A08七采区皮带煤仓甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "12号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120012A09",
+      "sysaliasname": "安全监测系统",
       "description": "12号分站模拟量012A09集中皮带巷甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "12号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120012A10",
+      "sysaliasname": "安全监测系统",
       "description": "12号分站模拟量012A10集中皮带巷一氧化碳一氧化碳",
+      "sensor_type": "一氧化碳",
+      "area": "12号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120012A11",
+      "sysaliasname": "安全监测系统",
       "description": "12号分站模拟量012A11集中皮带巷温度温度",
+      "sensor_type": "温度",
+      "area": "12号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120012D06",
+      "sysaliasname": "安全监测系统",
       "description": "12号分站开关量012D06七采区转载皮带机头烟雾烟雾",
+      "sensor_type": "烟雾",
+      "area": "12号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120012D07",
+      "sysaliasname": "安全监测系统",
       "description": "12号分站开关量012D07强力皮带机头烟雾烟雾",
+      "sensor_type": "烟雾",
+      "area": "12号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120012D12",
+      "sysaliasname": "安全监测系统",
       "description": "12号分站开关量012D12_490集中皮带机尾烟雾烟雾",
+      "sensor_type": "烟雾",
+      "area": "12号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120012D13",
+      "sysaliasname": "安全监测系统",
       "description": "12号分站开关量012D13集中皮带机尾风门风门",
+      "sensor_type": "风门",
+      "area": "12号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120012D14",
+      "sysaliasname": "安全监测系统",
       "description": "12号分站开关量012D14_490北翼轨道巷风门风门",
+      "sensor_type": "风门",
+      "area": "12号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120012D16",
+      "sysaliasname": "安全监测系统",
       "description": "12号分站开关量012D161302联络巷风门风门",
+      "sensor_type": "风门",
+      "area": "12号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120012P03",
+      "sysaliasname": "安全监测系统",
       "description": "12号分站模拟量012P0325度上扒钩分站电源充电电流电流",
+      "sensor_type": "电流",
+      "area": "12号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120012P19",
+      "sysaliasname": "安全监测系统",
       "description": "12号分站多态量012P1925度上扒钩分站电源状态状态",
+      "sensor_type": "状态",
+      "area": "12号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120013A01",
+      "sysaliasname": "安全监测系统",
       "description": "13号分站模拟量013A01九采区皮带联络巷回风流甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "13号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120013A02",
+      "sysaliasname": "安全监测系统",
       "description": "13号分站模拟量013A02九采区皮带联络巷回风流一氧化碳一氧化碳",
+      "sensor_type": "一氧化碳",
+      "area": "13号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120013A03",
+      "sysaliasname": "安全监测系统",
       "description": "13号分站模拟量013A03九采区皮带联络巷回风流温度温度",
+      "sensor_type": "温度",
+      "area": "13号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120013A08",
+      "sysaliasname": "安全监测系统",
       "description": "13号分站模拟量013A08_490东大巷测风站风速风速",
+      "sensor_type": "风速",
+      "area": "13号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120013A13",
+      "sysaliasname": "安全监测系统",
       "description": "13号分站模拟量013A13九采区移变硐室甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "13号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120013A14",
+      "sysaliasname": "安全监测系统",
       "description": "13号分站模拟量013A14九采区皮带联络巷迎头甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "13号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120013A16",
+      "sysaliasname": "安全监测系统",
       "description": "13号分站模拟量013A16九采区移变硐室温度温度",
+      "sensor_type": "温度",
+      "area": "13号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120013C07",
+      "sysaliasname": "安全监测系统",
       "description": "13号分站开关量013C07九采区皮带联络巷主扇断电器断电",
+      "sensor_type": "断电",
+      "area": "13号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120013C08",
+      "sysaliasname": "安全监测系统",
       "description": "13号分站开关量013C08九采区皮带联络巷备扇断电器断电",
+      "sensor_type": "断电",
+      "area": "13号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120013D15",
+      "sysaliasname": "安全监测系统",
       "description": "13号分站开关量013D15九采区皮带联络巷风筒风筒",
+      "sensor_type": "风筒",
+      "area": "13号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120013P03",
+      "sysaliasname": "安全监测系统",
       "description": "13号分站模拟量013P03_490东大巷分站电源充电电流电流",
+      "sensor_type": "电流",
+      "area": "13号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120013P19",
+      "sysaliasname": "安全监测系统",
       "description": "13号分站多态量013P19_490东大巷分站电源状态状态",
+      "sensor_type": "状态",
+      "area": "13号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120014A04",
+      "sysaliasname": "安全监测系统",
       "description": "14号分站模拟量014A04_490采区变电所甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "14号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120014A09",
+      "sysaliasname": "安全监测系统",
       "description": "14号分站模拟量014A09七采区转载皮带开关硐室风流甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "14号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120014A12",
+      "sysaliasname": "安全监测系统",
       "description": "14号分站模拟量014A12强力皮带巷煤仓一氧化碳一氧化碳",
+      "sensor_type": "一氧化碳",
+      "area": "14号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120014C01",
+      "sysaliasname": "安全监测系统",
       "description": "14号分站开关量014C01F1301工作面断电器备用断电",
+      "sensor_type": "断电",
+      "area": "14号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120014D01",
+      "sysaliasname": "安全监测系统",
       "description": "14号分站开关量014D01回风暗斜井风门风门",
+      "sensor_type": "风门",
+      "area": "14号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120014D02",
+      "sysaliasname": "安全监测系统",
       "description": "14号分站开关量014D02F1301轨顺风门风门",
+      "sensor_type": "风门",
+      "area": "14号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120014D03",
+      "sysaliasname": "安全监测系统",
       "description": "14号分站开关量014D03_490北石门风门风门",
+      "sensor_type": "风门",
+      "area": "14号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120014D06",
+      "sysaliasname": "安全监测系统",
       "description": "14号分站开关量014D06F1302皮顺皮带机头烟雾烟雾",
+      "sensor_type": "烟雾",
+      "area": "14号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120014D08",
+      "sysaliasname": "安全监测系统",
       "description": "14号分站开关量014D08F1301轨顺联络巷风门风门",
+      "sensor_type": "风门",
+      "area": "14号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120014D11",
+      "sysaliasname": "安全监测系统",
       "description": "14号分站开关量014D11复采集中回风巷风门风门",
+      "sensor_type": "风门",
+      "area": "14号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120014D13",
+      "sysaliasname": "安全监测系统",
       "description": "14号分站开关量014D13_490北翼轨道联络巷风门风门",
+      "sensor_type": "风门",
+      "area": "14号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120014D14",
+      "sysaliasname": "安全监测系统",
       "description": "14号分站开关量014D14复采试验采区联络巷风门风门",
+      "sensor_type": "风门",
+      "area": "14号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120014D15",
+      "sysaliasname": "安全监测系统",
       "description": "14号分站开关量014D15_490北翼联络巷风门风门",
+      "sensor_type": "风门",
+      "area": "14号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120014P03",
+      "sysaliasname": "安全监测系统",
       "description": "14号分站模拟量014P03_490北翼轨道巷分站电源充电电流电流",
+      "sensor_type": "电流",
+      "area": "14号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120014P19",
+      "sysaliasname": "安全监测系统",
       "description": "14号分站多态量014P19_490北翼轨道巷分站电源状态状态",
+      "sensor_type": "状态",
+      "area": "14号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120015A06",
+      "sysaliasname": "安全监测系统",
       "description": "15号分站模拟量015A06_725中央变电所甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "15号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120015A09",
+      "sysaliasname": "安全监测系统",
       "description": "15号分站模拟量015A09_725西翼皮带甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "15号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120015A10",
+      "sysaliasname": "安全监测系统",
       "description": "15号分站模拟量015A10_725西翼皮带温度温度",
+      "sensor_type": "温度",
+      "area": "15号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120015A12",
+      "sysaliasname": "安全监测系统",
       "description": "15号分站模拟量015A12_725西翼皮带一氧化碳一氧化碳",
+      "sensor_type": "一氧化碳",
+      "area": "15号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120015C01",
+      "sysaliasname": "安全监测系统",
       "description": "15号分站开关量015C01_725东翼皮带移变断电器断电",
+      "sensor_type": "断电",
+      "area": "15号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120015C02",
+      "sysaliasname": "安全监测系统",
       "description": "15号分站开关量015C02_725西翼皮带移变断电器断电",
+      "sensor_type": "断电",
+      "area": "15号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120015C03",
+      "sysaliasname": "安全监测系统",
       "description": "15号分站开关量015C03_725充电硐室照明断电器断电",
+      "sensor_type": "断电",
+      "area": "15号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120015C04",
+      "sysaliasname": "安全监测系统",
       "description": "15号分站开关量015C04_725充电硐室断电器断电",
+      "sensor_type": "断电",
+      "area": "15号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120015D01",
+      "sysaliasname": "安全监测系统",
       "description": "15号分站开关量015D01_700车场风门风门",
+      "sensor_type": "风门",
+      "area": "15号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120015D05",
+      "sysaliasname": "安全监测系统",
       "description": "15号分站开关量015D05_725充电硐室照明馈电馈电",
+      "sensor_type": "馈电",
+      "area": "15号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120015D07",
+      "sysaliasname": "安全监测系统",
       "description": "15号分站开关量015D07_725充电硐室馈电馈电",
+      "sensor_type": "馈电",
+      "area": "15号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120015D13",
+      "sysaliasname": "安全监测系统",
       "description": "15号分站开关量015D13_725东翼皮带移变馈电备馈电",
+      "sensor_type": "馈电",
+      "area": "15号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120015D15",
+      "sysaliasname": "安全监测系统",
       "description": "15号分站开关量015D15_725东翼皮带移变馈电馈电",
+      "sensor_type": "馈电",
+      "area": "15号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120015D16",
+      "sysaliasname": "安全监测系统",
       "description": "15号分站开关量015D16_725西翼皮带移变馈电馈电",
+      "sensor_type": "馈电",
+      "area": "15号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120015P03",
+      "sysaliasname": "安全监测系统",
       "description": "15号分站模拟量015P03_700车场2号分站电源充电电流电流",
+      "sensor_type": "电流",
+      "area": "15号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120015P19",
+      "sysaliasname": "安全监测系统",
       "description": "15号分站多态量015P19_700车场2号分站电源状态状态",
+      "sensor_type": "状态",
+      "area": "15号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120016A10",
+      "sysaliasname": "安全监测系统",
       "description": "16号分站模拟量016A10F1302轨顺一氧化碳一氧化碳",
+      "sensor_type": "一氧化碳",
+      "area": "16号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120016C02",
+      "sysaliasname": "安全监测系统",
       "description": "16号分站开关量016C02F1302轨顺水泵断电器断电",
+      "sensor_type": "断电",
+      "area": "16号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120016D13",
+      "sysaliasname": "安全监测系统",
       "description": "16号分站开关量016D13F1302轨顺水泵馈电馈电",
+      "sensor_type": "馈电",
+      "area": "16号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120016P03",
+      "sysaliasname": "安全监测系统",
       "description": "16号分站模拟量016P0325度上扒钩2号分站电源充电电流电流",
+      "sensor_type": "电流",
+      "area": "16号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120016P19",
+      "sysaliasname": "安全监测系统",
       "description": "16号分站多态量016P1925度上扒钩2号分站电源状态状态",
+      "sensor_type": "状态",
+      "area": "16号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120017A01",
+      "sysaliasname": "安全监测系统",
       "description": "17号分站模拟量017A01_725东二皮带巷甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "17号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120017A02",
+      "sysaliasname": "安全监测系统",
       "description": "17号分站模拟量017A02_725东二皮带巷一氧化碳一氧化碳",
+      "sensor_type": "一氧化碳",
+      "area": "17号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120017A04",
+      "sysaliasname": "安全监测系统",
       "description": "17号分站模拟量017A04_725东二皮带巷温度温度",
+      "sensor_type": "温度",
+      "area": "17号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120017A06",
+      "sysaliasname": "安全监测系统",
       "description": "17号分站模拟量017A06_725东二皮带煤仓甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "17号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120017A08",
+      "sysaliasname": "安全监测系统",
       "description": "17号分站模拟量017A08_725东二皮带巷煤仓一氧化碳一氧化碳",
+      "sensor_type": "一氧化碳",
+      "area": "17号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120017A15",
+      "sysaliasname": "安全监测系统",
       "description": "17号分站模拟量017A15_725机电硐室温度温度",
+      "sensor_type": "温度",
+      "area": "17号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120017A16",
+      "sysaliasname": "安全监测系统",
       "description": "17号分站模拟量017A16_725机电硐室一氧化碳一氧化碳",
+      "sensor_type": "一氧化碳",
+      "area": "17号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120017D07",
+      "sysaliasname": "安全监测系统",
       "description": "17号分站开关量017D07_725东二皮带机头烟雾烟雾",
+      "sensor_type": "烟雾",
+      "area": "17号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120017D13",
+      "sysaliasname": "安全监测系统",
       "description": "17号分站开关量017D13_725东翼皮带机尾联络巷风门风门",
+      "sensor_type": "风门",
+      "area": "17号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120017P03",
+      "sysaliasname": "安全监测系统",
       "description": "17号分站模拟量017P03_725机电硐室分站电源充电电流电流",
+      "sensor_type": "电流",
+      "area": "17号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120017P19",
+      "sysaliasname": "安全监测系统",
       "description": "17号分站多态量017P19_725机电硐室分站电源状态状态",
+      "sensor_type": "状态",
+      "area": "17号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120018A01",
+      "sysaliasname": "安全监测系统",
       "description": "18号分站模拟量018A01_490避难硐室后门过渡室一氧化碳一氧化碳",
+      "sensor_type": "一氧化碳",
+      "area": "18号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120018A05",
+      "sysaliasname": "安全监测系统",
       "description": "18号分站模拟量018A05_490避难硐室后门外甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "18号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120018A08",
+      "sysaliasname": "安全监测系统",
       "description": "18号分站模拟量018A08_490避难硐室后门外一氧化碳一氧化碳",
+      "sensor_type": "一氧化碳",
+      "area": "18号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120018A13",
+      "sysaliasname": "安全监测系统",
       "description": "18号分站模拟量018A13_490避难硐室后门外二氧化碳二氧化碳",
+      "sensor_type": "二氧化碳",
+      "area": "18号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120018D14",
+      "sysaliasname": "安全监测系统",
       "description": "18号分站开关量018D14_490充电硐室风门风门",
+      "sensor_type": "风门",
+      "area": "18号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120018P03",
+      "sysaliasname": "安全监测系统",
       "description": "18号分站模拟量018P03_490避难硐室1号分站电源充电电流电流",
+      "sensor_type": "电流",
+      "area": "18号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120018P19",
+      "sysaliasname": "安全监测系统",
       "description": "18号分站多态量018P19_490避难硐室1号分站电源状态状态",
+      "sensor_type": "状态",
+      "area": "18号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120019A01",
+      "sysaliasname": "安全监测系统",
       "description": "19号分站模拟量019A01_490避难硐室前门过渡室一氧化碳一氧化碳",
+      "sensor_type": "一氧化碳",
+      "area": "19号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120019A03",
+      "sysaliasname": "安全监测系统",
       "description": "19号分站模拟量019A03_490避难硐室前门外一氧化碳一氧化碳",
+      "sensor_type": "一氧化碳",
+      "area": "19号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120019A04",
+      "sysaliasname": "安全监测系统",
       "description": "19号分站模拟量019A04_490避难硐室前门外甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "19号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120019A05",
+      "sysaliasname": "安全监测系统",
       "description": "19号分站模拟量019A05_490避难硐室生存室一氧化碳一氧化碳",
+      "sensor_type": "一氧化碳",
+      "area": "19号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120019A07",
+      "sysaliasname": "安全监测系统",
       "description": "19号分站模拟量019A07_490避难硐室生存室二氧化碳二氧化碳",
+      "sensor_type": "二氧化碳",
+      "area": "19号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120019A13",
+      "sysaliasname": "安全监测系统",
       "description": "19号分站模拟量019A13_490避难硐室前门外二氧化碳二氧化碳",
+      "sensor_type": "二氧化碳",
+      "area": "19号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120019A14",
+      "sysaliasname": "安全监测系统",
       "description": "19号分站模拟量019A14_490避难硐室生存室甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "19号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120019P03",
+      "sysaliasname": "安全监测系统",
       "description": "19号分站模拟量019P03_490避难硐室2号分站电源充电电流电流",
+      "sensor_type": "电流",
+      "area": "19号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120020A10",
+      "sysaliasname": "安全监测系统",
       "description": "20号分站模拟量020A10七采区避难硐室后门过渡室一氧化碳一氧化碳",
+      "sensor_type": "一氧化碳",
+      "area": "20号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120020A12",
+      "sysaliasname": "安全监测系统",
       "description": "20号分站模拟量020A12七采区避难硐室后门外二氧化碳二氧化碳",
+      "sensor_type": "二氧化碳",
+      "area": "20号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120020A14",
+      "sysaliasname": "安全监测系统",
       "description": "20号分站模拟量020A14七采区避难硐室后门外温度温度",
+      "sensor_type": "温度",
+      "area": "20号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120020A15",
+      "sysaliasname": "安全监测系统",
       "description": "20号分站模拟量020A15七采区避难硐室后门外一氧化碳一氧化碳",
+      "sensor_type": "一氧化碳",
+      "area": "20号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120020A16",
+      "sysaliasname": "安全监测系统",
       "description": "20号分站模拟量020A16七采区避难硐室后门外甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "20号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120020P03",
+      "sysaliasname": "安全监测系统",
       "description": "20号分站模拟量020P03七采区避难硐室1号分站电源充电电流电流",
+      "sensor_type": "电流",
+      "area": "20号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120020P19",
+      "sysaliasname": "安全监测系统",
       "description": "20号分站多态量020P19七采区避难硐室1号分站电源状态状态",
+      "sensor_type": "状态",
+      "area": "20号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120021A01",
+      "sysaliasname": "安全监测系统",
       "description": "21号分站模拟量021A01七采区避难硐室前门过渡室一氧化碳一氧化碳",
+      "sensor_type": "一氧化碳",
+      "area": "21号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120021A05",
+      "sysaliasname": "安全监测系统",
       "description": "21号分站模拟量021A05七采区避难硐室前门外二氧化碳二氧化碳",
+      "sensor_type": "二氧化碳",
+      "area": "21号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120021A06",
+      "sysaliasname": "安全监测系统",
       "description": "21号分站模拟量021A06七采区避难硐室生存室甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "21号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120021A11",
+      "sysaliasname": "安全监测系统",
       "description": "21号分站模拟量021A11七采区避难硐室生存室二氧化碳二氧化碳",
+      "sensor_type": "二氧化碳",
+      "area": "21号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120021A12",
+      "sysaliasname": "安全监测系统",
       "description": "21号分站模拟量021A12七采区避难硐室生存室一氧化碳一氧化碳",
+      "sensor_type": "一氧化碳",
+      "area": "21号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120021A15",
+      "sysaliasname": "安全监测系统",
       "description": "21号分站模拟量021A15七采区避难硐室前门外甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "21号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120021A16",
+      "sysaliasname": "安全监测系统",
       "description": "21号分站模拟量021A16七采区避难硐室前门外一氧化碳一氧化碳",
+      "sensor_type": "一氧化碳",
+      "area": "21号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120021P03",
+      "sysaliasname": "安全监测系统",
       "description": "21号分站模拟量021P03七采区避难硐室前门过渡分站电源充电电流电流",
+      "sensor_type": "电流",
+      "area": "21号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120021P19",
+      "sysaliasname": "安全监测系统",
       "description": "21号分站多态量021P19七采区避难硐室前门过渡分站电源状态状态",
+      "sensor_type": "状态",
+      "area": "21号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120022A01",
+      "sysaliasname": "安全监测系统",
       "description": "22号分站模拟量022A01F1302回风隅角甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "22号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120022A02",
+      "sysaliasname": "安全监测系统",
       "description": "22号分站模拟量022A02F1302工作面甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "22号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120022A03",
+      "sysaliasname": "安全监测系统",
       "description": "22号分站模拟量022A03F1302工作面粉尘粉尘",
+      "sensor_type": "粉尘",
+      "area": "22号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120022A05",
+      "sysaliasname": "安全监测系统",
       "description": "22号分站模拟量022A05F1302工作面回风流激光甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "22号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120022A06",
+      "sysaliasname": "安全监测系统",
       "description": "22号分站模拟量022A06F1302工作面回风流一氧化碳一氧化碳",
+      "sensor_type": "一氧化碳",
+      "area": "22号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120022C01",
+      "sysaliasname": "安全监测系统",
       "description": "22号分站开关量022C01F1302工作面低压断电器断电",
+      "sensor_type": "断电",
+      "area": "22号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120022C03",
+      "sysaliasname": "安全监测系统",
       "description": "22号分站开关量022C03F1302工作面高压断电器断电",
+      "sensor_type": "断电",
+      "area": "22号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120022C05",
+      "sysaliasname": "安全监测系统",
       "description": "22号分站开关量022C05F1302除铁器断电器断电",
+      "sensor_type": "断电",
+      "area": "22号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120022D09",
+      "sysaliasname": "安全监测系统",
       "description": "22号分站开关量022D09F1302工作面低压馈电馈电",
+      "sensor_type": "馈电",
+      "area": "22号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120022D11",
+      "sysaliasname": "安全监测系统",
       "description": "22号分站开关量022D11F1302工作面高压馈电馈电",
+      "sensor_type": "馈电",
+      "area": "22号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120022D14",
+      "sysaliasname": "安全监测系统",
       "description": "22号分站开关量022D14F1302除铁器馈电馈电",
+      "sensor_type": "馈电",
+      "area": "22号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120023A01",
+      "sysaliasname": "安全监测系统",
       "description": "23号分站模拟量023A01_490东翼皮带巷一氧化碳一氧化碳",
+      "sensor_type": "一氧化碳",
+      "area": "23号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120023A02",
+      "sysaliasname": "安全监测系统",
       "description": "23号分站模拟量023A02_490东翼皮带巷甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "23号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120023A03",
+      "sysaliasname": "安全监测系统",
       "description": "23号分站模拟量023A03_490东翼皮带巷温度温度",
+      "sensor_type": "温度",
+      "area": "23号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120023A09",
+      "sysaliasname": "安全监测系统",
       "description": "23号分站模拟量023A09_490集中皮带回风温度温度",
+      "sensor_type": "温度",
+      "area": "23号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120023A11",
+      "sysaliasname": "安全监测系统",
       "description": "23号分站模拟量023A11_490集中皮带回风一氧化碳一氧化碳",
+      "sensor_type": "一氧化碳",
+      "area": "23号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120023D07",
+      "sysaliasname": "安全监测系统",
       "description": "23号分站开关量023D07装载站风门风门",
+      "sensor_type": "风门",
+      "area": "23号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120023D08",
+      "sysaliasname": "安全监测系统",
       "description": "23号分站开关量023D08装载站皮带烟雾烟雾",
+      "sensor_type": "烟雾",
+      "area": "23号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120023D10",
+      "sysaliasname": "安全监测系统",
       "description": "23号分站开关量023D10_490东翼皮带巷风门风门",
+      "sensor_type": "风门",
+      "area": "23号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120023D12",
+      "sysaliasname": "安全监测系统",
       "description": "23号分站开关量023D12_490东翼皮带机头烟雾烟雾",
+      "sensor_type": "烟雾",
+      "area": "23号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120023P03",
+      "sysaliasname": "安全监测系统",
       "description": "23号分站模拟量023P0328度上扒钩2号分站电源充电电流电流",
+      "sensor_type": "电流",
+      "area": "23号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120023P19",
+      "sysaliasname": "安全监测系统",
       "description": "23号分站多态量023P1928度上扒钩2号分站电源状态状态",
+      "sensor_type": "状态",
+      "area": "23号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120024A04",
+      "sysaliasname": "安全监测系统",
       "description": "24号分站模拟量024A04两米绞车房温度温度",
+      "sensor_type": "温度",
+      "area": "24号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120024A05",
+      "sysaliasname": "安全监测系统",
       "description": "24号分站模拟量024A05七采区充电硐室温度温度",
+      "sensor_type": "温度",
+      "area": "24号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120024A06",
+      "sysaliasname": "安全监测系统",
       "description": "24号分站模拟量024A06七采区充电硐室氢气氢气",
+      "sensor_type": "氢气",
+      "area": "24号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120024A08",
+      "sysaliasname": "安全监测系统",
       "description": "24号分站模拟量024A08七采区充电硐室甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "24号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120024A14",
+      "sysaliasname": "安全监测系统",
       "description": "24号分站模拟量024A147302充电硐室温度温度",
+      "sensor_type": "温度",
+      "area": "24号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120024A15",
+      "sysaliasname": "安全监测系统",
       "description": "24号分站模拟量024A157302充电硐室一氧化碳一氧化碳",
+      "sensor_type": "一氧化碳",
+      "area": "24号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120024A16",
+      "sysaliasname": "安全监测系统",
       "description": "24号分站模拟量024A167302充电硐室氢气氢气",
+      "sensor_type": "氢气",
+      "area": "24号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120024D01",
+      "sysaliasname": "安全监测系统",
       "description": "24号分站开关量024D01七采区绞车房风门风门",
+      "sensor_type": "风门",
+      "area": "24号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120024D02",
+      "sysaliasname": "安全监测系统",
       "description": "24号分站开关量024D02七采区机电硐室风门风门",
+      "sensor_type": "风门",
+      "area": "24号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120024D03",
+      "sysaliasname": "安全监测系统",
       "description": "24号分站开关量024D03七采区3号联络巷风门风门",
+      "sensor_type": "风门",
+      "area": "24号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120024D07",
+      "sysaliasname": "安全监测系统",
       "description": "24号分站开关量024D07七采区分矸巷风门风门",
+      "sensor_type": "风门",
+      "area": "24号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120024D10",
+      "sysaliasname": "安全监测系统",
       "description": "24号分站开关量024D107302皮顺联络巷皮带烟雾烟雾",
+      "sensor_type": "烟雾",
+      "area": "24号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120024D12",
+      "sysaliasname": "安全监测系统",
       "description": "24号分站开关量024D12七采区充电硐室烟雾烟雾",
+      "sensor_type": "烟雾",
+      "area": "24号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120024D13",
+      "sysaliasname": "安全监测系统",
       "description": "24号分站开关量024D137302联络巷风门风门",
+      "sensor_type": "风门",
+      "area": "24号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120024P03",
+      "sysaliasname": "安全监测系统",
       "description": "24号分站模拟量024P037319工作面2号分站电源充电电流电流",
+      "sensor_type": "电流",
+      "area": "24号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120024P19",
+      "sysaliasname": "安全监测系统",
       "description": "24号分站多态量024P197319工作面2号分站电源状态状态",
+      "sensor_type": "状态",
+      "area": "24号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120025A13",
+      "sysaliasname": "安全监测系统",
       "description": "25号分站模拟量025A13_725机电硐室甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "25号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120025C01",
+      "sysaliasname": "安全监测系统",
       "description": "25号分站开关量025C01_725东二皮带二部驱动移变断电器断电",
+      "sensor_type": "断电",
+      "area": "25号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120025C04",
+      "sysaliasname": "安全监测系统",
       "description": "25号分站开关量025C04_725东二一部断电器断电",
+      "sensor_type": "断电",
+      "area": "25号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120025D01",
+      "sysaliasname": "安全监测系统",
       "description": "25号分站开关量025D01_725东二皮带二部驱动移变馈电备馈电",
+      "sensor_type": "馈电",
+      "area": "25号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120025D02",
+      "sysaliasname": "安全监测系统",
       "description": "25号分站开关量025D02_725东二皮带二部驱动移变馈电馈电",
+      "sensor_type": "馈电",
+      "area": "25号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120025D04",
+      "sysaliasname": "安全监测系统",
       "description": "25号分站开关量025D04_725东二皮带1号联络巷风门风门",
+      "sensor_type": "风门",
+      "area": "25号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120025D05",
+      "sysaliasname": "安全监测系统",
       "description": "25号分站开关量025D05_725东二一部馈电备馈电",
+      "sensor_type": "馈电",
+      "area": "25号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120025D06",
+      "sysaliasname": "安全监测系统",
       "description": "25号分站开关量025D06_725东二一部馈电馈电",
+      "sensor_type": "馈电",
+      "area": "25号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120025D09",
+      "sysaliasname": "安全监测系统",
       "description": "25号分站开关量025D09_725东二二部皮带中部驱动烟雾烟雾",
+      "sensor_type": "烟雾",
+      "area": "25号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120025D10",
+      "sysaliasname": "安全监测系统",
       "description": "25号分站开关量025D10_725东二皮带2号联络巷风门风门",
+      "sensor_type": "风门",
+      "area": "25号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120025P03",
+      "sysaliasname": "安全监测系统",
       "description": "25号分站模拟量025P03_725机电硐室2号分站电源充电电流电流",
+      "sensor_type": "电流",
+      "area": "25号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120025P19",
+      "sysaliasname": "安全监测系统",
       "description": "25号分站多态量025P19_725机电硐室2号分站电源状态状态",
+      "sensor_type": "状态",
+      "area": "25号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120026A09",
+      "sysaliasname": "安全监测系统",
       "description": "26号分站模拟量026A091304轨顺甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "26号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120026A10",
+      "sysaliasname": "安全监测系统",
       "description": "26号分站模拟量026A101304轨顺一氧化碳一氧化碳",
+      "sensor_type": "一氧化碳",
+      "area": "26号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120026A11",
+      "sysaliasname": "安全监测系统",
       "description": "26号分站模拟量026A111304轨顺风速风速",
+      "sensor_type": "风速",
+      "area": "26号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120026A12",
+      "sysaliasname": "安全监测系统",
       "description": "26号分站模拟量026A121304轨顺温度温度",
+      "sensor_type": "温度",
+      "area": "26号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120026A13",
+      "sysaliasname": "安全监测系统",
       "description": "26号分站模拟量026A13复采集中回风巷激光甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "26号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120026A14",
+      "sysaliasname": "安全监测系统",
       "description": "26号分站模拟量026A14复采集中回风巷一氧化碳一氧化碳",
+      "sensor_type": "一氧化碳",
+      "area": "26号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120026A15",
+      "sysaliasname": "安全监测系统",
       "description": "26号分站模拟量026A15复采集中回风巷温度温度",
+      "sensor_type": "温度",
+      "area": "26号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120026A16",
+      "sysaliasname": "安全监测系统",
       "description": "26号分站模拟量026A16复采集中回风巷风速风速",
+      "sensor_type": "风速",
+      "area": "26号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120026D03",
+      "sysaliasname": "安全监测系统",
       "description": "26号分站开关量026D031302皮带巷风门风门",
+      "sensor_type": "风门",
+      "area": "26号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120026D06",
+      "sysaliasname": "安全监测系统",
       "description": "26号分站开关量026D061304轨顺皮带机头烟雾烟雾",
+      "sensor_type": "烟雾",
+      "area": "26号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120026P03",
+      "sysaliasname": "安全监测系统",
       "description": "26号分站模拟量026P03_490北翼轨道巷3号分站电源充电电流电流",
+      "sensor_type": "电流",
+      "area": "26号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120026P19",
+      "sysaliasname": "安全监测系统",
       "description": "26号分站多态量026P19_490北翼轨道巷3号分站电源状态状态",
+      "sensor_type": "状态",
+      "area": "26号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120027A07",
+      "sysaliasname": "安全监测系统",
       "description": "27号分站模拟量027A077319切眼导硐迎头激光甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "27号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120027A09",
+      "sysaliasname": "安全监测系统",
       "description": "27号分站模拟量027A097319切眼导硐回风流激光甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "27号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120027A10",
+      "sysaliasname": "安全监测系统",
       "description": "27号分站模拟量027A107319切眼导硐回风流温度温度",
+      "sensor_type": "温度",
+      "area": "27号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120027A11",
+      "sysaliasname": "安全监测系统",
       "description": "27号分站模拟量027A117319切眼导硐回风流一氧化碳一氧化碳",
+      "sensor_type": "一氧化碳",
+      "area": "27号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120027A12",
+      "sysaliasname": "安全监测系统",
       "description": "27号分站模拟量027A127319切眼导硐回风流二氧化碳二氧化碳",
+      "sensor_type": "二氧化碳",
+      "area": "27号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120027C01",
+      "sysaliasname": "安全监测系统",
       "description": "27号分站开关量027C017319切眼导硐低压断电器断电",
+      "sensor_type": "断电",
+      "area": "27号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120027C07",
+      "sysaliasname": "安全监测系统",
       "description": "27号分站开关量027C077319切眼主扇断电器断电",
+      "sensor_type": "断电",
+      "area": "27号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120027C08",
+      "sysaliasname": "安全监测系统",
       "description": "27号分站开关量027C087319切眼备扇断电器断电",
+      "sensor_type": "断电",
+      "area": "27号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120027D04",
+      "sysaliasname": "安全监测系统",
       "description": "27号分站开关量027D047319切眼主扇局扇",
+      "sensor_type": "局扇",
+      "area": "27号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120027D05",
+      "sysaliasname": "安全监测系统",
       "description": "27号分站开关量027D057319切眼备扇局扇",
+      "sensor_type": "局扇",
+      "area": "27号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120027D08",
+      "sysaliasname": "安全监测系统",
       "description": "27号分站开关量027D087319切眼风筒风筒",
+      "sensor_type": "风筒",
+      "area": "27号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120027D13",
+      "sysaliasname": "安全监测系统",
       "description": "27号分站开关量027D137319切眼导硐低压馈电馈电",
+      "sensor_type": "馈电",
+      "area": "27号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120027P03",
+      "sysaliasname": "安全监测系统",
       "description": "27号分站模拟量027P037319轨顺分站电源充电电流电流",
+      "sensor_type": "电流",
+      "area": "27号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120027P19",
+      "sysaliasname": "安全监测系统",
       "description": "27号分站多态量027P197319轨顺分站电源状态状态",
+      "sensor_type": "状态",
+      "area": "27号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120028A05",
+      "sysaliasname": "安全监测系统",
       "description": "28号分站模拟量028A05洗煤厂上仓皮带机头甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "28号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120028A06",
+      "sysaliasname": "安全监测系统",
       "description": "28号分站模拟量028A06洗煤厂上仓皮带机头一氧化碳一氧化碳",
+      "sensor_type": "一氧化碳",
+      "area": "28号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120028A07",
+      "sysaliasname": "安全监测系统",
       "description": "28号分站模拟量028A07原煤入洗皮带机头甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "28号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120028A08",
+      "sysaliasname": "安全监测系统",
       "description": "28号分站模拟量028A08原煤入洗皮带机头一氧化碳一氧化碳",
+      "sensor_type": "一氧化碳",
+      "area": "28号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120028A09",
+      "sysaliasname": "安全监测系统",
       "description": "28号分站模拟量028A091号压风机温度温度",
+      "sensor_type": "温度",
+      "area": "28号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120028A10",
+      "sysaliasname": "安全监测系统",
       "description": "28号分站模拟量028A102号压风机温度温度",
+      "sensor_type": "温度",
+      "area": "28号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120028A11",
+      "sysaliasname": "安全监测系统",
       "description": "28号分站模拟量028A113号压风机温度温度",
+      "sensor_type": "温度",
+      "area": "28号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120028A13",
+      "sysaliasname": "安全监测系统",
       "description": "28号分站模拟量028A13地面3号煤仓甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "28号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120028A14",
+      "sysaliasname": "安全监测系统",
       "description": "28号分站模拟量028A14地面4号煤仓甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "28号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120028A15",
+      "sysaliasname": "安全监测系统",
       "description": "28号分站模拟量028A15地面6号煤仓激光甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "28号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120028A16",
+      "sysaliasname": "安全监测系统",
       "description": "28号分站模拟量028A16地面7号煤仓甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "28号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120028C01",
+      "sysaliasname": "安全监测系统",
       "description": "28号分站开关量028C01压风机房1号机断电器断电",
+      "sensor_type": "断电",
+      "area": "28号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120028C02",
+      "sysaliasname": "安全监测系统",
       "description": "28号分站开关量028C02压风机房2号机断电器断电",
+      "sensor_type": "断电",
+      "area": "28号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120028C03",
+      "sysaliasname": "安全监测系统",
       "description": "28号分站开关量028C03压风机房3号机断电器断电",
+      "sensor_type": "断电",
+      "area": "28号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120028D01",
+      "sysaliasname": "安全监测系统",
       "description": "28号分站开关量028D01压风机房1号机馈电备馈电",
+      "sensor_type": "馈电",
+      "area": "28号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120028D02",
+      "sysaliasname": "安全监测系统",
       "description": "28号分站开关量028D02压风机房1号机馈电馈电",
+      "sensor_type": "馈电",
+      "area": "28号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120028D03",
+      "sysaliasname": "安全监测系统",
       "description": "28号分站开关量028D03压风机房2号机馈电备馈电",
+      "sensor_type": "馈电",
+      "area": "28号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120028D04",
+      "sysaliasname": "安全监测系统",
       "description": "28号分站开关量028D04压风机房2号机馈电馈电",
+      "sensor_type": "馈电",
+      "area": "28号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120028D12",
+      "sysaliasname": "安全监测系统",
       "description": "28号分站开关量028D12压风机房3号机馈电馈电",
+      "sensor_type": "馈电",
+      "area": "28号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120028P03",
+      "sysaliasname": "安全监测系统",
       "description": "28号分站模拟量028P03注氮机房2号分站电源充电电流电流",
+      "sensor_type": "电流",
+      "area": "28号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120028P19",
+      "sysaliasname": "安全监测系统",
       "description": "28号分站多态量028P19注氮机房2号分站电源状态状态",
+      "sensor_type": "状态",
+      "area": "28号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120029A09",
+      "sysaliasname": "安全监测系统",
       "description": "29号分站模拟量029A09F1302充电硐室一氧化碳一氧化碳",
+      "sensor_type": "一氧化碳",
+      "area": "29号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120029A10",
+      "sysaliasname": "安全监测系统",
       "description": "29号分站模拟量029A10F1302充电硐室温度温度",
+      "sensor_type": "温度",
+      "area": "29号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120029A12",
+      "sysaliasname": "安全监测系统",
       "description": "29号分站模拟量029A12F1302充电硐室氢气氢气",
+      "sensor_type": "氢气",
+      "area": "29号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120029A13",
+      "sysaliasname": "安全监测系统",
       "description": "29号分站模拟量029A13F1302充电硐室甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "29号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120029C02",
+      "sysaliasname": "安全监测系统",
       "description": "29号分站开关量029C021304轨顺断电器断电",
+      "sensor_type": "断电",
+      "area": "29号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120029C03",
+      "sysaliasname": "安全监测系统",
       "description": "29号分站开关量029C03F1302充电硐室喷雾控制器断电器断电",
+      "sensor_type": "断电",
+      "area": "29号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120029D06",
+      "sysaliasname": "安全监测系统",
       "description": "29号分站开关量029D06F1302皮顺一部皮带烟雾烟雾",
+      "sensor_type": "烟雾",
+      "area": "29号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120029D11",
+      "sysaliasname": "安全监测系统",
       "description": "29号分站开关量029D11F1302充电硐室烟雾烟雾",
+      "sensor_type": "烟雾",
+      "area": "29号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120029D14",
+      "sysaliasname": "安全监测系统",
       "description": "29号分站开关量029D14F1302充电硐室喷雾控制器馈电备馈电",
+      "sensor_type": "馈电",
+      "area": "29号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120029D15",
+      "sysaliasname": "安全监测系统",
       "description": "29号分站开关量029D151304轨顺馈电备馈电",
+      "sensor_type": "馈电",
+      "area": "29号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120029D16",
+      "sysaliasname": "安全监测系统",
       "description": "29号分站开关量029D161304轨顺馈电馈电",
+      "sensor_type": "馈电",
+      "area": "29号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120029P03",
+      "sysaliasname": "安全监测系统",
       "description": "29号分站模拟量029P03_490北翼轨道巷2号分站电源充电电流电流",
+      "sensor_type": "电流",
+      "area": "29号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120029P19",
+      "sysaliasname": "安全监测系统",
       "description": "29号分站多态量029P19_490北翼轨道巷2号分站电源状态状态",
+      "sensor_type": "状态",
+      "area": "29号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120030A01",
+      "sysaliasname": "安全监测系统",
       "description": "30号分站模拟量030A01C8316切眼导硐粉尘粉尘",
+      "sensor_type": "粉尘",
+      "area": "30号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120030A02",
+      "sysaliasname": "安全监测系统",
       "description": "30号分站模拟量030A02C8316切眼导硐激光甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "30号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120030A05",
+      "sysaliasname": "安全监测系统",
       "description": "30号分站模拟量030A05_725东二皮带移变硐室激光甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "30号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120030A06",
+      "sysaliasname": "安全监测系统",
       "description": "30号分站模拟量030A06_725东二皮带移变硐室温度温度",
+      "sensor_type": "温度",
+      "area": "30号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120030A10",
+      "sysaliasname": "安全监测系统",
       "description": "30号分站模拟量030A10C8316皮顺回风流温度温度",
+      "sensor_type": "温度",
+      "area": "30号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120030A11",
+      "sysaliasname": "安全监测系统",
       "description": "30号分站模拟量030A11C8316工作面回风流激光甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "30号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120030A12",
+      "sysaliasname": "安全监测系统",
       "description": "30号分站模拟量030A12C8316工作面回风流一氧化碳一氧化碳",
+      "sensor_type": "一氧化碳",
+      "area": "30号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120030C01",
+      "sysaliasname": "安全监测系统",
       "description": "30号分站开关量030C01C8316皮顺断电器断电",
+      "sensor_type": "断电",
+      "area": "30号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120030D09",
+      "sysaliasname": "安全监测系统",
       "description": "30号分站开关量030D09C8316皮顺风门风门",
+      "sensor_type": "风门",
+      "area": "30号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120030D13",
+      "sysaliasname": "安全监测系统",
       "description": "30号分站开关量030D13C8316皮顺馈电备馈电",
+      "sensor_type": "馈电",
+      "area": "30号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120030D14",
+      "sysaliasname": "安全监测系统",
       "description": "30号分站开关量030D14C8316皮顺馈电馈电",
+      "sensor_type": "馈电",
+      "area": "30号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120030P03",
+      "sysaliasname": "安全监测系统",
       "description": "30号分站模拟量030P03_725延伸巷2号分站电源充电电流电流",
+      "sensor_type": "电流",
+      "area": "30号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120030P19",
+      "sysaliasname": "安全监测系统",
       "description": "30号分站多态量030P19_725延伸巷2号分站电源状态状态",
+      "sensor_type": "状态",
+      "area": "30号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120031P03",
+      "sysaliasname": "安全监测系统",
       "description": "31号分站模拟量031P03七采区轨道巷上车场分站电源充电电流电流",
+      "sensor_type": "电流",
+      "area": "31号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120031P19",
+      "sysaliasname": "安全监测系统",
       "description": "31号分站多态量031P19七采区轨道巷上车场分站电源状态状态",
+      "sensor_type": "状态",
+      "area": "31号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120032A05",
+      "sysaliasname": "安全监测系统",
       "description": "32号分站模拟量032A05C8308轨顺迎头激光甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "32号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120032A06",
+      "sysaliasname": "安全监测系统",
       "description": "32号分站模拟量032A06C8308轨顺粉尘粉尘",
+      "sensor_type": "粉尘",
+      "area": "32号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120032A09",
+      "sysaliasname": "安全监测系统",
       "description": "32号分站模拟量032A09C8308轨顺回风流激光甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "32号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120032A10",
+      "sysaliasname": "安全监测系统",
       "description": "32号分站模拟量032A10C8308轨顺回风流温度温度",
+      "sensor_type": "温度",
+      "area": "32号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120032A12",
+      "sysaliasname": "安全监测系统",
       "description": "32号分站模拟量032A12C8308轨顺回风流一氧化碳一氧化碳",
+      "sensor_type": "一氧化碳",
+      "area": "32号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120032C01",
+      "sysaliasname": "安全监测系统",
       "description": "32号分站开关量032C01C8308轨顺断电器断电",
+      "sensor_type": "断电",
+      "area": "32号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120032C02",
+      "sysaliasname": "安全监测系统",
       "description": "32号分站开关量032C02C8308轨顺综掘机断电器断电",
+      "sensor_type": "断电",
+      "area": "32号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120032C07",
+      "sysaliasname": "安全监测系统",
       "description": "32号分站开关量032C07C8308轨顺主扇断电器断电",
+      "sensor_type": "断电",
+      "area": "32号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120032C08",
+      "sysaliasname": "安全监测系统",
       "description": "32号分站开关量032C08C8308轨顺备扇断电器断电",
+      "sensor_type": "断电",
+      "area": "32号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120032D01",
+      "sysaliasname": "安全监测系统",
       "description": "32号分站开关量032D01_725西翼皮带巷2号风门风门",
+      "sensor_type": "风门",
+      "area": "32号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120032D02",
+      "sysaliasname": "安全监测系统",
       "description": "32号分站开关量032D02_725西翼皮带驱动烟雾烟雾",
+      "sensor_type": "烟雾",
+      "area": "32号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120032D04",
+      "sysaliasname": "安全监测系统",
       "description": "32号分站开关量032D04C8308轨顺联络巷皮带烟雾烟雾",
+      "sensor_type": "烟雾",
+      "area": "32号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120032D07",
+      "sysaliasname": "安全监测系统",
       "description": "32号分站开关量032D07C8308轨顺风筒风筒",
+      "sensor_type": "风筒",
+      "area": "32号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120032D11",
+      "sysaliasname": "安全监测系统",
       "description": "32号分站开关量032D11C8308轨顺联络巷风门风门",
+      "sensor_type": "风门",
+      "area": "32号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120032D13",
+      "sysaliasname": "安全监测系统",
       "description": "32号分站开关量032D13C8308轨顺主扇局扇",
+      "sensor_type": "局扇",
+      "area": "32号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120032D14",
+      "sysaliasname": "安全监测系统",
       "description": "32号分站开关量032D14C8308轨顺备扇局扇",
+      "sensor_type": "局扇",
+      "area": "32号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120032D15",
+      "sysaliasname": "安全监测系统",
       "description": "32号分站开关量032D15C8308轨顺馈电馈电",
+      "sensor_type": "馈电",
+      "area": "32号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120032D16",
+      "sysaliasname": "安全监测系统",
       "description": "32号分站开关量032D16C8308轨顺综掘机馈电馈电",
+      "sensor_type": "馈电",
+      "area": "32号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120032P03",
+      "sysaliasname": "安全监测系统",
       "description": "32号分站模拟量032P03C8308工作面1号分站电源充电电流电流",
+      "sensor_type": "电流",
+      "area": "32号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120032P19",
+      "sysaliasname": "安全监测系统",
       "description": "32号分站多态量032P19C8302工作面1号分站电源状态状态",
+      "sensor_type": "状态",
+      "area": "32号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120033A01",
+      "sysaliasname": "安全监测系统",
       "description": "33号分站模拟量033A01C8308切眼导硐迎头激光甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "33号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120033A02",
+      "sysaliasname": "安全监测系统",
       "description": "33号分站模拟量033A02C8308切眼导硐粉尘粉尘",
+      "sensor_type": "粉尘",
+      "area": "33号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120033A09",
+      "sysaliasname": "安全监测系统",
       "description": "33号分站模拟量033A09_725西翼皮带开关硐室甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "33号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120033A10",
+      "sysaliasname": "安全监测系统",
       "description": "33号分站模拟量033A10_725西翼皮带开关硐室温度温度",
+      "sensor_type": "温度",
+      "area": "33号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120033A13",
+      "sysaliasname": "安全监测系统",
       "description": "33号分站模拟量033A13C8308切眼导硐回风流激光甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "33号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120033A14",
+      "sysaliasname": "安全监测系统",
       "description": "33号分站模拟量033A14C8308切眼导硐回风流温度温度",
+      "sensor_type": "温度",
+      "area": "33号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120033A15",
+      "sysaliasname": "安全监测系统",
       "description": "33号分站模拟量033A15C8308切眼导硐回风流一氧化碳一氧化碳",
+      "sensor_type": "一氧化碳",
+      "area": "33号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120033A16",
+      "sysaliasname": "安全监测系统",
       "description": "33号分站模拟量033A16C8308切眼导硐回风流二氧化碳二氧化碳",
+      "sensor_type": "二氧化碳",
+      "area": "33号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120033C04",
+      "sysaliasname": "安全监测系统",
       "description": "33号分站开关量033C04C8308切眼导硐断电器断电",
+      "sensor_type": "断电",
+      "area": "33号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120033C05",
+      "sysaliasname": "安全监测系统",
       "description": "33号分站开关量033C05C8308切眼导硐综掘机断电器断电",
+      "sensor_type": "断电",
+      "area": "33号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120033C07",
+      "sysaliasname": "安全监测系统",
       "description": "33号分站开关量033C07C8308切眼导硐主扇断电器断电",
+      "sensor_type": "断电",
+      "area": "33号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120033C08",
+      "sysaliasname": "安全监测系统",
       "description": "33号分站开关量033C08C8308切眼导硐备扇断电器断电",
+      "sensor_type": "断电",
+      "area": "33号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120033D03",
+      "sysaliasname": "安全监测系统",
       "description": "33号分站开关量033D03C8308切眼导硐风筒风筒",
+      "sensor_type": "风筒",
+      "area": "33号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120033D05",
+      "sysaliasname": "安全监测系统",
       "description": "33号分站开关量033D05C8308切眼导硐综掘机馈电馈电",
+      "sensor_type": "馈电",
+      "area": "33号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120033D07",
+      "sysaliasname": "安全监测系统",
       "description": "33号分站开关量033D07C8308切眼导硐馈电备馈电",
+      "sensor_type": "馈电",
+      "area": "33号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120033D08",
+      "sysaliasname": "安全监测系统",
       "description": "33号分站开关量033D08C8308切眼导硐馈电馈电",
+      "sensor_type": "馈电",
+      "area": "33号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120033D11",
+      "sysaliasname": "安全监测系统",
       "description": "33号分站开关量033D11C8308切眼导硐主扇局扇",
+      "sensor_type": "局扇",
+      "area": "33号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120033D12",
+      "sysaliasname": "安全监测系统",
       "description": "33号分站开关量033D12C8308切眼导硐备扇局扇",
+      "sensor_type": "局扇",
+      "area": "33号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120033P03",
+      "sysaliasname": "安全监测系统",
       "description": "33号分站模拟量033P03C8308工作面2号分站电源充电电流电流",
+      "sensor_type": "电流",
+      "area": "33号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120033P19",
+      "sysaliasname": "安全监测系统",
       "description": "33号分站多态量033P19C8308工作面2号分站电源状态状态",
+      "sensor_type": "状态",
+      "area": "33号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120034A03",
+      "sysaliasname": "安全监测系统",
       "description": "34号分站模拟量034A03_725充电硐室甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "34号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120034A13",
+      "sysaliasname": "安全监测系统",
       "description": "34号分站模拟量034A13_725充电硐室温度温度",
+      "sensor_type": "温度",
+      "area": "34号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120034A14",
+      "sysaliasname": "安全监测系统",
       "description": "34号分站模拟量034A14C8302轨顺风流一氧化碳一氧化碳",
+      "sensor_type": "一氧化碳",
+      "area": "34号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120034A16",
+      "sysaliasname": "安全监测系统",
       "description": "34号分站模拟量034A16_725充电硐室氢气氢气",
+      "sensor_type": "氢气",
+      "area": "34号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120034C05",
+      "sysaliasname": "安全监测系统",
       "description": "34号分站开关量034C05_725充电硐室喷雾控制器断电器断电",
+      "sensor_type": "断电",
+      "area": "34号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120034D01",
+      "sysaliasname": "安全监测系统",
       "description": "34号分站开关量034D018301联络巷风门风门",
+      "sensor_type": "风门",
+      "area": "34号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120034D02",
+      "sysaliasname": "安全监测系统",
       "description": "34号分站开关量034D02_725西大巷2号风门风门",
+      "sensor_type": "风门",
+      "area": "34号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120034D04",
+      "sysaliasname": "安全监测系统",
       "description": "34号分站开关量034D04_725充电硐室喷雾控制器馈电备馈电",
+      "sensor_type": "馈电",
+      "area": "34号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120034D06",
+      "sysaliasname": "安全监测系统",
       "description": "34号分站开关量034D06C8308轨顺外段皮带烟雾烟雾",
+      "sensor_type": "烟雾",
+      "area": "34号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120034D08",
+      "sysaliasname": "安全监测系统",
       "description": "34号分站开关量034D08C8308轨顺二部皮带烟雾烟雾",
+      "sensor_type": "烟雾",
+      "area": "34号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120034D09",
+      "sysaliasname": "安全监测系统",
       "description": "34号分站开关量034D09C8308皮顺皮带烟雾烟雾",
+      "sensor_type": "烟雾",
+      "area": "34号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120034D11",
+      "sysaliasname": "安全监测系统",
       "description": "34号分站开关量034D11_725西翼皮带联络巷皮带烟雾烟雾",
+      "sensor_type": "烟雾",
+      "area": "34号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120034D15",
+      "sysaliasname": "安全监测系统",
       "description": "34号分站开关量034D15_725充电硐室烟雾烟雾",
+      "sensor_type": "烟雾",
+      "area": "34号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120034P03",
+      "sysaliasname": "安全监测系统",
       "description": "34号分站模拟量034P03_725综机库2号分站电源充电电流电流",
+      "sensor_type": "电流",
+      "area": "34号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120034P19",
+      "sysaliasname": "安全监测系统",
       "description": "34号分站多态量034P19_725综机库2号分站电源状态状态",
+      "sensor_type": "状态",
+      "area": "34号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120035A02",
+      "sysaliasname": "安全监测系统",
       "description": "35号分站模拟量035A02地面3号煤仓一氧化碳一氧化碳",
+      "sensor_type": "一氧化碳",
+      "area": "35号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120035A03",
+      "sysaliasname": "安全监测系统",
       "description": "35号分站模拟量035A03地面2号煤仓一氧化碳一氧化碳",
+      "sensor_type": "一氧化碳",
+      "area": "35号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120035A06",
+      "sysaliasname": "安全监测系统",
       "description": "35号分站模拟量035A06地面4号煤仓一氧化碳一氧化碳",
+      "sensor_type": "一氧化碳",
+      "area": "35号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120035A08",
+      "sysaliasname": "安全监测系统",
       "description": "35号分站模拟量035A08地面5号煤仓一氧化碳一氧化碳",
+      "sensor_type": "一氧化碳",
+      "area": "35号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120035A10",
+      "sysaliasname": "安全监测系统",
       "description": "35号分站模拟量035A10地面6号煤仓一氧化碳一氧化碳",
+      "sensor_type": "一氧化碳",
+      "area": "35号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120035A12",
+      "sysaliasname": "安全监测系统",
       "description": "35号分站模拟量035A12地面7号煤仓一氧化碳一氧化碳",
+      "sensor_type": "一氧化碳",
+      "area": "35号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120035A13",
+      "sysaliasname": "安全监测系统",
       "description": "35号分站模拟量035A13地面2号煤仓激光甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "35号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120035A14",
+      "sysaliasname": "安全监测系统",
       "description": "35号分站模拟量035A14地面1号煤仓激光甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "35号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120035A15",
+      "sysaliasname": "安全监测系统",
       "description": "35号分站模拟量035A15地面1号煤仓一氧化碳一氧化碳",
+      "sensor_type": "一氧化碳",
+      "area": "35号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120035D01",
+      "sysaliasname": "安全监测系统",
       "description": "35号分站开关量035D01地面3号煤仓烟雾烟雾",
+      "sensor_type": "烟雾",
+      "area": "35号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120035D04",
+      "sysaliasname": "安全监测系统",
       "description": "35号分站开关量035D04地面2号煤仓烟雾烟雾",
+      "sensor_type": "烟雾",
+      "area": "35号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120035D05",
+      "sysaliasname": "安全监测系统",
       "description": "35号分站开关量035D05地面4号煤仓烟雾烟雾",
+      "sensor_type": "烟雾",
+      "area": "35号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120035D07",
+      "sysaliasname": "安全监测系统",
       "description": "35号分站开关量035D07地面5号煤仓烟雾烟雾",
+      "sensor_type": "烟雾",
+      "area": "35号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120035D09",
+      "sysaliasname": "安全监测系统",
       "description": "35号分站开关量035D09地面6号煤仓烟雾烟雾",
+      "sensor_type": "烟雾",
+      "area": "35号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120035D11",
+      "sysaliasname": "安全监测系统",
       "description": "35号分站开关量035D11地面7号煤仓烟雾烟雾",
+      "sensor_type": "烟雾",
+      "area": "35号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120035D16",
+      "sysaliasname": "安全监测系统",
       "description": "35号分站开关量035D16地面1号煤仓烟雾烟雾",
+      "sensor_type": "烟雾",
+      "area": "35号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120035P03",
+      "sysaliasname": "安全监测系统",
       "description": "35号分站模拟量035P03注氮机房3号分站电源充电电流电流",
+      "sensor_type": "电流",
+      "area": "35号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120035P19",
+      "sysaliasname": "安全监测系统",
       "description": "35号分站多态量035P19注氮机房3号分站电源状态状态",
+      "sensor_type": "状态",
+      "area": "35号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120036P03",
+      "sysaliasname": "安全监测系统",
       "description": "36号分站模拟量036P03_700车场1号分站电源充电电流电流",
+      "sensor_type": "电流",
+      "area": "36号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120036P19",
+      "sysaliasname": "安全监测系统",
       "description": "36号分站多态量036P19_700车场1号分站电源状态状态",
+      "sensor_type": "状态",
+      "area": "36号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120037A01",
+      "sysaliasname": "安全监测系统",
       "description": "37号分站模拟量037A0173192号皮顺回风流激光甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "37号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120037A03",
+      "sysaliasname": "安全监测系统",
       "description": "37号分站模拟量037A0373192号皮顺回风流一氧化碳一氧化碳",
+      "sensor_type": "一氧化碳",
+      "area": "37号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120037A04",
+      "sysaliasname": "安全监测系统",
       "description": "37号分站模拟量037A0473192号皮顺回风流温度温度",
+      "sensor_type": "温度",
+      "area": "37号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120037A05",
+      "sysaliasname": "安全监测系统",
       "description": "37号分站模拟量037A0573192号皮顺迎头激光甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "37号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120037A06",
+      "sysaliasname": "安全监测系统",
       "description": "37号分站模拟量037A0673192号皮顺粉尘粉尘",
+      "sensor_type": "粉尘",
+      "area": "37号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120037A16",
+      "sysaliasname": "安全监测系统",
       "description": "37号分站模拟量037A167302充电硐室甲烷瓦斯",
+      "sensor_type": "瓦斯",
+      "area": "37号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120037C01",
+      "sysaliasname": "安全监测系统",
       "description": "37号分站开关量037C017302充电硐室喷雾控制器断电器断电",
+      "sensor_type": "断电",
+      "area": "37号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120037C03",
+      "sysaliasname": "安全监测系统",
       "description": "37号分站开关量037C0373192号皮顺断电器断电",
+      "sensor_type": "断电",
+      "area": "37号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120037C04",
+      "sysaliasname": "安全监测系统",
       "description": "37号分站开关量037C0473192号皮顺水泵低压断电器断电",
+      "sensor_type": "断电",
+      "area": "37号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120037C06",
+      "sysaliasname": "安全监测系统",
       "description": "37号分站开关量037C0673192号皮顺综掘机断电器断电",
+      "sensor_type": "断电",
+      "area": "37号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120037C07",
+      "sysaliasname": "安全监测系统",
       "description": "37号分站开关量037C0773192号皮顺主扇断电器断电",
+      "sensor_type": "断电",
+      "area": "37号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120037C08",
+      "sysaliasname": "安全监测系统",
       "description": "37号分站开关量037C0873192号皮顺备扇断电器断电",
+      "sensor_type": "断电",
+      "area": "37号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120037D02",
+      "sysaliasname": "安全监测系统",
       "description": "37号分站开关量037D0273192号皮顺水泵低压馈电馈电",
+      "sensor_type": "馈电",
+      "area": "37号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120037D07",
+      "sysaliasname": "安全监测系统",
       "description": "37号分站开关量037D0773192号皮顺风筒风筒",
+      "sensor_type": "风筒",
+      "area": "37号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120037D08",
+      "sysaliasname": "安全监测系统",
       "description": "37号分站开关量037D0873192号皮顺皮带烟雾烟雾",
+      "sensor_type": "烟雾",
+      "area": "37号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120037D09",
+      "sysaliasname": "安全监测系统",
       "description": "37号分站开关量037D0973192号皮顺主扇局扇",
+      "sensor_type": "局扇",
+      "area": "37号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120037D10",
+      "sysaliasname": "安全监测系统",
       "description": "37号分站开关量037D1073192号皮顺备扇局扇",
+      "sensor_type": "局扇",
+      "area": "37号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120037D11",
+      "sysaliasname": "安全监测系统",
       "description": "37号分站开关量037D1173192号皮顺综掘机馈电馈电",
+      "sensor_type": "馈电",
+      "area": "37号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120037D12",
+      "sysaliasname": "安全监测系统",
       "description": "37号分站开关量037D1273192号皮顺馈电馈电",
+      "sensor_type": "馈电",
+      "area": "37号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120037D13",
+      "sysaliasname": "安全监测系统",
       "description": "37号分站开关量037D137319一号皮顺皮带回风烟雾烟雾",
+      "sensor_type": "烟雾",
+      "area": "37号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120037D14",
+      "sysaliasname": "安全监测系统",
       "description": "37号分站开关量037D147302充电硐室喷雾控制器馈电备馈电",
+      "sensor_type": "馈电",
+      "area": "37号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120037D15",
+      "sysaliasname": "安全监测系统",
       "description": "37号分站开关量037D157302充电硐室烟雾烟雾",
+      "sensor_type": "烟雾",
+      "area": "37号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120037P03",
+      "sysaliasname": "安全监测系统",
       "description": "37号分站模拟量037P037319工作面分站电源充电电流电流",
+      "sensor_type": "电流",
+      "area": "37号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK0030120037P19",
+      "sysaliasname": "安全监测系统",
       "description": "37号分站多态量037P197319工作面分站电源状态状态",
+      "sensor_type": "状态",
+      "area": "37号分站",
       "mark_type": "B14"
     },
     {
       "id": "JKYHMK00301211051715140004",
+      "sysaliasname": "工业视频监控系统",
       "description": "490采区变490采区变摄像头2状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301211051715140005",
+      "sysaliasname": "工业视频监控系统",
       "description": "490采区变490采区变摄像头3状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301211051715140006",
+      "sysaliasname": "工业视频监控系统",
       "description": "七采区七采区机电硐室1状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301211051715140012",
+      "sysaliasname": "工业视频监控系统",
       "description": "七采区七采区北翼煤仓状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301211051715140015",
+      "sysaliasname": "工业视频监控系统",
       "description": "七采区七采区北翼机头状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301211051715140016",
+      "sysaliasname": "工业视频监控系统",
       "description": "强力给煤机状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301211051715140018",
+      "sysaliasname": "工业视频监控系统",
       "description": "集中给煤机状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301211051715140020",
+      "sysaliasname": "工业视频监控系统",
       "description": "集中给煤机平台状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301211051715140021",
+      "sysaliasname": "工业视频监控系统",
       "description": "转载给煤机状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301211051715140022",
+      "sysaliasname": "工业视频监控系统",
       "description": "七采区七采区二部煤仓下口状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301211051715140023",
+      "sysaliasname": "工业视频监控系统",
       "description": "725煤仓725煤仓内状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301211051715140024",
+      "sysaliasname": "工业视频监控系统",
       "description": "七采区七采区一部仓口状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301211051715140027",
+      "sysaliasname": "工业视频监控系统",
       "description": "七采区七采区西翼机头状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301211051715440078",
+      "sysaliasname": "工业视频监控系统",
       "description": "煤仓煤仓东球机状态",
+      "sensor_type": "状态",
+      "area": "地面",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301211051715440082",
+      "sysaliasname": "工业视频监控系统",
       "description": "煤仓煤仓南球机状态",
+      "sensor_type": "状态",
+      "area": "地面",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301211051715440117",
+      "sysaliasname": "工业视频监控系统",
       "description": "北门北门摄像头状态",
+      "sensor_type": "状态",
+      "area": "地面",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301211051715440118",
+      "sysaliasname": "工业视频监控系统",
       "description": "地磅磅西南摄像头状态",
+      "sensor_type": "状态",
+      "area": "地面",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301211070900100132",
+      "sysaliasname": "工业视频监控系统",
       "description": "首采区1强力煤仓内状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301211070900100133",
+      "sysaliasname": "工业视频监控系统",
       "description": "-725水平1-725强力给煤机状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301211070900100139",
+      "sysaliasname": "工业视频监控系统",
       "description": "首采区1强力机头状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301211070900100140",
+      "sysaliasname": "工业视频监控系统",
       "description": "-725水平1-725东翼机尾状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301211070900100141",
+      "sysaliasname": "工业视频监控系统",
       "description": "压风机房1风包处状态",
+      "sensor_type": "状态",
+      "area": "地面",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301211070900100142",
+      "sysaliasname": "工业视频监控系统",
       "description": "压风机房12#压风机状态",
+      "sensor_type": "状态",
+      "area": "地面",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301211070900100143",
+      "sysaliasname": "工业视频监控系统",
       "description": "压风机房1高压柜状态",
+      "sensor_type": "状态",
+      "area": "地面",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301211070900100144",
+      "sysaliasname": "工业视频监控系统",
       "description": "压风机房11号压风机状态",
+      "sensor_type": "状态",
+      "area": "地面",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301211070900100145",
+      "sysaliasname": "工业视频监控系统",
       "description": "压风机房13号压风机状态",
+      "sensor_type": "状态",
+      "area": "地面",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301211070900100148",
+      "sysaliasname": "工业视频监控系统",
       "description": "七采区1七采区机电硐室3状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301211070900100149",
+      "sysaliasname": "工业视频监控系统",
       "description": "-725水平1725机电硐室1状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301211070900100150",
+      "sysaliasname": "工业视频监控系统",
       "description": "-725水平1725机电硐室2状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301211070900100151",
+      "sysaliasname": "工业视频监控系统",
       "description": "-725水平1-725变电所门内状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301211070900100152",
+      "sysaliasname": "工业视频监控系统",
       "description": "-725水平1-725变电所外状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301212403300927260",
+      "sysaliasname": "工业视频监控系统",
       "description": "主运皮带机头状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301212406011031550",
+      "sysaliasname": "工业视频监控系统",
       "description": "73207320轨顺门口1状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301212406011040050",
+      "sysaliasname": "工业视频监控系统",
       "description": "73207320联络巷探水处状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301212406011128280",
+      "sysaliasname": "工业视频监控系统",
       "description": "73207320皮顺联络巷机头状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301212406011129450",
+      "sysaliasname": "工业视频监控系统",
       "description": "73207320工作面二部皮带头状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301212406011130400",
+      "sysaliasname": "工业视频监控系统",
       "description": "7320C8302工作面25#架状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301212406011131140",
+      "sysaliasname": "工业视频监控系统",
       "description": "73207320工作面二部溜子头状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301212406011131450",
+      "sysaliasname": "工业视频监控系统",
       "description": "73207318工作面二部机头状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301212406011132110",
+      "sysaliasname": "工业视频监控系统",
       "description": "73207318工作面转载机头状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301212406011132460",
+      "sysaliasname": "工业视频监控系统",
       "description": "73207320工作面11号架状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301212406011133360",
+      "sysaliasname": "工业视频监控系统",
       "description": "73207318工作面2#轨顺状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301212406011136070",
+      "sysaliasname": "工业视频监控系统",
       "description": "73207318轨顺3号水仓状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301212406011136490",
+      "sysaliasname": "工业视频监控系统",
       "description": "73207318下隅角状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301212406011137280",
+      "sysaliasname": "工业视频监控系统",
       "description": "7320C8302工作面19号架状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301212406011138420",
+      "sysaliasname": "工业视频监控系统",
       "description": "73207320工作面35号架状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301212406011139110",
+      "sysaliasname": "工业视频监控系统",
       "description": "73207320皮顺门口状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301212406011147040",
+      "sysaliasname": "工业视频监控系统",
       "description": "73207320皮顺超前状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301212406011148200",
+      "sysaliasname": "工业视频监控系统",
       "description": "7320集中皮带机尾电子围栏状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301212406011151280",
+      "sysaliasname": "工业视频监控系统",
       "description": "73207320工作面二部皮带机头状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301212406011152330",
+      "sysaliasname": "工业视频监控系统",
       "description": "73207320轨顺门口2状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301212406011153500",
+      "sysaliasname": "工业视频监控系统",
       "description": "73207320工作面轨顺超前状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301212407301638470",
+      "sysaliasname": "工业视频监控系统",
       "description": "七采区七采区充电硐室状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301212407311457140",
+      "sysaliasname": "工业视频监控系统",
       "description": "-725-725充电硐室状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301212509291125350",
+      "sysaliasname": "工业视频监控系统",
       "description": "集控中心东北角状态",
+      "sensor_type": "状态",
+      "area": "地面",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301212509291127510",
+      "sysaliasname": "工业视频监控系统",
       "description": "集控中心西南角状态",
+      "sensor_type": "状态",
+      "area": "地面",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301212509291128530",
+      "sysaliasname": "工业视频监控系统",
       "description": "集控中心室外南状态",
+      "sensor_type": "状态",
+      "area": "地面",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301212509291129250",
+      "sysaliasname": "工业视频监控系统",
       "description": "集控中心室外北状态",
+      "sensor_type": "状态",
+      "area": "地面",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301212510221459130",
+      "sysaliasname": "工业视频监控系统",
       "description": "7319皮顺状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301212510231729100",
+      "sysaliasname": "工业视频监控系统",
       "description": "C8302轨顺限员门状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301212510231730190",
+      "sysaliasname": "工业视频监控系统",
       "description": "C8302皮顺限员门状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301212510231731400",
+      "sysaliasname": "工业视频监控系统",
       "description": "C8308轨顺定员站状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301212510231733370",
+      "sysaliasname": "工业视频监控系统",
       "description": "C8308皮顺限员门状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301214022817140092",
+      "sysaliasname": "工业视频监控系统",
       "description": "风门主井底1状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301214022817140093",
+      "sysaliasname": "工业视频监控系统",
       "description": "风门主井底2状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301214022817140094",
+      "sysaliasname": "工业视频监控系统",
       "description": "风门南石风门1状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301214022817140095",
+      "sysaliasname": "工业视频监控系统",
       "description": "风门南石风门2状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301214022817140096",
+      "sysaliasname": "工业视频监控系统",
       "description": "风门强力机尾1状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301214022817140097",
+      "sysaliasname": "工业视频监控系统",
       "description": "风门强力机尾2状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301214031516430098",
+      "sysaliasname": "工业视频监控系统",
       "description": "725东三猴车机头状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301214031516430099",
+      "sysaliasname": "工业视频监控系统",
       "description": "725东三猴车机尾状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301214032110360100",
+      "sysaliasname": "工业视频监控系统",
       "description": "泵房725泵房状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301214032715090101",
+      "sysaliasname": "工业视频监控系统",
       "description": "泵房490泵房1状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301214032715090102",
+      "sysaliasname": "工业视频监控系统",
       "description": "泵房490泵房2状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301214032715090103",
+      "sysaliasname": "工业视频监控系统",
       "description": "泵房490泵房3状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301214032715090104",
+      "sysaliasname": "工业视频监控系统",
       "description": "泵房490泵房4状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301214032715090105",
+      "sysaliasname": "工业视频监控系统",
       "description": "泵房490泵房5状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301214032915580106",
+      "sysaliasname": "工业视频监控系统",
       "description": "泵房725泵房1状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301214032915580107",
+      "sysaliasname": "工业视频监控系统",
       "description": "泵房725泵房2状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301214032915580108",
+      "sysaliasname": "工业视频监控系统",
       "description": "泵房725泵房3状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301214080117290132",
+      "sysaliasname": "工业视频监控系统",
       "description": "-725-725充电硐室红外状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301214080117290133",
+      "sysaliasname": "工业视频监控系统",
       "description": "七采区七采区充电硐室红外状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK00301219082022220003",
+      "sysaliasname": "工业视频监控系统",
       "description": "490采区变490采区变摄像头1海康状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK003012192911242700026",
+      "sysaliasname": "工业视频监控系统",
       "description": "F13017318工作面7#架海康状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK003012192911242700027",
+      "sysaliasname": "工业视频监控系统",
       "description": "F1301F1301工作面43#海康状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK003012192911242700030",
+      "sysaliasname": "工业视频监控系统",
       "description": "F13017318工作面三部机头海康状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK003012192911242700031",
+      "sysaliasname": "工业视频监控系统",
       "description": "F13017318工作面二部机头海康状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK003012192911242700033",
+      "sysaliasname": "工业视频监控系统",
       "description": "F13017318工作面一部机头海康状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK003012192911242700034",
+      "sysaliasname": "工业视频监控系统",
       "description": "-490水平-490泵房状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK003012192911242700038",
+      "sysaliasname": "工业视频监控系统",
       "description": "-490水平-490水仓状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK003012192911242700039",
+      "sysaliasname": "工业视频监控系统",
       "description": "F1301F1301工作面19#海康状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK003012192911242700047",
+      "sysaliasname": "工业视频监控系统",
       "description": "-725水平-725水仓状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK003012192911242700048",
+      "sysaliasname": "工业视频监控系统",
       "description": "轨道暗斜井暗斜井状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK003012192911242700051",
+      "sysaliasname": "工业视频监控系统",
       "description": "F13017318工作面19#架海康状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK003012192911242700056",
+      "sysaliasname": "工业视频监控系统",
       "description": "主井主井绞车房状态",
+      "sensor_type": "状态",
+      "area": "地面",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK003012192911242700057",
+      "sysaliasname": "工业视频监控系统",
       "description": "2.5米绞车房绞车房状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK003012192911242700058",
+      "sysaliasname": "工业视频监控系统",
       "description": "2米绞车房绞车房状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK003012192911242700059",
+      "sysaliasname": "工业视频监控系统",
       "description": "防冲办公室状态",
+      "sensor_type": "状态",
+      "area": "地面",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK003012192911242700060",
+      "sysaliasname": "工业视频监控系统",
       "description": "7318皮顺中部水仓状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK003012192911242700073",
+      "sysaliasname": "工业视频监控系统",
       "description": "F1301F1301一部机头2#海康状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK003012192911242700074",
+      "sysaliasname": "工业视频监控系统",
       "description": "采掘楼状态",
+      "sensor_type": "状态",
+      "area": "地面",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK003012192911242700076",
+      "sysaliasname": "工业视频监控系统",
       "description": "F13017318工作面7#架海康状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK003012192911242700077",
+      "sysaliasname": "工业视频监控系统",
       "description": "装载站状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK003012192911242700078",
+      "sysaliasname": "工业视频监控系统",
       "description": "洗煤厂煤泥皮带机头状态",
+      "sensor_type": "状态",
+      "area": "地面",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK003012192911242700079",
+      "sysaliasname": "工业视频监控系统",
       "description": "洗煤厂泵房状态",
+      "sensor_type": "状态",
+      "area": "地面",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK003012192911242700080",
+      "sysaliasname": "工业视频监控系统",
       "description": "洗煤厂浮选三楼状态",
+      "sensor_type": "状态",
+      "area": "地面",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK003012192911242700081",
+      "sysaliasname": "工业视频监控系统",
       "description": "洗煤厂主洗三楼状态",
+      "sensor_type": "状态",
+      "area": "地面",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK003012192911242700082",
+      "sysaliasname": "工业视频监控系统",
       "description": "洗煤厂浮精机头状态",
+      "sensor_type": "状态",
+      "area": "地面",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK003012192911242700083",
+      "sysaliasname": "工业视频监控系统",
       "description": "洗煤厂1#仓状态",
+      "sensor_type": "状态",
+      "area": "地面",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK003012192911242700084",
+      "sysaliasname": "工业视频监控系统",
       "description": "洗煤厂入洗原煤皮带机尾状态",
+      "sensor_type": "状态",
+      "area": "地面",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK003012192911242700085",
+      "sysaliasname": "工业视频监控系统",
       "description": "洗煤厂精中煤皮带巷状态",
+      "sensor_type": "状态",
+      "area": "地面",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK003012192911242700086",
+      "sysaliasname": "工业视频监控系统",
       "description": "洗煤厂脱泥筛状态",
+      "sensor_type": "状态",
+      "area": "地面",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK003012192911242700087",
+      "sysaliasname": "工业视频监控系统",
       "description": "洗煤厂清水池状态",
+      "sensor_type": "状态",
+      "area": "地面",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK003012192911242700088",
+      "sysaliasname": "工业视频监控系统",
       "description": "洗煤厂浓缩池状态",
+      "sensor_type": "状态",
+      "area": "地面",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK003012192911242700089",
+      "sysaliasname": "工业视频监控系统",
       "description": "洗煤厂主洗二楼状态",
+      "sensor_type": "状态",
+      "area": "地面",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK003012192911242700090",
+      "sysaliasname": "工业视频监控系统",
       "description": "洗煤厂加药室状态",
+      "sensor_type": "状态",
+      "area": "地面",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK003012192911242700091",
+      "sysaliasname": "工业视频监控系统",
       "description": "洗煤厂入仓皮带机头状态",
+      "sensor_type": "状态",
+      "area": "地面",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK003012192911242700092",
+      "sysaliasname": "工业视频监控系统",
       "description": "洗煤厂主洗四楼状态",
+      "sensor_type": "状态",
+      "area": "地面",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK003012192911242700093",
+      "sysaliasname": "工业视频监控系统",
       "description": "洗煤厂磁选机状态",
+      "sensor_type": "状态",
+      "area": "地面",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK003012192911242700094",
+      "sysaliasname": "工业视频监控系统",
       "description": "洗煤厂集控室状态",
+      "sensor_type": "状态",
+      "area": "地面",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK003012192911242700095",
+      "sysaliasname": "工业视频监控系统",
       "description": "洗煤厂深锥状态",
+      "sensor_type": "状态",
+      "area": "地面",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK003012192911242700096",
+      "sysaliasname": "工业视频监控系统",
       "description": "洗煤厂甲带给煤机状态",
+      "sensor_type": "状态",
+      "area": "地面",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK003012192911242700097",
+      "sysaliasname": "工业视频监控系统",
       "description": "洗煤厂手选皮带状态",
+      "sensor_type": "状态",
+      "area": "地面",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK003012192911242700098",
+      "sysaliasname": "工业视频监控系统",
       "description": "洗煤厂1#振动筛状态",
+      "sensor_type": "状态",
+      "area": "地面",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK003012192911242700099",
+      "sysaliasname": "工业视频监控系统",
       "description": "洗煤厂卸载站状态",
+      "sensor_type": "状态",
+      "area": "地面",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK003012192911242700100",
+      "sysaliasname": "工业视频监控系统",
       "description": "副井副井上井口大华状态",
+      "sensor_type": "状态",
+      "area": "地面",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK003012192911242700101",
+      "sysaliasname": "工业视频监控系统",
       "description": "煤场-725延伸巷海康状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK003012192911242700102",
+      "sysaliasname": "工业视频监控系统",
       "description": "煤场重磅中摄像头海康状态",
+      "sensor_type": "状态",
+      "area": "地面",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK003012192911242700103",
+      "sysaliasname": "工业视频监控系统",
       "description": "C5303工作面C5303工作面皮带机头海康状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK003012192911242700104",
+      "sysaliasname": "工业视频监控系统",
       "description": "C5303工作面C5303工作面19#架海康状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK003012192911242700105",
+      "sysaliasname": "工业视频监控系统",
       "description": "F1301F1301工作面13#海康状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK003012192911242700106",
+      "sysaliasname": "工业视频监控系统",
       "description": "F1301-725延伸巷海康状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK003012192911242700107",
+      "sysaliasname": "工业视频监控系统",
       "description": "F1301F1301二部机头海康状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK003012192911242700108",
+      "sysaliasname": "工业视频监控系统",
       "description": "F1301F1301三部机头海康状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK003012192911242700109",
+      "sysaliasname": "工业视频监控系统",
       "description": "F1301F1301一部机头海康状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK003012192911242700110",
+      "sysaliasname": "工业视频监控系统",
       "description": "副井副井绞车房海康状态",
+      "sensor_type": "状态",
+      "area": "地面",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK003012192911242700111",
+      "sysaliasname": "工业视频监控系统",
       "description": "七采区七采区猴车机头大华状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK003012192911242700112",
+      "sysaliasname": "工业视频监控系统",
       "description": "七采区七采区猴车机尾大华状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK003012192911242700113",
+      "sysaliasname": "工业视频监控系统",
       "description": "暗斜井暗斜井侯车机头大华状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK003012192911242700114",
+      "sysaliasname": "工业视频监控系统",
       "description": "暗斜井暗斜井侯车机尾大华状态",
+      "sensor_type": "状态",
+      "area": "井下",
       "mark_type": "B16"
     },
     {
       "id": "JKYHMK003014002059J00",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602059J00_725东翼三号联络巷人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002059P10",
+      "sysaliasname": "人员定位系统",
       "description": "八采区5602059P10东三皮带巷人数",
+      "sensor_type": "人数",
+      "area": "八采区",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002059P20",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602059P20东三皮带巷人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002059P30",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602059P30东三轨道巷人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002059P50",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602059P50东三轨道巷人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002059P70",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602059P70东三轨道巷中部人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002059X40",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602059X408316轨顺人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002060J00",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602060J00东二皮带巷人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002060P10",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602060P10东二皮带巷人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002060P30",
+      "sysaliasname": "人员定位系统",
       "description": "C8316准备工作面区域定员8302060P30C8316皮顺门口人数",
+      "sensor_type": "人数",
+      "area": "C8316准备工作面区域定员",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002060P50",
+      "sysaliasname": "人员定位系统",
       "description": "C8316准备工作面区域定员8302060P50C8316皮顺中部人数",
+      "sensor_type": "人数",
+      "area": "C8316准备工作面区域定员",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002060P70",
+      "sysaliasname": "人员定位系统",
       "description": "C8316准备工作面区域定员8302060P70C8316皮顺内人数",
+      "sensor_type": "人数",
+      "area": "C8316准备工作面区域定员",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002060X20",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602060X208316皮顺中部定员人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002060X40",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602060X40C8316皮顺门口人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002061J00",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602061J00F1302轨顺中部人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002061P30",
+      "sysaliasname": "人员定位系统",
       "description": "F1302综采工作面防冲限员11002061P30F1302轨顺中下人数",
+      "sensor_type": "人数",
+      "area": "F1302综采工作面防冲限员",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002061P70",
+      "sysaliasname": "人员定位系统",
       "description": "F1302综采工作面防冲限员11002061P70F1302工作面机尾人数",
+      "sensor_type": "人数",
+      "area": "F1302综采工作面防冲限员",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002061X10",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602061X10F1302轨顺中部限员屏人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002062J00",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602062J00_725机电硐室1号基站人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002062P10",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602062P10_725东翼皮带机尾机电硐室后门绕道人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002062P20",
+      "sysaliasname": "人员定位系统",
       "description": "八采区5602062P20_725机电硐室人数",
+      "sensor_type": "人数",
+      "area": "八采区",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002062P30",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602062P30_725机电硐室后门绕道人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002062P40",
+      "sysaliasname": "人员定位系统",
       "description": "八采区5602062P40_725东大巷拐弯处人数",
+      "sensor_type": "人数",
+      "area": "八采区",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002063J00",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602063J007302联络巷人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002063P10",
+      "sysaliasname": "人员定位系统",
       "description": "7319一号皮顺综掘工作面区域定员10602063P1073191号皮顺迎头人数",
+      "sensor_type": "人数",
+      "area": "7319一号皮顺综掘工作面区域定员",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002063P30",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602063P307302皮顺联络巷人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002063X40",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602063X4073191号皮顺定员屏人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002064J00",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602064J00C8301轨顺入口2号基站人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002064P20",
+      "sysaliasname": "人员定位系统",
       "description": "八采区5602064P20东二皮带巷人数",
+      "sensor_type": "人数",
+      "area": "八采区",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002064P40",
+      "sysaliasname": "人员定位系统",
       "description": "八采区5602064P40_725东大巷人数",
+      "sensor_type": "人数",
+      "area": "八采区",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002064P80",
+      "sysaliasname": "人员定位系统",
       "description": "八采区5602064P80_725东大巷人数",
+      "sensor_type": "人数",
+      "area": "八采区",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002065J00",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602065J00_725东翼延伸巷上把钩人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002065P10",
+      "sysaliasname": "人员定位系统",
       "description": "八采区5602065P10_725东翼延伸巷上把钩人数",
+      "sensor_type": "人数",
+      "area": "八采区",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002065P30",
+      "sysaliasname": "人员定位系统",
       "description": "C8316准备工作面区域定员8302065P30C8316轨顺门口人数",
+      "sensor_type": "人数",
+      "area": "C8316准备工作面区域定员",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002065P40",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602065P40C8316轨顺联络巷人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002065P70",
+      "sysaliasname": "人员定位系统",
       "description": "C8316准备工作面区域定员8302065P70C8316轨顺内人数",
+      "sensor_type": "人数",
+      "area": "C8316准备工作面区域定员",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002066J00",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602066J00_490采区变电所1号基站人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002066P10",
+      "sysaliasname": "人员定位系统",
       "description": "490采区变电所准入区域9102066P10_490采区变电所6322人数",
+      "sensor_type": "人数",
+      "area": "490采区变电所准入区域",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002066P20",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602066P20强力皮带巷人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002066P30",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602066P30回风暗斜井上6326人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002066P40",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602066P40暗斜井上扒钩6332人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002066P80",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602066P80轨道暗斜井绞车房人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002067J00",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602067J00_490采区变电所2号基站人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002067P10",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602067P10_490西大巷人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002067P20",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602067P20七采区猴车机尾6303人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002067P30",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602067P30复采F1301轨顺开门点人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002067P50",
+      "sysaliasname": "人员定位系统",
       "description": "一采区5402067P50F1302联络巷人数",
+      "sensor_type": "人数",
+      "area": "一采区",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002067P60",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602067P60七采区猴车中部人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002067P70",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602067P70_490西翼皮带机尾6328人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002069J00",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602069J007305门口基站人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002069P10",
+      "sysaliasname": "人员定位系统",
       "description": "七采区5702069P10七采区西翼轨道巷拐弯处人数",
+      "sensor_type": "人数",
+      "area": "七采区",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002069P20",
+      "sysaliasname": "人员定位系统",
       "description": "七采区5702069P20七采皮带巷二部机尾人数",
+      "sensor_type": "人数",
+      "area": "七采区",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002069P30",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602069P30七采区皮带巷二部人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002069P40",
+      "sysaliasname": "人员定位系统",
       "description": "七采区5702069P407318皮带顺槽联络巷人数",
+      "sensor_type": "人数",
+      "area": "七采区",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002069P70",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602069P70七采区2号皮带巷人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002070J00",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602070J00副井上井口二楼人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002070P10",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602070P10地面副井口北人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002070X30",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602070X30打点室人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002072J00",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602072J00_490避难硐室基站人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002072P10",
+      "sysaliasname": "人员定位系统",
       "description": "_490避难硐室802072P10_490避难硐室6385人数",
+      "sensor_type": "人数",
+      "area": "_490避难硐室",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002073J00",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602073J00九采区南翼轨道猴车机头基站人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002073P10",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602073P10九采区南翼皮带机头人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002073P30",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602073P30_490东翼皮带巷中部人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002073P40",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602073P40九采区南翼轨道巷人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002073P80",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602073P80_490充电硐室人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002074J00",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602074J00F1302皮顺中部人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002074P10",
+      "sysaliasname": "人员定位系统",
       "description": "F1302综采工作面防冲限员11002074P10F1302皮顺中部下人数",
+      "sensor_type": "人数",
+      "area": "F1302综采工作面防冲限员",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002074P40",
+      "sysaliasname": "人员定位系统",
       "description": "F1302综采工作面防冲限员11002074P40F1302工作面机头人数",
+      "sensor_type": "人数",
+      "area": "F1302综采工作面防冲限员",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002074X30",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602074X30F1302皮顺中部限员屏人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002075J00",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602075J00C8316轨顺回迎人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002075P10",
+      "sysaliasname": "人员定位系统",
       "description": "七采区5702075P10C8316工作面切眼内人数",
+      "sensor_type": "人数",
+      "area": "七采区",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002075X30",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602075X30C8316轨顺中部限员屏人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002076J00",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602076J00七采区避难硐室基站人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002076P10",
+      "sysaliasname": "人员定位系统",
       "description": "七采区避难硐室1102076P10七采区避难硐室6310人数",
+      "sensor_type": "人数",
+      "area": "七采区避难硐室",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002077J00",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602077J00七采区机电硐室基站人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002077P10",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602077P10七采区大巷人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002077P20",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602077P20七采区皮带巷中部机电硐室后门人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002077P30",
+      "sysaliasname": "人员定位系统",
       "description": "七采区5702077P30七采区机电硐室6338人数",
+      "sensor_type": "人数",
+      "area": "七采区",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002077P40",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602077P40七采区充电硐室人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002077P50",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602077P507300皮顺联络巷人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002077P70",
+      "sysaliasname": "人员定位系统",
       "description": "7319一号皮顺综掘工作面区域定员10602077P707302联络巷人数",
+      "sensor_type": "人数",
+      "area": "7319一号皮顺综掘工作面区域定员",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002078J00",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602078J00一采区联络巷基站人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002078P20",
+      "sysaliasname": "人员定位系统",
       "description": "一采区5402078P20_490北翼联络巷人数",
+      "sensor_type": "人数",
+      "area": "一采区",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002078P30",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602078P30总回风巷人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002078P40",
+      "sysaliasname": "人员定位系统",
       "description": "一采区5402078P40_490北翼皮带巷人数",
+      "sensor_type": "人数",
+      "area": "一采区",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002078P60",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602078P60强力皮带机头北翼皮带巷人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002078P70",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602078P70七采区皮带巷上山下口人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002078X10",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602078X10F1302轨顺定员区域人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002079J00",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602079J008302联络巷人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002079P20",
+      "sysaliasname": "人员定位系统",
       "description": "C8302综采工作面区域定员4202079P20c8302皮顺门口人数",
+      "sensor_type": "人数",
+      "area": "C8302综采工作面区域定员",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002079P40",
+      "sysaliasname": "人员定位系统",
       "description": "八采区5602079P408302联络巷人数",
+      "sensor_type": "人数",
+      "area": "八采区",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002079P80",
+      "sysaliasname": "人员定位系统",
       "description": "C8302综采工作面区域定员4202079P80c8302轨顺门口人数",
+      "sensor_type": "人数",
+      "area": "C8302综采工作面区域定员",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002079X10",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602079X10C8302轨顺门口人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002079X30",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602079X30C8302皮顺区域限员屏人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002080J00",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602080J00七采区猴车上口基站人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002080P10",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602080P10七采区四号联络巷人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002080P30",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602080P30七采区猴车机头人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002080P40",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602080P40七采区绞车房人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002081J00",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602081J00_725水仓门口基站人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002081P10",
+      "sysaliasname": "人员定位系统",
       "description": "725变电所泵房准入区域9202081P10_725变电所里人数",
+      "sensor_type": "人数",
+      "area": "725变电所泵房准入区域",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002081P20",
+      "sysaliasname": "人员定位系统",
       "description": "_725水仓区域402081P20_725水仓人数",
+      "sensor_type": "人数",
+      "area": "_725水仓区域",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002081P40",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602081P40_725水泵房门口大巷人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002081P80",
+      "sysaliasname": "人员定位系统",
       "description": "八采区5602081P80_725西翼轨道巷人数",
+      "sensor_type": "人数",
+      "area": "八采区",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002082J00",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602082J00八采区20度下把钩基站人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002082P10",
+      "sysaliasname": "人员定位系统",
       "description": "八采区5602082P10_72520度下把钩人数",
+      "sensor_type": "人数",
+      "area": "八采区",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002083J00",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602083J00_725充电硐室人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002083P10",
+      "sysaliasname": "人员定位系统",
       "description": "八采区5602083P10_725充电硐室门口人数",
+      "sensor_type": "人数",
+      "area": "八采区",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002083P50",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602083P50_725东翼皮带大巷人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002084J00",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602084J00_700车场基站人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002084P10",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602084P10轨道暗斜井_700车场人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002084P20",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602084P20_700北翼皮带巷中部人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002084P30",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602084P30_700轨顺联络巷上山下口人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002085J00",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602085J00暗斜井猴车下口基站人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002085P10",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602085P10_725煤仓漏煤眼人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002085P20",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602085P20强力皮带暗斜井机尾人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002085P30",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602085P30回风暗斜井下口人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002085P40",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602085P40下水平管子道人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002085P50",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602085P50_725西翼皮带巷人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002087J00",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602087J00主井28度下把钩大巷基站人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002087P10",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602087P10_490东大巷绕道水仓门口人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002087P20",
+      "sysaliasname": "人员定位系统",
       "description": "_490水仓区域302087P20_490水仓人数",
+      "sensor_type": "人数",
+      "area": "_490水仓区域",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002087P30",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602087P30主井28度下把钩人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002087P50",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602087P50_490水处理硐室人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002088J00",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602088J00集中皮带机头基站人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002088P10",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602088P10_490总回风巷集中皮带联络巷人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002088P20",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602088P20_490西翼皮带机头总回联络巷人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002088P30",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602088P30主井28度上把钩人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002088P50",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602088P50_490总回风巷人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002088P70",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602088P70主井装载站人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002089J00",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602089J00_725西翼轨道巷人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002089P30",
+      "sysaliasname": "人员定位系统",
       "description": "C8308皮顺外段综掘工作面区域定员10002089P30C8308皮顺外段门口人数",
+      "sensor_type": "人数",
+      "area": "C8308皮顺外段综掘工作面区域定员",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002089P40",
+      "sysaliasname": "人员定位系统",
       "description": "C8308轨顺外段综掘工作面区域定员10502089P40C8308轨顺外段联络巷人数",
+      "sensor_type": "人数",
+      "area": "C8308轨顺外段综掘工作面区域定员",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002089P70",
+      "sysaliasname": "人员定位系统",
       "description": "C8308皮顺外段综掘工作面区域定员10002089P70C8308皮顺外段中部人数",
+      "sensor_type": "人数",
+      "area": "C8308皮顺外段综掘工作面区域定员",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002089P80",
+      "sysaliasname": "人员定位系统",
       "description": "C8308轨顺外段综掘工作面区域定员10502089P80C8308轨顺外段迎头人数",
+      "sensor_type": "人数",
+      "area": "C8308轨顺外段综掘工作面区域定员",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002089X10",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602089X10C8308轨顺联络巷定员人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002089X20",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602089X20C8308皮顺外段门口人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002091J00",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602091J007318联络巷人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002091P10",
+      "sysaliasname": "人员定位系统",
       "description": "7318回撤工作面区域定员8202091P107318工作面机头人数",
+      "sensor_type": "人数",
+      "area": "7318回撤工作面区域定员",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002091X20",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602091X207318皮顺限员人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002093J00",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602093J00_490采区变电所3号基站人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002093P10",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602093P10往七采区绞车轨道下把钩人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002093P20",
+      "sysaliasname": "人员定位系统",
       "description": "490炸药库准入区域8902093P20_490炸药库西门人数",
+      "sensor_type": "人数",
+      "area": "490炸药库准入区域",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002093P60",
+      "sysaliasname": "人员定位系统",
       "description": "490炸药库准入区域8902093P60_490炸药库东门人数",
+      "sensor_type": "人数",
+      "area": "490炸药库准入区域",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002094J00",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602094J00_490变电所后门消防材料库门口基站人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002094P10",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602094P10_490消防库门口人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002094P20",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602094P20_490副井下口人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002094P30",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602094P30_490主井底人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002094P40",
+      "sysaliasname": "人员定位系统",
       "description": "490中央变电所泵房准入区域9002094P40_490中央变电所及水泵房人数",
+      "sensor_type": "人数",
+      "area": "490中央变电所泵房准入区域",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002094P80",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602094P80副井下口东大巷人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002095J00",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602095J00复采回风人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002095P10",
+      "sysaliasname": "人员定位系统",
       "description": "一采区5402095P10F1301工作面轨顺门口人数",
+      "sensor_type": "人数",
+      "area": "一采区",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002095P20",
+      "sysaliasname": "人员定位系统",
       "description": "一采区5402095P20F1302轨顺门口人数",
+      "sensor_type": "人数",
+      "area": "一采区",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002095P40",
+      "sysaliasname": "人员定位系统",
       "description": "一采区5402095P40复采试验采区回风巷人数",
+      "sensor_type": "人数",
+      "area": "一采区",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002095P50",
+      "sysaliasname": "人员定位系统",
       "description": "F1302综采工作面区域定员7702095P50F1302皮顺中部上人数",
+      "sensor_type": "人数",
+      "area": "F1302综采工作面区域定员",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002095P60",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602095P60F1302轨顺中部人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002095P80",
+      "sysaliasname": "人员定位系统",
       "description": "一采区5402095P80F1302皮顺开门口人数",
+      "sensor_type": "人数",
+      "area": "一采区",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002095X30",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602095X30F1302皮顺开门口人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002096J00",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602096J00C8308皮顺外段中部人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002096P10",
+      "sysaliasname": "人员定位系统",
       "description": "C8308皮顺外段综掘工作面区域定员10002096P10C8308皮顺外段迎头人数",
+      "sensor_type": "人数",
+      "area": "C8308皮顺外段综掘工作面区域定员",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002097J00",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602097J00副井口信号操作室人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002097P10",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602097P10副井口1号识别器左人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002097P20",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602097P20副井口2号识别器右人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002097P30",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602097P30主井口上人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002097P40",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602097P40检卡LED人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002098J00",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602098J00东二皮带巷人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002098P10",
+      "sysaliasname": "人员定位系统",
       "description": "八采区5602098P10东二皮带巷人数",
+      "sensor_type": "人数",
+      "area": "八采区",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002100J00",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602100J00C8302轨顺中上人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002100P40",
+      "sysaliasname": "人员定位系统",
       "description": "C8302综采工作面防冲限员7602100P40c8302轨顺中部人数",
+      "sensor_type": "人数",
+      "area": "C8302综采工作面防冲限员",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002100P80",
+      "sysaliasname": "人员定位系统",
       "description": "C8302综采工作面防冲限员7602100P80C8302工作面机尾人数",
+      "sensor_type": "人数",
+      "area": "C8302综采工作面防冲限员",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002100X10",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602100X10C8302轨顺限员屏人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002101J00",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602101J008302皮顺人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002101P20",
+      "sysaliasname": "人员定位系统",
       "description": "八采区5602101P20C8302皮顺中部人数",
+      "sensor_type": "人数",
+      "area": "八采区",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002101P30",
+      "sysaliasname": "人员定位系统",
       "description": "八采区5602101P308301联络巷人数",
+      "sensor_type": "人数",
+      "area": "八采区",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002101P60",
+      "sysaliasname": "人员定位系统",
       "description": "C8302综采工作面防冲限员7602101P60C8302工作面机头人数",
+      "sensor_type": "人数",
+      "area": "C8302综采工作面防冲限员",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002101P70",
+      "sysaliasname": "人员定位系统",
       "description": "八采区5602101P70C8302皮顺一部机头人数",
+      "sensor_type": "人数",
+      "area": "八采区",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002101X10",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602101X10c8302皮顺定员门人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002109J00",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602109J00副井口唯一性人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002109P10",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602109P10副井口唯一性识别器人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002119J00",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602119J00地面消防队二楼人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002119P10",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602119P10地面垃圾站旁人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002119P40",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602119P40地面机修厂入口处人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK0030140100",
+      "sysaliasname": "人员定位系统",
       "description": "C8308皮顺外段综掘工作面区域定员_区域100100人数",
+      "sensor_type": "人数",
+      "area": "C8308皮顺外段综掘工作面区域定员_区域",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK0030140105",
+      "sysaliasname": "人员定位系统",
       "description": "C8308轨顺外段综掘工作面区域定员_区域105105人数",
+      "sensor_type": "人数",
+      "area": "C8308轨顺外段综掘工作面区域定员_区域",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK0030140106",
+      "sysaliasname": "人员定位系统",
       "description": "7319一号皮顺综掘工作面区域定员_区域106106人数",
+      "sensor_type": "人数",
+      "area": "7319一号皮顺综掘工作面区域定员_区域",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014011",
+      "sysaliasname": "人员定位系统",
       "description": "七采区避难硐室_区域1111人数",
+      "sensor_type": "人数",
+      "area": "七采区避难硐室_区域",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK0030140110",
+      "sysaliasname": "人员定位系统",
       "description": "F1302综采工作面防冲限员_区域110110人数",
+      "sensor_type": "人数",
+      "area": "F1302综采工作面防冲限员_区域",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK00301403",
+      "sysaliasname": "人员定位系统",
       "description": "_490水仓区域_区域33人数",
+      "sensor_type": "人数",
+      "area": "_490水仓区域_区域",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK00301404",
+      "sysaliasname": "人员定位系统",
       "description": "_725水仓区域_区域44人数",
+      "sensor_type": "人数",
+      "area": "_725水仓区域_区域",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014042",
+      "sysaliasname": "人员定位系统",
       "description": "C8302综采工作面区域定员_区域4242人数",
+      "sensor_type": "人数",
+      "area": "C8302综采工作面区域定员_区域",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014054",
+      "sysaliasname": "人员定位系统",
       "description": "一采区_区域5454人数",
+      "sensor_type": "人数",
+      "area": "一采区_区域",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014056",
+      "sysaliasname": "人员定位系统",
       "description": "八采区_区域5656人数",
+      "sensor_type": "人数",
+      "area": "八采区_区域",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014057",
+      "sysaliasname": "人员定位系统",
       "description": "七采区_区域5757人数",
+      "sensor_type": "人数",
+      "area": "七采区_区域",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014076",
+      "sysaliasname": "人员定位系统",
       "description": "C8302综采工作面防冲限员_区域7676人数",
+      "sensor_type": "人数",
+      "area": "C8302综采工作面防冲限员_区域",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014077",
+      "sysaliasname": "人员定位系统",
       "description": "F1302综采工作面区域定员_区域7777人数",
+      "sensor_type": "人数",
+      "area": "F1302综采工作面区域定员_区域",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK00301408",
+      "sysaliasname": "人员定位系统",
       "description": "_490避难硐室_区域88人数",
+      "sensor_type": "人数",
+      "area": "_490避难硐室_区域",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014082",
+      "sysaliasname": "人员定位系统",
       "description": "7318回撤工作面区域定员_区域8282人数",
+      "sensor_type": "人数",
+      "area": "7318回撤工作面区域定员_区域",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014083",
+      "sysaliasname": "人员定位系统",
       "description": "C8316准备工作面区域定员_区域8383人数",
+      "sensor_type": "人数",
+      "area": "C8316准备工作面区域定员_区域",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014089",
+      "sysaliasname": "人员定位系统",
       "description": "490炸药库准入区域_区域8989人数",
+      "sensor_type": "人数",
+      "area": "490炸药库准入区域_区域",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014090",
+      "sysaliasname": "人员定位系统",
       "description": "490中央变电所泵房准入区域_区域9090人数",
+      "sensor_type": "人数",
+      "area": "490中央变电所泵房准入区域_区域",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014091",
+      "sysaliasname": "人员定位系统",
       "description": "490采区变电所准入区域_区域9191人数",
+      "sensor_type": "人数",
+      "area": "490采区变电所准入区域_区域",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014092",
+      "sysaliasname": "人员定位系统",
       "description": "725变电所泵房准入区域_区域9292人数",
+      "sensor_type": "人数",
+      "area": "725变电所泵房准入区域_区域",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK00301409996",
+      "sysaliasname": "人员定位系统",
       "description": "其他_区域99969996人数",
+      "sensor_type": "人数",
+      "area": "其他_区域",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK00301409998",
+      "sysaliasname": "人员定位系统",
       "description": "当天下井总人数99989998人数",
+      "sensor_type": "人数",
+      "area": "当天下井总人数",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK00301409999",
+      "sysaliasname": "人员定位系统",
       "description": "当前井下总人数99999998人数",
+      "sensor_type": "人数",
+      "area": "当前井下总人数",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK0030140BJ0",
+      "sysaliasname": "人员定位系统",
       "description": "其他_报警BJ_0BJ_0人数",
+      "sensor_type": "人数",
+      "area": "其他_报警",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK0030140BJ1",
+      "sysaliasname": "人员定位系统",
       "description": "下井超时_报警BJ_1BJ_1人数",
+      "sensor_type": "人数",
+      "area": "下井超时_报警",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK0030140BJ10",
+      "sysaliasname": "人员定位系统",
       "description": "超速告警_报警BJ_10BJ_10人数",
+      "sensor_type": "人数",
+      "area": "超速告警_报警",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK0030140BJ11",
+      "sysaliasname": "人员定位系统",
       "description": "闯红灯_报警BJ_11BJ_11人数",
+      "sensor_type": "人数",
+      "area": "闯红灯_报警",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK0030140BJ12",
+      "sysaliasname": "人员定位系统",
       "description": "车距报警_报警BJ_12BJ_12人数",
+      "sensor_type": "人数",
+      "area": "车距报警_报警",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK0030140BJ13",
+      "sysaliasname": "人员定位系统",
       "description": "车辆禁区报警_报警BJ_13BJ_13人数",
+      "sensor_type": "人数",
+      "area": "车辆禁区报警_报警",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK0030140BJ14",
+      "sysaliasname": "人员定位系统",
       "description": "车辆保养报警_报警BJ_14BJ_14人数",
+      "sensor_type": "人数",
+      "area": "车辆保养报警_报警",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK0030140BJ15",
+      "sysaliasname": "人员定位系统",
       "description": "停车超时报警_报警BJ_15BJ_15人数",
+      "sensor_type": "人数",
+      "area": "停车超时报警_报警",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK0030140BJ16",
+      "sysaliasname": "人员定位系统",
       "description": "故障告警_报警BJ_16BJ_16人数",
+      "sensor_type": "人数",
+      "area": "故障告警_报警",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK0030140BJ17",
+      "sysaliasname": "人员定位系统",
       "description": "工作异常_报警BJ_17BJ_17人数",
+      "sensor_type": "人数",
+      "area": "工作异常_报警",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK0030140BJ18",
+      "sysaliasname": "人员定位系统",
       "description": "人卡不符_报警BJ_18BJ_18人数",
+      "sensor_type": "人数",
+      "area": "人卡不符_报警",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK0030140BJ19",
+      "sysaliasname": "人员定位系统",
       "description": "一人多卡_报警BJ_19BJ_19人数",
+      "sensor_type": "人数",
+      "area": "一人多卡_报警",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK0030140BJ2",
+      "sysaliasname": "人员定位系统",
       "description": "区域超时_报警BJ_2BJ_2人数",
+      "sensor_type": "人数",
+      "area": "区域超时_报警",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK0030140BJ20",
+      "sysaliasname": "人员定位系统",
       "description": "未带卡报警_报警BJ_20BJ_20人数",
+      "sensor_type": "人数",
+      "area": "未带卡报警_报警",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK0030140BJ21",
+      "sysaliasname": "人员定位系统",
       "description": "区域越界告警_报警BJ_21BJ_21人数",
+      "sensor_type": "人数",
+      "area": "区域越界告警_报警",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK0030140BJ3",
+      "sysaliasname": "人员定位系统",
       "description": "电池欠压_报警BJ_3BJ_3人数",
+      "sensor_type": "人数",
+      "area": "电池欠压_报警",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK0030140BJ4",
+      "sysaliasname": "人员定位系统",
       "description": "通讯中断_报警BJ_4BJ_4人数",
+      "sensor_type": "人数",
+      "area": "通讯中断_报警",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK0030140BJ5",
+      "sysaliasname": "人员定位系统",
       "description": "求救报警_报警BJ_5BJ_5人数",
+      "sensor_type": "人数",
+      "area": "求救报警_报警",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK0030140BJ6",
+      "sysaliasname": "人员定位系统",
       "description": "禁区报警_报警BJ_6BJ_6人数",
+      "sensor_type": "人数",
+      "area": "禁区报警_报警",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK0030140BJ7",
+      "sysaliasname": "人员定位系统",
       "description": "井下超员_报警BJ_7BJ_7人数",
+      "sensor_type": "人数",
+      "area": "井下超员_报警",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK0030140BJ8",
+      "sysaliasname": "人员定位系统",
       "description": "直流供电_报警BJ_8BJ_8人数",
+      "sensor_type": "人数",
+      "area": "直流供电_报警",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK0030140BJ9",
+      "sysaliasname": "人员定位系统",
       "description": "区域超员_报警BJ_9BJ_9人数",
+      "sensor_type": "人数",
+      "area": "区域超员_报警",
       "mark_type": "B15"
     },
     {
       "id": "JKYHMK003014002085P70",
+      "sysaliasname": "人员定位系统",
       "description": "其他999602085P70回风暗斜井中部人数",
+      "sensor_type": "人数",
+      "area": "其他",
       "mark_type": "B15"
     }
   ],

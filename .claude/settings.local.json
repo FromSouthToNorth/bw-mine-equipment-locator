@@ -120,7 +120,8 @@
       "Bash(where mutool *)",
       "Bash(\"/c/Users/bw/AppData/Local/Programs/Python/Python310/python.exe\" -c \"import fitz; print\\('fitz ok'\\)\")",
       "Bash(\"/c/Users/bw/AppData/Local/Programs/Python/Python310/python.exe\" -c \"import pdfplumber; print\\('pdfplumber ok'\\)\")",
-      "Bash(\"/c/Users/bw/AppData/Local/Programs/Python/Python310/python.exe\" -m pip list)"
+      "Bash(\"/c/Users/bw/AppData/Local/Programs/Python/Python310/python.exe\" -m pip list)",
+      "Bash(echo \"EXIT_CODE=$?\")"
     ]
   }
 }
