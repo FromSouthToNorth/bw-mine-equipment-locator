@@ -1,0 +1,5 @@
+# 煤矿设备定位系统依赖
+# 安装: pip install -r requirements.txt
+
+# strategy_api.py 发起 HTTP 请求
+requests

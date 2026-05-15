@@ -1,6 +1,6 @@
 ---
 name: bw-mine-equipment-locator
-description: 煤矿设备定位技能。根据设备描述（description）匹配到对应巷道或工作面，再从巷道/工作面的折线（line）坐标中计算得出设备 (x, y, z) 坐标。当用户提到"设备定位"、"计算设备坐标"、"匹配设备到巷道"、"调用定位流程"或直接提供一个 username（如 F18795450）要求定位设备时触发。自动调用 bw-token-manager 和 bw-strategy-api-caller 两个子技能完成完整流程。
+description: 煤矿设备定位技能。根据设备描述（description）匹配到对应巷道或工作面，再从巷道/工作面的折线（line）坐标中计算得出设备 (x, y, z) 坐标。当用户提到"设备定位"、"计算设备坐标"、"匹配设备到巷道"、"调用定位流程"或直接提供一个 username（如 F18795450）要求定位设备时触发。采用两阶段交互式流程：阶段1拉取8373数据并展示分析报告等信息确认，阶段2执行匹配定位并展示汇总后等确认再回写8385。系统生成巷道名称（巷道NNN）自动从候选池排除。
 ---
 
 # 煤矿设备定位
@@ -13,30 +13,59 @@ description: 煤矿设备定位技能。根据设备描述（description）匹�
 用户输入 username (如 F18795450)
     │
     ▼
-Step 1: 获取 Token + mineName  ← bw-token-manager
-    │
+┌─ ★ 阶段 1: 数据获取 + 分析审查 ★ ─────────────────────┐
+│                                                         │
+│ Step 1: 获取 Token + mineName  ← bw-token-manager       │
+│     │                                                   │
+│     ▼                                                   │
+│ Step 2: 获取策略 8373           ← bw-strategy-api-caller │
+│     │   → 数据落盘到 data/output/                        │
+│     ▼                                                   │
+│ Claude 分析数据质量:                                     │
+│   · 设备/巷道/工作面总数                                 │
+│   · mark_type 分布 (B14/B15/B16)                        │
+│   · sensor_type 分布                                    │
+│   · 系统命名巷道 vs 具名巷道 (⚠ 将被排除)               │
+│   · 地面 vs 井下设备                                    │
+│     │                                                   │
+│     ▼ 等用户确认 ▼                                      │
+└─────────────────────────────────────────────────────────┘
+    │ (用户确认)
     ▼
-Step 2: 获取策略 8373           ← bw-strategy-api-caller
-        （设备、巷道、工作面全量数据）
-    │
-    ▼
-Step 3: 匹配设备 description → 巷道/工作面
-        · 候选名 = 8373.tunnels[] ∪ 8373.workfaces[]
-        · LCS（最长公共子串）匹配
-        · 坐标计算（几何中心 / 迎头 / 回风流）
-    │
-    ▼
-Step 4: 回写定位结果到策略 8385  ← bw-strategy-api-caller execute
-    │
-    ▼
-输出 JSON（每个设备的 matched_name + coordinates）
+┌─ ★ 阶段 2: 匹配定位 + 回写 ★ ──────────────────────────┐
+│                                                         │
+│ Step 3: 匹配设备 description → 巷道/工作面               │
+│     · 系统巷道(巷道NNN)从候选池排除 ← 新增              │
+│     · 候选名 = 8373.tunnels[] ∪ 8373.workfaces[]        │
+│     · LCS（最长公共子串）匹配                            │
+│     · 坐标计算（几何中心 / 迎头 / 回风流）               │
+│     │                                                   │
+│     ▼ 展示匹配汇总 → 等用户确认 ▼                       │
+│                                                         │
+│ Step 4: 回写定位结果到策略 8385  ← bw-strategy-api-caller │
+│     │                                                   │
+│     ▼                                                   │
+│ 输出 JSON（每个设备的 matched_name + coordinates）       │
+│   summary 含 generic_tunnels_skipped 字段               │
+│   warnings 含 generic_tunnels_excluded 条目              │
+└─────────────────────────────────────────────────────────┘
 ```
 
 ## 快速开始
 
 ```bash
 cd F:/gis/Point
-python3 skill/bw-mine-equipment-locator/scripts/locator.py <username>
+
+# 一键运行（阶段 1+2 全自动，适用"直接跑"场景）
+python skill/bw-mine-equipment-locator/scripts/locator.py <username>
+
+# 两阶段交互（推荐 — Claude 会在每阶段展示分析等待确认）
+# 阶段 1: 手动拉数据 + 分析展示
+python skill/bw-token-manager/scripts/bw_token_manager.py <username>
+python skill/bw-strategy-api-caller/scripts/strategy_api.py get_json --id 8373 --param "MineName=<mineName>" --username <username>
+# → Claude 展示分析报告，等用户确认
+# 阶段 2: 确认后执行匹配 + 回写
+python skill/bw-mine-equipment-locator/scripts/locator.py <username> --load data/output/data_8373_<mineName>.json
 ```
 
 ### 输出示例
@@ -45,7 +74,7 @@ python3 skill/bw-mine-equipment-locator/scripts/locator.py <username>
 {
   "username": "F06795450",
   "mine_name": "程庄煤矿",
-  "summary": { "total": 1422, "matched": 1401, "unmatched": 21, "wind_spacing_warnings": 0 },
+  "summary": { "total": 1422, "matched": 1401, "unmatched": 21, "wind_spacing_warnings": 0, "generic_tunnels_skipped": 0 },
   "results": [
     {
       "id": "CZMK000030120001A06",
@@ -59,9 +88,12 @@ python3 skill/bw-mine-equipment-locator/scripts/locator.py <username>
       "sysaliasname": "安全监测系统",
       "coordinates": { "x": 38452486.92, "y": 4206343.68, "z": 895.77 }
     }
-  ]
+  ],
+  "warnings": []
 }
 ```
+
+若存在系统生成巷道，`warnings` 中会出现 `{"type": "generic_tunnels_excluded", "count": N, "message": "..."}` 条目。
 
 汇总信息输出到 stderr。设备 ID 和 description 可直接查看。
 
@@ -115,12 +147,14 @@ python3 skill/bw-mine-equipment-locator/scripts/locator.py <username>
 - **mark_type 与 sensor_type 是完全不同的概念**，B16 是系统大类（工业视频系统），sensor_type 应为设备类型 `摄像仪`，不应混用。
 - **B16 兜底**：`mark_type=B16` 但描述无"摄像/视频"字样时，默认 sensor_type=`摄像仪`（依据 MT/T 1201.6-2023 附录 A）。
 
-### 3. 候选来源(均来自 8373)
+### 3. 候选来源(均来自 8373,已过滤系统命名巷道)
 
 | 来源 | 字段 | category |
 | ---- | ---- | -------- |
 | `tunnels[]` | `name` | tunnel |
 | `workfaces[]` | `workFaceName` | workface |
+
+**系统生成巷道名称过滤**：形如"巷道136"的名称为系统自动生成,无实际语义含义。`_extract_candidates` 阶段直接从候选池排除(`_is_generic_tunnel_name`),将被排除数量记录在 `summary.generic_tunnels_skipped` 和 `warnings[]` 中(`type: generic_tunnels_excluded`)。
 
 ### 4. 编码提取 (`extract_workface_code`,locator.py:354-372)
 
@@ -226,11 +260,13 @@ score = LCS_长度(别名扩展后)
 
 | reason | 含义 |
 |--------|------|
-| `NO_CANDIDATE` | 无可行候选 |
+| `NO_CANDIDATE` | 无可行候选(包括所有候选均为系统命名巷道已被排除) |
 | `CODE_MISMATCH` | 提取到编码但所有候选均不匹配(含前缀尝试) |
 | `SEMANTIC_CONFLICT` | 语义惩罚阻断所有候选 |
 | `LOW_LCS` | LCS 得分过低(<2) |
 | `AREA_SURFACE` | area 语义为地面(非井下)，排除巷道/工作面候选 |
+
+注:`NO_CANDIDATE` 在系统巷道被大量排除后更常见——设备可能本应对应某条"巷道NNN"但该巷道已被过滤。此为设计意图(宁缺毋滥)。
 
 ### 11. 匹配缓存
 
@@ -239,9 +275,14 @@ score = LCS_长度(别名扩展后)
 - 值: `{matched_name, candidate_id, score, timestamp}`
 - 下次运行优先查缓存,命中直接复用
 
-### 12. 风速间距检查
+### 12. Warnings 告警类型
 
-同组风速传感器间距 < 10m 时告警(AQ 1029-2019 7.2.1)。输出 JSON `warnings` 数组包含 `type: wind_speed_spacing` 条目。
+输出 JSON `warnings` 数组包含以下类型:
+
+| type | 含义 |
+|------|------|
+| `wind_speed_spacing` | 同组风速传感器间距 < 10m (AQ 1029-2019 7.2.1) |
+| `generic_tunnels_excluded` | 系统生成巷道名称(如"巷道136")已被排除，含 `count` 和 `message` |
 
 ## 坐标计算
 
@@ -385,8 +426,9 @@ T 标识规则 > 巷道类型×sensor_type 规则 > AQ1029 距离规则 > 关键
 自动化定位流程的 Python 脚本，包含：
 - Token/MineName 获取（Step 1）
 - 策略 8373 数据获取与解析（Step 2）
+- 系统巷道名称过滤（`_is_generic_tunnel_name`）— 排除"巷道NNN"
 - 前缀剥离 + LCS 匹配（Step 3）
 - 坐标计算（几何中心/迎头/回风流）
-- JSON 结果输出
+- JSON 结果输出（summary 含 `generic_tunnels_skipped`，warnings 含 `generic_tunnels_excluded`）
 
 **Step 4（回写 8385）已内置在 locator.py 末尾**，匹配计算完成后自动调用 `strategy_api.py execute` 回写结果。stderr 会打印回写状态码。详见 CLAUDE.md。

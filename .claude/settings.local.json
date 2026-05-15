@@ -125,7 +125,8 @@
       "Bash(sort -t: -k2 -rn)",
       "Bash(git checkout *)",
       "Bash(xxd)",
-      "Bash(echo \"exit: $?\")"
+      "Bash(echo \"exit: $?\")",
+      "Bash(git *)"
     ]
   }
 }

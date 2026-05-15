@@ -1,0 +1,49 @@
+{
+  "username": "D37795450",
+  "mine_name": "济矿运河煤矿",
+  "summary": {
+    "total": 852,
+    "matched": 748,
+    "unmatched": 104,
+    "wind_spacing_warnings": 0,
+    "generic_tunnels_skipped": 0,
+    "unnamed_tunnels_skipped": 132,
+    "by_confidence": {
+      "高": 303,
+      "中": 322,
+      "低": 123
+    },
+    "by_mark_type": {
+      "B14": 438,
+      "B15": 213,
+      "B16": 97
+    },
+    "by_sensor_type": {
+      "瓦斯": 62,
+      "人数": 213,
+      "粉尘": 7,
+      "断电": 52,
+      "烟雾": 35,
+      "局扇": 12,
+      "风门": 48,
+      "馈电": 49,
+      "风筒": 5,
+      "工业视频": 97,
+      "一氧化碳": 44,
+      "温度": 41,
+      "电流": 32,
+      "状态": 31,
+      "风速": 6,
+      "二氧化碳": 8,
+      "氢气": 4,
+      "主扇": 2
+    }
+  },
+  "warnings": [
+    {
+      "type": "unnamed_tunnels_excluded",
+      "count": 132,
+      "message": "132 条巷道缺少名称（name字段为空），无法作为候选参与设备匹配，已从候选池排除。"
+    }
+  ]
+}

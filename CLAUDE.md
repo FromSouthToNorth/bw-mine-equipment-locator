@@ -7,35 +7,70 @@
 
 ### 自然语言调用
 
-| 用户说 | 执行 |
-|--------|------|
-| `设备定位 F09795450` | `python skill/.../locator.py F09795450` |
-| `定位 F18795450` | `python skill/.../locator.py F18795450` |
-| `跑一下 locator F09795450` | `python skill/.../locator.py F09795450` |
-| `设备定位 F09795450 evals/devices.json` | `python skill/.../locator.py F09795450 evals/devices.json` |
-| `用本地设备文件定位 F09795450` | `python skill/.../locator.py F09795450 <文件路径>` |
+Claude 采用**两阶段交互流程**，不直接一键执行：
+
+**阶段 1 — 数据获取 + 分析审查**（等用户确认后才进阶段 2）
+**阶段 2 — 匹配定位 + 8385 回写**（匹配汇总展示后等用户确认再回写）
+
+| 用户说 | Claude 行为 |
+|--------|-------------|
+| `设备定位 F09795450` | 阶段 1：拉 8373 数据 → 展示分析报告 → 等确认 → 阶段 2：匹配+回写 |
+| `定位 F18795450` | 同上 |
+| `跑一下 locator F09795450` | 同上 |
+| `设备定位 F09795450 evals/devices.json` | 使用本地设备文件，其余同上 |
 
 触发关键词：`定位`、`设备定位`、`locator` + 用户名（`F\d+` 格式）
 
-### 快速运行
+**快捷跳过**：若用户明确说"直接跑"、"不用确认"、"自动跑完"，可跳过审查直接走完整流程。
 
-从 API 拉取数据并定位：
+### 交互式运行流程
+
+**阶段 1：数据获取 + 分析审查**
+
+Claude 先拉数据、做分析，展示给用户确认：
+
+```bash
+# Step 1: 获取 Token
+python skill/bw-token-manager/scripts/bw_token_manager.py <username>
+
+# Step 2: 拉取 8373 数据
+python skill/bw-strategy-api-caller/scripts/strategy_api.py get_json \
+  --id 8373 --param "MineName=<mineName>" --username <username>
+```
+
+Claude 展示分析报告（设备数、巷道数、mark_type/sensor_type/area 分布、**系统命名巷道占比**、地面/井下拆分），**等用户确认后**继续。
+
+**阶段 2：匹配定位 + 回写**（用户确认后执行）
+
+```bash
+python skill/bw-mine-equipment-locator/scripts/locator.py <username> \
+  --load data/output/data_8373_<mineName>.json
+```
+
+匹配完成后 Claude 展示汇总，**等用户确认后** locator.py 自动执行 8385 回写。
+
+**一步到位（跳过审查）**：用户明确说"直接跑"时，可执行旧版单命令：
 ```bash
 python skill/bw-mine-equipment-locator/scripts/locator.py F18795450
 ```
 
-从本地设备文件定位（巷道/工作面仍从 API 获取）：
-```bash
-python skill/bw-mine-equipment-locator/scripts/locator.py F09795450 evals/devices.json
-```
+#### 输出模式 (`--output-mode`)
 
-输出 JSON 到 stdout（含每个设备的 matched_name 和 coordinates），汇总到 stderr。
+| 模式 | 说明 | stdout 内容 |
+|------|------|-------------|
+| `full` (默认) | 完整结果 | `results[]` + `unmatched_devices[]` + `warnings[]` |
+| `summary` | 仅汇总 | `summary` 分级统计（高/中/低 + B14/B15/B16 + sensor_type 分布） |
+| `unmatched` | 未匹配审查 | `summary` + `unmatched_devices[]`（每条含 Top-3 候选 `candidates`） |
+| `json-summary` | 汇总 JSON | 同 `summary` + `warnings[]`，stderr 打印人类可读表格 |
+
+**8385 回写始终使用 `full` 数据**，不受 `--output-mode` 影响。
 
 ### 命令行参数
 
 ```
 usage: locator.py [-h] [--load PATH] [--load-devices PATH]
                   [--load-tunnels PATH] [--load-workfaces PATH]
+                  [--output-mode {full,summary,unmatched,json-summary}]
                   username [DEVICES_FILE]
 
 positional arguments:
@@ -47,13 +82,58 @@ options:
   --load-devices PATH   从本地文件加载设备数据
   --load-tunnels PATH   从本地文件加载巷道数据
   --load-workfaces PATH 从本地文件加载工作面数据
+  --output-mode MODE    输出模式: full=完整结果(默认), summary=仅汇总,
+                        unmatched=仅未匹配(含候选), json-summary=汇总JSON
 ```
 
 注：本机 `python3` 不可用，使用 `python` 即可。
 
 ---
 
-## 工作流
+## 工作流（两阶段交互式）
+
+```
+用户: 设备定位 <username>
+         │
+    ┌────▼────────────────────────────────────┐
+    │ ★ 阶段 1: 数据获取 + 分析审查 ★       │
+    │                                         │
+    │ Step 1: bw-token-manager 获取 Token      │
+    │ Step 2: strategy_api.py get_json 拉 8373 │
+    │         → 数据落盘到 data/output/        │
+    │                                         │
+    │ Claude 分析数据并展示报告:               │
+    │   设备/巷道/工作面总数                   │
+    │   mark_type 分布 (B14/B15/B16)           │
+    │   sensor_type 分布                       │
+    │   系统命名巷道 vs 具名巷道 (⚠ 将被排除)  │
+    │   地面 vs 井下设备                       │
+    │   潜在难匹配设备 (无编码描述)             │
+    │                                         │
+    │ ▼ 等用户确认 ▼                          │
+    └────┬────────────────────────────────────┘
+         │ (用户确认)
+    ┌────▼────────────────────────────────────┐
+    │ ★ 阶段 2: 匹配定位 + 回写 ★            │
+    │                                         │
+    │ Step 3: locator.py --load <8373文件>     │
+    │   ① 系统巷道(巷道NNN)从候选池排除        │
+    │   ② 地面设备(area)跳过井下候选           │
+    │   ③ 缓存命中直接复用                     │
+    │   ④ 前缀剥离 → 别名扩展 → 编码提取      │
+    │   ⑤ LCS评分 + 偏好/编码/类型加分         │
+    │   ⑥ 选最佳匹配 → 置信度分层 → 坐标计算   │
+    │                                         │
+    │ Claude 展示匹配汇总:                     │
+    │   匹配率 / 置信度分布 / 未匹配原因        │
+    │   系统巷道排除数 / 风速告警              │
+    │                                         │
+    │ ▼ 等用户确认 ▼                          │
+    │                                         │
+    │ Step 4: 内置 8385 回写 (locator.py 末尾) │
+    │   → code: 100 表示成功                   │
+    └─────────────────────────────────────────┘
+```
 
 ### Step 1: 获取 Token 和 mineName
 
@@ -71,8 +151,6 @@ python skill/bw-token-manager/scripts/bw_token_manager.py <username>
 
 调用 `bw-strategy-api-caller` skill，传入 `mineName`（从 Step 1 获得）和 `username`。
 
-两种接口可选：
-
 **方式 A：`get_json`（推荐）— 返回平铺数组，locator 直接使用**
 ```bash
 python skill/bw-strategy-api-caller/scripts/strategy_api.py get_json \
@@ -80,32 +158,42 @@ python skill/bw-strategy-api-caller/scripts/strategy_api.py get_json \
 ```
 - 向 `GetStrategyJsonData` 发起 POST 请求
 - 返回扁平数组，每条记录包含 `id`/`description`/`mark_type`/`area`（设备）或 `name`/`line`（巷道）或 `workFaceName`/`line`（工作面）
-- **推荐 locator 使用此方式**
+- 数据落盘到 `data/output/data_8373_<mineName>.json`
+- **Claude 在此步后必须展示数据分析报告，等用户确认才继续**
 
 **注意：** `strategy_api.py` 依赖 `requests`。locator.py 会自动探测带 `requests` 的解释器（优先 `sys.executable`/`python3`/`python`），找不到就报错。可用 `BW_LOCATOR_PYTHON` 显式覆盖。
 
 ### Step 3: 匹配设备 → 计算坐标
 
-对 Step 2 返回的每个 device：
+用户确认阶段 1 后，执行匹配：
 
-1. 从 `description` 提取地点名称（先[剥离前缀](#前缀剥离)），按[匹配逻辑](#匹配逻辑)在**候选名称**中找到最佳匹配
-2. **候选来源**（均来自 8373）：
-   - `tunnels` 数组中的 `name`（主候选）
+```bash
+python skill/bw-mine-equipment-locator/scripts/locator.py <username> \
+  --load data/output/data_8373_<mineName>.json
+```
+
+对每个 device 的处理流程：
+
+1. **候选过滤（匹配前）**
+   - 系统巷道名称（如"巷道136"）→ 直接从候选池排除，记录到 `generic_tunnels_skipped`
+   - 地面设备（area 含地面/洗选/磅房等关键词）→ 跳过所有井下候选
+   - 匹配缓存命中（`match_cache.json`）→ 直接复用上次结果
+2. 从 `description` 提取地点名称（先[剥离前缀](#前缀剥离)），按[匹配逻辑](#匹配逻辑)在**候选名称**中找到最佳匹配
+3. **候选来源**（均来自 8373，已排除系统命名巷道）：
+   - `tunnels` 数组中的 `name`（主候选，仅具名巷道）
    - `workfaces` 数组中的 `workFaceName`（补充候选）
-3. 按[坐标计算](#坐标计算)规则计算 (x, y, z)
+4. 按[坐标计算](#坐标计算)规则计算 (x, y, z)
+5. **匹配汇总展示后等用户确认**，再进入 Step 4
 
 ### Step 4: 回写定位结果到策略 8385
 
-匹配计算完成后，调用 `execute` 将结果写回策略 8385：
-
-```bash
-python skill/bw-strategy-api-caller/scripts/strategy_api.py execute \
-  --id 8385 --param "data=<结果JSON>" --username <username>
-```
+用户确认匹配结果后，locator.py 末尾自动调用 `execute` 将结果写回策略 8385：
 
 - 向 `ExecuteStrategyCom` 发起 POST 请求
-- `data` 参数值为 Step 3 输出的完整结果 JSON（每个设备的 matched_name + coordinates）
+- `data` 参数值为 Step 3 输出的完整结果 JSON
 - 返回 `{"code": 100}` 表示成功
+- **8385 回写始终使用 `full` 数据**，不受 `--output-mode` 影响
+- 使用 `--param-from-file` 避免 Windows 命令行长度限制
 
 ---
 
@@ -188,12 +276,14 @@ locator.py 启动时自动探测可用解释器，按优先级：
 
 完整规则在 `skill/bw-mine-equipment-locator/scripts/locator.py`，本节列出所有评分常量。代码是 source of truth，本节同步更新。
 
-### 候选来源（均来自 8373）
+### 候选来源（均来自 8373，已过滤系统命名巷道）
 
 | 来源 | 字段 | category |
 | ---- | ---- | -------- |
 | `tunnels[]` | `name` | tunnel |
 | `workfaces[]` | `workFaceName` | workface |
+
+**系统生成巷道名称过滤**：形如"巷道136"的名称为系统自动生成，无实际语义含义，设备描述不可能包含此类名称。`_extract_candidates` 阶段直接从候选池排除，避免产生无效低分匹配。被排除数量记录在输出 `summary.generic_tunnels_skipped` 和 `warnings[]` 中（`type: generic_tunnels_excluded`）。
 
 ### 前缀剥离
 
@@ -347,11 +437,13 @@ score = round(LCS_长度(别名扩展后) × 10 / 候选名长度)
 
 | reason | 含义 |
 |--------|------|
-| `NO_CANDIDATE` | 无可行候选（candidates 为空） |
+| `NO_CANDIDATE` | 无可行候选（candidates 为空，或所有候选为系统命名巷道已被排除） |
 | `CODE_MISMATCH` | 提取到编码但所有候选均不匹配（含前缀尝试） |
 | `SEMANTIC_CONFLICT` | 语义惩罚阻断所有候选（所有候选均扣 -10） |
 | `LOW_LCS` | LCS 得分过低（< 2），无其他匹配途径 |
 | `AREA_SURFACE` | area 语义为地面（非井下），排除巷道/工作面候选 |
+
+**注意**：`NO_CANDIDATE` 在大量系统巷道被排除后更常见——设备可能本应对应某条"巷道NNN"但该巷道已被过滤，无其他具名候选可匹配。此行为是设计意图，宁缺毋滥。
 
 ### 匹配缓存
 
@@ -359,6 +451,13 @@ score = round(LCS_长度(别名扩展后) × 10 / 候选名长度)
 - 键：`{mark_type}:{description}`
 - 值：`{matched_name, candidate_id, score, timestamp}`
 - 下次运行时优先查缓存，命中则直接复用匹配结果
+
+### 系统巷道过滤与告警
+
+**系统巷道排除**：`_is_generic_tunnel_name`（locator.py 新增）— 形如 `巷道\d+` 的名称在 `_extract_candidates` 阶段直接从候选池排除。
+
+- 排除数量记录在 `summary.generic_tunnels_skipped`
+- 输出 JSON 中 `warnings` 数组包含 `type: generic_tunnels_excluded` 条目
 
 ### 风速间距检查
 

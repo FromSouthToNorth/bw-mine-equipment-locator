@@ -147,9 +147,13 @@ def classify_items(items: list) -> tuple:
     - 有 description 字段 → device
     - 有 name 字段且无 workFaceName → tunnel candidate
     - 有 workFaceName 字段 → workface candidate
+    - 无以上字段但有 line/type → 无名称巷道（被跳过）
+
+    返回 (devices, candidates, unnamed_tunnel_skipped)
     """
     devices = []
     candidates = []
+    unnamed_tunnel_skipped = 0
     for item in items:
         if "description" in item:
             devices.append(item)
@@ -162,12 +166,19 @@ def classify_items(items: list) -> tuple:
                 "tunnelId": item.get("tunnelId", ""),
             })
         elif "name" in item and "workFaceName" not in item:
+            name = (item.get("name") or "").strip()
+            if not name:
+                unnamed_tunnel_skipped += 1
+                continue
             candidates.append({
-                "name": item["name"],
+                "name": name,
                 "type": "tunnel",
                 "line": item.get("line", []),
             })
-    return devices, candidates
+        elif "line" in item:
+            # 有几何数据但无 name/description/workFaceName — 无名称巷道
+            unnamed_tunnel_skipped += 1
+    return devices, candidates, unnamed_tunnel_skipped
 
 
 # ── 匹配逻辑 ──────────────────────────────────────────────────────
@@ -398,6 +409,16 @@ _DESCRIPTION_SURFACE_PATTERNS = [
     "机修车间",
     "加工车间",
 ]
+
+# ── 系统生成巷道名称检测 ───────────────────────────────────────────
+_GENERIC_TUNNEL_NAME_PATTERN = re.compile(r'^巷道\d+$')
+
+
+def _is_generic_tunnel_name(name: str) -> bool:
+    """检测系统生成的巷道名称（如 '巷道136'），无实际语义含义。"""
+    if not name:
+        return False
+    return bool(_GENERIC_TUNNEL_NAME_PATTERN.match(name.strip()))
 
 
 def _is_surface_description(description: str) -> bool:
@@ -746,31 +767,26 @@ def longest_common_substring_len(s1: str, s2: str) -> int:
     return max_len
 
 
-def find_best_match(cleaned: str, candidates: list, sensor_type: str = None,
-                     device_code: str = None, code_to_candidates: dict = None,
-                     prefix_to_candidates: dict = None,
-                     coalbed_map: dict = None, mark_type: str = None) -> dict:
+def _score_candidates(cleaned: str, candidates: list, sensor_type: str = None,
+                      device_code: str = None, code_to_candidates: dict = None,
+                      prefix_to_candidates: dict = None,
+                      coalbed_map: dict = None, mark_type: str = None) -> list:
     """
-    在 candidates 中找最佳匹配项（分层策略）。
-    评分规则：LCS(别名扩展后) + sensor_type 加权 + 编码匹配(含前缀模糊) + 巷道类型匹配 + 语义过滤 + coalbed 验证。
-    返回 {"name": ..., "lcs": ..., "score": ..., "candidate": ..., "layer": ...} 或 None。
+    对 candidates 逐一打分并分层，返回完整排序列表。
+    每项为 {"candidate": cand, "name": str, "lcs": int, "score": int, "layer": int, "pref_count": int, "idx": int}。
     """
-    best = None
-    best_score = 0
+    scored = []
     code_indices = set(code_to_candidates.get(device_code, [])) if code_to_candidates and device_code else set()
     prefix_indices = set()
     if prefix_to_candidates and device_code:
         prefix_indices = set(prefix_to_candidates.get(device_code, []))
     device_coalbed = coalbed_map.get(device_code, "") if coalbed_map and device_code else ""
-
-    # 别名扩展后的 cleaned（用于 LCS）
     cleaned_expanded = _expand_aliases(cleaned)
 
     for cand in candidates:
         name = cand.get("name") or ""
         if not name:
             continue
-        # LCS 使用别名扩展后的文本（归一化到候选名长度，避免长名靠字符多取胜）
         name_expanded = _expand_aliases(name)
         lcs_len = longest_common_substring_len(cleaned_expanded, name_expanded)
         score = round(lcs_len * 10 / len(name)) if name else 0
@@ -826,26 +842,65 @@ def find_best_match(cleaned: str, candidates: list, sensor_type: str = None,
         else:
             layer = _MATCH_LAYER_REJECT
 
-        if score >= 2 and score > best_score:
-            best_score = score
-            _best_pref_count = _count_sensor_pref_matches(name, sensor_type) if sensor_type else 0
-            best = {"name": name, "lcs": lcs_len, "score": score, "candidate": cand, "layer": layer,
-                    "_pref_count": _best_pref_count}
-        elif score == best_score and best is not None and score >= 2:
-            # 平局：优先编码匹配，然后 LCS 更长，然后名称更短，然后 sensor_type 偏好匹配数更多
-            best_idx = candidates.index(best["candidate"])
-            if idx in code_indices and best_idx not in code_indices:
-                best = {"name": name, "lcs": lcs_len, "score": score, "candidate": cand, "layer": layer}
-            elif lcs_len > best["lcs"]:
-                best = {"name": name, "lcs": lcs_len, "score": score, "candidate": cand, "layer": layer}
-            elif len(name) < len(best["name"]):
-                best = {"name": name, "lcs": lcs_len, "score": score, "candidate": cand, "layer": layer}
-            elif sensor_type:
-                cur_pref_count = _count_sensor_pref_matches(name, sensor_type)
-                if cur_pref_count > best.get("_pref_count", 0):
-                    best = {"name": name, "lcs": lcs_len, "score": score, "candidate": cand, "layer": layer,
-                            "_pref_count": cur_pref_count}
-    return best
+        pref_count = _count_sensor_pref_matches(name, sensor_type) if sensor_type else 0
+        scored.append({
+            "candidate": cand, "name": name, "lcs": lcs_len,
+            "score": score, "layer": layer, "pref_count": pref_count, "idx": idx,
+        })
+    return scored
+
+
+def find_best_match(cleaned: str, candidates: list, sensor_type: str = None,
+                     device_code: str = None, code_to_candidates: dict = None,
+                     prefix_to_candidates: dict = None,
+                     coalbed_map: dict = None, mark_type: str = None):
+    """
+    在 candidates 中找最佳匹配项（分层策略）。
+    评分规则：LCS(别名扩展后) + sensor_type 加权 + 编码匹配(含前缀模糊) + 巷道类型匹配 + 语义过滤 + coalbed 验证。
+    返回 (best_dict, all_scored_list)。best_dict 为最佳匹配或 None。
+    """
+    scored = _score_candidates(
+        cleaned, candidates, sensor_type=sensor_type,
+        device_code=device_code, code_to_candidates=code_to_candidates,
+        prefix_to_candidates=prefix_to_candidates,
+        coalbed_map=coalbed_map, mark_type=mark_type,
+    )
+    filtered = [s for s in scored if s["score"] >= 2]
+    if not filtered:
+        return None, scored
+
+    best_score = max(s["score"] for s in filtered)
+    tied = [s for s in filtered if s["score"] == best_score]
+
+    code_indices = set(code_to_candidates.get(device_code, [])) if code_to_candidates and device_code else set()
+    best = max(tied, key=lambda s: (s["idx"] in code_indices, s["lcs"], -len(s["name"]), s["pref_count"]))
+
+    best_out = {
+        "name": best["name"], "lcs": best["lcs"], "score": best["score"],
+        "candidate": best["candidate"], "layer": best["layer"],
+        "_pref_count": best["pref_count"],
+    }
+    return best_out, scored
+
+
+def _format_top_candidates(scored: list, n: int = 3) -> list:
+    """从 scored 列表中提取 Top-N 候选的精简信息。"""
+    if not scored:
+        return []
+    sorted_scored = sorted(scored, key=lambda s: s["score"], reverse=True)
+    top = []
+    for s in sorted_scored[:n]:
+        layer_cn = "高" if s["layer"] == _MATCH_LAYER_EXACT else (
+            "中" if s["layer"] == _MATCH_LAYER_LCS_PREF else (
+            "低" if s["layer"] == _MATCH_LAYER_LOW else "拒绝"))
+        top.append({
+            "name": s["name"],
+            "score": s["score"],
+            "confidence": layer_cn,
+            "tunnel_type": s["candidate"].get("type", ""),
+            "lcs": s["lcs"],
+        })
+    return top
 
 
 def _polyline_length(line: list) -> float:
@@ -1022,14 +1077,18 @@ def _extract_candidates(items) -> tuple:
     从策略数据提取候选匹配项（巷道+工作面）。
     支持 dict 格式 {tunnels:[], workfaces:[]} 和 list 格式（workface 对象数组）。
 
-    返回 (candidates, code_to_candidates, coalbed_map) 其中：
+    返回 (candidates, code_to_candidates, coalbed_map, generic_tunnel_skipped, unnamed_tunnel_skipped) 其中：
     - code_to_candidates: 工作面编码 -> 候选索引列表
     - coalbed_map: 工作面编码 -> coalbed 映射
+    - generic_tunnel_skipped: 被跳过的系统生成巷道名称数量
+    - unnamed_tunnel_skipped: 被跳过的无名称巷道数量
     """
     candidates = []
     code_to_candidates = {}
     prefix_to_candidates = {}
     coalbed_map = {}
+    generic_tunnel_skipped = 0
+    unnamed_tunnel_skipped = 0
 
     def _add_code_index(name: str, idx: int):
         code = extract_workface_code(name)
@@ -1048,18 +1107,25 @@ def _extract_candidates(items) -> tuple:
 
     if isinstance(items, dict):
         for t in items.get("tunnels", []):
+            tunnel_name = (t.get("name") or "").strip()
+            if not tunnel_name:
+                unnamed_tunnel_skipped += 1
+                continue
+            if _is_generic_tunnel_name(tunnel_name):
+                generic_tunnel_skipped += 1
+                continue
             idx = len(candidates)
             tunnel_type = t.get("type", "")
             candidates.append({
-                "name": t.get("name", ""),
+                "name": tunnel_name,
                 "type": tunnel_type,
                 "category": "tunnel",
                 "line": t.get("line", []),
                 "id": t.get("id", ""),
                 "coalbed": t.get("coalbed", ""),
             })
-            _add_code_index(t.get("name", ""), idx)
-            _add_coalbed(t.get("name", ""), t.get("coalbed", ""))
+            _add_code_index(tunnel_name, idx)
+            _add_coalbed(tunnel_name, t.get("coalbed", ""))
         for w in items.get("workfaces", []):
             idx = len(candidates)
             wf_type = w.get("type", "")
@@ -1090,7 +1156,7 @@ def _extract_candidates(items) -> tuple:
                 })
                 _add_code_index(name, idx)
                 _add_coalbed(name, item.get("coalbed", ""))
-    return candidates, code_to_candidates, prefix_to_candidates, coalbed_map
+    return candidates, code_to_candidates, prefix_to_candidates, coalbed_map, generic_tunnel_skipped, unnamed_tunnel_skipped
 
 
 # ── 数据校验 ──────────────────────────────────────────────────────
@@ -1374,14 +1440,15 @@ def _match_devices(devices: list, candidates: list,
                 "sysaliasname": device.get("sysaliasname", ""),
                 "reason": REJECT_AREA_SURFACE, "device_code": device_code,
                 "area": device.get("area", ""),
+                "candidates": [],
             })
             continue
 
-        match = find_best_match(cleaned, candidates, sensor_type=sensor_type,
-                                 device_code=device_code,
-                                 code_to_candidates=code_to_candidates,
-                                 prefix_to_candidates=prefix_to_candidates,
-                                 coalbed_map=coalbed_map, mark_type=mark_type)
+        match, all_scored = find_best_match(cleaned, candidates, sensor_type=sensor_type,
+                                             device_code=device_code,
+                                             code_to_candidates=code_to_candidates,
+                                             prefix_to_candidates=prefix_to_candidates,
+                                             coalbed_map=coalbed_map, mark_type=mark_type)
         if match is None:
             reason = REJECT_LOW_LCS
             if not candidates:
@@ -1408,6 +1475,7 @@ def _match_devices(devices: list, candidates: list,
                 "sysaliasname": device.get("sysaliasname", ""),
                 "reason": reason, "device_code": device_code,
                 **({"area": device.get("area", "")} if device.get("area") else {}),
+                "candidates": _format_top_candidates(all_scored, n=3),
             })
             continue
 
@@ -1499,7 +1567,7 @@ def _match_devices(devices: list, candidates: list,
 
 
 # ── 输出+回写 ──────────────────────────────────────────────────────
-def _save_and_writeback(output: dict, username: str):
+def _save_and_writeback(output: dict, username: str, output_mode: str = "full", output_full: dict = None):
     """输出 JSON 到 stdout，保存到文件，回写策略 8385。"""
     print(json.dumps(output, ensure_ascii=False, indent=2))
 
@@ -1511,13 +1579,32 @@ def _save_and_writeback(output: dict, username: str):
         json.dump(output, f, ensure_ascii=False, indent=2)
     print(f"\n结果已保存: {result_save_path}", file=sys.stderr)
 
-    print(f"\n=== 汇总 ===", file=sys.stderr)
     s = output["summary"]
-    print(f"  总计: {s['total']}  匹配: {s['matched']} ✓  未匹配: {s['unmatched']}", file=sys.stderr)
+    if output_mode in ("summary", "json-summary"):
+        print(f"\n=== 汇总 ===", file=sys.stderr)
+        print(f"  总计: {s['total']}  匹配: {s['matched']} ✓  未匹配: {s['unmatched']}", file=sys.stderr)
+        bc = s.get("by_confidence", {})
+        print(f"  高置信度: {bc.get('高', 0)}  中: {bc.get('中', 0)}  低: {bc.get('低', 0)}", file=sys.stderr)
+        bm = s.get("by_mark_type", {})
+        print(f"  B14: {bm.get('B14', 0)} | B15: {bm.get('B15', 0)} | B16: {bm.get('B16', 0)}", file=sys.stderr)
+        if s.get("wind_spacing_warnings", 0):
+            print(f"  风速间距警告: {s['wind_spacing_warnings']}", file=sys.stderr)
+        if s.get("generic_tunnels_skipped", 0):
+            print(f"  系统生成巷道已排除: {s['generic_tunnels_skipped']} 条", file=sys.stderr)
+        if s.get("unnamed_tunnels_skipped", 0):
+            print(f"  无名称巷道已排除: {s['unnamed_tunnels_skipped']} 条", file=sys.stderr)
+    else:
+        print(f"\n=== 汇总 ===", file=sys.stderr)
+        print(f"  总计: {s['total']}  匹配: {s['matched']} ✓  未匹配: {s['unmatched']}", file=sys.stderr)
+        if s.get("generic_tunnels_skipped", 0):
+            print(f"  系统生成巷道已排除: {s['generic_tunnels_skipped']} 条", file=sys.stderr)
+        if s.get("unnamed_tunnels_skipped", 0):
+            print(f"  无名称巷道已排除: {s['unnamed_tunnels_skipped']} 条", file=sys.stderr)
 
     print(f"\n[3/3] 回写定位结果到策略 8385...", file=sys.stderr)
     import tempfile
-    data_param = json.dumps(output, ensure_ascii=False)
+    full = output_full if output_full is not None else output
+    data_param = json.dumps(full, ensure_ascii=False)
     try:
         with tempfile.NamedTemporaryFile(mode="w", suffix=".json", delete=False, encoding="utf-8") as tf:
             tf.write(data_param)
@@ -1543,6 +1630,9 @@ def main():
                         help="从本地文件加载巷道数据")
     parser.add_argument("--load-workfaces", metavar="PATH",
                         help="从本地文件加载工作面数据")
+    parser.add_argument("--output-mode", choices=["full", "summary", "unmatched", "json-summary"],
+                        default="full",
+                        help="输出模式: full=完整结果, summary=仅汇总, unmatched=仅未匹配(含候选), json-summary=汇总JSON")
     args = parser.parse_args()
     username = args.username
 
@@ -1561,6 +1651,8 @@ def main():
     # ── Step 2: 加载数据（文件优先，缺失部分从 API 补全）──
     devices, candidates = [], []
     code_to_candidates, prefix_to_candidates, coalbed_map = {}, {}, {}
+    generic_tunnel_skipped = 0
+    unnamed_tunnel_skipped = 0
 
     # 2a. 从文件加载
     if use_file:
@@ -1580,10 +1672,13 @@ def main():
                         validated["tunnels"] = _validate_tunnels(data["tunnels"])
                     if "workfaces" in data:
                         validated["workfaces"] = _validate_workfaces(data["workfaces"])
-                    candidates, code_to_candidates, prefix_to_candidates, coalbed_map = _extract_candidates(validated)
+                    candidates, code_to_candidates, prefix_to_candidates, coalbed_map, g_skip, u_skip = _extract_candidates(validated)
+                    generic_tunnel_skipped += g_skip
+                    unnamed_tunnel_skipped += u_skip
                     print(f"  → 文件候选: {len(candidates)} 个", file=sys.stderr)
             elif isinstance(data, list):
-                devices, candidates = classify_items(data)
+                devices, candidates, u_skip = classify_items(data)
+                unnamed_tunnel_skipped += u_skip
                 devices = _validate_devices(devices)
                 print(f"  → 文件 devices: {len(devices)} 个, 候选: {len(candidates)} 个", file=sys.stderr)
 
@@ -1629,7 +1724,9 @@ def main():
                 merged_cand["tunnels"] = merged_tunnels
             if merged_workfaces:
                 merged_cand["workfaces"] = merged_workfaces
-            candidates, code_to_candidates, prefix_to_candidates, coalbed_map = _extract_candidates(merged_cand)
+            candidates, code_to_candidates, prefix_to_candidates, coalbed_map, g_skip, u_skip = _extract_candidates(merged_cand)
+            generic_tunnel_skipped += g_skip
+            unnamed_tunnel_skipped += u_skip
             print(f"  → 文件候选合计: {len(candidates)} 个", file=sys.stderr)
 
     # 2b. 从 API 补全缺失的数据
@@ -1646,19 +1743,24 @@ def main():
                 devices = _validate_devices(raw_data.get("devices", []))
                 print(f"  → API devices: {len(devices)} 个", file=sys.stderr)
             if need_api_candidates:
-                candidates, code_to_candidates, prefix_to_candidates, coalbed_map = _extract_candidates(raw_data)
+                candidates, code_to_candidates, prefix_to_candidates, coalbed_map, g_skip, u_skip = _extract_candidates(raw_data)
+                generic_tunnel_skipped += g_skip
+                unnamed_tunnel_skipped += u_skip
                 print(f"  → API 候选: {len(candidates)} 个", file=sys.stderr)
         else:
             device_items = extract_items(raw_data)
             if need_api_devices:
-                api_devices, _ = classify_items(device_items)
+                api_devices, _, u_skip = classify_items(device_items)
+                unnamed_tunnel_skipped += u_skip
                 devices = _validate_devices(api_devices)
                 print(f"  → API devices: {len(devices)} 个", file=sys.stderr)
             if need_api_candidates:
                 print(f"  → 获取工作面/巷道 (get_data)...", file=sys.stderr)
                 resp_cand = call_strategy_api(8373, username, f"MineName={mine_name}", action="get_data")
                 cand_items = extract_items(resp_cand.get("data"))
-                candidates, code_to_candidates, prefix_to_candidates, coalbed_map = _extract_candidates(cand_items)
+                candidates, code_to_candidates, prefix_to_candidates, coalbed_map, g_skip, u_skip = _extract_candidates(cand_items)
+                generic_tunnel_skipped += g_skip
+                unnamed_tunnel_skipped += u_skip
                 print(f"  → API 候选: {len(candidates)} 个", file=sys.stderr)
 
     # 如果用了文件+API混合，保存合并结果
@@ -1690,20 +1792,75 @@ def main():
         devices, candidates, code_to_candidates, prefix_to_candidates, coalbed_map)
 
     # ── Step 4: 输出 + 回写 ──
-    output = {
+    by_confidence = {"高": 0, "中": 0, "低": 0}
+    by_mark_type = {}
+    by_sensor_type = {}
+    for r in results:
+        conf = r.get("confidence", "低")
+        by_confidence[conf] = by_confidence.get(conf, 0) + 1
+        mt = r.get("mark_type", "")
+        by_mark_type[mt] = by_mark_type.get(mt, 0) + 1
+        st = r.get("sensor_type", "")
+        by_sensor_type[st] = by_sensor_type.get(st, 0) + 1
+
+    summary = {
+        "total": len(devices),
+        "matched": matched_count,
+        "unmatched": len(unmatched),
+        "wind_spacing_warnings": len(wind_warnings),
+        "generic_tunnels_skipped": generic_tunnel_skipped,
+        "unnamed_tunnels_skipped": unnamed_tunnel_skipped,
+        "by_confidence": by_confidence,
+        "by_mark_type": by_mark_type,
+        "by_sensor_type": by_sensor_type,
+    }
+
+    all_warnings = list(wind_warnings)
+    if generic_tunnel_skipped > 0:
+        all_warnings.append({
+            "type": "generic_tunnels_excluded",
+            "count": generic_tunnel_skipped,
+            "message": f"{generic_tunnel_skipped} 条系统生成巷道名称（如'巷道136'）已从候选池排除，"
+                       f"这些名称无实际语义含义，不可用于设备匹配。",
+        })
+    if unnamed_tunnel_skipped > 0:
+        all_warnings.append({
+            "type": "unnamed_tunnels_excluded",
+            "count": unnamed_tunnel_skipped,
+            "message": f"{unnamed_tunnel_skipped} 条巷道缺少名称（name字段为空），"
+                       f"无法作为候选参与设备匹配，已从候选池排除。",
+        })
+
+    output_full = {
         "username": username,
         "mine_name": mine_name,
-        "summary": {
-            "total": len(devices),
-            "matched": matched_count,
-            "unmatched": len(unmatched),
-            "wind_spacing_warnings": len(wind_warnings),
-        },
+        "summary": summary,
         "results": results,
         "unmatched_devices": unmatched,
-        "warnings": wind_warnings,
+        "warnings": all_warnings,
     }
-    _save_and_writeback(output, username)
+
+    output_mode = args.output_mode
+    if output_mode == "full":
+        output = output_full
+    elif output_mode in ("summary", "json-summary"):
+        output = {
+            "username": username,
+            "mine_name": mine_name,
+            "summary": summary,
+            "warnings": all_warnings,
+        }
+    elif output_mode == "unmatched":
+        output = {
+            "username": username,
+            "mine_name": mine_name,
+            "summary": summary,
+            "unmatched_devices": unmatched,
+        }
+    else:
+        output = output_full
+
+    _save_and_writeback(output, username, output_mode, output_full)
 
 
 if __name__ == "__main__":
