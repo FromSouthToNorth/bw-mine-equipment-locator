@@ -1,3 +1,9 @@
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
+---
+
 # 煤矿设备定位 skill (bw-mine-equipment-locator)
 
 根据设备描述（description）匹配到对应巷道或工作面，再从巷道/工作面的折线（line）坐标中计算得出设备的 (x, y, z) 坐标。
@@ -5,7 +11,111 @@
 **输入：** 用户提供的 username（如 `F18795450`），可选指定设备数据文件  
 **输出：** 每个设备匹配到巷道/工作面后的 (x, y, z) 坐标
 
-### 自然语言调用
+---
+
+## 仓库架构
+
+本仓库由 3 个协作 skill 组成流水线，**无构建步骤**，纯 Python 脚本 + JSON 数据：
+
+```
+用户请求 → bw-token-manager → bw-strategy-api-caller → bw-mine-equipment-locator
+                (Step 1)              (Step 2/4)                  (Step 3)
+```
+
+### Skill 间调用机制
+
+`locator.py` 并不直接调用 HTTP API，而是通过 **subprocess 委托**给另外两个 skill 的脚本：
+
+- `locator.py` 内定义 `PROJECT_ROOT` 向上回溯 4 层定位仓库根目录，再拼出 `bw_token_manager.py` 和 `strategy_api.py` 的绝对路径
+- 调用时使用 `_resolve_python_exe()` 自动探测带 `requests` 的 Python 解释器（优先级：`BW_LOCATOR_PYTHON` 环境变量 > `sys.executable` > `python3`/`python`/`py` > 历史 Windows 兜底路径）
+- 所有 API 调用（token 获取、8373 拉取、8385 回写）均通过 `subprocess.run([_PYTHON_EXE, str(STRATEGY_API), ...])` 完成
+
+这意味着修改 `strategy_api.py` 或 `bw_token_manager.py` 会立即影响 locator 的行为，无需重新安装或编译。
+
+### 数据流与缓存
+
+```
+8373 API → data/output/data_8373_<mineName>.json
+              ↓
+         locator.py --match-only
+              ↓
+    data/output/locator_result_<username>_<mineName>.json
+              ↓
+         locator.py --writeback → 8385 API
+              ↓
+         data/cache/match_cache.json (EXACT 匹配缓存)
+```
+
+- **match_cache.json**：高置信度（layer=EXACT）匹配自动缓存，键为 `{mark_type}:{description}`，下次运行时直接复用
+- **结果文件**：每次匹配自动保存到 `data/output/`，命名包含 username 和 mineName
+
+### CesiumJS 可视化
+
+匹配完成后，若系统安装了 `pyproj`，`locator.py` 自动调用 `data/output/generate_cesium_html.py` 生成 CesiumJS HTML（CGCS2000 → WGS84 坐标转换）。可用 `--html never` 跳过。
+
+### 规则审计注册表
+
+`locator.py` 文件末尾（line ~2460 起）有 `_RULES_REGISTRY` 字典，集中登记所有行业标准条款来源。修改 `_assign_distances`、`_SENSOR_TUNNEL_PREF` 等数据表时，必须同步更新此注册表。
+
+---
+
+## 开发与调试命令
+
+本项目无传统单元测试框架，验证依靠本地测试数据和不同 `--output-mode` 的组合。
+
+### 本地测试（不调用 API）
+
+```bash
+# 用测试数据跑完整匹配流程（不回写）
+python skill/bw-mine-equipment-locator/scripts/locator.py TESTUSER \
+  --load data/test/test_locator.json --match-only
+
+# 只看汇总统计
+python skill/bw-mine-equipment-locator/scripts/locator.py TESTUSER \
+  --load data/test/test_locator.json --match-only --output-mode summary
+
+# 审查未匹配设备及其 Top-3 候选
+python skill/bw-mine-equipment-locator/scripts/locator.py TESTUSER \
+  --load data/test/test_locator.json --match-only --output-mode unmatched
+```
+
+### 数据分析（不执行匹配）
+
+```bash
+# 分析已拉取的 8373 数据结构
+python skill/bw-mine-equipment-locator/scripts/locator.py TESTUSER \
+  --analyze data/output/data_8373_<mineName>.json
+```
+
+### 分步回写（从已有结果文件）
+
+```bash
+# 从保存的结果 JSON 直接回写 8385，不重新匹配
+python skill/bw-mine-equipment-locator/scripts/locator.py <username> \
+  --writeback data/output/locator_result_<username>_<mineName>.json
+```
+
+### 生成 CesiumJS 可视化
+
+```bash
+# 独立调用（需 pyproj）
+python data/output/generate_cesium_html.py \
+  data/output/locator_result_<username>_<mineName>.json \
+  --data-8373 data/output/data_8373_<mineName>.json
+```
+
+### 依赖安装
+
+```bash
+pip install -r requirements.txt   # 仅 requests
+pip install pyproj                # 可选，CesiumJS 可视化需要
+```
+
+**注意：** 本机 `python3` 不可用，使用 `python` 即可。若解释器探测失败，设置 `BW_LOCATOR_PYTHON` 环境变量。
+
+---
+
+## 自然语言调用
 
 Claude 采用**两阶段交互流程**，不直接一键执行：
 
@@ -49,9 +159,10 @@ python skill/bw-mine-equipment-locator/scripts/locator.py <username> \
 
 匹配完成后 Claude 展示汇总，**等用户确认后** locator.py 自动执行 8385 回写。
 
-**一步到位（跳过审查）**：用户明确说"直接跑"时，可执行旧版单命令：
+**一步到位（跳过审查）**：用户明确说"直接跑"时，可执行单命令（匹配+回写一步完成）：
 ```bash
-python skill/bw-mine-equipment-locator/scripts/locator.py F18795450
+python skill/bw-mine-equipment-locator/scripts/locator.py <username> \
+  --load data/output/data_8373_<mineName>.json
 ```
 
 #### 输出模式 (`--output-mode`)
@@ -71,6 +182,8 @@ python skill/bw-mine-equipment-locator/scripts/locator.py F18795450
 usage: locator.py [-h] [--load PATH] [--load-devices PATH]
                   [--load-tunnels PATH] [--load-workfaces PATH]
                   [--output-mode {full,summary,unmatched,json-summary}]
+                  [--analyze PATH] [--match-only]
+                  [--writeback RESULT_JSON] [--html MODE]
                   username [DEVICES_FILE]
 
 positional arguments:
@@ -84,9 +197,11 @@ options:
   --load-workfaces PATH 从本地文件加载工作面数据
   --output-mode MODE    输出模式: full=完整结果(默认), summary=仅汇总,
                         unmatched=仅未匹配(含候选), json-summary=汇总JSON
+  --analyze PATH        分析 8373 数据文件的结构化报告（仅分析，不匹配退出）
+  --match-only          仅匹配不回写（展示汇总后等用户确认，再单独 --writeback）
+  --writeback RESULT_JSON  从已保存的结果文件回写 8385，不重复匹配
+  --html MODE           CesiumJS 可视化: auto=自动, always=强制, never=跳过
 ```
-
-注：本机 `python3` 不可用，使用 `python` 即可。
 
 ---
 
@@ -114,9 +229,12 @@ options:
     └────┬────────────────────────────────────┘
          │ (用户确认)
     ┌────▼────────────────────────────────────┐
-    │ ★ 阶段 2: 匹配定位 + 回写 ★            │
+    │ ★ 阶段 2: 匹配定位 + 回写（两步） ★    │
     │                                         │
-    │ Step 3: locator.py --load <8373文件>     │
+    │ Step 3: 匹配（--match-only，不回写）     │
+    │   python locator.py <username>           │
+    │     --load data_8373_<mineName>.json     │
+    │     --match-only                         │
     │   ① 系统巷道(巷道NNN)从候选池排除        │
     │   ② 地面设备(area)跳过井下候选           │
     │   ③ 缓存命中直接复用                     │
@@ -126,11 +244,13 @@ options:
     │                                         │
     │ Claude 展示匹配汇总:                     │
     │   匹配率 / 置信度分布 / 未匹配原因        │
-    │   系统巷道排除数 / 风速告警              │
+    │   系统巷道排除数 / 设备密度分布           │
     │                                         │
-    │ ▼ 等用户确认 ▼                          │
+    │ ▼ 等用户确认回写 ▼                      │
     │                                         │
-    │ Step 4: 内置 8385 回写 (locator.py 末尾) │
+    │ Step 4: 回写 8385（--writeback）         │
+    │   python locator.py <username>           │
+    │     --writeback locator_result_*.json    │
     │   → code: 100 表示成功                   │
     └─────────────────────────────────────────┘
 ```
@@ -163,13 +283,13 @@ python skill/bw-strategy-api-caller/scripts/strategy_api.py get_json \
 
 **注意：** `strategy_api.py` 依赖 `requests`。locator.py 会自动探测带 `requests` 的解释器（优先 `sys.executable`/`python3`/`python`），找不到就报错。可用 `BW_LOCATOR_PYTHON` 显式覆盖。
 
-### Step 3: 匹配设备 → 计算坐标
+### Step 3: 匹配设备 → 计算坐标（--match-only）
 
-用户确认阶段 1 后，执行匹配：
+用户确认阶段 1 后，执行**仅匹配不回写**：
 
 ```bash
 python skill/bw-mine-equipment-locator/scripts/locator.py <username> \
-  --load data/output/data_8373_<mineName>.json
+  --load data/output/data_8373_<mineName>.json --match-only
 ```
 
 对每个 device 的处理流程：
@@ -183,17 +303,30 @@ python skill/bw-mine-equipment-locator/scripts/locator.py <username> \
    - `tunnels` 数组中的 `name`（主候选，仅具名巷道）
    - `workfaces` 数组中的 `workFaceName`（补充候选）
 4. 按[坐标计算](#坐标计算)规则计算 (x, y, z)
-5. **匹配汇总展示后等用户确认**，再进入 Step 4
+5. **Claude 展示匹配汇总后必须等用户确认**，再进入 Step 4
 
-### Step 4: 回写定位结果到策略 8385
+**注意：** 必须加 `--match-only`，否则脚本会自动回写 8385。`--match-only` 不会写数据库，只输出 JSON 到 stdout 和保存结果文件。
 
-用户确认匹配结果后，locator.py 末尾自动调用 `execute` 将结果写回策略 8385：
+### Step 4: 回写定位结果到策略 8385（--writeback）
 
+用户确认匹配结果后，执行**单独回写**：
+
+```bash
+python skill/bw-mine-equipment-locator/scripts/locator.py <username> \
+  --writeback data/output/locator_result_<username>_<mineName>.json
+```
+
+- 从 Step 3 保存的结果文件加载完整数据
 - 向 `ExecuteStrategyCom` 发起 POST 请求
-- `data` 参数值为 Step 3 输出的完整结果 JSON
 - 返回 `{"code": 100}` 表示成功
 - **8385 回写始终使用 `full` 数据**，不受 `--output-mode` 影响
-- 使用 `--param-from-file` 避免 Windows 命令行长度限制
+
+**合并一步执行（用户明确说"直接跑"时）：** 不加 `--match-only`，locator.py 自动完成匹配+回写：
+
+```bash
+python skill/bw-mine-equipment-locator/scripts/locator.py <username> \
+  --load data/output/data_8373_<mineName>.json
+```
 
 ---
 
@@ -204,29 +337,35 @@ F:\gis\Point\
 ├── CLAUDE.md              # 本文件
 ├── data/
 │   ├── pdf/              # 煤矿安全规范等 PDF 文档
+│   │   └── extracts/     # 条款摘要和 OCR 文本
 │   ├── test/             # 测试数据
-│   │   └── test_locator.json  # 优化功能验证测试数据
+│   │   └── test_locator.json
 │   ├── cache/            # 匹配缓存目录
+│   │   └── match_cache.json
+│   ├── output/           # 8373 数据、locator 结果、CesiumJS HTML
+│   │   ├── generate_cesium_html.py
+│   │   ├── data_8373_*.json
+│   │   └── locator_result_*.json
 │   └── sql/
-│       ├── example_8373.json  # 策略 8373 示例数据（设备+巷道+工作面）
-│       └── index.sql      # 策略 8373 的 SQL 查询（表结构参考）
+│       ├── example_8373.json
+│       └── index.sql
 ├── evals/
-│   └── evals.json         # 测试评估 prompt
+│   └── evals.json
 └── skill/
-    ├── bw-token-manager/           # Step 1: 获取 BW-MES API token, mineName
+    ├── bw-token-manager/
     │   └── scripts/bw_token_manager.py
-    ├── bw-strategy-api-caller/      # Step 2: 调用策略 API
+    ├── bw-strategy-api-caller/
     │   └── scripts/strategy_api.py
-    └── bw-mine-equipment-locator/  # Step 3: 设备定位完整流程
-        ├── SKILL.md                # Skill 定义
-        └── scripts/locator.py      # 自动化定位脚本
+    └── bw-mine-equipment-locator/
+        ├── SKILL.md
+        └── scripts/locator.py      # ~2500 行，核心逻辑与规则注册表
 ```
 
 ### 依赖
 
 | Skill | 用途 | 调用时机 |
 | ----- | ---- | -------- |
-| `bw-token-manager` | 获取 BW-MES API token, mineName（用户输入名称如 `F18795450`） | Step 1 |
+| `bw-token-manager` | 获取 BW-MES API token, mineName | Step 1 |
 | `bw-strategy-api-caller` | 调用 `GetStrategyData`/`GetStrategyJsonData` 获取设备+巷道+工作面数据 | Step 2 |
 | `bw-strategy-api-caller` | 调用 `ExecuteStrategyCom` 回写定位结果 | Step 4 |
 
@@ -275,6 +414,8 @@ locator.py 启动时自动探测可用解释器，按优先级：
 ## 匹配逻辑
 
 完整规则在 `skill/bw-mine-equipment-locator/scripts/locator.py`，本节列出所有评分常量。代码是 source of truth，本节同步更新。
+
+> **术语一致性注意：** `SKILL.md` 中部分 sensor_type 写为"摄像仪"，但代码与本文档统一使用"工业视频"。以 `locator.py` 源码为准。
 
 ### 候选来源（均来自 8373，已过滤系统命名巷道）
 

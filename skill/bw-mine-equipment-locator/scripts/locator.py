@@ -1077,11 +1077,13 @@ def _extract_candidates(items) -> tuple:
     从策略数据提取候选匹配项（巷道+工作面）。
     支持 dict 格式 {tunnels:[], workfaces:[]} 和 list 格式（workface 对象数组）。
 
-    返回 (candidates, code_to_candidates, coalbed_map, generic_tunnel_skipped, unnamed_tunnel_skipped) 其中：
+    返回 (candidates, code_to_candidates, prefix_to_candidates, coalbed_map,
+           generic_tunnel_skipped, unnamed_tunnel_skipped, generic_tunnel_names) 其中：
     - code_to_candidates: 工作面编码 -> 候选索引列表
     - coalbed_map: 工作面编码 -> coalbed 映射
     - generic_tunnel_skipped: 被跳过的系统生成巷道名称数量
     - unnamed_tunnel_skipped: 被跳过的无名称巷道数量
+    - generic_tunnel_names: 被排除的系统生成巷道名称列表
     """
     candidates = []
     code_to_candidates = {}
@@ -1089,6 +1091,7 @@ def _extract_candidates(items) -> tuple:
     coalbed_map = {}
     generic_tunnel_skipped = 0
     unnamed_tunnel_skipped = 0
+    generic_tunnel_names = []
 
     def _add_code_index(name: str, idx: int):
         code = extract_workface_code(name)
@@ -1113,6 +1116,7 @@ def _extract_candidates(items) -> tuple:
                 continue
             if _is_generic_tunnel_name(tunnel_name):
                 generic_tunnel_skipped += 1
+                generic_tunnel_names.append(tunnel_name)
                 continue
             idx = len(candidates)
             tunnel_type = t.get("type", "")
@@ -1156,7 +1160,7 @@ def _extract_candidates(items) -> tuple:
                 })
                 _add_code_index(name, idx)
                 _add_coalbed(name, item.get("coalbed", ""))
-    return candidates, code_to_candidates, prefix_to_candidates, coalbed_map, generic_tunnel_skipped, unnamed_tunnel_skipped
+    return candidates, code_to_candidates, prefix_to_candidates, coalbed_map, generic_tunnel_skipped, unnamed_tunnel_skipped, generic_tunnel_names
 
 
 # ── 数据校验 ──────────────────────────────────────────────────────
@@ -1233,25 +1237,35 @@ def _validate_line(line: list, ctx: str) -> list:
 
 
 def _validate_tunnels(tunnels: list) -> list:
-    """校验巷道数据，返回清洗后的列表。"""
+    """校验巷道数据，返回清洗后的列表。跳过无效条目并输出警告。"""
     if not isinstance(tunnels, list):
         raise ValueError("tunnels 必须是 list")
     cleaned = []
+    skipped = 0
     for i, t in enumerate(tunnels):
         if not isinstance(t, dict):
-            raise ValueError(f"tunnels[{i}] 必须是 dict")
+            print(f"  ! 跳过 tunnels[{i}]: 非 dict 类型", file=sys.stderr)
+            skipped += 1
+            continue
         name = t.get("name", "")
         if not isinstance(name, str) or not name.strip():
-            raise ValueError(f"tunnels[{i}] name 必填且非空")
+            print(f"  ! 跳过 tunnels[{i}]: name 为空", file=sys.stderr)
+            skipped += 1
+            continue
         line = _validate_line(t.get("line", []), f"tunnels[{i}] '{name}'")
         item = {"name": name.strip(), "line": line}
         for field in ("id", "type", "coalbed"):
             val = t.get(field)
             if val is not None:
                 if not isinstance(val, str):
-                    raise ValueError(f"tunnels[{i}] {field} 必须是 str")
+                    print(f"  ! 跳过 tunnels[{i}] '{name}': {field} 类型错误", file=sys.stderr)
+                    skipped += 1
+                    break
                 item[field] = val
-        cleaned.append(item)
+        else:
+            cleaned.append(item)
+    if skipped:
+        print(f"  → 跳过 {skipped} 个无效巷道", file=sys.stderr)
     return cleaned
 
 
@@ -1276,6 +1290,61 @@ def _validate_workfaces(workfaces: list) -> list:
                 item[field] = val
         cleaned.append(item)
     return cleaned
+
+
+def _parse_device_ids_from_file(path: str) -> set:
+    """从文件读取设备 ID 列表，返回 set。
+
+    支持格式：
+      - JSON 数组: ["ID1","ID2"]
+      - 逗号分隔: ID1,ID2,ID3
+      - 标签行:  json: ["ID1","ID2"]
+                 text: ID1,ID2
+                 userinput: ID1,ID2
+    """
+    p = Path(path)
+    if not p.exists():
+        raise FileNotFoundError(f"设备 ID 文件不存在: {p}")
+    raw = p.read_text(encoding="utf-8").strip()
+    if not raw:
+        return set()
+
+    # 尝试 JSON 数组
+    if raw.startswith("["):
+        try:
+            ids = json.loads(raw)
+            if isinstance(ids, list):
+                return set(str(i).strip() for i in ids if i)
+        except json.JSONDecodeError:
+            pass
+
+    # 逐行解析：支持 json:/text:/userinput: 前缀
+    ids = set()
+    for line in raw.splitlines():
+        line = line.strip()
+        if not line:
+            continue
+        if line.startswith("json:"):
+            payload = line[5:].strip()
+            try:
+                parsed = json.loads(payload)
+                if isinstance(parsed, list):
+                    ids.update(str(i).strip() for i in parsed if i)
+            except json.JSONDecodeError:
+                pass
+        elif line.startswith("text:") or line.startswith("userinput:"):
+            payload = line[line.index(":") + 1:].strip()
+            for part in payload.split(","):
+                part = part.strip()
+                if part:
+                    ids.add(part)
+        else:
+            # 裸逗号分隔
+            for part in line.split(","):
+                part = part.strip()
+                if part:
+                    ids.add(part)
+    return ids
 
 
 def _load_json_file(path: str) -> dict or list:
@@ -1528,7 +1597,9 @@ def _match_devices(devices: list, candidates: list,
             matched_count += 1
             clamped = False
             if explicit_dist is not None and total_len > 0 and explicit_dist > total_len:
+                pct = (explicit_dist / total_len) * 100
                 print(f"  ! 显式距离超出: {explicit_dist:.0f}m > {total_len:.0f}m "
+                      f"(={pct:.0f}% of line length) "
                       f"(matched={match['name']}, desc={device.get('description', '')[:60]})", file=sys.stderr)
                 dist = total_len
                 clamped = True
@@ -1557,6 +1628,9 @@ def _match_devices(devices: list, candidates: list,
                 **({"explicit_distance": round(explicit_dist, 1)} if explicit_dist is not None else {}),
                 **({"distance_clamped": True} if clamped else {}),
                 "coordinates": coords,
+                "line_total_length": round(total_len, 2),
+                "distance_along_line": round(dist, 2),
+                "line_percentage": round(ratio * 100, 1),
             })
 
     wind_warnings = _check_wind_speed_spacing(groups)
@@ -1566,9 +1640,305 @@ def _match_devices(devices: list, candidates: list,
     return results, unmatched, wind_warnings, matched_count
 
 
+# ── 结构化分析 ──────────────────────────────────────────────────────
+def _generate_analysis_report(data_path: str) -> dict:
+    """生成 8373 数据文件的结构化分析报告。
+
+    分析项目包括设备总数、巷道/工作面数、mark_type 分布、sensor_type 分布、
+    地面/井下拆分、系统命名巷道排除、潜在难匹配设备等。
+
+    Args:
+        data_path: data_8373_*.json 文件路径
+
+    Returns:
+        包含分析结果的 dict
+    """
+    import os
+    from collections import Counter
+
+    data = _load_json_file(data_path)
+
+    devices = []
+    candidates = []
+    if isinstance(data, dict):
+        if "devices" in data and isinstance(data["devices"], list):
+            devices = data["devices"]
+        if "candidates" in data and isinstance(data["candidates"], list):
+            candidates = data["candidates"]
+        elif "tunnels" in data or "workfaces" in data:
+            cand_res = _extract_candidates(data)
+            candidates = cand_res[0] if cand_res else []
+    elif isinstance(data, list):
+        devices, candidates, _ = classify_items(data)
+
+    total_devices = len(devices)
+    tunnels = [c for c in candidates if c.get("category") == "tunnel"]
+    workfaces = [c for c in candidates if c.get("category") == "workface"]
+
+    # mark_type 分布
+    mark_types = Counter(d.get("mark_type") or "UNKNOWN" for d in devices)
+
+    # sensor_type 分布
+    sensor_types = Counter()
+    missing_sensor = []
+    for d in devices:
+        st = d.get("sensor_type")
+        if st:
+            sensor_types[st] += 1
+        else:
+            inferred = _infer_sensor_type(d.get("description", ""), d.get("mark_type"))
+            if inferred:
+                missing_sensor.append(d)
+
+    # area 分布 + 地面识别
+    areas = Counter()
+    surface_count = 0
+    for d in devices:
+        area = d.get("area") or "(无)"
+        areas[area] += 1
+        if _is_surface_area(area) or _is_surface_description(d.get("description", "")):
+            surface_count += 1
+
+    # 巷道分析
+    generic_tunnel_names = sorted(set(
+        c["name"] for c in tunnels if _is_generic_tunnel_name(c.get("name", ""))
+    ))
+    named_tunnels = [c for c in tunnels if not _is_generic_tunnel_name(c.get("name", ""))]
+
+    # 编码提取分析 — 潜在难匹配设备
+    hard_to_match = []
+    for d in devices:
+        if not extract_workface_code(d.get("description", "")):
+            hard_to_match.append(d)
+
+    # 煤层分布
+    coalbeds = Counter(c.get("coalbed") or "(无)" for c in candidates)
+
+    # ── mark_type × sensor_type 交叉表（预计算，供后续使用）──
+    cross = {}
+    for d in devices:
+        mt = d.get("mark_type", "UNKNOWN")
+        st = d.get("sensor_type") or _infer_sensor_type(d.get("description", ""), d.get("mark_type"))
+        if mt not in cross:
+            cross[mt] = {}
+        cross[mt][st] = cross[mt].get(st, 0) + 1
+    all_sts = sorted({st for row in cross.values() for st in row}, key=lambda s: -sum(r.get(s, 0) for r in cross.values()))
+
+    # ── 各 area 的 Mark Type / Sensor Type 构成（预计算）──
+    area_details = {}
+    for d in devices:
+        area = d.get("area") or "(无)"
+        mt = d.get("mark_type", "UNKNOWN")
+        st = d.get("sensor_type") or _infer_sensor_type(d.get("description", ""), d.get("mark_type"))
+        if area not in area_details:
+            area_details[area] = {"mt": {}, "st": {}}
+        area_details[area]["mt"][mt] = area_details[area]["mt"].get(mt, 0) + 1
+        area_details[area]["st"][st] = area_details[area]["st"].get(st, 0) + 1
+
+    # ── 编码提取成功率统计（预计算）──
+    code_extracted = 0
+    for d in devices:
+        if extract_workface_code(d.get("description", "")):
+            code_extracted += 1
+    code_pct = (code_extracted / total_devices * 100) if total_devices else 0
+
+    # ── 可用巷道分组（预计算）──
+    tunnel_by_coalbed = {}
+    for c in named_tunnels:
+        cb = c.get("coalbed") or "(无)"
+        if cb not in tunnel_by_coalbed:
+            tunnel_by_coalbed[cb] = []
+        tunnel_by_coalbed[cb].append(c)
+
+    # ════════════════════════════════════════════════════════════
+    # 输出文本报告 — 严格固定格式，每个区块必定出现，行数固定
+    # ════════════════════════════════════════════════════════════
+    def _fmt_kv(k, v, w=20):
+        return f"  {k:<{w}}{v}"
+
+    def _fmt_list(items, label_fn=None, empty="  (无)"):
+        """输出固定 10 行的列表，空数据时补占位符"""
+        if not items:
+            for i in range(1, 11):
+                print(f"  {i:>2}. (无)", file=sys.stderr)
+            return
+        for i, item in enumerate(items[:10], 1):
+            txt = label_fn(item) if label_fn else str(item)
+            print(f"  {i:>2}. {txt}", file=sys.stderr)
+        if len(items) > 10:
+            print(f"      ...及其他 {len(items) - 10} 条", file=sys.stderr)
+        else:
+            for i in range(len(items) + 1, 11):
+                print(f"  {i:>2}. (无)", file=sys.stderr)
+
+    print(f"\n{'='*60}", file=sys.stderr)
+    print(f"  8373 数据分析报告", file=sys.stderr)
+    print(f"{'='*60}", file=sys.stderr)
+
+    # 【概况】固定 4 行
+    print(f"\n【概况】", file=sys.stderr)
+    print(_fmt_kv("设备总数:", total_devices), file=sys.stderr)
+    print(_fmt_kv("巷道数 (候选):", f"{len(tunnels)} (系统命名排除: {len(generic_tunnel_names)}, 具名可用: {len(named_tunnels)})"), file=sys.stderr)
+    print(_fmt_kv("工作面数 (候选):", len(workfaces)), file=sys.stderr)
+    print(_fmt_kv("系统巷道排除示例:", ', '.join(generic_tunnel_names[:5]) if generic_tunnel_names else "无"), file=sys.stderr)
+
+    # 【设备过滤】固定 2 行
+    print(f"\n【设备过滤】", file=sys.stderr)
+    print(_fmt_kv("地面设备 (将跳过):", f"{surface_count}/{total_devices}"), file=sys.stderr)
+    print(_fmt_kv("缺少 sensor_type:", f"{len(missing_sensor)}/{total_devices}"), file=sys.stderr)
+
+    # 【Mark Type 分布】固定 4 行
+    print(f"\n【Mark Type 分布】", file=sys.stderr)
+    other_mt = sum(v for k, v in mark_types.items() if k not in ("B14", "B15", "B16"))
+    for mt in ["B14", "B15", "B16"]:
+        print(_fmt_kv(f"{mt} ({_MARK_TYPE_TO_SYSTEM.get(mt, '?')}):", mark_types.get(mt, 0)), file=sys.stderr)
+    print(_fmt_kv("其他:", other_mt), file=sys.stderr)
+
+    # 【Sensor Type 分布 (Top 10)】固定 11 行
+    print(f"\n【Sensor Type 分布 (Top 10)】", file=sys.stderr)
+    st_items = sensor_types.most_common(10)
+    st_rest = sum(v for _k, v in sensor_types.most_common()[10:])
+    _fmt_list(st_items, label_fn=lambda x: f"{x[0]}: {x[1]}")
+    print(_fmt_kv("其他 sensor_type:", st_rest), file=sys.stderr)
+
+    # 【Mark Type × Sensor Type 交叉分析 (Top 10)】固定 5 行 + 表头
+    print(f"\n【Mark Type × Sensor Type 交叉分析 (Top 10)】", file=sys.stderr)
+    top10_sts = all_sts[:10] if all_sts else ["(无)"]
+    # 表头
+    hdr = "        " + "".join(f"{s:>8}" for s in top10_sts)
+    print(f"  {hdr}", file=sys.stderr)
+    # B14 / B15 / B16 / 其他 固定 4 行
+    for mt in ["B14", "B15", "B16"]:
+        row = cross.get(mt, {})
+        cells = "".join(f"{row.get(st, 0):>8}" for st in top10_sts)
+        print(f"  {mt:>6} {cells}", file=sys.stderr)
+    other_cross = {}
+    for mt, row in cross.items():
+        if mt not in ("B14", "B15", "B16"):
+            for st, v in row.items():
+                other_cross[st] = other_cross.get(st, 0) + v
+    cells = "".join(f"{other_cross.get(st, 0):>8}" for st in top10_sts)
+    print(f"  {'其他':>6} {cells}", file=sys.stderr)
+    if len(all_sts) > 10:
+        print(f"  ...及其他 {len(all_sts) - 10} 个 sensor_type", file=sys.stderr)
+    else:
+        print(f"  (无其他 sensor_type)", file=sys.stderr)
+
+    # 【巷道煤层分布】固定列出所有煤层
+    print(f"\n【巷道煤层分布】", file=sys.stderr)
+    coalbed_items = coalbeds.most_common()
+    if coalbed_items:
+        for cb, cnt in coalbed_items:
+            print(_fmt_kv(f"煤层 {cb}:", f"{cnt} 条巷道/工作面"), file=sys.stderr)
+    else:
+        print(_fmt_kv("煤层:", "(无)"), file=sys.stderr)
+
+    # 【Area 分布 (Top 10)】固定 11 行
+    print(f"\n【Area 分布 (Top 10)】", file=sys.stderr)
+    area_items = areas.most_common(10)
+    area_rest = sum(v for _k, v in areas.most_common()[10:])
+    _fmt_list(area_items, label_fn=lambda x: f"{x[0]}: {x[1]} 台")
+    print(_fmt_kv("其他区域:", f"{area_rest} 个"), file=sys.stderr)
+
+    # 【区域设备构成 (Top 10)】固定 10 行
+    print(f"\n【区域设备构成 (Top 10)】", file=sys.stderr)
+    area_comp = []
+    for area, cnt in areas.most_common(10):
+        detail = area_details.get(area, {})
+        mt_str = "  ".join(f"{k}={v}" for k, v in sorted(detail.get("mt", {}).items(), key=lambda x: -x[1])[:2])
+        st_str = "  ".join(f"{k}={v}" for k, v in sorted(detail.get("st", {}).items(), key=lambda x: -x[1])[:2])
+        area_comp.append(f"{area} ({cnt}台) | {mt_str} | {st_str}")
+    _fmt_list(area_comp)
+
+    # 【可用巷道列表 (每组 Top 10)】
+    print(f"\n【可用巷道列表 ({len(named_tunnels)}条)】", file=sys.stderr)
+    if tunnel_by_coalbed:
+        for cb, tlist in sorted(tunnel_by_coalbed.items()):
+            print(f"  煤层 {cb} ({len(tlist)}条):", file=sys.stderr)
+            t_sorted = sorted(tlist, key=lambda x: x.get("name", ""))
+            _fmt_list(t_sorted, label_fn=lambda c: f"{c['name']} ({c.get('type', '')})")
+    else:
+        print(f"  (无可用巷道)", file=sys.stderr)
+        _fmt_list([])
+
+    # 【工作面列表 (Top 10)】固定 11 行
+    print(f"\n【工作面列表 ({len(workfaces)}个)】", file=sys.stderr)
+    wf_items = sorted(workfaces, key=lambda x: x.get("workFaceName", ""))[:10]
+    _fmt_list(wf_items, label_fn=lambda w: f"{w.get('workFaceName', '?')} ({w.get('type', '')})")
+
+    # 【编码提取情况】固定 2 行
+    print(f"\n【编码提取情况】", file=sys.stderr)
+    print(_fmt_kv("成功提取编码:", f"{code_extracted}/{total_devices} ({code_pct:.1f}%)"), file=sys.stderr)
+    print(_fmt_kv("未提取编码:", f"{len(hard_to_match)}/{total_devices} ({100-code_pct:.1f}%)"), file=sys.stderr)
+
+    # 【潜在难匹配设备 (Top 10)】固定 11 行
+    print(f"\n【潜在难匹配设备 ({len(hard_to_match)} 台)】", file=sys.stderr)
+    print(f"  这些设备 description 中未提取到工作面编码，只能依赖 LCS 文本匹配:", file=sys.stderr)
+    _fmt_list(hard_to_match, label_fn=lambda d: f"{d.get('id', '?')}: {d.get('description', '')[:55]}")
+
+    # 【典型设备样例】固定 3 个 mark_type × 3 条 = 9 行 + 3 行标题
+    print(f"\n【典型设备样例 (每 Mark Type 前 3)】", file=sys.stderr)
+    for mt in ["B14", "B15", "B16"]:
+        samples = [d for d in devices if d.get("mark_type") == mt][:3]
+        print(f"  {mt} ({_MARK_TYPE_TO_SYSTEM.get(mt, '?')}):", file=sys.stderr)
+        for i in range(3):
+            if i < len(samples):
+                d = samples[i]
+                print(f"    {i+1}. {d.get('id', '?')}: {d.get('description', '')[:55]}", file=sys.stderr)
+            else:
+                print(f"    {i+1}. (无)", file=sys.stderr)
+
+    # 保存 JSON 分析报告
+    report = {
+        "total_devices": total_devices,
+        "total_tunnels": len(tunnels),
+        "total_workfaces": len(workfaces),
+        "generic_tunnels": len(generic_tunnel_names),
+        "generic_tunnel_examples": generic_tunnel_names[:10],
+        "surface_devices": surface_count,
+        "missing_sensor_type": len(missing_sensor),
+        "mark_type_distribution": dict(mark_types),
+        "sensor_type_distribution": dict(sensor_types),
+        "cross_mark_sensor": cross,
+        "area_distribution": dict(areas.most_common(20)),
+        "area_details": {k: v for k, v in area_details.items()},
+        "coalbed_distribution": dict(coalbeds),
+        "code_extracted": code_extracted,
+        "code_extracted_rate": round(code_pct, 1),
+        "hard_to_match_count": len(hard_to_match),
+        "hard_to_match_examples": [
+            {"id": d.get("id", "?"), "description": d.get("description", "")[:80].strip()}
+            for d in hard_to_match[:10]
+        ],
+        "named_tunnels_by_coalbed": {
+            cb: [{"name": c["name"], "type": c.get("type", "")} for c in tlist]
+            for cb, tlist in tunnel_by_coalbed.items()
+        },
+        "workface_list": [
+            {"name": wf.get("workFaceName", "?"), "type": wf.get("type", "")}
+            for wf in workfaces
+        ],
+    }
+    report_path = os.path.join(
+        os.path.dirname(os.path.abspath(data_path)),
+        f"analysis_{os.path.basename(data_path)}"
+    )
+    with open(report_path, "w", encoding="utf-8") as f:
+        json.dump(report, f, ensure_ascii=False, indent=2)
+    print(f"\n分析报告已保存: {report_path}", file=sys.stderr)
+
+    return report
+
+
 # ── 输出+回写 ──────────────────────────────────────────────────────
-def _save_and_writeback(output: dict, username: str, output_mode: str = "full", output_full: dict = None):
-    """输出 JSON 到 stdout，保存到文件，回写策略 8385。"""
+def _save_and_writeback(output: dict, username: str, output_mode: str = "full",
+                        output_full: dict = None, html_mode: str = "auto",
+                        match_only: bool = False):
+    """输出 JSON 到 stdout，保存到文件，可选回写策略 8385。
+
+    Args:
+        match_only: True 时跳过 8385 回写，仅输出+保存。
+    """
     print(json.dumps(output, ensure_ascii=False, indent=2))
 
     result_save_dir = PROJECT_ROOT / "data" / "output"
@@ -1579,38 +1949,112 @@ def _save_and_writeback(output: dict, username: str, output_mode: str = "full", 
         json.dump(output, f, ensure_ascii=False, indent=2)
     print(f"\n结果已保存: {result_save_path}", file=sys.stderr)
 
-    s = output["summary"]
-    if output_mode in ("summary", "json-summary"):
-        print(f"\n=== 汇总 ===", file=sys.stderr)
-        print(f"  总计: {s['total']}  匹配: {s['matched']} ✓  未匹配: {s['unmatched']}", file=sys.stderr)
-        bc = s.get("by_confidence", {})
-        print(f"  高置信度: {bc.get('高', 0)}  中: {bc.get('中', 0)}  低: {bc.get('低', 0)}", file=sys.stderr)
-        bm = s.get("by_mark_type", {})
-        print(f"  B14: {bm.get('B14', 0)} | B15: {bm.get('B15', 0)} | B16: {bm.get('B16', 0)}", file=sys.stderr)
-        if s.get("wind_spacing_warnings", 0):
-            print(f"  风速间距警告: {s['wind_spacing_warnings']}", file=sys.stderr)
-        if s.get("generic_tunnels_skipped", 0):
-            print(f"  系统生成巷道已排除: {s['generic_tunnels_skipped']} 条", file=sys.stderr)
-        if s.get("unnamed_tunnels_skipped", 0):
-            print(f"  无名称巷道已排除: {s['unnamed_tunnels_skipped']} 条", file=sys.stderr)
-    else:
-        print(f"\n=== 汇总 ===", file=sys.stderr)
-        print(f"  总计: {s['total']}  匹配: {s['matched']} ✓  未匹配: {s['unmatched']}", file=sys.stderr)
-        if s.get("generic_tunnels_skipped", 0):
-            print(f"  系统生成巷道已排除: {s['generic_tunnels_skipped']} 条", file=sys.stderr)
-        if s.get("unnamed_tunnels_skipped", 0):
-            print(f"  无名称巷道已排除: {s['unnamed_tunnels_skipped']} 条", file=sys.stderr)
+    # ── 可选: 自动生成 CesiumJS 3D 可视化 ──
+    if html_mode != "never":
+        cesium_script = PROJECT_ROOT / "data" / "output" / "generate_cesium_html.py"
+        if cesium_script.exists():
+            try:
+                import importlib.util
+                spec = importlib.util.spec_from_file_location("cesium_gen", str(cesium_script))
+                cesium_mod = importlib.util.module_from_spec(spec)
+                spec.loader.exec_module(cesium_mod)
+                if hasattr(cesium_mod, "generate_html"):
+                    data_8373_path = str(result_save_dir / f"data_8373_{mine_name}.json")
+                    if not Path(data_8373_path).exists():
+                        data_8373_path = None
+                    html_path = cesium_mod.generate_html(
+                        str(result_save_path),
+                        data_8373_path=data_8373_path,
+                    )
+                    print(f"  → 3D 可视化: {html_path}", file=sys.stderr)
+            except Exception as e:
+                if html_mode == "always":
+                    print(f"  ! HTML 可视化生成失败: {e}", file=sys.stderr)
 
-    print(f"\n[3/3] 回写定位结果到策略 8385...", file=sys.stderr)
+    s = output["summary"]
+    print(f"\n=== 汇总 ===", file=sys.stderr)
+    print(f"  总计: {s['total']}  匹配: {s['matched']} ✓  未匹配: {s['unmatched']}", file=sys.stderr)
+    bc = s.get("by_confidence", {})
+    print(f"  置信度: 高={bc.get('高', 0)}  中={bc.get('中', 0)}  低={bc.get('低', 0)}", file=sys.stderr)
+    bm = s.get("by_mark_type", {})
+    print(f"  类型: B14={bm.get('B14', 0)}  B15={bm.get('B15', 0)}  B16={bm.get('B16', 0)}", file=sys.stderr)
+    bs = s.get("by_sensor_type", {})
+    if bs:
+        sensor_fmt = "  ".join(f"{k}={v}" for k, v in sorted(bs.items(), key=lambda x: -x[1])[:8])
+        print(f"  Sensor: {sensor_fmt}", file=sys.stderr)
+    if s.get("filtered_by_id", 0):
+        print(f"  设备 ID 过滤: 已跳过 {s['filtered_by_id']} 台", file=sys.stderr)
+    br = s.get("by_reason", {})
+    if br:
+        reasons_fmt = "  ".join(f"{k}={v}" for k, v in sorted(br.items(), key=lambda x: -x[1]))
+        print(f"  未匹配原因: {reasons_fmt}", file=sys.stderr)
+    if s.get("wind_spacing_warnings", 0):
+        print(f"  风速间距警告: {s['wind_spacing_warnings']}", file=sys.stderr)
+    if s.get("generic_tunnels_skipped", 0):
+        excluded = s.get("generic_tunnel_names", [])
+        sample = excluded[:5]
+        print(f"  系统巷道已排除: {s['generic_tunnels_skipped']} 条"
+              f" ({', '.join(sample)}{'...' if len(excluded) > 5 else ''})", file=sys.stderr)
+    if s.get("unnamed_tunnels_skipped", 0):
+        print(f"  无名称巷道已排除: {s['unnamed_tunnels_skipped']} 条", file=sys.stderr)
+
+    if not match_only:
+        import tempfile
+        full = output_full if output_full is not None else output
+        results_list = full.get("results", [])
+        print(f"\n[3/3] 准备回写 {len(results_list)} 条定位结果到策略 8385...", file=sys.stderr)
+        for r in results_list[:5]:
+            cid = r.get("id", "?")
+            cname = r.get("matched_name", "?")
+            coords = r.get("coordinates", {})
+            print(f"    {cid} → {cname}  ({coords.get('x', 0):.2f}, {coords.get('y', 0):.2f}, {coords.get('z', 0):.2f})", file=sys.stderr)
+        if len(results_list) > 5:
+            print(f"    ...及其他 {len(results_list) - 5} 条", file=sys.stderr)
+        data_param = json.dumps(full, ensure_ascii=False)
+        try:
+            with tempfile.NamedTemporaryFile(mode="w", suffix=".json", delete=False, encoding="utf-8") as tf:
+                tf.write(data_param)
+                tmp_path = tf.name
+            resp = call_strategy_api(8385, username, action="execute", param_file=f"data={tmp_path}")
+            code = resp.get('code', 'unknown')
+            if code == 100:
+                print(f"  → 8385 回写成功 (code=100)", file=sys.stderr)
+            else:
+                msg = resp.get('msg', '') or resp.get('message', '')
+                print(f"  ! 8385 回写异常: code={code}, msg={msg}", file=sys.stderr)
+            os.unlink(tmp_path)
+        except Exception as e:
+            print(f"  ! 8385 回写失败: {e}", file=sys.stderr)
+    else:
+        print(f"\n  ⏸ 匹配完成，等待确认后回写（使用 --writeback 或再次运行回写）", file=sys.stderr)
+
+
+def _writeback_from_file(result_path: str, username: str):
+    """从已保存的结果文件回写 8385，不重复匹配。"""
     import tempfile
-    full = output_full if output_full is not None else output
-    data_param = json.dumps(full, ensure_ascii=False)
+    print(f"[1/1] 从文件加载结果: {result_path}", file=sys.stderr)
+    data = _load_json_file(result_path)
+    results_list = data.get("results", [])
+    print(f"  → 已加载 {len(results_list)} 条结果, 回写策略 8385...", file=sys.stderr)
+    for r in results_list[:5]:
+        cid = r.get("id", "?")
+        cname = r.get("matched_name", "?")
+        coords = r.get("coordinates", {})
+        print(f"    {cid} → {cname}  ({coords.get('x', 0):.2f}, {coords.get('y', 0):.2f}, {coords.get('z', 0):.2f})", file=sys.stderr)
+    if len(results_list) > 5:
+        print(f"    ...及其他 {len(results_list) - 5} 条", file=sys.stderr)
+    data_param = json.dumps(data, ensure_ascii=False)
     try:
         with tempfile.NamedTemporaryFile(mode="w", suffix=".json", delete=False, encoding="utf-8") as tf:
             tf.write(data_param)
             tmp_path = tf.name
         resp = call_strategy_api(8385, username, action="execute", param_file=f"data={tmp_path}")
-        print(f"  → 8385 回写结果: {resp.get('code', 'unknown')}", file=sys.stderr)
+        code = resp.get('code', 'unknown')
+        if code == 100:
+            print(f"  → 8385 回写成功 (code=100)", file=sys.stderr)
+        else:
+            msg = resp.get('msg', '') or resp.get('message', '')
+            print(f"  ! 8385 回写异常: code={code}, msg={msg}", file=sys.stderr)
         os.unlink(tmp_path)
     except Exception as e:
         print(f"  ! 8385 回写失败: {e}", file=sys.stderr)
@@ -1633,8 +2077,28 @@ def main():
     parser.add_argument("--output-mode", choices=["full", "summary", "unmatched", "json-summary"],
                         default="full",
                         help="输出模式: full=完整结果, summary=仅汇总, unmatched=仅未匹配(含候选), json-summary=汇总JSON")
+    parser.add_argument("--analyze", metavar="PATH",
+                        help="分析 8373 数据文件的结构化报告（仅分析，不匹配退出）")
+    parser.add_argument("--html", choices=["auto", "always", "never"], default="auto",
+                        help="CesiumJS 可视化: auto=自动生成路径, always=强制生成, never=跳过 (默认 auto)")
+    parser.add_argument("--match-only", action="store_true",
+                        help="仅匹配不回写（展示汇总后等用户确认，再单独 --writeback）")
+    parser.add_argument("--writeback", metavar="RESULT_JSON",
+                        help="从已保存的结果文件回写 8385，不重复匹配")
+    parser.add_argument("--device-ids", metavar="IDS",
+                        help="只匹配指定的设备 ID（逗号分隔），如 --device-ids ID1,ID2,ID3")
+    parser.add_argument("--device-ids-file", metavar="PATH",
+                        help="从文件读取设备 ID 列表（JSON 数组 / 逗号分隔 / 含 json:/text:/userinput: 前缀的标签行均可）")
     args = parser.parse_args()
     username = args.username
+
+    if args.analyze:
+        _generate_analysis_report(args.analyze)
+        return
+
+    if args.writeback:
+        _writeback_from_file(args.writeback, username)
+        return
 
     # 判断哪些数据需要从文件加载（裸文件参数自动识别为 --load-devices）
     args.load_devices = args.load_devices or args.devices_file
@@ -1653,6 +2117,7 @@ def main():
     code_to_candidates, prefix_to_candidates, coalbed_map = {}, {}, {}
     generic_tunnel_skipped = 0
     unnamed_tunnel_skipped = 0
+    generic_tunnel_names = []
 
     # 2a. 从文件加载
     if use_file:
@@ -1672,9 +2137,10 @@ def main():
                         validated["tunnels"] = _validate_tunnels(data["tunnels"])
                     if "workfaces" in data:
                         validated["workfaces"] = _validate_workfaces(data["workfaces"])
-                    candidates, code_to_candidates, prefix_to_candidates, coalbed_map, g_skip, u_skip = _extract_candidates(validated)
+                    candidates, code_to_candidates, prefix_to_candidates, coalbed_map, g_skip, u_skip, g_names = _extract_candidates(validated)
                     generic_tunnel_skipped += g_skip
                     unnamed_tunnel_skipped += u_skip
+                    generic_tunnel_names.extend(g_names)
                     print(f"  → 文件候选: {len(candidates)} 个", file=sys.stderr)
             elif isinstance(data, list):
                 devices, candidates, u_skip = classify_items(data)
@@ -1724,9 +2190,10 @@ def main():
                 merged_cand["tunnels"] = merged_tunnels
             if merged_workfaces:
                 merged_cand["workfaces"] = merged_workfaces
-            candidates, code_to_candidates, prefix_to_candidates, coalbed_map, g_skip, u_skip = _extract_candidates(merged_cand)
+            candidates, code_to_candidates, prefix_to_candidates, coalbed_map, g_skip, u_skip, g_names = _extract_candidates(merged_cand)
             generic_tunnel_skipped += g_skip
             unnamed_tunnel_skipped += u_skip
+            generic_tunnel_names.extend(g_names)
             print(f"  → 文件候选合计: {len(candidates)} 个", file=sys.stderr)
 
     # 2b. 从 API 补全缺失的数据
@@ -1743,9 +2210,10 @@ def main():
                 devices = _validate_devices(raw_data.get("devices", []))
                 print(f"  → API devices: {len(devices)} 个", file=sys.stderr)
             if need_api_candidates:
-                candidates, code_to_candidates, prefix_to_candidates, coalbed_map, g_skip, u_skip = _extract_candidates(raw_data)
+                candidates, code_to_candidates, prefix_to_candidates, coalbed_map, g_skip, u_skip, g_names = _extract_candidates(raw_data)
                 generic_tunnel_skipped += g_skip
                 unnamed_tunnel_skipped += u_skip
+                generic_tunnel_names.extend(g_names)
                 print(f"  → API 候选: {len(candidates)} 个", file=sys.stderr)
         else:
             device_items = extract_items(raw_data)
@@ -1758,9 +2226,10 @@ def main():
                 print(f"  → 获取工作面/巷道 (get_data)...", file=sys.stderr)
                 resp_cand = call_strategy_api(8373, username, f"MineName={mine_name}", action="get_data")
                 cand_items = extract_items(resp_cand.get("data"))
-                candidates, code_to_candidates, prefix_to_candidates, coalbed_map, g_skip, u_skip = _extract_candidates(cand_items)
+                candidates, code_to_candidates, prefix_to_candidates, coalbed_map, g_skip, u_skip, g_names = _extract_candidates(cand_items)
                 generic_tunnel_skipped += g_skip
                 unnamed_tunnel_skipped += u_skip
+                generic_tunnel_names.extend(g_names)
                 print(f"  → API 候选: {len(candidates)} 个", file=sys.stderr)
 
     # 如果用了文件+API混合，保存合并结果
@@ -1783,6 +2252,28 @@ def main():
 
     print(f"  → 设备: {len(devices)} 个, 候选名: {len(candidates)} 个", file=sys.stderr)
 
+    # ── 设备 ID 过滤 ──
+    filtered_by_id = 0
+    if args.device_ids or args.device_ids_file:
+        target_ids = set()
+        if args.device_ids:
+            for part in args.device_ids.split(","):
+                part = part.strip()
+                if part:
+                    target_ids.add(part)
+        if args.device_ids_file:
+            target_ids.update(_parse_device_ids_from_file(args.device_ids_file))
+        if target_ids:
+            before = len(devices)
+            devices = [d for d in devices if d.get("id") in target_ids]
+            filtered_by_id = before - len(devices)
+            print(f"  → 设备 ID 过滤: {filtered_by_id} 台跳过, {len(devices)} 台参与匹配", file=sys.stderr)
+            if not devices:
+                print("  过滤后无匹配设备，退出。", file=sys.stderr)
+                return
+        else:
+            print(f"  ! 设备 ID 过滤: 未解析到有效 ID，全部参与匹配", file=sys.stderr)
+
     if not devices:
         print("没有设备数据，退出。", file=sys.stderr)
         return
@@ -1803,25 +2294,124 @@ def main():
         st = r.get("sensor_type", "")
         by_sensor_type[st] = by_sensor_type.get(st, 0) + 1
 
+    by_reason = {}
+    for u in unmatched:
+        reason = u.get("reason", "UNKNOWN")
+        by_reason[reason] = by_reason.get(reason, 0) + 1
+
+    by_tunnel = {}
+    for r in results:
+        name = r.get("matched_name", "")
+        by_tunnel[name] = by_tunnel.get(name, 0) + 1
+
+    if by_tunnel:
+        print(f"\n  巷道设备密度 (Top 15):", file=sys.stderr)
+        for name, cnt in sorted(by_tunnel.items(), key=lambda x: -x[1])[:15]:
+            print(f"    {name}: {cnt} 台", file=sys.stderr)
+        if len(by_tunnel) > 15:
+            print(f"    ...及其他 {len(by_tunnel) - 15} 条巷道", file=sys.stderr)
+
     summary = {
         "total": len(devices),
         "matched": matched_count,
         "unmatched": len(unmatched),
+        "filtered_by_id": filtered_by_id,
         "wind_spacing_warnings": len(wind_warnings),
         "generic_tunnels_skipped": generic_tunnel_skipped,
         "unnamed_tunnels_skipped": unnamed_tunnel_skipped,
         "by_confidence": by_confidence,
         "by_mark_type": by_mark_type,
         "by_sensor_type": by_sensor_type,
+        "by_reason": by_reason,
+        "by_tunnel": by_tunnel,
+        "generic_tunnel_names": generic_tunnel_names[:50],
     }
+
+    # ── Phase 2 详细展示 ──
+    # 2.1 按置信度展示代表性样本（每个等级 Top 3）
+    conf_groups = {"高": [], "中": [], "低": []}
+    for r in results:
+        conf = r.get("confidence", "低")
+        if conf in conf_groups:
+            conf_groups[conf].append(r)
+    print(f"\n【置信度样本 (Top 3 每级)】", file=sys.stderr)
+    for conf in ["高", "中", "低"]:
+        group = sorted(conf_groups[conf], key=lambda x: -x.get("match_score", 0))[:3]
+        if group:
+            print(f"  {conf}:", file=sys.stderr)
+            for r in group:
+                desc = r.get("description", "")[:50]
+                print(f"    {r.get('id', '?')} → {r.get('matched_name', '?')}  score={r.get('match_score', 0)}  {r.get('line_percentage', 0)}%  {desc}", file=sys.stderr)
+
+    # 2.2 未匹配设备详细列表
+    if unmatched:
+        print(f"\n【未匹配设备 ({len(unmatched)}台)】", file=sys.stderr)
+        for u in unmatched[:10]:
+            desc = u.get("description", "")[:50]
+            reason = u.get("reason", "UNKNOWN")
+            # 尝试找最佳候选
+            best_cand = ""
+            if u.get("candidates"):
+                cands = sorted(u["candidates"], key=lambda x: -x.get("score", 0))
+                if cands:
+                    best_cand = f" 最佳候选: {cands[0]['name']} (score={cands[0].get('score', 0)})"
+            print(f"  {u.get('id', '?')}: {desc}", file=sys.stderr)
+            print(f"    → 原因: {reason}{best_cand}", file=sys.stderr)
+        if len(unmatched) > 10:
+            print(f"    ...及其他 {len(unmatched) - 10} 台", file=sys.stderr)
+
+    # 2.3 各 sensor_type 的匹配率
+    sensor_total = {}
+    for d in devices:
+        st = d.get("sensor_type") or _infer_sensor_type(d.get("description", ""), d.get("mark_type"))
+        sensor_total[st] = sensor_total.get(st, 0) + 1
+    sensor_matched = {}
+    for r in results:
+        st = r.get("sensor_type", "")
+        sensor_matched[st] = sensor_matched.get(st, 0) + 1
+    if sensor_total:
+        print(f"\n【Sensor Type 匹配率】", file=sys.stderr)
+        for st in sorted(sensor_total, key=lambda s: -sensor_total[s]):
+            matched_n = sensor_matched.get(st, 0)
+            total_n = sensor_total[st]
+            pct = (matched_n / total_n * 100) if total_n else 0
+            print(f"  {st}: {matched_n}/{total_n} = {pct:.1f}%", file=sys.stderr)
+
+    # 2.4 空间分布统计
+    if results:
+        buckets = {"0-20%": 0, "20-40%": 0, "40-60%": 0, "60-80%": 0, "80-100%": 0}
+        xs, ys, zs = [], [], []
+        for r in results:
+            lp = r.get("line_percentage", 0)
+            if lp <= 20:
+                buckets["0-20%"] += 1
+            elif lp <= 40:
+                buckets["20-40%"] += 1
+            elif lp <= 60:
+                buckets["40-60%"] += 1
+            elif lp <= 80:
+                buckets["60-80%"] += 1
+            else:
+                buckets["80-100%"] += 1
+            c = r.get("coordinates", {})
+            if c.get("x") is not None:
+                xs.append(c["x"])
+                ys.append(c["y"])
+                zs.append(c["z"])
+        print(f"\n【空间分布】", file=sys.stderr)
+        bk_str = "  ".join(f"{k}={v}" for k, v in buckets.items())
+        print(f"  沿线百分比: {bk_str}", file=sys.stderr)
+        if xs:
+            print(f"  坐标范围: X=[{min(xs):.2f}, {max(xs):.2f}]  Y=[{min(ys):.2f}, {max(ys):.2f}]  Z=[{min(zs):.2f}, {max(zs):.2f}]", file=sys.stderr)
 
     all_warnings = list(wind_warnings)
     if generic_tunnel_skipped > 0:
         all_warnings.append({
             "type": "generic_tunnels_excluded",
             "count": generic_tunnel_skipped,
-            "message": f"{generic_tunnel_skipped} 条系统生成巷道名称（如'巷道136'）已从候选池排除，"
-                       f"这些名称无实际语义含义，不可用于设备匹配。",
+            "excluded_names": generic_tunnel_names[:30],
+            "message": f"{generic_tunnel_skipped} 条系统生成巷道名称已排除: "
+                       f"{', '.join(generic_tunnel_names[:10])}{'...' if len(generic_tunnel_names) > 10 else ''}",
         })
     if unnamed_tunnel_skipped > 0:
         all_warnings.append({
@@ -1860,7 +2450,7 @@ def main():
     else:
         output = output_full
 
-    _save_and_writeback(output, username, output_mode, output_full)
+    _save_and_writeback(output, username, output_mode, output_full, args.html, args.match_only)
 
 
 if __name__ == "__main__":
