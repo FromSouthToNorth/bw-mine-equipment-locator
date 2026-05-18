@@ -183,8 +183,10 @@ def classify_items(items: list) -> tuple:
 
 # ── 匹配逻辑 ──────────────────────────────────────────────────────
 PREFIX_PATTERNS = [
-    r"^\d+号分站(?:模拟量|开关量|多态量)[A-Za-z0-9_]+",
-    r"^其他\d+[A-Za-z0-9]*",
+    # 通道编码固定 6 字符: 3 位数字 + 1 大写字母 + 2 位数字 (如 001A01, 029D06)
+    r"^\d+号分站(?:模拟量|开关量|多态量)\d{3}[A-Z]\d{2}",
+    # 其他前缀通道编码: 6 位+ 数字 + 1 大写字母 + 2 位数字 (如 999602059P10)
+    r"^其他\d{6,}[A-Z]\d{2}",
 ]
 
 
@@ -375,6 +377,9 @@ _AREA_SURFACE_PATTERNS = [
     "队组楼",
     "设备废料",
     "井上",
+    "化验楼",   # 地面化验楼设施
+    "产品仓",   # 地面洗选仓储
+    "原煤仓",   # 地面原煤仓储
 ]
 
 
@@ -411,7 +416,8 @@ _DESCRIPTION_SURFACE_PATTERNS = [
 ]
 
 # ── 系统生成巷道名称检测 ───────────────────────────────────────────
-_GENERIC_TUNNEL_NAME_PATTERN = re.compile(r'^巷道\d+$')
+# 系统生成巷道名称：形如 "巷道136" 或纯数字 "146"（人工命名巷道不会是纯数字）
+_GENERIC_TUNNEL_NAME_PATTERN = re.compile(r'^巷道\d+$|^\d+$')
 
 
 def _is_generic_tunnel_name(name: str) -> bool:
@@ -438,6 +444,17 @@ _LOCATION_SEMANTICS = {
     "避难硐室": {"allow": ["硐室"], "penalty": -10},
     "井口": {"allow": ["井口", "井筒", "副井", "主井"], "penalty": -10},
     "地面": {"allow": ["地面", "洗煤厂", "空压机房"], "penalty": -10},
+    "通风机": {"allow": ["通风", "风机", "通风机"], "penalty": -10},
+    "主扇": {"allow": ["通风", "风机", "主扇"], "penalty": -10},
+    # 新增：排矸/联巷/泵站/泵房/运输巷等地点语义
+    "排矸": {"allow": ["排矸"], "penalty": -10},
+    "联巷": {"allow": ["联巷", "联络巷"], "penalty": -10},
+    "泵站": {"allow": ["泵站", "泵房"], "penalty": -10},
+    "泵房": {"allow": ["泵站", "泵房"], "penalty": -10},
+    "瓦斯泵站": {"allow": ["瓦斯泵站", "瓦斯泵房", "瓦斯抽放泵站", "移动式瓦斯泵站", "瓦斯抽放"], "penalty": -10},
+    "瓦斯泵房": {"allow": ["瓦斯泵站", "瓦斯泵房", "瓦斯抽放泵站", "移动式瓦斯泵站", "瓦斯抽放"], "penalty": -10},
+    "运输巷": {"allow": ["运输巷", "运输大巷"], "penalty": -10},
+    "充电硐室": {"allow": ["充电硐室", "充电站"], "penalty": -10},
 }
 
 
@@ -522,7 +539,7 @@ _WIND_SPEED_MIN_SPACING = 10.0  # 米
 # ── 分层匹配层级 ──────────────────────────────────────────────────
 _MATCH_LAYER_EXACT = 1      # 编码精确命中（最高置信度）
 _MATCH_LAYER_LCS_PREF = 2   # LCS + 偏好命中（良好置信度）
-_MATCH_LAYER_LOW = 3       # 低分（标记人工复核）
+_MATCH_LAYER_LOW = 3       # lcs≥2 且 score≥2（标记人工复核）
 _MATCH_LAYER_REJECT = 4     # 拒绝
 
 
@@ -530,7 +547,7 @@ _MATCH_LAYER_REJECT = 4     # 拒绝
 REJECT_NO_CANDIDATE = "NO_CANDIDATE"           # 无可行候选
 REJECT_CODE_MISMATCH = "CODE_MISMATCH"         # 编码存在但候选中无匹配
 REJECT_SEMANTIC_CONFLICT = "SEMANTIC_CONFLICT"  # 语义惩罚阻断所有候选
-REJECT_LOW_LCS = "LOW_LCS"                     # LCS 得分过低 (< 2)
+REJECT_LOW_LCS = "LOW_LCS"                     # LCS 得分过低 (score<2 或 lcs<2)
 REJECT_PREFIX_MISMATCH = "PREFIX_MISMATCH"     # 前缀模糊匹配失败
 REJECT_AREA_SURFACE = "AREA_SURFACE"           # area 语义为地面，不匹配井下候选
 
@@ -660,25 +677,32 @@ _CN_NUMERALS = {
 
 
 def extract_workface_code(description: str) -> str:
-    """提取工作面/地点编码，如 C8302、9209、F1302、-490、-725，支持中文数字（九采区→9）。"""
-    # 0. 中文数字 + 采区/煤层/盘区/水平 模式
+    """提取工作面/地点编码，如 C8302、9209、F1302、-490、-725，支持中文数字（九采区→9）。
+
+    优先级:字母+数字 > 水平标高 > 4 位纯数字 > 中文数字采区 > 3 位纯数字。
+    中文数字降为兜底:形如 `一采区5402095P80F1302皮顺` 应当返回 `F1302` 而非 `1`。"""
+    # 1. 字母+数字格式（如 C8302、F1302）— 最具体,最高优先级
+    m = re.search(r'([A-Z]\d{3,4})', description)
+    if m:
+        return m.group(1)
+    # 2. -490、-725 等水平标高
+    m = re.search(r'(-\d{3,4})', description)
+    if m:
+        return m.group(1)
+    # 3. 5 位纯数字编号（如 17216、16120）— 优先于 4 位，避免 17216 被截断为 1721
+    m = re.search(r'(?<![A-Z])(\d{5})(?![A-Z])', description)
+    if m:
+        return m.group(1)
+    # 4. 4 位纯数字编号（如 5318、9209、9308）
+    m = re.search(r'(?<![A-Z])(\d{4})(?![A-Z])', description)
+    if m:
+        return m.group(1)
+    # 5. 中文数字 + 采区/煤层/盘区/水平 (兜底)
     for cn_char, digit in _CN_NUMERALS.items():
         pattern = re.escape(cn_char) + r'(采区|煤层|盘区|水平)'
         if re.search(pattern, description):
             return digit
-    # 1. 优先匹配字母+数字格式（如 C8302、F1302）
-    m = re.search(r'([A-Z]\d{3,4})', description)
-    if m:
-        return m.group(1)
-    # 2. 匹配 -490、-725 等水平标高
-    m = re.search(r'(-\d{3,4})', description)
-    if m:
-        return m.group(1)
-    # 3. 匹配纯数字工作面编号（4位数字如 5318、9209）
-    m = re.search(r'(?<![A-Z])(\d{4})(?![A-Z])', description)
-    if m:
-        return m.group(1)
-    # 4. 匹配3位纯数字编号（如 920、518）
+    # 6. 3 位纯数字编号（如 920、518）
     m = re.search(r'(?<![A-Z])(\d{3})(?![A-Z])', description)
     if m:
         return m.group(1)
@@ -733,6 +757,46 @@ def _semantic_penalty(description: str, candidate_name: str, mark_type: str = No
     return 0
 
 
+# 地点锚定词正则 — 描述中出现这些地点限定词时，候选必须包含相同的地点词，否则硬性拒绝
+_AREA_ANCHOR_RE = re.compile(
+    r'([一二三四五六七八九十百千\d]+采区|'  # 六采区、一采区等
+    r'[东西南北]翼|'  # 西翼、北翼、东翼、南翼
+    r'哈拉沟|马蹄沟|马蹄坡)',  # 特定地名（矿特有，后续按需扩展）
+    re.UNICODE,
+)
+
+
+def _has_hard_semantic_conflict(description: str, candidate_name: str) -> bool:
+    """硬性语义冲突检测。
+    当描述中有明确的地点限定词或功能词，而候选中缺少对应词或含冲突词时，
+    直接拒绝匹配，避免编码/LCS 命中掩盖语义错误（宁缺毋滥）。
+    """
+    if not description or not candidate_name:
+        return False
+
+    # 1. 地点锚定词冲突：描述含地点限定词，候选必须含相同地点词
+    for match in _AREA_ANCHOR_RE.finditer(description):
+        anchor = match.group(0)
+        if anchor and anchor not in candidate_name:
+            return True
+
+    # 2. 功能互斥冲突
+    # 底抽 vs 回风/进风/皮顺/胶运
+    if "底抽" in description and "底抽" not in candidate_name:
+        if any(kw in candidate_name for kw in ["回风", "进风", "皮顺", "胶运"]):
+            return True
+    # 回风 vs 进风/底抽/胶运
+    if "回风" in description and "回风" not in candidate_name:
+        if any(kw in candidate_name for kw in ["进风", "底抽", "胶运"]):
+            return True
+    # 进风 vs 回风/底抽/皮顺
+    if "进风" in description and "进风" not in candidate_name:
+        if any(kw in candidate_name for kw in ["回风", "底抽", "皮顺"]):
+            return True
+
+    return False
+
+
 def _apply_keyword_offset(description: str, keyword: str, explicit_dist: float, total_len: float) -> float:
     """当 keyword 有语义区间且描述含方向+距离时，从区间基准偏移而非从起点算。
     如"旧1501轨道斜巷第一变电所外西60米"→keyword=硐室(50%)，偏移-60m。"""
@@ -767,6 +831,49 @@ def longest_common_substring_len(s1: str, s2: str) -> int:
     return max_len
 
 
+def _code_in_name(code: str, name: str) -> bool:
+    """编码是否在候选名中。
+    纯数字编码使用边界匹配 (?<!\\d)code(?!\\d)，避免单字符 '7' 误命中 '7300皮顺'。
+    字母数字/负数编码使用直接子串匹配。
+    """
+    if not code or not name:
+        return False
+    if any(c.isalpha() for c in code) or code.startswith('-'):
+        return code in name
+    if code.isdigit():
+        return bool(re.search(r'(?<!\d)' + re.escape(code) + r'(?!\d)', name))
+    return code in name
+
+
+def _is_specific_code(code: str) -> bool:
+    """判断 device_code 是否足够具体以触发硬过滤（缺失即拒绝）。
+    含字母（C8302/F1302）、负数水平（-490）、3+ 位纯数字（9308/7302/920）视为具体。
+    单字符数字（来自'七采区'->7）视为非具体，仅做软加分。"""
+    if not code:
+        return False
+    if any(c.isalpha() for c in code):
+        return True
+    digits = code.lstrip('-')
+    return digits.isdigit() and len(digits) >= 3
+
+
+def _is_generic_code(code: str, code_to_candidates: dict, candidates: list) -> bool:
+    """判断 device_code 是否为通用区域前缀（如 1460 对应变电所/错车场/运输大巷/水泵房等）。
+    通用前缀在多个不同地点类型中出现，不应作为强匹配依据。
+    含字母或负数的编码、5 位及以上纯数字（工作面编号）视为特定编码；
+    3-4 位纯数字且对应超过 3 个不同候选名的视为通用前缀。"""
+    if not code or not code.isdigit():
+        return False
+    # 5 位及以上纯数字通常是特定工作面/巷道编号（如 17216、16120），不视为通用前缀
+    if len(code) >= 5:
+        return False
+    indices = code_to_candidates.get(code, [])
+    if len(indices) <= 3:
+        return False
+    unique_names = {candidates[i].get("name", "") for i in indices}
+    return len(unique_names) > 3
+
+
 def _score_candidates(cleaned: str, candidates: list, sensor_type: str = None,
                       device_code: str = None, code_to_candidates: dict = None,
                       prefix_to_candidates: dict = None,
@@ -783,6 +890,28 @@ def _score_candidates(cleaned: str, candidates: list, sensor_type: str = None,
     device_coalbed = coalbed_map.get(device_code, "") if coalbed_map and device_code else ""
     cleaned_expanded = _expand_aliases(cleaned)
 
+    # 特定编码硬过滤：device_code 足够具体（3+位数字/含字母/负数水平），
+    # 但任何候选名/tunnelId 都不包含该编码 → 全部标 REJECT，由上层归为 CODE_MISMATCH。
+    # 注意：若编码仅出现在被语义冲突阻断的候选中，仍视为缺失（宁缺毋滥）。
+    specific_code_missing = False
+    if device_code and _is_specific_code(device_code):
+        has_anywhere = False
+        for c in candidates:
+            name = c.get("name") or ""
+            if (_code_in_name(device_code, name) or device_code in (c.get("tunnelId") or "")):
+                if not _has_hard_semantic_conflict(cleaned, name):
+                    has_anywhere = True
+                    break
+        if not has_anywhere and prefix_to_candidates and device_code:
+            for idx in prefix_to_candidates.get(device_code, []):
+                if 0 <= idx < len(candidates):
+                    name = candidates[idx].get("name") or ""
+                    if not _has_hard_semantic_conflict(cleaned, name):
+                        has_anywhere = True
+                        break
+        if not has_anywhere:
+            specific_code_missing = True
+
     for cand in candidates:
         name = cand.get("name") or ""
         if not name:
@@ -795,18 +924,22 @@ def _score_candidates(cleaned: str, candidates: list, sensor_type: str = None,
         if sensor_type and lcs_len >= 2 and _candidate_matches_sensor_pref(name, sensor_type):
             score += 2
 
-        # 编码匹配加权（最高优先级）
-        code_hit = False
-        if device_code and device_code in name:
-            score += 5
-            code_hit = True
+        # 编码精确命中（纯数字使用边界匹配，避免 '7' 误中 '7300皮顺'）
+        # 通用前缀（如 1460 对应变电所/错车场/运输大巷/水泵房等多个地点）降级处理
+        code_hit = _code_in_name(device_code, name) if device_code else False
+        if code_hit:
+            if code_to_candidates and candidates and _is_generic_code(device_code, code_to_candidates, candidates):
+                score += 1  # 通用前缀只给 +1，避免短名称候选（如 1460变电所）靠编码压倒语义匹配
+            else:
+                score += 5
 
-        # 前缀模糊编码匹配（次高优先级）
+        # 前缀模糊编码匹配（仅纯数字编码做前缀匹配，且需是更长候选码的前缀）
         prefix_hit = False
-        if not code_hit and device_code and len(device_code) >= 2:
+        if (not code_hit and device_code and len(device_code) >= 2
+                and device_code.lstrip('-').isdigit()):
             codes_in_name = re.findall(r'\d{3,4}', name)
             for code_in_name in codes_in_name:
-                if code_in_name.startswith(device_code):
+                if code_in_name.startswith(device_code) and code_in_name != device_code:
                     score += 3
                     prefix_hit = True
                     break
@@ -831,13 +964,26 @@ def _score_candidates(cleaned: str, candidates: list, sensor_type: str = None,
         sem_penalty = _semantic_penalty(cleaned, name, mark_type)
         score += sem_penalty
 
+        # 通用前缀检测（用于分层判定）
+        is_generic = (code_to_candidates and candidates
+                      and _is_generic_code(device_code, code_to_candidates, candidates))
+
+        # 硬性语义冲突：地点/功能词不一致时直接拒绝，宁缺毋滥
+        has_conflict = _has_hard_semantic_conflict(cleaned, name)
+
         # 分层判定
         idx = candidates.index(cand)
-        if code_hit or idx in code_indices:
-            layer = _MATCH_LAYER_EXACT
+        if has_conflict:
+            layer = _MATCH_LAYER_REJECT
+        elif specific_code_missing:
+            # 具体编码在候选池中完全缺失 → 强制 REJECT
+            layer = _MATCH_LAYER_REJECT
+        elif not is_generic and (code_hit or idx in code_indices):
+            # 特定编码精确命中进入 EXACT；通用前缀不升层，避免短名称候选靠编码压倒语义
+            layer = _MATCH_LAYER_EXACT if lcs_len >= 1 else _MATCH_LAYER_LCS_PREF
         elif prefix_hit or idx in prefix_indices or score >= 5:
             layer = _MATCH_LAYER_LCS_PREF
-        elif score >= 2:
+        elif lcs_len >= 2 and score >= 2:
             layer = _MATCH_LAYER_LOW
         else:
             layer = _MATCH_LAYER_REJECT
@@ -865,12 +1011,17 @@ def find_best_match(cleaned: str, candidates: list, sensor_type: str = None,
         prefix_to_candidates=prefix_to_candidates,
         coalbed_map=coalbed_map, mark_type=mark_type,
     )
-    filtered = [s for s in scored if s["score"] >= 2]
+    filtered = [s for s in scored if s["layer"] != _MATCH_LAYER_REJECT]
     if not filtered:
         return None, scored
 
-    best_score = max(s["score"] for s in filtered)
-    tied = [s for s in filtered if s["score"] == best_score]
+    # 优先选 EXACT 层（编码精确命中）候选，避免高 LCS 但无编码命中的候选击败它们。
+    # 若无 EXACT 候选，再在 LCS_PREF/LOW 中按分数选最高。
+    exact_pool = [s for s in filtered if s["layer"] == _MATCH_LAYER_EXACT]
+    pool = exact_pool if exact_pool else filtered
+
+    best_score = max(s["score"] for s in pool)
+    tied = [s for s in pool if s["score"] == best_score]
 
     code_indices = set(code_to_candidates.get(device_code, [])) if code_to_candidates and device_code else set()
     best = max(tied, key=lambda s: (s["idx"] in code_indices, s["lcs"], -len(s["name"]), s["pref_count"]))
@@ -1125,7 +1276,7 @@ def _extract_candidates(items) -> tuple:
                 "type": tunnel_type,
                 "category": "tunnel",
                 "line": t.get("line", []),
-                "id": t.get("id", ""),
+                "id": t.get("id") or t.get("tunnelId", ""),
                 "coalbed": t.get("coalbed", ""),
             })
             _add_code_index(tunnel_name, idx)
@@ -1138,7 +1289,7 @@ def _extract_candidates(items) -> tuple:
                 "type": wf_type,
                 "category": "workface",
                 "line": w.get("line", []),
-                "id": w.get("id", ""),
+                "id": w.get("id") or w.get("tunnelId", ""),
                 "tunnelId": w.get("tunnelId", ""),
                 "coalbed": w.get("coalbed", ""),
             })
@@ -1154,7 +1305,7 @@ def _extract_candidates(items) -> tuple:
                     "type": item.get("type", ""),
                     "category": "workface",
                     "line": item.get("line", []),
-                    "id": item.get("id", ""),
+                    "id": item.get("id") or item.get("tunnelId", ""),
                     "tunnelId": item.get("tunnelId", ""),
                     "coalbed": item.get("coalbed", ""),
                 })
@@ -1393,7 +1544,10 @@ def _find_cached_candidate(candidates: list, cached: dict) -> dict:
     cached_name = cached.get("matched_name")
     cached_id = cached.get("candidate_id")
     for cand in candidates:
-        if cand.get("name") == cached_name or cand.get("id") == cached_id:
+        if cand.get("name") == cached_name:
+            return cand
+        # 仅当 cached_id 非空时才按 ID 匹配，避免空字符串误匹配第一个候选
+        if cached_id and cand.get("id") == cached_id:
             return cand
     return None
 
@@ -1486,21 +1640,25 @@ def _match_devices(devices: list, candidates: list,
         sensor_type = device.get("sensor_type") or _infer_sensor_type(desc, mark_type)
         if mark_type == "B16" and sensor_type in ("海康", "大华", "宇视", "萤石"):
             sensor_type = "工业视频"
-        device_code = extract_workface_code(desc)
+        # 从剥离前缀后的描述提取编码,避免通道编码（如 001A01）误判为位置编码
+        device_code = extract_workface_code(cleaned)
 
         cached = match_cache.get(_make_cache_key(desc, mark_type))
         if cached:
             cand = _find_cached_candidate(candidates, cached)
             if cand:
-                cache_hits += 1
-                match = {
-                    "name": cand.get("name", ""), "lcs": 0,
-                    "score": cached.get("score", 10), "candidate": cand,
-                    "layer": _MATCH_LAYER_EXACT, "from_cache": True,
-                }
-                match_entries.append((device, match, cleaned, sensor_type,
-                                      extract_explicit_distance(desc)))
-                continue
+                cand_name = cand.get("name", "")
+                # 缓存语义校验：即使缓存命中，若存在硬性语义冲突也应忽略缓存重新匹配
+                if not _has_hard_semantic_conflict(cleaned, cand_name):
+                    cache_hits += 1
+                    match = {
+                        "name": cand_name, "lcs": 0,
+                        "score": cached.get("score", 10), "candidate": cand,
+                        "layer": _MATCH_LAYER_EXACT, "from_cache": True,
+                    }
+                    match_entries.append((device, match, cleaned, sensor_type,
+                                          extract_explicit_distance(desc)))
+                    continue
 
         if _is_surface_area(device.get("area")) or _is_surface_description(desc):
             unmatched.append({
@@ -1523,12 +1681,14 @@ def _match_devices(devices: list, candidates: list,
             if not candidates:
                 reason = REJECT_NO_CANDIDATE
             elif device_code:
-                code_found = any(device_code in (c.get("name") or "") for c in candidates)
+                code_found = any(_code_in_name(device_code, c.get("name") or "") for c in candidates)
                 if not code_found:
-                    prefix_found = any(
-                        any(cn.startswith(device_code) for cn in re.findall(r'\d{3,4}', c.get("name", "")))
-                        for c in candidates
-                    )
+                    prefix_found = False
+                    if device_code.lstrip('-').isdigit():
+                        prefix_found = any(
+                            any(cn.startswith(device_code) for cn in re.findall(r'\d{3,4}', c.get("name", "")))
+                            for c in candidates
+                        )
                     if not prefix_found:
                         reason = REJECT_CODE_MISMATCH
             if reason == REJECT_LOW_LCS and candidates:
@@ -1943,10 +2103,12 @@ def _save_and_writeback(output: dict, username: str, output_mode: str = "full",
 
     result_save_dir = PROJECT_ROOT / "data" / "output"
     result_save_dir.mkdir(parents=True, exist_ok=True)
-    mine_name = output.get("mine_name", "")
+    # 文件始终保存完整数据，不受 output_mode 裁剪影响
+    save_data = output_full if output_full is not None else output
+    mine_name = save_data.get("mine_name", "")
     result_save_path = result_save_dir / f"locator_result_{username}_{mine_name}.json"
     with open(result_save_path, "w", encoding="utf-8") as f:
-        json.dump(output, f, ensure_ascii=False, indent=2)
+        json.dump(save_data, f, ensure_ascii=False, indent=2)
     print(f"\n结果已保存: {result_save_path}", file=sys.stderr)
 
     # ── 可选: 自动生成 CesiumJS 3D 可视化 ──
@@ -2509,7 +2671,7 @@ _RULES_REGISTRY = {
     "地点语义惩罚": {
         "table": "_LOCATION_SEMANTICS",
         "standard": "实际数据观察",
-        "desc": "匹配阶段：洗煤厂/中央变电所/避难硐室/井口/地面 语义不匹配→-10",
+        "desc": "匹配阶段：洗煤厂/中央变电所/避难硐室/井口/地面/通风机/主扇 语义不匹配→-10",
     },
     "别名映射（LCS 前扩展）": {
         "table": "_TUNNEL_ALIAS_MAP",
@@ -2534,6 +2696,6 @@ _RULES_REGISTRY = {
     "地面 area 过滤": {
         "table": "_AREA_SURFACE_PATTERNS",
         "standard": "实际数据观察",
-        "desc": "area 含地面/洗选/磅房 等关键词时跳过井下候选",
+        "desc": "area 含地面/洗选/磅房/化验楼/产品仓/原煤仓 等关键词时跳过井下候选",
     },
 }
