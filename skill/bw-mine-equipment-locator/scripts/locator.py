@@ -374,6 +374,7 @@ _T_POSITION_RULES = {
 # 匹配前判断 area 语义，地面设备直接跳过所有候选。
 _AREA_SURFACE_PATTERNS = [
     "地面",     # 地面、地面机房硐室等
+    "露天矿",   # 露天矿监控/充电桩/南帮工作面等（露天采矿区，非井下）
     "洗选",     # 洗选中心、洗选中心化验室
     "洗煤",     # 洗煤厂…
     "销售",     # 销售磅房、销售装车视频
@@ -460,6 +461,7 @@ _LOCATION_SEMANTICS = {
     # 新增：排矸/联巷/泵站/泵房/运输巷等地点语义
     "排矸": {"allow": ["排矸"], "penalty": -10},
     "联巷": {"allow": ["联巷", "联络巷"], "penalty": -10},
+    "联络巷": {"allow": ["联巷", "联络巷"], "penalty": -10},
     "泵站": {"allow": ["泵站", "泵房"], "penalty": -10},
     "泵房": {"allow": ["泵站", "泵房"], "penalty": -10},
     "瓦斯泵站": {"allow": ["瓦斯泵站", "瓦斯泵房", "瓦斯抽放泵站", "移动式瓦斯泵站", "瓦斯抽放"], "penalty": -10},
@@ -777,6 +779,12 @@ def _semantic_penalty(description: str, candidate_name: str, mark_type: str = No
     # 原有规则
     for keyword, rule in _LOCATION_SEMANTICS.items():
         if keyword in description:
+            # 若描述已明确包含候选名主体(LCS>=50%)，豁免设备类型关键词的惩罚
+            # 避免"中央回风大巷皮带机头CO"因"皮带/机头"被错误惩罚
+            if keyword in ("皮带", "机头", "压带轮", "卸料器"):
+                lcs = longest_common_substring_len(description, candidate_name)
+                if lcs >= len(candidate_name) * 0.5:
+                    continue
             # 特殊放宽："皮带机头硐室"等特定硐室地点，不应被运输设备关键词泛化拦截
             if keyword in ("皮带", "机头", "压带轮", "卸料器") and "硐室" in description:
                 continue
@@ -838,9 +846,26 @@ def _has_hard_semantic_conflict(description: str, candidate_name: str) -> bool:
         if any(kw in candidate_name for kw in ["停采线", "施工", "联巷", "绕道"]):
             return True
 
+    # 4. 同名异址冲突：描述含"X联络巷"但候选是"Y联络巷"（X≠Y）
+    # 避免"中部通风联络巷"匹配到"辅运联络巷"，"大巷联络巷"匹配到"主斜井机尾联络巷"
+    desc_contact = re.search(r'(.+?)(?:联络巷|联巷)', description)
+    cand_contact = re.search(r'(.+?)(?:联络巷|联巷)', candidate_name)
+    if desc_contact and cand_contact:
+        desc_prefix = desc_contact.group(1)
+        cand_prefix = cand_contact.group(1)
+        if (desc_prefix and cand_prefix
+                and len(desc_prefix) >= 2 and len(cand_prefix) >= 2
+                and desc_prefix != cand_prefix):
+            return True
+
     # 3. 地点语义硬性冲突：_LOCATION_SEMANTICS 中的规则直接拒绝匹配
     for keyword, rule in _LOCATION_SEMANTICS.items():
         if keyword in description:
+            # 若描述已明确包含候选名主体(LCS>=50%)，豁免设备类型关键词的硬性拒绝
+            if keyword in ("皮带", "机头", "压带轮", "卸料器"):
+                lcs = longest_common_substring_len(description, candidate_name)
+                if lcs >= len(candidate_name) * 0.5:
+                    continue
             # 特殊放宽："皮带机头硐室"等特定硐室地点，不应被运输设备关键词泛化拦截
             if keyword in ("皮带", "机头", "压带轮", "卸料器") and "硐室" in description:
                 continue
@@ -1585,7 +1610,11 @@ def _parse_device_ids_from_file(path: str) -> set:
 
 
 def _load_json_file(path: str) -> dict or list:
-    """加载 JSON 文件，返回解析后的对象。"""
+    """加载 JSON 文件，返回解析后的对象。
+
+    自动识别 BW-MES API envelope `{code, data: {...}}` 并解包到内层 data，
+    避免因外壳未剥离导致下游 devices/tunnels 全空。
+    """
     p = Path(path)
     if not p.exists():
         raise FileNotFoundError(f"文件不存在: {p}")
@@ -1593,6 +1622,19 @@ def _load_json_file(path: str) -> dict or list:
         data = json.load(f)
     if not isinstance(data, (dict, list)):
         raise ValueError(f"JSON 根必须是 dict 或 list")
+    if (
+        isinstance(data, dict)
+        and "code" in data
+        and "data" in data
+        and isinstance(data["data"], (dict, list))
+    ):
+        inner = data["data"]
+        if isinstance(inner, dict) and (
+            "devices" in inner or "tunnels" in inner or "workfaces" in inner
+        ):
+            return inner
+        if isinstance(inner, list):
+            return inner
     return data
 
 
@@ -2255,14 +2297,298 @@ def _audit_results(results: list) -> dict:
     }
 
 
+def _build_report(devices, results, unmatched, summary, audit_data,
+                  wind_warnings, generic_tunnel_names, mine_name,
+                  phase="match") -> dict:
+    """构建结构化报告数据，供 JSON 嵌入和 stderr 模板化输出使用。"""
+
+    # ── 置信度样本（每级 Top 3）──
+    conf_groups = {"高": [], "中": [], "低": []}
+    for r in results:
+        conf = r.get("confidence", "低")
+        if conf in conf_groups:
+            conf_groups[conf].append(r)
+    confidence_samples = {}
+    for conf in ["高", "中", "低"]:
+        group = sorted(conf_groups[conf], key=lambda x: -x.get("match_score", 0))[:3]
+        confidence_samples[conf] = [
+            {
+                "id": r.get("id", "?"),
+                "description": r.get("description", "")[:50],
+                "matched_name": r.get("matched_name", "?"),
+                "match_score": r.get("match_score", 0),
+                "line_percentage": r.get("line_percentage", 0),
+            }
+            for r in group
+        ]
+
+    # ── 未匹配设备 Top 10 ──
+    unmatched_top10 = []
+    for u in unmatched[:10]:
+        best_cand = ""
+        if u.get("candidates"):
+            cands = sorted(u["candidates"], key=lambda x: -x.get("score", 0))
+            if cands:
+                best_cand = f"{cands[0]['name']} (score={cands[0].get('score', 0)})"
+        unmatched_top10.append({
+            "id": u.get("id", "?"),
+            "description": u.get("description", "")[:50],
+            "reason": u.get("reason", "UNKNOWN"),
+            "best_candidate": best_cand,
+        })
+
+    # ── Sensor Type 匹配率 ──
+    sensor_total = {}
+    for d in devices:
+        st = d.get("sensor_type") or _infer_sensor_type(d.get("description", ""), d.get("mark_type"))
+        sensor_total[st] = sensor_total.get(st, 0) + 1
+    sensor_matched = {}
+    for r in results:
+        st = r.get("sensor_type", "")
+        sensor_matched[st] = sensor_matched.get(st, 0) + 1
+    sensor_match_rate = []
+    for st in sorted(sensor_total, key=lambda s: -sensor_total[s]):
+        matched_n = sensor_matched.get(st, 0)
+        total_n = sensor_total[st]
+        pct = (matched_n / total_n * 100) if total_n else 0
+        sensor_match_rate.append({
+            "sensor_type": st,
+            "matched": matched_n,
+            "total": total_n,
+            "rate_pct": round(pct, 1),
+        })
+
+    # ── 空间分布 ──
+    spatial = {"buckets": {}, "coordinate_range": {}}
+    if results:
+        buckets = {"0-20%": 0, "20-40%": 0, "40-60%": 0, "60-80%": 0, "80-100%": 0}
+        xs, ys, zs = [], [], []
+        for r in results:
+            lp = r.get("line_percentage", 0)
+            if lp <= 20:
+                buckets["0-20%"] += 1
+            elif lp <= 40:
+                buckets["20-40%"] += 1
+            elif lp <= 60:
+                buckets["40-60%"] += 1
+            elif lp <= 80:
+                buckets["60-80%"] += 1
+            else:
+                buckets["80-100%"] += 1
+            c = r.get("coordinates", {})
+            if c.get("x") is not None:
+                xs.append(c["x"]); ys.append(c["y"]); zs.append(c["z"])
+        spatial["buckets"] = buckets
+        if xs:
+            spatial["coordinate_range"] = {
+                "x": [round(min(xs), 2), round(max(xs), 2)],
+                "y": [round(min(ys), 2), round(max(ys), 2)],
+                "z": [round(min(zs), 2), round(max(zs), 2)],
+            }
+
+    # ── 巷道设备密度 Top 15 ──
+    by_tunnel = {}
+    for r in results:
+        name = r.get("matched_name", "")
+        by_tunnel[name] = by_tunnel.get(name, 0) + 1
+    tunnel_density = [
+        {"name": name, "count": cnt}
+        for name, cnt in sorted(by_tunnel.items(), key=lambda x: -x[1])[:15]
+    ]
+
+    s = summary
+    return {
+        "phase": phase,
+        "mine_name": mine_name,
+        "overview": {
+            "total_devices": s["total"],
+            "matched": s["matched"],
+            "unmatched": s["unmatched"],
+        },
+        "match_summary": {
+            "total": s["total"],
+            "matched": s["matched"],
+            "unmatched": s["unmatched"],
+            "filtered_by_id": s.get("filtered_by_id", 0),
+            "generic_tunnels_skipped": s.get("generic_tunnels_skipped", 0),
+            "unnamed_tunnels_skipped": s.get("unnamed_tunnels_skipped", 0),
+            "wind_spacing_warnings": s.get("wind_spacing_warnings", 0),
+            "by_confidence": s.get("by_confidence", {"高": 0, "中": 0, "低": 0}),
+            "by_mark_type": s.get("by_mark_type", {}),
+            "by_sensor_type": s.get("by_sensor_type", {}),
+            "by_reason": s.get("by_reason", {}),
+            "generic_tunnel_names": generic_tunnel_names[:5],
+        },
+        "confidence_samples": confidence_samples,
+        "unmatched_devices": {
+            "total": len(unmatched),
+            "by_reason": s.get("by_reason", {}),
+            "top_10": unmatched_top10,
+        },
+        "audit": {
+            "counts": audit_data.get("counts", {}),
+            "high": audit_data.get("high", [])[:5],
+            "medium": audit_data.get("medium", [])[:5],
+        },
+        "sensor_type_match_rate": sensor_match_rate,
+        "spatial_distribution": spatial,
+        "tunnel_density": tunnel_density,
+        "warnings": [
+            {"type": w.get("type", ""), "message": w.get("message", "")}
+            for w in wind_warnings
+        ],
+    }
+
+
+def _print_report_stderr(report: dict):
+    """将结构化报告模板化输出到 stderr。每个区块必定出现，格式固定。"""
+
+    def _p(text=""):
+        print(text, file=sys.stderr)
+
+    s = report["match_summary"]
+
+    # ── 汇总 ──
+    _p(f"\n{'='*60}")
+    _p(f"  匹配汇总报告")
+    _p(f"{'='*60}")
+
+    _p(f"\n【概况】")
+    _p(f"  总计: {s['total']}  匹配: {s['matched']} ✓  未匹配: {s['unmatched']}")
+    bc = s.get("by_confidence", {})
+    _p(f"  置信度: 高={bc.get('高', 0)}  中={bc.get('中', 0)}  低={bc.get('低', 0)}")
+    bm = s.get("by_mark_type", {})
+    _p(f"  类型: B14={bm.get('B14', 0)}  B15={bm.get('B15', 0)}  B16={bm.get('B16', 0)}")
+    bs = s.get("by_sensor_type", {})
+    if bs:
+        sensor_fmt = "  ".join(f"{k}={v}" for k, v in sorted(bs.items(), key=lambda x: -x[1])[:8])
+        _p(f"  Sensor: {sensor_fmt}")
+    if s.get("filtered_by_id", 0):
+        _p(f"  设备 ID 过滤: 已跳过 {s['filtered_by_id']} 台")
+    br = s.get("by_reason", {})
+    if br:
+        reasons_fmt = "  ".join(f"{k}={v}" for k, v in sorted(br.items(), key=lambda x: -x[1]))
+        _p(f"  未匹配原因: {reasons_fmt}")
+    if s.get("wind_spacing_warnings", 0):
+        _p(f"  风速间距警告: {s['wind_spacing_warnings']}")
+    if s.get("generic_tunnels_skipped", 0):
+        excluded = s.get("generic_tunnel_names", [])
+        sample = excluded[:5]
+        _p(f"  系统巷道已排除: {s['generic_tunnels_skipped']} 条"
+           f" ({', '.join(sample)}{'...' if len(excluded) > 5 else ''})")
+    if s.get("unnamed_tunnels_skipped", 0):
+        _p(f"  无名称巷道已排除: {s['unnamed_tunnels_skipped']} 条")
+
+    # ── 巷道设备密度（始终输出，无数据时显示"无"）──
+    td = report.get("tunnel_density", [])
+    _p(f"\n【巷道设备密度 (Top 15)】")
+    if td:
+        for item in td:
+            _p(f"    {item['name']}: {item['count']} 台")
+    else:
+        _p(f"    (无)")
+
+    # ── 置信度样本（每级固定 3 条，不足补"无"）──
+    _p(f"\n【置信度样本 (Top 3 每级)】")
+    for conf in ["高", "中", "低"]:
+        samples = report["confidence_samples"].get(conf, [])
+        _p(f"  {conf}:")
+        for i in range(3):
+            if i < len(samples):
+                r = samples[i]
+                _p(f"    {r['id']} → {r['matched_name']}  score={r['match_score']}  {r['line_percentage']}%  {r['description']}")
+            else:
+                _p(f"    (无)")
+
+    # ── 未匹配设备（固定 10 条，不足补"无"）──
+    um = report["unmatched_devices"]
+    _p(f"\n【未匹配设备 ({um['total']} 台)】")
+    top10 = um.get("top_10", [])
+    if top10:
+        for u in top10:
+            best = f" 最佳候选: {u['best_candidate']}" if u['best_candidate'] else ""
+            _p(f"  {u['id']}: {u['description']}")
+            _p(f"    → 原因: {u['reason']}{best}")
+    else:
+        _p(f"    (无)")
+    if um["total"] > 10:
+        _p(f"    ...及其他 {um['total'] - 10} 台")
+
+    # ── Sensor Type 匹配率（始终输出）──
+    smr = report.get("sensor_type_match_rate", [])
+    _p(f"\n【Sensor Type 匹配率】")
+    if smr:
+        for item in smr:
+            _p(f"  {item['sensor_type']}: {item['matched']}/{item['total']} = {item['rate_pct']:.1f}%")
+    else:
+        _p(f"    (无)")
+
+    # ── 空间分布（始终输出）──
+    sp = report.get("spatial_distribution", {})
+    _p(f"\n【空间分布】")
+    buckets = sp.get("buckets", {})
+    if buckets:
+        bk_str = "  ".join(f"{k}={v}" for k, v in buckets.items())
+        _p(f"  沿线百分比: {bk_str}")
+    else:
+        _p(f"  沿线百分比: (无)")
+    cr = sp.get("coordinate_range", {})
+    if cr:
+        xr, yr, zr = cr["x"], cr["y"], cr["z"]
+        _p(f"  坐标范围: X=[{xr[0]}, {xr[1]}]  Y=[{yr[0]}, {yr[1]}]  Z=[{zr[0]}, {zr[1]}]")
+    else:
+        _p(f"  坐标范围: (无)")
+
+    # ── 审计摘要（始终输出，无风险时显示 0）──
+    ac = report.get("audit", {}).get("counts", {})
+    _p(f"\n{'='*60}")
+    _p(f"  审查摘要")
+    _p(f"{'='*60}")
+    high_n = ac.get("high", 0)
+    medium_n = ac.get("medium", 0)
+    _p(f"  ⚠ 高风险匹配: {high_n}"
+       f" (短名称依赖={ac.get('短名称依赖', 0)},"
+       f" 编码不一致={ac.get('编码不一致', 0)},"
+       f" 语义冲突被绕过={ac.get('语义冲突被绕过', 0)})")
+    _p(f"  ℹ 中风险匹配: {medium_n}"
+       f" (功能词漂移={ac.get('功能词漂移', 0)})")
+    if high_n or medium_n:
+        _p(f"  提示: 使用 --audit 查看详情")
+    else:
+        _p(f"  (无风险项)")
+
+    # ── 高风险详情（固定 5 条，不足补"无"）──
+    if high_n:
+        _p(f"\n【高风险匹配详情 (Top 5)】")
+        high_items = report["audit"].get("high", [])
+        for i in range(5):
+            if i < len(high_items):
+                h = high_items[i]
+                _p(f"  {h['id']} → {h['matched_name']}  reasons={'/'.join(h['reasons'])}  score={h['score']}  lcs={h['lcs']}")
+            else:
+                _p(f"  (无)")
+
+    # ── 中风险详情（固定 5 条，不足补"无"）──
+    if medium_n:
+        _p(f"\n【中风险匹配详情 (Top 5)】")
+        med_items = report["audit"].get("medium", [])
+        for i in range(5):
+            if i < len(med_items):
+                m = med_items[i]
+                _p(f"  {m['id']} → {m['matched_name']}  reasons={'/'.join(m['reasons'])}  score={m['score']}  lcs={m['lcs']}")
+            else:
+                _p(f"  (无)")
+
+
 # ── 输出+回写 ──────────────────────────────────────────────────────
 def _save_and_writeback(output: dict, username: str, output_mode: str = "full",
                         output_full: dict = None, html_mode: str = "auto",
-                        match_only: bool = False):
+                        match_only: bool = False, report: dict = None):
     """输出 JSON 到 stdout，保存到文件，可选回写策略 8385。
 
     Args:
         match_only: True 时跳过 8385 回写，仅输出+保存。
+        report: 结构化报告数据，会注入 output_full['report'] 并用于 stderr 模板化输出。
     """
     print(json.dumps(output, ensure_ascii=False, indent=2))
 
@@ -2272,6 +2598,11 @@ def _save_and_writeback(output: dict, username: str, output_mode: str = "full",
     save_data = output_full if output_full is not None else output
     mine_name = save_data.get("mine_name", "")
     result_save_path = result_save_dir / f"locator_result_{username}_{mine_name}.json"
+
+    # 将 report 嵌入完整数据
+    if report is not None:
+        save_data["report"] = report
+
     with open(result_save_path, "w", encoding="utf-8") as f:
         json.dump(save_data, f, ensure_ascii=False, indent=2)
     print(f"\n结果已保存: {result_save_path}", file=sys.stderr)
@@ -2298,47 +2629,9 @@ def _save_and_writeback(output: dict, username: str, output_mode: str = "full",
                 if html_mode == "always":
                     print(f"  ! HTML 可视化生成失败: {e}", file=sys.stderr)
 
-    s = output["summary"]
-    print(f"\n=== 汇总 ===", file=sys.stderr)
-    print(f"  总计: {s['total']}  匹配: {s['matched']} ✓  未匹配: {s['unmatched']}", file=sys.stderr)
-    bc = s.get("by_confidence", {})
-    print(f"  置信度: 高={bc.get('高', 0)}  中={bc.get('中', 0)}  低={bc.get('低', 0)}", file=sys.stderr)
-    bm = s.get("by_mark_type", {})
-    print(f"  类型: B14={bm.get('B14', 0)}  B15={bm.get('B15', 0)}  B16={bm.get('B16', 0)}", file=sys.stderr)
-    bs = s.get("by_sensor_type", {})
-    if bs:
-        sensor_fmt = "  ".join(f"{k}={v}" for k, v in sorted(bs.items(), key=lambda x: -x[1])[:8])
-        print(f"  Sensor: {sensor_fmt}", file=sys.stderr)
-    if s.get("filtered_by_id", 0):
-        print(f"  设备 ID 过滤: 已跳过 {s['filtered_by_id']} 台", file=sys.stderr)
-    br = s.get("by_reason", {})
-    if br:
-        reasons_fmt = "  ".join(f"{k}={v}" for k, v in sorted(br.items(), key=lambda x: -x[1]))
-        print(f"  未匹配原因: {reasons_fmt}", file=sys.stderr)
-    if s.get("wind_spacing_warnings", 0):
-        print(f"  风速间距警告: {s['wind_spacing_warnings']}", file=sys.stderr)
-    if s.get("generic_tunnels_skipped", 0):
-        excluded = s.get("generic_tunnel_names", [])
-        sample = excluded[:5]
-        print(f"  系统巷道已排除: {s['generic_tunnels_skipped']} 条"
-              f" ({', '.join(sample)}{'...' if len(excluded) > 5 else ''})", file=sys.stderr)
-    if s.get("unnamed_tunnels_skipped", 0):
-        print(f"  无名称巷道已排除: {s['unnamed_tunnels_skipped']} 条", file=sys.stderr)
-
-    # ── 审计摘要 ──
-    audit_data = _audit_results(save_data.get("results", []))
-    ac = audit_data.get("counts", {})
-    if ac.get("high", 0) or ac.get("medium", 0):
-        print(f"\n=== 审查摘要 ===", file=sys.stderr)
-        if ac.get("high", 0):
-            print(f"  ⚠ 高风险匹配: {ac['high']} 条"
-                  f" (短名称依赖={ac.get('短名称依赖', 0)},"
-                  f" 编码不一致={ac.get('编码不一致', 0)},"
-                  f" 语义冲突={ac.get('语义冲突被绕过', 0)})" , file=sys.stderr)
-        if ac.get("medium", 0):
-            print(f"  ℹ 中风险匹配: {ac['medium']} 条"
-                  f" (功能词漂移={ac.get('功能词漂移', 0)})" , file=sys.stderr)
-        print(f"  提示: 使用 --audit 查看详情", file=sys.stderr)
+    # ── 模板化 stderr 输出（由 _print_report_stderr 统一处理）──
+    if report is not None:
+        _print_report_stderr(report)
 
     if not match_only:
         import tempfile
@@ -2646,13 +2939,6 @@ def main():
         name = r.get("matched_name", "")
         by_tunnel[name] = by_tunnel.get(name, 0) + 1
 
-    if by_tunnel:
-        print(f"\n  巷道设备密度 (Top 15):", file=sys.stderr)
-        for name, cnt in sorted(by_tunnel.items(), key=lambda x: -x[1])[:15]:
-            print(f"    {name}: {cnt} 台", file=sys.stderr)
-        if len(by_tunnel) > 15:
-            print(f"    ...及其他 {len(by_tunnel) - 15} 条巷道", file=sys.stderr)
-
     summary = {
         "total": len(devices),
         "matched": matched_count,
@@ -2669,82 +2955,13 @@ def main():
         "generic_tunnel_names": generic_tunnel_names[:50],
     }
 
-    # ── Phase 2 详细展示 ──
-    # 2.1 按置信度展示代表性样本（每个等级 Top 3）
-    conf_groups = {"高": [], "中": [], "低": []}
-    for r in results:
-        conf = r.get("confidence", "低")
-        if conf in conf_groups:
-            conf_groups[conf].append(r)
-    print(f"\n【置信度样本 (Top 3 每级)】", file=sys.stderr)
-    for conf in ["高", "中", "低"]:
-        group = sorted(conf_groups[conf], key=lambda x: -x.get("match_score", 0))[:3]
-        if group:
-            print(f"  {conf}:", file=sys.stderr)
-            for r in group:
-                desc = r.get("description", "")[:50]
-                print(f"    {r.get('id', '?')} → {r.get('matched_name', '?')}  score={r.get('match_score', 0)}  {r.get('line_percentage', 0)}%  {desc}", file=sys.stderr)
-
-    # 2.2 未匹配设备详细列表
-    if unmatched:
-        print(f"\n【未匹配设备 ({len(unmatched)}台)】", file=sys.stderr)
-        for u in unmatched[:10]:
-            desc = u.get("description", "")[:50]
-            reason = u.get("reason", "UNKNOWN")
-            # 尝试找最佳候选
-            best_cand = ""
-            if u.get("candidates"):
-                cands = sorted(u["candidates"], key=lambda x: -x.get("score", 0))
-                if cands:
-                    best_cand = f" 最佳候选: {cands[0]['name']} (score={cands[0].get('score', 0)})"
-            print(f"  {u.get('id', '?')}: {desc}", file=sys.stderr)
-            print(f"    → 原因: {reason}{best_cand}", file=sys.stderr)
-        if len(unmatched) > 10:
-            print(f"    ...及其他 {len(unmatched) - 10} 台", file=sys.stderr)
-
-    # 2.3 各 sensor_type 的匹配率
-    sensor_total = {}
-    for d in devices:
-        st = d.get("sensor_type") or _infer_sensor_type(d.get("description", ""), d.get("mark_type"))
-        sensor_total[st] = sensor_total.get(st, 0) + 1
-    sensor_matched = {}
-    for r in results:
-        st = r.get("sensor_type", "")
-        sensor_matched[st] = sensor_matched.get(st, 0) + 1
-    if sensor_total:
-        print(f"\n【Sensor Type 匹配率】", file=sys.stderr)
-        for st in sorted(sensor_total, key=lambda s: -sensor_total[s]):
-            matched_n = sensor_matched.get(st, 0)
-            total_n = sensor_total[st]
-            pct = (matched_n / total_n * 100) if total_n else 0
-            print(f"  {st}: {matched_n}/{total_n} = {pct:.1f}%", file=sys.stderr)
-
-    # 2.4 空间分布统计
-    if results:
-        buckets = {"0-20%": 0, "20-40%": 0, "40-60%": 0, "60-80%": 0, "80-100%": 0}
-        xs, ys, zs = [], [], []
-        for r in results:
-            lp = r.get("line_percentage", 0)
-            if lp <= 20:
-                buckets["0-20%"] += 1
-            elif lp <= 40:
-                buckets["20-40%"] += 1
-            elif lp <= 60:
-                buckets["40-60%"] += 1
-            elif lp <= 80:
-                buckets["60-80%"] += 1
-            else:
-                buckets["80-100%"] += 1
-            c = r.get("coordinates", {})
-            if c.get("x") is not None:
-                xs.append(c["x"])
-                ys.append(c["y"])
-                zs.append(c["z"])
-        print(f"\n【空间分布】", file=sys.stderr)
-        bk_str = "  ".join(f"{k}={v}" for k, v in buckets.items())
-        print(f"  沿线百分比: {bk_str}", file=sys.stderr)
-        if xs:
-            print(f"  坐标范围: X=[{min(xs):.2f}, {max(xs):.2f}]  Y=[{min(ys):.2f}, {max(ys):.2f}]  Z=[{min(zs):.2f}, {max(zs):.2f}]", file=sys.stderr)
+    # ── 构建结构化报告 + 模板化 stderr 输出 ──
+    audit_data = _audit_results(results)
+    report = _build_report(
+        devices, results, unmatched, summary, audit_data,
+        wind_warnings, generic_tunnel_names, mine_name, phase="match"
+    )
+    _print_report_stderr(report)
 
     all_warnings = list(wind_warnings)
     if generic_tunnel_skipped > 0:
@@ -2790,7 +3007,6 @@ def main():
             "unmatched_devices": unmatched,
         }
     elif output_mode == "audit":
-        audit_data = _audit_results(results)
         output = {
             "username": username,
             "mine_name": mine_name,
@@ -2802,7 +3018,7 @@ def main():
     else:
         output = output_full
 
-    _save_and_writeback(output, username, output_mode, output_full, args.html, args.match_only)
+    _save_and_writeback(output, username, output_mode, output_full, args.html, args.match_only, report)
 
 
 if __name__ == "__main__":

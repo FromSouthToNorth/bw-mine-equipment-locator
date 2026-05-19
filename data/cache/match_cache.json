@@ -3118,5 +3118,29 @@
     "candidate_id": "ecbae126-e27c-4ef9-91b8-d9b1fe54168d",
     "score": 11,
     "timestamp": "2026-05-19T11:40:03.774648"
+  },
+  "B14:C8302进风顺槽风速001": {
+    "matched_name": "C8302胶带顺槽",
+    "candidate_id": "",
+    "score": 13,
+    "timestamp": "2026-05-19T14:36:02.072845"
+  },
+  "B14:C8302进风顺槽风速002": {
+    "matched_name": "C8302胶带顺槽",
+    "candidate_id": "",
+    "score": 13,
+    "timestamp": "2026-05-19T14:36:02.073171"
+  },
+  "B16:9209工作面支架摄像仪": {
+    "matched_name": "9209工作面",
+    "candidate_id": "",
+    "score": 17,
+    "timestamp": "2026-05-19T14:36:02.073549"
+  },
+  "B14:七采区避难硐室生存室甲烷": {
+    "matched_name": "七采区避难硐室",
+    "candidate_id": "",
+    "score": 11,
+    "timestamp": "2026-05-19T14:36:02.074314"
   }
 }
