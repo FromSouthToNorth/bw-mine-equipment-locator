@@ -317,25 +317,34 @@ _TUNNEL_ALIAS_MAP = {
 }
 
 
-def _expand_aliases(text: str) -> str:
-    """将 text 中的巷道别名扩展为 别名|全称1|全称2 形式，以提升 LCS 匹配覆盖率。
-    使用占位符避免递归替换问题。"""
+def _expand_aliases(text: str) -> list[str]:
+    """将 text 中的巷道别名扩展为多个字符串变体，返回列表。
+    每种变体将别名替换为一种可能的全称（或保留原缩写），
+    用于 LCS 计算时取最大匹配值，避免 `|` 连接符被计入公共子串导致虚高。"""
     if not text:
-        return text
+        return [text]
     # 按长度降序处理，避免短别名破坏长别名
     items = sorted(_TUNNEL_ALIAS_MAP.items(), key=lambda x: len(x[0]), reverse=True)
-    placeholders = []
-    expanded = text
-    for i, (abbr, full_forms) in enumerate(items):
-        if abbr in expanded:
-            ph = f"\x00{i}\x00"
-            replacement = "|".join([abbr] + full_forms)
-            expanded = expanded.replace(abbr, ph)
-            placeholders.append((ph, replacement))
-    # 还原占位符
-    for ph, replacement in placeholders:
-        expanded = expanded.replace(ph, replacement)
-    return expanded
+    variants = [text]
+    for abbr, full_forms in items:
+        if not any(abbr in v for v in variants):
+            continue
+        new_variants = []
+        for v in variants:
+            if abbr in v:
+                for form in [abbr] + full_forms:
+                    new_variants.append(v.replace(abbr, form, 1))
+            else:
+                new_variants.append(v)
+        variants = new_variants
+    # 去重并限制数量，避免组合爆炸
+    seen = set()
+    result = []
+    for v in variants:
+        if v not in seen and len(result) < 32:
+            seen.add(v)
+            result.append(v)
+    return result
 
 
 def _candidate_matches_sensor_pref(name: str, sensor_type: str) -> bool:
@@ -380,6 +389,7 @@ _AREA_SURFACE_PATTERNS = [
     "化验楼",   # 地面化验楼设施
     "产品仓",   # 地面洗选仓储
     "原煤仓",   # 地面原煤仓储
+    "工业区域", # 地面工业广场/工业区域设施（压风机房、制氮车间等）
 ]
 
 
@@ -440,6 +450,7 @@ def _is_surface_description(description: str) -> bool:
 # ── 地点类型语义过滤 ──────────────────────────────────────────────
 _LOCATION_SEMANTICS = {
     "洗煤厂": {"allow": ["洗煤厂"], "penalty": -10},
+    "选煤楼": {"allow": ["选煤楼"], "penalty": -10},
     "中央变电所": {"allow": ["变电", "配电"], "penalty": -10},
     "避难硐室": {"allow": ["硐室"], "penalty": -10},
     "井口": {"allow": ["井口", "井筒", "副井", "主井"], "penalty": -10},
@@ -455,6 +466,20 @@ _LOCATION_SEMANTICS = {
     "瓦斯泵房": {"allow": ["瓦斯泵站", "瓦斯泵房", "瓦斯抽放泵站", "移动式瓦斯泵站", "瓦斯抽放"], "penalty": -10},
     "运输巷": {"allow": ["运输巷", "运输大巷"], "penalty": -10},
     "充电硐室": {"allow": ["充电硐室", "充电站"], "penalty": -10},
+    "煤仓": {"allow": ["煤仓"], "penalty": -10},
+    "探巷": {"allow": ["探巷"], "penalty": -10},
+    "集控仓": {"allow": ["仓", "硐室", "室"], "penalty": -10},
+    "皮带": {"allow": ["皮带", "运输", "输送机", "机头", "机尾", "转载", "胶运", "顺槽"], "penalty": -10},
+    "机头": {"allow": ["机头", "皮带", "运输", "输送机", "顺槽", "胶运"], "penalty": -10},
+    "压带轮": {"allow": ["皮带", "运输", "输送机", "顺槽", "机轨"], "penalty": -10},
+    "卸料器": {"allow": ["皮带", "运输", "输送机", "煤仓", "转载", "顺槽"], "penalty": -10},
+    "运输大巷": {"allow": ["运输", "大巷", "皮带", "轨道", "顺槽", "胶运"], "penalty": -10},
+    "候车室": {"allow": ["候车室", "车场"], "penalty": -10},
+    "机轨": {"allow": ["机轨", "机轨运输"], "penalty": -10},
+    # 地面工业设施：描述含此类设施词但候选不含对应设施时拒绝匹配
+    "压风机房": {"allow": ["压风机房", "压风机"], "penalty": -10},
+    "制氮车间": {"allow": ["制氮", "车间"], "penalty": -10},
+    "车间": {"allow": ["车间"], "penalty": -10},
 }
 
 
@@ -752,6 +777,9 @@ def _semantic_penalty(description: str, candidate_name: str, mark_type: str = No
     # 原有规则
     for keyword, rule in _LOCATION_SEMANTICS.items():
         if keyword in description:
+            # 特殊放宽："皮带机头硐室"等特定硐室地点，不应被运输设备关键词泛化拦截
+            if keyword in ("皮带", "机头", "压带轮", "卸料器") and "硐室" in description:
+                continue
             if not any(allow in candidate_name for allow in rule["allow"]):
                 return rule["penalty"]
     return 0
@@ -761,6 +789,8 @@ def _semantic_penalty(description: str, candidate_name: str, mark_type: str = No
 _AREA_ANCHOR_RE = re.compile(
     r'([一二三四五六七八九十百千\d]+采区|'  # 六采区、一采区等
     r'[东西南北]翼|'  # 西翼、北翼、东翼、南翼
+    r'暗斜井|'  # 金河煤矿特定巷道
+    r'新平硐|新平峒|'  # 金河煤矿新平硐区域（峒=硐异体字）
     r'哈拉沟|马蹄沟|马蹄坡)',  # 特定地名（矿特有，后续按需扩展）
     re.UNICODE,
 )
@@ -774,10 +804,16 @@ def _has_hard_semantic_conflict(description: str, candidate_name: str) -> bool:
     if not description or not candidate_name:
         return False
 
-    # 1. 地点锚定词冲突：描述含地点限定词，候选必须含相同地点词
+    # 1. 地点锚定词冲突（双向）
+    # 描述含地点限定词 → 候选必须含相同词
     for match in _AREA_ANCHOR_RE.finditer(description):
         anchor = match.group(0)
         if anchor and anchor not in candidate_name:
+            return True
+    # 候选含地点限定词 → 描述也必须含相同词
+    for match in _AREA_ANCHOR_RE.finditer(candidate_name):
+        anchor = match.group(0)
+        if anchor and anchor not in description:
             return True
 
     # 2. 功能互斥冲突
@@ -793,6 +829,23 @@ def _has_hard_semantic_conflict(description: str, candidate_name: str) -> bool:
     if "进风" in description and "进风" not in candidate_name:
         if any(kw in candidate_name for kw in ["回风", "底抽", "皮顺"]):
             return True
+    # 溜子/刮板输送机应在工作面/切眼内，不应匹配到停采线/回风/进风/施工/联巷等边界巷道
+    if "溜子" in description and "溜子" not in candidate_name:
+        if any(kw in candidate_name for kw in ["停采线", "回风", "进风", "施工", "联巷", "绕道", "石门"]):
+            return True
+    # 转载机应在工作面/顺槽内，不应匹配到停采线/施工/联巷
+    if "转载机" in description and "转载机" not in candidate_name:
+        if any(kw in candidate_name for kw in ["停采线", "施工", "联巷", "绕道"]):
+            return True
+
+    # 3. 地点语义硬性冲突：_LOCATION_SEMANTICS 中的规则直接拒绝匹配
+    for keyword, rule in _LOCATION_SEMANTICS.items():
+        if keyword in description:
+            # 特殊放宽："皮带机头硐室"等特定硐室地点，不应被运输设备关键词泛化拦截
+            if keyword in ("皮带", "机头", "压带轮", "卸料器") and "硐室" in description:
+                continue
+            if not any(allow in candidate_name for allow in rule["allow"]):
+                return True
 
     return False
 
@@ -888,7 +941,7 @@ def _score_candidates(cleaned: str, candidates: list, sensor_type: str = None,
     if prefix_to_candidates and device_code:
         prefix_indices = set(prefix_to_candidates.get(device_code, []))
     device_coalbed = coalbed_map.get(device_code, "") if coalbed_map and device_code else ""
-    cleaned_expanded = _expand_aliases(cleaned)
+    cleaned_variants = _expand_aliases(cleaned)
 
     # 特定编码硬过滤：device_code 足够具体（3+位数字/含字母/负数水平），
     # 但任何候选名/tunnelId 都不包含该编码 → 全部标 REJECT，由上层归为 CODE_MISMATCH。
@@ -916,8 +969,10 @@ def _score_candidates(cleaned: str, candidates: list, sensor_type: str = None,
         name = cand.get("name") or ""
         if not name:
             continue
-        name_expanded = _expand_aliases(name)
-        lcs_len = longest_common_substring_len(cleaned_expanded, name_expanded)
+        lcs_len = max(
+            longest_common_substring_len(cv, name)
+            for cv in cleaned_variants
+        )
         score = round(lcs_len * 10 / len(name)) if name else 0
 
         # sensor_type 巷道偏好加权
@@ -964,6 +1019,12 @@ def _score_candidates(cleaned: str, candidates: list, sensor_type: str = None,
         sem_penalty = _semantic_penalty(cleaned, name, mark_type)
         score += sem_penalty
 
+        # 特定编码强制约束：specific code 必须在候选名或 tunnelId 中出现
+        # 避免 "1460排矸" 匹配到不含 1460 的 "排矸"（短名称依赖+LCS 膨胀）
+        if device_code and _is_specific_code(device_code):
+            if not _code_in_name(device_code, name) and device_code not in (cand.get("tunnelId") or ""):
+                score -= 20
+
         # 通用前缀检测（用于分层判定）
         is_generic = (code_to_candidates and candidates
                       and _is_generic_code(device_code, code_to_candidates, candidates))
@@ -981,7 +1042,8 @@ def _score_candidates(cleaned: str, candidates: list, sensor_type: str = None,
         elif not is_generic and (code_hit or idx in code_indices):
             # 特定编码精确命中进入 EXACT；通用前缀不升层，避免短名称候选靠编码压倒语义
             layer = _MATCH_LAYER_EXACT if lcs_len >= 1 else _MATCH_LAYER_LCS_PREF
-        elif prefix_hit or idx in prefix_indices or score >= 5:
+        elif (prefix_hit or idx in prefix_indices or score >= 5) and lcs_len >= 2:
+            # LCS=1 的匹配语义价值极低，若 score>=5 必然是短名称候选膨胀（如 2 字候选 LCS=1→score=5）
             layer = _MATCH_LAYER_LCS_PREF
         elif lcs_len >= 2 and score >= 2:
             layer = _MATCH_LAYER_LOW
@@ -1315,20 +1377,25 @@ def _extract_candidates(items) -> tuple:
 
 
 # ── 数据校验 ──────────────────────────────────────────────────────
-_X_MIN, _X_MAX = 3.7e7, 4.0e7
-_Y_MIN, _Y_MAX = 3.5e6, 4.5e6
-_Z_MIN, _Z_MAX = -2000.0, 2000.0
+# CGCS2000 3°带高斯投影坐标范围（中国经度 73°E~135°E，纬度 18°N~54°N）
+_X_MIN, _X_MAX = 2.5e7, 4.6e7  # 25带~46带（500km偏移）
+_Y_MIN, _Y_MAX = 2.0e6, 5.5e6  # 纬度范围覆盖
+_Z_MIN, _Z_MAX = -3000.0, 3000.0
 
 
 def _validate_devices(devices: list) -> list:
-    """校验设备数据，返回清洗后的列表。跳过无效条目并输出警告。"""
+    """校验设备数据，返回清洗后的列表。跳过无效条目并输出警告。
+    处理重复ID：相同id+相同description去重；相同id+不同description直接报错终止。"""
     if not isinstance(devices, list):
         raise ValueError("devices 必须是 list")
     if not devices:
         return []
     cleaned = []
+    seen = {}          # (id, desc) -> True
+    id_to_desc = {}    # id -> 第一次出现的description
     auto_id = 1
     skipped = 0
+    dedup_skipped = 0
     for i, dev in enumerate(devices):
         if not isinstance(dev, dict):
             print(f"  ! 跳过 devices[{i}]: 非 dict 类型", file=sys.stderr)
@@ -1339,9 +1406,26 @@ def _validate_devices(devices: list) -> list:
             print(f"  ! 跳过 devices[{i}] (id={dev.get('id', 'N/A')}): description 为空", file=sys.stderr)
             skipped += 1
             continue
+        raw_id = dev.get("id") or f"AUTO_{auto_id:03d}"
+        desc = desc.strip()
+        key = (raw_id, desc)
+        if key in seen:
+            dedup_skipped += 1
+            continue
+        seen[key] = True
+        # 相同id不同description → 直接报错终止
+        if raw_id in id_to_desc:
+            first_desc = id_to_desc[raw_id]
+            raise ValueError(
+                f"设备ID重复且description不同，数据质量错误，请修复上游数据后再运行。\n"
+                f"  重复ID: {raw_id}\n"
+                f"  第一次: \"{first_desc}\"\n"
+                f"  第{i+1}条: \"{desc}\""
+            )
+        id_to_desc[raw_id] = desc
         item = {
-            "id": dev.get("id") or f"AUTO_{auto_id:03d}",
-            "description": desc.strip(),
+            "id": raw_id,
+            "description": desc,
         }
         for field, expected in [("sensor_type", str), ("mark_type", str), ("sysaliasname", str), ("area", str)]:
             val = dev.get(field)
@@ -1357,6 +1441,8 @@ def _validate_devices(devices: list) -> list:
                 auto_id += 1
     if skipped:
         print(f"  → 跳过 {skipped} 个无效设备", file=sys.stderr)
+    if dedup_skipped:
+        print(f"  → 去重 {dedup_skipped} 个重复设备", file=sys.stderr)
     return cleaned
 
 
@@ -1696,7 +1782,11 @@ def _match_devices(devices: list, candidates: list,
                     _semantic_penalty(cleaned, c.get("name", ""), mark_type=mark_type) <= -10
                     for c in candidates
                 )
-                if sem_blocked:
+                hard_blocked = all(
+                    _has_hard_semantic_conflict(cleaned, c.get("name", ""))
+                    for c in candidates
+                )
+                if sem_blocked or hard_blocked:
                     reason = REJECT_SEMANTIC_CONFLICT
             unmatched.append({
                 "id": device.get("id", ""), "description": desc,
@@ -2090,6 +2180,81 @@ def _generate_analysis_report(data_path: str) -> dict:
     return report
 
 
+def _audit_results(results: list) -> dict:
+    """后验审查：从匹配结果中识别高风险匹配。
+    返回 {"high": [...], "medium": [...], "counts": {...}}
+    """
+    high = []
+    medium = []
+
+    # 按 matched_name 分组，检查功能词漂移
+    groups = {}
+    for r in results:
+        groups.setdefault(r.get("matched_name", ""), []).append(r)
+
+    for r in results:
+        desc = r.get("description", "")
+        matched = r.get("matched_name", "")
+        lcs = r.get("match_lcs", 0)
+        score = r.get("match_score", 0)
+        reasons = []
+
+        # 规则1: 短名称依赖（LCS=1 但 score 高，说明靠短名称膨胀）
+        if lcs == 1 and score >= 5:
+            reasons.append("短名称依赖")
+
+        # 规则2: 编码不一致（specific code 在描述中但候选名不含）
+        cleaned = strip_prefix(desc)
+        code = extract_workface_code(cleaned)
+        if code and _is_specific_code(code):
+            if not _code_in_name(code, matched):
+                reasons.append("编码不一致")
+
+        # 规则3: 语义冲突（描述与候选有硬性冲突但被匹配）
+        if _has_hard_semantic_conflict(cleaned, matched):
+            reasons.append("语义冲突被绕过")
+
+        # 规则4: 功能词漂移（同一 matched_name 下描述含不同功能词）
+        group = groups.get(matched, [])
+        if len(group) > 1:
+            func_words = set()
+            for gr in group:
+                gd = strip_prefix(gr.get("description", ""))
+                for fw in ["底抽", "回风", "进风", "皮顺", "胶运"]:
+                    if fw in gd:
+                        func_words.add(fw)
+            if len(func_words) > 1:
+                reasons.append("功能词漂移")
+
+        if reasons:
+            item = {
+                "id": r.get("id", ""),
+                "description": desc,
+                "matched_name": matched,
+                "reasons": reasons,
+                "lcs": lcs,
+                "score": score,
+                "confidence": r.get("confidence", ""),
+            }
+            if any(r in ("短名称依赖", "语义冲突被绕过") for r in reasons):
+                high.append(item)
+            else:
+                medium.append(item)
+
+    return {
+        "high": high,
+        "medium": medium,
+        "counts": {
+            "high": len(high),
+            "medium": len(medium),
+            "短名称依赖": sum(1 for h in high if "短名称依赖" in h["reasons"]),
+            "编码不一致": sum(1 for h in high + medium if "编码不一致" in h["reasons"]),
+            "语义冲突被绕过": sum(1 for h in high if "语义冲突被绕过" in h["reasons"]),
+            "功能词漂移": sum(1 for h in high + medium if "功能词漂移" in h["reasons"]),
+        },
+    }
+
+
 # ── 输出+回写 ──────────────────────────────────────────────────────
 def _save_and_writeback(output: dict, username: str, output_mode: str = "full",
                         output_full: dict = None, html_mode: str = "auto",
@@ -2159,6 +2324,21 @@ def _save_and_writeback(output: dict, username: str, output_mode: str = "full",
               f" ({', '.join(sample)}{'...' if len(excluded) > 5 else ''})", file=sys.stderr)
     if s.get("unnamed_tunnels_skipped", 0):
         print(f"  无名称巷道已排除: {s['unnamed_tunnels_skipped']} 条", file=sys.stderr)
+
+    # ── 审计摘要 ──
+    audit_data = _audit_results(save_data.get("results", []))
+    ac = audit_data.get("counts", {})
+    if ac.get("high", 0) or ac.get("medium", 0):
+        print(f"\n=== 审查摘要 ===", file=sys.stderr)
+        if ac.get("high", 0):
+            print(f"  ⚠ 高风险匹配: {ac['high']} 条"
+                  f" (短名称依赖={ac.get('短名称依赖', 0)},"
+                  f" 编码不一致={ac.get('编码不一致', 0)},"
+                  f" 语义冲突={ac.get('语义冲突被绕过', 0)})" , file=sys.stderr)
+        if ac.get("medium", 0):
+            print(f"  ℹ 中风险匹配: {ac['medium']} 条"
+                  f" (功能词漂移={ac.get('功能词漂移', 0)})" , file=sys.stderr)
+        print(f"  提示: 使用 --audit 查看详情", file=sys.stderr)
 
     if not match_only:
         import tempfile
@@ -2236,7 +2416,7 @@ def main():
                         help="从本地文件加载巷道数据")
     parser.add_argument("--load-workfaces", metavar="PATH",
                         help="从本地文件加载工作面数据")
-    parser.add_argument("--output-mode", choices=["full", "summary", "unmatched", "json-summary"],
+    parser.add_argument("--output-mode", choices=["full", "summary", "unmatched", "json-summary", "audit"],
                         default="full",
                         help="输出模式: full=完整结果, summary=仅汇总, unmatched=仅未匹配(含候选), json-summary=汇总JSON")
     parser.add_argument("--analyze", metavar="PATH",
@@ -2607,6 +2787,16 @@ def main():
             "username": username,
             "mine_name": mine_name,
             "summary": summary,
+            "unmatched_devices": unmatched,
+        }
+    elif output_mode == "audit":
+        audit_data = _audit_results(results)
+        output = {
+            "username": username,
+            "mine_name": mine_name,
+            "summary": summary,
+            "audit": audit_data,
+            "results": results,
             "unmatched_devices": unmatched,
         }
     else:

@@ -77,6 +77,10 @@ python skill/bw-mine-equipment-locator/scripts/locator.py TESTUSER \
 # 审查未匹配设备及其 Top-3 候选
 python skill/bw-mine-equipment-locator/scripts/locator.py TESTUSER \
   --load data/test/test_locator.json --match-only --output-mode unmatched
+
+# 审计报告：查看高风险/中风险匹配列表
+python skill/bw-mine-equipment-locator/scripts/locator.py TESTUSER \
+  --load data/test/test_locator.json --match-only --output-mode audit
 ```
 
 ### 数据分析（不执行匹配）
@@ -173,6 +177,7 @@ python skill/bw-mine-equipment-locator/scripts/locator.py <username> \
 | `summary` | 仅汇总 | `summary` 分级统计（高/中/低 + B14/B15/B16 + sensor_type 分布） |
 | `unmatched` | 未匹配审查 | `summary` + `unmatched_devices[]`（每条含 Top-3 候选 `candidates`） |
 | `json-summary` | 汇总 JSON | 同 `summary` + `warnings[]`，stderr 打印人类可读表格 |
+| `audit` | 审计报告 | `summary` + `audit`（高风险/中风险匹配列表）+ `results[]` + `unmatched_devices[]` |
 
 **8385 回写始终使用 `full` 数据**，不受 `--output-mode` 影响。
 
@@ -181,7 +186,7 @@ python skill/bw-mine-equipment-locator/scripts/locator.py <username> \
 ```
 usage: locator.py [-h] [--load PATH] [--load-devices PATH]
                   [--load-tunnels PATH] [--load-workfaces PATH]
-                  [--output-mode {full,summary,unmatched,json-summary}]
+                  [--output-mode {full,summary,unmatched,json-summary,audit}]
                   [--analyze PATH] [--match-only]
                   [--writeback RESULT_JSON] [--html MODE]
                   username [DEVICES_FILE]
@@ -196,7 +201,8 @@ options:
   --load-tunnels PATH   从本地文件加载巷道数据
   --load-workfaces PATH 从本地文件加载工作面数据
   --output-mode MODE    输出模式: full=完整结果(默认), summary=仅汇总,
-                        unmatched=仅未匹配(含候选), json-summary=汇总JSON
+                        unmatched=仅未匹配(含候选), json-summary=汇总JSON,
+                        audit=审计报告(含风险匹配列表)
   --analyze PATH        分析 8373 数据文件的结构化报告（仅分析，不匹配退出）
   --match-only          仅匹配不回写（展示汇总后等用户确认，再单独 --writeback）
   --writeback RESULT_JSON  从已保存的结果文件回写 8385，不重复匹配
@@ -245,6 +251,9 @@ options:
     │ Claude 展示匹配汇总:                     │
     │   匹配率 / 置信度分布 / 未匹配原因        │
     │   系统巷道排除数 / 设备密度分布           │
+    │   **审查摘要**（自动输出到 stderr）:      │
+    │     高风险匹配数 / 中风险匹配数           │
+    │     风险类型: 短名称依赖 / 编码不一致      │
     │                                         │
     │ ▼ 等用户确认回写 ▼                      │
     │                                         │
@@ -294,16 +303,22 @@ python skill/bw-mine-equipment-locator/scripts/locator.py <username> \
 
 对每个 device 的处理流程：
 
-1. **候选过滤（匹配前）**
+1. **数据质量校验**
+   - 相同 `id` + 相同 `description` → 正常去重（跳过重复）
+   - 相同 `id` + **不同** `description` → **直接报错终止**，强制用户修复上游数据
+   - 空 `description` → 跳过并警告
+2. **候选过滤（匹配前）**
    - 系统巷道名称（如"巷道136"）→ 直接从候选池排除，记录到 `generic_tunnels_skipped`
    - 地面设备（area 含地面/洗选/磅房等关键词）→ 跳过所有井下候选
    - 匹配缓存命中（`match_cache.json`）→ 直接复用上次结果
-2. 从 `description` 提取地点名称（先[剥离前缀](#前缀剥离)），按[匹配逻辑](#匹配逻辑)在**候选名称**中找到最佳匹配
-3. **候选来源**（均来自 8373，已排除系统命名巷道）：
+3. 从 `description` 提取地点名称（先[剥离前缀](#前缀剥离)），按[匹配逻辑](#匹配逻辑)在**候选名称**中找到最佳匹配
+4. **候选来源**（均来自 8373，已排除系统命名巷道）：
    - `tunnels` 数组中的 `name`（主候选，仅具名巷道）
    - `workfaces` 数组中的 `workFaceName`（补充候选）
-4. 按[坐标计算](#坐标计算)规则计算 (x, y, z)
-5. **Claude 展示匹配汇总后必须等用户确认**，再进入 Step 4
+5. 按[坐标计算](#坐标计算)规则计算 (x, y, z)
+6. **Claude 展示匹配汇总后必须等用户确认**，再进入 Step 4
+
+**重要**：locator 不会给重复 ID 加 `_1`、`_2` 后缀来回写。上游数据有重复 ID 时必须先到 BW-MES 后台清理。
 
 **注意：** 必须加 `--match-only`，否则脚本会自动回写 8385。`--match-only` 不会写数据库，只输出 JSON 到 stdout 和保存结果文件。
 
@@ -478,23 +493,29 @@ locator.py 启动时自动探测可用解释器，按优先级：
 ```
 score = round(LCS_长度(别名扩展后) × 10 / 候选名长度)
       + 2  if  sensor_type 命中候选名巷道偏好且 LCS≥2
-      + 5  if  device_code 在候选名内(精确匹配)
+      + 5  if  device_code 在候选名内(精确匹配，通用前缀仅+1)
       + 3  if  device_code 是候选名中数字编码的前缀(前缀模糊匹配)
       + 3  if  候选 tunnelId 含 device_code(workface 关联)
       + n  巷道类型匹配关键词加分
       - 1  coalbed 不一致
       - 10 _LOCATION_SEMANTICS 语义冲突
+      - 20 specific code 不在候选名/tunnelId 中（编码强制约束）
 ```
+
+**硬性语义冲突（直接 REJECT，见下方 `_has_hard_semantic_conflict`）**：
+- 地点锚定词冲突：描述含 `*采区`/`*翼`/特定地名，候选不含相同词 → REJECT
+- 功能互斥冲突：`底抽` vs `回风`/`进风`，`回风` vs `进风`/`底抽` 等 → REJECT
 
 **分层判定（layer）：**
 | layer | 条件 | confidence |
 |-------|------|------------|
-| 1 (EXACT) | 编码精确命中 或 code_indices 命中 | 高 |
-| 2 (LCS_PREF) | 前缀模糊命中 或 score≥5 | 中 |
+| 1 (EXACT) | 编码精确命中（非通用前缀）且 lcs≥1 | 高 |
+| 2 (LCS_PREF) | 前缀模糊命中 或 score≥5，**且 LCS≥2** | 中 |
 | 3 (LOW) | score≥2 但无编码/前缀命中 | 低 |
-| 4 (REJECT) | score<2 | 极低(拒绝) |
+| 4 (REJECT) | score<2 或 硬性语义冲突 | 极低(拒绝) |
 
 - 最低门槛：`score ≥ 2`
+- LCS_PREF 最低门槛：**`LCS ≥ 2`**（防止单字符靠短名称膨胀分数）
 - 平局判定：编码命中 > LCS 长 > 候选名长
 
 ### sensor_type 巷道偏好（命中 +2）
@@ -532,7 +553,7 @@ score = round(LCS_长度(别名扩展后) × 10 / 候选名长度)
 
 ### 地点语义惩罚（-10）
 
-`_LOCATION_SEMANTICS`（locator.py:253-259）— 描述含此关键字时，候选必须含其一，否则扣 10：
+`_LOCATION_SEMANTICS`（locator.py:441）— 描述含此关键字时，候选必须含其一，否则扣 10（并在 `_has_hard_semantic_conflict` 中直接拒绝）：
 
 | 描述含 | 候选必须含其一 |
 | ------ | -------------- |
@@ -541,6 +562,49 @@ score = round(LCS_长度(别名扩展后) × 10 / 候选名长度)
 | 避难硐室 | 硐室 |
 | 井口   | 井口, 井筒, 副井, 主井 |
 | 地面   | 地面, 洗煤厂, 空压机房 |
+| 通风机 | 通风, 风机, 通风机 |
+| 主扇   | 通风, 风机, 主扇 |
+| 排矸   | 排矸 |
+| 联巷   | 联巷, 联络巷 |
+| 泵站/泵房 | 泵站, 泵房 |
+| 瓦斯泵站/瓦斯泵房 | 瓦斯泵站, 瓦斯泵房, 瓦斯抽放泵站, 移动式瓦斯泵站, 瓦斯抽放 |
+| 运输巷 | 运输巷, 运输大巷 |
+| 充电硐室 | 充电硐室, 充电站 |
+| **皮带** | **皮带, 运输, 输送机, 机头, 机尾, 转载, 胶运, 顺槽** |
+| **机头** | **机头, 皮带, 运输, 输送机, 顺槽, 胶运** |
+| **压带轮** | **皮带, 运输, 输送机, 顺槽, 机轨** |
+| **卸料器** | **皮带, 运输, 输送机, 煤仓, 转载, 顺槽** |
+| **运输大巷** | **运输, 大巷, 皮带, 轨道, 顺槽, 胶运** |
+| **候车室** | **候车室, 车场** |
+| **机轨** | **机轨, 机轨运输** |
+
+**特殊放宽**：描述同时含"硐室"与"皮带"/"机头"/"压带轮"/"卸料器"时（如"皮带机头硐室"），视为特定硐室地点，不触发运输设备关键词的泛化语义拦截。
+
+### 硬性语义冲突（直接 REJECT）
+
+`_has_hard_semantic_conflict`（locator.py:770）— 地点/功能词不一致时**直接拒绝**，宁缺毋滥。在 `_score_candidates` 分层判定前调用，冲突则 layer=REJECT。
+
+**1. 地点锚定词冲突**：描述含地点限定词，候选必须含相同词。
+
+`_AREA_ANCHOR_RE` 匹配模式：
+- `[一二三四五六七八九十百千\d]+采区`（六采区、一采区等）
+- `[东西南北]翼`（西翼、北翼、东翼、南翼）
+- 特定巷道/地名：`暗斜井`、`哈拉沟`、`马蹄沟`、`马蹄坡`（矿特有，后续按需扩展）
+
+**2. 功能互斥冲突**：
+| 描述含 | 候选若含以下词则冲突 |
+| ------ | -------------------- |
+| 底抽 | 回风、进风、皮顺、胶运 |
+| 回风 | 进风、底抽、胶运 |
+| 进风 | 回风、底抽、皮顺 |
+
+**3. `_LOCATION_SEMANTICS` 冲突**：描述含 `_LOCATION_SEMANTICS` 关键字但候选不含允许词时，直接拒绝（编码/LCS 无法掩盖）。|
+
+### 编码强制约束（score −20）
+
+当 `device_code` 是 specific code（3+位数字/含字母/负数水平）时，**候选名或 tunnelId 必须包含该编码**，否则 score −20（直接 REJECT）。
+
+避免 `1460排矸一台皮带CO` 匹配到不含 `1460` 的纯 `排矸`（短名称依赖+LCS 膨胀）。
 
 ### mark_type → 系统大类
 
@@ -567,10 +631,10 @@ score = round(LCS_长度(别名扩展后) × 10 / 候选名长度)
 
 | layer | 条件 | confidence |
 |-------|------|------------|
-| EXACT (1) | 编码精确命中（device_code 在候选名内） | 高 |
-| LCS_PREF (2) | 前缀模糊命中 或 score≥5 | 中 |
-| LOW (3) | score≥2 但无编码命中 | 低 |
-| REJECT (4) | score<2 | 极低 |
+| EXACT (1) | 编码精确命中（非通用前缀）且 lcs≥1 | 高 |
+| LCS_PREF (2) | 前缀模糊命中 或 score≥5，**且 LCS≥2** | 中 |
+| LOW (3) | score≥2 但无编码/前缀命中 | 低 |
+| REJECT (4) | score<2 或 硬性语义冲突 | 极低 |
 
 ### 未匹配拒绝原因
 
@@ -579,8 +643,8 @@ score = round(LCS_长度(别名扩展后) × 10 / 候选名长度)
 | reason | 含义 |
 |--------|------|
 | `NO_CANDIDATE` | 无可行候选（candidates 为空，或所有候选为系统命名巷道已被排除） |
-| `CODE_MISMATCH` | 提取到编码但所有候选均不匹配（含前缀尝试） |
-| `SEMANTIC_CONFLICT` | 语义惩罚阻断所有候选（所有候选均扣 -10） |
+| `CODE_MISMATCH` | 提取到编码但所有候选均不匹配（含前缀尝试，或编码仅出现在语义冲突候选中） |
+| `SEMANTIC_CONFLICT` | 语义惩罚阻断所有候选（所有候选均扣 -10）或硬性语义冲突 |
 | `LOW_LCS` | LCS 得分过低（< 2），无其他匹配途径 |
 | `AREA_SURFACE` | area 语义为地面（非井下），排除巷道/工作面候选 |
 
@@ -592,6 +656,8 @@ score = round(LCS_长度(别名扩展后) × 10 / 候选名长度)
 - 键：`{mark_type}:{description}`
 - 值：`{matched_name, candidate_id, score, timestamp}`
 - 下次运行时优先查缓存，命中则直接复用匹配结果
+
+**缓存语义校验**（locator.py:1637）：缓存命中时也会调用 `_has_hard_semantic_conflict` 检查。若缓存结果与当前描述存在硬性语义冲突（如地点/功能词不一致），则忽略缓存重新匹配。防止历史错误缓存被复用。
 
 ### 系统巷道过滤与告警
 
