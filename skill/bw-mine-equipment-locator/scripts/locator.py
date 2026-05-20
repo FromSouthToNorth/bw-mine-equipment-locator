@@ -314,6 +314,9 @@ _TUNNEL_ALIAS_MAP = {
     "工作面": ["面"],
     "回风": ["回风巷"],
     "进风": ["进风巷"],
+    # 斜井等价：副井/主井 与 副斜井/主斜井 在口语中常混用
+    "副井": ["副斜井"],
+    "主井": ["主斜井"],
 }
 
 
@@ -454,7 +457,8 @@ _LOCATION_SEMANTICS = {
     "选煤楼": {"allow": ["选煤楼"], "penalty": -10},
     "中央变电所": {"allow": ["变电", "配电"], "penalty": -10},
     "避难硐室": {"allow": ["硐室"], "penalty": -10},
-    "井口": {"allow": ["井口", "井筒", "副井", "主井"], "penalty": -10},
+    "硐室": {"allow": ["硐室"], "penalty": -10},
+    "井口": {"allow": ["井口", "井筒", "副井", "主井", "斜井"], "penalty": -10},
     "地面": {"allow": ["地面", "洗煤厂", "空压机房"], "penalty": -10},
     "通风机": {"allow": ["通风", "风机", "通风机"], "penalty": -10},
     "主扇": {"allow": ["通风", "风机", "主扇"], "penalty": -10},
@@ -716,23 +720,38 @@ def extract_workface_code(description: str) -> str:
     m = re.search(r'(-\d{3,4})', description)
     if m:
         return m.group(1)
-    # 3. 5 位纯数字编号（如 17216、16120）— 优先于 4 位，避免 17216 被截断为 1721
-    m = re.search(r'(?<![A-Z])(\d{5})(?![A-Z])', description)
-    if m:
-        return m.group(1)
-    # 4. 4 位纯数字编号（如 5318、9209、9308）
-    m = re.search(r'(?<![A-Z])(\d{4})(?![A-Z])', description)
-    if m:
-        return m.group(1)
-    # 5. 中文数字 + 采区/煤层/盘区/水平 (兜底)
+    # 3-6. 纯数字编号：排除分站编号、电压值、距离值等常见误提取上下文
+    # 先收集所有 3-5 位数字，按长度降序排列，排除重叠范围和问题上下文后返回
+    all_matches = []
+    for m in re.finditer(r'(?<![A-Z])\d{3,5}(?![A-Z])', description):
+        all_matches.append((m.group(), m.start(), m.end()))
+    # 按长度降序、位置升序排列
+    all_matches.sort(key=lambda x: (-len(x[0]), x[1]))
+    excluded_ranges = []
+    for num, start, end in all_matches:
+        # 若与已排除的更长数字范围重叠，跳过（避免 1140v 被跳过后 114 被匹配）
+        if any(start < e and end > s for s, e in excluded_ranges):
+            continue
+        prefix = description[max(0, start-3):start]
+        suffix = description[end:min(len(description), end+3)]
+        # 排除分站编号上下文（如 130分站、分站130）
+        if '分站' in prefix or '分站' in suffix:
+            excluded_ranges.append((start, end))
+            continue
+        # 排除电压值（如 1140v、660V、380伏）
+        if re.match(r'[vV伏]', description[end:end+1]):
+            excluded_ranges.append((start, end))
+            continue
+        # 排除距离值（如 600米、300m）— B15 人员定位常用格式
+        if re.match(r'[米mM]', description[end:end+1]):
+            excluded_ranges.append((start, end))
+            continue
+        return num
+    # 7. 中文数字 + 采区/煤层/盘区/水平 (兜底)
     for cn_char, digit in _CN_NUMERALS.items():
         pattern = re.escape(cn_char) + r'(采区|煤层|盘区|水平)'
         if re.search(pattern, description):
             return digit
-    # 6. 3 位纯数字编号（如 920、518）
-    m = re.search(r'(?<![A-Z])(\d{3})(?![A-Z])', description)
-    if m:
-        return m.group(1)
     return None
 
 
@@ -799,7 +818,8 @@ _AREA_ANCHOR_RE = re.compile(
     r'[东西南北]翼|'  # 西翼、北翼、东翼、南翼
     r'暗斜井|'  # 金河煤矿特定巷道
     r'新平硐|新平峒|'  # 金河煤矿新平硐区域（峒=硐异体字）
-    r'哈拉沟|马蹄沟|马蹄坡)',  # 特定地名（矿特有，后续按需扩展）
+    r'哈拉沟|马蹄沟|马蹄坡|'  # 特定地名（矿特有，后续按需扩展）
+    r'交岔点)',  # 巷道交岔点（特定地点）
     re.UNICODE,
 )
 
@@ -846,8 +866,30 @@ def _has_hard_semantic_conflict(description: str, candidate_name: str) -> bool:
         if any(kw in candidate_name for kw in ["停采线", "施工", "联巷", "绕道"]):
             return True
 
+    # 石门 vs 非石门：描述含"石门"但候选不含"石门"时拒绝（石门是特定巷道类型）
+    if "石门" in description and "石门" not in candidate_name:
+        return True
+
+    # 硐室同名异址：描述含"X硐室"但候选是"Y硐室"（X≠Y）
+    # 避免"机头硐室"匹配到"永久避难硐室"，"单轨吊充电检修硐室"匹配到"架空乘人器硐室"
+    desc_cave = re.search(r'(.+?)硐室', description)
+    cand_cave = re.search(r'(.+?)硐室', candidate_name)
+    if desc_cave and cand_cave:
+        desc_prefix = desc_cave.group(1)
+        cand_prefix = cand_cave.group(1)
+        if (desc_prefix and cand_prefix
+                and len(desc_prefix) >= 2 and len(cand_prefix) >= 2
+                and desc_prefix != cand_prefix
+                and cand_prefix not in desc_prefix
+                and desc_prefix not in cand_prefix):
+            # 豁免：前缀公共子串足够长（如"架空乘人装置"与"架空乘人器"LCS=4）
+            prefix_lcs = longest_common_substring_len(desc_prefix, cand_prefix)
+            if prefix_lcs < 3:
+                return True
+
     # 4. 同名异址冲突：描述含"X联络巷"但候选是"Y联络巷"（X≠Y）
     # 避免"中部通风联络巷"匹配到"辅运联络巷"，"大巷联络巷"匹配到"主斜井机尾联络巷"
+    # 允许描述前缀包含候选前缀（如"天宝公司-辅运"包含"辅运"）
     desc_contact = re.search(r'(.+?)(?:联络巷|联巷)', description)
     cand_contact = re.search(r'(.+?)(?:联络巷|联巷)', candidate_name)
     if desc_contact and cand_contact:
@@ -855,7 +897,9 @@ def _has_hard_semantic_conflict(description: str, candidate_name: str) -> bool:
         cand_prefix = cand_contact.group(1)
         if (desc_prefix and cand_prefix
                 and len(desc_prefix) >= 2 and len(cand_prefix) >= 2
-                and desc_prefix != cand_prefix):
+                and desc_prefix != cand_prefix
+                and cand_prefix not in desc_prefix
+                and desc_prefix not in cand_prefix):
             return True
 
     # 3. 地点语义硬性冲突：_LOCATION_SEMANTICS 中的规则直接拒绝匹配

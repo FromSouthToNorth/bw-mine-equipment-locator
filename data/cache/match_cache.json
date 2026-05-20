@@ -27,7 +27,7 @@
     "matched_name": "17216工作面",
     "candidate_id": "CA6826CE-9136-456D-B992-A4E311E4253B",
     "score": 15,
-    "timestamp": "2026-05-19T11:08:05.296232"
+    "timestamp": "2026-05-20T09:42:20.532295"
   },
   "B14:17216工作面破碎机开停": {
     "matched_name": "17216工作面",
@@ -39,13 +39,13 @@
     "matched_name": "17216工作面",
     "candidate_id": "CA6826CE-9136-456D-B992-A4E311E4253B",
     "score": 15,
-    "timestamp": "2026-05-19T11:08:05.301779"
+    "timestamp": "2026-05-20T09:42:20.538069"
   },
   "B14:17216工作面前部溜子开停": {
     "matched_name": "17216工作面",
     "candidate_id": "CA6826CE-9136-456D-B992-A4E311E4253B",
     "score": 15,
-    "timestamp": "2026-05-19T11:08:05.307510"
+    "timestamp": "2026-05-20T09:42:20.544189"
   },
   "B14:17216工作面采煤机开停": {
     "matched_name": "17216工作面",
@@ -663,7 +663,7 @@
     "matched_name": "17216工作面",
     "candidate_id": "CA6826CE-9136-456D-B992-A4E311E4253B",
     "score": 17,
-    "timestamp": "2026-05-19T11:08:07.272965"
+    "timestamp": "2026-05-20T09:42:23.104509"
   },
   "B16:17216工作面64架": {
     "matched_name": "17216工作面",
@@ -765,7 +765,7 @@
     "matched_name": "17216工作面",
     "candidate_id": "CA6826CE-9136-456D-B992-A4E311E4253B",
     "score": 17,
-    "timestamp": "2026-05-19T11:08:06.873228"
+    "timestamp": "2026-05-20T09:42:22.586657"
   },
   "B16:1755架空人车机尾下变坡点": {
     "matched_name": "1755行人下山",
@@ -1083,7 +1083,7 @@
     "matched_name": "17216工作面",
     "candidate_id": "CA6826CE-9136-456D-B992-A4E311E4253B",
     "score": 17,
-    "timestamp": "2026-05-19T11:08:08.379604"
+    "timestamp": "2026-05-20T09:42:24.367919"
   },
   "B16:17216皮带除铁器": {
     "matched_name": "17216进风顺槽",
@@ -3142,5 +3142,179 @@
     "candidate_id": "",
     "score": 11,
     "timestamp": "2026-05-19T14:36:02.074314"
+  },
+  "B14:1100排矸巷皮带机头下风侧10-15米_烟雾": {
+    "matched_name": "1100排矸联络巷",
+    "candidate_id": "d504d6ae-fb9c-4857-aeca-248f76e37790",
+    "score": 12,
+    "timestamp": "2026-05-20T09:28:17.663250"
+  },
+  "B14:1100排矸巷水平延伸巷皮带机尾_CO": {
+    "matched_name": "1100排矸联络巷",
+    "candidate_id": "d504d6ae-fb9c-4857-aeca-248f76e37790",
+    "score": 12,
+    "timestamp": "2026-05-20T09:28:17.834944"
+  },
+  "B14:1100排矸巷皮带机头下风侧10-15米_CO": {
+    "matched_name": "1100排矸联络巷",
+    "candidate_id": "d504d6ae-fb9c-4857-aeca-248f76e37790",
+    "score": 12,
+    "timestamp": "2026-05-20T09:28:18.498125"
+  },
+  "B14:1100排矸巷水平延伸巷皮带机尾_烟雾": {
+    "matched_name": "1100排矸联络巷",
+    "candidate_id": "d504d6ae-fb9c-4857-aeca-248f76e37790",
+    "score": 12,
+    "timestamp": "2026-05-20T09:28:18.647989"
+  },
+  "B16:1100排矸巷三台皮带转载点": {
+    "matched_name": "1100排矸联络巷",
+    "candidate_id": "d504d6ae-fb9c-4857-aeca-248f76e37790",
+    "score": 12,
+    "timestamp": "2026-05-20T09:28:19.006120"
+  },
+  "B16:1100排矸巷皮带转载点": {
+    "matched_name": "1100排矸联络巷",
+    "candidate_id": "d504d6ae-fb9c-4857-aeca-248f76e37790",
+    "score": 12,
+    "timestamp": "2026-05-20T09:28:19.370391"
+  },
+  "B14:1410措施巷(东侧）上山皮带CO": {
+    "matched_name": "1410措施巷西侧",
+    "candidate_id": "C5008F03-033A-4635-B69A-17CCDFA5DA8F",
+    "score": 13,
+    "timestamp": "2026-05-20T09:42:21.463120"
+  },
+  "B14:1410措施巷（东侧）上山皮带烟雾": {
+    "matched_name": "1410措施巷（东）",
+    "candidate_id": "E6CF08A8-E13E-488F-9F14-E53F7598DE7B",
+    "score": 14,
+    "timestamp": "2026-05-20T09:42:22.103422"
+  },
+  "B14:1495皮带巷中部温度": {
+    "matched_name": "1495充电硐室",
+    "candidate_id": "5982324D-954F-45CD-AE10-9C8BCB2E0641",
+    "score": 12,
+    "timestamp": "2026-05-20T09:42:22.470569"
+  },
+  "B14:1495皮带机头烟雾": {
+    "matched_name": "1495充电硐室",
+    "candidate_id": "5982324D-954F-45CD-AE10-9C8BCB2E0641",
+    "score": 10,
+    "timestamp": "2026-05-20T09:42:22.610195"
+  },
+  "B16:煤矿1495皮带": {
+    "matched_name": "1495充电硐室",
+    "candidate_id": "5982324D-954F-45CD-AE10-9C8BCB2E0641",
+    "score": 12,
+    "timestamp": "2026-05-20T09:42:22.702968"
+  },
+  "B14:1495皮带开停": {
+    "matched_name": "1495充电硐室",
+    "candidate_id": "5982324D-954F-45CD-AE10-9C8BCB2E0641",
+    "score": 10,
+    "timestamp": "2026-05-20T09:42:22.778497"
+  },
+  "B16:1755架空人车机头驱动轮": {
+    "matched_name": "1755行人下山",
+    "candidate_id": "D2EDF1C3-956B-416D-BB42-D3140CBDE77A",
+    "score": 10,
+    "timestamp": "2026-05-20T09:42:22.964202"
+  },
+  "B14:1495皮带巷中部烟雾": {
+    "matched_name": "1495充电硐室",
+    "candidate_id": "5982324D-954F-45CD-AE10-9C8BCB2E0641",
+    "score": 10,
+    "timestamp": "2026-05-20T09:42:22.973023"
+  },
+  "B16:1755架空人车机头变坡点": {
+    "matched_name": "1755行人下山",
+    "candidate_id": "D2EDF1C3-956B-416D-BB42-D3140CBDE77A",
+    "score": 10,
+    "timestamp": "2026-05-20T09:42:23.012375"
+  },
+  "B14:1495皮带机头CO": {
+    "matched_name": "1495充电硐室",
+    "candidate_id": "5982324D-954F-45CD-AE10-9C8BCB2E0641",
+    "score": 12,
+    "timestamp": "2026-05-20T09:42:23.120251"
+  },
+  "B14:1495皮带巷中部CO": {
+    "matched_name": "1495充电硐室",
+    "candidate_id": "5982324D-954F-45CD-AE10-9C8BCB2E0641",
+    "score": 12,
+    "timestamp": "2026-05-20T09:42:23.201751"
+  },
+  "B16:1755架空人车机头乘车点2#": {
+    "matched_name": "1755行人下山",
+    "candidate_id": "D2EDF1C3-956B-416D-BB42-D3140CBDE77A",
+    "score": 10,
+    "timestamp": "2026-05-20T09:42:23.332198"
+  },
+  "B14:1495皮带断电器馈电状态": {
+    "matched_name": "1495充电硐室",
+    "candidate_id": "5982324D-954F-45CD-AE10-9C8BCB2E0641",
+    "score": 10,
+    "timestamp": "2026-05-20T09:42:23.376148"
+  },
+  "B16:1410措施巷东侧机头": {
+    "matched_name": "1410措施巷西侧",
+    "candidate_id": "C5008F03-033A-4635-B69A-17CCDFA5DA8F",
+    "score": 13,
+    "timestamp": "2026-05-20T09:42:23.442255"
+  },
+  "B16:煤矿1495机头操作室": {
+    "matched_name": "1495充电硐室",
+    "candidate_id": "5982324D-954F-45CD-AE10-9C8BCB2E0641",
+    "score": 12,
+    "timestamp": "2026-05-20T09:42:23.575530"
+  },
+  "B14:1495皮带断电器断电状态": {
+    "matched_name": "1495充电硐室",
+    "candidate_id": "5982324D-954F-45CD-AE10-9C8BCB2E0641",
+    "score": 10,
+    "timestamp": "2026-05-20T09:42:23.642620"
+  },
+  "B14:1495皮带机头温度": {
+    "matched_name": "1495充电硐室",
+    "candidate_id": "5982324D-954F-45CD-AE10-9C8BCB2E0641",
+    "score": 12,
+    "timestamp": "2026-05-20T09:42:23.657464"
+  },
+  "B16:1495皮带底弯道张紧坑": {
+    "matched_name": "1495充电硐室",
+    "candidate_id": "5982324D-954F-45CD-AE10-9C8BCB2E0641",
+    "score": 12,
+    "timestamp": "2026-05-20T09:42:23.733800"
+  },
+  "B16:1475回风联巷二台皮带机头": {
+    "matched_name": "1475回风联巷",
+    "candidate_id": "4D021C8C-C477-44CD-9579-E9FE3356D58B",
+    "score": 15,
+    "timestamp": "2026-05-20T09:42:23.808921"
+  },
+  "B16:1495皮带机尾": {
+    "matched_name": "1495充电硐室",
+    "candidate_id": "5982324D-954F-45CD-AE10-9C8BCB2E0641",
+    "score": 12,
+    "timestamp": "2026-05-20T09:42:23.838976"
+  },
+  "B16:1495底弯道压带轮": {
+    "matched_name": "1495充电硐室",
+    "candidate_id": "5982324D-954F-45CD-AE10-9C8BCB2E0641",
+    "score": 12,
+    "timestamp": "2026-05-20T09:42:24.040395"
+  },
+  "B16:1755架空人车机头配电点": {
+    "matched_name": "1755行人下山",
+    "candidate_id": "D2EDF1C3-956B-416D-BB42-D3140CBDE77A",
+    "score": 10,
+    "timestamp": "2026-05-20T09:42:24.134927"
+  },
+  "B16:煤矿1495卸料器": {
+    "matched_name": "1495充电硐室",
+    "candidate_id": "5982324D-954F-45CD-AE10-9C8BCB2E0641",
+    "score": 12,
+    "timestamp": "2026-05-20T09:42:24.528713"
   }
 }
