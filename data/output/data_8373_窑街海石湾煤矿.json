@@ -1059,6 +1059,54 @@
         "mark_type": "B14"
       },
       {
+        "id": "YJHSWMK030120012D3409",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "三采区东边界回风下山一台皮带_烟雾",
+        "sensor_type": "烟雾",
+        "area": "三采区东边界回风下山一台皮带_烟雾",
+        "mark_type": "B14"
+      },
+      {
+        "id": "YJHSWMK030120012D3414",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "三采区东边界回风下山二台皮带_烟雾",
+        "sensor_type": "烟雾",
+        "area": "三采区东边界回风下山二台皮带_烟雾",
+        "mark_type": "B14"
+      },
+      {
+        "id": "YJHSWMK030120012F00",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "三采区中部轨道下山1号联络巷2",
+        "sensor_type": "分站",
+        "area": "三采区中部轨道下山1号联络巷2",
+        "mark_type": "B14"
+      },
+      {
+        "id": "YJHSWMK030120013A0862",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "中央水泵房_水位",
+        "sensor_type": "液位",
+        "area": "中央水泵房_水位",
+        "mark_type": "B14"
+      },
+      {
+        "id": "YJHSWMK030120013A1063",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "中央变电所_温度",
+        "sensor_type": "温度",
+        "area": "中央变电所_温度",
+        "mark_type": "B14"
+      },
+      {
+        "id": "YJHSWMK030120013A1079",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "主立井箕斗装载硐室皮带滚筒下风侧10-15米_CO",
+        "sensor_type": "一氧化碳",
+        "area": "主立井箕斗装载硐室皮带滚筒下风侧10-15米_CO",
+        "mark_type": "B14"
+      },
+      {
         "id": "YJHSWMK030120019A3809",
         "sysaliasname": "安全监测(瓦斯)系统",
         "description": "6125-2进风顺槽_粉尘",
@@ -1088,6 +1136,14 @@
         "description": "1100回风大巷_温度",
         "sensor_type": "温度",
         "area": "1100回风大巷_温度",
+        "mark_type": "B14"
+      },
+      {
+        "id": "YJHSWMK030120033D4529",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "一采区瓦斯泵站3#泵_开停",
+        "sensor_type": "开停",
+        "area": "一采区瓦斯泵站3#泵_开停",
         "mark_type": "B14"
       },
       {
@@ -1227,6 +1283,14 @@
         "mark_type": "B14"
       },
       {
+        "id": "YJHSWMK030120034D4145",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "6226工作面乳化泵_开停",
+        "sensor_type": "开停",
+        "area": "6226工作面乳化泵_开停",
+        "mark_type": "B14"
+      },
+      {
         "id": "YJHSWMK030120032F00",
         "sysaliasname": "安全监测(瓦斯)系统",
         "description": "1250皮带巷无极绳绞车处",
@@ -1323,6 +1387,14 @@
         "mark_type": "B14"
       },
       {
+        "id": "YJHSWMK030120034D2791",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "6226工作面后部刮板机_开停",
+        "sensor_type": "开停",
+        "area": "6226工作面后部刮板机_开停",
+        "mark_type": "B14"
+      },
+      {
         "id": "YJHSWMK030120031A1820",
         "sysaliasname": "安全监测(瓦斯)系统",
         "description": "三采区中部轨道下山_粉尘",
@@ -1363,11 +1435,35 @@
         "mark_type": "B14"
       },
       {
+        "id": "YJHSWMK030120034A4135",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "6226工作面T1_CO2",
+        "sensor_type": "二氧化碳",
+        "area": "6226工作面T1_CO2",
+        "mark_type": "B14"
+      },
+      {
+        "id": "YJHSWMK030120034A4141",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "6226工作面_ 氧气",
+        "sensor_type": "氧气",
+        "area": "6226工作面_ 氧气",
+        "mark_type": "B14"
+      },
+      {
         "id": "YJHSWMK030120025D0911",
         "sysaliasname": "安全监测(瓦斯)系统",
         "description": "三采区油页岩专用回风下山1140V_ 远控开关断电状态",
         "sensor_type": "断电",
         "area": "三采区油页岩专用回风下山1140V_ 远控开关断电状态",
+        "mark_type": "B14"
+      },
+      {
+        "id": "YJHSWMK030120034F00",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "6224-2进风上山1",
+        "sensor_type": "分站",
+        "area": "6224-2进风上山1",
         "mark_type": "B14"
       },
       {
@@ -1427,6 +1523,14 @@
         "mark_type": "B14"
       },
       {
+        "id": "YJHSWMK030120033F00",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "一采区瓦斯泵",
+        "sensor_type": "分站",
+        "area": "一采区瓦斯泵",
+        "mark_type": "B14"
+      },
+      {
         "id": "YJHSWMK030120028D4232",
         "sysaliasname": "安全监测(瓦斯)系统",
         "description": "1070底抽钻机开关1140V-远控开关断电状态",
@@ -1464,14 +1568,6 @@
         "description": "1065运输大巷_ 局扇2",
         "sensor_type": "局扇",
         "area": "1065运输大巷_ 局扇2",
-        "mark_type": "B14"
-      },
-      {
-        "id": "YJHSWMK030120012D3414",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "三采区东边界回风下山二台皮带_烟雾",
-        "sensor_type": "烟雾",
-        "area": "三采区东边界回风下山二台皮带_烟雾",
         "mark_type": "B14"
       },
       {
@@ -1544,6 +1640,14 @@
         "description": "一采区瓦斯泵站后门_双风门风门2",
         "sensor_type": "风门",
         "area": "一采区瓦斯泵站后门_双风门风门2",
+        "mark_type": "B14"
+      },
+      {
+        "id": "YJHSWMK030120034D2792",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "6226工作面前部刮板机_开停",
+        "sensor_type": "开停",
+        "area": "6226工作面前部刮板机_开停",
         "mark_type": "B14"
       },
       {
@@ -1771,19 +1875,11 @@
         "mark_type": "B14"
       },
       {
-        "id": "YJHSWMK030120012F00",
+        "id": "YJHSWMK030120034D2857",
         "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "三采区中部轨道下山1号联络巷2",
-        "sensor_type": "分站",
-        "area": "三采区中部轨道下山1号联络巷2",
-        "mark_type": "B14"
-      },
-      {
-        "id": "YJHSWMK030120013A1079",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "主立井箕斗装载硐室皮带滚筒下风侧10-15米_CO",
-        "sensor_type": "一氧化碳",
-        "area": "主立井箕斗装载硐室皮带滚筒下风侧10-15米_CO",
+        "description": "6226工作面采煤机_开停",
+        "sensor_type": "开停",
+        "area": "6226工作面采煤机_开停",
         "mark_type": "B14"
       },
       {
@@ -1864,6 +1960,14 @@
         "description": "6226进风顺槽660V_  远控开关断电状态",
         "sensor_type": "断电",
         "area": "6226进风顺槽660V_  远控开关断电状态",
+        "mark_type": "B14"
+      },
+      {
+        "id": "YJHSWMK030120034A4373",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "6226工作面_风速",
+        "sensor_type": "风速",
+        "area": "6226工作面_风速",
         "mark_type": "B14"
       },
       {
@@ -2051,6 +2155,14 @@
         "mark_type": "B14"
       },
       {
+        "id": "YJHSWMK030120033D2088",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "一采区瓦斯泵站1#泵_开停",
+        "sensor_type": "开停",
+        "area": "一采区瓦斯泵站1#泵_开停",
+        "mark_type": "B14"
+      },
+      {
         "id": "YJHSWMK030120029A0149",
         "sysaliasname": "安全监测(瓦斯)系统",
         "description": "1250避难硐室生存室_ CH4",
@@ -2064,22 +2176,6 @@
         "description": "1250石门延伸巷_风门2",
         "sensor_type": "风门",
         "area": "1250石门延伸巷_风门2",
-        "mark_type": "B14"
-      },
-      {
-        "id": "YJHSWMK030120013A0862",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "中央水泵房_水位",
-        "sensor_type": "液位",
-        "area": "中央水泵房_水位",
-        "mark_type": "B14"
-      },
-      {
-        "id": "YJHSWMK030120012D3409",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "三采区东边界回风下山一台皮带_烟雾",
-        "sensor_type": "烟雾",
-        "area": "三采区东边界回风下山一台皮带_烟雾",
         "mark_type": "B14"
       },
       {
@@ -2283,6 +2379,14 @@
         "mark_type": "B14"
       },
       {
+        "id": "YJHSWMK030120034D4153",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "6224-2进风上山_双风门风门2",
+        "sensor_type": "风门",
+        "area": "6224-2进风上山_双风门风门2",
+        "mark_type": "B14"
+      },
+      {
         "id": "YJHSWMK030120020D0874",
         "sysaliasname": "安全监测(瓦斯)系统",
         "description": "6224-1东部施工巷16#配电开关断电状态",
@@ -2352,6 +2456,14 @@
         "description": "1100回风大巷_风速",
         "sensor_type": "风速",
         "area": "1100回风大巷_风速",
+        "mark_type": "B14"
+      },
+      {
+        "id": "YJHSWMK030120034D4154",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "6224-2进风上山_双风门风门双开",
+        "sensor_type": "风门",
+        "area": "6224-2进风上山_双风门风门双开",
         "mark_type": "B14"
       },
       {
@@ -2531,6 +2643,14 @@
         "mark_type": "B14"
       },
       {
+        "id": "YJHSWMK030120033D4528",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "一采区瓦斯泵站2#泵_开停",
+        "sensor_type": "开停",
+        "area": "一采区瓦斯泵站2#泵_开停",
+        "mark_type": "B14"
+      },
+      {
         "id": "YJHSWMK030120025A3899",
         "sysaliasname": "安全监测(瓦斯)系统",
         "description": "6117回风顺槽(西)_粉尘",
@@ -2568,14 +2688,6 @@
         "description": "1250避难硐室前门第二道风门内_ CH4",
         "sensor_type": "瓦斯",
         "area": "1250避难硐室前门第二道风门内_ CH4",
-        "mark_type": "B14"
-      },
-      {
-        "id": "YJHSWMK030120013A1063",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "中央变电所_温度",
-        "sensor_type": "温度",
-        "area": "中央变电所_温度",
         "mark_type": "B14"
       },
       {
@@ -2907,6 +3019,14 @@
         "mark_type": "B14"
       },
       {
+        "id": "YJHSWMK030120034D4152",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "6224-2进风上山_双风门风门1",
+        "sensor_type": "风门",
+        "area": "6224-2进风上山_双风门风门1",
+        "mark_type": "B14"
+      },
+      {
         "id": "YJHSWMK030120030F00",
         "sysaliasname": "安全监测(瓦斯)系统",
         "description": "1250运输联络巷口",
@@ -2915,11 +3035,27 @@
         "mark_type": "B14"
       },
       {
+        "id": "YJHSWMK030120033D4526",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "一采区瓦斯泵站4#泵_开停",
+        "sensor_type": "开停",
+        "area": "一采区瓦斯泵站4#泵_开停",
+        "mark_type": "B14"
+      },
+      {
         "id": "YJHSWMK030120022A1628",
         "sysaliasname": "安全监测(瓦斯)系统",
         "description": "1250东部联络上山瓦斯泵站_标况流量",
         "sensor_type": "流量",
         "area": "1250东部联络上山瓦斯泵站_标况流量",
+        "mark_type": "B14"
+      },
+      {
+        "id": "YJHSWMK030120034D4150",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "6226工作面转载机 _开停",
+        "sensor_type": "开停",
+        "area": "6226工作面转载机 _开停",
         "mark_type": "B14"
       },
       {
@@ -3024,6 +3160,14 @@
         "description": "6117回风顺槽(西)T1_CO2",
         "sensor_type": "二氧化碳",
         "area": "6117回风顺槽(西)T1_CO2",
+        "mark_type": "B14"
+      },
+      {
+        "id": "YJHSWMK030120034A4136",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "6226工作面_粉尘",
+        "sensor_type": "粉尘",
+        "area": "6226工作面_粉尘",
         "mark_type": "B14"
       },
       {
@@ -3203,12 +3347,12 @@
         "mark_type": "B14"
       },
       {
-        "id": "YJHSWMK030120033D4529",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "一采区瓦斯泵站3#泵_开停",
-        "sensor_type": "开停",
-        "area": "一采区瓦斯泵站3#泵_开停",
-        "mark_type": "B14"
+        "id": "YJHSWMK0301211d54e80ac7073",
+        "sysaliasname": "工业视频",
+        "description": "污水处理硐室压滤机2",
+        "sensor_type": "工业视频",
+        "area": "1100污水处理硐室",
+        "mark_type": "B16"
       },
       {
         "id": "YJHSWMK030120042A3829",
@@ -3371,14 +3515,6 @@
         "mark_type": "B14"
       },
       {
-        "id": "YJHSWMK031120001A01",
-        "sysaliasname": "粉尘监控系统",
-        "description": "1号分站模拟量001A01110301综采工作面回风流瓦斯瓦斯",
-        "sensor_type": "瓦斯",
-        "area": "1号分站",
-        "mark_type": "B14"
-      },
-      {
         "id": "YJHSWMK030120058D0226",
         "sysaliasname": "安全监测(瓦斯)系统",
         "description": "1100瓦斯抽放巷1140V配电开关馈电状态",
@@ -3481,6 +3617,14 @@
         "sensor_type": "风门",
         "area": "1100排矸联络巷水平延伸巷_双风门2风门2",
         "mark_type": "B14"
+      },
+      {
+        "id": "YJHSWMK03012116d0a80f41444",
+        "sysaliasname": "工业视频",
+        "description": "一号联络巷",
+        "sensor_type": "工业视频",
+        "area": "三采区中部轨道下山",
+        "mark_type": "B16"
       },
       {
         "id": "YJHSWMK0301210856d0de23366",
@@ -3603,14 +3747,6 @@
         "mark_type": "B14"
       },
       {
-        "id": "YJHSWMK030120034D4145",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "6226工作面乳化泵_开停",
-        "sensor_type": "开停",
-        "area": "6226工作面乳化泵_开停",
-        "mark_type": "B14"
-      },
-      {
         "id": "YJHSWMK030120062A4004",
         "sysaliasname": "安全监测(瓦斯)系统",
         "description": "1070底抽巷第1组示范钻孔_ GD3(B)温度",
@@ -3657,6 +3793,14 @@
         "sensor_type": "氧气",
         "area": "1070底抽巷第2组示范钻孔_管道氧气",
         "mark_type": "B14"
+      },
+      {
+        "id": "YJHSWMK03012116b0fa9d6ecd1",
+        "sysaliasname": "工业视频",
+        "description": "上广场副井井口进车侧",
+        "sensor_type": "工业视频",
+        "area": "副立井提升区域",
+        "mark_type": "B16"
       },
       {
         "id": "YJHSWMK03012114d827e27343e",
@@ -3819,6 +3963,14 @@
         "mark_type": "B14"
       },
       {
+        "id": "YJHSWMK03012119498e1063e9d",
+        "sysaliasname": "工业视频",
+        "description": "803、805机头",
+        "sensor_type": "工业视频",
+        "area": "洗煤厂",
+        "mark_type": "B16"
+      },
+      {
         "id": "YJHSWMK030120187D4543",
         "sysaliasname": "安全监测(瓦斯)系统",
         "description": "6226工作面采煤机 _远控开关断电状态",
@@ -3875,6 +4027,14 @@
         "mark_type": "B14"
       },
       {
+        "id": "YJHSWMK03012115bbd5342dc38",
+        "sysaliasname": "工业视频",
+        "description": "1100排矸巷1#高位翻车机",
+        "sensor_type": "工业视频",
+        "area": "1100排矸巷水平延伸巷",
+        "mark_type": "B16"
+      },
+      {
         "id": "YJHSWMK030120055A3219",
         "sysaliasname": "安全监测(瓦斯)系统",
         "description": "6117回风顺槽(东)_粉尘",
@@ -3896,14 +4056,6 @@
         "description": "6125-2进风顺槽 _局扇1",
         "sensor_type": "局扇",
         "area": "6125-2进风顺槽 _局扇1",
-        "mark_type": "B14"
-      },
-      {
-        "id": "YJHSWMK030120034D2791",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "6226工作面后部刮板机_开停",
-        "sensor_type": "开停",
-        "area": "6226工作面后部刮板机_开停",
         "mark_type": "B14"
       },
       {
@@ -3939,6 +4091,14 @@
         "mark_type": "B14"
       },
       {
+        "id": "YJHSWMK0301211b41dfcb888a5",
+        "sysaliasname": "工业视频",
+        "description": "换装点",
+        "sensor_type": "工业视频",
+        "area": "6125-2进风顺槽",
+        "mark_type": "B16"
+      },
+      {
         "id": "YJHSWMK030120045A3691",
         "sysaliasname": "安全监测(瓦斯)系统",
         "description": "6125底抽巷4*钻场处_管道激光CO2",
@@ -3947,12 +4107,12 @@
         "mark_type": "B14"
       },
       {
-        "id": "YJHSWMK030120034A4135",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "6226工作面T1_CO2",
-        "sensor_type": "二氧化碳",
-        "area": "6226工作面T1_CO2",
-        "mark_type": "B14"
+        "id": "YJHSWMK0301211b552a56ddad9",
+        "sysaliasname": "工业视频",
+        "description": "选运队海矿501皮带机尾",
+        "sensor_type": "工业视频",
+        "area": "选煤楼",
+        "mark_type": "B16"
       },
       {
         "id": "YJHSWMK030120050D0625",
@@ -3968,14 +4128,6 @@
         "description": "6226工作面后溜远控开关馈电状态",
         "sensor_type": "馈电",
         "area": "6226工作面后溜远控开关馈电状态",
-        "mark_type": "B14"
-      },
-      {
-        "id": "YJHSWMK030120034A4141",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "6226工作面_ 氧气",
-        "sensor_type": "氧气",
-        "area": "6226工作面_ 氧气",
         "mark_type": "B14"
       },
       {
@@ -4067,20 +4219,20 @@
         "mark_type": "B16"
       },
       {
-        "id": "YJHSWMK030120034F00",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "6224-2进风上山1",
-        "sensor_type": "分站",
-        "area": "6224-2进风上山1",
-        "mark_type": "B14"
-      },
-      {
         "id": "YJHSWMK030120045D1124",
         "sysaliasname": "安全监测(瓦斯)系统",
         "description": "6126东部运输巷_双风门风门2",
         "sensor_type": "风门",
         "area": "6126东部运输巷_双风门风门2",
         "mark_type": "B14"
+      },
+      {
+        "id": "YJHSWMK03012115f8e5ad306a8",
+        "sysaliasname": "工业视频",
+        "description": "三采区矸石仓下料口",
+        "sensor_type": "工业视频",
+        "area": "1100排矸巷水平延伸巷",
+        "mark_type": "B16"
       },
       {
         "id": "YJHSWMK030120062A3982",
@@ -4139,6 +4291,14 @@
         "mark_type": "B14"
       },
       {
+        "id": "YJHSWMK0301211ace1ce17a64b",
+        "sysaliasname": "工业视频",
+        "description": "选运队201皮带巷",
+        "sensor_type": "工业视频",
+        "area": "选煤楼",
+        "mark_type": "B16"
+      },
+      {
         "id": "YJHSWMK030120067A4411",
         "sysaliasname": "安全监测(瓦斯)系统",
         "description": "1100瓦斯抽放巷回风联络巷_粉尘",
@@ -4168,14 +4328,6 @@
         "description": "1280上部车场55千瓦绞车_开停",
         "sensor_type": "开停",
         "area": "1280上部车场55千瓦绞车_开停",
-        "mark_type": "B14"
-      },
-      {
-        "id": "YJHSWMK030120033F00",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "一采区瓦斯泵",
-        "sensor_type": "分站",
-        "area": "一采区瓦斯泵",
         "mark_type": "B14"
       },
       {
@@ -4347,6 +4499,30 @@
         "mark_type": "B14"
       },
       {
+        "id": "YJHSWMK0301211be69d7800fac",
+        "sysaliasname": "工业视频",
+        "description": "1100回风大巷掘进工作面T2处",
+        "sensor_type": "工业视频",
+        "area": "T2传感器监控",
+        "mark_type": "B16"
+      },
+      {
+        "id": "YJHSWMK0301211ab999a3d4a0f",
+        "sysaliasname": "工业视频",
+        "description": "准备车间配电室",
+        "sensor_type": "工业视频",
+        "area": "洗煤厂",
+        "mark_type": "B16"
+      },
+      {
+        "id": "YJHSWMK0301211e5d10946bbe8",
+        "sysaliasname": "工业视频",
+        "description": "一采区瓦斯泵配电开关",
+        "sensor_type": "工业视频",
+        "area": "回收",
+        "mark_type": "B16"
+      },
+      {
         "id": "YJHSWMK030120041A3667",
         "sysaliasname": "安全监测(瓦斯)系统",
         "description": "1100回风联络巷风门内2#右(1100瓦斯抽放巷1-19#钻场）_GD3(B)标纯累计",
@@ -4419,6 +4595,14 @@
         "mark_type": "B14"
       },
       {
+        "id": "YJHSWMK0301211bc3cfc04abe9",
+        "sysaliasname": "工业视频",
+        "description": "1100破碎机下料口",
+        "sensor_type": "工业视频",
+        "area": "1100排矸巷水平延伸巷",
+        "mark_type": "B16"
+      },
+      {
         "id": "YJHSWMK03012109dffec012806",
         "sysaliasname": "工业视频",
         "description": "新建主立井井口",
@@ -4451,12 +4635,12 @@
         "mark_type": "B14"
       },
       {
-        "id": "YJHSWMK030120034D2792",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "6226工作面前部刮板机_开停",
-        "sensor_type": "开停",
-        "area": "6226工作面前部刮板机_开停",
-        "mark_type": "B14"
+        "id": "YJHSWMK030121188aba480f0bc",
+        "sysaliasname": "工业视频",
+        "description": "上广场风井口8217",
+        "sensor_type": "工业视频",
+        "area": "上广场主扇机房",
+        "mark_type": "B16"
       },
       {
         "id": "YJHSWMK030120035A3803",
@@ -4547,6 +4731,14 @@
         "mark_type": "B14"
       },
       {
+        "id": "YJHSWMK0301211612f652936a3",
+        "sysaliasname": "工业视频",
+        "description": "压滤车间二层",
+        "sensor_type": "工业视频",
+        "area": "洗煤厂",
+        "mark_type": "B16"
+      },
+      {
         "id": "YJHSWMK030120051A4372",
         "sysaliasname": "安全监测(瓦斯)系统",
         "description": "二采区净化水箱_水位",
@@ -4632,6 +4824,14 @@
         "description": "生活护卫队会议室",
         "sensor_type": "工业视频",
         "area": "区队会议室",
+        "mark_type": "B16"
+      },
+      {
+        "id": "YJHSWMK030121175f35526bf7f",
+        "sysaliasname": "工业视频",
+        "description": "装载硐室斜巷底弯",
+        "sensor_type": "工业视频",
+        "area": "主立井装载硐室",
         "mark_type": "B16"
       },
       {
@@ -4731,6 +4931,14 @@
         "mark_type": "B14"
       },
       {
+        "id": "YJHSWMK0301211d62d9ae14696",
+        "sysaliasname": "工业视频",
+        "description": "一号联络巷风门2",
+        "sensor_type": "工业视频",
+        "area": "三采区中部轨道下山",
+        "mark_type": "B16"
+      },
+      {
         "id": "YJHSWMK030120044D1526",
         "sysaliasname": "安全监测(瓦斯)系统",
         "description": "1250与一采区回风下山联络巷2#_风门2",
@@ -4785,6 +4993,22 @@
         "sensor_type": "风门",
         "area": "1100回风联络巷风门风门双开",
         "mark_type": "B14"
+      },
+      {
+        "id": "YJHSWMK03012115de1b0a946ba",
+        "sysaliasname": "工业视频",
+        "description": "1100瓦斯抽放巷揭煤区域抽放孔",
+        "sensor_type": "工业视频",
+        "area": "钻场施工",
+        "mark_type": "B16"
+      },
+      {
+        "id": "YJHSWMK0301211b6dea02ee970",
+        "sysaliasname": "工业视频",
+        "description": "污水处理车间水池8217",
+        "sensor_type": "工业视频",
+        "area": "上广场机房车间",
+        "mark_type": "B16"
       },
       {
         "id": "YJHSWMK030120063A0422",
@@ -4907,6 +5131,14 @@
         "mark_type": "B14"
       },
       {
+        "id": "YJHSWMK0301211e348b77be742",
+        "sysaliasname": "工业视频",
+        "description": "主立井高压室",
+        "sensor_type": "工业视频",
+        "area": "主立井提升区域",
+        "mark_type": "B16"
+      },
+      {
         "id": "YJHSWMK030120039D2725",
         "sysaliasname": "安全监测(瓦斯)系统",
         "description": "1410甩车场_双风门风门2",
@@ -4945,14 +5177,6 @@
         "sensor_type": "工业视频",
         "area": "回收",
         "mark_type": "B16"
-      },
-      {
-        "id": "YJHSWMK030120034D2857",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "6226工作面采煤机_开停",
-        "sensor_type": "开停",
-        "area": "6226工作面采煤机_开停",
-        "mark_type": "B14"
       },
       {
         "id": "YJHSWMK030120063A0424",
@@ -5035,6 +5259,14 @@
         "mark_type": "B14"
       },
       {
+        "id": "YJHSWMK0301211dc3594e7fd22",
+        "sysaliasname": "工业视频",
+        "description": "二采区净水装置",
+        "sensor_type": "工业视频",
+        "area": "井下机房硐室",
+        "mark_type": "B16"
+      },
+      {
         "id": "YJHSWMK030120045A3676",
         "sysaliasname": "安全监测(瓦斯)系统",
         "description": "6125底抽巷4#钻场抽放管(一采区东部区域抽采钻孔）_GD3(B)标纯累计",
@@ -5091,14 +5323,6 @@
         "mark_type": "B14"
       },
       {
-        "id": "YJHSWMK030120034A4373",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "6226工作面_风速",
-        "sensor_type": "风速",
-        "area": "6226工作面_风速",
-        "mark_type": "B14"
-      },
-      {
         "id": "YJHSWMK0301210bfbeee92bac9",
         "sysaliasname": "工业视频",
         "description": "主斜井1号防跑车",
@@ -5113,6 +5337,14 @@
         "sensor_type": "二氧化碳",
         "area": "三采区油页岩集中运输下山分风口_CO2",
         "mark_type": "B14"
+      },
+      {
+        "id": "YJHSWMK0301211d8226a567b8e",
+        "sysaliasname": "工业视频",
+        "description": "一采区机轨下山6125甩车场8117",
+        "sensor_type": "工业视频",
+        "area": "一采区机轨下山提升系统",
+        "mark_type": "B16"
       },
       {
         "id": "YJHSWMK030120055A3213",
@@ -5257,6 +5489,14 @@
         "sensor_type": "烟雾",
         "area": "选煤楼205皮带驱动滚筒下风侧_烟雾",
         "mark_type": "B14"
+      },
+      {
+        "id": "YJHSWMK03012116d7b2d52eb9c",
+        "sysaliasname": "工业视频",
+        "description": "1250辅助运输大巷（东）",
+        "sensor_type": "工业视频",
+        "area": "井下主要运输线",
+        "mark_type": "B16"
       },
       {
         "id": "YJHSWMK030120061D0453",
@@ -5507,14 +5747,6 @@
         "mark_type": "B14"
       },
       {
-        "id": "YJHSWMK030120033D2088",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "一采区瓦斯泵站1#泵_开停",
-        "sensor_type": "开停",
-        "area": "一采区瓦斯泵站1#泵_开停",
-        "mark_type": "B14"
-      },
-      {
         "id": "YJHSWMK030120061A0318",
         "sysaliasname": "安全监测(瓦斯)系统",
         "description": "选煤楼205皮带驱动滚筒下风侧_CO",
@@ -5537,6 +5769,14 @@
         "sensor_type": "分站",
         "area": "1100瓦斯抽放巷回风联络巷",
         "mark_type": "B14"
+      },
+      {
+        "id": "YJHSWMK03012116904d9c30720",
+        "sysaliasname": "工业视频",
+        "description": "一采区机轨下山7#给煤机",
+        "sensor_type": "工业视频",
+        "area": "一采区机轨下山提升系统",
+        "mark_type": "B16"
       },
       {
         "id": "YJHSWMK030120049A2594",
@@ -5609,6 +5849,14 @@
         "sensor_type": "瓦斯",
         "area": "6125底抽巷4#钻场抽放管(一采区东部区域抽采钻孔）_GD",
         "mark_type": "B14"
+      },
+      {
+        "id": "YJHSWMK03012116e9d3bdb2097",
+        "sysaliasname": "工业视频",
+        "description": "选运队205皮带机头",
+        "sensor_type": "工业视频",
+        "area": "选煤楼",
+        "mark_type": "B16"
       },
       {
         "id": "YJHSWMK030120185A4421",
@@ -5723,6 +5971,14 @@
         "mark_type": "B14"
       },
       {
+        "id": "YJHSWMK03012117915a037af24",
+        "sysaliasname": "工业视频",
+        "description": "东1",
+        "sensor_type": "工业视频",
+        "area": "新制氮机房",
+        "mark_type": "B16"
+      },
+      {
         "id": "YJHSWMK030120050D0635",
         "sysaliasname": "安全监测(瓦斯)系统",
         "description": "1100煤二层转载上山1140控制开关馈电状态",
@@ -5753,6 +6009,14 @@
         "sensor_type": "负压",
         "area": "1100回风联络巷风门内2#右(1100瓦斯抽放巷1-19#钻场",
         "mark_type": "B14"
+      },
+      {
+        "id": "YJHSWMK0301211a19304e54ec8",
+        "sysaliasname": "工业视频",
+        "description": "煤仓口",
+        "sensor_type": "工业视频",
+        "area": "6125-2回风顺槽",
+        "mark_type": "B16"
       },
       {
         "id": "YJHSWMK030120062A4194",
@@ -5891,14 +6155,6 @@
         "mark_type": "B14"
       },
       {
-        "id": "YJHSWMK030120034D4153",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "6224-2进风上山_双风门风门2",
-        "sensor_type": "风门",
-        "area": "6224-2进风上山_双风门风门2",
-        "mark_type": "B14"
-      },
-      {
         "id": "YJHSWMK030120039A0134",
         "sysaliasname": "安全监测(瓦斯)系统",
         "description": "二采区回风巷_CO",
@@ -5915,12 +6171,28 @@
         "mark_type": "B14"
       },
       {
+        "id": "YJHSWMK0301211f712bc6d9ecd",
+        "sysaliasname": "工业视频",
+        "description": "标校室",
+        "sensor_type": "工业视频",
+        "area": "回收",
+        "mark_type": "B16"
+      },
+      {
         "id": "YJHSWMK030120056D1861",
         "sysaliasname": "安全监测(瓦斯)系统",
         "description": "1100排矸巷水平延伸巷皮带机尾_烟雾",
         "sensor_type": "烟雾",
         "area": "1100排矸巷水平延伸巷皮带机尾_烟雾",
         "mark_type": "B14"
+      },
+      {
+        "id": "YJHSWMK0301211c17ec1aa4004",
+        "sysaliasname": "工业视频",
+        "description": "溜子搭接",
+        "sensor_type": "工业视频",
+        "area": "6117回风顺槽",
+        "mark_type": "B16"
       },
       {
         "id": "YJHSWMK030120062A4018",
@@ -5953,6 +6225,14 @@
         "sensor_type": "瓦斯",
         "area": "6117运输顺槽分风口_CH4",
         "mark_type": "B14"
+      },
+      {
+        "id": "YJHSWMK03012118677285f677e",
+        "sysaliasname": "工业视频",
+        "description": "6126工作面回风顺槽3",
+        "sensor_type": "工业视频",
+        "area": "回收",
+        "mark_type": "B16"
       },
       {
         "id": "YJHSWMK030120059A4069",
@@ -6003,14 +6283,6 @@
         "mark_type": "B14"
       },
       {
-        "id": "YJHSWMK030120034D4154",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "6224-2进风上山_双风门风门双开",
-        "sensor_type": "风门",
-        "area": "6224-2进风上山_双风门风门双开",
-        "mark_type": "B14"
-      },
-      {
         "id": "YJHSWMK030120059D4499",
         "sysaliasname": "安全监测(瓦斯)系统",
         "description": "二采区运输石门皮带机尾_烟雾",
@@ -6025,6 +6297,14 @@
         "sensor_type": "风门",
         "area": "6225底抽巷_双风门风门2",
         "mark_type": "B14"
+      },
+      {
+        "id": "YJHSWMK03012117ec2fae5fb5c",
+        "sysaliasname": "工业视频",
+        "description": "二采区总回风钻机处",
+        "sensor_type": "工业视频",
+        "area": "回收",
+        "mark_type": "B16"
       },
       {
         "id": "YJHSWMK030120052A4146",
@@ -6073,6 +6353,14 @@
         "sensor_type": "一氧化碳",
         "area": "1100回风联络巷风门内2#右(1100瓦斯抽放巷1-19#钻场",
         "mark_type": "B14"
+      },
+      {
+        "id": "YJHSWMK03012118311821019aa",
+        "sysaliasname": "工业视频",
+        "description": "制氮机房后存储场",
+        "sensor_type": "工业视频",
+        "area": "上广场压风机房",
+        "mark_type": "B16"
       },
       {
         "id": "YJHSWMK030120185F00",
@@ -6275,14 +6563,6 @@
         "mark_type": "B14"
       },
       {
-        "id": "YJHSWMK030120033D4528",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "一采区瓦斯泵站2#泵_开停",
-        "sensor_type": "开停",
-        "area": "一采区瓦斯泵站2#泵_开停",
-        "mark_type": "B14"
-      },
-      {
         "id": "YJHSWMK030120055F00",
         "sysaliasname": "安全监测(瓦斯)系统",
         "description": "6117进风顺槽",
@@ -6297,6 +6577,14 @@
         "sensor_type": "风速",
         "area": "6226工作面T4_双向风速",
         "mark_type": "B14"
+      },
+      {
+        "id": "YJHSWMK03012119203a27fad9d",
+        "sysaliasname": "工业视频",
+        "description": "6116进风甩车场警戒点摘挂钩",
+        "sensor_type": "工业视频",
+        "area": "一采区智能绞车",
+        "mark_type": "B16"
       },
       {
         "id": "YJHSWMK030120045D1127",
@@ -6491,6 +6779,14 @@
         "mark_type": "B14"
       },
       {
+        "id": "YJHSWMK0301211c2f135c58c14",
+        "sysaliasname": "工业视频",
+        "description": "6215甩车场8067",
+        "sensor_type": "工业视频",
+        "area": "二采区主提升绞车",
+        "mark_type": "B16"
+      },
+      {
         "id": "YJHSWMK03012111d381f611678",
         "sysaliasname": "工业视频",
         "description": "盾构机台车",
@@ -6595,6 +6891,14 @@
         "mark_type": "B14"
       },
       {
+        "id": "YJHSWMK0301211ec39c7e4263f",
+        "sysaliasname": "工业视频",
+        "description": "左前门",
+        "sensor_type": "工业视频",
+        "area": "新制氮机房",
+        "mark_type": "B16"
+      },
+      {
         "id": "YJHSWMK030120063A3611",
         "sysaliasname": "安全监测(瓦斯)系统",
         "description": "三采区东边界回风下山三台皮带_CO",
@@ -6617,6 +6921,14 @@
         "sensor_type": "断电",
         "area": "6226工作面后溜远控开关断电状态",
         "mark_type": "B14"
+      },
+      {
+        "id": "YJHSWMK0301211c2edfb0d1278",
+        "sysaliasname": "工业视频",
+        "description": "污水处理硐室清水池",
+        "sensor_type": "工业视频",
+        "area": "1100污水处理硐室",
+        "mark_type": "B16"
       },
       {
         "id": "YJHSWMK030120056D1416",
@@ -6704,6 +7016,14 @@
         "description": "下广场机加工车间",
         "sensor_type": "工业视频",
         "area": "下广场机房车间",
+        "mark_type": "B16"
+      },
+      {
+        "id": "YJHSWMK03012119f41c1f36903",
+        "sysaliasname": "工业视频",
+        "description": "南门外2",
+        "sensor_type": "工业视频",
+        "area": "公共区域",
         "mark_type": "B16"
       },
       {
@@ -6867,6 +7187,22 @@
         "mark_type": "B14"
       },
       {
+        "id": "YJHSWMK030121157c1720a5671",
+        "sysaliasname": "工业视频",
+        "description": "综采一队会议室",
+        "sensor_type": "工业视频",
+        "area": "区队会议室",
+        "mark_type": "B16"
+      },
+      {
+        "id": "YJHSWMK0301211a8fb70a8a91b",
+        "sysaliasname": "工业视频",
+        "description": "进风顺槽煤岩交接处",
+        "sensor_type": "工业视频",
+        "area": "6226工作面",
+        "mark_type": "B16"
+      },
+      {
         "id": "YJHSWMK030120041D3263",
         "sysaliasname": "安全监测(瓦斯)系统",
         "description": "1100回风联络巷风门风门2",
@@ -6947,27 +7283,11 @@
         "mark_type": "B16"
       },
       {
-        "id": "YJHSWMK030120034D4152",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "6224-2进风上山_双风门风门1",
-        "sensor_type": "风门",
-        "area": "6224-2进风上山_双风门风门1",
-        "mark_type": "B14"
-      },
-      {
         "id": "YJHSWMK030120035F00",
         "sysaliasname": "安全监测(瓦斯)系统",
         "description": "1100变电所",
         "sensor_type": "分站",
         "area": "1100变电所",
-        "mark_type": "B14"
-      },
-      {
-        "id": "YJHSWMK030120033D4526",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "一采区瓦斯泵站4#泵_开停",
-        "sensor_type": "开停",
-        "area": "一采区瓦斯泵站4#泵_开停",
         "mark_type": "B14"
       },
       {
@@ -6984,6 +7304,14 @@
         "description": "1250水仓绞车",
         "sensor_type": "工业视频",
         "area": "密闭施工及维修点",
+        "mark_type": "B16"
+      },
+      {
+        "id": "YJHSWMK03012115ff92809ba10",
+        "sysaliasname": "工业视频",
+        "description": "6127-1工作面揭煤抽放孔",
+        "sensor_type": "工业视频",
+        "area": "回收",
         "mark_type": "B16"
       },
       {
@@ -7016,14 +7344,6 @@
         "description": "6125-2回风顺槽1140V_远控开关馈电状态",
         "sensor_type": "馈电",
         "area": "6125-2回风顺槽1140V_远控开关馈电状态",
-        "mark_type": "B14"
-      },
-      {
-        "id": "YJHSWMK030120034D4150",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "6226工作面转载机 _开停",
-        "sensor_type": "开停",
-        "area": "6226工作面转载机 _开停",
         "mark_type": "B14"
       },
       {
@@ -7083,12 +7403,12 @@
         "mark_type": "B14"
       },
       {
-        "id": "YJHSWMK030120034A4136",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "6226工作面_粉尘",
-        "sensor_type": "粉尘",
-        "area": "6226工作面_粉尘",
-        "mark_type": "B14"
+        "id": "YJHSWMK0301211f5cac52ac07c",
+        "sysaliasname": "工业视频",
+        "description": "油页岩集中运输下山煤仓口",
+        "sensor_type": "工业视频",
+        "area": "井下油页岩运输系统",
+        "mark_type": "B16"
       },
       {
         "id": "YJHSWMK030120066A0002",
@@ -7211,6 +7531,14 @@
         "mark_type": "B14"
       },
       {
+        "id": "YJHSWMK0301211e09fbe0ea4ac",
+        "sysaliasname": "工业视频",
+        "description": "2#防爆门",
+        "sensor_type": "工业视频",
+        "area": "哈拉沟",
+        "mark_type": "B16"
+      },
+      {
         "id": "YJHSWMK030120043A3799",
         "sysaliasname": "安全监测(瓦斯)系统",
         "description": "6125-2回风顺槽T1_CH4",
@@ -7273,6 +7601,14 @@
         "sensor_type": "风门",
         "area": "6126东部运输巷_双风门2风门双开",
         "mark_type": "B14"
+      },
+      {
+        "id": "YJHSWMK0301211b4cce776db69",
+        "sysaliasname": "工业视频",
+        "description": "压风机高压室",
+        "sensor_type": "工业视频",
+        "area": "上广场压风机房",
+        "mark_type": "B16"
       },
       {
         "id": "YJHSWMK030120067D4382",
@@ -7515,14 +7851,6 @@
         "mark_type": "B16"
       },
       {
-        "id": "YJHSWMK0301211d54e80ac7073",
-        "sysaliasname": "工业视频",
-        "description": "污水处理硐室压滤机2",
-        "sensor_type": "工业视频",
-        "area": "1100污水处理硐室",
-        "mark_type": "B16"
-      },
-      {
         "id": "YJHSWMK031140011007",
         "sysaliasname": "精确定位系统",
         "description": "二采区(1310甩车场11号)_人数",
@@ -7627,6 +7955,22 @@
         "mark_type": "B15"
       },
       {
+        "id": "YJHSWMK03114061",
+        "sysaliasname": "精确定位系统",
+        "description": "6225-1工作面(底抽巷回风上山底湾61号)_人数",
+        "sensor_type": "人数",
+        "area": "二采区辅助巷道",
+        "mark_type": "B15"
+      },
+      {
+        "id": "YJHSWMK03114059",
+        "sysaliasname": "精确定位系统",
+        "description": "6225-1工作面(西部集中运输上山59号)_人数",
+        "sensor_type": "人数",
+        "area": "二采区辅助巷道",
+        "mark_type": "B15"
+      },
+      {
         "id": "YJHSWMK0301217a81ee30ba806",
         "sysaliasname": "工业视频",
         "description": "一采区油页岩上部车场警戒点",
@@ -7641,6 +7985,14 @@
         "sensor_type": "工业视频",
         "area": "井下主要运输线",
         "mark_type": "B16"
+      },
+      {
+        "id": "YJHSWMK03114046",
+        "sysaliasname": "精确定位系统",
+        "description": "二采区(6224底抽巷36号钻场46号)_人数",
+        "sensor_type": "人数",
+        "area": "二采区辅助巷道",
+        "mark_type": "B15"
       },
       {
         "id": "YJHSWMK03012167a2d09047e0a",
@@ -7689,6 +8041,14 @@
         "sensor_type": "工业视频",
         "area": "井下机房硐室",
         "mark_type": "B16"
+      },
+      {
+        "id": "YJHSWMK03114084",
+        "sysaliasname": "精确定位系统",
+        "description": "地面(上广场主扇机房84号)_人数",
+        "sensor_type": "人数",
+        "area": "地面上广场",
+        "mark_type": "B15"
       },
       {
         "id": "YJHSWMK03012169b6ce4e5487d",
@@ -7883,6 +8243,14 @@
         "mark_type": "B15"
       },
       {
+        "id": "YJHSWMK031120001A01",
+        "sysaliasname": "粉尘监控系统",
+        "description": "1号分站模拟量001A01110301综采工作面回风流瓦斯瓦斯",
+        "sensor_type": "瓦斯",
+        "area": "1号分站",
+        "mark_type": "B14"
+      },
+      {
         "id": "YJHSWMK03114010",
         "sysaliasname": "精确定位系统",
         "description": "罐笼提升及平硐运输线(1250运输大巷洗靴池10号)_人数",
@@ -8059,6 +8427,14 @@
         "mark_type": "B16"
       },
       {
+        "id": "YJHSWMK03114072",
+        "sysaliasname": "精确定位系统",
+        "description": "二采区(6224底抽巷东边界巷口72号)_人数",
+        "sensor_type": "人数",
+        "area": "二采区辅助巷道",
+        "mark_type": "B15"
+      },
+      {
         "id": "YJHSWMK030121e956e09c25565",
         "sysaliasname": "工业视频",
         "description": "1100瓦斯抽放巷",
@@ -8072,14 +8448,6 @@
         "description": "东侧4",
         "sensor_type": "工业视频",
         "area": "南部停车场",
-        "mark_type": "B16"
-      },
-      {
-        "id": "YJHSWMK03012116d0a80f41444",
-        "sysaliasname": "工业视频",
-        "description": "一号联络巷",
-        "sensor_type": "工业视频",
-        "area": "三采区中部轨道下山",
         "mark_type": "B16"
       },
       {
@@ -8155,6 +8523,14 @@
         "mark_type": "B16"
       },
       {
+        "id": "YJHSWMK03114055",
+        "sysaliasname": "精确定位系统",
+        "description": "6126回风顺槽(巷口55号)_人数",
+        "sensor_type": "人数",
+        "area": "6126回风顺槽",
+        "mark_type": "B15"
+      },
+      {
         "id": "YJHSWMK030121539f1edec95ce",
         "sysaliasname": "工业视频",
         "description": "主斜井绞车房",
@@ -8176,6 +8552,14 @@
         "description": "三采区（1070底抽及防灭火措施巷750米121号）_人数",
         "sensor_type": "人数",
         "area": "井下作业人员",
+        "mark_type": "B15"
+      },
+      {
+        "id": "YJHSWMK03114020",
+        "sysaliasname": "精确定位系统",
+        "description": "二采区(6223东边界回风上山巷口20号)_人数",
+        "sensor_type": "人数",
+        "area": "东边界巷道",
         "mark_type": "B15"
       },
       {
@@ -8201,6 +8585,14 @@
         "sensor_type": "工业视频",
         "area": "回收",
         "mark_type": "B16"
+      },
+      {
+        "id": "YJHSWMK03114016",
+        "sysaliasname": "精确定位系统",
+        "description": "1250运输大巷(辅助运输大巷西16号)_人数",
+        "sensor_type": "人数",
+        "area": "1250辅助巷道",
+        "mark_type": "B15"
       },
       {
         "id": "YJHSWMK031140073007",
@@ -8347,19 +8739,19 @@
         "mark_type": "B16"
       },
       {
+        "id": "YJHSWMK03114074",
+        "sysaliasname": "精确定位系统",
+        "description": "1250运输大巷(材料上山74号)_人数",
+        "sensor_type": "人数",
+        "area": "1250辅助巷道",
+        "mark_type": "B15"
+      },
+      {
         "id": "YJHSWMK030121b942886a01df4",
         "sysaliasname": "工业视频",
         "description": "中部4",
         "sensor_type": "工业视频",
         "area": "南部停车场",
-        "mark_type": "B16"
-      },
-      {
-        "id": "YJHSWMK03012116b0fa9d6ecd1",
-        "sysaliasname": "工业视频",
-        "description": "上广场副井井口进车侧",
-        "sensor_type": "工业视频",
-        "area": "副立井提升区域",
         "mark_type": "B16"
       },
       {
@@ -8491,6 +8883,14 @@
         "mark_type": "B16"
       },
       {
+        "id": "YJHSWMK03114083",
+        "sysaliasname": "精确定位系统",
+        "description": "地面(上广场污水处理站83号)_人数",
+        "sensor_type": "人数",
+        "area": "地面上广场",
+        "mark_type": "B15"
+      },
+      {
         "id": "YJHSWMK0301216ef4e243886eb",
         "sysaliasname": "工业视频",
         "description": "长安路1",
@@ -8563,14 +8963,6 @@
         "mark_type": "B15"
       },
       {
-        "id": "YJHSWMK03012119498e1063e9d",
-        "sysaliasname": "工业视频",
-        "description": "803、805机头",
-        "sensor_type": "工业视频",
-        "area": "洗煤厂",
-        "mark_type": "B16"
-      },
-      {
         "id": "YJHSWMK0301212ad4f3a33bc74",
         "sysaliasname": "工业视频",
         "description": "一采区机轨下山2号防跑车",
@@ -8584,6 +8976,14 @@
         "description": "一采区(机轨下山绞车房后门22号)_人数",
         "sensor_type": "人数",
         "area": "一采区",
+        "mark_type": "B15"
+      },
+      {
+        "id": "YJHSWMK03114034",
+        "sysaliasname": "精确定位系统",
+        "description": "原煤运输线(1100运输大巷皮带机头34号)_人数",
+        "sensor_type": "人数",
+        "area": "1100运输大巷",
         "mark_type": "B15"
       },
       {
@@ -8667,20 +9067,20 @@
         "mark_type": "B16"
       },
       {
-        "id": "YJHSWMK03012115bbd5342dc38",
-        "sysaliasname": "工业视频",
-        "description": "1100排矸巷1#高位翻车机",
-        "sensor_type": "工业视频",
-        "area": "1100排矸巷水平延伸巷",
-        "mark_type": "B16"
-      },
-      {
         "id": "YJHSWMK0301218ea293a47c770",
         "sysaliasname": "工业视频",
         "description": "6224-2运煤巷煤仓下口",
         "sensor_type": "工业视频",
         "area": "回收",
         "mark_type": "B16"
+      },
+      {
+        "id": "YJHSWMK03114060",
+        "sysaliasname": "精确定位系统",
+        "description": "油页岩转载巷(西翼集中轨道下山正前60号)_人数",
+        "sensor_type": "人数",
+        "area": "油页岩转载巷",
+        "mark_type": "B15"
       },
       {
         "id": "YJHSWMK030121f04095ba819c7",
@@ -8851,12 +9251,28 @@
         "mark_type": "B16"
       },
       {
+        "id": "YJHSWMK03114022",
+        "sysaliasname": "精确定位系统",
+        "description": "一采区(1327上仓皮带底湾22号)_人数",
+        "sensor_type": "人数",
+        "area": "1250辅助巷道",
+        "mark_type": "B15"
+      },
+      {
         "id": "YJHSWMK03012196601a7c3d0dc",
         "sysaliasname": "工业视频",
         "description": "新建主立井井口2",
         "sensor_type": "工业视频",
         "area": "回收",
         "mark_type": "B16"
+      },
+      {
+        "id": "YJHSWMK03114031",
+        "sysaliasname": "精确定位系统",
+        "description": "一采区(机轨下山皮带机头配电硐室口31号)_人数",
+        "sensor_type": "人数",
+        "area": "一采区辅助巷道",
+        "mark_type": "B15"
       },
       {
         "id": "YJHSWMK03012186acc25f3c9b8",
@@ -8907,6 +9323,14 @@
         "mark_type": "B16"
       },
       {
+        "id": "YJHSWMK03114040",
+        "sysaliasname": "精确定位系统",
+        "description": "一采区(6125甩车场40号)_人数",
+        "sensor_type": "人数",
+        "area": "一采区辅助巷道",
+        "mark_type": "B15"
+      },
+      {
         "id": "YJHSWMK030121bc6fc370e61fe",
         "sysaliasname": "工业视频",
         "description": "西T1朝向迎头",
@@ -8928,14 +9352,6 @@
         "description": "制氮机房",
         "sensor_type": "工业视频",
         "area": "上广场压风机房",
-        "mark_type": "B16"
-      },
-      {
-        "id": "YJHSWMK0301211b41dfcb888a5",
-        "sysaliasname": "工业视频",
-        "description": "换装点",
-        "sensor_type": "工业视频",
-        "area": "6125-2进风顺槽",
         "mark_type": "B16"
       },
       {
@@ -8979,14 +9395,6 @@
         "mark_type": "B16"
       },
       {
-        "id": "YJHSWMK0301211b552a56ddad9",
-        "sysaliasname": "工业视频",
-        "description": "选运队海矿501皮带机尾",
-        "sensor_type": "工业视频",
-        "area": "选煤楼",
-        "mark_type": "B16"
-      },
-      {
         "id": "YJHSWMK0301212dbe3b0f8eef3",
         "sysaliasname": "工业视频",
         "description": "（西）底弯车场8081",
@@ -9009,6 +9417,14 @@
         "sensor_type": "工业视频",
         "area": "洗煤厂",
         "mark_type": "B16"
+      },
+      {
+        "id": "YJHSWMK0311402",
+        "sysaliasname": "精确定位系统",
+        "description": "罐笼提升及平硐运输线(1785平硐向里150米2号)_人数",
+        "sensor_type": "人数",
+        "area": "其他",
+        "mark_type": "B15"
       },
       {
         "id": "YJHSWMK031140057001",
@@ -9067,6 +9483,14 @@
         "mark_type": "B15"
       },
       {
+        "id": "YJHSWMK0311408106",
+        "sysaliasname": "精确定位系统",
+        "description": "地面(选煤楼女浴池门口)_人数",
+        "sensor_type": "人数",
+        "area": "其他",
+        "mark_type": "B15"
+      },
+      {
         "id": "YJHSWMK03012147a753eda4466",
         "sysaliasname": "工业视频",
         "description": "6116进风换装点",
@@ -9115,6 +9539,14 @@
         "mark_type": "B16"
       },
       {
+        "id": "YJHSWMK031140702",
+        "sysaliasname": "精确定位系统",
+        "description": "二采区(6215工作面乳化泵站2号)_人数",
+        "sensor_type": "人数",
+        "area": "其他",
+        "mark_type": "B15"
+      },
+      {
         "id": "YJHSWMK03012198e6207c8c06e",
         "sysaliasname": "工业视频",
         "description": "运输队检修车间",
@@ -9145,6 +9577,14 @@
         "sensor_type": "工业视频",
         "area": "油页岩暗斜井",
         "mark_type": "B16"
+      },
+      {
+        "id": "YJHSWMK03114027",
+        "sysaliasname": "精确定位系统",
+        "description": "罐笼提升及平硐运输线(1785平硐3283米处27号)_人数",
+        "sensor_type": "人数",
+        "area": "其他",
+        "mark_type": "B15"
       },
       {
         "id": "YJHSWMK03012187d6097c424e1",
@@ -9216,14 +9656,6 @@
         "description": "洗煤厂精煤棚东侧",
         "sensor_type": "工业视频",
         "area": "地面重点区域",
-        "mark_type": "B16"
-      },
-      {
-        "id": "YJHSWMK03012115f8e5ad306a8",
-        "sysaliasname": "工业视频",
-        "description": "三采区矸石仓下料口",
-        "sensor_type": "工业视频",
-        "area": "1100排矸巷水平延伸巷",
         "mark_type": "B16"
       },
       {
@@ -9344,14 +9776,6 @@
         "description": "主斜井一台卸载点",
         "sensor_type": "工业视频",
         "area": "主斜井运输系统",
-        "mark_type": "B16"
-      },
-      {
-        "id": "YJHSWMK0301211ace1ce17a64b",
-        "sysaliasname": "工业视频",
-        "description": "选运队201皮带巷",
-        "sensor_type": "工业视频",
-        "area": "选煤楼",
         "mark_type": "B16"
       },
       {
@@ -9483,6 +9907,14 @@
         "mark_type": "B16"
       },
       {
+        "id": "YJHSWMK03114077",
+        "sysaliasname": "精确定位系统",
+        "description": "地面(哈拉沟瓦斯泵房77号)_人数",
+        "sensor_type": "人数",
+        "area": "其他",
+        "mark_type": "B15"
+      },
+      {
         "id": "YJHSWMK030121cad8b4cbd776e",
         "sysaliasname": "工业视频",
         "description": "副立井引风机8217",
@@ -9568,6 +10000,14 @@
         "description": "油页岩(转载巷巷口风门 105号)_人数",
         "sensor_type": "人数",
         "area": "一采区",
+        "mark_type": "B15"
+      },
+      {
+        "id": "YJHSWMK03114056",
+        "sysaliasname": "精确定位系统",
+        "description": "6126进风顺槽(煤仓口56号)_人数",
+        "sensor_type": "人数",
+        "area": "6126进风顺槽",
         "mark_type": "B15"
       },
       {
@@ -9739,35 +10179,11 @@
         "mark_type": "B15"
       },
       {
-        "id": "YJHSWMK0301211be69d7800fac",
-        "sysaliasname": "工业视频",
-        "description": "1100回风大巷掘进工作面T2处",
-        "sensor_type": "工业视频",
-        "area": "T2传感器监控",
-        "mark_type": "B16"
-      },
-      {
-        "id": "YJHSWMK0301211ab999a3d4a0f",
-        "sysaliasname": "工业视频",
-        "description": "准备车间配电室",
-        "sensor_type": "工业视频",
-        "area": "洗煤厂",
-        "mark_type": "B16"
-      },
-      {
         "id": "YJHSWMK030121b63b7892410ee",
         "sysaliasname": "工业视频",
         "description": "主通风机",
         "sensor_type": "工业视频",
         "area": "哈拉沟",
-        "mark_type": "B16"
-      },
-      {
-        "id": "YJHSWMK0301211e5d10946bbe8",
-        "sysaliasname": "工业视频",
-        "description": "一采区瓦斯泵配电开关",
-        "sensor_type": "工业视频",
-        "area": "回收",
         "mark_type": "B16"
       },
       {
@@ -9843,14 +10259,6 @@
         "mark_type": "B16"
       },
       {
-        "id": "YJHSWMK0301211bc3cfc04abe9",
-        "sysaliasname": "工业视频",
-        "description": "1100破碎机下料口",
-        "sensor_type": "工业视频",
-        "area": "1100排矸巷水平延伸巷",
-        "mark_type": "B16"
-      },
-      {
         "id": "YJHSWMK03012127764b2b95585",
         "sysaliasname": "工业视频",
         "description": "上广场主扇2#水平风门8225",
@@ -9888,14 +10296,6 @@
         "description": "西部回风井翻渣台",
         "sensor_type": "工业视频",
         "area": "回收",
-        "mark_type": "B16"
-      },
-      {
-        "id": "YJHSWMK030121188aba480f0bc",
-        "sysaliasname": "工业视频",
-        "description": "上广场风井口8217",
-        "sensor_type": "工业视频",
-        "area": "上广场主扇机房",
         "mark_type": "B16"
       },
       {
@@ -10051,12 +10451,28 @@
         "mark_type": "B16"
       },
       {
+        "id": "YJHSWMK03114028",
+        "sysaliasname": "精确定位系统",
+        "description": "罐笼提升及平硐运输线(1785平硐人车出车侧28号)_人数",
+        "sensor_type": "人数",
+        "area": "其他",
+        "mark_type": "B15"
+      },
+      {
         "id": "YJHSWMK0301217cb992e7c7089",
         "sysaliasname": "工业视频",
         "description": "油页岩转载巷机电硐室",
         "sensor_type": "工业视频",
         "area": "井下油页岩运输系统",
         "mark_type": "B16"
+      },
+      {
+        "id": "YJHSWMK0311408",
+        "sysaliasname": "精确定位系统",
+        "description": "罐笼提升及平硐运输线(1785平硐人车停靠点 8号)_人数",
+        "sensor_type": "人数",
+        "area": "其他",
+        "mark_type": "B15"
       },
       {
         "id": "YJHSWMK030121eb0c6907ea01a",
@@ -10179,14 +10595,6 @@
         "mark_type": "B16"
       },
       {
-        "id": "YJHSWMK0301211612f652936a3",
-        "sysaliasname": "工业视频",
-        "description": "压滤车间二层",
-        "sensor_type": "工业视频",
-        "area": "洗煤厂",
-        "mark_type": "B16"
-      },
-      {
         "id": "YJHSWMK0301218bc4b365d8553",
         "sysaliasname": "工业视频",
         "description": "皮带转载点",
@@ -10209,6 +10617,14 @@
         "sensor_type": "工业视频",
         "area": "洗煤厂",
         "mark_type": "B16"
+      },
+      {
+        "id": "YJHSWMK03114047",
+        "sysaliasname": "精确定位系统",
+        "description": "二采区(机轨运输上山车场底湾47号)_人数",
+        "sensor_type": "人数",
+        "area": "二采区辅助巷道",
+        "mark_type": "B15"
       },
       {
         "id": "YJHSWMK0301215794fb2d78b9f",
@@ -10363,20 +10779,20 @@
         "mark_type": "B16"
       },
       {
-        "id": "YJHSWMK030121175f35526bf7f",
-        "sysaliasname": "工业视频",
-        "description": "装载硐室斜巷底弯",
-        "sensor_type": "工业视频",
-        "area": "主立井装载硐室",
-        "mark_type": "B16"
-      },
-      {
         "id": "YJHSWMK030121a0e0f29e4e7ed",
         "sysaliasname": "工业视频",
         "description": "102皮带机尾",
         "sensor_type": "工业视频",
         "area": "洗煤厂",
         "mark_type": "B16"
+      },
+      {
+        "id": "YJHSWMK0311406001",
+        "sysaliasname": "精确定位系统",
+        "description": "油页岩转载巷(正前60-1号)_人数",
+        "sensor_type": "人数",
+        "area": "其他",
+        "mark_type": "B15"
       },
       {
         "id": "YJHSWMK030121b192af42fa61e",
@@ -10456,14 +10872,6 @@
         "description": "平硐井口候车室",
         "sensor_type": "工业视频",
         "area": "平硐候车室",
-        "mark_type": "B16"
-      },
-      {
-        "id": "YJHSWMK0301211d62d9ae14696",
-        "sysaliasname": "工业视频",
-        "description": "一号联络巷风门2",
-        "sensor_type": "工业视频",
-        "area": "三采区中部轨道下山",
         "mark_type": "B16"
       },
       {
@@ -10568,22 +10976,6 @@
         "description": "综采二队会议室",
         "sensor_type": "工业视频",
         "area": "区队会议室",
-        "mark_type": "B16"
-      },
-      {
-        "id": "YJHSWMK03012115de1b0a946ba",
-        "sysaliasname": "工业视频",
-        "description": "1100瓦斯抽放巷揭煤区域抽放孔",
-        "sensor_type": "工业视频",
-        "area": "钻场施工",
-        "mark_type": "B16"
-      },
-      {
-        "id": "YJHSWMK0301211b6dea02ee970",
-        "sysaliasname": "工业视频",
-        "description": "污水处理车间水池8217",
-        "sensor_type": "工业视频",
-        "area": "上广场机房车间",
         "mark_type": "B16"
       },
       {
@@ -10723,6 +11115,14 @@
         "mark_type": "B16"
       },
       {
+        "id": "YJHSWMK03114024",
+        "sysaliasname": "精确定位系统",
+        "description": "二采区(6225底抽巷西风门外24号)_人数",
+        "sensor_type": "人数",
+        "area": "二采区辅助巷道",
+        "mark_type": "B15"
+      },
+      {
         "id": "YJHSWMK031140045007",
         "sysaliasname": "精确定位系统",
         "description": "一采区(6115回风密闭处 45号)_人数",
@@ -10856,14 +11256,6 @@
         "description": "热源分配站西侧",
         "sensor_type": "工业视频",
         "area": "洗煤厂",
-        "mark_type": "B16"
-      },
-      {
-        "id": "YJHSWMK0301211e348b77be742",
-        "sysaliasname": "工业视频",
-        "description": "主立井高压室",
-        "sensor_type": "工业视频",
-        "area": "主立井提升区域",
         "mark_type": "B16"
       },
       {
@@ -11051,6 +11443,14 @@
         "mark_type": "B16"
       },
       {
+        "id": "YJHSWMK0311402801",
+        "sysaliasname": "精确定位系统",
+        "description": "罐笼提升及平硐运输线(1785平硐信号室28-1号)_人数",
+        "sensor_type": "人数",
+        "area": "其他",
+        "mark_type": "B15"
+      },
+      {
         "id": "YJHSWMK030121704d017214a81",
         "sysaliasname": "工业视频",
         "description": "上广场灌浆站水枪",
@@ -11115,6 +11515,14 @@
         "mark_type": "B16"
       },
       {
+        "id": "YJHSWMK0311402807",
+        "sysaliasname": "精确定位系统",
+        "description": "罐笼提升及平硐运输线(1785平硐人车出车侧28-7号)_人数",
+        "sensor_type": "人数",
+        "area": "其他",
+        "mark_type": "B15"
+      },
+      {
         "id": "YJHSWMK030121e0175ee1d408d",
         "sysaliasname": "工业视频",
         "description": "6125-2回风顺槽T2",
@@ -11129,14 +11537,6 @@
         "sensor_type": "人数",
         "area": "井下作业人员",
         "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK0301211dc3594e7fd22",
-        "sysaliasname": "工业视频",
-        "description": "二采区净水装置",
-        "sensor_type": "工业视频",
-        "area": "井下机房硐室",
-        "mark_type": "B16"
       },
       {
         "id": "YJHSWMK0301219d336d2fb5101",
@@ -11187,14 +11587,6 @@
         "mark_type": "B16"
       },
       {
-        "id": "YJHSWMK0301211d8226a567b8e",
-        "sysaliasname": "工业视频",
-        "description": "一采区机轨下山6125甩车场8117",
-        "sensor_type": "工业视频",
-        "area": "一采区机轨下山提升系统",
-        "mark_type": "B16"
-      },
-      {
         "id": "YJHSWMK031140117007",
         "sysaliasname": "精确定位系统",
         "description": "新建主立井井底车场 117号_人数",
@@ -11233,6 +11625,14 @@
         "sensor_type": "工业视频",
         "area": "洗煤厂",
         "mark_type": "B16"
+      },
+      {
+        "id": "YJHSWMK03114050",
+        "sysaliasname": "精确定位系统",
+        "description": "6116进风顺槽(上平巷50号)_人数",
+        "sensor_type": "人数",
+        "area": "6116进风顺槽",
+        "mark_type": "B15"
       },
       {
         "id": "YJHSWMK030121ab1152e394389",
@@ -11347,6 +11747,22 @@
         "mark_type": "B16"
       },
       {
+        "id": "YJHSWMK03114062",
+        "sysaliasname": "精确定位系统",
+        "description": "6225-1工作面(回风顺槽扩大切眼处62号)_人数",
+        "sensor_type": "人数",
+        "area": "其他",
+        "mark_type": "B15"
+      },
+      {
+        "id": "YJHSWMK03114079",
+        "sysaliasname": "精确定位系统",
+        "description": "一采区(6124底抽巷东绞车处79号)_人数",
+        "sensor_type": "人数",
+        "area": "一采区辅助巷道",
+        "mark_type": "B15"
+      },
+      {
         "id": "YJHSWMK030121219b347d0260d",
         "sysaliasname": "工业视频",
         "description": "井底车场",
@@ -11393,6 +11809,14 @@
         "sensor_type": "工业视频",
         "area": "副立井提升区域",
         "mark_type": "B16"
+      },
+      {
+        "id": "YJHSWMK03114066",
+        "sysaliasname": "精确定位系统",
+        "description": "一采区(专用回风下山66号)_人数",
+        "sensor_type": "人数",
+        "area": "一采区辅助巷道",
+        "mark_type": "B15"
       },
       {
         "id": "YJHSWMK03012131c2382de745a",
@@ -11475,20 +11899,20 @@
         "mark_type": "B16"
       },
       {
-        "id": "YJHSWMK03012116d7b2d52eb9c",
-        "sysaliasname": "工业视频",
-        "description": "1250辅助运输大巷（东）",
-        "sensor_type": "工业视频",
-        "area": "井下主要运输线",
-        "mark_type": "B16"
-      },
-      {
         "id": "YJHSWMK030121c5773ad09c50c",
         "sysaliasname": "工业视频",
         "description": "上广场防爆风门8208",
         "sensor_type": "工业视频",
         "area": "上广场主扇机房",
         "mark_type": "B16"
+      },
+      {
+        "id": "YJHSWMK0311408105",
+        "sysaliasname": "精确定位系统",
+        "description": "地面(选煤楼会议室门口)_人数",
+        "sensor_type": "人数",
+        "area": "其他",
+        "mark_type": "B15"
       },
       {
         "id": "YJHSWMK030121fb391082f3aa9",
@@ -11649,6 +12073,14 @@
         "sensor_type": "工业视频",
         "area": "洗煤厂",
         "mark_type": "B16"
+      },
+      {
+        "id": "YJHSWMK03114042",
+        "sysaliasname": "精确定位系统",
+        "description": "一采区(6124甩车场42号)_人数",
+        "sensor_type": "人数",
+        "area": "一采区辅助巷道",
+        "mark_type": "B15"
       },
       {
         "id": "YJHSWMK030121769b65c069565",
@@ -11859,6 +12291,14 @@
         "mark_type": "B16"
       },
       {
+        "id": "YJHSWMK03114052",
+        "sysaliasname": "精确定位系统",
+        "description": "6116回风顺槽(联络巷口52号)_人数",
+        "sensor_type": "人数",
+        "area": "6116回风顺槽",
+        "mark_type": "B15"
+      },
+      {
         "id": "YJHSWMK0301214d5409ce6e433",
         "sysaliasname": "工业视频",
         "description": "1785-150米处",
@@ -11897,6 +12337,14 @@
         "sensor_type": "工业视频",
         "area": "6125-2进风顺槽",
         "mark_type": "B16"
+      },
+      {
+        "id": "YJHSWMK031140701",
+        "sysaliasname": "精确定位系统",
+        "description": "二采区(6215工作面回风1号)_人数",
+        "sensor_type": "人数",
+        "area": "其他",
+        "mark_type": "B15"
       },
       {
         "id": "YJHSWMK0301214a3c2e8168725",
@@ -11955,14 +12403,6 @@
         "mark_type": "B15"
       },
       {
-        "id": "YJHSWMK03012116904d9c30720",
-        "sysaliasname": "工业视频",
-        "description": "一采区机轨下山7#给煤机",
-        "sensor_type": "工业视频",
-        "area": "一采区机轨下山提升系统",
-        "mark_type": "B16"
-      },
-      {
         "id": "YJHSWMK030121465468216a0d6",
         "sysaliasname": "工业视频",
         "description": "安管部会议室后通道",
@@ -12011,14 +12451,6 @@
         "mark_type": "B16"
       },
       {
-        "id": "YJHSWMK03012116e9d3bdb2097",
-        "sysaliasname": "工业视频",
-        "description": "选运队205皮带机头",
-        "sensor_type": "工业视频",
-        "area": "选煤楼",
-        "mark_type": "B16"
-      },
-      {
         "id": "YJHSWMK030121d9bf71d7cd5b0",
         "sysaliasname": "工业视频",
         "description": "1070底抽及防灭火措施巷换装点",
@@ -12057,6 +12489,14 @@
         "sensor_type": "工业视频",
         "area": "上广场压风机房",
         "mark_type": "B16"
+      },
+      {
+        "id": "YJHSWMK03114018",
+        "sysaliasname": "精确定位系统",
+        "description": "1250运输大巷(三号交岔点18号)_人数",
+        "sensor_type": "人数",
+        "area": "1250辅助巷道",
+        "mark_type": "B15"
       },
       {
         "id": "YJHSWMK030121e6729dc9c722e",
@@ -12203,6 +12643,22 @@
         "mark_type": "B15"
       },
       {
+        "id": "YJHSWMK031140202",
+        "sysaliasname": "精确定位系统",
+        "description": "罐笼提升及平硐运输线(1785平硐口2-2号)_人数",
+        "sensor_type": "人数",
+        "area": "其他",
+        "mark_type": "B15"
+      },
+      {
+        "id": "YJHSWMK03114032",
+        "sysaliasname": "精确定位系统",
+        "description": "原煤运输线(主斜井底湾向上100米处32号)_人数",
+        "sensor_type": "人数",
+        "area": "主斜井区域",
+        "mark_type": "B15"
+      },
+      {
         "id": "YJHSWMK031140079007",
         "sysaliasname": "精确定位系统",
         "description": "一采区(6124底抽巷东绞车处79号)_人数",
@@ -12275,11 +12731,27 @@
         "mark_type": "B16"
       },
       {
+        "id": "YJHSWMK03114035",
+        "sysaliasname": "精确定位系统",
+        "description": "原煤运输线(1100运输大巷300米处35号)_人数",
+        "sensor_type": "人数",
+        "area": "1100运输大巷",
+        "mark_type": "B15"
+      },
+      {
         "id": "YJHSWMK031140070007",
         "sysaliasname": "精确定位系统",
         "description": "一采区(6124东边界施工巷70号)_人数",
         "sensor_type": "人数",
         "area": "一采区",
+        "mark_type": "B15"
+      },
+      {
+        "id": "YJHSWMK03114078",
+        "sysaliasname": "精确定位系统",
+        "description": "测试78号_人数",
+        "sensor_type": "人数",
+        "area": "其他",
         "mark_type": "B15"
       },
       {
@@ -12347,14 +12819,6 @@
         "mark_type": "B16"
       },
       {
-        "id": "YJHSWMK03012117915a037af24",
-        "sysaliasname": "工业视频",
-        "description": "东1",
-        "sensor_type": "工业视频",
-        "area": "新制氮机房",
-        "mark_type": "B16"
-      },
-      {
         "id": "YJHSWMK03012173d3833a2c638",
         "sysaliasname": "工业视频",
         "description": "6126-1工作面进风挡车栏",
@@ -12393,6 +12857,14 @@
         "sensor_type": "工业视频",
         "area": "副立井提升区域",
         "mark_type": "B16"
+      },
+      {
+        "id": "YJHSWMK03114058",
+        "sysaliasname": "精确定位系统",
+        "description": "二采区(6224底抽巷小材上风门外58号)_人数",
+        "sensor_type": "人数",
+        "area": "二采区辅助巷道",
+        "mark_type": "B15"
       },
       {
         "id": "YJHSWMK031140100007",
@@ -12483,12 +12955,12 @@
         "mark_type": "B15"
       },
       {
-        "id": "YJHSWMK0301211a19304e54ec8",
-        "sysaliasname": "工业视频",
-        "description": "煤仓口",
-        "sensor_type": "工业视频",
-        "area": "6125-2回风顺槽",
-        "mark_type": "B16"
+        "id": "YJHSWMK03114068",
+        "sysaliasname": "精确定位系统",
+        "description": "一采区(6122底抽巷东边界下山68号)_人数",
+        "sensor_type": "人数",
+        "area": "东边界巷道",
+        "mark_type": "B15"
       },
       {
         "id": "YJHSWMK030121b291ec056bc8a",
@@ -12619,6 +13091,14 @@
         "mark_type": "B16"
       },
       {
+        "id": "YJHSWMK03114081",
+        "sysaliasname": "精确定位系统",
+        "description": "地面(选煤楼二楼81号)_人数",
+        "sensor_type": "人数",
+        "area": "地面选运队",
+        "mark_type": "B15"
+      },
+      {
         "id": "YJHSWMK030121c063b5a8112e2",
         "sysaliasname": "工业视频",
         "description": "1100瓦斯抽放巷底弯车场",
@@ -12641,6 +13121,14 @@
         "sensor_type": "工业视频",
         "area": "井下油页岩运输系统",
         "mark_type": "B16"
+      },
+      {
+        "id": "YJHSWMK03114075",
+        "sysaliasname": "精确定位系统",
+        "description": "二采区(油页岩机轨运输上山75号)_人数",
+        "sensor_type": "人数",
+        "area": "二采区辅助巷道",
+        "mark_type": "B15"
       },
       {
         "id": "YJHSWMK030121adb2407411d18",
@@ -12811,14 +13299,6 @@
         "mark_type": "B16"
       },
       {
-        "id": "YJHSWMK0301211f712bc6d9ecd",
-        "sysaliasname": "工业视频",
-        "description": "标校室",
-        "sensor_type": "工业视频",
-        "area": "回收",
-        "mark_type": "B16"
-      },
-      {
         "id": "YJHSWMK03012131720947f65c6",
         "sysaliasname": "工业视频",
         "description": "主斜井3#抓捕器",
@@ -12859,6 +13339,22 @@
         "mark_type": "B16"
       },
       {
+        "id": "YJHSWMK0311405",
+        "sysaliasname": "精确定位系统",
+        "description": "地面(油页岩皮带运输斜井井口5号)_人数",
+        "sensor_type": "人数",
+        "area": "油页岩暗斜井",
+        "mark_type": "B15"
+      },
+      {
+        "id": "YJHSWMK03114054",
+        "sysaliasname": "精确定位系统",
+        "description": "6116回风顺槽(泵站处54号)_人数",
+        "sensor_type": "人数",
+        "area": "其他",
+        "mark_type": "B15"
+      },
+      {
         "id": "YJHSWMK030121a91b0b250670d",
         "sysaliasname": "工业视频",
         "description": "202皮带大厅球机",
@@ -12880,14 +13376,6 @@
         "description": "压滤车间一层",
         "sensor_type": "工业视频",
         "area": "洗煤厂",
-        "mark_type": "B16"
-      },
-      {
-        "id": "YJHSWMK0301211c17ec1aa4004",
-        "sysaliasname": "工业视频",
-        "description": "溜子搭接",
-        "sensor_type": "工业视频",
-        "area": "6117回风顺槽",
         "mark_type": "B16"
       },
       {
@@ -12979,12 +13467,20 @@
         "mark_type": "B16"
       },
       {
-        "id": "YJHSWMK03012118677285f677e",
-        "sysaliasname": "工业视频",
-        "description": "6126工作面回风顺槽3",
-        "sensor_type": "工业视频",
-        "area": "回收",
-        "mark_type": "B16"
+        "id": "YJHSWMK03114017",
+        "sysaliasname": "精确定位系统",
+        "description": "1280回风中巷巷口17号_人数",
+        "sensor_type": "人数",
+        "area": "二采区辅助巷道",
+        "mark_type": "B15"
+      },
+      {
+        "id": "YJHSWMK03114088",
+        "sysaliasname": "精确定位系统",
+        "description": "原煤运输线(主斜井搭接硐室 88号)_人数",
+        "sensor_type": "人数",
+        "area": "其他",
+        "mark_type": "B15"
       },
       {
         "id": "YJHSWMK030121d418fbbcc8179",
@@ -13059,11 +13555,27 @@
         "mark_type": "B16"
       },
       {
+        "id": "YJHSWMK0311403",
+        "sysaliasname": "精确定位系统",
+        "description": "二采区(6215工作面进风皮带煤仓口3号)_人数",
+        "sensor_type": "人数",
+        "area": "其他",
+        "mark_type": "B15"
+      },
+      {
         "id": "YJHSWMK031140036007",
         "sysaliasname": "精确定位系统",
         "description": "原煤运输线(1100运输大巷清理斜巷36号)_人数",
         "sensor_type": "人数",
         "area": "大巷",
+        "mark_type": "B15"
+      },
+      {
+        "id": "YJHSWMK03114030",
+        "sysaliasname": "精确定位系统",
+        "description": "一采区(6122底抽巷交岔点30号)_人数",
+        "sensor_type": "人数",
+        "area": "其他",
         "mark_type": "B15"
       },
       {
@@ -13123,6 +13635,14 @@
         "mark_type": "B16"
       },
       {
+        "id": "YJHSWMK03114065",
+        "sysaliasname": "精确定位系统",
+        "description": "1100瓦斯抽放巷(排矸巷煤仓口65号)_人数",
+        "sensor_type": "人数",
+        "area": "1100运输大巷",
+        "mark_type": "B15"
+      },
+      {
         "id": "YJHSWMK03012165e16ffa0d593",
         "sysaliasname": "工业视频",
         "description": "压滤车间三层",
@@ -13144,14 +13664,6 @@
         "description": "储煤场",
         "sensor_type": "工业视频",
         "area": "煤厂",
-        "mark_type": "B16"
-      },
-      {
-        "id": "YJHSWMK03012117ec2fae5fb5c",
-        "sysaliasname": "工业视频",
-        "description": "二采区总回风钻机处",
-        "sensor_type": "工业视频",
-        "area": "回收",
         "mark_type": "B16"
       },
       {
@@ -13235,6 +13747,14 @@
         "mark_type": "B16"
       },
       {
+        "id": "YJHSWMK03114086",
+        "sysaliasname": "精确定位系统",
+        "description": "地面(上广场锅炉房86号)_人数",
+        "sensor_type": "人数",
+        "area": "地面上广场",
+        "mark_type": "B15"
+      },
+      {
         "id": "YJHSWMK030121e7e9659c2c8c3",
         "sysaliasname": "工业视频",
         "description": "107#架",
@@ -13267,6 +13787,14 @@
         "mark_type": "B16"
       },
       {
+        "id": "YJHSWMK03114082",
+        "sysaliasname": "精确定位系统",
+        "description": "地面(选煤楼四楼82号)_人数",
+        "sensor_type": "人数",
+        "area": "地面选运队",
+        "mark_type": "B15"
+      },
+      {
         "id": "YJHSWMK031140009007",
         "sysaliasname": "精确定位系统",
         "description": "1100排矸联络巷(水平延伸巷配电点9号)_人数",
@@ -13280,14 +13808,6 @@
         "description": "1100大巷皮带机尾8106",
         "sensor_type": "工业视频",
         "area": "原煤运输系统",
-        "mark_type": "B16"
-      },
-      {
-        "id": "YJHSWMK03012118311821019aa",
-        "sysaliasname": "工业视频",
-        "description": "制氮机房后存储场",
-        "sensor_type": "工业视频",
-        "area": "上广场压风机房",
         "mark_type": "B16"
       },
       {
@@ -13331,6 +13851,14 @@
         "mark_type": "B16"
       },
       {
+        "id": "YJHSWMK03114087",
+        "sysaliasname": "精确定位系统",
+        "description": "6116回风顺槽(联络巷巷口87号)_人数",
+        "sensor_type": "人数",
+        "area": "其他",
+        "mark_type": "B15"
+      },
+      {
         "id": "YJHSWMK030121a6ac39a96c9e2",
         "sysaliasname": "工业视频",
         "description": "一采区机轨下山绞车房",
@@ -13353,6 +13881,14 @@
         "sensor_type": "工业视频",
         "area": "选煤楼",
         "mark_type": "B16"
+      },
+      {
+        "id": "YJHSWMK03114026",
+        "sysaliasname": "精确定位系统",
+        "description": "原煤运输线(主斜井向下150米处26号)_人数",
+        "sensor_type": "人数",
+        "area": "主斜井区域",
+        "mark_type": "B15"
       },
       {
         "id": "YJHSWMK030121eea380c61f417",
@@ -13443,6 +13979,14 @@
         "mark_type": "B16"
       },
       {
+        "id": "YJHSWMK0311407",
+        "sysaliasname": "精确定位系统",
+        "description": "6225-1工作面(回风顺槽西7号)_人数",
+        "sensor_type": "人数",
+        "area": "6225二系统回风西",
+        "mark_type": "B15"
+      },
+      {
         "id": "YJHSWMK031140126007",
         "sysaliasname": "精确定位系统",
         "description": "三采区（1030底抽及防灭火措施巷600米处126号）_人数",
@@ -13489,6 +14033,14 @@
         "sensor_type": "工业视频",
         "area": "选煤楼",
         "mark_type": "B16"
+      },
+      {
+        "id": "YJHSWMK03114071",
+        "sysaliasname": "精确定位系统",
+        "description": "无法设置点-暂不用71号_人数",
+        "sensor_type": "人数",
+        "area": "其他",
+        "mark_type": "B15"
       },
       {
         "id": "YJHSWMK030121bfd78f88600d5",
@@ -13635,6 +14187,14 @@
         "mark_type": "B16"
       },
       {
+        "id": "YJHSWMK0311406",
+        "sysaliasname": "精确定位系统",
+        "description": "地面(油页岩暗斜井配电硐室6号)_人数",
+        "sensor_type": "人数",
+        "area": "其他",
+        "mark_type": "B15"
+      },
+      {
         "id": "YJHSWMK0301215855938cf0875",
         "sysaliasname": "工业视频",
         "description": "上广场锅炉房操作间8208",
@@ -13672,14 +14232,6 @@
         "description": "1785人车乘坐站点",
         "sensor_type": "工业视频",
         "area": "井下机房硐室",
-        "mark_type": "B16"
-      },
-      {
-        "id": "YJHSWMK03012119203a27fad9d",
-        "sysaliasname": "工业视频",
-        "description": "6116进风甩车场警戒点摘挂钩",
-        "sensor_type": "工业视频",
-        "area": "一采区智能绞车",
         "mark_type": "B16"
       },
       {
@@ -13787,6 +14339,14 @@
         "mark_type": "B15"
       },
       {
+        "id": "YJHSWMK03114043",
+        "sysaliasname": "精确定位系统",
+        "description": "1250运输大巷(联络巷43号)_人数",
+        "sensor_type": "人数",
+        "area": "1250辅助巷道",
+        "mark_type": "B15"
+      },
+      {
         "id": "YJHSWMK030121af8ab30459772",
         "sysaliasname": "工业视频",
         "description": "6126-1进风1号定向钻8107",
@@ -13816,6 +14376,14 @@
         "description": "一采区(机轨下山底湾道13号)_人数",
         "sensor_type": "人数",
         "area": "一采区辅助巷道",
+        "mark_type": "B15"
+      },
+      {
+        "id": "YJHSWMK03114037",
+        "sysaliasname": "精确定位系统",
+        "description": "原煤运输线(1100运输大巷石门皮带机头37号)_人数",
+        "sensor_type": "人数",
+        "area": "1100运输大巷",
         "mark_type": "B15"
       },
       {
@@ -13899,6 +14467,14 @@
         "mark_type": "B16"
       },
       {
+        "id": "YJHSWMK03114021",
+        "sysaliasname": "精确定位系统",
+        "description": "一采区(1327上仓皮带向上300米21号)_人数",
+        "sensor_type": "人数",
+        "area": "1250辅助巷道",
+        "mark_type": "B15"
+      },
+      {
         "id": "YJHSWMK03012190b15fa726322",
         "sysaliasname": "工业视频",
         "description": "103皮带机尾溜槽",
@@ -13921,6 +14497,14 @@
         "sensor_type": "工业视频",
         "area": "井下机房硐室",
         "mark_type": "B16"
+      },
+      {
+        "id": "YJHSWMK03114029",
+        "sysaliasname": "精确定位系统",
+        "description": "一采区(1280底板延伸巷中巷29号)_人数",
+        "sensor_type": "人数",
+        "area": "1250辅助巷道",
+        "mark_type": "B15"
       },
       {
         "id": "YJHSWMK031140039007",
@@ -13971,6 +14555,14 @@
         "mark_type": "B16"
       },
       {
+        "id": "YJHSWMK03114085",
+        "sysaliasname": "精确定位系统",
+        "description": "6116进风顺槽(切眼上出口85号)_人数",
+        "sensor_type": "人数",
+        "area": "其他",
+        "mark_type": "B15"
+      },
+      {
         "id": "YJHSWMK030121f44e7e9248956",
         "sysaliasname": "工业视频",
         "description": "一采区机轨下山6124甩车场8504",
@@ -13985,6 +14577,14 @@
         "sensor_type": "工业视频",
         "area": "调度及监控中心",
         "mark_type": "B16"
+      },
+      {
+        "id": "YJHSWMK03114080",
+        "sysaliasname": "精确定位系统",
+        "description": "地面(上广场副立井井口80号)_人数",
+        "sensor_type": "人数",
+        "area": "其他",
+        "mark_type": "B15"
       },
       {
         "id": "YJHSWMK031140074007",
@@ -14043,12 +14643,12 @@
         "mark_type": "B15"
       },
       {
-        "id": "YJHSWMK0301211c2f135c58c14",
-        "sysaliasname": "工业视频",
-        "description": "6215甩车场8067",
-        "sensor_type": "工业视频",
-        "area": "二采区主提升绞车",
-        "mark_type": "B16"
+        "id": "YJHSWMK03114070",
+        "sysaliasname": "精确定位系统",
+        "description": "一采区(6124东边界施工巷70号)_人数",
+        "sensor_type": "人数",
+        "area": "一采区辅助巷道",
+        "mark_type": "B15"
       },
       {
         "id": "YJHSWMK030121507bb06ff158a",
@@ -14083,6 +14683,14 @@
         "mark_type": "B16"
       },
       {
+        "id": "YJHSWMK0311402800",
+        "sysaliasname": "精确定位系统",
+        "description": "罐笼提升及平硐运输线(1785罐笼出车侧28号)_人数",
+        "sensor_type": "人数",
+        "area": "其他",
+        "mark_type": "B15"
+      },
+      {
         "id": "YJHSWMK030121be9b960ff3c60",
         "sysaliasname": "工业视频",
         "description": "1100水泵房1#泵",
@@ -14105,6 +14713,14 @@
         "sensor_type": "工业视频",
         "area": "调度及监控中心",
         "mark_type": "B16"
+      },
+      {
+        "id": "YJHSWMK03114039",
+        "sysaliasname": "精确定位系统",
+        "description": "一采区(6125底抽巷200米处39号)_人数",
+        "sensor_type": "人数",
+        "area": "一采区辅助巷道",
+        "mark_type": "B15"
       },
       {
         "id": "YJHSWMK0301215d5970c41bf81",
@@ -14219,14 +14835,6 @@
         "mark_type": "B16"
       },
       {
-        "id": "YJHSWMK0301211ec39c7e4263f",
-        "sysaliasname": "工业视频",
-        "description": "左前门",
-        "sensor_type": "工业视频",
-        "area": "新制氮机房",
-        "mark_type": "B16"
-      },
-      {
         "id": "YJHSWMK0301213a7e9e5c06af2",
         "sysaliasname": "工业视频",
         "description": "1250水仓清理处",
@@ -14251,6 +14859,14 @@
         "mark_type": "B16"
       },
       {
+        "id": "YJHSWMK03114063",
+        "sysaliasname": "精确定位系统",
+        "description": "一采区(6125底抽巷斜巷底湾63号)_人数",
+        "sensor_type": "人数",
+        "area": "一采区辅助巷道",
+        "mark_type": "B15"
+      },
+      {
         "id": "YJHSWMK030121ce1ac69d19692",
         "sysaliasname": "工业视频",
         "description": "出车侧",
@@ -14267,12 +14883,12 @@
         "mark_type": "B16"
       },
       {
-        "id": "YJHSWMK0301211c2edfb0d1278",
-        "sysaliasname": "工业视频",
-        "description": "污水处理硐室清水池",
-        "sensor_type": "工业视频",
-        "area": "1100污水处理硐室",
-        "mark_type": "B16"
+        "id": "YJHSWMK03114038",
+        "sysaliasname": "精确定位系统",
+        "description": "1100瓦斯抽放巷(西头38号)_人数",
+        "sensor_type": "人数",
+        "area": "其他",
+        "mark_type": "B15"
       },
       {
         "id": "YJHSWMK030121aac16c1a3e109",
@@ -14345,6 +14961,14 @@
         "sensor_type": "工业视频",
         "area": "新制氮机房",
         "mark_type": "B16"
+      },
+      {
+        "id": "YJHSWMK03114073",
+        "sysaliasname": "精确定位系统",
+        "description": "二采区(6225底抽巷东边界73号)_人数",
+        "sensor_type": "人数",
+        "area": "二采区辅助巷道",
+        "mark_type": "B15"
       },
       {
         "id": "YJHSWMK030121c4f9327a5c9ec",
@@ -14459,14 +15083,6 @@
         "mark_type": "B16"
       },
       {
-        "id": "YJHSWMK03012119f41c1f36903",
-        "sysaliasname": "工业视频",
-        "description": "南门外2",
-        "sensor_type": "工业视频",
-        "area": "公共区域",
-        "mark_type": "B16"
-      },
-      {
         "id": "YJHSWMK030121890a10f5c5b62",
         "sysaliasname": "工业视频",
         "description": "主斜井二台机尾清扫器",
@@ -14497,6 +15113,14 @@
         "sensor_type": "工业视频",
         "area": "洗煤厂",
         "mark_type": "B16"
+      },
+      {
+        "id": "YJHSWMK03114048",
+        "sysaliasname": "精确定位系统",
+        "description": "一采区(1250东部瓦斯泵门口48号)_人数",
+        "sensor_type": "人数",
+        "area": "1250辅助巷道",
+        "mark_type": "B15"
       },
       {
         "id": "YJHSWMK0301212f54fbbafe785",
@@ -14563,6 +15187,14 @@
         "mark_type": "B16"
       },
       {
+        "id": "YJHSWMK03114041",
+        "sysaliasname": "精确定位系统",
+        "description": "油页岩转载巷(巷口41号)_人数",
+        "sensor_type": "人数",
+        "area": "其他",
+        "mark_type": "B15"
+      },
+      {
         "id": "YJHSWMK030121d1ee04c8eccc5",
         "sysaliasname": "工业视频",
         "description": "6223底抽巷钻机",
@@ -14576,6 +15208,14 @@
         "description": "1250运输大巷(辅助运输大巷西16号)_人数",
         "sensor_type": "人数",
         "area": "一采区",
+        "mark_type": "B15"
+      },
+      {
+        "id": "YJHSWMK03114069",
+        "sysaliasname": "精确定位系统",
+        "description": "一采区(东边界专用回风下山上平巷69号)_人数",
+        "sensor_type": "人数",
+        "area": "东边界巷道",
         "mark_type": "B15"
       },
       {
@@ -14715,12 +15355,28 @@
         "mark_type": "B16"
       },
       {
+        "id": "YJHSWMK03114045",
+        "sysaliasname": "精确定位系统",
+        "description": "一采区(6115回风无极绳处45号)_人数",
+        "sensor_type": "人数",
+        "area": "6115工作面",
+        "mark_type": "B15"
+      },
+      {
         "id": "YJHSWMK0301217bac716bdedb8",
         "sysaliasname": "工业视频",
         "description": "6126工作面前部刮板输送机",
         "sensor_type": "工业视频",
         "area": "回收",
         "mark_type": "B16"
+      },
+      {
+        "id": "YJHSWMK03114076",
+        "sysaliasname": "精确定位系统",
+        "description": "二采区(轨道上山90KW绞车处76号)_人数",
+        "sensor_type": "人数",
+        "area": "二采区辅助巷道",
+        "mark_type": "B15"
       },
       {
         "id": "YJHSWMK030121936a0b401411b",
@@ -14835,6 +15491,14 @@
         "mark_type": "B16"
       },
       {
+        "id": "YJHSWMK03114025",
+        "sysaliasname": "精确定位系统",
+        "description": "油页岩转载巷(回风联络巷巷口25号)_人数",
+        "sensor_type": "人数",
+        "area": "一采区辅助巷道",
+        "mark_type": "B15"
+      },
+      {
         "id": "YJHSWMK03012143954a680734e",
         "sysaliasname": "工业视频",
         "description": "三采区油页岩集中运输下山T2",
@@ -14859,25 +15523,9 @@
         "mark_type": "B16"
       },
       {
-        "id": "YJHSWMK030121157c1720a5671",
-        "sysaliasname": "工业视频",
-        "description": "综采一队会议室",
-        "sensor_type": "工业视频",
-        "area": "区队会议室",
-        "mark_type": "B16"
-      },
-      {
         "id": "YJHSWMK030121369e6743fdd52",
         "sysaliasname": "工业视频",
         "description": "6226进风顺槽除铁器",
-        "sensor_type": "工业视频",
-        "area": "6226工作面",
-        "mark_type": "B16"
-      },
-      {
-        "id": "YJHSWMK0301211a8fb70a8a91b",
-        "sysaliasname": "工业视频",
-        "description": "进风顺槽煤岩交接处",
         "sensor_type": "工业视频",
         "area": "6226工作面",
         "mark_type": "B16"
@@ -14913,6 +15561,14 @@
         "sensor_type": "工业视频",
         "area": "洗煤厂",
         "mark_type": "B16"
+      },
+      {
+        "id": "YJHSWMK03114051",
+        "sysaliasname": "精确定位系统",
+        "description": "二采区(变电所前门51号)_人数",
+        "sensor_type": "人数",
+        "area": "二采区辅助巷道",
+        "mark_type": "B15"
       },
       {
         "id": "YJHSWMK0301213ee5f898f8636",
@@ -15187,14 +15843,6 @@
         "mark_type": "B16"
       },
       {
-        "id": "YJHSWMK03012115ff92809ba10",
-        "sysaliasname": "工业视频",
-        "description": "6127-1工作面揭煤抽放孔",
-        "sensor_type": "工业视频",
-        "area": "回收",
-        "mark_type": "B16"
-      },
-      {
         "id": "YJHSWMK0301218724c4665ec2e",
         "sysaliasname": "工业视频",
         "description": "主斜井井底车场",
@@ -15315,6 +15963,14 @@
         "mark_type": "B16"
       },
       {
+        "id": "YJHSWMK03114033",
+        "sysaliasname": "精确定位系统",
+        "description": "一采区(机轨下山上部车场33号)_人数",
+        "sensor_type": "人数",
+        "area": "一采区辅助巷道",
+        "mark_type": "B15"
+      },
+      {
         "id": "YJHSWMK030121f7021c1423c17",
         "sysaliasname": "工业视频",
         "description": "危废库北角",
@@ -15411,20 +16067,28 @@
         "mark_type": "B16"
       },
       {
-        "id": "YJHSWMK0301211f5cac52ac07c",
-        "sysaliasname": "工业视频",
-        "description": "油页岩集中运输下山煤仓口",
-        "sensor_type": "工业视频",
-        "area": "井下油页岩运输系统",
-        "mark_type": "B16"
-      },
-      {
         "id": "YJHSWMK0301215eb6296ddb6ec",
         "sysaliasname": "工业视频",
         "description": "1250永久避难硐室",
         "sensor_type": "工业视频",
         "area": "井下机房硐室",
         "mark_type": "B16"
+      },
+      {
+        "id": "YJHSWMK03114044",
+        "sysaliasname": "精确定位系统",
+        "description": "一采区(油页岩集中运输下山皮带机头煤仓口44号)_人数",
+        "sensor_type": "人数",
+        "area": "一采区辅助巷道",
+        "mark_type": "B15"
+      },
+      {
+        "id": "YJHSWMK03114053",
+        "sysaliasname": "精确定位系统",
+        "description": "二采区(6225底抽巷西净化水装置处53号)_人数",
+        "sensor_type": "人数",
+        "area": "二采区辅助巷道",
+        "mark_type": "B15"
       },
       {
         "id": "YJHSWMK030121fbf1e1bc771b6",
@@ -15515,6 +16179,14 @@
         "mark_type": "B16"
       },
       {
+        "id": "YJHSWMK03114023",
+        "sysaliasname": "精确定位系统",
+        "description": "二采区(6224底抽巷西上平巷23号)_人数",
+        "sensor_type": "人数",
+        "area": "二采区辅助巷道",
+        "mark_type": "B15"
+      },
+      {
         "id": "YJHSWMK0301214f3f50aaa93d9",
         "sysaliasname": "工业视频",
         "description": "二采区加压泵房",
@@ -15545,6 +16217,14 @@
         "sensor_type": "工业视频",
         "area": "南部停车场",
         "mark_type": "B16"
+      },
+      {
+        "id": "YJHSWMK03114036",
+        "sysaliasname": "精确定位系统",
+        "description": "原煤运输线(1100运输大巷清理斜巷36号)_人数",
+        "sensor_type": "人数",
+        "area": "1100运输大巷",
+        "mark_type": "B15"
       },
       {
         "id": "YJHSWMK0301219869a6788ee1c",
@@ -15606,14 +16286,6 @@
         "id": "YJHSWMK0301218bd4b3f37f000",
         "sysaliasname": "工业视频",
         "description": "瓦斯泵高开室",
-        "sensor_type": "工业视频",
-        "area": "哈拉沟",
-        "mark_type": "B16"
-      },
-      {
-        "id": "YJHSWMK0301211e09fbe0ea4ac",
-        "sysaliasname": "工业视频",
-        "description": "2#防爆门",
         "sensor_type": "工业视频",
         "area": "哈拉沟",
         "mark_type": "B16"
@@ -15683,6 +16355,14 @@
         "mark_type": "B16"
       },
       {
+        "id": "YJHSWMK0311402802",
+        "sysaliasname": "精确定位系统",
+        "description": "罐笼提升及平硐运输线(1785平硐出井候车室28-2号)_人数",
+        "sensor_type": "人数",
+        "area": "其他",
+        "mark_type": "B15"
+      },
+      {
         "id": "YJHSWMK030121ab8bc1a7252aa",
         "sysaliasname": "工业视频",
         "description": "一采区油页岩6116进风甩车场主",
@@ -15691,12 +16371,12 @@
         "mark_type": "B16"
       },
       {
-        "id": "YJHSWMK0301211b4cce776db69",
-        "sysaliasname": "工业视频",
-        "description": "压风机高压室",
-        "sensor_type": "工业视频",
-        "area": "上广场压风机房",
-        "mark_type": "B16"
+        "id": "YJHSWMK03114019",
+        "sysaliasname": "精确定位系统",
+        "description": "1250运输大巷(四号交岔点19号)_人数",
+        "sensor_type": "人数",
+        "area": "1250辅助巷道",
+        "mark_type": "B15"
       },
       {
         "id": "YJHSWMK030121571c3232f596e",
@@ -15715,6 +16395,14 @@
         "mark_type": "B16"
       },
       {
+        "id": "YJHSWMK03114049",
+        "sysaliasname": "精确定位系统",
+        "description": "一采区(油页岩集中运输下山底湾49号)_人数",
+        "sensor_type": "人数",
+        "area": "一采区辅助巷道",
+        "mark_type": "B15"
+      },
+      {
         "id": "YJHSWMK031140144007",
         "sysaliasname": "精确定位系统",
         "description": "一采区（6125-2进风顺槽500米处144号）_人数",
@@ -15729,6 +16417,14 @@
         "sensor_type": "工业视频",
         "area": "回收",
         "mark_type": "B16"
+      },
+      {
+        "id": "YJHSWMK03114057",
+        "sysaliasname": "精确定位系统",
+        "description": "6126回风顺槽(煤仓口57号)_人数",
+        "sensor_type": "人数",
+        "area": "6126回风顺槽",
+        "mark_type": "B15"
       },
       {
         "id": "YJHSWMK03012159313424b763a",
@@ -15827,790 +16523,6 @@
         "mark_type": "B15"
       },
       {
-        "id": "YJHSWMK030121cc171ed97bfb8",
-        "sysaliasname": "工业视频",
-        "description": "油页岩运输斜井皮带机尾",
-        "sensor_type": "工业视频",
-        "area": "上广场油页岩暗斜井运输系统",
-        "mark_type": "B16"
-      },
-      {
-        "id": "YJHSWMK030121a6364a3a7e25f",
-        "sysaliasname": "工业视频",
-        "description": "二采区西部集中上山上平巷",
-        "sensor_type": "工业视频",
-        "area": "回收",
-        "mark_type": "B16"
-      },
-      {
-        "id": "YJHSWMK03114061",
-        "sysaliasname": "精确定位系统",
-        "description": "6225-1工作面(底抽巷回风上山底湾61号)_人数",
-        "sensor_type": "人数",
-        "area": "二采区辅助巷道",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114059",
-        "sysaliasname": "精确定位系统",
-        "description": "6225-1工作面(西部集中运输上山59号)_人数",
-        "sensor_type": "人数",
-        "area": "二采区辅助巷道",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114046",
-        "sysaliasname": "精确定位系统",
-        "description": "二采区(6224底抽巷36号钻场46号)_人数",
-        "sensor_type": "人数",
-        "area": "二采区辅助巷道",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114084",
-        "sysaliasname": "精确定位系统",
-        "description": "地面(上广场主扇机房84号)_人数",
-        "sensor_type": "人数",
-        "area": "地面上广场",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114072",
-        "sysaliasname": "精确定位系统",
-        "description": "二采区(6224底抽巷东边界巷口72号)_人数",
-        "sensor_type": "人数",
-        "area": "二采区辅助巷道",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114055",
-        "sysaliasname": "精确定位系统",
-        "description": "6126回风顺槽(巷口55号)_人数",
-        "sensor_type": "人数",
-        "area": "6126回风顺槽",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114020",
-        "sysaliasname": "精确定位系统",
-        "description": "二采区(6223东边界回风上山巷口20号)_人数",
-        "sensor_type": "人数",
-        "area": "东边界巷道",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114016",
-        "sysaliasname": "精确定位系统",
-        "description": "1250运输大巷(辅助运输大巷西16号)_人数",
-        "sensor_type": "人数",
-        "area": "1250辅助巷道",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114091",
-        "sysaliasname": "精确定位系统",
-        "description": "中部煤二层轨道下山回风联络巷91号_人数",
-        "sensor_type": "人数",
-        "area": "其他",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114074",
-        "sysaliasname": "精确定位系统",
-        "description": "1250运输大巷(材料上山74号)_人数",
-        "sensor_type": "人数",
-        "area": "1250辅助巷道",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114083",
-        "sysaliasname": "精确定位系统",
-        "description": "地面(上广场污水处理站83号)_人数",
-        "sensor_type": "人数",
-        "area": "地面上广场",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114034",
-        "sysaliasname": "精确定位系统",
-        "description": "原煤运输线(1100运输大巷皮带机头34号)_人数",
-        "sensor_type": "人数",
-        "area": "1100运输大巷",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114060",
-        "sysaliasname": "精确定位系统",
-        "description": "油页岩转载巷(西翼集中轨道下山正前60号)_人数",
-        "sensor_type": "人数",
-        "area": "油页岩转载巷",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114089",
-        "sysaliasname": "精确定位系统",
-        "description": "6126回风顺槽(皮带机头89号)_人数",
-        "sensor_type": "人数",
-        "area": "其他",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114022",
-        "sysaliasname": "精确定位系统",
-        "description": "一采区(1327上仓皮带底湾22号)_人数",
-        "sensor_type": "人数",
-        "area": "1250辅助巷道",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114031",
-        "sysaliasname": "精确定位系统",
-        "description": "一采区(机轨下山皮带机头配电硐室口31号)_人数",
-        "sensor_type": "人数",
-        "area": "一采区辅助巷道",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114040",
-        "sysaliasname": "精确定位系统",
-        "description": "一采区(6125甩车场40号)_人数",
-        "sensor_type": "人数",
-        "area": "一采区辅助巷道",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK0311402",
-        "sysaliasname": "精确定位系统",
-        "description": "罐笼提升及平硐运输线(1785平硐向里150米2号)_人数",
-        "sensor_type": "人数",
-        "area": "其他",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK0311408106",
-        "sysaliasname": "精确定位系统",
-        "description": "地面(选煤楼女浴池门口)_人数",
-        "sensor_type": "人数",
-        "area": "其他",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK031140702",
-        "sysaliasname": "精确定位系统",
-        "description": "二采区(6215工作面乳化泵站2号)_人数",
-        "sensor_type": "人数",
-        "area": "其他",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114027",
-        "sysaliasname": "精确定位系统",
-        "description": "罐笼提升及平硐运输线(1785平硐3283米处27号)_人数",
-        "sensor_type": "人数",
-        "area": "其他",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114077",
-        "sysaliasname": "精确定位系统",
-        "description": "地面(哈拉沟瓦斯泵房77号)_人数",
-        "sensor_type": "人数",
-        "area": "其他",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114056",
-        "sysaliasname": "精确定位系统",
-        "description": "6126进风顺槽(煤仓口56号)_人数",
-        "sensor_type": "人数",
-        "area": "6126进风顺槽",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK0311409",
-        "sysaliasname": "精确定位系统",
-        "description": "6225-1工作面(联络巷巷口9号)_人数",
-        "sensor_type": "人数",
-        "area": "6225进风顺槽",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114028",
-        "sysaliasname": "精确定位系统",
-        "description": "罐笼提升及平硐运输线(1785平硐人车出车侧28号)_人数",
-        "sensor_type": "人数",
-        "area": "其他",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK0311408",
-        "sysaliasname": "精确定位系统",
-        "description": "罐笼提升及平硐运输线(1785平硐人车停靠点 8号)_人数",
-        "sensor_type": "人数",
-        "area": "其他",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114047",
-        "sysaliasname": "精确定位系统",
-        "description": "二采区(机轨运输上山车场底湾47号)_人数",
-        "sensor_type": "人数",
-        "area": "二采区辅助巷道",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK0311406001",
-        "sysaliasname": "精确定位系统",
-        "description": "油页岩转载巷(正前60-1号)_人数",
-        "sensor_type": "人数",
-        "area": "其他",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114024",
-        "sysaliasname": "精确定位系统",
-        "description": "二采区(6225底抽巷西风门外24号)_人数",
-        "sensor_type": "人数",
-        "area": "二采区辅助巷道",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK0311402801",
-        "sysaliasname": "精确定位系统",
-        "description": "罐笼提升及平硐运输线(1785平硐信号室28-1号)_人数",
-        "sensor_type": "人数",
-        "area": "其他",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK0311402807",
-        "sysaliasname": "精确定位系统",
-        "description": "罐笼提升及平硐运输线(1785平硐人车出车侧28-7号)_人数",
-        "sensor_type": "人数",
-        "area": "其他",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114050",
-        "sysaliasname": "精确定位系统",
-        "description": "6116进风顺槽(上平巷50号)_人数",
-        "sensor_type": "人数",
-        "area": "6116进风顺槽",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114062",
-        "sysaliasname": "精确定位系统",
-        "description": "6225-1工作面(回风顺槽扩大切眼处62号)_人数",
-        "sensor_type": "人数",
-        "area": "其他",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114079",
-        "sysaliasname": "精确定位系统",
-        "description": "一采区(6124底抽巷东绞车处79号)_人数",
-        "sensor_type": "人数",
-        "area": "一采区辅助巷道",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114066",
-        "sysaliasname": "精确定位系统",
-        "description": "一采区(专用回风下山66号)_人数",
-        "sensor_type": "人数",
-        "area": "一采区辅助巷道",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK0311408105",
-        "sysaliasname": "精确定位系统",
-        "description": "地面(选煤楼会议室门口)_人数",
-        "sensor_type": "人数",
-        "area": "其他",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114042",
-        "sysaliasname": "精确定位系统",
-        "description": "一采区(6124甩车场42号)_人数",
-        "sensor_type": "人数",
-        "area": "一采区辅助巷道",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114052",
-        "sysaliasname": "精确定位系统",
-        "description": "6116回风顺槽(联络巷口52号)_人数",
-        "sensor_type": "人数",
-        "area": "6116回风顺槽",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK031140701",
-        "sysaliasname": "精确定位系统",
-        "description": "二采区(6215工作面回风1号)_人数",
-        "sensor_type": "人数",
-        "area": "其他",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114095",
-        "sysaliasname": "精确定位系统",
-        "description": "地面(哈拉沟井口77-3)_人数",
-        "sensor_type": "人数",
-        "area": "地面哈拉沟",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114018",
-        "sysaliasname": "精确定位系统",
-        "description": "1250运输大巷(三号交岔点18号)_人数",
-        "sensor_type": "人数",
-        "area": "1250辅助巷道",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK031140202",
-        "sysaliasname": "精确定位系统",
-        "description": "罐笼提升及平硐运输线(1785平硐口2-2号)_人数",
-        "sensor_type": "人数",
-        "area": "其他",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114032",
-        "sysaliasname": "精确定位系统",
-        "description": "原煤运输线(主斜井底湾向上100米处32号)_人数",
-        "sensor_type": "人数",
-        "area": "主斜井区域",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114035",
-        "sysaliasname": "精确定位系统",
-        "description": "原煤运输线(1100运输大巷300米处35号)_人数",
-        "sensor_type": "人数",
-        "area": "1100运输大巷",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114078",
-        "sysaliasname": "精确定位系统",
-        "description": "测试78号_人数",
-        "sensor_type": "人数",
-        "area": "其他",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114058",
-        "sysaliasname": "精确定位系统",
-        "description": "二采区(6224底抽巷小材上风门外58号)_人数",
-        "sensor_type": "人数",
-        "area": "二采区辅助巷道",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114068",
-        "sysaliasname": "精确定位系统",
-        "description": "一采区(6122底抽巷东边界下山68号)_人数",
-        "sensor_type": "人数",
-        "area": "东边界巷道",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114090",
-        "sysaliasname": "精确定位系统",
-        "description": "6116回风顺槽(向里350米处90号)_人数",
-        "sensor_type": "人数",
-        "area": "其他",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114081",
-        "sysaliasname": "精确定位系统",
-        "description": "地面(选煤楼二楼81号)_人数",
-        "sensor_type": "人数",
-        "area": "地面选运队",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114075",
-        "sysaliasname": "精确定位系统",
-        "description": "二采区(油页岩机轨运输上山75号)_人数",
-        "sensor_type": "人数",
-        "area": "二采区辅助巷道",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK0311405",
-        "sysaliasname": "精确定位系统",
-        "description": "地面(油页岩皮带运输斜井井口5号)_人数",
-        "sensor_type": "人数",
-        "area": "油页岩暗斜井",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114054",
-        "sysaliasname": "精确定位系统",
-        "description": "6116回风顺槽(泵站处54号)_人数",
-        "sensor_type": "人数",
-        "area": "其他",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114017",
-        "sysaliasname": "精确定位系统",
-        "description": "1280回风中巷巷口17号_人数",
-        "sensor_type": "人数",
-        "area": "二采区辅助巷道",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114088",
-        "sysaliasname": "精确定位系统",
-        "description": "原煤运输线(主斜井搭接硐室 88号)_人数",
-        "sensor_type": "人数",
-        "area": "其他",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK0311403",
-        "sysaliasname": "精确定位系统",
-        "description": "二采区(6215工作面进风皮带煤仓口3号)_人数",
-        "sensor_type": "人数",
-        "area": "其他",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114030",
-        "sysaliasname": "精确定位系统",
-        "description": "一采区(6122底抽巷交岔点30号)_人数",
-        "sensor_type": "人数",
-        "area": "其他",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114065",
-        "sysaliasname": "精确定位系统",
-        "description": "1100瓦斯抽放巷(排矸巷煤仓口65号)_人数",
-        "sensor_type": "人数",
-        "area": "1100运输大巷",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114093",
-        "sysaliasname": "精确定位系统",
-        "description": "地面(哈拉沟瓦斯泵房77-1)_人数",
-        "sensor_type": "人数",
-        "area": "地面哈拉沟",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114086",
-        "sysaliasname": "精确定位系统",
-        "description": "地面(上广场锅炉房86号)_人数",
-        "sensor_type": "人数",
-        "area": "地面上广场",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114082",
-        "sysaliasname": "精确定位系统",
-        "description": "地面(选煤楼四楼82号)_人数",
-        "sensor_type": "人数",
-        "area": "地面选运队",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114087",
-        "sysaliasname": "精确定位系统",
-        "description": "6116回风顺槽(联络巷巷口87号)_人数",
-        "sensor_type": "人数",
-        "area": "其他",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114026",
-        "sysaliasname": "精确定位系统",
-        "description": "原煤运输线(主斜井向下150米处26号)_人数",
-        "sensor_type": "人数",
-        "area": "主斜井区域",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK0311407",
-        "sysaliasname": "精确定位系统",
-        "description": "6225-1工作面(回风顺槽西7号)_人数",
-        "sensor_type": "人数",
-        "area": "6225二系统回风西",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114071",
-        "sysaliasname": "精确定位系统",
-        "description": "无法设置点-暂不用71号_人数",
-        "sensor_type": "人数",
-        "area": "其他",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK0311406",
-        "sysaliasname": "精确定位系统",
-        "description": "地面(油页岩暗斜井配电硐室6号)_人数",
-        "sensor_type": "人数",
-        "area": "其他",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114043",
-        "sysaliasname": "精确定位系统",
-        "description": "1250运输大巷(联络巷43号)_人数",
-        "sensor_type": "人数",
-        "area": "1250辅助巷道",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114037",
-        "sysaliasname": "精确定位系统",
-        "description": "原煤运输线(1100运输大巷石门皮带机头37号)_人数",
-        "sensor_type": "人数",
-        "area": "1100运输大巷",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114021",
-        "sysaliasname": "精确定位系统",
-        "description": "一采区(1327上仓皮带向上300米21号)_人数",
-        "sensor_type": "人数",
-        "area": "1250辅助巷道",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114029",
-        "sysaliasname": "精确定位系统",
-        "description": "一采区(1280底板延伸巷中巷29号)_人数",
-        "sensor_type": "人数",
-        "area": "1250辅助巷道",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114085",
-        "sysaliasname": "精确定位系统",
-        "description": "6116进风顺槽(切眼上出口85号)_人数",
-        "sensor_type": "人数",
-        "area": "其他",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114080",
-        "sysaliasname": "精确定位系统",
-        "description": "地面(上广场副立井井口80号)_人数",
-        "sensor_type": "人数",
-        "area": "其他",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114070",
-        "sysaliasname": "精确定位系统",
-        "description": "一采区(6124东边界施工巷70号)_人数",
-        "sensor_type": "人数",
-        "area": "一采区辅助巷道",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK0311402800",
-        "sysaliasname": "精确定位系统",
-        "description": "罐笼提升及平硐运输线(1785罐笼出车侧28号)_人数",
-        "sensor_type": "人数",
-        "area": "其他",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114039",
-        "sysaliasname": "精确定位系统",
-        "description": "一采区(6125底抽巷200米处39号)_人数",
-        "sensor_type": "人数",
-        "area": "一采区辅助巷道",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114063",
-        "sysaliasname": "精确定位系统",
-        "description": "一采区(6125底抽巷斜巷底湾63号)_人数",
-        "sensor_type": "人数",
-        "area": "一采区辅助巷道",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK0311409998",
-        "sysaliasname": "精确定位系统",
-        "description": "当天下井总人数",
-        "sensor_type": "人数",
-        "area": "全矿井",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114038",
-        "sysaliasname": "精确定位系统",
-        "description": "1100瓦斯抽放巷(西头38号)_人数",
-        "sensor_type": "人数",
-        "area": "其他",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114073",
-        "sysaliasname": "精确定位系统",
-        "description": "二采区(6225底抽巷东边界73号)_人数",
-        "sensor_type": "人数",
-        "area": "二采区辅助巷道",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114094",
-        "sysaliasname": "精确定位系统",
-        "description": "地面(哈拉沟主扇机房77-2)_人数",
-        "sensor_type": "人数",
-        "area": "地面哈拉沟",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114048",
-        "sysaliasname": "精确定位系统",
-        "description": "一采区(1250东部瓦斯泵门口48号)_人数",
-        "sensor_type": "人数",
-        "area": "1250辅助巷道",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114041",
-        "sysaliasname": "精确定位系统",
-        "description": "油页岩转载巷(巷口41号)_人数",
-        "sensor_type": "人数",
-        "area": "其他",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114069",
-        "sysaliasname": "精确定位系统",
-        "description": "一采区(东边界专用回风下山上平巷69号)_人数",
-        "sensor_type": "人数",
-        "area": "东边界巷道",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114045",
-        "sysaliasname": "精确定位系统",
-        "description": "一采区(6115回风无极绳处45号)_人数",
-        "sensor_type": "人数",
-        "area": "6115工作面",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114076",
-        "sysaliasname": "精确定位系统",
-        "description": "二采区(轨道上山90KW绞车处76号)_人数",
-        "sensor_type": "人数",
-        "area": "二采区辅助巷道",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114025",
-        "sysaliasname": "精确定位系统",
-        "description": "油页岩转载巷(回风联络巷巷口25号)_人数",
-        "sensor_type": "人数",
-        "area": "一采区辅助巷道",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114051",
-        "sysaliasname": "精确定位系统",
-        "description": "二采区(变电所前门51号)_人数",
-        "sensor_type": "人数",
-        "area": "二采区辅助巷道",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK0311409999",
-        "sysaliasname": "精确定位系统",
-        "description": "当前井下总人数",
-        "sensor_type": "人数",
-        "area": "井下",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114033",
-        "sysaliasname": "精确定位系统",
-        "description": "一采区(机轨下山上部车场33号)_人数",
-        "sensor_type": "人数",
-        "area": "一采区辅助巷道",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114044",
-        "sysaliasname": "精确定位系统",
-        "description": "一采区(油页岩集中运输下山皮带机头煤仓口44号)_人数",
-        "sensor_type": "人数",
-        "area": "一采区辅助巷道",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114053",
-        "sysaliasname": "精确定位系统",
-        "description": "二采区(6225底抽巷西净化水装置处53号)_人数",
-        "sensor_type": "人数",
-        "area": "二采区辅助巷道",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114023",
-        "sysaliasname": "精确定位系统",
-        "description": "二采区(6224底抽巷西上平巷23号)_人数",
-        "sensor_type": "人数",
-        "area": "二采区辅助巷道",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114036",
-        "sysaliasname": "精确定位系统",
-        "description": "原煤运输线(1100运输大巷清理斜巷36号)_人数",
-        "sensor_type": "人数",
-        "area": "1100运输大巷",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK0311402802",
-        "sysaliasname": "精确定位系统",
-        "description": "罐笼提升及平硐运输线(1785平硐出井候车室28-2号)_人数",
-        "sensor_type": "人数",
-        "area": "其他",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114019",
-        "sysaliasname": "精确定位系统",
-        "description": "1250运输大巷(四号交岔点19号)_人数",
-        "sensor_type": "人数",
-        "area": "1250辅助巷道",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114049",
-        "sysaliasname": "精确定位系统",
-        "description": "一采区(油页岩集中运输下山底湾49号)_人数",
-        "sensor_type": "人数",
-        "area": "一采区辅助巷道",
-        "mark_type": "B15"
-      },
-      {
-        "id": "YJHSWMK03114057",
-        "sysaliasname": "精确定位系统",
-        "description": "6126回风顺槽(煤仓口57号)_人数",
-        "sensor_type": "人数",
-        "area": "6126回风顺槽",
-        "mark_type": "B15"
-      },
-      {
         "id": "YJHSWMK03114067",
         "sysaliasname": "精确定位系统",
         "description": "1100瓦斯抽放巷(东头67号)_人数",
@@ -16627,11 +16539,99 @@
         "mark_type": "B15"
       },
       {
+        "id": "YJHSWMK030121cc171ed97bfb8",
+        "sysaliasname": "工业视频",
+        "description": "油页岩运输斜井皮带机尾",
+        "sensor_type": "工业视频",
+        "area": "上广场油页岩暗斜井运输系统",
+        "mark_type": "B16"
+      },
+      {
+        "id": "YJHSWMK030121a6364a3a7e25f",
+        "sysaliasname": "工业视频",
+        "description": "二采区西部集中上山上平巷",
+        "sensor_type": "工业视频",
+        "area": "回收",
+        "mark_type": "B16"
+      },
+      {
         "id": "YJHSWMK0311404",
         "sysaliasname": "精确定位系统",
         "description": "二采区(6215甩车场4号)_人数",
         "sensor_type": "人数",
         "area": "二采区辅助巷道",
+        "mark_type": "B15"
+      },
+      {
+        "id": "YJHSWMK03114091",
+        "sysaliasname": "精确定位系统",
+        "description": "中部煤二层轨道下山回风联络巷91号_人数",
+        "sensor_type": "人数",
+        "area": "其他",
+        "mark_type": "B15"
+      },
+      {
+        "id": "YJHSWMK03114089",
+        "sysaliasname": "精确定位系统",
+        "description": "6126回风顺槽(皮带机头89号)_人数",
+        "sensor_type": "人数",
+        "area": "其他",
+        "mark_type": "B15"
+      },
+      {
+        "id": "YJHSWMK0311409",
+        "sysaliasname": "精确定位系统",
+        "description": "6225-1工作面(联络巷巷口9号)_人数",
+        "sensor_type": "人数",
+        "area": "6225进风顺槽",
+        "mark_type": "B15"
+      },
+      {
+        "id": "YJHSWMK03114095",
+        "sysaliasname": "精确定位系统",
+        "description": "地面(哈拉沟井口77-3)_人数",
+        "sensor_type": "人数",
+        "area": "地面哈拉沟",
+        "mark_type": "B15"
+      },
+      {
+        "id": "YJHSWMK03114090",
+        "sysaliasname": "精确定位系统",
+        "description": "6116回风顺槽(向里350米处90号)_人数",
+        "sensor_type": "人数",
+        "area": "其他",
+        "mark_type": "B15"
+      },
+      {
+        "id": "YJHSWMK03114093",
+        "sysaliasname": "精确定位系统",
+        "description": "地面(哈拉沟瓦斯泵房77-1)_人数",
+        "sensor_type": "人数",
+        "area": "地面哈拉沟",
+        "mark_type": "B15"
+      },
+      {
+        "id": "YJHSWMK0311409998",
+        "sysaliasname": "精确定位系统",
+        "description": "当天下井总人数",
+        "sensor_type": "人数",
+        "area": "全矿井",
+        "mark_type": "B15"
+      },
+      {
+        "id": "YJHSWMK03114094",
+        "sysaliasname": "精确定位系统",
+        "description": "地面(哈拉沟主扇机房77-2)_人数",
+        "sensor_type": "人数",
+        "area": "地面哈拉沟",
+        "mark_type": "B15"
+      },
+      {
+        "id": "YJHSWMK0311409999",
+        "sysaliasname": "精确定位系统",
+        "description": "当前井下总人数",
+        "sensor_type": "人数",
+        "area": "井下",
         "mark_type": "B15"
       }
     ],

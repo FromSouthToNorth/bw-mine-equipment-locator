@@ -27,7 +27,7 @@
     "matched_name": "17216工作面",
     "candidate_id": "CA6826CE-9136-456D-B992-A4E311E4253B",
     "score": 15,
-    "timestamp": "2026-05-20T09:42:20.532295"
+    "timestamp": "2026-05-20T15:01:32.972667"
   },
   "B14:17216工作面破碎机开停": {
     "matched_name": "17216工作面",
@@ -39,13 +39,13 @@
     "matched_name": "17216工作面",
     "candidate_id": "CA6826CE-9136-456D-B992-A4E311E4253B",
     "score": 15,
-    "timestamp": "2026-05-20T09:42:20.538069"
+    "timestamp": "2026-05-20T15:01:32.978850"
   },
   "B14:17216工作面前部溜子开停": {
     "matched_name": "17216工作面",
     "candidate_id": "CA6826CE-9136-456D-B992-A4E311E4253B",
     "score": 15,
-    "timestamp": "2026-05-20T09:42:20.544189"
+    "timestamp": "2026-05-20T15:01:32.985161"
   },
   "B14:17216工作面采煤机开停": {
     "matched_name": "17216工作面",
@@ -663,7 +663,7 @@
     "matched_name": "17216工作面",
     "candidate_id": "CA6826CE-9136-456D-B992-A4E311E4253B",
     "score": 17,
-    "timestamp": "2026-05-20T09:42:23.104509"
+    "timestamp": "2026-05-20T15:01:35.528812"
   },
   "B16:17216工作面64架": {
     "matched_name": "17216工作面",
@@ -765,7 +765,7 @@
     "matched_name": "17216工作面",
     "candidate_id": "CA6826CE-9136-456D-B992-A4E311E4253B",
     "score": 17,
-    "timestamp": "2026-05-20T09:42:22.586657"
+    "timestamp": "2026-05-20T15:01:35.039343"
   },
   "B16:1755架空人车机尾下变坡点": {
     "matched_name": "1755行人下山",
@@ -1083,7 +1083,7 @@
     "matched_name": "17216工作面",
     "candidate_id": "CA6826CE-9136-456D-B992-A4E311E4253B",
     "score": 17,
-    "timestamp": "2026-05-20T09:42:24.367919"
+    "timestamp": "2026-05-20T15:01:36.698705"
   },
   "B16:17216皮带除铁器": {
     "matched_name": "17216进风顺槽",
@@ -3316,5 +3316,1457 @@
     "candidate_id": "5982324D-954F-45CD-AE10-9C8BCB2E0641",
     "score": 12,
     "timestamp": "2026-05-20T09:42:24.528713"
+  },
+  "B14:15103高抽巷上风侧甲烷_激光甲烷传感器瓦斯134150103高抽巷上风侧甲烷瓦斯": {
+    "matched_name": "15103高抽巷",
+    "candidate_id": "9C7AEB46-A911-4CC9-9B6D-1DF2F79179E9",
+    "score": 15,
+    "timestamp": "2026-05-20T10:51:10.844731"
+  },
+  "B14:315正前钻机处甲烷_激光甲烷传感器瓦斯946瓦斯": {
+    "matched_name": "+315水平轨道大巷",
+    "candidate_id": "D100A8BE-C243-4971-8178-F1D0D6B91366",
+    "score": 10,
+    "timestamp": "2026-05-20T10:51:10.867840"
+  },
+  "B14:315轨道巷变电所传感器分站712分站": {
+    "matched_name": "+315轨道大巷配风巷",
+    "candidate_id": "89078B11-4202-4B1A-AE80-595B2E56BA10",
+    "score": 10,
+    "timestamp": "2026-05-20T10:51:11.050756"
+  },
+  "B14:15103高抽巷风门传感器风门136150103高抽巷风门风门": {
+    "matched_name": "15103高抽巷",
+    "candidate_id": "9C7AEB46-A911-4CC9-9B6D-1DF2F79179E9",
+    "score": 15,
+    "timestamp": "2026-05-20T10:51:11.271963"
+  },
+  "B14:315轨道巷变电所内甲烷_激光甲烷传感器瓦斯936瓦斯": {
+    "matched_name": "+315轨道大巷配风巷",
+    "candidate_id": "89078B11-4202-4B1A-AE80-595B2E56BA10",
+    "score": 12,
+    "timestamp": "2026-05-20T10:51:11.349346"
+  },
+  "B14:15103高抽巷动力开关断电器KJ95X断电110150103高抽巷动力开关断电器断电": {
+    "matched_name": "15103高抽巷",
+    "candidate_id": "9C7AEB46-A911-4CC9-9B6D-1DF2F79179E9",
+    "score": 15,
+    "timestamp": "2026-05-20T10:51:11.359717"
+  },
+  "B14:15103高抽巷皮带机头一氧化碳传感器一氧化碳966一氧化碳": {
+    "matched_name": "15103高抽巷",
+    "candidate_id": "9C7AEB46-A911-4CC9-9B6D-1DF2F79179E9",
+    "score": 15,
+    "timestamp": "2026-05-20T10:51:12.217396"
+  },
+  "B14:15103高抽巷动力开关断电器_馈电_馈电器传感器馈电969150103高抽巷动力开关断电器_馈电馈电": {
+    "matched_name": "15103高抽巷",
+    "candidate_id": "9C7AEB46-A911-4CC9-9B6D-1DF2F79179E9",
+    "score": 15,
+    "timestamp": "2026-05-20T10:51:12.456698"
+  },
+  "B14:15103高抽巷维护处甲烷_激光甲烷传感器瓦斯135瓦斯": {
+    "matched_name": "15103高抽巷",
+    "candidate_id": "9C7AEB46-A911-4CC9-9B6D-1DF2F79179E9",
+    "score": 15,
+    "timestamp": "2026-05-20T10:51:12.722968"
+  },
+  "B14:315正前钻机处一氧化碳传感器一氧化碳961一氧化碳": {
+    "matched_name": "+315水平轨道大巷",
+    "candidate_id": "D100A8BE-C243-4971-8178-F1D0D6B91366",
+    "score": 8,
+    "timestamp": "2026-05-20T10:51:12.778475"
+  },
+  "B14:315轨道巷变电所风门1传感器风门937风门": {
+    "matched_name": "+315轨道大巷配风巷",
+    "candidate_id": "89078B11-4202-4B1A-AE80-595B2E56BA10",
+    "score": 10,
+    "timestamp": "2026-05-20T10:51:12.955983"
+  },
+  "B14:315轨道巷变电所风门2传感器风门175风门": {
+    "matched_name": "+315轨道大巷配风巷",
+    "candidate_id": "89078B11-4202-4B1A-AE80-595B2E56BA10",
+    "score": 10,
+    "timestamp": "2026-05-20T10:51:13.209937"
+  },
+  "B14:315正前风门传感器风门922风门": {
+    "matched_name": "+315水平轨道大巷",
+    "candidate_id": "D100A8BE-C243-4971-8178-F1D0D6B91366",
+    "score": 8,
+    "timestamp": "2026-05-20T10:51:13.253299"
+  },
+  "B14:15103高抽巷皮带机头烟雾传感器烟雾238烟雾": {
+    "matched_name": "15103高抽巷",
+    "candidate_id": "9C7AEB46-A911-4CC9-9B6D-1DF2F79179E9",
+    "score": 15,
+    "timestamp": "2026-05-20T10:51:13.607226"
+  },
+  "B14:315大巷第一变电所(旧)内甲烷_激光甲烷传感器瓦斯968瓦斯": {
+    "matched_name": "+315水平轨道大巷",
+    "candidate_id": "D100A8BE-C243-4971-8178-F1D0D6B91366",
+    "score": 10,
+    "timestamp": "2026-05-20T10:51:13.658288"
+  },
+  "B14:15103高抽巷溜矸眼上口甲烷_激光甲烷传感器瓦斯201150103高抽巷溜矸眼上口甲烷瓦斯": {
+    "matched_name": "15103高抽巷",
+    "candidate_id": "9C7AEB46-A911-4CC9-9B6D-1DF2F79179E9",
+    "score": 15,
+    "timestamp": "2026-05-20T10:51:13.933339"
+  },
+  "B16:保安煤矿315正前钻机": {
+    "matched_name": "+315水平轨道大巷",
+    "candidate_id": "D100A8BE-C243-4971-8178-F1D0D6B91366",
+    "score": 10,
+    "timestamp": "2026-05-20T10:51:14.509835"
+  },
+  "B16:保安煤矿315第一变电所东": {
+    "matched_name": "+315水平轨道大巷",
+    "candidate_id": "D100A8BE-C243-4971-8178-F1D0D6B91366",
+    "score": 10,
+    "timestamp": "2026-05-20T10:51:14.838562"
+  },
+  "B16:15103高抽绞车处": {
+    "matched_name": "15103高抽巷",
+    "candidate_id": "9C7AEB46-A911-4CC9-9B6D-1DF2F79179E9",
+    "score": 14,
+    "timestamp": "2026-05-20T10:51:15.955359"
+  },
+  "B16:15103高抽整巷处": {
+    "matched_name": "15103高抽巷",
+    "candidate_id": "9C7AEB46-A911-4CC9-9B6D-1DF2F79179E9",
+    "score": 14,
+    "timestamp": "2026-05-20T10:51:16.360855"
+  },
+  "B16:保安煤矿315第一变电所西": {
+    "matched_name": "+315水平轨道大巷",
+    "candidate_id": "D100A8BE-C243-4971-8178-F1D0D6B91366",
+    "score": 10,
+    "timestamp": "2026-05-20T10:51:16.681299"
+  },
+  "B15:315大巷第一变电所里_人数": {
+    "matched_name": "+315水平轨道大巷",
+    "candidate_id": "D100A8BE-C243-4971-8178-F1D0D6B91366",
+    "score": 8,
+    "timestamp": "2026-05-20T10:51:17.411434"
+  },
+  "B15:315大巷第一变电所外_人数": {
+    "matched_name": "+315水平轨道大巷",
+    "candidate_id": "D100A8BE-C243-4971-8178-F1D0D6B91366",
+    "score": 8,
+    "timestamp": "2026-05-20T10:51:17.428760"
+  },
+  "B15:1501专用回风巷(15103高抽口东80米)_人数": {
+    "matched_name": "15103高抽巷",
+    "candidate_id": "9C7AEB46-A911-4CC9-9B6D-1DF2F79179E9",
+    "score": 14,
+    "timestamp": "2026-05-20T10:51:17.637280"
+  },
+  "B16:15103北回风巷整巷处": {
+    "matched_name": "15103回风顺槽",
+    "candidate_id": "137E39CD-62C0-4816-B85E-3F9340CC502B",
+    "score": 13,
+    "timestamp": "2026-05-20T10:51:17.721170"
+  },
+  "B16:15103高抽溜矸眼上口": {
+    "matched_name": "15103高抽巷",
+    "candidate_id": "9C7AEB46-A911-4CC9-9B6D-1DF2F79179E9",
+    "score": 14,
+    "timestamp": "2026-05-20T10:51:17.795978"
+  },
+  "B16:15103高抽皮带机尾": {
+    "matched_name": "15103高抽巷",
+    "candidate_id": "9C7AEB46-A911-4CC9-9B6D-1DF2F79179E9",
+    "score": 14,
+    "timestamp": "2026-05-20T10:51:17.865556"
+  },
+  "B14:6301工作面 回风流 一氧化碳_一氧化碳": {
+    "matched_name": "6301皮顺联络巷",
+    "candidate_id": "3219BFF8-6EA6-4AF1-9263-97B5E5DE4D9E",
+    "score": 9,
+    "timestamp": "2026-05-20T10:55:54.619838"
+  },
+  "B14:6302轨顺主机远控开关馈电状态_馈电器": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 12,
+    "timestamp": "2026-05-20T10:55:54.624351"
+  },
+  "B14:6302轨顺主机远控开关断电状态_断电器": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 12,
+    "timestamp": "2026-05-20T10:55:54.625624"
+  },
+  "B14:6302轨顺备机远控开关馈电状态_馈电器": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 12,
+    "timestamp": "2026-05-20T10:55:54.626887"
+  },
+  "B14:6302轨顺备机远控开关断电状态_断电器": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 12,
+    "timestamp": "2026-05-20T10:55:54.628205"
+  },
+  "B14:6302轨顺风筒风筒开关_风筒状态": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 12,
+    "timestamp": "2026-05-20T10:55:54.634927"
+  },
+  "B14:6302轨顺粉尘_粉尘": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 12,
+    "timestamp": "2026-05-20T10:55:54.635837"
+  },
+  "B14:6302轨顺 迎头 甲烷_环境瓦斯": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 12,
+    "timestamp": "2026-05-20T10:55:54.636971"
+  },
+  "B14:6301工作面回风流甲烷_环境瓦斯": {
+    "matched_name": "6301皮顺联络巷",
+    "candidate_id": "3219BFF8-6EA6-4AF1-9263-97B5E5DE4D9E",
+    "score": 9,
+    "timestamp": "2026-05-20T10:55:54.639473"
+  },
+  "B14:6301工作面隅角甲烷_环境瓦斯": {
+    "matched_name": "6301皮顺联络巷",
+    "candidate_id": "3219BFF8-6EA6-4AF1-9263-97B5E5DE4D9E",
+    "score": 9,
+    "timestamp": "2026-05-20T10:55:54.640945"
+  },
+  "B14:6301工作面回风温度_环境温度": {
+    "matched_name": "6301皮顺联络巷",
+    "candidate_id": "3219BFF8-6EA6-4AF1-9263-97B5E5DE4D9E",
+    "score": 9,
+    "timestamp": "2026-05-20T10:55:54.643310"
+  },
+  "B14:6301电站": {
+    "matched_name": "6301皮顺联络巷",
+    "candidate_id": "3219BFF8-6EA6-4AF1-9263-97B5E5DE4D9E",
+    "score": 9,
+    "timestamp": "2026-05-20T10:55:54.656049"
+  },
+  "B14:-650轨道大巷风门处（轨道大巷）": {
+    "matched_name": "-650水平轨道大巷二号联络巷",
+    "candidate_id": "0FB2EF9C-31AE-4A61-B0C2-06A2FFB32DF6",
+    "score": 8,
+    "timestamp": "2026-05-20T10:55:54.657078"
+  },
+  "B14:6302轨顺": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 12,
+    "timestamp": "2026-05-20T10:55:54.661365"
+  },
+  "B14:6302皮顺": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 9,
+    "timestamp": "2026-05-20T10:55:54.663450"
+  },
+  "B14:6302轨顺 温度_环境温度": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 12,
+    "timestamp": "2026-05-20T10:55:54.726161"
+  },
+  "B14:6302轨顺 回风 甲烷_环境瓦斯": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 12,
+    "timestamp": "2026-05-20T10:55:54.727864"
+  },
+  "B14:6302皮顺迎头甲烷_环境瓦斯": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 9,
+    "timestamp": "2026-05-20T10:55:54.758348"
+  },
+  "B14:6302皮顺粉尘_粉尘": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 9,
+    "timestamp": "2026-05-20T10:55:54.761198"
+  },
+  "B14:6302皮顺  风筒风筒开关_风筒状态": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 9,
+    "timestamp": "2026-05-20T10:55:54.765332"
+  },
+  "B14:6302皮顺备机远控开关馈电状态_馈电器": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 9,
+    "timestamp": "2026-05-20T10:55:54.769742"
+  },
+  "B14:6302皮顺备机远控开关断电状态_断电器": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 9,
+    "timestamp": "2026-05-20T10:55:54.774179"
+  },
+  "B14:6302 皮顺主机远控开关馈电状态_馈电器": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 9,
+    "timestamp": "2026-05-20T10:55:54.787542"
+  },
+  "B14:6302 皮顺主机远控开关断电状态_断电器": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 9,
+    "timestamp": "2026-05-20T10:55:54.792096"
+  },
+  "B16:十采区轨道下山棚区施工处": {
+    "matched_name": "十采区轨道下山",
+    "candidate_id": "42786BFC-8570-4DB4-B949-28C591D5153E",
+    "score": 10,
+    "timestamp": "2026-05-20T10:55:54.792975"
+  },
+  "B14:6302轨顺配电点甲烷_环境瓦斯": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 12,
+    "timestamp": "2026-05-20T10:55:54.797204"
+  },
+  "B16:650轨道大巷（东）迎头": {
+    "matched_name": "-650水平轨道大巷二号联络巷",
+    "candidate_id": "0FB2EF9C-31AE-4A61-B0C2-06A2FFB32DF6",
+    "score": 10,
+    "timestamp": "2026-05-20T10:55:54.801184"
+  },
+  "B14:6302轨顺一号联络巷总馈馈电状态_馈电器": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 12,
+    "timestamp": "2026-05-20T10:55:54.834428"
+  },
+  "B14:6301工作面 甲烷_环境瓦斯": {
+    "matched_name": "6301皮顺联络巷",
+    "candidate_id": "3219BFF8-6EA6-4AF1-9263-97B5E5DE4D9E",
+    "score": 9,
+    "timestamp": "2026-05-20T10:55:54.835837"
+  },
+  "B14:6302皮顺回风流甲烷_环境瓦斯": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 9,
+    "timestamp": "2026-05-20T10:55:54.843651"
+  },
+  "B14:6302皮顺回风流温度_环境温度": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 9,
+    "timestamp": "2026-05-20T10:55:54.854492"
+  },
+  "B16:阳城二号井十采区轨道下山一运": {
+    "matched_name": "十采区轨道下山",
+    "candidate_id": "42786BFC-8570-4DB4-B949-28C591D5153E",
+    "score": 10,
+    "timestamp": "2026-05-20T10:55:54.861768"
+  },
+  "B14:6301皮顺与二部强力皮带搭界处双风门风门双开_风门": {
+    "matched_name": "6301皮顺联络巷",
+    "candidate_id": "3219BFF8-6EA6-4AF1-9263-97B5E5DE4D9E",
+    "score": 12,
+    "timestamp": "2026-05-20T10:55:54.901508"
+  },
+  "B14:6301工作面高防远控开关馈电状态_馈电器": {
+    "matched_name": "6301皮顺联络巷",
+    "candidate_id": "3219BFF8-6EA6-4AF1-9263-97B5E5DE4D9E",
+    "score": 9,
+    "timestamp": "2026-05-20T10:55:54.904975"
+  },
+  "B16:6301皮顺回撤": {
+    "matched_name": "6301皮顺联络巷",
+    "candidate_id": "3219BFF8-6EA6-4AF1-9263-97B5E5DE4D9E",
+    "score": 12,
+    "timestamp": "2026-05-20T10:55:54.921074"
+  },
+  "B14:6301皮带驱动烟雾_烟雾": {
+    "matched_name": "6301皮顺联络巷",
+    "candidate_id": "3219BFF8-6EA6-4AF1-9263-97B5E5DE4D9E",
+    "score": 11,
+    "timestamp": "2026-05-20T10:55:54.922760"
+  },
+  "B14:6302皮顺配电点甲烷_环境瓦斯": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 9,
+    "timestamp": "2026-05-20T10:55:54.930207"
+  },
+  "B14:6301工作面高防远控开关断电状态_断电器": {
+    "matched_name": "6301皮顺联络巷",
+    "candidate_id": "3219BFF8-6EA6-4AF1-9263-97B5E5DE4D9E",
+    "score": 9,
+    "timestamp": "2026-05-20T10:55:54.937114"
+  },
+  "B14:6302轨顺二部皮带驱动一氧化碳_一氧化碳": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 12,
+    "timestamp": "2026-05-20T10:55:54.941523"
+  },
+  "B14:6301工作面煤机开停状态6301工作面煤机开停状态_设备开停": {
+    "matched_name": "6301皮顺联络巷",
+    "candidate_id": "3219BFF8-6EA6-4AF1-9263-97B5E5DE4D9E",
+    "score": 9,
+    "timestamp": "2026-05-20T10:55:54.961796"
+  },
+  "B14:6301工作面前部运输机开停状态6301工作面前部运输机开停状态_设备开停": {
+    "matched_name": "6301皮顺联络巷",
+    "candidate_id": "3219BFF8-6EA6-4AF1-9263-97B5E5DE4D9E",
+    "score": 9,
+    "timestamp": "2026-05-20T10:55:54.967725"
+  },
+  "B14:6302轨顺四部皮带驱动一氧化碳_一氧化碳": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 12,
+    "timestamp": "2026-05-20T10:55:54.982166"
+  },
+  "B16:十采区轨道下山综掘机二运": {
+    "matched_name": "十采区轨道下山",
+    "candidate_id": "42786BFC-8570-4DB4-B949-28C591D5153E",
+    "score": 10,
+    "timestamp": "2026-05-20T10:55:54.985216"
+  },
+  "B16:十采区轨道下山喷浆机": {
+    "matched_name": "十采区轨道下山",
+    "candidate_id": "42786BFC-8570-4DB4-B949-28C591D5153E",
+    "score": 10,
+    "timestamp": "2026-05-20T10:55:54.998792"
+  },
+  "B16:阳城分公司-650胶带大巷(东)迎头": {
+    "matched_name": "-650水平轨道大巷二号联络巷",
+    "candidate_id": "0FB2EF9C-31AE-4A61-B0C2-06A2FFB32DF6",
+    "score": 10,
+    "timestamp": "2026-05-20T10:55:55.006515"
+  },
+  "B16:6301皮顺200米下": {
+    "matched_name": "6301皮顺联络巷",
+    "candidate_id": "3219BFF8-6EA6-4AF1-9263-97B5E5DE4D9E",
+    "score": 12,
+    "timestamp": "2026-05-20T10:55:55.015794"
+  },
+  "B16:阳城二号井6302轨顺切眼安全出口": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 12,
+    "timestamp": "2026-05-20T10:55:55.021827"
+  },
+  "B14:6301工作面转载机开停状态6301工作面转载机开停状态_设备开停": {
+    "matched_name": "6301皮顺联络巷",
+    "candidate_id": "3219BFF8-6EA6-4AF1-9263-97B5E5DE4D9E",
+    "score": 9,
+    "timestamp": "2026-05-20T10:55:55.024492"
+  },
+  "B16:6301皮顺联络巷单轨吊司控道岔": {
+    "matched_name": "6301皮顺联络巷",
+    "candidate_id": "3219BFF8-6EA6-4AF1-9263-97B5E5DE4D9E",
+    "score": 15,
+    "timestamp": "2026-05-20T10:55:55.034714"
+  },
+  "B16:6302工作面电站（1）": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 9,
+    "timestamp": "2026-05-20T10:55:55.037295"
+  },
+  "B16:阳城二号井6302工作面电站（1）": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 9,
+    "timestamp": "2026-05-20T10:55:55.040970"
+  },
+  "B14:6301工作面破碎机开停状态6301工作面破碎机开停状态_设备开停": {
+    "matched_name": "6301皮顺联络巷",
+    "candidate_id": "3219BFF8-6EA6-4AF1-9263-97B5E5DE4D9E",
+    "score": 9,
+    "timestamp": "2026-05-20T10:55:55.069782"
+  },
+  "B14:6302轨顺二部皮带驱动烟雾_烟雾": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 12,
+    "timestamp": "2026-05-20T10:55:55.071869"
+  },
+  "B16:阳城分公司-650胶带大巷(东)一运": {
+    "matched_name": "-650水平轨道大巷二号联络巷",
+    "candidate_id": "0FB2EF9C-31AE-4A61-B0C2-06A2FFB32DF6",
+    "score": 10,
+    "timestamp": "2026-05-20T10:55:55.074771"
+  },
+  "B14:6301皮带驱动下风侧一氧化碳_一氧化碳": {
+    "matched_name": "6301皮顺联络巷",
+    "candidate_id": "3219BFF8-6EA6-4AF1-9263-97B5E5DE4D9E",
+    "score": 11,
+    "timestamp": "2026-05-20T10:55:55.077861"
+  },
+  "B16:6301皮顺联络巷风门外侧": {
+    "matched_name": "6301皮顺联络巷",
+    "candidate_id": "3219BFF8-6EA6-4AF1-9263-97B5E5DE4D9E",
+    "score": 15,
+    "timestamp": "2026-05-20T10:55:55.090387"
+  },
+  "B14:6302轨顺三部皮带驱动 烟雾_烟雾": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 12,
+    "timestamp": "2026-05-20T10:55:55.098968"
+  },
+  "B14:6301皮顺联络巷双风门风门双开_风门": {
+    "matched_name": "6301皮顺联络巷",
+    "candidate_id": "3219BFF8-6EA6-4AF1-9263-97B5E5DE4D9E",
+    "score": 15,
+    "timestamp": "2026-05-20T10:55:55.112848"
+  },
+  "B14:6302轨顺一号联络巷总馈断电状态_断电器": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 12,
+    "timestamp": "2026-05-20T10:55:55.118007"
+  },
+  "B14:6302轨顺三部皮带驱动一氧化碳_一氧化碳": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 12,
+    "timestamp": "2026-05-20T10:55:55.123604"
+  },
+  "B14:6301工作面 粉尘_粉尘": {
+    "matched_name": "6301皮顺联络巷",
+    "candidate_id": "3219BFF8-6EA6-4AF1-9263-97B5E5DE4D9E",
+    "score": 9,
+    "timestamp": "2026-05-20T10:55:55.131684"
+  },
+  "B14:6302轨顺四部皮带驱动烟雾_烟雾": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 12,
+    "timestamp": "2026-05-20T10:55:55.145223"
+  },
+  "B16:阳城二号井6302工作面17#架": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 9,
+    "timestamp": "2026-05-20T10:55:55.147338"
+  },
+  "B16:阳城二号井6302工作面13#架": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 9,
+    "timestamp": "2026-05-20T10:55:55.163193"
+  },
+  "B16:-650轨道大巷沉淀池": {
+    "matched_name": "-650水平轨道大巷二号联络巷",
+    "candidate_id": "0FB2EF9C-31AE-4A61-B0C2-06A2FFB32DF6",
+    "score": 10,
+    "timestamp": "2026-05-20T10:55:55.171259"
+  },
+  "B16:阳城二号井6302工作面101#架": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 9,
+    "timestamp": "2026-05-20T10:55:55.219792"
+  },
+  "B16:-650轨道大巷东入口": {
+    "matched_name": "-650水平轨道大巷二号联络巷",
+    "candidate_id": "0FB2EF9C-31AE-4A61-B0C2-06A2FFB32DF6",
+    "score": 10,
+    "timestamp": "2026-05-20T10:55:55.220657"
+  },
+  "B16:阳城二号井十采区轨道下山迎头": {
+    "matched_name": "十采区轨道下山",
+    "candidate_id": "42786BFC-8570-4DB4-B949-28C591D5153E",
+    "score": 10,
+    "timestamp": "2026-05-20T10:55:55.232008"
+  },
+  "B16:阳城分公司6301轨顺300米": {
+    "matched_name": "6301皮顺联络巷",
+    "candidate_id": "3219BFF8-6EA6-4AF1-9263-97B5E5DE4D9E",
+    "score": 9,
+    "timestamp": "2026-05-20T10:55:55.236774"
+  },
+  "B16:阳城二号井十采区轨道下山耙装机": {
+    "matched_name": "十采区轨道下山",
+    "candidate_id": "42786BFC-8570-4DB4-B949-28C591D5153E",
+    "score": 10,
+    "timestamp": "2026-05-20T10:55:55.243238"
+  },
+  "B16:-650南北区贯通巷风门": {
+    "matched_name": "-650水平轨道大巷二号联络巷",
+    "candidate_id": "0FB2EF9C-31AE-4A61-B0C2-06A2FFB32DF6",
+    "score": 10,
+    "timestamp": "2026-05-20T10:55:55.245655"
+  },
+  "B16:6301皮顺联络巷密闭": {
+    "matched_name": "6301皮顺联络巷",
+    "candidate_id": "3219BFF8-6EA6-4AF1-9263-97B5E5DE4D9E",
+    "score": 15,
+    "timestamp": "2026-05-20T10:55:55.253925"
+  },
+  "B16:6302切眼（2）": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 9,
+    "timestamp": "2026-05-20T10:55:55.255312"
+  },
+  "B16:阳城分公司-650胶带大巷东梭车": {
+    "matched_name": "-650水平轨道大巷二号联络巷",
+    "candidate_id": "0FB2EF9C-31AE-4A61-B0C2-06A2FFB32DF6",
+    "score": 10,
+    "timestamp": "2026-05-20T10:55:55.272917"
+  },
+  "B16:十采区轨道下山皮带机头": {
+    "matched_name": "十采区轨道下山",
+    "candidate_id": "42786BFC-8570-4DB4-B949-28C591D5153E",
+    "score": 10,
+    "timestamp": "2026-05-20T10:55:55.283182"
+  },
+  "B16:6302工作面51#架": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 9,
+    "timestamp": "2026-05-20T10:55:55.340823"
+  },
+  "B16:-650南北区贯通巷1450米": {
+    "matched_name": "-650水平轨道大巷二号联络巷",
+    "candidate_id": "0FB2EF9C-31AE-4A61-B0C2-06A2FFB32DF6",
+    "score": 10,
+    "timestamp": "2026-05-20T10:55:55.355109"
+  },
+  "B16:十采区轨道下山耙装机": {
+    "matched_name": "十采区轨道下山",
+    "candidate_id": "42786BFC-8570-4DB4-B949-28C591D5153E",
+    "score": 10,
+    "timestamp": "2026-05-20T10:55:55.364560"
+  },
+  "B16:6302切眼（1）": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 9,
+    "timestamp": "2026-05-20T10:55:55.382521"
+  },
+  "B16:阳城二号井6302皮顺安全出口": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 9,
+    "timestamp": "2026-05-20T10:55:55.401115"
+  },
+  "B16:6302切眼（3）": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 9,
+    "timestamp": "2026-05-20T10:55:55.415863"
+  },
+  "B16:6301轨顺安全出口": {
+    "matched_name": "6301皮顺联络巷",
+    "candidate_id": "3219BFF8-6EA6-4AF1-9263-97B5E5DE4D9E",
+    "score": 9,
+    "timestamp": "2026-05-20T10:55:55.417502"
+  },
+  "B16:-650胶带大巷（东）": {
+    "matched_name": "-650水平轨道大巷二号联络巷",
+    "candidate_id": "0FB2EF9C-31AE-4A61-B0C2-06A2FFB32DF6",
+    "score": 10,
+    "timestamp": "2026-05-20T10:55:55.424699"
+  },
+  "B16:阳城二号井6302工作面75#架": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 9,
+    "timestamp": "2026-05-20T10:55:55.434769"
+  },
+  "B16:阳城二号井6302皮顺限员站": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 9,
+    "timestamp": "2026-05-20T10:55:55.438718"
+  },
+  "B16:6301皮顺联络巷稳车": {
+    "matched_name": "6301皮顺联络巷",
+    "candidate_id": "3219BFF8-6EA6-4AF1-9263-97B5E5DE4D9E",
+    "score": 15,
+    "timestamp": "2026-05-20T10:55:55.457571"
+  },
+  "B16:-650南北区贯通巷 2#": {
+    "matched_name": "-650水平轨道大巷二号联络巷",
+    "candidate_id": "0FB2EF9C-31AE-4A61-B0C2-06A2FFB32DF6",
+    "score": 10,
+    "timestamp": "2026-05-20T10:55:55.479402"
+  },
+  "B16:阳城二号井6302工作面轨顺限员站": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 9,
+    "timestamp": "2026-05-20T10:55:55.494153"
+  },
+  "B16:6302轨顺机尾挡风帘": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 12,
+    "timestamp": "2026-05-20T10:55:55.520631"
+  },
+  "B16:阳城二号井6302工作面21#架": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 9,
+    "timestamp": "2026-05-20T10:55:55.528469"
+  },
+  "B16:阳城分公司-650贯通巷梭车": {
+    "matched_name": "-650水平轨道大巷二号联络巷",
+    "candidate_id": "0FB2EF9C-31AE-4A61-B0C2-06A2FFB32DF6",
+    "score": 10,
+    "timestamp": "2026-05-20T10:55:55.531005"
+  },
+  "B16:6302机尾挡风帘": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 9,
+    "timestamp": "2026-05-20T10:55:55.538182"
+  },
+  "B16:650轨道巷一运": {
+    "matched_name": "-650水平轨道大巷二号联络巷",
+    "candidate_id": "0FB2EF9C-31AE-4A61-B0C2-06A2FFB32DF6",
+    "score": 9,
+    "timestamp": "2026-05-20T10:55:55.555995"
+  },
+  "B16:6301皮顺回撤（2）": {
+    "matched_name": "6301皮顺联络巷",
+    "candidate_id": "3219BFF8-6EA6-4AF1-9263-97B5E5DE4D9E",
+    "score": 12,
+    "timestamp": "2026-05-20T10:55:55.563382"
+  },
+  "B16:6301轨顺换装站": {
+    "matched_name": "6301皮顺联络巷",
+    "candidate_id": "3219BFF8-6EA6-4AF1-9263-97B5E5DE4D9E",
+    "score": 9,
+    "timestamp": "2026-05-20T10:55:55.565772"
+  },
+  "B16:650胶带大巷贯通一运二运和右铲板": {
+    "matched_name": "-650水平轨道大巷二号联络巷",
+    "candidate_id": "0FB2EF9C-31AE-4A61-B0C2-06A2FFB32DF6",
+    "score": 9,
+    "timestamp": "2026-05-20T10:55:55.572811"
+  },
+  "B15:6302轨顺2#_人数": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 12,
+    "timestamp": "2026-05-20T10:55:55.578032"
+  },
+  "B15:6302皮顺切眼_人数": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 9,
+    "timestamp": "2026-05-20T10:55:55.580796"
+  },
+  "B15:-650轨道大巷（东）_人数": {
+    "matched_name": "-650水平轨道大巷二号联络巷",
+    "candidate_id": "0FB2EF9C-31AE-4A61-B0C2-06A2FFB32DF6",
+    "score": 8,
+    "timestamp": "2026-05-20T10:55:55.587592"
+  },
+  "B15:-650胶带大巷（东）入口处_人数": {
+    "matched_name": "-650水平轨道大巷二号联络巷",
+    "candidate_id": "0FB2EF9C-31AE-4A61-B0C2-06A2FFB32DF6",
+    "score": 8,
+    "timestamp": "2026-05-20T10:55:55.588591"
+  },
+  "B15:-650胶带大巷（东）200米_人数": {
+    "matched_name": "-650水平轨道大巷二号联络巷",
+    "candidate_id": "0FB2EF9C-31AE-4A61-B0C2-06A2FFB32DF6",
+    "score": 8,
+    "timestamp": "2026-05-20T10:55:55.589607"
+  },
+  "B15:6301工作面皮顺_人数": {
+    "matched_name": "6301皮顺联络巷",
+    "candidate_id": "3219BFF8-6EA6-4AF1-9263-97B5E5DE4D9E",
+    "score": 9,
+    "timestamp": "2026-05-20T10:55:55.600423"
+  },
+  "B15:-650水平轨道大巷_人数": {
+    "matched_name": "-650水平轨道大巷二号联络巷",
+    "candidate_id": "0FB2EF9C-31AE-4A61-B0C2-06A2FFB32DF6",
+    "score": 12,
+    "timestamp": "2026-05-20T10:55:55.602806"
+  },
+  "B15:-650南北区贯通巷1#_人数": {
+    "matched_name": "-650水平轨道大巷二号联络巷",
+    "candidate_id": "0FB2EF9C-31AE-4A61-B0C2-06A2FFB32DF6",
+    "score": 8,
+    "timestamp": "2026-05-20T10:55:55.603749"
+  },
+  "B15:6302轨顺切眼_人数": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 12,
+    "timestamp": "2026-05-20T10:55:55.606957"
+  },
+  "B15:6302轨顺切眼里_人数": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 12,
+    "timestamp": "2026-05-20T10:55:55.610246"
+  },
+  "B15:6301皮顺联络巷_人数": {
+    "matched_name": "6301皮顺联络巷",
+    "candidate_id": "3219BFF8-6EA6-4AF1-9263-97B5E5DE4D9E",
+    "score": 15,
+    "timestamp": "2026-05-20T10:55:55.615922"
+  },
+  "B15:6302轨顺入口_人数": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 12,
+    "timestamp": "2026-05-20T10:55:55.623371"
+  },
+  "B15:6302工作面电站_人数": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 9,
+    "timestamp": "2026-05-20T10:55:55.628778"
+  },
+  "B15:-650轨道大巷（东）1_人数": {
+    "matched_name": "-650水平轨道大巷二号联络巷",
+    "candidate_id": "0FB2EF9C-31AE-4A61-B0C2-06A2FFB32DF6",
+    "score": 8,
+    "timestamp": "2026-05-20T10:55:55.629736"
+  },
+  "B15:-650南北区贯通巷3#_人数": {
+    "matched_name": "-650水平轨道大巷二号联络巷",
+    "candidate_id": "0FB2EF9C-31AE-4A61-B0C2-06A2FFB32DF6",
+    "score": 8,
+    "timestamp": "2026-05-20T10:55:55.642022"
+  },
+  "B15:-650南北区贯通巷 2#_人数": {
+    "matched_name": "-650水平轨道大巷二号联络巷",
+    "candidate_id": "0FB2EF9C-31AE-4A61-B0C2-06A2FFB32DF6",
+    "score": 8,
+    "timestamp": "2026-05-20T10:55:55.645162"
+  },
+  "B15:6302皮顺  1#_人数": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 9,
+    "timestamp": "2026-05-20T10:55:55.654901"
+  },
+  "B15:十采区轨道下山迎头_人数": {
+    "matched_name": "十采区轨道下山",
+    "candidate_id": "42786BFC-8570-4DB4-B949-28C591D5153E",
+    "score": 10,
+    "timestamp": "2026-05-20T10:55:55.666767"
+  },
+  "B15:6302轨顺联络巷_人数": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 15,
+    "timestamp": "2026-05-20T10:55:55.675240"
+  },
+  "B15:-650胶带大巷（西）_人数": {
+    "matched_name": "-650水平轨道大巷二号联络巷",
+    "candidate_id": "0FB2EF9C-31AE-4A61-B0C2-06A2FFB32DF6",
+    "score": 8,
+    "timestamp": "2026-05-20T10:55:55.677529"
+  },
+  "B15:-650南北区贯通巷2#_人数": {
+    "matched_name": "-650水平轨道大巷二号联络巷",
+    "candidate_id": "0FB2EF9C-31AE-4A61-B0C2-06A2FFB32DF6",
+    "score": 8,
+    "timestamp": "2026-05-20T10:55:55.695292"
+  },
+  "B16:6301轨顺200米": {
+    "matched_name": "6301皮顺联络巷",
+    "candidate_id": "3219BFF8-6EA6-4AF1-9263-97B5E5DE4D9E",
+    "score": 9,
+    "timestamp": "2026-05-20T10:55:55.700292"
+  },
+  "B15:6301工作面皮顺入口处_人数": {
+    "matched_name": "6301皮顺联络巷",
+    "candidate_id": "3219BFF8-6EA6-4AF1-9263-97B5E5DE4D9E",
+    "score": 9,
+    "timestamp": "2026-05-20T10:55:55.709249"
+  },
+  "B15:6302皮顺_人数": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 9,
+    "timestamp": "2026-05-20T10:55:55.722910"
+  },
+  "B15:6302皮顺切眼里_人数": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 9,
+    "timestamp": "2026-05-20T10:55:55.733951"
+  },
+  "B15:6302轨顺联络巷180米处_人数": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 15,
+    "timestamp": "2026-05-20T10:55:55.743034"
+  },
+  "B15:-650南北区贯通巷4#_人数": {
+    "matched_name": "-650水平轨道大巷二号联络巷",
+    "candidate_id": "0FB2EF9C-31AE-4A61-B0C2-06A2FFB32DF6",
+    "score": 8,
+    "timestamp": "2026-05-20T10:55:55.746474"
+  },
+  "B16:阳城分公司-650贯通巷分矸仓": {
+    "matched_name": "-650水平轨道大巷二号联络巷",
+    "candidate_id": "0FB2EF9C-31AE-4A61-B0C2-06A2FFB32DF6",
+    "score": 10,
+    "timestamp": "2026-05-20T10:55:55.750586"
+  },
+  "B14:6302工作面": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 9,
+    "timestamp": "2026-05-20T11:24:44.793327"
+  },
+  "B14:十采区轨道下山": {
+    "matched_name": "十采区轨道下山",
+    "candidate_id": "42786BFC-8570-4DB4-B949-28C591D5153E",
+    "score": 10,
+    "timestamp": "2026-05-20T11:24:44.803259"
+  },
+  "B14:十采区胶带下山": {
+    "matched_name": "十采区轨道下山",
+    "candidate_id": "42786BFC-8570-4DB4-B949-28C591D5153E",
+    "score": 4,
+    "timestamp": "2026-05-20T11:24:44.811623"
+  },
+  "B14:6302工作面高防远控开关馈电状态_馈电器": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 9,
+    "timestamp": "2026-05-20T11:24:44.832575"
+  },
+  "B14:6302工作面高防远控开关断电状态_断电器": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 9,
+    "timestamp": "2026-05-20T11:24:44.835013"
+  },
+  "B14:十采区轨道下山总馈电 馈电状态_馈电器": {
+    "matched_name": "十采区轨道下山",
+    "candidate_id": "42786BFC-8570-4DB4-B949-28C591D5153E",
+    "score": 10,
+    "timestamp": "2026-05-20T11:24:44.863315"
+  },
+  "B14:十采区轨道下山总馈电 断电状态_断电器": {
+    "matched_name": "十采区轨道下山",
+    "candidate_id": "42786BFC-8570-4DB4-B949-28C591D5153E",
+    "score": 10,
+    "timestamp": "2026-05-20T11:24:44.864238"
+  },
+  "B14:十采区轨道下山迎头粉尘": {
+    "matched_name": "十采区轨道下山",
+    "candidate_id": "42786BFC-8570-4DB4-B949-28C591D5153E",
+    "score": 10,
+    "timestamp": "2026-05-20T11:24:44.864925"
+  },
+  "B14:十采区轨道下山风筒开关_风筒状态": {
+    "matched_name": "十采区轨道下山",
+    "candidate_id": "42786BFC-8570-4DB4-B949-28C591D5153E",
+    "score": 10,
+    "timestamp": "2026-05-20T11:24:44.865745"
+  },
+  "B14:十采区轨道下山迎头甲烷_环境瓦斯": {
+    "matched_name": "十采区轨道下山",
+    "candidate_id": "42786BFC-8570-4DB4-B949-28C591D5153E",
+    "score": 10,
+    "timestamp": "2026-05-20T11:24:44.866577"
+  },
+  "B14:十采区轨道下山回风流温度_环境温度": {
+    "matched_name": "十采区轨道下山",
+    "candidate_id": "42786BFC-8570-4DB4-B949-28C591D5153E",
+    "score": 10,
+    "timestamp": "2026-05-20T11:24:44.868086"
+  },
+  "B14:十采区轨道下山回风流甲烷_环境瓦斯": {
+    "matched_name": "十采区轨道下山",
+    "candidate_id": "42786BFC-8570-4DB4-B949-28C591D5153E",
+    "score": 10,
+    "timestamp": "2026-05-20T11:24:44.869512"
+  },
+  "B14:十采区胶带下山总馈电馈电状态_馈电器": {
+    "matched_name": "十采区轨道下山",
+    "candidate_id": "42786BFC-8570-4DB4-B949-28C591D5153E",
+    "score": 4,
+    "timestamp": "2026-05-20T11:24:44.872084"
+  },
+  "B14:十采区胶带下山总馈电断电状态_断电器": {
+    "matched_name": "十采区轨道下山",
+    "candidate_id": "42786BFC-8570-4DB4-B949-28C591D5153E",
+    "score": 4,
+    "timestamp": "2026-05-20T11:24:44.873354"
+  },
+  "B14:十采区轨道下山主机远动开关馈电状态_馈电器": {
+    "matched_name": "十采区轨道下山",
+    "candidate_id": "42786BFC-8570-4DB4-B949-28C591D5153E",
+    "score": 10,
+    "timestamp": "2026-05-20T11:24:44.876577"
+  },
+  "B14:十采区轨道下山主机远动开关断电状态_断电器": {
+    "matched_name": "十采区轨道下山",
+    "candidate_id": "42786BFC-8570-4DB4-B949-28C591D5153E",
+    "score": 10,
+    "timestamp": "2026-05-20T11:24:44.877557"
+  },
+  "B14:十采区轨道下山备机远控开关馈电状态_馈电器": {
+    "matched_name": "十采区轨道下山",
+    "candidate_id": "42786BFC-8570-4DB4-B949-28C591D5153E",
+    "score": 10,
+    "timestamp": "2026-05-20T11:24:44.878561"
+  },
+  "B14:十采区轨道下山备机远控开关断电状态_断电器": {
+    "matched_name": "十采区轨道下山",
+    "candidate_id": "42786BFC-8570-4DB4-B949-28C591D5153E",
+    "score": 10,
+    "timestamp": "2026-05-20T11:24:44.879533"
+  },
+  "B14:十采区胶带下山迎头甲烷_环境瓦斯": {
+    "matched_name": "十采区轨道下山",
+    "candidate_id": "42786BFC-8570-4DB4-B949-28C591D5153E",
+    "score": 4,
+    "timestamp": "2026-05-20T11:24:44.880369"
+  },
+  "B14:十采区胶带下山迎头粉尘": {
+    "matched_name": "十采区轨道下山",
+    "candidate_id": "42786BFC-8570-4DB4-B949-28C591D5153E",
+    "score": 4,
+    "timestamp": "2026-05-20T11:24:44.881054"
+  },
+  "B14:十采区胶带下山风筒开关_风筒状态": {
+    "matched_name": "十采区轨道下山",
+    "candidate_id": "42786BFC-8570-4DB4-B949-28C591D5153E",
+    "score": 4,
+    "timestamp": "2026-05-20T11:24:44.883726"
+  },
+  "B14:十采区胶带下山备机远控开关馈电状态_馈电器": {
+    "matched_name": "十采区轨道下山",
+    "candidate_id": "42786BFC-8570-4DB4-B949-28C591D5153E",
+    "score": 4,
+    "timestamp": "2026-05-20T11:24:44.884776"
+  },
+  "B14:十采区胶带下山备机远控开关断电状态_断电器": {
+    "matched_name": "十采区轨道下山",
+    "candidate_id": "42786BFC-8570-4DB4-B949-28C591D5153E",
+    "score": 4,
+    "timestamp": "2026-05-20T11:24:44.885782"
+  },
+  "B14:十采区胶带下山主机远控开关馈电状态_馈电器": {
+    "matched_name": "十采区轨道下山",
+    "candidate_id": "42786BFC-8570-4DB4-B949-28C591D5153E",
+    "score": 4,
+    "timestamp": "2026-05-20T11:24:44.886753"
+  },
+  "B14:十采区胶带下山主机远控开关断电状态_断电器": {
+    "matched_name": "十采区轨道下山",
+    "candidate_id": "42786BFC-8570-4DB4-B949-28C591D5153E",
+    "score": 4,
+    "timestamp": "2026-05-20T11:24:44.887783"
+  },
+  "B14:十采区胶带下山回风流甲烷_环境瓦斯": {
+    "matched_name": "十采区轨道下山",
+    "candidate_id": "42786BFC-8570-4DB4-B949-28C591D5153E",
+    "score": 4,
+    "timestamp": "2026-05-20T11:24:44.890539"
+  },
+  "B14:十采区胶带下山回风流温度_环境温度": {
+    "matched_name": "十采区轨道下山",
+    "candidate_id": "42786BFC-8570-4DB4-B949-28C591D5153E",
+    "score": 4,
+    "timestamp": "2026-05-20T11:24:44.891948"
+  },
+  "B14:6301皮顺双风门风门双开": {
+    "matched_name": "6301皮顺联络巷",
+    "candidate_id": "3219BFF8-6EA6-4AF1-9263-97B5E5DE4D9E",
+    "score": 12,
+    "timestamp": "2026-05-20T11:24:44.896721"
+  },
+  "B14:6302电站温度_环境温度": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 9,
+    "timestamp": "2026-05-20T11:24:44.897720"
+  },
+  "B14:十采区轨道下山皮带驱动烟雾": {
+    "matched_name": "十采区轨道下山",
+    "candidate_id": "42786BFC-8570-4DB4-B949-28C591D5153E",
+    "score": 10,
+    "timestamp": "2026-05-20T11:24:44.902080"
+  },
+  "B14:十采区轨道下山耙装机甲烷_环境瓦斯": {
+    "matched_name": "十采区轨道下山",
+    "candidate_id": "42786BFC-8570-4DB4-B949-28C591D5153E",
+    "score": 10,
+    "timestamp": "2026-05-20T11:24:44.902963"
+  },
+  "B14:十采区胶带下山变频器配电点甲烷_环境瓦斯": {
+    "matched_name": "十采区轨道下山",
+    "candidate_id": "42786BFC-8570-4DB4-B949-28C591D5153E",
+    "score": 4,
+    "timestamp": "2026-05-20T11:24:44.941283"
+  },
+  "B14:6302工作面电站甲烷_环境瓦斯": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 9,
+    "timestamp": "2026-05-20T11:24:44.964274"
+  },
+  "B14:-650水仓主机远控开关.馈电状态_馈电器": {
+    "matched_name": "-650水平轨道大巷二号联络巷",
+    "candidate_id": "0FB2EF9C-31AE-4A61-B0C2-06A2FFB32DF6",
+    "score": 8,
+    "timestamp": "2026-05-20T11:24:44.997003"
+  },
+  "B14:十采区轨道下山水泵远控开关断电状态_断电器": {
+    "matched_name": "十采区轨道下山",
+    "candidate_id": "42786BFC-8570-4DB4-B949-28C591D5153E",
+    "score": 10,
+    "timestamp": "2026-05-20T11:24:45.013512"
+  },
+  "B14:-650水仓回风流一氧化碳.": {
+    "matched_name": "-650水平轨道大巷二号联络巷",
+    "candidate_id": "0FB2EF9C-31AE-4A61-B0C2-06A2FFB32DF6",
+    "score": 8,
+    "timestamp": "2026-05-20T11:24:45.016718"
+  },
+  "B15:十采区轨道下山_人数": {
+    "matched_name": "十采区轨道下山",
+    "candidate_id": "42786BFC-8570-4DB4-B949-28C591D5153E",
+    "score": 10,
+    "timestamp": "2026-05-20T11:24:45.074318"
+  },
+  "B14:十采区胶带下山水泵远控开关断电状态_断电器": {
+    "matched_name": "十采区轨道下山",
+    "candidate_id": "42786BFC-8570-4DB4-B949-28C591D5153E",
+    "score": 4,
+    "timestamp": "2026-05-20T11:24:45.091673"
+  },
+  "B14:-650水仓主机远控开关.断电状态_断电器": {
+    "matched_name": "-650水平轨道大巷二号联络巷",
+    "candidate_id": "0FB2EF9C-31AE-4A61-B0C2-06A2FFB32DF6",
+    "score": 8,
+    "timestamp": "2026-05-20T11:24:45.115348"
+  },
+  "B14:十采区轨道下山水泵远控开关馈电状态_馈电器": {
+    "matched_name": "十采区轨道下山",
+    "candidate_id": "42786BFC-8570-4DB4-B949-28C591D5153E",
+    "score": 10,
+    "timestamp": "2026-05-20T11:24:45.158208"
+  },
+  "B14:-650水仓备机远控开关.断电状态_断电器": {
+    "matched_name": "-650水平轨道大巷二号联络巷",
+    "candidate_id": "0FB2EF9C-31AE-4A61-B0C2-06A2FFB32DF6",
+    "score": 8,
+    "timestamp": "2026-05-20T11:24:45.203070"
+  },
+  "B14:-650水仓回风甲烷_环境瓦斯": {
+    "matched_name": "-650水平轨道大巷二号联络巷",
+    "candidate_id": "0FB2EF9C-31AE-4A61-B0C2-06A2FFB32DF6",
+    "score": 10,
+    "timestamp": "2026-05-20T11:24:45.210934"
+  },
+  "B14:-650水仓备机远控开关.馈电状态_馈电器": {
+    "matched_name": "-650水平轨道大巷二号联络巷",
+    "candidate_id": "0FB2EF9C-31AE-4A61-B0C2-06A2FFB32DF6",
+    "score": 8,
+    "timestamp": "2026-05-20T11:24:45.240778"
+  },
+  "B14:6302工作面回撤总馈远控开关断电状态_断电器": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 9,
+    "timestamp": "2026-05-20T11:24:45.246118"
+  },
+  "B14:6302工作面回撤总馈远控开关馈电状态_馈电器": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 9,
+    "timestamp": "2026-05-20T11:24:45.270845"
+  },
+  "B14:十采区轨道下山回风流一氧化碳": {
+    "matched_name": "十采区轨道下山",
+    "candidate_id": "42786BFC-8570-4DB4-B949-28C591D5153E",
+    "score": 10,
+    "timestamp": "2026-05-20T11:24:45.283250"
+  },
+  "B14:-650水仓风筒状态.风筒开关": {
+    "matched_name": "-650水平轨道大巷二号联络巷",
+    "candidate_id": "0FB2EF9C-31AE-4A61-B0C2-06A2FFB32DF6",
+    "score": 8,
+    "timestamp": "2026-05-20T11:24:45.317537"
+  },
+  "B14:-650水仓总馈电远控开关.馈电状态_馈电器": {
+    "matched_name": "-650水平轨道大巷二号联络巷",
+    "candidate_id": "0FB2EF9C-31AE-4A61-B0C2-06A2FFB32DF6",
+    "score": 8,
+    "timestamp": "2026-05-20T11:24:45.331983"
+  },
+  "B14:十采区胶带下山回风一氧化碳": {
+    "matched_name": "十采区轨道下山",
+    "candidate_id": "42786BFC-8570-4DB4-B949-28C591D5153E",
+    "score": 4,
+    "timestamp": "2026-05-20T11:24:45.346129"
+  },
+  "B14:-650水仓回风温度_环境温度": {
+    "matched_name": "-650水平轨道大巷二号联络巷",
+    "candidate_id": "0FB2EF9C-31AE-4A61-B0C2-06A2FFB32DF6",
+    "score": 8,
+    "timestamp": "2026-05-20T11:24:45.353845"
+  },
+  "B14:十采区胶带下山水泵远控开关馈电状态_馈电器": {
+    "matched_name": "十采区轨道下山",
+    "candidate_id": "42786BFC-8570-4DB4-B949-28C591D5153E",
+    "score": 4,
+    "timestamp": "2026-05-20T11:24:45.370715"
+  },
+  "B15:十采区轨道下山入口_人数": {
+    "matched_name": "十采区轨道下山",
+    "candidate_id": "42786BFC-8570-4DB4-B949-28C591D5153E",
+    "score": 10,
+    "timestamp": "2026-05-20T11:24:45.389727"
+  },
+  "B14:-650水仓迎头甲烷._环境瓦斯": {
+    "matched_name": "-650水平轨道大巷二号联络巷",
+    "candidate_id": "0FB2EF9C-31AE-4A61-B0C2-06A2FFB32DF6",
+    "score": 10,
+    "timestamp": "2026-05-20T11:24:45.404364"
+  },
+  "B14:-650水仓总馈电远控开关.断电状态_断电器": {
+    "matched_name": "-650水平轨道大巷二号联络巷",
+    "candidate_id": "0FB2EF9C-31AE-4A61-B0C2-06A2FFB32DF6",
+    "score": 8,
+    "timestamp": "2026-05-20T11:24:45.411785"
+  },
+  "B15:十采区胶带下山_人数": {
+    "matched_name": "十采区轨道下山",
+    "candidate_id": "42786BFC-8570-4DB4-B949-28C591D5153E",
+    "score": 4,
+    "timestamp": "2026-05-20T11:24:45.589808"
+  },
+  "B16:6302工作面33#架": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 9,
+    "timestamp": "2026-05-20T11:24:45.604216"
+  },
+  "B16:-650轨道大巷东车场（2）": {
+    "matched_name": "-650水平轨道大巷二号联络巷",
+    "candidate_id": "0FB2EF9C-31AE-4A61-B0C2-06A2FFB32DF6",
+    "score": 10,
+    "timestamp": "2026-05-20T11:24:45.607073"
+  },
+  "B16:阳城二号井6302工作面切眼2": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 9,
+    "timestamp": "2026-05-20T11:24:45.616329"
+  },
+  "B16:阳城二号井十采区轨道回风传感器": {
+    "matched_name": "十采区轨道下山",
+    "candidate_id": "42786BFC-8570-4DB4-B949-28C591D5153E",
+    "score": 7,
+    "timestamp": "2026-05-20T11:24:45.626199"
+  },
+  "B15:十采区胶带下山入口_人数": {
+    "matched_name": "十采区轨道下山",
+    "candidate_id": "42786BFC-8570-4DB4-B949-28C591D5153E",
+    "score": 4,
+    "timestamp": "2026-05-20T11:24:45.630385"
+  },
+  "B16:6302工作面122#架": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 9,
+    "timestamp": "2026-05-20T11:24:45.634551"
+  },
+  "B16:6302工作面56#架": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 9,
+    "timestamp": "2026-05-20T11:24:45.637356"
+  },
+  "B16:6302工作面112#架": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 9,
+    "timestamp": "2026-05-20T11:24:45.651868"
+  },
+  "B16:阳城二号井十采区胶带下山迎头": {
+    "matched_name": "十采区轨道下山",
+    "candidate_id": "42786BFC-8570-4DB4-B949-28C591D5153E",
+    "score": 4,
+    "timestamp": "2026-05-20T11:24:45.659708"
+  },
+  "B16:6302工作面87#架": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 9,
+    "timestamp": "2026-05-20T11:24:45.664787"
+  },
+  "B16:阳城二号井十采区轨道巷皮带机头": {
+    "matched_name": "十采区轨道下山",
+    "candidate_id": "42786BFC-8570-4DB4-B949-28C591D5153E",
+    "score": 7,
+    "timestamp": "2026-05-20T11:24:45.693912"
+  },
+  "B16:6302工作面107#架": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 9,
+    "timestamp": "2026-05-20T11:24:45.697899"
+  },
+  "B16:阳城二号井十采区车场": {
+    "matched_name": "十采区轨道下山",
+    "candidate_id": "42786BFC-8570-4DB4-B949-28C591D5153E",
+    "score": 4,
+    "timestamp": "2026-05-20T11:24:45.700909"
+  },
+  "B16:阳城二号井6302轨顺回撤": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 12,
+    "timestamp": "2026-05-20T11:24:45.705510"
+  },
+  "B16:十采区轨道下山入口": {
+    "matched_name": "十采区轨道下山",
+    "candidate_id": "42786BFC-8570-4DB4-B949-28C591D5153E",
+    "score": 10,
+    "timestamp": "2026-05-20T11:24:45.714617"
+  },
+  "B16:阳城二号井6302皮顺密闭": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 9,
+    "timestamp": "2026-05-20T11:24:45.731245"
+  },
+  "B16:6302工作面25#架": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 9,
+    "timestamp": "2026-05-20T11:24:45.768666"
+  },
+  "B16:6302工作面45#架": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 9,
+    "timestamp": "2026-05-20T11:24:45.817394"
+  },
+  "B16:阳城二号井十采区胶带回风传感器": {
+    "matched_name": "十采区轨道下山",
+    "candidate_id": "42786BFC-8570-4DB4-B949-28C591D5153E",
+    "score": 4,
+    "timestamp": "2026-05-20T11:24:45.826577"
+  },
+  "B16:6302轨顺200米钻场": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 12,
+    "timestamp": "2026-05-20T11:24:45.835976"
+  },
+  "B15:十采区轨道下山300米_人数": {
+    "matched_name": "十采区轨道下山",
+    "candidate_id": "42786BFC-8570-4DB4-B949-28C591D5153E",
+    "score": 10,
+    "timestamp": "2026-05-20T11:24:45.845758"
+  },
+  "B15:十采区胶带下山迎头_人数": {
+    "matched_name": "十采区轨道下山",
+    "candidate_id": "42786BFC-8570-4DB4-B949-28C591D5153E",
+    "score": 4,
+    "timestamp": "2026-05-20T11:24:45.868066"
+  },
+  "B16:阳城二号井6302工作面电站": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 9,
+    "timestamp": "2026-05-20T11:24:45.906285"
+  },
+  "B16:6302工作面29#架": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 9,
+    "timestamp": "2026-05-20T11:24:45.923360"
+  },
+  "B16:阳城二号井-650轨道大巷东车场": {
+    "matched_name": "-650水平轨道大巷二号联络巷",
+    "candidate_id": "0FB2EF9C-31AE-4A61-B0C2-06A2FFB32DF6",
+    "score": 10,
+    "timestamp": "2026-05-20T11:24:45.964440"
+  },
+  "B16:6302轨顺挡风帘": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 12,
+    "timestamp": "2026-05-20T11:24:45.991122"
+  },
+  "B16:6302工作面39#架": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 9,
+    "timestamp": "2026-05-20T11:24:45.996766"
+  },
+  "B16:6302工作面81#架": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 9,
+    "timestamp": "2026-05-20T11:24:46.026590"
+  },
+  "B16:6302工作面刮板输送机安装": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 9,
+    "timestamp": "2026-05-20T11:24:46.044206"
+  },
+  "B16:6302工作面4#架": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 9,
+    "timestamp": "2026-05-20T11:24:46.053832"
+  },
+  "B16:阳城二号井6302工作面转载机 测温": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 9,
+    "timestamp": "2026-05-20T11:24:46.059955"
+  },
+  "B16:十采区胶带下山迎头钻场": {
+    "matched_name": "十采区轨道下山",
+    "candidate_id": "42786BFC-8570-4DB4-B949-28C591D5153E",
+    "score": 4,
+    "timestamp": "2026-05-20T11:24:46.063512"
+  },
+  "B16:阳城二号井6302工作面切眼5": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 9,
+    "timestamp": "2026-05-20T11:24:46.069724"
+  },
+  "B16:6301皮顺联络巷": {
+    "matched_name": "6301皮顺联络巷",
+    "candidate_id": "3219BFF8-6EA6-4AF1-9263-97B5E5DE4D9E",
+    "score": 15,
+    "timestamp": "2026-05-20T11:24:46.075598"
+  },
+  "B16:十采区胶带巷耙装机": {
+    "matched_name": "十采区轨道下山",
+    "candidate_id": "42786BFC-8570-4DB4-B949-28C591D5153E",
+    "score": 4,
+    "timestamp": "2026-05-20T11:24:46.091834"
+  },
+  "B16:6302工作面97#架": {
+    "matched_name": "6302轨顺联络巷",
+    "candidate_id": "9E335F2A-6D48-4F97-9A3B-3C0DC18D049C",
+    "score": 9,
+    "timestamp": "2026-05-20T11:24:46.100072"
   }
 }

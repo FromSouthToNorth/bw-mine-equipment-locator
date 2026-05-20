@@ -489,6 +489,32 @@ _LOCATION_SEMANTICS = {
 }
 
 
+# ── 设备功能词与巷道类型的可疑匹配检测 ──────────────────────────────
+# 当描述中的设备功能词表明设备应位于特定类型巷道/硐室，但候选不符时，
+# 标记为 suspicious（可疑）。编码命中+LCS 高无法掩盖这种语义错配。
+# 此类匹配不会自动拒绝（宁缺毋滥的底线由 _has_hard_semantic_conflict 保障），
+# 但会在结果中打上 suspicious 标记，由上层（Claude）提示用户逐条确认。
+_FUNCTIONAL_SEMANTIC_CHECKS = [
+    # (描述关键词, 候选必须含其一, 可疑原因)
+    ("水泵房", ["水泵房", "硐室"], "设备为水泵房但候选非硐室/水泵房"),
+    ("水泵", ["水泵房", "硐室", "变电", "配电"], "设备含水泵但候选非硐室/水泵房/变电"),
+    ("远控开关", ["硐室", "变电", "配电", "水泵房"], "设备含远控开关但候选非配电/硐室"),
+    ("配电点", ["硐室", "变电", "配电", "水泵房"], "设备含配电点但候选非配电/硐室"),
+]
+
+
+def _check_functional_conflict(cleaned: str, candidate_name: str) -> tuple:
+    """检查设备功能词与候选巷道类型是否冲突。
+    返回 (is_suspicious, reason)。"""
+    if not cleaned or not candidate_name:
+        return False, None
+    for func_kw, required_kws, reason in _FUNCTIONAL_SEMANTIC_CHECKS:
+        if func_kw in cleaned:
+            if not any(rkw in candidate_name for rkw in required_kws):
+                return True, reason
+    return False, None
+
+
 # ── 巷道类型 × sensor_type 坐标规则 (AQ 1029-2019) ─────────────────
 _TUNNEL_TYPE_RULES = {
     "26-工作面回风巷(辅运顺槽)": {
@@ -902,6 +928,25 @@ def _has_hard_semantic_conflict(description: str, candidate_name: str) -> bool:
                 and desc_prefix not in cand_prefix):
             return True
 
+    # 5. 反向编码约束：候选含 specific code（如 8301/6301/15103）但描述完全不含 → REJECT
+    # 避免"三部强力皮带"靠"皮带"短 LCS 蹭到"8301皮带顺槽"等带工作面编码的候选。
+    # specific code = 3+位纯数字、字母+数字（C8302/F1302）、负数水平（-650）
+    cand_codes = re.findall(r'(?:-?\d{3,}|[A-Za-z]\d{2,})', candidate_name)
+    cand_codes = [c for c in cand_codes if (any(ch.isalpha() for ch in c) or len(c.lstrip('-')) >= 3)]
+    if cand_codes:
+        desc_has_any = False
+        for code in cand_codes:
+            if any(ch.isalpha() for ch in code) or code.startswith('-'):
+                if code in description:
+                    desc_has_any = True
+                    break
+            else:
+                if re.search(r'(?<!\d)' + re.escape(code) + r'(?!\d)', description):
+                    desc_has_any = True
+                    break
+        if not desc_has_any:
+            return True
+
     # 3. 地点语义硬性冲突：_LOCATION_SEMANTICS 中的规则直接拒绝匹配
     for keyword, rule in _LOCATION_SEMANTICS.items():
         if keyword in description:
@@ -1120,9 +1165,14 @@ def _score_candidates(cleaned: str, candidates: list, sensor_type: str = None,
             layer = _MATCH_LAYER_REJECT
 
         pref_count = _count_sensor_pref_matches(name, sensor_type) if sensor_type else 0
+
+        # 功能词-巷道类型可疑检测
+        suspicious, suspicious_reason = _check_functional_conflict(cleaned, name)
+
         scored.append({
             "candidate": cand, "name": name, "lcs": lcs_len,
             "score": score, "layer": layer, "pref_count": pref_count, "idx": idx,
+            "suspicious": suspicious, "suspicious_reason": suspicious_reason,
         })
     return scored
 
@@ -1161,6 +1211,8 @@ def find_best_match(cleaned: str, candidates: list, sensor_type: str = None,
         "name": best["name"], "lcs": best["lcs"], "score": best["score"],
         "candidate": best["candidate"], "layer": best["layer"],
         "_pref_count": best["pref_count"],
+        "suspicious": best.get("suspicious", False),
+        "suspicious_reason": best.get("suspicious_reason"),
     }
     return best_out, scored
 
@@ -1945,7 +1997,7 @@ def _match_devices(devices: list, candidates: list,
                 coords = dict(coords)
                 coords["z"] = round(coords["z"] + _SENSOR_INSTALL_HEIGHT[sensor_type], 4)
 
-            results.append({
+            result_entry = {
                 "id": device.get("id", ""),
                 "description": device.get("description", ""),
                 "matched": True,
@@ -1967,7 +2019,11 @@ def _match_devices(devices: list, candidates: list,
                 "line_total_length": round(total_len, 2),
                 "distance_along_line": round(dist, 2),
                 "line_percentage": round(ratio * 100, 1),
-            })
+            }
+            if match.get("suspicious"):
+                result_entry["suspicious"] = True
+                result_entry["suspicious_reason"] = match.get("suspicious_reason")
+            results.append(result_entry)
 
     wind_warnings = _check_wind_speed_spacing(groups)
     if wind_warnings:
@@ -2366,6 +2422,19 @@ def _build_report(devices, results, unmatched, summary, audit_data,
             for r in group
         ]
 
+    # ── 可疑匹配样本（Top 10）──
+    suspicious_items = [
+        {
+            "id": r.get("id", "?"),
+            "description": r.get("description", "")[:50],
+            "matched_name": r.get("matched_name", "?"),
+            "match_score": r.get("match_score", 0),
+            "suspicious_reason": r.get("suspicious_reason", ""),
+        }
+        for r in results if r.get("suspicious")
+    ]
+    suspicious_items = sorted(suspicious_items, key=lambda x: -x["match_score"])[:10]
+
     # ── 未匹配设备 Top 10 ──
     unmatched_top10 = []
     for u in unmatched[:10]:
@@ -2457,6 +2526,7 @@ def _build_report(devices, results, unmatched, summary, audit_data,
             "generic_tunnels_skipped": s.get("generic_tunnels_skipped", 0),
             "unnamed_tunnels_skipped": s.get("unnamed_tunnels_skipped", 0),
             "wind_spacing_warnings": s.get("wind_spacing_warnings", 0),
+            "suspicious_count": s.get("suspicious_count", 0),
             "by_confidence": s.get("by_confidence", {"高": 0, "中": 0, "低": 0}),
             "by_mark_type": s.get("by_mark_type", {}),
             "by_sensor_type": s.get("by_sensor_type", {}),
@@ -2464,6 +2534,10 @@ def _build_report(devices, results, unmatched, summary, audit_data,
             "generic_tunnel_names": generic_tunnel_names[:5],
         },
         "confidence_samples": confidence_samples,
+        "suspicious_devices": {
+            "total": s.get("suspicious_count", 0),
+            "top_10": suspicious_items,
+        },
         "unmatched_devices": {
             "total": len(unmatched),
             "by_reason": s.get("by_reason", {}),
@@ -2543,6 +2617,20 @@ def _print_report_stderr(report: dict):
                 _p(f"    {r['id']} → {r['matched_name']}  score={r['match_score']}  {r['line_percentage']}%  {r['description']}")
             else:
                 _p(f"    (无)")
+
+    # ── 可疑匹配设备（需人工确认）──
+    sd = report.get("suspicious_devices", {})
+    sd_total = sd.get("total", 0)
+    _p(f"\n【可疑匹配设备 ({sd_total} 台)】")
+    if sd_total > 0:
+        _p(f"  ⚠ 以下设备匹配结果的语义可疑，建议逐条确认：")
+        for item in sd.get("top_10", []):
+            _p(f"  {item['id']} → {item['matched_name']}  score={item['match_score']}")
+            _p(f"    原因: {item['suspicious_reason']}  {item['description']}")
+        if sd_total > 10:
+            _p(f"    ...及其他 {sd_total - 10} 台")
+    else:
+        _p(f"    (无)")
 
     # ── 未匹配设备（固定 10 条，不足补"无"）──
     um = report["unmatched_devices"]
@@ -2979,9 +3067,12 @@ def main():
         by_reason[reason] = by_reason.get(reason, 0) + 1
 
     by_tunnel = {}
+    suspicious_count = 0
     for r in results:
         name = r.get("matched_name", "")
         by_tunnel[name] = by_tunnel.get(name, 0) + 1
+        if r.get("suspicious"):
+            suspicious_count += 1
 
     summary = {
         "total": len(devices),
@@ -2996,6 +3087,7 @@ def main():
         "by_sensor_type": by_sensor_type,
         "by_reason": by_reason,
         "by_tunnel": by_tunnel,
+        "suspicious_count": suspicious_count,
         "generic_tunnel_names": generic_tunnel_names[:50],
     }
 
@@ -3123,6 +3215,11 @@ _RULES_REGISTRY = {
         "standard": "实际数据观察",
         "desc": "匹配阶段：洗煤厂/中央变电所/避难硐室/井口/地面/通风机/主扇 语义不匹配→-10",
     },
+    "反向编码约束（候选含 code 但描述不含）": {
+        "table": "_has_hard_semantic_conflict 规则 5",
+        "standard": "实际数据观察",
+        "desc": "候选名含 specific code（如 8301/6301/-650）但描述完全不含 → REJECT，避免短 LCS 蹭工作面/巷道编码候选",
+    },
     "别名映射（LCS 前扩展）": {
         "table": "_TUNNEL_ALIAS_MAP",
         "standard": "煤矿术语习惯 + 实际数据观察",
@@ -3147,5 +3244,10 @@ _RULES_REGISTRY = {
         "table": "_AREA_SURFACE_PATTERNS",
         "standard": "实际数据观察",
         "desc": "area 含地面/洗选/磅房/化验楼/产品仓/原煤仓 等关键词时跳过井下候选",
+    },
+    "设备功能词-巷道类型可疑检测": {
+        "table": "_FUNCTIONAL_SEMANTIC_CHECKS",
+        "standard": "实际数据观察",
+        "desc": "描述含水泵/远控开关/配电点等功能词但候选非硐室/变电/配电时→suspicious，需人工确认",
     },
 }

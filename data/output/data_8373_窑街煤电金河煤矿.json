@@ -3,6 +3,214 @@
   "data": {
     "devices": [
       {
+        "id": "YJMDJHMK30120002A0668",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "东三绞车房温度",
+        "sensor_type": "温度",
+        "area": "东三绞车房温度",
+        "mark_type": "B14"
+      },
+      {
+        "id": "YJMDJHMK30120002A2579",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "1893水位1#",
+        "sensor_type": "液位",
+        "area": "1893水位1#",
+        "mark_type": "B14"
+      },
+      {
+        "id": "YJMDJHMK30120002A3163",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "1893水位2#",
+        "sensor_type": "液位",
+        "area": "1893水位2#",
+        "mark_type": "B14"
+      },
+      {
+        "id": "YJMDJHMK30120002D0667",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "东三绞车开停",
+        "sensor_type": "开停",
+        "area": "东三绞车开停",
+        "mark_type": "B14"
+      },
+      {
+        "id": "YJMDJHMK30120002D2128",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "暗斜井绞车开停",
+        "sensor_type": "开停",
+        "area": "暗斜井绞车开停",
+        "mark_type": "B14"
+      },
+      {
+        "id": "YJMDJHMK30120002D3727",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "暗斜井绞车房烟雾",
+        "sensor_type": "烟雾",
+        "area": "暗斜井绞车房烟雾",
+        "mark_type": "B14"
+      },
+      {
+        "id": "YJMDJHMK30120002F00",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "东三石门联络巷",
+        "sensor_type": "分站",
+        "area": "东三石门联络巷",
+        "mark_type": "B14"
+      },
+      {
+        "id": "YJMDJHMK30120003A0104",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "新平硐皮带机头CO",
+        "sensor_type": "一氧化碳",
+        "area": "新平硐皮带机头CO",
+        "mark_type": "B14"
+      },
+      {
+        "id": "YJMDJHMK30120003A1311",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "新平硐皮带中部温度",
+        "sensor_type": "温度",
+        "area": "新平硐皮带中部温度",
+        "mark_type": "B14"
+      },
+      {
+        "id": "YJMDJHMK30120003A1312",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "新平硐皮带中部CO",
+        "sensor_type": "一氧化碳",
+        "area": "新平硐皮带中部CO",
+        "mark_type": "B14"
+      },
+      {
+        "id": "YJMDJHMK30120003D0413",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "新平硐皮带开停",
+        "sensor_type": "开停",
+        "area": "新平硐皮带开停",
+        "mark_type": "B14"
+      },
+      {
+        "id": "YJMDJHMK30120003D0748",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "新平硐皮带机头烟雾",
+        "sensor_type": "烟雾",
+        "area": "新平硐皮带机头烟雾",
+        "mark_type": "B14"
+      },
+      {
+        "id": "YJMDJHMK30120003D1313",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "新平硐皮带中部烟雾",
+        "sensor_type": "烟雾",
+        "area": "新平硐皮带中部烟雾",
+        "mark_type": "B14"
+      },
+      {
+        "id": "YJMDJHMK30120003F00",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "新平硐机头",
+        "sensor_type": "分站",
+        "area": "新平硐机头",
+        "mark_type": "B14"
+      },
+      {
+        "id": "YJMDJHMK30120004A0444",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "1-4风井CO2",
+        "sensor_type": "二氧化碳",
+        "area": "1-4风井CO2",
+        "mark_type": "B14"
+      },
+      {
+        "id": "YJMDJHMK30120004A1785",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "1-4风井1#风机负压",
+        "sensor_type": "负压",
+        "area": "1-4风井1#风机负压",
+        "mark_type": "B14"
+      },
+      {
+        "id": "YJMDJHMK30120004A1786",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "1-4风井2#风机负压",
+        "sensor_type": "负压",
+        "area": "1-4风井2#风机负压",
+        "mark_type": "B14"
+      },
+      {
+        "id": "YJMDJHMK30120004A1791",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "1-4风井风速",
+        "sensor_type": "风速",
+        "area": "1-4风井风速",
+        "mark_type": "B14"
+      },
+      {
+        "id": "YJMDJHMK30120004A1792",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "1-4-风井CO",
+        "sensor_type": "一氧化碳",
+        "area": "1-4-风井CO",
+        "mark_type": "B14"
+      },
+      {
+        "id": "YJMDJHMK30120004A1794",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "1-4风井激光CH4",
+        "sensor_type": "瓦斯",
+        "area": "1-4风井激光CH4",
+        "mark_type": "B14"
+      },
+      {
+        "id": "YJMDJHMK30120004A1795",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "1-4通风平硐风速",
+        "sensor_type": "风速",
+        "area": "1-4通风平硐风速",
+        "mark_type": "B14"
+      },
+      {
+        "id": "YJMDJHMK30120004D1787",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "1-4风井1#风机副电机开停",
+        "sensor_type": "主扇",
+        "area": "1-4风井1#风机副电机开停",
+        "mark_type": "B14"
+      },
+      {
+        "id": "YJMDJHMK30120004D1788",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "1-4风井2#风机主电机开停",
+        "sensor_type": "主扇",
+        "area": "1-4风井2#风机主电机开停",
+        "mark_type": "B14"
+      },
+      {
+        "id": "YJMDJHMK30120004D1789",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "1-4风井1#风机主电机开停",
+        "sensor_type": "主扇",
+        "area": "1-4风井1#风机主电机开停",
+        "mark_type": "B14"
+      },
+      {
+        "id": "YJMDJHMK30120004D1790",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "1-4风井2#风机副电机开停",
+        "sensor_type": "主扇",
+        "area": "1-4风井2#风机副电机开停",
+        "mark_type": "B14"
+      },
+      {
+        "id": "YJMDJHMK30120004F00",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "1-4风机房",
+        "sensor_type": "分站",
+        "area": "1-4风机房",
+        "mark_type": "B14"
+      },
+      {
         "id": "YJMDJHMK30120006A3517",
         "sysaliasname": "安全监测(瓦斯)系统",
         "description": "17216进风顺槽CH4(T3)",
@@ -256,214 +464,6 @@
         "description": "17216回风顺槽上隅角CH4",
         "sensor_type": "瓦斯",
         "area": "17216回风顺槽上隅角CH4",
-        "mark_type": "B14"
-      },
-      {
-        "id": "YJMDJHMK30120004F00",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "1-4风机房",
-        "sensor_type": "分站",
-        "area": "1-4风机房",
-        "mark_type": "B14"
-      },
-      {
-        "id": "YJMDJHMK30120004D1790",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "1-4风井2#风机副电机开停",
-        "sensor_type": "主扇",
-        "area": "1-4风井2#风机副电机开停",
-        "mark_type": "B14"
-      },
-      {
-        "id": "YJMDJHMK30120004D1789",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "1-4风井1#风机主电机开停",
-        "sensor_type": "主扇",
-        "area": "1-4风井1#风机主电机开停",
-        "mark_type": "B14"
-      },
-      {
-        "id": "YJMDJHMK30120004D1788",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "1-4风井2#风机主电机开停",
-        "sensor_type": "主扇",
-        "area": "1-4风井2#风机主电机开停",
-        "mark_type": "B14"
-      },
-      {
-        "id": "YJMDJHMK30120004D1787",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "1-4风井1#风机副电机开停",
-        "sensor_type": "主扇",
-        "area": "1-4风井1#风机副电机开停",
-        "mark_type": "B14"
-      },
-      {
-        "id": "YJMDJHMK30120004A1795",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "1-4通风平硐风速",
-        "sensor_type": "风速",
-        "area": "1-4通风平硐风速",
-        "mark_type": "B14"
-      },
-      {
-        "id": "YJMDJHMK30120004A1794",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "1-4风井激光CH4",
-        "sensor_type": "瓦斯",
-        "area": "1-4风井激光CH4",
-        "mark_type": "B14"
-      },
-      {
-        "id": "YJMDJHMK30120004A1792",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "1-4-风井CO",
-        "sensor_type": "一氧化碳",
-        "area": "1-4-风井CO",
-        "mark_type": "B14"
-      },
-      {
-        "id": "YJMDJHMK30120004A1791",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "1-4风井风速",
-        "sensor_type": "风速",
-        "area": "1-4风井风速",
-        "mark_type": "B14"
-      },
-      {
-        "id": "YJMDJHMK30120004A1786",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "1-4风井2#风机负压",
-        "sensor_type": "负压",
-        "area": "1-4风井2#风机负压",
-        "mark_type": "B14"
-      },
-      {
-        "id": "YJMDJHMK30120004A1785",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "1-4风井1#风机负压",
-        "sensor_type": "负压",
-        "area": "1-4风井1#风机负压",
-        "mark_type": "B14"
-      },
-      {
-        "id": "YJMDJHMK30120004A0444",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "1-4风井CO2",
-        "sensor_type": "二氧化碳",
-        "area": "1-4风井CO2",
-        "mark_type": "B14"
-      },
-      {
-        "id": "YJMDJHMK30120003F00",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "新平硐机头",
-        "sensor_type": "分站",
-        "area": "新平硐机头",
-        "mark_type": "B14"
-      },
-      {
-        "id": "YJMDJHMK30120003D1313",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "新平硐皮带中部烟雾",
-        "sensor_type": "烟雾",
-        "area": "新平硐皮带中部烟雾",
-        "mark_type": "B14"
-      },
-      {
-        "id": "YJMDJHMK30120003D0748",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "新平硐皮带机头烟雾",
-        "sensor_type": "烟雾",
-        "area": "新平硐皮带机头烟雾",
-        "mark_type": "B14"
-      },
-      {
-        "id": "YJMDJHMK30120003D0413",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "新平硐皮带开停",
-        "sensor_type": "开停",
-        "area": "新平硐皮带开停",
-        "mark_type": "B14"
-      },
-      {
-        "id": "YJMDJHMK30120003A1312",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "新平硐皮带中部CO",
-        "sensor_type": "一氧化碳",
-        "area": "新平硐皮带中部CO",
-        "mark_type": "B14"
-      },
-      {
-        "id": "YJMDJHMK30120003A1311",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "新平硐皮带中部温度",
-        "sensor_type": "温度",
-        "area": "新平硐皮带中部温度",
-        "mark_type": "B14"
-      },
-      {
-        "id": "YJMDJHMK30120003A0104",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "新平硐皮带机头CO",
-        "sensor_type": "一氧化碳",
-        "area": "新平硐皮带机头CO",
-        "mark_type": "B14"
-      },
-      {
-        "id": "YJMDJHMK30120002F00",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "东三石门联络巷",
-        "sensor_type": "分站",
-        "area": "东三石门联络巷",
-        "mark_type": "B14"
-      },
-      {
-        "id": "YJMDJHMK30120002D3727",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "暗斜井绞车房烟雾",
-        "sensor_type": "烟雾",
-        "area": "暗斜井绞车房烟雾",
-        "mark_type": "B14"
-      },
-      {
-        "id": "YJMDJHMK30120002D2128",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "暗斜井绞车开停",
-        "sensor_type": "开停",
-        "area": "暗斜井绞车开停",
-        "mark_type": "B14"
-      },
-      {
-        "id": "YJMDJHMK30120002D0667",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "东三绞车开停",
-        "sensor_type": "开停",
-        "area": "东三绞车开停",
-        "mark_type": "B14"
-      },
-      {
-        "id": "YJMDJHMK30120002A3163",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "1893水位2#",
-        "sensor_type": "液位",
-        "area": "1893水位2#",
-        "mark_type": "B14"
-      },
-      {
-        "id": "YJMDJHMK30120002A2579",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "1893水位1#",
-        "sensor_type": "液位",
-        "area": "1893水位1#",
-        "mark_type": "B14"
-      },
-      {
-        "id": "YJMDJHMK30120002A0668",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "东三绞车房温度",
-        "sensor_type": "温度",
-        "area": "东三绞车房温度",
         "mark_type": "B14"
       },
       {
@@ -1059,6 +1059,54 @@
         "mark_type": "B14"
       },
       {
+        "id": "YJMDJHMK30120010A3676",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "1460瓦斯泵2#泵GD3(B)瓦斯",
+        "sensor_type": "瓦斯",
+        "area": "1460瓦斯泵2#泵GD3(B)瓦斯",
+        "mark_type": "B14"
+      },
+      {
+        "id": "YJMDJHMK30120010A3677",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "1460瓦斯泵2#泵GD3(B)一氧化碳",
+        "sensor_type": "一氧化碳",
+        "area": "1460瓦斯泵2#泵GD3(B)一氧化碳",
+        "mark_type": "B14"
+      },
+      {
+        "id": "YJMDJHMK30120010A3793",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "1460瓦斯泵房2#泵管道氧气",
+        "sensor_type": "氧气",
+        "area": "1460瓦斯泵房2#泵管道氧气",
+        "mark_type": "B14"
+      },
+      {
+        "id": "YJMDJHMK30120010D1749",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "1460移动瓦斯抽采泵站2#泵开停",
+        "sensor_type": "开停",
+        "area": "1460移动瓦斯抽采泵站2#泵开停",
+        "mark_type": "B14"
+      },
+      {
+        "id": "YJMDJHMK30120010D1750",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "1460移动瓦斯抽采泵站3#泵开停",
+        "sensor_type": "开停",
+        "area": "1460移动瓦斯抽采泵站3#泵开停",
+        "mark_type": "B14"
+      },
+      {
+        "id": "YJMDJHMK30120010D1751",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "1460移动瓦斯抽采泵站1#泵开停",
+        "sensor_type": "开停",
+        "area": "1460移动瓦斯抽采泵站1#泵开停",
+        "mark_type": "B14"
+      },
+      {
         "id": "YJMDJHMK30120015A3716",
         "sysaliasname": "安全监测(瓦斯)系统",
         "description": "17208底抽联巷管道氧气",
@@ -1211,14 +1259,6 @@
         "mark_type": "B14"
       },
       {
-        "id": "YJMDJHMK30120010A3676",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "1460瓦斯泵2#泵GD3(B)瓦斯",
-        "sensor_type": "瓦斯",
-        "area": "1460瓦斯泵2#泵GD3(B)瓦斯",
-        "mark_type": "B14"
-      },
-      {
         "id": "YJMDJHMK30120019A1363",
         "sysaliasname": "安全监测(瓦斯)系统",
         "description": "16220-1进风顺槽CH4（T1）",
@@ -1315,6 +1355,14 @@
         "mark_type": "B14"
       },
       {
+        "id": "YJMDJHMK30120028D2695",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "1460变电所综掘机开停状态",
+        "sensor_type": "开停",
+        "area": "1460变电所综掘机开停状态",
+        "mark_type": "B14"
+      },
+      {
         "id": "YJMDJHMK30120021A4929",
         "sysaliasname": "安全监测(瓦斯)系统",
         "description": "暗斜井煤仓CH4",
@@ -1392,6 +1440,14 @@
         "description": "1340运输巷",
         "sensor_type": "分站",
         "area": "1340运输巷",
+        "mark_type": "B14"
+      },
+      {
+        "id": "YJMDJHMK30120028D3245",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "1460机轨运输巷远控开关  断电状态",
+        "sensor_type": "断电",
+        "area": "1460机轨运输巷远控开关  断电状态",
         "mark_type": "B14"
       },
       {
@@ -1523,6 +1579,14 @@
         "mark_type": "B14"
       },
       {
+        "id": "YJMDJHMK30120029A3035",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "暗斜井3#煤仓CH4",
+        "sensor_type": "瓦斯",
+        "area": "暗斜井3#煤仓CH4",
+        "mark_type": "B14"
+      },
+      {
         "id": "YJMDJHMK30120026A1863",
         "sysaliasname": "安全监测(瓦斯)系统",
         "description": "1380一台皮带机头CO",
@@ -1536,6 +1600,14 @@
         "description": "六采区皮带运输巷机尾CO",
         "sensor_type": "一氧化碳",
         "area": "六采区皮带运输巷机尾CO",
+        "mark_type": "B14"
+      },
+      {
+        "id": "YJMDJHMK30120028F00",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "1460车场1#分站",
+        "sensor_type": "分站",
+        "area": "1460车场1#分站",
         "mark_type": "B14"
       },
       {
@@ -1587,14 +1659,6 @@
         "mark_type": "B14"
       },
       {
-        "id": "YJMDJHMK30120010A3677",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "1460瓦斯泵2#泵GD3(B)一氧化碳",
-        "sensor_type": "一氧化碳",
-        "area": "1460瓦斯泵2#泵GD3(B)一氧化碳",
-        "mark_type": "B14"
-      },
-      {
         "id": "YJMDJHMK30120013D0582",
         "sysaliasname": "安全监测(瓦斯)系统",
         "description": "九采区辅助运输巷1#风机",
@@ -1635,14 +1699,6 @@
         "mark_type": "B14"
       },
       {
-        "id": "YJMDJHMK30120010A3793",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "1460瓦斯泵房2#泵管道氧气",
-        "sensor_type": "氧气",
-        "area": "1460瓦斯泵房2#泵管道氧气",
-        "mark_type": "B14"
-      },
-      {
         "id": "YJMDJHMK30120021D0750",
         "sysaliasname": "安全监测(瓦斯)系统",
         "description": "暗斜井皮带机头烟雾",
@@ -1667,14 +1723,6 @@
         "mark_type": "B14"
       },
       {
-        "id": "YJMDJHMK30120010D1749",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "1460移动瓦斯抽采泵站2#泵开停",
-        "sensor_type": "开停",
-        "area": "1460移动瓦斯抽采泵站2#泵开停",
-        "mark_type": "B14"
-      },
-      {
         "id": "YJMDJHMK30120026A3594",
         "sysaliasname": "安全监测(瓦斯)系统",
         "description": "1460东机轨运输大巷GD3(B)工混流量",
@@ -1696,6 +1744,14 @@
         "description": "1496皮带机尾CO",
         "sensor_type": "一氧化碳",
         "area": "1496皮带机尾CO",
+        "mark_type": "B14"
+      },
+      {
+        "id": "YJMDJHMK30120029A3036",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "暗斜井4#煤仓CH4",
+        "sensor_type": "瓦斯",
+        "area": "暗斜井4#煤仓CH4",
         "mark_type": "B14"
       },
       {
@@ -1867,6 +1923,14 @@
         "mark_type": "B14"
       },
       {
+        "id": "YJMDJHMK30120029A3807",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "暗斜井3#煤仓口CO",
+        "sensor_type": "一氧化碳",
+        "area": "暗斜井3#煤仓口CO",
+        "mark_type": "B14"
+      },
+      {
         "id": "YJMDJHMK30120026A2298",
         "sysaliasname": "安全监测(瓦斯)系统",
         "description": "1410措施巷东侧管道GD3(B)工混累计",
@@ -1995,14 +2059,6 @@
         "mark_type": "B14"
       },
       {
-        "id": "YJMDJHMK30120010D1750",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "1460移动瓦斯抽采泵站3#泵开停",
-        "sensor_type": "开停",
-        "area": "1460移动瓦斯抽采泵站3#泵开停",
-        "mark_type": "B14"
-      },
-      {
         "id": "YJMDJHMK30120024A2018",
         "sysaliasname": "安全监测(瓦斯)系统",
         "description": "1340运输巷温度",
@@ -2024,6 +2080,14 @@
         "description": "16220-1回风顺槽远控开关馈电状态",
         "sensor_type": "馈电",
         "area": "16220-1回风顺槽远控开关馈电状态",
+        "mark_type": "B14"
+      },
+      {
+        "id": "YJMDJHMK30120029F00",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "1460车场2#分站",
+        "sensor_type": "分站",
+        "area": "1460车场2#分站",
         "mark_type": "B14"
       },
       {
@@ -2091,6 +2155,14 @@
         "mark_type": "B14"
       },
       {
+        "id": "YJMDJHMK30120029D3032",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "1460西运输大巷皮带烟雾",
+        "sensor_type": "烟雾",
+        "area": "1460西运输大巷皮带烟雾",
+        "mark_type": "B14"
+      },
+      {
         "id": "YJMDJHMK30120022A2888",
         "sysaliasname": "安全监测(瓦斯)系统",
         "description": "1475移动式抽采泵站2#泵管道GD3(B)温度",
@@ -2120,6 +2192,14 @@
         "description": "九采区辅助运输巷后巷CO",
         "sensor_type": "一氧化碳",
         "area": "九采区辅助运输巷后巷CO",
+        "mark_type": "B14"
+      },
+      {
+        "id": "YJMDJHMK30120028D3244",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "1460机轨运输巷远控开关  馈电状态",
+        "sensor_type": "馈电",
+        "area": "1460机轨运输巷远控开关  馈电状态",
         "mark_type": "B14"
       },
       {
@@ -2187,11 +2267,11 @@
         "mark_type": "B14"
       },
       {
-        "id": "YJMDJHMK30120010D1751",
+        "id": "YJMDJHMK30120029D3796",
         "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "1460移动瓦斯抽采泵站1#泵开停",
-        "sensor_type": "开停",
-        "area": "1460移动瓦斯抽采泵站1#泵开停",
+        "description": "1460西运输巷2#风机",
+        "sensor_type": "局扇",
+        "area": "1460西运输巷2#风机",
         "mark_type": "B14"
       },
       {
@@ -2339,6 +2419,14 @@
         "mark_type": "B14"
       },
       {
+        "id": "YJMDJHMK30120029D3028",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "1460西运输巷皮带开停",
+        "sensor_type": "开停",
+        "area": "1460西运输巷皮带开停",
+        "mark_type": "B14"
+      },
+      {
         "id": "YJMDJHMK30120022D3799",
         "sysaliasname": "安全监测(瓦斯)系统",
         "description": "1475移动瓦斯抽采泵站2#开停",
@@ -2456,6 +2544,14 @@
         "description": "1475移动式抽采泵站",
         "sensor_type": "分站",
         "area": "1475移动式抽采泵站",
+        "mark_type": "B14"
+      },
+      {
+        "id": "YJMDJHMK30120029D3029",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "1460机轨运输巷皮带开停",
+        "sensor_type": "开停",
+        "area": "1460机轨运输巷皮带开停",
         "mark_type": "B14"
       },
       {
@@ -2595,6 +2691,14 @@
         "mark_type": "B14"
       },
       {
+        "id": "YJMDJHMK30120029D3033",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "1460排矸一台皮带烟雾",
+        "sensor_type": "烟雾",
+        "area": "1460排矸一台皮带烟雾",
+        "mark_type": "B14"
+      },
+      {
         "id": "YJMDJHMK30120026F00",
         "sysaliasname": "安全监测(瓦斯)系统",
         "description": "1410措施巷(东侧)抽放钻场",
@@ -2632,6 +2736,14 @@
         "description": "1460变电所远控开关馈电状态",
         "sensor_type": "馈电",
         "area": "1460变电所远控开关馈电状态",
+        "mark_type": "B14"
+      },
+      {
+        "id": "YJMDJHMK30120029A3034",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "1460排矸一台皮带CO",
+        "sensor_type": "一氧化碳",
+        "area": "1460排矸一台皮带CO",
         "mark_type": "B14"
       },
       {
@@ -2800,6 +2912,14 @@
         "description": "新平硐皮带机尾烟雾",
         "sensor_type": "烟雾",
         "area": "新平硐皮带机尾烟雾",
+        "mark_type": "B14"
+      },
+      {
+        "id": "YJMDJHMK30120029A3030",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "1460西运输大巷皮带CO",
+        "sensor_type": "一氧化碳",
+        "area": "1460西运输大巷皮带CO",
         "mark_type": "B14"
       },
       {
@@ -2995,6 +3115,14 @@
         "mark_type": "B14"
       },
       {
+        "id": "YJMDJHMK30120029D3795",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "1460西运输巷1#风机",
+        "sensor_type": "局扇",
+        "area": "1460西运输巷1#风机",
+        "mark_type": "B14"
+      },
+      {
         "id": "YJMDJHMK30120022A3756",
         "sysaliasname": "安全监测(瓦斯)系统",
         "description": "西翼回风上平巷CH4",
@@ -3032,6 +3160,14 @@
         "description": "16220-1回风顺槽分风口CO2（T4）",
         "sensor_type": "二氧化碳",
         "area": "16220-1回风顺槽分风口CO2（T4）",
+        "mark_type": "B14"
+      },
+      {
+        "id": "YJMDJHMK30120028D2907",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "暗斜井皮带机尾烟雾",
+        "sensor_type": "烟雾",
+        "area": "暗斜井皮带机尾烟雾",
         "mark_type": "B14"
       },
       {
@@ -3139,6 +3275,14 @@
         "mark_type": "B14"
       },
       {
+        "id": "YJMDJHMK30120029A3808",
+        "sysaliasname": "安全监测(瓦斯)系统",
+        "description": "暗斜井4#煤仓口CO",
+        "sensor_type": "一氧化碳",
+        "area": "暗斜井4#煤仓口CO",
+        "mark_type": "B14"
+      },
+      {
         "id": "YJMDJHMK30120022A3755",
         "sysaliasname": "安全监测(瓦斯)系统",
         "description": "西翼回风上平巷CO",
@@ -3243,6 +3387,14 @@
         "mark_type": "B14"
       },
       {
+        "id": "YJMDJHMK30121b1799d438179b",
+        "sysaliasname": "工业视频监控系统",
+        "description": "煤矿高压室",
+        "sensor_type": "工业视频",
+        "area": "新平硐变电所",
+        "mark_type": "B16"
+      },
+      {
         "id": "YJMDJHMK301213e5a2d801e497",
         "sysaliasname": "工业视频监控系统",
         "description": "1460水平道岔",
@@ -3257,6 +3409,14 @@
         "sensor_type": "瓦斯",
         "area": "哈拉沟瓦斯泵房激光CH4",
         "mark_type": "B14"
+      },
+      {
+        "id": "YJMDJHMK30121bf7165e9e1d7d",
+        "sysaliasname": "工业视频监控系统",
+        "description": "运输队学习室",
+        "sensor_type": "工业视频",
+        "area": "素质提升中心学习室",
+        "mark_type": "B16"
       },
       {
         "id": "YJMDJHMK301211e957d914df29",
@@ -3323,6 +3483,14 @@
         "mark_type": "B16"
       },
       {
+        "id": "YJMDJHMK30121b2a40cf9e9641",
+        "sysaliasname": "工业视频监控系统",
+        "description": "洗煤厂广场",
+        "sensor_type": "工业视频",
+        "area": "地面广场及大门",
+        "mark_type": "B16"
+      },
+      {
         "id": "YJMDJHMK30121142837819b54d",
         "sysaliasname": "工业视频监控系统",
         "description": "暗斜井5号跑车防护装置",
@@ -3363,12 +3531,28 @@
         "mark_type": "B14"
       },
       {
+        "id": "YJMDJHMK30121bfc6b40c85816",
+        "sysaliasname": "工业视频监控系统",
+        "description": "801.802皮带机尾",
+        "sensor_type": "工业视频",
+        "area": "洗煤厂",
+        "mark_type": "B16"
+      },
+      {
         "id": "YJMDJHMK30120062D3572",
         "sysaliasname": "安全监测(瓦斯)系统",
         "description": "哈拉沟瓦斯泵1#",
         "sensor_type": "开停",
         "area": "哈拉沟瓦斯泵1#",
         "mark_type": "B14"
+      },
+      {
+        "id": "YJMDJHMK30121b5aa49781b0af",
+        "sysaliasname": "工业视频监控系统",
+        "description": "煤矿选煤楼平硐皮带操作间",
+        "sensor_type": "工业视频",
+        "area": "控制室",
+        "mark_type": "B16"
       },
       {
         "id": "YJMDJHMK30121a3a6e6900b624",
@@ -3667,14 +3851,6 @@
         "mark_type": "B14"
       },
       {
-        "id": "YJMDJHMK30120028D2695",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "1460变电所综掘机开停状态",
-        "sensor_type": "开停",
-        "area": "1460变电所综掘机开停状态",
-        "mark_type": "B14"
-      },
-      {
         "id": "YJMDJHMK30120038D0048",
         "sysaliasname": "安全监测(瓦斯)系统",
         "description": "1496轨下绞车开停",
@@ -3819,20 +3995,20 @@
         "mark_type": "B14"
       },
       {
-        "id": "YJMDJHMK30120028D3245",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "1460机轨运输巷远控开关  断电状态",
-        "sensor_type": "断电",
-        "area": "1460机轨运输巷远控开关  断电状态",
-        "mark_type": "B14"
-      },
-      {
         "id": "YJMDJHMK30120038A1378",
         "sysaliasname": "安全监测(瓦斯)系统",
         "description": "1480措施巷风速",
         "sensor_type": "风速",
         "area": "1480措施巷风速",
         "mark_type": "B14"
+      },
+      {
+        "id": "YJMDJHMK30121c0c28bd4d89ec",
+        "sysaliasname": "工业视频监控系统",
+        "description": "煤矿1-4变电所低压室",
+        "sensor_type": "工业视频",
+        "area": "1-4工业区域",
+        "mark_type": "B16"
       },
       {
         "id": "YJMDJHMK3012128796470d97ab",
@@ -4027,6 +4203,14 @@
         "mark_type": "B16"
       },
       {
+        "id": "YJMDJHMK30121bc122c4c80daf",
+        "sysaliasname": "工业视频监控系统",
+        "description": "423-1精煤刮板",
+        "sensor_type": "工业视频",
+        "area": "洗煤厂",
+        "mark_type": "B16"
+      },
+      {
         "id": "YJMDJHMK3012195391c72914b3",
         "sysaliasname": "工业视频监控系统",
         "description": "煤矿1495皮带",
@@ -4080,6 +4264,22 @@
         "description": "二层660V配电室",
         "sensor_type": "工业视频",
         "area": "洗煤厂",
+        "mark_type": "B16"
+      },
+      {
+        "id": "YJMDJHMK30121b98bacfc0e869",
+        "sysaliasname": "工业视频监控系统",
+        "description": "六采区风门进风侧出入口",
+        "sensor_type": "工业视频",
+        "area": "井下巷道出入口",
+        "mark_type": "B16"
+      },
+      {
+        "id": "YJMDJHMK30121b7218885ccdc6",
+        "sysaliasname": "工业视频监控系统",
+        "description": "九采区辅助运输巷皮带转载点",
+        "sensor_type": "工业视频",
+        "area": "掘进出渣运输系统",
         "mark_type": "B16"
       },
       {
@@ -4219,14 +4419,6 @@
         "mark_type": "B16"
       },
       {
-        "id": "YJMDJHMK30120029A3035",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "暗斜井3#煤仓CH4",
-        "sensor_type": "瓦斯",
-        "area": "暗斜井3#煤仓CH4",
-        "mark_type": "B14"
-      },
-      {
         "id": "YJMDJHMK301212e93c56a8c081",
         "sysaliasname": "工业视频监控系统",
         "description": "煤矿压风机房操作室",
@@ -4259,6 +4451,14 @@
         "mark_type": "B16"
       },
       {
+        "id": "YJMDJHMK30121c0a1dbb4845e5",
+        "sysaliasname": "工业视频监控系统",
+        "description": "329筛子",
+        "sensor_type": "工业视频",
+        "area": "洗煤厂",
+        "mark_type": "B16"
+      },
+      {
         "id": "YJMDJHMK30120032A0752",
         "sysaliasname": "安全监测(瓦斯)系统",
         "description": "1380运输巷二台皮带CO",
@@ -4267,19 +4467,19 @@
         "mark_type": "B14"
       },
       {
-        "id": "YJMDJHMK30120028F00",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "1460车场1#分站",
-        "sensor_type": "分站",
-        "area": "1460车场1#分站",
-        "mark_type": "B14"
-      },
-      {
         "id": "YJMDJHMK30121a18821b59ceb6",
         "sysaliasname": "工业视频监控系统",
         "description": "东部边界措施巷积水点",
         "sensor_type": "工业视频",
         "area": "积水区域",
+        "mark_type": "B16"
+      },
+      {
+        "id": "YJMDJHMK30121b5199a49a9229",
+        "sysaliasname": "工业视频监控系统",
+        "description": "储煤棚西1",
+        "sensor_type": "工业视频",
+        "area": "洗煤厂储煤棚",
         "mark_type": "B16"
       },
       {
@@ -4395,6 +4595,22 @@
         "mark_type": "B16"
       },
       {
+        "id": "YJMDJHMK30121c1bc31ba64baf",
+        "sysaliasname": "工业视频监控系统",
+        "description": "煤矿一号平硐进风副井口",
+        "sensor_type": "工业视频",
+        "area": "地面广场及大门",
+        "mark_type": "B16"
+      },
+      {
+        "id": "YJMDJHMK30121be0abd8de3e69",
+        "sysaliasname": "工业视频监控系统",
+        "description": "六采区进风运输大巷下部车场",
+        "sensor_type": "工业视频",
+        "area": "井下小材上专项",
+        "mark_type": "B16"
+      },
+      {
         "id": "YJMDJHMK3012168af1ee46fbb2",
         "sysaliasname": "工业视频监控系统",
         "description": "501皮带机尾出料口",
@@ -4424,6 +4640,14 @@
         "description": "205.206破碎机",
         "sensor_type": "工业视频",
         "area": "选煤楼皮带",
+        "mark_type": "B16"
+      },
+      {
+        "id": "YJMDJHMK30121b911b523b9178",
+        "sysaliasname": "工业视频监控系统",
+        "description": "新平峒皮带机头张紧跑车",
+        "sensor_type": "工业视频",
+        "area": "新平硐皮带",
         "mark_type": "B16"
       },
       {
@@ -4488,6 +4712,14 @@
         "description": "1470水仓",
         "sensor_type": "工业视频",
         "area": "水泵房区域",
+        "mark_type": "B16"
+      },
+      {
+        "id": "YJMDJHMK30121b8443efb74fa3",
+        "sysaliasname": "工业视频监控系统",
+        "description": "尾煤压滤机",
+        "sensor_type": "工业视频",
+        "area": "洗煤厂",
         "mark_type": "B16"
       },
       {
@@ -4635,14 +4867,6 @@
         "mark_type": "B16"
       },
       {
-        "id": "YJMDJHMK30120029A3036",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "暗斜井4#煤仓CH4",
-        "sensor_type": "瓦斯",
-        "area": "暗斜井4#煤仓CH4",
-        "mark_type": "B14"
-      },
-      {
         "id": "YJMDJHMK3012172e8dbd5e313a",
         "sysaliasname": "工业视频监控系统",
         "description": "418精煤压滤机入料泵",
@@ -4707,6 +4931,22 @@
         "mark_type": "B16"
       },
       {
+        "id": "YJMDJHMK30121b4c5e52a3967b",
+        "sysaliasname": "工业视频监控系统",
+        "description": "103滚动筛右部",
+        "sensor_type": "工业视频",
+        "area": "选煤楼皮带",
+        "mark_type": "B16"
+      },
+      {
+        "id": "YJMDJHMK30121b6034eeecafba",
+        "sysaliasname": "工业视频监控系统",
+        "description": "1496甲乙水仓",
+        "sensor_type": "工业视频",
+        "area": "井下掘进工作面",
+        "mark_type": "B16"
+      },
+      {
         "id": "YJMDJHMK30120034A1543",
         "sysaliasname": "安全监测(瓦斯)系统",
         "description": "暗斜井2#煤仓口CH4",
@@ -4761,6 +5001,14 @@
         "sensor_type": "分站",
         "area": "六采区甲乙水仓",
         "mark_type": "B14"
+      },
+      {
+        "id": "YJMDJHMK30121bcbe9b16ce044",
+        "sysaliasname": "工业视频监控系统",
+        "description": "煤矿1-4二号水仓",
+        "sensor_type": "工业视频",
+        "area": "1-4工业区域",
+        "mark_type": "B16"
       },
       {
         "id": "YJMDJHMK301211e3b713ec9da3",
@@ -4875,11 +5123,27 @@
         "mark_type": "B16"
       },
       {
+        "id": "YJMDJHMK30121c0e14ae6cde9e",
+        "sysaliasname": "工业视频监控系统",
+        "description": "1850水泵房1",
+        "sensor_type": "工业视频",
+        "area": "地面1850供水区域",
+        "mark_type": "B16"
+      },
+      {
         "id": "YJMDJHMK301215e6f1ef1d7fec",
         "sysaliasname": "工业视频监控系统",
         "description": "1755架空人车机头驱动轮",
         "sensor_type": "工业视频",
         "area": "架空人车视频",
+        "mark_type": "B16"
+      },
+      {
+        "id": "YJMDJHMK30121b81e950817949",
+        "sysaliasname": "工业视频监控系统",
+        "description": "1460东运输大巷下部挡车栏",
+        "sensor_type": "工业视频",
+        "area": "井下小材上专项",
         "mark_type": "B16"
       },
       {
@@ -4921,14 +5185,6 @@
         "sensor_type": "工业视频",
         "area": "T2传感器监控",
         "mark_type": "B16"
-      },
-      {
-        "id": "YJMDJHMK30120029A3807",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "暗斜井3#煤仓口CO",
-        "sensor_type": "一氧化碳",
-        "area": "暗斜井3#煤仓口CO",
-        "mark_type": "B14"
       },
       {
         "id": "YJMDJHMK30121a3353012661f6",
@@ -5067,6 +5323,14 @@
         "mark_type": "B16"
       },
       {
+        "id": "YJMDJHMK30121b77fa1e179b14",
+        "sysaliasname": "工业视频监控系统",
+        "description": "一楼西",
+        "sensor_type": "工业视频",
+        "area": "新办公楼",
+        "mark_type": "B16"
+      },
+      {
         "id": "YJMDJHMK301212e4d1a9e419eb",
         "sysaliasname": "工业视频监控系统",
         "description": "瓦抽队学习室",
@@ -5080,6 +5344,14 @@
         "description": "精煤压滤机",
         "sensor_type": "工业视频",
         "area": "洗煤厂",
+        "mark_type": "B16"
+      },
+      {
+        "id": "YJMDJHMK30121bb99dd1a7be14",
+        "sysaliasname": "工业视频监控系统",
+        "description": "1410措施巷东侧下部车场",
+        "sensor_type": "工业视频",
+        "area": "井下小材上专项",
         "mark_type": "B16"
       },
       {
@@ -5115,6 +5387,14 @@
         "mark_type": "B16"
       },
       {
+        "id": "YJMDJHMK30121bc38f3a28cf27",
+        "sysaliasname": "工业视频监控系统",
+        "description": "精煤棚东右角",
+        "sensor_type": "工业视频",
+        "area": "洗煤厂",
+        "mark_type": "B16"
+      },
+      {
         "id": "YJMDJHMK3012161e317182db0d",
         "sysaliasname": "工业视频监控系统",
         "description": "磅秤房2",
@@ -5128,6 +5408,14 @@
         "description": "煤矿集中控制室",
         "sensor_type": "工业视频",
         "area": "新平硐变电所",
+        "mark_type": "B16"
+      },
+      {
+        "id": "YJMDJHMK30121bb753589896d1",
+        "sysaliasname": "工业视频监控系统",
+        "description": "17216工作面20架",
+        "sensor_type": "工业视频",
+        "area": "17216工作面区域",
         "mark_type": "B16"
       },
       {
@@ -5235,14 +5523,6 @@
         "mark_type": "B16"
       },
       {
-        "id": "YJMDJHMK30120029F00",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "1460车场2#分站",
-        "sensor_type": "分站",
-        "area": "1460车场2#分站",
-        "mark_type": "B14"
-      },
-      {
         "id": "YJMDJHMK30120034A1245",
         "sysaliasname": "安全监测(瓦斯)系统",
         "description": "1495皮带机头CO",
@@ -5323,6 +5603,14 @@
         "mark_type": "B16"
       },
       {
+        "id": "YJMDJHMK30121b7251cee2b4f2",
+        "sysaliasname": "工业视频监控系统",
+        "description": "1800米处",
+        "sensor_type": "工业视频",
+        "area": "新平硐皮带",
+        "mark_type": "B16"
+      },
+      {
         "id": "YJMDJHMK301210e26429681826",
         "sysaliasname": "工业视频监控系统",
         "description": "煤矿1-4灌浆站筛子口",
@@ -5344,14 +5632,6 @@
         "description": "哈拉沟1#风机主电机开停",
         "sensor_type": "主扇",
         "area": "哈拉沟1#风机主电机开停",
-        "mark_type": "B14"
-      },
-      {
-        "id": "YJMDJHMK30120029D3032",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "1460西运输大巷皮带烟雾",
-        "sensor_type": "烟雾",
-        "area": "1460西运输大巷皮带烟雾",
         "mark_type": "B14"
       },
       {
@@ -5385,14 +5665,6 @@
         "sensor_type": "工业视频",
         "area": "17216工作面区域",
         "mark_type": "B16"
-      },
-      {
-        "id": "YJMDJHMK30120028D3244",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "1460机轨运输巷远控开关  馈电状态",
-        "sensor_type": "馈电",
-        "area": "1460机轨运输巷远控开关  馈电状态",
-        "mark_type": "B14"
       },
       {
         "id": "YJMDJHMK30120059D2712",
@@ -5433,6 +5705,14 @@
         "sensor_type": "二氧化碳",
         "area": "1380运输巷后巷CO2(T2)",
         "mark_type": "B14"
+      },
+      {
+        "id": "YJMDJHMK30121baa07458bc391",
+        "sysaliasname": "工业视频监控系统",
+        "description": "三楼东",
+        "sensor_type": "工业视频",
+        "area": "新办公楼",
+        "mark_type": "B16"
       },
       {
         "id": "YJMDJHMK30120035D1052",
@@ -5563,19 +5843,19 @@
         "mark_type": "B16"
       },
       {
-        "id": "YJMDJHMK30120029D3796",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "1460西运输巷2#风机",
-        "sensor_type": "局扇",
-        "area": "1460西运输巷2#风机",
-        "mark_type": "B14"
-      },
-      {
         "id": "YJMDJHMK301218710e103b6a38",
         "sysaliasname": "工业视频监控系统",
         "description": "甘肃省窑街煤电集团矿-风井口",
         "sensor_type": "工业视频",
         "area": "电子封条",
+        "mark_type": "B16"
+      },
+      {
+        "id": "YJMDJHMK30121c1986806a2cd7",
+        "sysaliasname": "工业视频监控系统",
+        "description": "1-4水泵房室内视频1",
+        "sensor_type": "工业视频",
+        "area": "1-4工业区域",
         "mark_type": "B16"
       },
       {
@@ -5867,14 +6147,6 @@
         "mark_type": "B14"
       },
       {
-        "id": "YJMDJHMK30120029D3028",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "1460西运输巷皮带开停",
-        "sensor_type": "开停",
-        "area": "1460西运输巷皮带开停",
-        "mark_type": "B14"
-      },
-      {
         "id": "YJMDJHMK301213b33ac627631a",
         "sysaliasname": "工业视频监控系统",
         "description": "精煤棚826机尾滚筒",
@@ -5937,6 +6209,14 @@
         "sensor_type": "风筒",
         "area": "1380运输巷风筒开关",
         "mark_type": "B14"
+      },
+      {
+        "id": "YJMDJHMK30121be9b53f822462",
+        "sysaliasname": "工业视频监控系统",
+        "description": "六采区辅助运输巷绞车2",
+        "sensor_type": "工业视频",
+        "area": "井下小材上专项",
+        "mark_type": "B16"
       },
       {
         "id": "YJMDJHMK30121333ae7cac600d",
@@ -6115,11 +6395,35 @@
         "mark_type": "B16"
       },
       {
+        "id": "YJMDJHMK30121c2430293271cb",
+        "sysaliasname": "工业视频监控系统",
+        "description": "1812上车场2#",
+        "sensor_type": "工业视频",
+        "area": "架空人车视频",
+        "mark_type": "B16"
+      },
+      {
         "id": "YJMDJHMK301219aabfa85f8f32",
         "sysaliasname": "工业视频监控系统",
         "description": "洗煤厂消防室",
         "sensor_type": "工业视频",
         "area": "地面消防室",
+        "mark_type": "B16"
+      },
+      {
+        "id": "YJMDJHMK30121ba89b645918a6",
+        "sysaliasname": "工业视频监控系统",
+        "description": "1755水仓",
+        "sensor_type": "工业视频",
+        "area": "水泵房区域",
+        "mark_type": "B16"
+      },
+      {
+        "id": "YJMDJHMK30121bfa64f3e72dc3",
+        "sysaliasname": "工业视频监控系统",
+        "description": "二楼东",
+        "sensor_type": "工业视频",
+        "area": "新办公楼",
         "mark_type": "B16"
       },
       {
@@ -6145,14 +6449,6 @@
         "sensor_type": "工业视频",
         "area": "暗斜井提升运输系统",
         "mark_type": "B16"
-      },
-      {
-        "id": "YJMDJHMK30120029D3029",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "1460机轨运输巷皮带开停",
-        "sensor_type": "开停",
-        "area": "1460机轨运输巷皮带开停",
-        "mark_type": "B14"
       },
       {
         "id": "YJMDJHMK3012158f90de0ad21d",
@@ -6216,6 +6512,14 @@
         "description": "甘肃省窑街煤电矿-副井口4",
         "sensor_type": "工业视频",
         "area": "电子封条",
+        "mark_type": "B16"
+      },
+      {
+        "id": "YJMDJHMK30121b21ba640c9ea2",
+        "sysaliasname": "工业视频监控系统",
+        "description": "2#转载点配电室",
+        "sensor_type": "工业视频",
+        "area": "洗煤厂",
         "mark_type": "B16"
       },
       {
@@ -6307,6 +6611,14 @@
         "mark_type": "B16"
       },
       {
+        "id": "YJMDJHMK30121b3c2c1f6a9f2b",
+        "sysaliasname": "工业视频监控系统",
+        "description": "煤矿哈拉沟瓦斯泵房供水泵房",
+        "sensor_type": "工业视频",
+        "area": "哈拉沟工业区域",
+        "mark_type": "B16"
+      },
+      {
         "id": "YJMDJHMK30120058D0648",
         "sysaliasname": "安全监测(瓦斯)系统",
         "description": "1460充电硐室烟雾",
@@ -6384,14 +6696,6 @@
         "description": "1410措施巷西侧打钻远控开关断电状态",
         "sensor_type": "断电",
         "area": "1410措施巷西侧打钻远控开关断电状态",
-        "mark_type": "B14"
-      },
-      {
-        "id": "YJMDJHMK30120029D3033",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "1460排矸一台皮带烟雾",
-        "sensor_type": "烟雾",
-        "area": "1460排矸一台皮带烟雾",
         "mark_type": "B14"
       },
       {
@@ -6473,14 +6777,6 @@
         "sensor_type": "工业视频",
         "area": "暗斜井提升运输系统",
         "mark_type": "B16"
-      },
-      {
-        "id": "YJMDJHMK30120029A3034",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "1460排矸一台皮带CO",
-        "sensor_type": "一氧化碳",
-        "area": "1460排矸一台皮带CO",
-        "mark_type": "B14"
       },
       {
         "id": "YJMDJHMK30121a72cb1966650c",
@@ -6651,6 +6947,14 @@
         "mark_type": "B14"
       },
       {
+        "id": "YJMDJHMK30121b9a9eea5b903f",
+        "sysaliasname": "工业视频监控系统",
+        "description": "300米处",
+        "sensor_type": "工业视频",
+        "area": "新平硐皮带",
+        "mark_type": "B16"
+      },
+      {
         "id": "YJMDJHMK3012157be1490b5137",
         "sysaliasname": "工业视频监控系统",
         "description": "1460充电硐室",
@@ -6699,11 +7003,27 @@
         "mark_type": "B16"
       },
       {
+        "id": "YJMDJHMK30121bfb0509091878",
+        "sysaliasname": "工业视频监控系统",
+        "description": "17215回风出入口",
+        "sensor_type": "工业视频",
+        "area": "井下巷道出入口",
+        "mark_type": "B16"
+      },
+      {
         "id": "YJMDJHMK3012128cc4851f5872",
         "sysaliasname": "工业视频监控系统",
         "description": "二楼西",
         "sensor_type": "工业视频",
         "area": "新办公楼",
+        "mark_type": "B16"
+      },
+      {
+        "id": "YJMDJHMK30121b82df92239678",
+        "sysaliasname": "工业视频监控系统",
+        "description": "暗斜井1号跑车防护装置",
+        "sensor_type": "工业视频",
+        "area": "暗斜井提升运输系统",
         "mark_type": "B16"
       },
       {
@@ -6737,14 +7057,6 @@
         "sensor_type": "工业视频",
         "area": "地面1850供水区域",
         "mark_type": "B16"
-      },
-      {
-        "id": "YJMDJHMK30120029A3030",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "1460西运输大巷皮带CO",
-        "sensor_type": "一氧化碳",
-        "area": "1460西运输大巷皮带CO",
-        "mark_type": "B14"
       },
       {
         "id": "YJMDJHMK3012121954fa939058",
@@ -6787,6 +7099,14 @@
         "mark_type": "B16"
       },
       {
+        "id": "YJMDJHMK30121beeb9e6510c8d",
+        "sysaliasname": "工业视频监控系统",
+        "description": "暗斜井清理巷人员出入口",
+        "sensor_type": "工业视频",
+        "area": "井下巷道出入口",
+        "mark_type": "B16"
+      },
+      {
         "id": "YJMDJHMK301212653e0875903a",
         "sysaliasname": "工业视频监控系统",
         "description": "煤矿南门",
@@ -6800,6 +7120,14 @@
         "description": "17216工作面52架",
         "sensor_type": "工业视频",
         "area": "17216工作面区域",
+        "mark_type": "B16"
+      },
+      {
+        "id": "YJMDJHMK30121bb070320ed216",
+        "sysaliasname": "工业视频监控系统",
+        "description": "一层高压配电室",
+        "sensor_type": "工业视频",
+        "area": "洗煤厂",
         "mark_type": "B16"
       },
       {
@@ -6923,6 +7251,14 @@
         "mark_type": "B16"
       },
       {
+        "id": "YJMDJHMK30121b7515ea1d9cc1",
+        "sysaliasname": "工业视频监控系统",
+        "description": "1812下山1#",
+        "sensor_type": "工业视频",
+        "area": "架空人车视频",
+        "mark_type": "B16"
+      },
+      {
         "id": "YJMDJHMK30121069aeed7be8d3",
         "sysaliasname": "工业视频监控系统",
         "description": "暗斜井一号断带抓捕器",
@@ -7019,6 +7355,14 @@
         "mark_type": "B16"
       },
       {
+        "id": "YJMDJHMK30121bbcddda299d90",
+        "sysaliasname": "工业视频监控系统",
+        "description": "机电一队钳工车间",
+        "sensor_type": "工业视频",
+        "area": "地面车间",
+        "mark_type": "B16"
+      },
+      {
         "id": "YJMDJHMK301218be52490b83d0",
         "sysaliasname": "工业视频监控系统",
         "description": "三层380V配电室",
@@ -7032,14 +7376,6 @@
         "description": "六采区进风皮带CO",
         "sensor_type": "一氧化碳",
         "area": "六采区进风皮带CO",
-        "mark_type": "B14"
-      },
-      {
-        "id": "YJMDJHMK30120029D3795",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "1460西运输巷1#风机",
-        "sensor_type": "局扇",
-        "area": "1460西运输巷1#风机",
         "mark_type": "B14"
       },
       {
@@ -7131,12 +7467,12 @@
         "mark_type": "B14"
       },
       {
-        "id": "YJMDJHMK30120028D2907",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "暗斜井皮带机尾烟雾",
-        "sensor_type": "烟雾",
-        "area": "暗斜井皮带机尾烟雾",
-        "mark_type": "B14"
+        "id": "YJMDJHMK30121c2cea13010c85",
+        "sysaliasname": "工业视频监控系统",
+        "description": "煤矿哈拉沟新制氮车间外球2",
+        "sensor_type": "工业视频",
+        "area": "哈拉沟工业区域",
+        "mark_type": "B16"
       },
       {
         "id": "YJMDJHMK301218d9c7bd7f52db",
@@ -7307,14 +7643,6 @@
         "mark_type": "B14"
       },
       {
-        "id": "YJMDJHMK30120029A3808",
-        "sysaliasname": "安全监测(瓦斯)系统",
-        "description": "暗斜井4#煤仓口CO",
-        "sensor_type": "一氧化碳",
-        "area": "暗斜井4#煤仓口CO",
-        "mark_type": "B14"
-      },
-      {
         "id": "YJMDJHMK30121385e32cab9331",
         "sysaliasname": "工业视频监控系统",
         "description": "四楼西",
@@ -7379,6 +7707,14 @@
         "mark_type": "B16"
       },
       {
+        "id": "YJMDJHMK30121b7bfed42e1994",
+        "sysaliasname": "工业视频监控系统",
+        "description": "掘进五队学习室",
+        "sensor_type": "工业视频",
+        "area": "素质提升中心学习室",
+        "mark_type": "B16"
+      },
+      {
         "id": "YJMDJHMK30121364e82ee4f675",
         "sysaliasname": "工业视频监控系统",
         "description": "1460东机轨运输巷皮带转载点",
@@ -7392,14 +7728,6 @@
         "description": "煤矿1850老车间(配电间)",
         "sensor_type": "工业视频",
         "area": "地面1850供水区域",
-        "mark_type": "B16"
-      },
-      {
-        "id": "YJMDJHMK30121b1799d438179b",
-        "sysaliasname": "工业视频监控系统",
-        "description": "煤矿高压室",
-        "sensor_type": "工业视频",
-        "area": "新平硐变电所",
         "mark_type": "B16"
       },
       {
@@ -7419,14 +7747,6 @@
         "mark_type": "B15"
       },
       {
-        "id": "YJMDJHMK30121bf7165e9e1d7d",
-        "sysaliasname": "工业视频监控系统",
-        "description": "运输队学习室",
-        "sensor_type": "工业视频",
-        "area": "素质提升中心学习室",
-        "mark_type": "B16"
-      },
-      {
         "id": "YJMDJHMK30121e8fdda83f5b99",
         "sysaliasname": "工业视频监控系统",
         "description": "六采区进风运输大巷上部车场1",
@@ -7440,14 +7760,6 @@
         "description": "精煤棚828储存间西",
         "sensor_type": "工业视频",
         "area": "洗煤厂",
-        "mark_type": "B16"
-      },
-      {
-        "id": "YJMDJHMK30121b2a40cf9e9641",
-        "sysaliasname": "工业视频监控系统",
-        "description": "洗煤厂广场",
-        "sensor_type": "工业视频",
-        "area": "地面广场及大门",
         "mark_type": "B16"
       },
       {
@@ -7483,14 +7795,6 @@
         "mark_type": "B16"
       },
       {
-        "id": "YJMDJHMK30121bfc6b40c85816",
-        "sysaliasname": "工业视频监控系统",
-        "description": "801.802皮带机尾",
-        "sensor_type": "工业视频",
-        "area": "洗煤厂",
-        "mark_type": "B16"
-      },
-      {
         "id": "YJMDJHMK30121e950126ae311c",
         "sysaliasname": "工业视频监控系统",
         "description": "煤矿暗斜井四号煤仓下口",
@@ -7513,14 +7817,6 @@
         "sensor_type": "人数",
         "area": "0、井上",
         "mark_type": "B15"
-      },
-      {
-        "id": "YJMDJHMK30121b5aa49781b0af",
-        "sysaliasname": "工业视频监控系统",
-        "description": "煤矿选煤楼平硐皮带操作间",
-        "sensor_type": "工业视频",
-        "area": "控制室",
-        "mark_type": "B16"
       },
       {
         "id": "YJMDJHMK30121ff83415ced994",
@@ -7715,14 +8011,6 @@
         "mark_type": "B16"
       },
       {
-        "id": "YJMDJHMK30121c0c28bd4d89ec",
-        "sysaliasname": "工业视频监控系统",
-        "description": "煤矿1-4变电所低压室",
-        "sensor_type": "工业视频",
-        "area": "1-4工业区域",
-        "mark_type": "B16"
-      },
-      {
         "id": "YJMDJHMK30140056007",
         "sysaliasname": "人员定位",
         "description": "金河17216回风顺槽（防冲站）",
@@ -7795,14 +8083,6 @@
         "mark_type": "B16"
       },
       {
-        "id": "YJMDJHMK30121bc122c4c80daf",
-        "sysaliasname": "工业视频监控系统",
-        "description": "423-1精煤刮板",
-        "sensor_type": "工业视频",
-        "area": "洗煤厂",
-        "mark_type": "B16"
-      },
-      {
         "id": "YJMDJHMK30140092007",
         "sysaliasname": "人员定位",
         "description": "地面（选煤楼选煤楼操作室）",
@@ -7825,22 +8105,6 @@
         "sensor_type": "人数",
         "area": "八采区",
         "mark_type": "B15"
-      },
-      {
-        "id": "YJMDJHMK30121b98bacfc0e869",
-        "sysaliasname": "工业视频监控系统",
-        "description": "六采区风门进风侧出入口",
-        "sensor_type": "工业视频",
-        "area": "井下巷道出入口",
-        "mark_type": "B16"
-      },
-      {
-        "id": "YJMDJHMK30121b7218885ccdc6",
-        "sysaliasname": "工业视频监控系统",
-        "description": "九采区辅助运输巷皮带转载点",
-        "sensor_type": "工业视频",
-        "area": "掘进出渣运输系统",
-        "mark_type": "B16"
       },
       {
         "id": "YJMDJHMK30121d047fe2b23f89",
@@ -7931,22 +8195,6 @@
         "mark_type": "B15"
       },
       {
-        "id": "YJMDJHMK30121c0a1dbb4845e5",
-        "sysaliasname": "工业视频监控系统",
-        "description": "329筛子",
-        "sensor_type": "工业视频",
-        "area": "洗煤厂",
-        "mark_type": "B16"
-      },
-      {
-        "id": "YJMDJHMK30121b5199a49a9229",
-        "sysaliasname": "工业视频监控系统",
-        "description": "储煤棚西1",
-        "sensor_type": "工业视频",
-        "area": "洗煤厂储煤棚",
-        "mark_type": "B16"
-      },
-      {
         "id": "YJMDJHMK30121d622e8ada2046",
         "sysaliasname": "工业视频监控系统",
         "description": "煤矿1850新车间(加药间)",
@@ -7963,35 +8211,11 @@
         "mark_type": "B16"
       },
       {
-        "id": "YJMDJHMK30121c1bc31ba64baf",
-        "sysaliasname": "工业视频监控系统",
-        "description": "煤矿一号平硐进风副井口",
-        "sensor_type": "工业视频",
-        "area": "地面广场及大门",
-        "mark_type": "B16"
-      },
-      {
         "id": "YJMDJHMK30121f7a853acaadc2",
         "sysaliasname": "工业视频监控系统",
         "description": "17216工作面40架",
         "sensor_type": "工业视频",
         "area": "17216工作面区域",
-        "mark_type": "B16"
-      },
-      {
-        "id": "YJMDJHMK30121be0abd8de3e69",
-        "sysaliasname": "工业视频监控系统",
-        "description": "六采区进风运输大巷下部车场",
-        "sensor_type": "工业视频",
-        "area": "井下小材上专项",
-        "mark_type": "B16"
-      },
-      {
-        "id": "YJMDJHMK30121b911b523b9178",
-        "sysaliasname": "工业视频监控系统",
-        "description": "新平峒皮带机头张紧跑车",
-        "sensor_type": "工业视频",
-        "area": "新平硐皮带",
         "mark_type": "B16"
       },
       {
@@ -8024,14 +8248,6 @@
         "description": "1-4灌浆站",
         "sensor_type": "工业视频",
         "area": "1-4工业区域",
-        "mark_type": "B16"
-      },
-      {
-        "id": "YJMDJHMK30121b8443efb74fa3",
-        "sysaliasname": "工业视频监控系统",
-        "description": "尾煤压滤机",
-        "sensor_type": "工业视频",
-        "area": "洗煤厂",
         "mark_type": "B16"
       },
       {
@@ -8227,22 +8443,6 @@
         "mark_type": "B15"
       },
       {
-        "id": "YJMDJHMK30121b4c5e52a3967b",
-        "sysaliasname": "工业视频监控系统",
-        "description": "103滚动筛右部",
-        "sensor_type": "工业视频",
-        "area": "选煤楼皮带",
-        "mark_type": "B16"
-      },
-      {
-        "id": "YJMDJHMK30121b6034eeecafba",
-        "sysaliasname": "工业视频监控系统",
-        "description": "1496甲乙水仓",
-        "sensor_type": "工业视频",
-        "area": "井下掘进工作面",
-        "mark_type": "B16"
-      },
-      {
         "id": "YJMDJHMK30121eb0a5aa147829",
         "sysaliasname": "工业视频监控系统",
         "description": "1755架空人车斜巷4#",
@@ -8256,14 +8456,6 @@
         "description": "煤矿哈拉沟变电所电容室",
         "sensor_type": "工业视频",
         "area": "哈拉沟工业区域",
-        "mark_type": "B16"
-      },
-      {
-        "id": "YJMDJHMK30121bcbe9b16ce044",
-        "sysaliasname": "工业视频监控系统",
-        "description": "煤矿1-4二号水仓",
-        "sensor_type": "工业视频",
-        "area": "1-4工业区域",
         "mark_type": "B16"
       },
       {
@@ -8347,27 +8539,11 @@
         "mark_type": "B16"
       },
       {
-        "id": "YJMDJHMK30121c0e14ae6cde9e",
-        "sysaliasname": "工业视频监控系统",
-        "description": "1850水泵房1",
-        "sensor_type": "工业视频",
-        "area": "地面1850供水区域",
-        "mark_type": "B16"
-      },
-      {
         "id": "YJMDJHMK30121eace6695d89d9",
         "sysaliasname": "工业视频监控系统",
         "description": "17216工作面32架",
         "sensor_type": "工业视频",
         "area": "17216工作面区域",
-        "mark_type": "B16"
-      },
-      {
-        "id": "YJMDJHMK30121b81e950817949",
-        "sysaliasname": "工业视频监控系统",
-        "description": "1460东运输大巷下部挡车栏",
-        "sensor_type": "工业视频",
-        "area": "井下小材上专项",
         "mark_type": "B16"
       },
       {
@@ -8475,44 +8651,12 @@
         "mark_type": "B15"
       },
       {
-        "id": "YJMDJHMK30121b77fa1e179b14",
-        "sysaliasname": "工业视频监控系统",
-        "description": "一楼西",
-        "sensor_type": "工业视频",
-        "area": "新办公楼",
-        "mark_type": "B16"
-      },
-      {
-        "id": "YJMDJHMK30121bb99dd1a7be14",
-        "sysaliasname": "工业视频监控系统",
-        "description": "1410措施巷东侧下部车场",
-        "sensor_type": "工业视频",
-        "area": "井下小材上专项",
-        "mark_type": "B16"
-      },
-      {
-        "id": "YJMDJHMK30121bc38f3a28cf27",
-        "sysaliasname": "工业视频监控系统",
-        "description": "精煤棚东右角",
-        "sensor_type": "工业视频",
-        "area": "洗煤厂",
-        "mark_type": "B16"
-      },
-      {
         "id": "YJMDJHMK30140045007",
         "sysaliasname": "人员定位",
         "description": "金河1460机轨运输大巷（100米）",
         "sensor_type": "人数",
         "area": "六采区",
         "mark_type": "B15"
-      },
-      {
-        "id": "YJMDJHMK30121bb753589896d1",
-        "sysaliasname": "工业视频监控系统",
-        "description": "17216工作面20架",
-        "sensor_type": "工业视频",
-        "area": "17216工作面区域",
-        "mark_type": "B16"
       },
       {
         "id": "YJMDJHMK30121fd8e1e5555da2",
@@ -8603,14 +8747,6 @@
         "mark_type": "B16"
       },
       {
-        "id": "YJMDJHMK30121b7251cee2b4f2",
-        "sysaliasname": "工业视频监控系统",
-        "description": "1800米处",
-        "sensor_type": "工业视频",
-        "area": "新平硐皮带",
-        "mark_type": "B16"
-      },
-      {
         "id": "YJMDJHMK30140060001",
         "sysaliasname": "人员定位",
         "description": "金河1460-1470联络巷",
@@ -8683,14 +8819,6 @@
         "mark_type": "B16"
       },
       {
-        "id": "YJMDJHMK30121baa07458bc391",
-        "sysaliasname": "工业视频监控系统",
-        "description": "三楼东",
-        "sensor_type": "工业视频",
-        "area": "新办公楼",
-        "mark_type": "B16"
-      },
-      {
         "id": "YJMDJHMK30121ff254aa9245af",
         "sysaliasname": "工业视频监控系统",
         "description": "地面工业平硐广场（主井口）",
@@ -8744,14 +8872,6 @@
         "description": "煤矿1#变压器室",
         "sensor_type": "工业视频",
         "area": "新平硐变电所",
-        "mark_type": "B16"
-      },
-      {
-        "id": "YJMDJHMK30121c1986806a2cd7",
-        "sysaliasname": "工业视频监控系统",
-        "description": "1-4水泵房室内视频1",
-        "sensor_type": "工业视频",
-        "area": "1-4工业区域",
         "mark_type": "B16"
       },
       {
@@ -8939,14 +9059,6 @@
         "mark_type": "B16"
       },
       {
-        "id": "YJMDJHMK30121be9b53f822462",
-        "sysaliasname": "工业视频监控系统",
-        "description": "六采区辅助运输巷绞车2",
-        "sensor_type": "工业视频",
-        "area": "井下小材上专项",
-        "mark_type": "B16"
-      },
-      {
         "id": "YJMDJHMK30121f8a3d3c0c01d0",
         "sysaliasname": "工业视频监控系统",
         "description": "1812上车场4#",
@@ -9035,36 +9147,12 @@
         "mark_type": "B16"
       },
       {
-        "id": "YJMDJHMK30121c2430293271cb",
-        "sysaliasname": "工业视频监控系统",
-        "description": "1812上车场2#",
-        "sensor_type": "工业视频",
-        "area": "架空人车视频",
-        "mark_type": "B16"
-      },
-      {
-        "id": "YJMDJHMK30121ba89b645918a6",
-        "sysaliasname": "工业视频监控系统",
-        "description": "1755水仓",
-        "sensor_type": "工业视频",
-        "area": "水泵房区域",
-        "mark_type": "B16"
-      },
-      {
         "id": "YJMDJHMK30140048007",
         "sysaliasname": "人员定位",
         "description": "金河16220-1回风联巷（中部）",
         "sensor_type": "人数",
         "area": "六采区",
         "mark_type": "B15"
-      },
-      {
-        "id": "YJMDJHMK30121bfa64f3e72dc3",
-        "sysaliasname": "工业视频监控系统",
-        "description": "二楼东",
-        "sensor_type": "工业视频",
-        "area": "新办公楼",
-        "mark_type": "B16"
       },
       {
         "id": "YJMDJHMK30121ff7aff8858763",
@@ -9123,14 +9211,6 @@
         "mark_type": "B15"
       },
       {
-        "id": "YJMDJHMK30121b21ba640c9ea2",
-        "sysaliasname": "工业视频监控系统",
-        "description": "2#转载点配电室",
-        "sensor_type": "工业视频",
-        "area": "洗煤厂",
-        "mark_type": "B16"
-      },
-      {
         "id": "YJMDJHMK30121ec69e1f8fc81f",
         "sysaliasname": "工业视频监控系统",
         "description": "煤矿地面出井口",
@@ -9168,14 +9248,6 @@
         "description": "煤矿电容器室",
         "sensor_type": "工业视频",
         "area": "新平硐变电所",
-        "mark_type": "B16"
-      },
-      {
-        "id": "YJMDJHMK30121b3c2c1f6a9f2b",
-        "sysaliasname": "工业视频监控系统",
-        "description": "煤矿哈拉沟瓦斯泵房供水泵房",
-        "sensor_type": "工业视频",
-        "area": "哈拉沟工业区域",
         "mark_type": "B16"
       },
       {
@@ -9379,14 +9451,6 @@
         "mark_type": "B15"
       },
       {
-        "id": "YJMDJHMK30121b9a9eea5b903f",
-        "sysaliasname": "工业视频监控系统",
-        "description": "300米处",
-        "sensor_type": "工业视频",
-        "area": "新平硐皮带",
-        "mark_type": "B16"
-      },
-      {
         "id": "YJMDJHMK30140034007",
         "sysaliasname": "人员定位",
         "description": "金河1460错车场",
@@ -9395,28 +9459,12 @@
         "mark_type": "B15"
       },
       {
-        "id": "YJMDJHMK30121bfb0509091878",
-        "sysaliasname": "工业视频监控系统",
-        "description": "17215回风出入口",
-        "sensor_type": "工业视频",
-        "area": "井下巷道出入口",
-        "mark_type": "B16"
-      },
-      {
         "id": "YJMDJHMK30140016001",
         "sysaliasname": "人员定位",
         "description": "金河16220-1进风顺槽（风门处）",
         "sensor_type": "人数",
         "area": "六采区",
         "mark_type": "B15"
-      },
-      {
-        "id": "YJMDJHMK30121b82df92239678",
-        "sysaliasname": "工业视频监控系统",
-        "description": "暗斜井1号跑车防护装置",
-        "sensor_type": "工业视频",
-        "area": "暗斜井提升运输系统",
-        "mark_type": "B16"
       },
       {
         "id": "YJMDJHMK30140098007",
@@ -9459,28 +9507,12 @@
         "mark_type": "B15"
       },
       {
-        "id": "YJMDJHMK30121beeb9e6510c8d",
-        "sysaliasname": "工业视频监控系统",
-        "description": "暗斜井清理巷人员出入口",
-        "sensor_type": "工业视频",
-        "area": "井下巷道出入口",
-        "mark_type": "B16"
-      },
-      {
         "id": "YJMDJHMK30140037001",
         "sysaliasname": "人员定位",
         "description": "地面（洗煤厂三楼)",
         "sensor_type": "人数",
         "area": "0、井上",
         "mark_type": "B15"
-      },
-      {
-        "id": "YJMDJHMK30121bb070320ed216",
-        "sysaliasname": "工业视频监控系统",
-        "description": "一层高压配电室",
-        "sensor_type": "工业视频",
-        "area": "洗煤厂",
-        "mark_type": "B16"
       },
       {
         "id": "YJMDJHMK30121fc8e353c3d101",
@@ -9528,14 +9560,6 @@
         "description": "1460变坡点道岔",
         "sensor_type": "工业视频",
         "area": "暗斜井提升运输系统",
-        "mark_type": "B16"
-      },
-      {
-        "id": "YJMDJHMK30121b7515ea1d9cc1",
-        "sysaliasname": "工业视频监控系统",
-        "description": "1812下山1#",
-        "sensor_type": "工业视频",
-        "area": "架空人车视频",
         "mark_type": "B16"
       },
       {
@@ -9603,27 +9627,11 @@
         "mark_type": "B16"
       },
       {
-        "id": "YJMDJHMK30121bbcddda299d90",
-        "sysaliasname": "工业视频监控系统",
-        "description": "机电一队钳工车间",
-        "sensor_type": "工业视频",
-        "area": "地面车间",
-        "mark_type": "B16"
-      },
-      {
         "id": "YJMDJHMK30121e4bbbc76d307c",
         "sysaliasname": "工业视频监控系统",
         "description": "煤矿1460配电硐室",
         "sensor_type": "工业视频",
         "area": "井下机房硐室",
-        "mark_type": "B16"
-      },
-      {
-        "id": "YJMDJHMK30121c2cea13010c85",
-        "sysaliasname": "工业视频监控系统",
-        "description": "煤矿哈拉沟新制氮车间外球2",
-        "sensor_type": "工业视频",
-        "area": "哈拉沟工业区域",
         "mark_type": "B16"
       },
       {
@@ -9737,14 +9745,6 @@
         "sensor_type": "人数",
         "area": "八采区",
         "mark_type": "B15"
-      },
-      {
-        "id": "YJMDJHMK30121b7bfed42e1994",
-        "sysaliasname": "工业视频监控系统",
-        "description": "掘进五队学习室",
-        "sensor_type": "工业视频",
-        "area": "素质提升中心学习室",
-        "mark_type": "B16"
       },
       {
         "id": "YJMDJHMK30140085007",
