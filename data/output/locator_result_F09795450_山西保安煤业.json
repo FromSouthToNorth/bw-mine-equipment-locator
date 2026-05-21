@@ -3,67 +3,65 @@
   "mine_name": "山西保安煤业",
   "summary": {
     "total": 1106,
-    "matched": 165,
-    "unmatched": 941,
+    "matched": 145,
+    "unmatched": 961,
     "filtered_by_id": 0,
     "wind_spacing_warnings": 0,
     "generic_tunnels_skipped": 250,
     "unnamed_tunnels_skipped": 0,
     "by_confidence": {
       "高": 27,
-      "中": 138,
-      "低": 0
+      "中": 99,
+      "低": 19
     },
     "by_mark_type": {
-      "B14": 85,
-      "B16": 55,
+      "B14": 67,
+      "B16": 53,
       "B15": 25
     },
     "by_sensor_type": {
-      "温度": 12,
-      "工业视频": 55,
+      "温度": 10,
+      "工业视频": 53,
       "分站": 7,
-      "瓦斯": 14,
-      "馈电": 6,
-      "断电": 11,
-      "一氧化碳": 12,
-      "风门": 8,
+      "瓦斯": 10,
+      "馈电": 4,
+      "断电": 9,
+      "一氧化碳": 10,
+      "风门": 7,
       "人数": 25,
-      "烟雾": 8,
-      "风向": 1,
-      "风筒": 1,
-      "粉尘": 1,
+      "烟雾": 6,
       "风速": 3,
       "二氧化碳": 1
     },
     "by_reason": {
       "AREA_SURFACE": 348,
       "CODE_MISMATCH": 463,
-      "LOW_LCS": 47,
-      "SEMANTIC_CONFLICT": 83
+      "LOW_LCS": 49,
+      "SEMANTIC_CONFLICT": 101
     },
     "by_tunnel": {
-      "上仓皮带巷": 8,
+      "上仓皮带巷": 17,
       "1501皮带大巷": 19,
       "15103高抽巷": 13,
       "+315水平轨道大巷": 9,
-      "1501南翼辅助回风大巷": 22,
       "1501轨道斜巷": 22,
       "+315轨道大巷配风巷": 4,
       "1501专用回风大巷": 8,
+      "1501南翼辅助回风大巷": 4,
       "水泵房通路": 10,
-      "变电所通路": 5,
-      "9号煤轨道斜巷": 10,
-      "沿9号煤皮带大巷": 9,
+      "变电所通路": 9,
       "配风大巷": 4,
+      "9号煤轨道斜巷": 4,
       "1501回风大巷": 3,
       "井底车场": 4,
-      "+315水平轨道大巷至1501皮带大巷联络巷": 6,
+      "1501皮带大巷至1501轨道斜巷第三联络巷": 6,
       "15103回风顺槽": 1,
       "井底绕巷": 4,
       "爬坡斜巷": 2,
-      "总回风大巷": 2
+      "回风立井": 1,
+      "总回风大巷": 1
     },
+    "suspicious_count": 0,
     "generic_tunnel_names": [
       "巷道136",
       "巷道132",
@@ -144,17 +142,17 @@
       "line_percentage": 0.0
     },
     {
-      "id": "SXBAMY00301218ca74ab55c940",
-      "description": "保安煤矿上仓皮带输送机机头",
+      "id": "SXBAMY00301212335f73da2e57",
+      "description": "保安煤矿皮带大巷二部皮带机头",
       "matched": true,
       "matched_name": "上仓皮带巷",
       "tunnel_id": "C9E3680B-717D-4692-881E-D72EC250BFDD",
       "matched_type": "tunnel",
       "tunnel_type": "0-普通巷道",
       "coalbed": "1500",
-      "match_lcs": 4,
-      "match_score": 10,
-      "confidence": "中",
+      "match_lcs": 2,
+      "match_score": 6,
+      "confidence": "低",
       "mark_type": "B16",
       "sensor_type": "工业视频",
       "area": "主运输及煤仓上下口",
@@ -169,8 +167,8 @@
       "line_percentage": 0.2
     },
     {
-      "id": "SXBAMY0030121b0831db1fd7de",
-      "description": "保安煤矿上仓皮带机头驱动部",
+      "id": "SXBAMY00301218ca74ab55c940",
+      "description": "保安煤矿上仓皮带输送机机头",
       "matched": true,
       "matched_name": "上仓皮带巷",
       "tunnel_id": "C9E3680B-717D-4692-881E-D72EC250BFDD",
@@ -192,6 +190,81 @@
       "line_total_length": 488.78,
       "distance_along_line": 2.0,
       "line_percentage": 0.4
+    },
+    {
+      "id": "SXBAMY00301212ee9a098a91ce",
+      "description": "保安煤矿皮带大巷一部机头驱动部",
+      "matched": true,
+      "matched_name": "上仓皮带巷",
+      "tunnel_id": "C9E3680B-717D-4692-881E-D72EC250BFDD",
+      "matched_type": "tunnel",
+      "tunnel_type": "0-普通巷道",
+      "coalbed": "1500",
+      "match_lcs": 2,
+      "match_score": 6,
+      "confidence": "低",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "area": "主运输及煤仓上下口",
+      "sysaliasname": "工业视频监控系统",
+      "coordinates": {
+        "x": 38442653.261,
+        "y": 4194311.8879,
+        "z": 368.67
+      },
+      "line_total_length": 488.78,
+      "distance_along_line": 3.0,
+      "line_percentage": 0.6
+    },
+    {
+      "id": "SXBAMY00301210857872db7295",
+      "description": "保安煤矿皮带大巷一部皮带机头",
+      "matched": true,
+      "matched_name": "上仓皮带巷",
+      "tunnel_id": "C9E3680B-717D-4692-881E-D72EC250BFDD",
+      "matched_type": "tunnel",
+      "tunnel_type": "0-普通巷道",
+      "coalbed": "1500",
+      "match_lcs": 2,
+      "match_score": 6,
+      "confidence": "低",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "area": "主运输及煤仓上下口",
+      "sysaliasname": "工业视频监控系统",
+      "coordinates": {
+        "x": 38442654.2606,
+        "y": 4194311.9172,
+        "z": 368.67
+      },
+      "line_total_length": 488.78,
+      "distance_along_line": 4.0,
+      "line_percentage": 0.8
+    },
+    {
+      "id": "SXBAMY0030121b0831db1fd7de",
+      "description": "保安煤矿上仓皮带机头驱动部",
+      "matched": true,
+      "matched_name": "上仓皮带巷",
+      "tunnel_id": "C9E3680B-717D-4692-881E-D72EC250BFDD",
+      "matched_type": "tunnel",
+      "tunnel_type": "0-普通巷道",
+      "coalbed": "1500",
+      "match_lcs": 4,
+      "match_score": 10,
+      "confidence": "中",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "area": "主运输及煤仓上下口",
+      "sysaliasname": "工业视频监控系统",
+      "coordinates": {
+        "x": 38442655.2602,
+        "y": 4194311.9464,
+        "z": 368.67
+      },
+      "line_total_length": 488.78,
+      "distance_along_line": 5.0,
+      "line_percentage": 1.0
     },
     {
       "id": "SXBAMY0030120003F00",
@@ -818,431 +891,6 @@
       "line_total_length": 2568.77,
       "distance_along_line": 259.88,
       "line_percentage": 10.1
-    },
-    {
-      "id": "SXBAMY0030120011D25",
-      "description": "1501南翼回风大巷掘进机动力开关_馈电_馈电器传感器馈电232馈电",
-      "matched": true,
-      "matched_name": "1501南翼辅助回风大巷",
-      "tunnel_id": "B30671C8-5F2F-44D9-8ABA-268C6125DE46",
-      "matched_type": "tunnel",
-      "tunnel_type": "0-普通巷道",
-      "coalbed": "1500",
-      "match_lcs": 6,
-      "match_score": 6,
-      "confidence": "中",
-      "mark_type": "B14",
-      "sensor_type": "馈电",
-      "area": "1501南翼回风大巷掘进机动力开关_馈电_馈电器",
-      "sysaliasname": "安全监测系统",
-      "coordinates": {
-        "x": 38441542.8518,
-        "y": 4194262.9128,
-        "z": 286.3762
-      },
-      "line_total_length": 1316.3,
-      "distance_along_line": 131.63,
-      "line_percentage": 10.0
-    },
-    {
-      "id": "SXBAMY0030120011D13",
-      "description": "1501南翼回风大巷分风口风向传感器风向959风向",
-      "matched": true,
-      "matched_name": "1501南翼辅助回风大巷",
-      "tunnel_id": "B30671C8-5F2F-44D9-8ABA-268C6125DE46",
-      "matched_type": "tunnel",
-      "tunnel_type": "0-普通巷道",
-      "coalbed": "1500",
-      "match_lcs": 6,
-      "match_score": 6,
-      "confidence": "中",
-      "mark_type": "B14",
-      "sensor_type": "风向",
-      "area": "1501南翼回风大巷分风口风向",
-      "sysaliasname": "安全监测系统",
-      "coordinates": {
-        "x": 38441543.8382,
-        "y": 4194262.9039,
-        "z": 286.5189
-      },
-      "line_total_length": 1316.3,
-      "distance_along_line": 132.63,
-      "line_percentage": 10.1
-    },
-    {
-      "id": "SXBAMY0030120011D10",
-      "description": "1501南翼回风大巷掘进面风筒_风筒状态传感器风筒230风筒",
-      "matched": true,
-      "matched_name": "1501南翼辅助回风大巷",
-      "tunnel_id": "B30671C8-5F2F-44D9-8ABA-268C6125DE46",
-      "matched_type": "tunnel",
-      "tunnel_type": "0-普通巷道",
-      "coalbed": "1500",
-      "match_lcs": 6,
-      "match_score": 6,
-      "confidence": "中",
-      "mark_type": "B14",
-      "sensor_type": "风筒",
-      "area": "1501南翼回风大巷掘进面风筒_风筒状态",
-      "sysaliasname": "安全监测系统",
-      "coordinates": {
-        "x": 38441544.8151,
-        "y": 4194262.891,
-        "z": 286.7325
-      },
-      "line_total_length": 1316.3,
-      "distance_along_line": 133.63,
-      "line_percentage": 10.2
-    },
-    {
-      "id": "SXBAMY0030120011D09",
-      "description": "1501南翼回风大巷风门传感器风门130风门",
-      "matched": true,
-      "matched_name": "1501南翼辅助回风大巷",
-      "tunnel_id": "B30671C8-5F2F-44D9-8ABA-268C6125DE46",
-      "matched_type": "tunnel",
-      "tunnel_type": "0-普通巷道",
-      "coalbed": "1500",
-      "match_lcs": 6,
-      "match_score": 6,
-      "confidence": "中",
-      "mark_type": "B14",
-      "sensor_type": "风门",
-      "area": "1501南翼回风大巷风门",
-      "sysaliasname": "安全监测系统",
-      "coordinates": {
-        "x": 38441545.7919,
-        "y": 4194262.8782,
-        "z": 286.9462
-      },
-      "line_total_length": 1316.3,
-      "distance_along_line": 134.63,
-      "line_percentage": 10.2
-    },
-    {
-      "id": "SXBAMY0030120011A07",
-      "description": "1501南翼回风大巷掘进面粉尘传感器粉尘229粉尘",
-      "matched": true,
-      "matched_name": "1501南翼辅助回风大巷",
-      "tunnel_id": "B30671C8-5F2F-44D9-8ABA-268C6125DE46",
-      "matched_type": "tunnel",
-      "tunnel_type": "0-普通巷道",
-      "coalbed": "1500",
-      "match_lcs": 6,
-      "match_score": 6,
-      "confidence": "中",
-      "mark_type": "B14",
-      "sensor_type": "粉尘",
-      "area": "1501南翼回风大巷掘进面粉尘",
-      "sysaliasname": "安全监测系统",
-      "coordinates": {
-        "x": 38441546.7687,
-        "y": 4194262.8654,
-        "z": 288.6598
-      },
-      "line_total_length": 1316.3,
-      "distance_along_line": 135.63,
-      "line_percentage": 10.3
-    },
-    {
-      "id": "SXBAMY0030120011A15",
-      "description": "1501南翼回风大巷掘进面回风温度_环境温度传感器温度949温度",
-      "matched": true,
-      "matched_name": "1501南翼辅助回风大巷",
-      "tunnel_id": "B30671C8-5F2F-44D9-8ABA-268C6125DE46",
-      "matched_type": "tunnel",
-      "tunnel_type": "0-普通巷道",
-      "coalbed": "1500",
-      "match_lcs": 6,
-      "match_score": 6,
-      "confidence": "中",
-      "mark_type": "B14",
-      "sensor_type": "温度",
-      "area": "1501南翼回风大巷掘进面回风温度_环境温度",
-      "sysaliasname": "安全监测系统",
-      "coordinates": {
-        "x": 38441547.7455,
-        "y": 4194262.8526,
-        "z": 287.5734
-      },
-      "line_total_length": 1316.3,
-      "distance_along_line": 136.63,
-      "line_percentage": 10.4
-    },
-    {
-      "id": "SXBAMY0030120011D31",
-      "description": "1501南翼回风主用风机专供_馈电_馈电器传感器馈电233馈电",
-      "matched": true,
-      "matched_name": "1501南翼辅助回风大巷",
-      "tunnel_id": "B30671C8-5F2F-44D9-8ABA-268C6125DE46",
-      "matched_type": "tunnel",
-      "tunnel_type": "0-普通巷道",
-      "coalbed": "1500",
-      "match_lcs": 6,
-      "match_score": 6,
-      "confidence": "中",
-      "mark_type": "B14",
-      "sensor_type": "馈电",
-      "area": "1501南翼回风主用风机专供_馈电_馈电器",
-      "sysaliasname": "安全监测系统",
-      "coordinates": {
-        "x": 38441548.7224,
-        "y": 4194262.8398,
-        "z": 287.5871
-      },
-      "line_total_length": 1316.3,
-      "distance_along_line": 137.63,
-      "line_percentage": 10.5
-    },
-    {
-      "id": "SXBAMY0030120011A17",
-      "description": "1501南翼回风大巷掘进面回风一氧_一氧化碳传感器一氧化碳124一氧化碳",
-      "matched": true,
-      "matched_name": "1501南翼辅助回风大巷",
-      "tunnel_id": "B30671C8-5F2F-44D9-8ABA-268C6125DE46",
-      "matched_type": "tunnel",
-      "tunnel_type": "0-普通巷道",
-      "coalbed": "1500",
-      "match_lcs": 6,
-      "match_score": 6,
-      "confidence": "中",
-      "mark_type": "B14",
-      "sensor_type": "一氧化碳",
-      "area": "1501南翼回风大巷掘进面回风一氧_一氧化碳",
-      "sysaliasname": "安全监测系统",
-      "coordinates": {
-        "x": 38441549.6992,
-        "y": 4194262.8269,
-        "z": 288.0007
-      },
-      "line_total_length": 1316.3,
-      "distance_along_line": 138.63,
-      "line_percentage": 10.5
-    },
-    {
-      "id": "SXBAMY0030120011C04",
-      "description": "1501南翼回风大巷维护处动力_断电器KJ95X断电111断电",
-      "matched": true,
-      "matched_name": "1501南翼辅助回风大巷",
-      "tunnel_id": "B30671C8-5F2F-44D9-8ABA-268C6125DE46",
-      "matched_type": "tunnel",
-      "tunnel_type": "0-普通巷道",
-      "coalbed": "1500",
-      "match_lcs": 6,
-      "match_score": 6,
-      "confidence": "中",
-      "mark_type": "B14",
-      "sensor_type": "断电",
-      "area": "1501南翼回风大巷维护处动力_断电器",
-      "sysaliasname": "安全监测系统",
-      "coordinates": {
-        "x": 38441550.676,
-        "y": 4194262.8141,
-        "z": 288.0144
-      },
-      "line_total_length": 1316.3,
-      "distance_along_line": 139.63,
-      "line_percentage": 10.6
-    },
-    {
-      "id": "SXBAMY0030120011A22",
-      "description": "1501南翼回风大巷维护处二部皮带一氧_一氧化碳传感器一氧化碳125一氧化碳",
-      "matched": true,
-      "matched_name": "1501南翼辅助回风大巷",
-      "tunnel_id": "B30671C8-5F2F-44D9-8ABA-268C6125DE46",
-      "matched_type": "tunnel",
-      "tunnel_type": "0-普通巷道",
-      "coalbed": "1500",
-      "match_lcs": 6,
-      "match_score": 6,
-      "confidence": "中",
-      "mark_type": "B14",
-      "sensor_type": "一氧化碳",
-      "area": "1501南翼回风大巷维护处二部皮带一氧_一氧化碳",
-      "sysaliasname": "安全监测系统",
-      "coordinates": {
-        "x": 38441551.6529,
-        "y": 4194262.8013,
-        "z": 288.428
-      },
-      "line_total_length": 1316.3,
-      "distance_along_line": 140.63,
-      "line_percentage": 10.7
-    },
-    {
-      "id": "SXBAMY0030120011C08",
-      "description": "1501南翼回风备用风机专供_断电器KJ95X断电13断电",
-      "matched": true,
-      "matched_name": "1501南翼辅助回风大巷",
-      "tunnel_id": "B30671C8-5F2F-44D9-8ABA-268C6125DE46",
-      "matched_type": "tunnel",
-      "tunnel_type": "0-普通巷道",
-      "coalbed": "1500",
-      "match_lcs": 6,
-      "match_score": 6,
-      "confidence": "中",
-      "mark_type": "B14",
-      "sensor_type": "断电",
-      "area": "1501南翼回风备用风机专供_断电器",
-      "sysaliasname": "安全监测系统",
-      "coordinates": {
-        "x": 38441552.6297,
-        "y": 4194262.7885,
-        "z": 288.4416
-      },
-      "line_total_length": 1316.3,
-      "distance_along_line": 141.63,
-      "line_percentage": 10.8
-    },
-    {
-      "id": "SXBAMY0030120011C01",
-      "description": "1501南翼回风大巷掘进机动力开关_断电器KJ95X断电98断电",
-      "matched": true,
-      "matched_name": "1501南翼辅助回风大巷",
-      "tunnel_id": "B30671C8-5F2F-44D9-8ABA-268C6125DE46",
-      "matched_type": "tunnel",
-      "tunnel_type": "0-普通巷道",
-      "coalbed": "1500",
-      "match_lcs": 6,
-      "match_score": 6,
-      "confidence": "中",
-      "mark_type": "B14",
-      "sensor_type": "断电",
-      "area": "1501南翼回风大巷掘进机动力开关_断电器",
-      "sysaliasname": "安全监测系统",
-      "coordinates": {
-        "x": 38441553.6065,
-        "y": 4194262.7756,
-        "z": 288.6553
-      },
-      "line_total_length": 1316.3,
-      "distance_along_line": 142.63,
-      "line_percentage": 10.8
-    },
-    {
-      "id": "SXBAMY0030120011C07",
-      "description": "1501南翼回风主用风机专供_断电器KJ95X断电12断电",
-      "matched": true,
-      "matched_name": "1501南翼辅助回风大巷",
-      "tunnel_id": "B30671C8-5F2F-44D9-8ABA-268C6125DE46",
-      "matched_type": "tunnel",
-      "tunnel_type": "0-普通巷道",
-      "coalbed": "1500",
-      "match_lcs": 6,
-      "match_score": 6,
-      "confidence": "中",
-      "mark_type": "B14",
-      "sensor_type": "断电",
-      "area": "1501南翼回风主用风机专供_断电器",
-      "sysaliasname": "安全监测系统",
-      "coordinates": {
-        "x": 38441554.5833,
-        "y": 4194262.7628,
-        "z": 288.8689
-      },
-      "line_total_length": 1316.3,
-      "distance_along_line": 143.63,
-      "line_percentage": 10.9
-    },
-    {
-      "id": "SXBAMY0030120011A24",
-      "description": "1501南翼回风大巷维护处_激光甲烷传感器瓦斯101瓦斯",
-      "matched": true,
-      "matched_name": "1501南翼辅助回风大巷",
-      "tunnel_id": "B30671C8-5F2F-44D9-8ABA-268C6125DE46",
-      "matched_type": "tunnel",
-      "tunnel_type": "0-普通巷道",
-      "coalbed": "1500",
-      "match_lcs": 6,
-      "match_score": 8,
-      "confidence": "中",
-      "mark_type": "B14",
-      "sensor_type": "瓦斯",
-      "area": "1501南翼回风大巷维护处_激光甲烷",
-      "sysaliasname": "安全监测系统",
-      "coordinates": {
-        "x": 38441555.5602,
-        "y": 4194262.75,
-        "z": 289.3825
-      },
-      "line_total_length": 1316.3,
-      "distance_along_line": 144.63,
-      "line_percentage": 11.0
-    },
-    {
-      "id": "SXBAMY0030120011D32",
-      "description": "1501南翼回风备用风机专供_馈电_馈电器传感器馈电171馈电",
-      "matched": true,
-      "matched_name": "1501南翼辅助回风大巷",
-      "tunnel_id": "B30671C8-5F2F-44D9-8ABA-268C6125DE46",
-      "matched_type": "tunnel",
-      "tunnel_type": "0-普通巷道",
-      "coalbed": "1500",
-      "match_lcs": 6,
-      "match_score": 6,
-      "confidence": "中",
-      "mark_type": "B14",
-      "sensor_type": "馈电",
-      "area": "1501南翼回风备用风机专供_馈电_馈电器",
-      "sysaliasname": "安全监测系统",
-      "coordinates": {
-        "x": 38441556.537,
-        "y": 4194262.7372,
-        "z": 289.2962
-      },
-      "line_total_length": 1316.3,
-      "distance_along_line": 145.63,
-      "line_percentage": 11.1
-    },
-    {
-      "id": "SXBAMY0030120011D23",
-      "description": "1501南翼回风大巷维护处二部皮带烟雾传感器烟雾131烟雾",
-      "matched": true,
-      "matched_name": "1501南翼辅助回风大巷",
-      "tunnel_id": "B30671C8-5F2F-44D9-8ABA-268C6125DE46",
-      "matched_type": "tunnel",
-      "tunnel_type": "0-普通巷道",
-      "coalbed": "1500",
-      "match_lcs": 6,
-      "match_score": 6,
-      "confidence": "中",
-      "mark_type": "B14",
-      "sensor_type": "烟雾",
-      "area": "1501南翼回风大巷维护处二部皮带烟雾",
-      "sysaliasname": "安全监测系统",
-      "coordinates": {
-        "x": 38441557.5138,
-        "y": 4194262.7244,
-        "z": 289.7098
-      },
-      "line_total_length": 1316.3,
-      "distance_along_line": 146.63,
-      "line_percentage": 11.1
-    },
-    {
-      "id": "SXBAMY0030120011D28",
-      "description": "1501南翼回风大巷维护处动力_馈电_馈电器传感器馈电913馈电",
-      "matched": true,
-      "matched_name": "1501南翼辅助回风大巷",
-      "tunnel_id": "B30671C8-5F2F-44D9-8ABA-268C6125DE46",
-      "matched_type": "tunnel",
-      "tunnel_type": "0-普通巷道",
-      "coalbed": "1500",
-      "match_lcs": 6,
-      "match_score": 6,
-      "confidence": "中",
-      "mark_type": "B14",
-      "sensor_type": "馈电",
-      "area": "1501南翼回风大巷维护处动力_馈电_馈电器",
-      "sysaliasname": "安全监测系统",
-      "coordinates": {
-        "x": 38441558.4907,
-        "y": 4194262.7115,
-        "z": 289.7234
-      },
-      "line_total_length": 1316.3,
-      "distance_along_line": 147.63,
-      "line_percentage": 11.2
     },
     {
       "id": "SXBAMY0030120022A10",
@@ -2047,6 +1695,106 @@
       "line_percentage": 0.3
     },
     {
+      "id": "SXBAMY0030120011D31",
+      "description": "1501南翼回风主用风机专供_馈电_馈电器传感器馈电233馈电",
+      "matched": true,
+      "matched_name": "1501南翼辅助回风大巷",
+      "tunnel_id": "B30671C8-5F2F-44D9-8ABA-268C6125DE46",
+      "matched_type": "tunnel",
+      "tunnel_type": "0-普通巷道",
+      "coalbed": "1500",
+      "match_lcs": 6,
+      "match_score": 6,
+      "confidence": "中",
+      "mark_type": "B14",
+      "sensor_type": "馈电",
+      "area": "1501南翼回风主用风机专供_馈电_馈电器",
+      "sysaliasname": "安全监测系统",
+      "coordinates": {
+        "x": 38441542.8518,
+        "y": 4194262.9128,
+        "z": 286.3762
+      },
+      "line_total_length": 1316.3,
+      "distance_along_line": 131.63,
+      "line_percentage": 10.0
+    },
+    {
+      "id": "SXBAMY0030120011C08",
+      "description": "1501南翼回风备用风机专供_断电器KJ95X断电13断电",
+      "matched": true,
+      "matched_name": "1501南翼辅助回风大巷",
+      "tunnel_id": "B30671C8-5F2F-44D9-8ABA-268C6125DE46",
+      "matched_type": "tunnel",
+      "tunnel_type": "0-普通巷道",
+      "coalbed": "1500",
+      "match_lcs": 6,
+      "match_score": 6,
+      "confidence": "中",
+      "mark_type": "B14",
+      "sensor_type": "断电",
+      "area": "1501南翼回风备用风机专供_断电器",
+      "sysaliasname": "安全监测系统",
+      "coordinates": {
+        "x": 38441543.8382,
+        "y": 4194262.9039,
+        "z": 286.5189
+      },
+      "line_total_length": 1316.3,
+      "distance_along_line": 132.63,
+      "line_percentage": 10.1
+    },
+    {
+      "id": "SXBAMY0030120011C07",
+      "description": "1501南翼回风主用风机专供_断电器KJ95X断电12断电",
+      "matched": true,
+      "matched_name": "1501南翼辅助回风大巷",
+      "tunnel_id": "B30671C8-5F2F-44D9-8ABA-268C6125DE46",
+      "matched_type": "tunnel",
+      "tunnel_type": "0-普通巷道",
+      "coalbed": "1500",
+      "match_lcs": 6,
+      "match_score": 6,
+      "confidence": "中",
+      "mark_type": "B14",
+      "sensor_type": "断电",
+      "area": "1501南翼回风主用风机专供_断电器",
+      "sysaliasname": "安全监测系统",
+      "coordinates": {
+        "x": 38441544.8151,
+        "y": 4194262.891,
+        "z": 286.7325
+      },
+      "line_total_length": 1316.3,
+      "distance_along_line": 133.63,
+      "line_percentage": 10.2
+    },
+    {
+      "id": "SXBAMY0030120011D32",
+      "description": "1501南翼回风备用风机专供_馈电_馈电器传感器馈电171馈电",
+      "matched": true,
+      "matched_name": "1501南翼辅助回风大巷",
+      "tunnel_id": "B30671C8-5F2F-44D9-8ABA-268C6125DE46",
+      "matched_type": "tunnel",
+      "tunnel_type": "0-普通巷道",
+      "coalbed": "1500",
+      "match_lcs": 6,
+      "match_score": 6,
+      "confidence": "中",
+      "mark_type": "B14",
+      "sensor_type": "馈电",
+      "area": "1501南翼回风备用风机专供_馈电_馈电器",
+      "sysaliasname": "安全监测系统",
+      "coordinates": {
+        "x": 38441545.7919,
+        "y": 4194262.8782,
+        "z": 286.9462
+      },
+      "line_total_length": 1316.3,
+      "distance_along_line": 134.63,
+      "line_percentage": 10.2
+    },
+    {
       "id": "SXBAMY0030120016A02",
       "description": "15103高抽巷皮带机头一氧化碳传感器一氧化碳966一氧化碳",
       "matched": true,
@@ -2095,56 +1843,6 @@
       "line_total_length": 1245.72,
       "distance_along_line": 1.0,
       "line_percentage": 0.1
-    },
-    {
-      "id": "SXBAMY0030120011A06",
-      "description": "1501南翼回风大巷掘进面甲烷T1_激光甲烷传感器瓦斯126瓦斯",
-      "matched": true,
-      "matched_name": "1501南翼辅助回风大巷",
-      "tunnel_id": "B30671C8-5F2F-44D9-8ABA-268C6125DE46",
-      "matched_type": "tunnel",
-      "tunnel_type": "0-普通巷道",
-      "coalbed": "1500",
-      "match_lcs": 6,
-      "match_score": 8,
-      "confidence": "中",
-      "mark_type": "B14",
-      "sensor_type": "瓦斯",
-      "area": "1501南翼回风大巷掘进面甲烷T1_激光甲烷",
-      "sysaliasname": "安全监测系统",
-      "coordinates": {
-        "x": 38441419.2368,
-        "y": 4194277.6604,
-        "z": 258.7504
-      },
-      "line_total_length": 1316.3,
-      "distance_along_line": 2.5,
-      "line_percentage": 0.2
-    },
-    {
-      "id": "SXBAMY0030120011A16",
-      "description": "1501南翼回风大巷掘进面回风甲烷T2_激光甲烷传感器瓦斯895瓦斯",
-      "matched": true,
-      "matched_name": "1501南翼辅助回风大巷",
-      "tunnel_id": "B30671C8-5F2F-44D9-8ABA-268C6125DE46",
-      "matched_type": "tunnel",
-      "tunnel_type": "0-普通巷道",
-      "coalbed": "1500",
-      "match_lcs": 6,
-      "match_score": 8,
-      "confidence": "中",
-      "mark_type": "B14",
-      "sensor_type": "瓦斯",
-      "area": "1501南翼回风大巷掘进面回风甲烷T2_激光甲烷",
-      "sysaliasname": "安全监测系统",
-      "coordinates": {
-        "x": 38442626.7216,
-        "y": 4194263.2309,
-        "z": 341.803
-      },
-      "line_total_length": 1316.3,
-      "distance_along_line": 1217.57,
-      "line_percentage": 92.5
     },
     {
       "id": "SXBAMY0030120021C02",
@@ -2222,6 +1920,106 @@
       "line_percentage": 10.4
     },
     {
+      "id": "SXBAMY00301219db4fef7fb35b",
+      "description": "保安煤矿皮带大巷2号绞车",
+      "matched": true,
+      "matched_name": "上仓皮带巷",
+      "tunnel_id": "C9E3680B-717D-4692-881E-D72EC250BFDD",
+      "matched_type": "tunnel",
+      "tunnel_type": "0-普通巷道",
+      "coalbed": "1500",
+      "match_lcs": 2,
+      "match_score": 6,
+      "confidence": "低",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "area": "井下各斜巷运输车场",
+      "sysaliasname": "工业视频监控系统",
+      "coordinates": {
+        "x": 38442702.1356,
+        "y": 4194312.2815,
+        "z": 368.67
+      },
+      "line_total_length": 488.78,
+      "distance_along_line": 51.88,
+      "line_percentage": 10.6
+    },
+    {
+      "id": "SXBAMY00301213f5585e9d1be1",
+      "description": "保安煤矿皮带大巷煤量检测",
+      "matched": true,
+      "matched_name": "上仓皮带巷",
+      "tunnel_id": "C9E3680B-717D-4692-881E-D72EC250BFDD",
+      "matched_type": "tunnel",
+      "tunnel_type": "0-普通巷道",
+      "coalbed": "1500",
+      "match_lcs": 2,
+      "match_score": 6,
+      "confidence": "低",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "area": "主运输及煤仓上下口",
+      "sysaliasname": "工业视频监控系统",
+      "coordinates": {
+        "x": 38442703.1356,
+        "y": 4194312.2869,
+        "z": 368.67
+      },
+      "line_total_length": 488.78,
+      "distance_along_line": 52.88,
+      "line_percentage": 10.8
+    },
+    {
+      "id": "SXBAMY003012166290e0e28595",
+      "description": "保安煤矿皮带大巷1号绞车",
+      "matched": true,
+      "matched_name": "上仓皮带巷",
+      "tunnel_id": "C9E3680B-717D-4692-881E-D72EC250BFDD",
+      "matched_type": "tunnel",
+      "tunnel_type": "0-普通巷道",
+      "coalbed": "1500",
+      "match_lcs": 2,
+      "match_score": 6,
+      "confidence": "低",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "area": "井下各斜巷运输车场",
+      "sysaliasname": "工业视频监控系统",
+      "coordinates": {
+        "x": 38442704.1356,
+        "y": 4194312.2923,
+        "z": 368.67
+      },
+      "line_total_length": 488.78,
+      "distance_along_line": 53.88,
+      "line_percentage": 11.0
+    },
+    {
+      "id": "SXBAMY0030121d76163850d8f9",
+      "description": "保安煤矿皮带大巷一部异物检测",
+      "matched": true,
+      "matched_name": "上仓皮带巷",
+      "tunnel_id": "C9E3680B-717D-4692-881E-D72EC250BFDD",
+      "matched_type": "tunnel",
+      "tunnel_type": "0-普通巷道",
+      "coalbed": "1500",
+      "match_lcs": 2,
+      "match_score": 6,
+      "confidence": "低",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "area": "主运输及煤仓上下口",
+      "sysaliasname": "工业视频监控系统",
+      "coordinates": {
+        "x": 38442705.1356,
+        "y": 4194312.2977,
+        "z": 368.67
+      },
+      "line_total_length": 488.78,
+      "distance_along_line": 54.88,
+      "line_percentage": 11.2
+    },
+    {
       "id": "SXBAMY0030140015F00",
       "description": "上仓皮带巷_人数",
       "matched": true,
@@ -2238,13 +2036,13 @@
       "area": "上仓皮带巷",
       "sysaliasname": "人员定位系统",
       "coordinates": {
-        "x": 38442702.1356,
-        "y": 4194312.2815,
+        "x": 38442706.1355,
+        "y": 4194312.3031,
         "z": 366.87
       },
       "line_total_length": 488.78,
-      "distance_along_line": 51.88,
-      "line_percentage": 10.6
+      "distance_along_line": 55.88,
+      "line_percentage": 11.4
     },
     {
       "id": "SXBAMY0030120021A07",
@@ -2497,56 +2295,6 @@
       "line_percentage": 52.0
     },
     {
-      "id": "SXBAMY0030120011D18",
-      "description": "1501南翼回风大巷掘进面皮带机头烟雾传感器烟雾231烟雾",
-      "matched": true,
-      "matched_name": "1501南翼辅助回风大巷",
-      "tunnel_id": "B30671C8-5F2F-44D9-8ABA-268C6125DE46",
-      "matched_type": "tunnel",
-      "tunnel_type": "0-普通巷道",
-      "coalbed": "1500",
-      "match_lcs": 6,
-      "match_score": 6,
-      "confidence": "中",
-      "mark_type": "B14",
-      "sensor_type": "烟雾",
-      "area": "1501南翼回风大巷掘进面皮带机头烟雾",
-      "sysaliasname": "安全监测系统",
-      "coordinates": {
-        "x": 38441416.9113,
-        "y": 4194278.1089,
-        "z": 257.85
-      },
-      "line_total_length": 1316.3,
-      "distance_along_line": 0.0,
-      "line_percentage": 0.0
-    },
-    {
-      "id": "SXBAMY0030120011A21",
-      "description": "1501南翼回风大巷掘进面皮带机头温度_环境温度传感器温度128温度",
-      "matched": true,
-      "matched_name": "1501南翼辅助回风大巷",
-      "tunnel_id": "B30671C8-5F2F-44D9-8ABA-268C6125DE46",
-      "matched_type": "tunnel",
-      "tunnel_type": "0-普通巷道",
-      "coalbed": "1500",
-      "match_lcs": 6,
-      "match_score": 6,
-      "confidence": "中",
-      "mark_type": "B14",
-      "sensor_type": "温度",
-      "area": "1501南翼回风大巷掘进面皮带机头温度_环境温度",
-      "sysaliasname": "安全监测系统",
-      "coordinates": {
-        "x": 38441417.8415,
-        "y": 4194277.9295,
-        "z": 258.1702
-      },
-      "line_total_length": 1316.3,
-      "distance_along_line": 1.0,
-      "line_percentage": 0.1
-    },
-    {
       "id": "SXBAMY0030120021F00",
       "description": "中央变电所传感器分站270分站",
       "matched": true,
@@ -2572,8 +2320,8 @@
       "line_percentage": 40.0
     },
     {
-      "id": "SXBAMY0030121d580e9869bd3c",
-      "description": "保安煤矿中央变电所西",
+      "id": "SXBAMY003012188b14004d780e",
+      "description": "保安煤矿轨道斜巷第一变电所北",
       "matched": true,
       "matched_name": "变电所通路",
       "tunnel_id": "F243B35C-7D8C-4AB5-9D4F-B953F7A13579",
@@ -2597,8 +2345,8 @@
       "line_percentage": 41.4
     },
     {
-      "id": "SXBAMY0030120039F00",
-      "description": "中央变电所2传感器分站714分站",
+      "id": "SXBAMY0030121d938c27053721",
+      "description": "保安煤矿轨道斜巷第二变电所北",
       "matched": true,
       "matched_name": "变电所通路",
       "tunnel_id": "F243B35C-7D8C-4AB5-9D4F-B953F7A13579",
@@ -2606,24 +2354,24 @@
       "tunnel_type": "0-普通巷道",
       "coalbed": "1500",
       "match_lcs": 3,
-      "match_score": 6,
+      "match_score": 8,
       "confidence": "中",
-      "mark_type": "B14",
-      "sensor_type": "分站",
-      "area": "中央变电所2",
-      "sysaliasname": "安全监测系统",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "area": "井下机房硐室",
+      "sysaliasname": "工业视频监控系统",
       "coordinates": {
         "x": 38443057.7579,
         "y": 4194187.6088,
-        "z": 315.8533
+        "z": 317.6533
       },
       "line_total_length": 72.68,
       "distance_along_line": 31.07,
       "line_percentage": 42.8
     },
     {
-      "id": "SXBAMY0030121110cbcf2279f5",
-      "description": "保安煤矿中央变电所东",
+      "id": "SXBAMY00301217199f3f6c23df",
+      "description": "保安煤矿轨道斜巷第一变电所南",
       "matched": true,
       "matched_name": "变电所通路",
       "tunnel_id": "F243B35C-7D8C-4AB5-9D4F-B953F7A13579",
@@ -2647,6 +2395,106 @@
       "line_percentage": 44.1
     },
     {
+      "id": "SXBAMY0030121d580e9869bd3c",
+      "description": "保安煤矿中央变电所西",
+      "matched": true,
+      "matched_name": "变电所通路",
+      "tunnel_id": "F243B35C-7D8C-4AB5-9D4F-B953F7A13579",
+      "matched_type": "tunnel",
+      "tunnel_type": "0-普通巷道",
+      "coalbed": "1500",
+      "match_lcs": 3,
+      "match_score": 8,
+      "confidence": "中",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "area": "井下机房硐室",
+      "sysaliasname": "工业视频监控系统",
+      "coordinates": {
+        "x": 38443057.1944,
+        "y": 4194189.5277,
+        "z": 317.6696
+      },
+      "line_total_length": 72.68,
+      "distance_along_line": 33.07,
+      "line_percentage": 45.5
+    },
+    {
+      "id": "SXBAMY00301210ef48a1a65183",
+      "description": "保安煤矿轨道斜巷第二变电所南",
+      "matched": true,
+      "matched_name": "变电所通路",
+      "tunnel_id": "F243B35C-7D8C-4AB5-9D4F-B953F7A13579",
+      "matched_type": "tunnel",
+      "tunnel_type": "0-普通巷道",
+      "coalbed": "1500",
+      "match_lcs": 3,
+      "match_score": 8,
+      "confidence": "中",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "area": "井下机房硐室",
+      "sysaliasname": "工业视频监控系统",
+      "coordinates": {
+        "x": 38443056.9127,
+        "y": 4194190.4872,
+        "z": 317.6777
+      },
+      "line_total_length": 72.68,
+      "distance_along_line": 34.07,
+      "line_percentage": 46.9
+    },
+    {
+      "id": "SXBAMY0030120039F00",
+      "description": "中央变电所2传感器分站714分站",
+      "matched": true,
+      "matched_name": "变电所通路",
+      "tunnel_id": "F243B35C-7D8C-4AB5-9D4F-B953F7A13579",
+      "matched_type": "tunnel",
+      "tunnel_type": "0-普通巷道",
+      "coalbed": "1500",
+      "match_lcs": 3,
+      "match_score": 6,
+      "confidence": "中",
+      "mark_type": "B14",
+      "sensor_type": "分站",
+      "area": "中央变电所2",
+      "sysaliasname": "安全监测系统",
+      "coordinates": {
+        "x": 38443056.6309,
+        "y": 4194191.4466,
+        "z": 315.8859
+      },
+      "line_total_length": 72.68,
+      "distance_along_line": 35.07,
+      "line_percentage": 48.3
+    },
+    {
+      "id": "SXBAMY0030121110cbcf2279f5",
+      "description": "保安煤矿中央变电所东",
+      "matched": true,
+      "matched_name": "变电所通路",
+      "tunnel_id": "F243B35C-7D8C-4AB5-9D4F-B953F7A13579",
+      "matched_type": "tunnel",
+      "tunnel_type": "0-普通巷道",
+      "coalbed": "1500",
+      "match_lcs": 3,
+      "match_score": 8,
+      "confidence": "中",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "area": "井下机房硐室",
+      "sysaliasname": "工业视频监控系统",
+      "coordinates": {
+        "x": 38443056.3492,
+        "y": 4194192.4061,
+        "z": 317.694
+      },
+      "line_total_length": 72.68,
+      "distance_along_line": 36.07,
+      "line_percentage": 49.6
+    },
+    {
       "id": "SXBAMY0030140003G01",
       "description": "旧采区变电所外_人数",
       "matched": true,
@@ -2663,38 +2511,13 @@
       "area": "315大巷区域",
       "sysaliasname": "人员定位系统",
       "coordinates": {
-        "x": 38443057.1944,
-        "y": 4194189.5277,
-        "z": 315.8696
+        "x": 38443056.3969,
+        "y": 4194193.1852,
+        "z": 315.9
       },
       "line_total_length": 72.68,
-      "distance_along_line": 33.07,
-      "line_percentage": 45.5
-    },
-    {
-      "id": "SXBAMY0030120011A05",
-      "description": "1501南翼回风大巷分风口甲烷T4_激光甲烷传感器瓦斯912瓦斯",
-      "matched": true,
-      "matched_name": "1501南翼辅助回风大巷",
-      "tunnel_id": "B30671C8-5F2F-44D9-8ABA-268C6125DE46",
-      "matched_type": "tunnel",
-      "tunnel_type": "0-普通巷道",
-      "coalbed": "1500",
-      "match_lcs": 6,
-      "match_score": 8,
-      "confidence": "中",
-      "mark_type": "B14",
-      "sensor_type": "瓦斯",
-      "area": "1501南翼回风大巷分风口甲烷T4_激光甲烷",
-      "sysaliasname": "安全监测系统",
-      "coordinates": {
-        "x": 38442659.6004,
-        "y": 4194263.2715,
-        "z": 343.172
-      },
-      "line_total_length": 1316.3,
-      "distance_along_line": 1250.48,
-      "line_percentage": 95.0
+      "distance_along_line": 37.07,
+      "line_percentage": 51.0
     },
     {
       "id": "SXBAMY0030120016A16",
@@ -2822,106 +2645,6 @@
       "line_percentage": 40.2
     },
     {
-      "id": "SXBAMY003012188b14004d780e",
-      "description": "保安煤矿轨道斜巷第一变电所北",
-      "matched": true,
-      "matched_name": "9号煤轨道斜巷",
-      "tunnel_id": "6C610D43-DF36-45E1-89DD-30E5F1528079",
-      "matched_type": "tunnel",
-      "tunnel_type": "0-普通巷道",
-      "coalbed": "1500",
-      "match_lcs": 4,
-      "match_score": 8,
-      "confidence": "中",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "area": "井下机房硐室",
-      "sysaliasname": "工业视频监控系统",
-      "coordinates": {
-        "x": 38442662.1388,
-        "y": 4194349.8349,
-        "z": 368.67
-      },
-      "line_total_length": 173.24,
-      "distance_along_line": 69.3,
-      "line_percentage": 40.0
-    },
-    {
-      "id": "SXBAMY0030121d938c27053721",
-      "description": "保安煤矿轨道斜巷第二变电所北",
-      "matched": true,
-      "matched_name": "9号煤轨道斜巷",
-      "tunnel_id": "6C610D43-DF36-45E1-89DD-30E5F1528079",
-      "matched_type": "tunnel",
-      "tunnel_type": "0-普通巷道",
-      "coalbed": "1500",
-      "match_lcs": 4,
-      "match_score": 8,
-      "confidence": "中",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "area": "井下机房硐室",
-      "sysaliasname": "工业视频监控系统",
-      "coordinates": {
-        "x": 38442662.23,
-        "y": 4194350.8307,
-        "z": 368.67
-      },
-      "line_total_length": 173.24,
-      "distance_along_line": 70.3,
-      "line_percentage": 40.6
-    },
-    {
-      "id": "SXBAMY00301217199f3f6c23df",
-      "description": "保安煤矿轨道斜巷第一变电所南",
-      "matched": true,
-      "matched_name": "9号煤轨道斜巷",
-      "tunnel_id": "6C610D43-DF36-45E1-89DD-30E5F1528079",
-      "matched_type": "tunnel",
-      "tunnel_type": "0-普通巷道",
-      "coalbed": "1500",
-      "match_lcs": 4,
-      "match_score": 8,
-      "confidence": "中",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "area": "井下机房硐室",
-      "sysaliasname": "工业视频监控系统",
-      "coordinates": {
-        "x": 38442662.3213,
-        "y": 4194351.8265,
-        "z": 368.67
-      },
-      "line_total_length": 173.24,
-      "distance_along_line": 71.3,
-      "line_percentage": 41.2
-    },
-    {
-      "id": "SXBAMY00301210ef48a1a65183",
-      "description": "保安煤矿轨道斜巷第二变电所南",
-      "matched": true,
-      "matched_name": "9号煤轨道斜巷",
-      "tunnel_id": "6C610D43-DF36-45E1-89DD-30E5F1528079",
-      "matched_type": "tunnel",
-      "tunnel_type": "0-普通巷道",
-      "coalbed": "1500",
-      "match_lcs": 4,
-      "match_score": 8,
-      "confidence": "中",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "area": "井下机房硐室",
-      "sysaliasname": "工业视频监控系统",
-      "coordinates": {
-        "x": 38442662.4125,
-        "y": 4194352.8224,
-        "z": 368.67
-      },
-      "line_total_length": 173.24,
-      "distance_along_line": 72.3,
-      "line_percentage": 41.7
-    },
-    {
       "id": "SXBAMY003012115d1ab7eacff6",
       "description": "保安煤矿1501轨道斜巷下车场",
       "matched": true,
@@ -2970,81 +2693,6 @@
       "line_total_length": 2236.07,
       "distance_along_line": 671.82,
       "line_percentage": 30.0
-    },
-    {
-      "id": "SXBAMY00301212335f73da2e57",
-      "description": "保安煤矿皮带大巷二部皮带机头",
-      "matched": true,
-      "matched_name": "沿9号煤皮带大巷",
-      "tunnel_id": "3A66A41A-A783-4467-BA5E-564E51DFBD1D",
-      "matched_type": "tunnel",
-      "tunnel_type": "0-普通巷道",
-      "coalbed": "1500",
-      "match_lcs": 4,
-      "match_score": 7,
-      "confidence": "中",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "area": "主运输及煤仓上下口",
-      "sysaliasname": "工业视频监控系统",
-      "coordinates": {
-        "x": 38442690.9357,
-        "y": 4194312.221,
-        "z": 368.67
-      },
-      "line_total_length": 57.83,
-      "distance_along_line": 0.0,
-      "line_percentage": 0.0
-    },
-    {
-      "id": "SXBAMY00301212ee9a098a91ce",
-      "description": "保安煤矿皮带大巷一部机头驱动部",
-      "matched": true,
-      "matched_name": "沿9号煤皮带大巷",
-      "tunnel_id": "3A66A41A-A783-4467-BA5E-564E51DFBD1D",
-      "matched_type": "tunnel",
-      "tunnel_type": "0-普通巷道",
-      "coalbed": "1500",
-      "match_lcs": 4,
-      "match_score": 7,
-      "confidence": "中",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "area": "主运输及煤仓上下口",
-      "sysaliasname": "工业视频监控系统",
-      "coordinates": {
-        "x": 38442691.6358,
-        "y": 4194312.935,
-        "z": 368.67
-      },
-      "line_total_length": 57.83,
-      "distance_along_line": 1.0,
-      "line_percentage": 1.7
-    },
-    {
-      "id": "SXBAMY00301210857872db7295",
-      "description": "保安煤矿皮带大巷一部皮带机头",
-      "matched": true,
-      "matched_name": "沿9号煤皮带大巷",
-      "tunnel_id": "3A66A41A-A783-4467-BA5E-564E51DFBD1D",
-      "matched_type": "tunnel",
-      "tunnel_type": "0-普通巷道",
-      "coalbed": "1500",
-      "match_lcs": 4,
-      "match_score": 7,
-      "confidence": "中",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "area": "主运输及煤仓上下口",
-      "sysaliasname": "工业视频监控系统",
-      "coordinates": {
-        "x": 38442692.336,
-        "y": 4194313.649,
-        "z": 368.67
-      },
-      "line_total_length": 57.83,
-      "distance_along_line": 2.0,
-      "line_percentage": 3.5
     },
     {
       "id": "SXBAMY003012161effbaeb0647",
@@ -3132,7 +2780,7 @@
       "coalbed": "1500",
       "match_lcs": 2,
       "match_score": 5,
-      "confidence": "中",
+      "confidence": "低",
       "mark_type": "B16",
       "sensor_type": "工业视频",
       "area": "井下整巷、检修、临时地点",
@@ -3157,7 +2805,7 @@
       "coalbed": "1500",
       "match_lcs": 2,
       "match_score": 5,
-      "confidence": "中",
+      "confidence": "低",
       "mark_type": "B16",
       "sensor_type": "工业视频",
       "area": "井下打钻",
@@ -3170,56 +2818,6 @@
       "line_total_length": 173.24,
       "distance_along_line": 18.32,
       "line_percentage": 10.6
-    },
-    {
-      "id": "SXBAMY0030121ce3f52dc5e044",
-      "description": "保安煤矿轨道斜巷二部梭车东",
-      "matched": true,
-      "matched_name": "9号煤轨道斜巷",
-      "tunnel_id": "6C610D43-DF36-45E1-89DD-30E5F1528079",
-      "matched_type": "tunnel",
-      "tunnel_type": "0-普通巷道",
-      "coalbed": "1500",
-      "match_lcs": 4,
-      "match_score": 8,
-      "confidence": "中",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "area": "暂时停用",
-      "sysaliasname": "工业视频监控系统",
-      "coordinates": {
-        "x": 38442657.5791,
-        "y": 4194300.0721,
-        "z": 368.67
-      },
-      "line_total_length": 173.24,
-      "distance_along_line": 19.32,
-      "line_percentage": 11.2
-    },
-    {
-      "id": "SXBAMY003012134687acc293f7",
-      "description": "保安煤矿轨道斜巷一部梭车东",
-      "matched": true,
-      "matched_name": "9号煤轨道斜巷",
-      "tunnel_id": "6C610D43-DF36-45E1-89DD-30E5F1528079",
-      "matched_type": "tunnel",
-      "tunnel_type": "0-普通巷道",
-      "coalbed": "1500",
-      "match_lcs": 4,
-      "match_score": 8,
-      "confidence": "中",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "area": "暂时停用",
-      "sysaliasname": "工业视频监控系统",
-      "coordinates": {
-        "x": 38442657.6704,
-        "y": 4194301.0679,
-        "z": 368.67
-      },
-      "line_total_length": 173.24,
-      "distance_along_line": 20.32,
-      "line_percentage": 11.7
     },
     {
       "id": "SXBAMY0030140014G04",
@@ -3238,13 +2836,13 @@
       "area": "上仓皮带巷",
       "sysaliasname": "人员定位系统",
       "coordinates": {
-        "x": 38442657.7616,
-        "y": 4194302.0638,
+        "x": 38442657.5791,
+        "y": 4194300.0721,
         "z": 366.87
       },
       "line_total_length": 173.24,
-      "distance_along_line": 21.32,
-      "line_percentage": 12.3
+      "distance_along_line": 19.32,
+      "line_percentage": 11.2
     },
     {
       "id": "SXBAMY0030140014G03",
@@ -3263,13 +2861,13 @@
       "area": "上仓皮带巷",
       "sysaliasname": "人员定位系统",
       "coordinates": {
-        "x": 38442657.8528,
-        "y": 4194303.0596,
+        "x": 38442657.6704,
+        "y": 4194301.0679,
         "z": 366.87
       },
       "line_total_length": 173.24,
-      "distance_along_line": 22.32,
-      "line_percentage": 12.9
+      "distance_along_line": 20.32,
+      "line_percentage": 11.7
     },
     {
       "id": "SXBAMY0030120034A08",
@@ -3475,12 +3073,12 @@
       "id": "SXBAMY0030120047A03",
       "description": "1501皮带大巷联巷一部皮带机头一氧化碳传感器一氧化碳843一氧化碳",
       "matched": true,
-      "matched_name": "+315水平轨道大巷至1501皮带大巷联络巷",
-      "tunnel_id": "03783A42-7A47-4E0C-B042-2E59F81D575B",
+      "matched_name": "1501皮带大巷至1501轨道斜巷第三联络巷",
+      "tunnel_id": "C2D7816D-60A6-4840-93D1-4E36F5C73E95",
       "matched_type": "tunnel",
       "tunnel_type": "0-普通巷道",
       "coalbed": "1500",
-      "match_lcs": 9,
+      "match_lcs": 8,
       "match_score": 7,
       "confidence": "中",
       "mark_type": "B14",
@@ -3488,11 +3086,11 @@
       "area": "1501皮带大巷联巷一部皮带机头一氧化碳",
       "sysaliasname": "安全监测系统",
       "coordinates": {
-        "x": 38440305.7715,
-        "y": 4194281.5537,
-        "z": 236.4
+        "x": 38441347.6068,
+        "y": 4194281.9731,
+        "z": 235.3
       },
-      "line_total_length": 639.98,
+      "line_total_length": 92.25,
       "distance_along_line": 0.0,
       "line_percentage": 0.0
     },
@@ -3500,12 +3098,12 @@
       "id": "SXBAMY0030120047D07",
       "description": "1501皮带大巷联巷二部皮带机头烟雾传感器烟雾730烟雾",
       "matched": true,
-      "matched_name": "+315水平轨道大巷至1501皮带大巷联络巷",
-      "tunnel_id": "03783A42-7A47-4E0C-B042-2E59F81D575B",
+      "matched_name": "1501皮带大巷至1501轨道斜巷第三联络巷",
+      "tunnel_id": "C2D7816D-60A6-4840-93D1-4E36F5C73E95",
       "matched_type": "tunnel",
       "tunnel_type": "0-普通巷道",
       "coalbed": "1500",
-      "match_lcs": 9,
+      "match_lcs": 8,
       "match_score": 7,
       "confidence": "中",
       "mark_type": "B14",
@@ -3513,24 +3111,24 @@
       "area": "1501皮带大巷联巷二部皮带机头烟雾",
       "sysaliasname": "安全监测系统",
       "coordinates": {
-        "x": 38440306.6669,
-        "y": 4194281.9711,
-        "z": 236.5551
+        "x": 38441347.6082,
+        "y": 4194282.948,
+        "z": 235.5228
       },
-      "line_total_length": 639.98,
+      "line_total_length": 92.25,
       "distance_along_line": 1.0,
-      "line_percentage": 0.2
+      "line_percentage": 1.1
     },
     {
       "id": "SXBAMY0030120047D16",
       "description": "1501皮带大巷联巷一部皮带机头烟雾传感器烟雾653烟雾",
       "matched": true,
-      "matched_name": "+315水平轨道大巷至1501皮带大巷联络巷",
-      "tunnel_id": "03783A42-7A47-4E0C-B042-2E59F81D575B",
+      "matched_name": "1501皮带大巷至1501轨道斜巷第三联络巷",
+      "tunnel_id": "C2D7816D-60A6-4840-93D1-4E36F5C73E95",
       "matched_type": "tunnel",
       "tunnel_type": "0-普通巷道",
       "coalbed": "1500",
-      "match_lcs": 9,
+      "match_lcs": 8,
       "match_score": 7,
       "confidence": "中",
       "mark_type": "B14",
@@ -3538,24 +3136,24 @@
       "area": "1501皮带大巷联巷一部皮带机头烟雾",
       "sysaliasname": "安全监测系统",
       "coordinates": {
-        "x": 38440307.5623,
-        "y": 4194282.3885,
-        "z": 236.7102
+        "x": 38441347.6095,
+        "y": 4194283.9228,
+        "z": 235.7456
       },
-      "line_total_length": 639.98,
+      "line_total_length": 92.25,
       "distance_along_line": 2.0,
-      "line_percentage": 0.3
+      "line_percentage": 2.2
     },
     {
       "id": "SXBAMY0030120047A23",
       "description": "1501皮带大巷联巷二部皮带机头温度_环境温度传感器温度860温度",
       "matched": true,
-      "matched_name": "+315水平轨道大巷至1501皮带大巷联络巷",
-      "tunnel_id": "03783A42-7A47-4E0C-B042-2E59F81D575B",
+      "matched_name": "1501皮带大巷至1501轨道斜巷第三联络巷",
+      "tunnel_id": "C2D7816D-60A6-4840-93D1-4E36F5C73E95",
       "matched_type": "tunnel",
       "tunnel_type": "0-普通巷道",
       "coalbed": "1500",
-      "match_lcs": 9,
+      "match_lcs": 8,
       "match_score": 5,
       "confidence": "中",
       "mark_type": "B14",
@@ -3563,24 +3161,24 @@
       "area": "1501皮带大巷联巷二部皮带机头温度_环境温度",
       "sysaliasname": "安全监测系统",
       "coordinates": {
-        "x": 38440308.4577,
-        "y": 4194282.8059,
-        "z": 236.8653
+        "x": 38441347.6109,
+        "y": 4194284.8977,
+        "z": 235.9685
       },
-      "line_total_length": 639.98,
+      "line_total_length": 92.25,
       "distance_along_line": 3.0,
-      "line_percentage": 0.5
+      "line_percentage": 3.3
     },
     {
       "id": "SXBAMY0030120047A24",
       "description": "1501皮带大巷联巷一部皮带机头温度_环境温度传感器温度652温度",
       "matched": true,
-      "matched_name": "+315水平轨道大巷至1501皮带大巷联络巷",
-      "tunnel_id": "03783A42-7A47-4E0C-B042-2E59F81D575B",
+      "matched_name": "1501皮带大巷至1501轨道斜巷第三联络巷",
+      "tunnel_id": "C2D7816D-60A6-4840-93D1-4E36F5C73E95",
       "matched_type": "tunnel",
       "tunnel_type": "0-普通巷道",
       "coalbed": "1500",
-      "match_lcs": 9,
+      "match_lcs": 8,
       "match_score": 5,
       "confidence": "中",
       "mark_type": "B14",
@@ -3588,24 +3186,24 @@
       "area": "1501皮带大巷联巷一部皮带机头温度_环境温度",
       "sysaliasname": "安全监测系统",
       "coordinates": {
-        "x": 38440309.3531,
-        "y": 4194283.2233,
-        "z": 237.0205
+        "x": 38441347.6122,
+        "y": 4194285.8725,
+        "z": 236.1913
       },
-      "line_total_length": 639.98,
+      "line_total_length": 92.25,
       "distance_along_line": 4.0,
-      "line_percentage": 0.6
+      "line_percentage": 4.3
     },
     {
       "id": "SXBAMY0030120047A08",
       "description": "1501皮带大巷联巷二部皮带机头一氧化碳传感器一氧化碳1019一氧化碳",
       "matched": true,
-      "matched_name": "+315水平轨道大巷至1501皮带大巷联络巷",
-      "tunnel_id": "03783A42-7A47-4E0C-B042-2E59F81D575B",
+      "matched_name": "1501皮带大巷至1501轨道斜巷第三联络巷",
+      "tunnel_id": "C2D7816D-60A6-4840-93D1-4E36F5C73E95",
       "matched_type": "tunnel",
       "tunnel_type": "0-普通巷道",
       "coalbed": "1500",
-      "match_lcs": 9,
+      "match_lcs": 8,
       "match_score": 7,
       "confidence": "中",
       "mark_type": "B14",
@@ -3613,13 +3211,13 @@
       "area": "1501皮带大巷联巷二部皮带机头一氧化碳",
       "sysaliasname": "安全监测系统",
       "coordinates": {
-        "x": 38440310.2484,
-        "y": 4194283.6407,
-        "z": 237.1756
+        "x": 38441347.6136,
+        "y": 4194286.8474,
+        "z": 236.4141
       },
-      "line_total_length": 639.98,
+      "line_total_length": 92.25,
       "distance_along_line": 5.0,
-      "line_percentage": 0.8
+      "line_percentage": 5.4
     },
     {
       "id": "SXBAMY00301214369b033128c4",
@@ -3638,13 +3236,38 @@
       "area": "主运输及煤仓上下口",
       "sysaliasname": "工业视频监控系统",
       "coordinates": {
-        "x": 38443089.1168,
-        "y": 4194122.7944,
-        "z": 390.5
+        "x": 38443047.0319,
+        "y": 4194145.7677,
+        "z": 381.0077
       },
       "line_total_length": 488.78,
-      "distance_along_line": 488.78,
-      "line_percentage": 100.0
+      "distance_along_line": 439.9,
+      "line_percentage": 90.0
+    },
+    {
+      "id": "SXBAMY0030121759bb90284a45",
+      "description": "保安煤矿皮带大巷二部皮带机尾",
+      "matched": true,
+      "matched_name": "上仓皮带巷",
+      "tunnel_id": "C9E3680B-717D-4692-881E-D72EC250BFDD",
+      "matched_type": "tunnel",
+      "tunnel_type": "0-普通巷道",
+      "coalbed": "1500",
+      "match_lcs": 2,
+      "match_score": 6,
+      "confidence": "低",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "area": "主运输及煤仓上下口",
+      "sysaliasname": "工业视频监控系统",
+      "coordinates": {
+        "x": 38443047.893,
+        "y": 4194145.2977,
+        "z": 381.2019
+      },
+      "line_total_length": 488.78,
+      "distance_along_line": 440.9,
+      "line_percentage": 90.2
     },
     {
       "id": "SXBAMY0030121dae32ac712196",
@@ -3848,153 +3471,28 @@
       "line_percentage": 47.3
     },
     {
-      "id": "SXBAMY00301219db4fef7fb35b",
-      "description": "保安煤矿皮带大巷2号绞车",
-      "matched": true,
-      "matched_name": "沿9号煤皮带大巷",
-      "tunnel_id": "3A66A41A-A783-4467-BA5E-564E51DFBD1D",
-      "matched_type": "tunnel",
-      "tunnel_type": "0-普通巷道",
-      "coalbed": "1500",
-      "match_lcs": 4,
-      "match_score": 7,
-      "confidence": "中",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "area": "井下各斜巷运输车场",
-      "sysaliasname": "工业视频监控系统",
-      "coordinates": {
-        "x": 38442694.9849,
-        "y": 4194316.3503,
-        "z": 368.67
-      },
-      "line_total_length": 57.83,
-      "distance_along_line": 5.78,
-      "line_percentage": 10.0
-    },
-    {
-      "id": "SXBAMY00301213f5585e9d1be1",
-      "description": "保安煤矿皮带大巷煤量检测",
-      "matched": true,
-      "matched_name": "沿9号煤皮带大巷",
-      "tunnel_id": "3A66A41A-A783-4467-BA5E-564E51DFBD1D",
-      "matched_type": "tunnel",
-      "tunnel_type": "0-普通巷道",
-      "coalbed": "1500",
-      "match_lcs": 4,
-      "match_score": 7,
-      "confidence": "中",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "area": "主运输及煤仓上下口",
-      "sysaliasname": "工业视频监控系统",
-      "coordinates": {
-        "x": 38442695.597,
-        "y": 4194317.1354,
-        "z": 368.67
-      },
-      "line_total_length": 57.83,
-      "distance_along_line": 6.78,
-      "line_percentage": 11.7
-    },
-    {
-      "id": "SXBAMY003012166290e0e28595",
-      "description": "保安煤矿皮带大巷1号绞车",
-      "matched": true,
-      "matched_name": "沿9号煤皮带大巷",
-      "tunnel_id": "3A66A41A-A783-4467-BA5E-564E51DFBD1D",
-      "matched_type": "tunnel",
-      "tunnel_type": "0-普通巷道",
-      "coalbed": "1500",
-      "match_lcs": 4,
-      "match_score": 7,
-      "confidence": "中",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "area": "井下各斜巷运输车场",
-      "sysaliasname": "工业视频监控系统",
-      "coordinates": {
-        "x": 38442696.1483,
-        "y": 4194317.9698,
-        "z": 368.67
-      },
-      "line_total_length": 57.83,
-      "distance_along_line": 7.78,
-      "line_percentage": 13.5
-    },
-    {
-      "id": "SXBAMY0030121d76163850d8f9",
-      "description": "保安煤矿皮带大巷一部异物检测",
-      "matched": true,
-      "matched_name": "沿9号煤皮带大巷",
-      "tunnel_id": "3A66A41A-A783-4467-BA5E-564E51DFBD1D",
-      "matched_type": "tunnel",
-      "tunnel_type": "0-普通巷道",
-      "coalbed": "1500",
-      "match_lcs": 4,
-      "match_score": 7,
-      "confidence": "中",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "area": "主运输及煤仓上下口",
-      "sysaliasname": "工业视频监控系统",
-      "coordinates": {
-        "x": 38442696.6995,
-        "y": 4194318.8041,
-        "z": 368.67
-      },
-      "line_total_length": 57.83,
-      "distance_along_line": 8.78,
-      "line_percentage": 15.2
-    },
-    {
-      "id": "SXBAMY0030121759bb90284a45",
-      "description": "保安煤矿皮带大巷二部皮带机尾",
-      "matched": true,
-      "matched_name": "沿9号煤皮带大巷",
-      "tunnel_id": "3A66A41A-A783-4467-BA5E-564E51DFBD1D",
-      "matched_type": "tunnel",
-      "tunnel_type": "0-普通巷道",
-      "coalbed": "1500",
-      "match_lcs": 4,
-      "match_score": 7,
-      "confidence": "中",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "area": "主运输及煤仓上下口",
-      "sysaliasname": "工业视频监控系统",
-      "coordinates": {
-        "x": 38442738.8346,
-        "y": 4194312.4798,
-        "z": 368.67
-      },
-      "line_total_length": 57.83,
-      "distance_along_line": 57.83,
-      "line_percentage": 100.0
-    },
-    {
       "id": "SXBAMY0030121340848334f946",
       "description": "保安煤矿皮带大巷一部皮带中部",
       "matched": true,
-      "matched_name": "沿9号煤皮带大巷",
-      "tunnel_id": "3A66A41A-A783-4467-BA5E-564E51DFBD1D",
+      "matched_name": "上仓皮带巷",
+      "tunnel_id": "C9E3680B-717D-4692-881E-D72EC250BFDD",
       "matched_type": "tunnel",
       "tunnel_type": "0-普通巷道",
       "coalbed": "1500",
-      "match_lcs": 4,
-      "match_score": 7,
-      "confidence": "中",
+      "match_lcs": 2,
+      "match_score": 6,
+      "confidence": "低",
       "mark_type": "B16",
       "sensor_type": "工业视频",
       "area": "主运输及煤仓上下口",
       "sysaliasname": "工业视频监控系统",
       "coordinates": {
-        "x": 38442713.746,
-        "y": 4194326.0631,
-        "z": 368.67
+        "x": 38442875.9283,
+        "y": 4194238.7896,
+        "z": 371.2583
       },
-      "line_total_length": 57.83,
-      "distance_along_line": 28.92,
+      "line_total_length": 488.78,
+      "distance_along_line": 244.39,
       "line_percentage": 50.0
     },
     {
@@ -4008,7 +3506,7 @@
       "coalbed": "1500",
       "match_lcs": 2,
       "match_score": 5,
-      "confidence": "中",
+      "confidence": "低",
       "mark_type": "B15",
       "sensor_type": "人数",
       "area": "回风巷",
@@ -4033,7 +3531,7 @@
       "coalbed": "1500",
       "match_lcs": 2,
       "match_score": 5,
-      "confidence": "中",
+      "confidence": "低",
       "mark_type": "B15",
       "sensor_type": "人数",
       "area": "井底区域",
@@ -4058,7 +3556,7 @@
       "coalbed": "1500",
       "match_lcs": 2,
       "match_score": 5,
-      "confidence": "中",
+      "confidence": "低",
       "mark_type": "B15",
       "sensor_type": "人数",
       "area": "井底区域",
@@ -4083,7 +3581,7 @@
       "coalbed": "1500",
       "match_lcs": 2,
       "match_score": 5,
-      "confidence": "中",
+      "confidence": "低",
       "mark_type": "B15",
       "sensor_type": "人数",
       "area": "井底区域",
@@ -4108,7 +3606,7 @@
       "coalbed": "1500",
       "match_lcs": 2,
       "match_score": 5,
-      "confidence": "中",
+      "confidence": "低",
       "mark_type": "B15",
       "sensor_type": "人数",
       "area": "上仓皮带巷",
@@ -4176,51 +3674,26 @@
       "id": "SXBAMY0030140015G03",
       "description": "15号煤回风大巷东入口_人数",
       "matched": true,
-      "matched_name": "总回风大巷",
-      "tunnel_id": "A1BD8CF5-E9A2-4333-9D90-37F6E6291687",
+      "matched_name": "回风立井",
+      "tunnel_id": "8C071D75-BDFC-4F1D-B5AF-35877516CFD6",
       "matched_type": "tunnel",
-      "tunnel_type": "0-普通巷道",
+      "tunnel_type": "15-回风立井",
       "coalbed": "1500",
-      "match_lcs": 4,
-      "match_score": 8,
-      "confidence": "中",
+      "match_lcs": 2,
+      "match_score": 5,
+      "confidence": "低",
       "mark_type": "B15",
       "sensor_type": "人数",
       "area": "回风巷",
       "sysaliasname": "人员定位系统",
       "coordinates": {
-        "x": 38443002.6067,
-        "y": 4194066.4501,
-        "z": 384.3965
+        "x": 38443037.25,
+        "y": 4194047.925,
+        "z": 667.0
       },
-      "line_total_length": 626.93,
-      "distance_along_line": 62.69,
-      "line_percentage": 10.0
-    },
-    {
-      "id": "SXBAMY0030121ece850657e48c",
-      "description": "保安煤矿15#煤专用回风钻机",
-      "matched": true,
-      "matched_name": "总回风大巷",
-      "tunnel_id": "A1BD8CF5-E9A2-4333-9D90-37F6E6291687",
-      "matched_type": "tunnel",
-      "tunnel_type": "0-普通巷道",
-      "coalbed": "1500",
-      "match_lcs": 2,
-      "match_score": 6,
-      "confidence": "中",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "area": "井下打钻",
-      "sysaliasname": "工业视频监控系统",
-      "coordinates": {
-        "x": 38443001.7282,
-        "y": 4194066.9276,
-        "z": 386.1909
-      },
-      "line_total_length": 626.93,
-      "distance_along_line": 63.69,
-      "line_percentage": 10.2
+      "line_total_length": 556.0,
+      "distance_along_line": 278.0,
+      "line_percentage": 50.0
     },
     {
       "id": "SXBAMY0030140002G06",
@@ -4233,7 +3706,7 @@
       "coalbed": "1500",
       "match_lcs": 2,
       "match_score": 5,
-      "confidence": "中",
+      "confidence": "低",
       "mark_type": "B15",
       "sensor_type": "人数",
       "area": "315大巷区域",
@@ -4245,6 +3718,31 @@
       },
       "line_total_length": 186.37,
       "distance_along_line": 93.19,
+      "line_percentage": 50.0
+    },
+    {
+      "id": "SXBAMY0030121ece850657e48c",
+      "description": "保安煤矿15#煤专用回风钻机",
+      "matched": true,
+      "matched_name": "总回风大巷",
+      "tunnel_id": "A1BD8CF5-E9A2-4333-9D90-37F6E6291687",
+      "matched_type": "tunnel",
+      "tunnel_type": "0-普通巷道",
+      "coalbed": "1500",
+      "match_lcs": 2,
+      "match_score": 6,
+      "confidence": "低",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "area": "井下打钻",
+      "sysaliasname": "工业视频监控系统",
+      "coordinates": {
+        "x": 38442782.185,
+        "y": 4194186.0342,
+        "z": 385.9302
+      },
+      "line_total_length": 626.93,
+      "distance_along_line": 313.47,
       "line_percentage": 50.0
     }
   ],
@@ -7594,6 +7092,39 @@
       ]
     },
     {
+      "id": "SXBAMY0030120011D25",
+      "description": "1501南翼回风大巷掘进机动力开关_馈电_馈电器传感器馈电232馈电",
+      "mark_type": "B14",
+      "sensor_type": "馈电",
+      "sysaliasname": "安全监测系统",
+      "reason": "SEMANTIC_CONFLICT",
+      "device_code": "1501",
+      "area": "1501南翼回风大巷掘进机动力开关_馈电_馈电器",
+      "candidates": [
+        {
+          "name": "1501轨道斜巷",
+          "score": 6,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 4
+        },
+        {
+          "name": "1501皮带大巷",
+          "score": 6,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 4
+        },
+        {
+          "name": "1501南翼辅助回风大巷",
+          "score": 6,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 6
+        }
+      ]
+    },
+    {
       "id": "SXBAMY0030120019A03",
       "description": "永久避难硐室室内一氧_一氧化碳传感器一氧化碳939永久避难硐室室内一氧一氧化碳",
       "mark_type": "B14",
@@ -7821,6 +7352,39 @@
           "confidence": "拒绝",
           "tunnel_type": "0-普通巷道",
           "lcs": 1
+        }
+      ]
+    },
+    {
+      "id": "SXBAMY0030120011D13",
+      "description": "1501南翼回风大巷分风口风向传感器风向959风向",
+      "mark_type": "B14",
+      "sensor_type": "风向",
+      "sysaliasname": "安全监测系统",
+      "reason": "SEMANTIC_CONFLICT",
+      "device_code": "1501",
+      "area": "1501南翼回风大巷分风口风向",
+      "candidates": [
+        {
+          "name": "1501轨道斜巷",
+          "score": 6,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 4
+        },
+        {
+          "name": "1501皮带大巷",
+          "score": 6,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 4
+        },
+        {
+          "name": "1501南翼辅助回风大巷",
+          "score": 6,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 6
         }
       ]
     },
@@ -8294,6 +7858,39 @@
           "confidence": "拒绝",
           "tunnel_type": "0-普通巷道",
           "lcs": 4
+        }
+      ]
+    },
+    {
+      "id": "SXBAMY0030120011D10",
+      "description": "1501南翼回风大巷掘进面风筒_风筒状态传感器风筒230风筒",
+      "mark_type": "B14",
+      "sensor_type": "风筒",
+      "sysaliasname": "安全监测系统",
+      "reason": "SEMANTIC_CONFLICT",
+      "device_code": "1501",
+      "area": "1501南翼回风大巷掘进面风筒_风筒状态",
+      "candidates": [
+        {
+          "name": "1501轨道斜巷",
+          "score": 6,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 4
+        },
+        {
+          "name": "1501皮带大巷",
+          "score": 6,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 4
+        },
+        {
+          "name": "1501南翼辅助回风大巷",
+          "score": 6,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 6
         }
       ]
     },
@@ -9387,6 +8984,39 @@
       ]
     },
     {
+      "id": "SXBAMY0030120011D09",
+      "description": "1501南翼回风大巷风门传感器风门130风门",
+      "mark_type": "B14",
+      "sensor_type": "风门",
+      "sysaliasname": "安全监测系统",
+      "reason": "SEMANTIC_CONFLICT",
+      "device_code": "1501",
+      "area": "1501南翼回风大巷风门",
+      "candidates": [
+        {
+          "name": "1501轨道斜巷",
+          "score": 6,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 4
+        },
+        {
+          "name": "1501皮带大巷",
+          "score": 6,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 4
+        },
+        {
+          "name": "1501南翼辅助回风大巷",
+          "score": 6,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 6
+        }
+      ]
+    },
+    {
       "id": "SXBAMY0030120030A18",
       "description": "上仓皮带机尾温度_环境温度传感器温度867温度",
       "mark_type": "B14",
@@ -9416,6 +9046,72 @@
           "confidence": "拒绝",
           "tunnel_type": "0-普通巷道",
           "lcs": 2
+        }
+      ]
+    },
+    {
+      "id": "SXBAMY0030120011A07",
+      "description": "1501南翼回风大巷掘进面粉尘传感器粉尘229粉尘",
+      "mark_type": "B14",
+      "sensor_type": "粉尘",
+      "sysaliasname": "安全监测系统",
+      "reason": "SEMANTIC_CONFLICT",
+      "device_code": "1501",
+      "area": "1501南翼回风大巷掘进面粉尘",
+      "candidates": [
+        {
+          "name": "1501轨道斜巷",
+          "score": 6,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 4
+        },
+        {
+          "name": "1501皮带大巷",
+          "score": 6,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 4
+        },
+        {
+          "name": "1501南翼辅助回风大巷",
+          "score": 6,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 6
+        }
+      ]
+    },
+    {
+      "id": "SXBAMY0030120011A15",
+      "description": "1501南翼回风大巷掘进面回风温度_环境温度传感器温度949温度",
+      "mark_type": "B14",
+      "sensor_type": "温度",
+      "sysaliasname": "安全监测系统",
+      "reason": "SEMANTIC_CONFLICT",
+      "device_code": "1501",
+      "area": "1501南翼回风大巷掘进面回风温度_环境温度",
+      "candidates": [
+        {
+          "name": "1501轨道斜巷",
+          "score": 6,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 4
+        },
+        {
+          "name": "1501皮带大巷",
+          "score": 6,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 4
+        },
+        {
+          "name": "1501南翼辅助回风大巷",
+          "score": 6,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 6
         }
       ]
     },
@@ -9915,6 +9611,39 @@
       ]
     },
     {
+      "id": "SXBAMY0030120011A17",
+      "description": "1501南翼回风大巷掘进面回风一氧_一氧化碳传感器一氧化碳124一氧化碳",
+      "mark_type": "B14",
+      "sensor_type": "一氧化碳",
+      "sysaliasname": "安全监测系统",
+      "reason": "SEMANTIC_CONFLICT",
+      "device_code": "1501",
+      "area": "1501南翼回风大巷掘进面回风一氧_一氧化碳",
+      "candidates": [
+        {
+          "name": "1501皮带大巷",
+          "score": 8,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 4
+        },
+        {
+          "name": "1501轨道斜巷",
+          "score": 6,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 4
+        },
+        {
+          "name": "1501南翼辅助回风大巷",
+          "score": 6,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 6
+        }
+      ]
+    },
+    {
       "id": "SXBAMY0030120014D18",
       "description": "150114高抽动力断电器_馈电_馈电器传感器馈电200150114高抽动力断电器_馈电馈电",
       "mark_type": "B14",
@@ -10212,6 +9941,39 @@
       ]
     },
     {
+      "id": "SXBAMY0030120011C04",
+      "description": "1501南翼回风大巷维护处动力_断电器KJ95X断电111断电",
+      "mark_type": "B14",
+      "sensor_type": "断电",
+      "sysaliasname": "安全监测系统",
+      "reason": "SEMANTIC_CONFLICT",
+      "device_code": "1501",
+      "area": "1501南翼回风大巷维护处动力_断电器",
+      "candidates": [
+        {
+          "name": "1501轨道斜巷",
+          "score": 6,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 4
+        },
+        {
+          "name": "1501皮带大巷",
+          "score": 6,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 4
+        },
+        {
+          "name": "1501南翼辅助回风大巷",
+          "score": 6,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 6
+        }
+      ]
+    },
+    {
       "id": "SXBAMY0030120019A11",
       "description": "永久避难硐室室外（北）氧气传感器氧气985氧气",
       "mark_type": "B14",
@@ -10340,6 +10102,39 @@
           "confidence": "拒绝",
           "tunnel_type": "0-普通巷道",
           "lcs": 5
+        }
+      ]
+    },
+    {
+      "id": "SXBAMY0030120011A22",
+      "description": "1501南翼回风大巷维护处二部皮带一氧_一氧化碳传感器一氧化碳125一氧化碳",
+      "mark_type": "B14",
+      "sensor_type": "一氧化碳",
+      "sysaliasname": "安全监测系统",
+      "reason": "SEMANTIC_CONFLICT",
+      "device_code": "1501",
+      "area": "1501南翼回风大巷维护处二部皮带一氧_一氧化碳",
+      "candidates": [
+        {
+          "name": "1501皮带大巷",
+          "score": 8,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 4
+        },
+        {
+          "name": "1501轨道斜巷",
+          "score": 6,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 4
+        },
+        {
+          "name": "1501南翼辅助回风大巷",
+          "score": 6,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 6
         }
       ]
     },
@@ -10718,6 +10513,39 @@
       ]
     },
     {
+      "id": "SXBAMY0030120011A06",
+      "description": "1501南翼回风大巷掘进面甲烷T1_激光甲烷传感器瓦斯126瓦斯",
+      "mark_type": "B14",
+      "sensor_type": "瓦斯",
+      "sysaliasname": "安全监测系统",
+      "reason": "SEMANTIC_CONFLICT",
+      "device_code": "1501",
+      "area": "1501南翼回风大巷掘进面甲烷T1_激光甲烷",
+      "candidates": [
+        {
+          "name": "1501皮带大巷",
+          "score": 8,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 4
+        },
+        {
+          "name": "1501南翼辅助回风大巷",
+          "score": 8,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 6
+        },
+        {
+          "name": "1501回风大巷",
+          "score": 8,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 4
+        }
+      ]
+    },
+    {
       "id": "SXBAMY0030120015A02",
       "description": "315轨道巷变电所内温度_环境温度传感器温度133315轨道巷变电所内温度温度",
       "mark_type": "B14",
@@ -10780,6 +10608,39 @@
           "confidence": "拒绝",
           "tunnel_type": "0-普通巷道",
           "lcs": 1
+        }
+      ]
+    },
+    {
+      "id": "SXBAMY0030120011A16",
+      "description": "1501南翼回风大巷掘进面回风甲烷T2_激光甲烷传感器瓦斯895瓦斯",
+      "mark_type": "B14",
+      "sensor_type": "瓦斯",
+      "sysaliasname": "安全监测系统",
+      "reason": "SEMANTIC_CONFLICT",
+      "device_code": "1501",
+      "area": "1501南翼回风大巷掘进面回风甲烷T2_激光甲烷",
+      "candidates": [
+        {
+          "name": "1501皮带大巷",
+          "score": 8,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 4
+        },
+        {
+          "name": "1501南翼辅助回风大巷",
+          "score": 8,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 6
+        },
+        {
+          "name": "1501回风大巷",
+          "score": 8,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 4
         }
       ]
     },
@@ -11301,6 +11162,39 @@
       ]
     },
     {
+      "id": "SXBAMY0030120011C01",
+      "description": "1501南翼回风大巷掘进机动力开关_断电器KJ95X断电98断电",
+      "mark_type": "B14",
+      "sensor_type": "断电",
+      "sysaliasname": "安全监测系统",
+      "reason": "SEMANTIC_CONFLICT",
+      "device_code": "1501",
+      "area": "1501南翼回风大巷掘进机动力开关_断电器",
+      "candidates": [
+        {
+          "name": "1501轨道斜巷",
+          "score": 6,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 4
+        },
+        {
+          "name": "1501皮带大巷",
+          "score": 6,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 4
+        },
+        {
+          "name": "1501南翼辅助回风大巷",
+          "score": 6,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 6
+        }
+      ]
+    },
+    {
       "id": "SXBAMY0030120017A14",
       "description": "150113运输顺槽切顶卸压钻机处甲烷_激光甲烷传感器瓦斯898瓦斯",
       "mark_type": "B14",
@@ -11583,6 +11477,39 @@
           "confidence": "拒绝",
           "tunnel_type": "0-普通巷道",
           "lcs": 5
+        }
+      ]
+    },
+    {
+      "id": "SXBAMY0030120011D18",
+      "description": "1501南翼回风大巷掘进面皮带机头烟雾传感器烟雾231烟雾",
+      "mark_type": "B14",
+      "sensor_type": "烟雾",
+      "sysaliasname": "安全监测系统",
+      "reason": "SEMANTIC_CONFLICT",
+      "device_code": "1501",
+      "area": "1501南翼回风大巷掘进面皮带机头烟雾",
+      "candidates": [
+        {
+          "name": "1501皮带大巷",
+          "score": 8,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 4
+        },
+        {
+          "name": "1501轨道斜巷",
+          "score": 6,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 4
+        },
+        {
+          "name": "1501南翼辅助回风大巷",
+          "score": 6,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 6
         }
       ]
     },
@@ -11990,6 +11917,39 @@
           "confidence": "拒绝",
           "tunnel_type": "0-普通巷道",
           "lcs": 3
+        }
+      ]
+    },
+    {
+      "id": "SXBAMY0030120011A24",
+      "description": "1501南翼回风大巷维护处_激光甲烷传感器瓦斯101瓦斯",
+      "mark_type": "B14",
+      "sensor_type": "瓦斯",
+      "sysaliasname": "安全监测系统",
+      "reason": "SEMANTIC_CONFLICT",
+      "device_code": "1501",
+      "area": "1501南翼回风大巷维护处_激光甲烷",
+      "candidates": [
+        {
+          "name": "1501皮带大巷",
+          "score": 8,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 4
+        },
+        {
+          "name": "1501南翼辅助回风大巷",
+          "score": 8,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 6
+        },
+        {
+          "name": "1501回风大巷",
+          "score": 8,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 4
         }
       ]
     },
@@ -12500,6 +12460,39 @@
       ]
     },
     {
+      "id": "SXBAMY0030120011A05",
+      "description": "1501南翼回风大巷分风口甲烷T4_激光甲烷传感器瓦斯912瓦斯",
+      "mark_type": "B14",
+      "sensor_type": "瓦斯",
+      "sysaliasname": "安全监测系统",
+      "reason": "SEMANTIC_CONFLICT",
+      "device_code": "1501",
+      "area": "1501南翼回风大巷分风口甲烷T4_激光甲烷",
+      "candidates": [
+        {
+          "name": "1501皮带大巷",
+          "score": 8,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 4
+        },
+        {
+          "name": "1501南翼辅助回风大巷",
+          "score": 8,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 6
+        },
+        {
+          "name": "1501回风大巷",
+          "score": 8,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 4
+        }
+      ]
+    },
+    {
       "id": "SXBAMY0030120014C02",
       "description": "150114高抽动力断电器KJ95X断电92断电",
       "mark_type": "B14",
@@ -12529,6 +12522,39 @@
           "confidence": "拒绝",
           "tunnel_type": "0-普通巷道",
           "lcs": 5
+        }
+      ]
+    },
+    {
+      "id": "SXBAMY0030120011D23",
+      "description": "1501南翼回风大巷维护处二部皮带烟雾传感器烟雾131烟雾",
+      "mark_type": "B14",
+      "sensor_type": "烟雾",
+      "sysaliasname": "安全监测系统",
+      "reason": "SEMANTIC_CONFLICT",
+      "device_code": "1501",
+      "area": "1501南翼回风大巷维护处二部皮带烟雾",
+      "candidates": [
+        {
+          "name": "1501皮带大巷",
+          "score": 8,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 4
+        },
+        {
+          "name": "1501轨道斜巷",
+          "score": 6,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 4
+        },
+        {
+          "name": "1501南翼辅助回风大巷",
+          "score": 6,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 6
         }
       ]
     },
@@ -12691,6 +12717,39 @@
         {
           "name": "150114运输顺槽",
           "score": -12,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 6
+        }
+      ]
+    },
+    {
+      "id": "SXBAMY0030120011A21",
+      "description": "1501南翼回风大巷掘进面皮带机头温度_环境温度传感器温度128温度",
+      "mark_type": "B14",
+      "sensor_type": "温度",
+      "sysaliasname": "安全监测系统",
+      "reason": "SEMANTIC_CONFLICT",
+      "device_code": "1501",
+      "area": "1501南翼回风大巷掘进面皮带机头温度_环境温度",
+      "candidates": [
+        {
+          "name": "1501轨道斜巷",
+          "score": 6,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 4
+        },
+        {
+          "name": "1501皮带大巷",
+          "score": 6,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 4
+        },
+        {
+          "name": "1501南翼辅助回风大巷",
+          "score": 6,
           "confidence": "拒绝",
           "tunnel_type": "0-普通巷道",
           "lcs": 6
@@ -13970,6 +14029,39 @@
           "confidence": "拒绝",
           "tunnel_type": "0-普通巷道",
           "lcs": 2
+        }
+      ]
+    },
+    {
+      "id": "SXBAMY0030120011D28",
+      "description": "1501南翼回风大巷维护处动力_馈电_馈电器传感器馈电913馈电",
+      "mark_type": "B14",
+      "sensor_type": "馈电",
+      "sysaliasname": "安全监测系统",
+      "reason": "SEMANTIC_CONFLICT",
+      "device_code": "1501",
+      "area": "1501南翼回风大巷维护处动力_馈电_馈电器",
+      "candidates": [
+        {
+          "name": "1501轨道斜巷",
+          "score": 6,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 4
+        },
+        {
+          "name": "1501皮带大巷",
+          "score": 6,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 4
+        },
+        {
+          "name": "1501南翼辅助回风大巷",
+          "score": 6,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 6
         }
       ]
     },
@@ -20893,6 +20985,39 @@
       "candidates": []
     },
     {
+      "id": "SXBAMY0030121ce3f52dc5e044",
+      "description": "保安煤矿轨道斜巷二部梭车东",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "sysaliasname": "工业视频监控系统",
+      "reason": "LOW_LCS",
+      "device_code": null,
+      "area": "暂时停用",
+      "candidates": [
+        {
+          "name": "9号煤轨道斜巷",
+          "score": 8,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 4
+        },
+        {
+          "name": "1501轨道斜巷",
+          "score": 7,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 4
+        },
+        {
+          "name": "爬坡斜巷",
+          "score": 7,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 2
+        }
+      ]
+    },
+    {
       "id": "SXBAMY003012140a8186e5c75f",
       "description": "204、205皮带",
       "mark_type": "B16",
@@ -23903,6 +24028,39 @@
           "confidence": "拒绝",
           "tunnel_type": "0-普通巷道",
           "lcs": 1
+        }
+      ]
+    },
+    {
+      "id": "SXBAMY003012134687acc293f7",
+      "description": "保安煤矿轨道斜巷一部梭车东",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "sysaliasname": "工业视频监控系统",
+      "reason": "LOW_LCS",
+      "device_code": null,
+      "area": "暂时停用",
+      "candidates": [
+        {
+          "name": "9号煤轨道斜巷",
+          "score": 8,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 4
+        },
+        {
+          "name": "1501轨道斜巷",
+          "score": 7,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 4
+        },
+        {
+          "name": "爬坡斜巷",
+          "score": 7,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 2
         }
       ]
     },
@@ -27691,49 +27849,47 @@
     "mine_name": "山西保安煤业",
     "overview": {
       "total_devices": 1106,
-      "matched": 165,
-      "unmatched": 941
+      "matched": 145,
+      "unmatched": 961
     },
     "match_summary": {
       "total": 1106,
-      "matched": 165,
-      "unmatched": 941,
+      "matched": 145,
+      "unmatched": 961,
       "filtered_by_id": 0,
       "generic_tunnels_skipped": 250,
       "unnamed_tunnels_skipped": 0,
       "wind_spacing_warnings": 0,
+      "suspicious_count": 0,
       "by_confidence": {
         "高": 27,
-        "中": 138,
-        "低": 0
+        "中": 99,
+        "低": 19
       },
       "by_mark_type": {
-        "B14": 85,
-        "B16": 55,
+        "B14": 67,
+        "B16": 53,
         "B15": 25
       },
       "by_sensor_type": {
-        "温度": 12,
-        "工业视频": 55,
+        "温度": 10,
+        "工业视频": 53,
         "分站": 7,
-        "瓦斯": 14,
-        "馈电": 6,
-        "断电": 11,
-        "一氧化碳": 12,
-        "风门": 8,
+        "瓦斯": 10,
+        "馈电": 4,
+        "断电": 9,
+        "一氧化碳": 10,
+        "风门": 7,
         "人数": 25,
-        "烟雾": 8,
-        "风向": 1,
-        "风筒": 1,
-        "粉尘": 1,
+        "烟雾": 6,
         "风速": 3,
         "二氧化碳": 1
       },
       "by_reason": {
         "AREA_SURFACE": 348,
         "CODE_MISMATCH": 463,
-        "LOW_LCS": 47,
-        "SEMANTIC_CONFLICT": 83
+        "LOW_LCS": 49,
+        "SEMANTIC_CONFLICT": 101
       },
       "generic_tunnel_names": [
         "巷道136",
@@ -27790,15 +27946,95 @@
           "line_percentage": 40.1
         }
       ],
-      "低": []
+      "低": [
+        {
+          "id": "SXBAMY00301212335f73da2e57",
+          "description": "保安煤矿皮带大巷二部皮带机头",
+          "matched_name": "上仓皮带巷",
+          "match_score": 6,
+          "line_percentage": 0.2
+        },
+        {
+          "id": "SXBAMY00301212ee9a098a91ce",
+          "description": "保安煤矿皮带大巷一部机头驱动部",
+          "matched_name": "上仓皮带巷",
+          "match_score": 6,
+          "line_percentage": 0.6
+        },
+        {
+          "id": "SXBAMY00301210857872db7295",
+          "description": "保安煤矿皮带大巷一部皮带机头",
+          "matched_name": "上仓皮带巷",
+          "match_score": 6,
+          "line_percentage": 0.8
+        }
+      ]
+    },
+    "low_confidence_samples": [
+      {
+        "id": "SXBAMY00301212335f73da2e57",
+        "description": "保安煤矿皮带大巷二部皮带机头",
+        "matched_name": "上仓皮带巷",
+        "match_score": 6,
+        "match_lcs": 2,
+        "tunnel_type": "0-普通巷道"
+      },
+      {
+        "id": "SXBAMY00301212ee9a098a91ce",
+        "description": "保安煤矿皮带大巷一部机头驱动部",
+        "matched_name": "上仓皮带巷",
+        "match_score": 6,
+        "match_lcs": 2,
+        "tunnel_type": "0-普通巷道"
+      },
+      {
+        "id": "SXBAMY00301210857872db7295",
+        "description": "保安煤矿皮带大巷一部皮带机头",
+        "matched_name": "上仓皮带巷",
+        "match_score": 6,
+        "match_lcs": 2,
+        "tunnel_type": "0-普通巷道"
+      },
+      {
+        "id": "SXBAMY00301219db4fef7fb35b",
+        "description": "保安煤矿皮带大巷2号绞车",
+        "matched_name": "上仓皮带巷",
+        "match_score": 6,
+        "match_lcs": 2,
+        "tunnel_type": "0-普通巷道"
+      },
+      {
+        "id": "SXBAMY00301213f5585e9d1be1",
+        "description": "保安煤矿皮带大巷煤量检测",
+        "matched_name": "上仓皮带巷",
+        "match_score": 6,
+        "match_lcs": 2,
+        "tunnel_type": "0-普通巷道"
+      }
+    ],
+    "writeback_plan": {
+      "writeback_count": 126,
+      "held_back_count": 19,
+      "by_tier": {
+        "高": 27,
+        "中": 99,
+        "低": 19
+      },
+      "held_back_reasons": {
+        "LCS过短(≤2)": 19
+      }
+    },
+    "suspicious_devices": {
+      "total": 0,
+      "top_10": []
     },
     "unmatched_devices": {
-      "total": 941,
+      "total": 961,
       "by_reason": {
         "AREA_SURFACE": 348,
         "CODE_MISMATCH": 463,
-        "LOW_LCS": 47,
-        "SEMANTIC_CONFLICT": 83
+        "LOW_LCS": 49,
+        "SEMANTIC_CONFLICT": 101
       },
       "top_10": [
         {
@@ -27878,15 +28114,15 @@
     "sensor_type_match_rate": [
       {
         "sensor_type": "工业视频",
-        "matched": 55,
+        "matched": 53,
         "total": 438,
-        "rate_pct": 12.6
+        "rate_pct": 12.1
       },
       {
         "sensor_type": "瓦斯",
-        "matched": 14,
+        "matched": 10,
         "total": 122,
-        "rate_pct": 11.5
+        "rate_pct": 8.2
       },
       {
         "sensor_type": "人数",
@@ -27896,33 +28132,33 @@
       },
       {
         "sensor_type": "一氧化碳",
-        "matched": 12,
+        "matched": 10,
         "total": 81,
-        "rate_pct": 14.8
+        "rate_pct": 12.3
       },
       {
         "sensor_type": "断电",
-        "matched": 11,
+        "matched": 9,
         "total": 60,
-        "rate_pct": 18.3
+        "rate_pct": 15.0
       },
       {
         "sensor_type": "馈电",
-        "matched": 6,
+        "matched": 4,
         "total": 60,
-        "rate_pct": 10.0
+        "rate_pct": 6.7
       },
       {
         "sensor_type": "温度",
-        "matched": 12,
+        "matched": 10,
         "total": 52,
-        "rate_pct": 23.1
+        "rate_pct": 19.2
       },
       {
         "sensor_type": "烟雾",
-        "matched": 8,
+        "matched": 6,
         "total": 41,
-        "rate_pct": 19.5
+        "rate_pct": 14.6
       },
       {
         "sensor_type": "分站",
@@ -27938,9 +28174,9 @@
       },
       {
         "sensor_type": "风门",
-        "matched": 8,
+        "matched": 7,
         "total": 17,
-        "rate_pct": 47.1
+        "rate_pct": 41.2
       },
       {
         "sensor_type": "二氧化碳",
@@ -27968,21 +28204,21 @@
       },
       {
         "sensor_type": "风筒",
-        "matched": 1,
+        "matched": 0,
         "total": 7,
-        "rate_pct": 14.3
+        "rate_pct": 0.0
       },
       {
         "sensor_type": "粉尘",
-        "matched": 1,
+        "matched": 0,
         "total": 6,
-        "rate_pct": 16.7
+        "rate_pct": 0.0
       },
       {
         "sensor_type": "风向",
-        "matched": 1,
+        "matched": 0,
         "total": 6,
-        "rate_pct": 16.7
+        "rate_pct": 0.0
       },
       {
         "sensor_type": "负压",
@@ -28017,11 +28253,11 @@
     ],
     "spatial_distribution": {
       "buckets": {
-        "0-20%": 99,
-        "20-40%": 15,
-        "40-60%": 37,
+        "0-20%": 79,
+        "20-40%": 14,
+        "40-60%": 40,
         "60-80%": 0,
-        "80-100%": 14
+        "80-100%": 12
       },
       "coordinate_range": {
         "x": [
@@ -28034,15 +28270,11 @@
         ],
         "z": [
           230.07,
-          390.5
+          667.0
         ]
       }
     },
     "tunnel_density": [
-      {
-        "name": "1501南翼辅助回风大巷",
-        "count": 22
-      },
       {
         "name": "1501轨道斜巷",
         "count": 22
@@ -28050,6 +28282,10 @@
       {
         "name": "1501皮带大巷",
         "count": 19
+      },
+      {
+        "name": "上仓皮带巷",
+        "count": 17
       },
       {
         "name": "15103高抽巷",
@@ -28060,35 +28296,27 @@
         "count": 10
       },
       {
-        "name": "9号煤轨道斜巷",
-        "count": 10
-      },
-      {
         "name": "+315水平轨道大巷",
         "count": 9
       },
       {
-        "name": "沿9号煤皮带大巷",
+        "name": "变电所通路",
         "count": 9
-      },
-      {
-        "name": "上仓皮带巷",
-        "count": 8
       },
       {
         "name": "1501专用回风大巷",
         "count": 8
       },
       {
-        "name": "+315水平轨道大巷至1501皮带大巷联络巷",
+        "name": "1501皮带大巷至1501轨道斜巷第三联络巷",
         "count": 6
       },
       {
-        "name": "变电所通路",
-        "count": 5
+        "name": "+315轨道大巷配风巷",
+        "count": 4
       },
       {
-        "name": "+315轨道大巷配风巷",
+        "name": "1501南翼辅助回风大巷",
         "count": 4
       },
       {
@@ -28096,7 +28324,15 @@
         "count": 4
       },
       {
+        "name": "9号煤轨道斜巷",
+        "count": 4
+      },
+      {
         "name": "井底车场",
+        "count": 4
+      },
+      {
+        "name": "井底绕巷",
         "count": 4
       }
     ],

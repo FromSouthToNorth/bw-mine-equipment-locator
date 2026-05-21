@@ -1,6 +1,6 @@
 ---
 name: bw-mine-equipment-locator
-description: 煤矿设备定位技能。根据设备描述（description）匹配到对应巷道或工作面，再从巷道/工作面的折线（line）坐标中计算得出设备 (x, y, z) 坐标。当用户提到"设备定位"、"计算设备坐标"、"匹配设备到巷道"、"调用定位流程"或直接提供一个 username（如 F18795450）要求定位设备时触发。采用两阶段交互式流程：阶段1拉取8373数据并展示分析报告等信息确认，阶段2执行匹配定位并展示汇总（含自动审查摘要）后等确认再回写8385。系统生成巷道名称（巷道NNN及纯数字名）自动从候选池排除。新增 audit 模式可自动标出高风险匹配。
+description: 煤矿设备定位技能。根据设备描述（description）匹配到对应巷道或工作面，再从巷道/工作面的折线（line）坐标中计算得出设备 (x, y, z) 坐标。当用户提到"设备定位"、"计算设备坐标"、"匹配设备到巷道"、"调用定位流程"或直接提供一个 username（如 F18795450）要求定位设备时触发。采用两阶段交互式流程：阶段1拉取8373数据并展示分析报告等信息确认，阶段2执行匹配定位并展示汇总+回写计划（含暂缓回写样本），宁缺毋滥——仅高+中置信度写入8385，低置信度暂缓需人工确认。系统生成巷道名称（巷道NNN及纯数字名）自动从候选池排除。新增 audit 模式可自动标出高风险匹配。
 ---
 
 # 煤矿设备定位
@@ -42,6 +42,7 @@ description: 煤矿设备定位技能。根据设备描述（description）匹�
 │                                                         │
 │ Step 3: 匹配设备 description → 巷道/工作面               │
 │     · 系统巷道(巷道NNN/纯数字名)从候选池排除            │
+│     · 无名巷道(name为空)从候选池跳过                    │
 │     · 硬性语义冲突检测(地点/功能词不一致→REJECT)        │
 │     · 编码强制约束(specific code 不在候选中→REJECT)     │
 │     · 缓存语义校验(防止历史错误缓存复用)                │
@@ -49,14 +50,22 @@ description: 煤矿设备定位技能。根据设备描述（description）匹�
 │     · LCS（最长公共子串）匹配                            │
 │     · 坐标计算（几何中心 / 迎头 / 回风流）               │
 │     │                                                   │
-│     ▼ 展示匹配汇总 + 审查摘要 → 等用户确认 ▼            │
-│       (自动标出高风险/中风险匹配数及类型)                 │
+│     ▼ 展示匹配汇总 + 回写计划 → 等用户确认 ▼            │
+│       · 匹配置信度分布 (高/中/低)                        │
+│       · 回写计划: 待回写 N (高+中) / 暂缓 M (低)       │
+│       · 暂缓回写样本 Top 5 (含 score/lcs/描述)          │
+│       · 审查摘要 (高/中风险匹配数及类型)                 │
 │                                                         │
 │ Step 4: 回写定位结果到策略 8385  ← bw-strategy-api-caller │
+│     · _filter_low_confidence() 过滤低置信度              │
+│     · 仅 高+中 置信度写入 8385（宁缺毋滥）              │
+│     · 低置信度保留在结果文件供审计                      │
+│     · stderr 输出: 待回写 N 条 | 暂缓 M 条              │
 │     │                                                   │
 │     ▼                                                   │
 │ 输出 JSON（每个设备的 matched_name + coordinates）       │
 │   summary 含 generic_tunnels_skipped 字段               │
+│   report 含 writeback_plan / low_confidence_samples     │
 │   warnings 含 generic_tunnels_excluded 条目              │
 └─────────────────────────────────────────────────────────┘
 ```
@@ -66,7 +75,7 @@ description: 煤矿设备定位技能。根据设备描述（description）匹�
 ```bash
 cd F:/gis/Point
 
-# 一键运行（阶段 1+2 全自动，适用"直接跑"场景）
+# 一键运行（阶段 1+2 全自动，适用"直接跑"场景，同样仅回写高+中置信度）
 python skill/bw-mine-equipment-locator/scripts/locator.py <username>
 
 # 两阶段交互（推荐 — Claude 会在每阶段展示分析等待确认）
@@ -74,8 +83,10 @@ python skill/bw-mine-equipment-locator/scripts/locator.py <username>
 python skill/bw-token-manager/scripts/bw_token_manager.py <username>
 python skill/bw-strategy-api-caller/scripts/strategy_api.py get_json --id 8373 --param "MineName=<mineName>" --username <username>
 # → Claude 展示分析报告，等用户确认
-# 阶段 2: 确认后执行匹配 + 回写
-python skill/bw-mine-equipment-locator/scripts/locator.py <username> --load data/output/data_8373_<mineName>.json
+# 阶段 2: 确认后执行匹配（仅匹配不回写）
+python skill/bw-mine-equipment-locator/scripts/locator.py <username> --load data/output/data_8373_<mineName>.json --match-only
+# → Claude 展示匹配汇总 + 回写计划，等用户确认回写
+python skill/bw-mine-equipment-locator/scripts/locator.py <username> --writeback data/output/locator_result_<username>_<mineName>.json
 
 # 审计模式：查看高风险/中风险匹配列表
 python skill/bw-mine-equipment-locator/scripts/locator.py <username> \
@@ -311,6 +322,18 @@ score = round(LCS_长度(别名扩展后) × 10 / 候选名长度)
 
 **联络巷冲突(放宽版)**: 描述含"X联络巷"但候选是"Y联络巷"(X≠Y，且描述前缀不包含候选前缀且候选前缀不包含描述前缀) → REJECT
 
+**通用巷道类型名冲突**: 描述和候选含同一通用巷道类型名(大巷/斜巷/顺槽/底抽巷/高抽巷/回风巷/进风巷/运输巷)但具体限定语不同 → REJECT。限定语互不包含且双方长度≥2字时拒绝。一方无特定限定语时不触发。
+
+**反向编码约束**: 候选名含 specific code（3+位数字/字母+数字/负数）但描述完全不含 → REJECT（避免短 LCS 蹭工作面编码候选）
+
+**轨顺/皮顺→联络巷冲突(规则9)**: 描述说"轨顺"/"皮顺"但未说"联络巷"，候选是"X轨顺联络巷"/"X皮顺联络巷"时 → REJECT。轨顺/皮顺是主要运输巷道，联络巷是连接巷道，不同地点。
+
+**支架工作面约束(规则10)**: 描述含"工作面\\d+[#]?架"(液压支架编号)但候选不含工作面/切眼/停采关键词时 → REJECT。
+
+**轨顺/皮顺类型互斥(规则11)**: 描述含"皮顺"而候选含"轨顺"(或反之) → REJECT。皮带顺槽和轨道顺槽是完全不同的巷道类型。
+
+**轨顺/皮顺→切眼冲突(规则12)**: 描述说"轨顺"/"皮顺"/"轨道顺槽"/"皮带顺槽"但候选是"切眼"(工作面切眼)且描述不含"切眼"时 → REJECT。符合"XX轨顺切眼"描述的设备(描述本身含"切眼")豁免，匹配到切眼并定位到顺槽交汇处。
+
 **`_LOCATION_SEMANTICS` 冲突**: 描述含上表关键字但候选不含允许词 → 直接 REJECT（编码/LCS 无法掩盖）|
 
 ### 7c. 编码强制约束 — score −20
@@ -332,12 +355,14 @@ score = round(LCS_长度(别名扩展后) × 10 / 候选名长度)
 
 基于分层 `layer`:
 
-| layer | 条件 | confidence |
-|-------|------|------------|
-| EXACT (1) | 编码精确命中(非通用前缀) 且 lcs≥1 | 高 |
-| LCS_PREF (2) | (前缀模糊命中 或 score≥5) **且 LCS≥2** | 中 |
-| LOW (3) | score≥2 但无编码/前缀命中 | 低 |
-| REJECT (4) | score<2 或 硬性语义冲突 | 极低 |
+| layer | 条件 | confidence | 回写行为 |
+|-------|------|------------|----------|
+| EXACT (1) | 编码精确命中(非通用前缀) 且 lcs≥1 | 高 | 写入 8385 |
+| LCS_PREF (2) | (前缀模糊命中 或 score≥5) **且 LCS≥2** | 中 | 写入 8385 |
+| LOW (3) | score≥2 但无编码/前缀命中 | 低 | **暂缓**（宁缺毋滥） |
+| REJECT (4) | score<2 或 硬性语义冲突 | 极低 | 不匹配 |
+
+**宁缺毋滥**: `_filter_low_confidence()` 在回写前过滤低置信度匹配。仅 高+中 写入 8385，低置信度保留在结果文件供审计。`_classify_low_confidence_reasons()` 按原因分类统计暂缓项。
 
 ### 10. 未匹配拒绝原因
 
@@ -370,6 +395,24 @@ score = round(LCS_长度(别名扩展后) × 10 / 候选名长度)
 |------|------|
 | `wind_speed_spacing` | 同组风速传感器间距 < 10m (AQ 1029-2019 7.2.1) |
 | `generic_tunnels_excluded` | 系统生成巷道名称(如"巷道136")已被排除，含 `count` 和 `message` |
+| `unnamed_tunnels_excluded` | name 为空的巷道已从候选池跳过，含 `count` 和 `message` |
+
+### 13. 回写计划与低置信度过滤
+
+`_filter_low_confidence()` (locator.py:613) — 回写 8385 前拆分结果：
+
+- **待回写**: 高 + 中置信度 → 发送到 8385 API
+- **暂缓回写**: 低置信度 → 保留在结果文件，不写入 8385（宁缺毋滥）
+
+`_classify_low_confidence_reasons()` — 按原因分类暂缓项（LCS过短/编码不在候选名中/无编码仅LCS）。
+
+stderr 新增区块：
+- **`【回写计划】`**: 待回写 N (高=A, 中=B) | 暂缓 M + 原因分布
+- **`【暂缓回写样本】`**: Top 5 暂缓项 (score/lcs/描述)
+
+JSON 报告新增字段：
+- `report.writeback_plan`: `{ writeback_count, held_back_count, by_tier, held_back_reasons }`
+- `report.low_confidence_samples`: Top 5 低置信度匹配样本
 
 ## 坐标计算
 
@@ -384,7 +427,7 @@ group_key = (matched_name, keyword)
 - `keyword` 由 `_classify_keyword` (locator.py:624-644) 决定:
   - `T1/T2/T0/T3/T4`(从描述提取)
   - `迎头` / `回风流`(描述含关键词)
-  - B15 关键词: `井口` / `井底` / `岔口` / `硐室` / `充电站` (MT/T 1198-2023 §5.1.4)
+  - B15 关键词: `井口` / `井底` / `入口` / `岔口` / `硐室` / `充电站` (MT/T 1198-2023 §5.1.4)
   - B16 关键词: `机头` / `机尾` / `转载点` / `中部` / `超前支护` / `T2处` / `支架` / `煤仓` / `车场` / `地面`, 以及房间类(水泵房/变电所/绞车房/避难硐室/调度室/提升机房/通风机房/空压机房/瓦斯泵站/制氮/灌浆站/坑木场)
   - `default`(无)
 
@@ -445,6 +488,7 @@ T 标识规则 > 巷道类型×sensor_type 规则 > AQ1029 距离规则 > 关键
 | 迎头   | 0-15% | AQ 1029-2019 6.3.1 |
 | 回风流 | 85-100% | AQ 1029-2019 6.3.1 |
 | 井口   | 0-10% | MT/T 1198-2023 §5.1.2 / DB51T1412-2011 5.1.8.1: 出/入井口 |
+| 入口   | 0-10% | 巷道入口处起点 |
 | 井底   | 90-100% | DB51T1412-2011 5.1.8.1: 井底处 |
 | 岔口   | 10-25% | MT/T 1198-2023 §5.1.3 / DB51T1412-2011 5.1.8.2: 主要交叉巷口/分流路口 |
 | 硐室   | 40-60% | MT/T 1198-2023 §5.2.4（准入区域：变电所/水泵房）/ DB51T1412-2011 5.1.8.5 |
@@ -481,6 +525,14 @@ T 标识规则 > 巷道类型×sensor_type 规则 > AQ1029 距离规则 > 关键
   - 中部（A.1#16）：`step = 500m`（主运输皮带）
   - 架空乘人（A.1#23）：`step = 100m`
 
+### 15b. 切眼交汇点定位
+
+描述同时含顺槽名(轨顺/皮顺/轨道顺槽/皮带顺槽)和"切眼"的设备(如 `8301轨顺切眼_人数`) → 定位到切眼折线**起点(0%)**，即顺槽与切眼的交汇处。
+
+- 匹配仍然对到切眼(豁免规则12，因描述本身含"切眼")
+- 定位到切眼起点而非默认的区间中点，因为该点正是顺槽终点(已验证：8301轨道顺槽终点 = 8301切眼起点)
+- 实现：主循环分组后检测 `is_junction`，直接设 `implicit_distances = [0.0] × count`，跳过 `_assign_distances`
+
 ### 16. z 轴安装高度 (`_SENSOR_INSTALL_HEIGHT`,locator.py:316-329)
 
 匹配后 z 在折线插值基础上叠加传感器安装高度:
@@ -514,13 +566,18 @@ T 标识规则 > 巷道类型×sensor_type 规则 > AQ1029 距离规则 > 关键
 - Token/MineName 获取（Step 1）
 - 策略 8373 数据获取与解析（Step 2）
 - 系统巷道名称过滤（`_is_generic_tunnel_name`）— 排除"巷道NNN"及纯数字名
+- 无名巷道跳过 — name 为空时 stderr 警告并排除
 - 硬性语义冲突检测（`_has_hard_semantic_conflict`）— 地点锚定词/功能互斥
 - 编码强制约束 — specific code 不在候选中则 score−20
 - 前缀剥离 + LCS 匹配（Step 3）— LCS_PREF 层要求 LCS≥2
 - 缓存语义校验 — 防止历史错误缓存复用
 - 坐标计算（几何中心/迎头/回风流）
-- JSON 结果输出（summary 含 `generic_tunnels_skipped`，warnings 含 `generic_tunnels_excluded`）
+- JSON 结果输出（summary 含 `generic_tunnels_skipped`/`unnamed_tunnels_skipped`）
 - 自动审计摘要 — 每次匹配后输出高风险/中风险匹配统计
 - `--output-mode audit` — 输出完整审计报告
+- **宁缺毋滥过滤** (`_filter_low_confidence`) — 回写 8385 前自动过滤低置信度，仅高+中写入
+- **暂缓原因分类** (`_classify_low_confidence_reasons`) — 按 LCS过短/编码不在候选名中 分类
+- stderr 回写计划区块: `【回写计划】` + `【暂缓回写样本】`
+- JSON 报告含 `writeback_plan` + `low_confidence_samples`
 
-**Step 4（回写 8385）已内置在 locator.py 末尾**，匹配计算完成后自动调用 `strategy_api.py execute` 回写结果。stderr 会打印回写状态码。详见 CLAUDE.md。
+**Step 4（回写 8385）已内置在 locator.py 末尾**，匹配计算完成后自动调用 `strategy_api.py execute` 回写结果。仅高+中置信度写入。stderr 会打印待回写/暂缓统计及回写状态码。详见 CLAUDE.md。

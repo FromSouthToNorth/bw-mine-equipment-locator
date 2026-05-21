@@ -607,6 +607,27 @@ REJECT_SEMANTIC_CONFLICT = "SEMANTIC_CONFLICT"  # 语义惩罚阻断所有候选
 REJECT_LOW_LCS = "LOW_LCS"                     # LCS 得分过低 (score<2 或 lcs<2)
 REJECT_PREFIX_MISMATCH = "PREFIX_MISMATCH"     # 前缀模糊匹配失败
 REJECT_AREA_SURFACE = "AREA_SURFACE"           # area 语义为地面，不匹配井下候选
+SKIP_LOW_CONFIDENCE = "LOW_CONFIDENCE"         # 置信度低，宁缺毋滥已过滤
+
+
+def _filter_low_confidence(results: list, include_low: bool = False) -> tuple:
+    """将低置信度匹配从回写列表中过滤出来。
+
+    Returns:
+        (writeback_results, skipped_results)
+        writeback_results: 应回写的结果（高+中，或全部如果 include_low=True）
+        skipped_results: 被过滤掉的结果（仅当 not include_low 时非空）
+    """
+    if include_low:
+        return results, []
+    writeback = []
+    skipped = []
+    for r in results:
+        if r.get("confidence") == "低":
+            skipped.append(r)
+        else:
+            writeback.append(r)
+    return writeback, skipped
 
 
 # ── 坐标分配规则表 ──────────────────────────────────────────────────
@@ -617,6 +638,7 @@ _KEYWORD_ZONE_RULES = {
     "迎头":      (0.00, 0.15),  # AQ 1029-2019 6.3.1
     "回风流":    (0.85, 1.00),  # AQ 1029-2019 6.3.1
     "井口":      (0.00, 0.10),  # MT/T 1198-2023 §5.1.2 / DB51T1412-2011 5.1.8.1
+    "入口":      (0.00, 0.10),  # 巷道入口处
     "井底":      (0.90, 1.00),  # DB51T1412-2011 5.1.8.1
     "岔口":      (0.10, 0.25),  # MT/T 1198-2023 §5.1.3 / DB51T1412-2011 5.1.8.2
     "硐室":      (0.40, 0.60),  # MT/T 1198-2023 §5.2.4 / DB51T1412-2011 5.1.8.5
@@ -638,6 +660,7 @@ _KEYWORD_SINGLE_RATIO = {
     "迎头":      0.0,    # 掘进迎头起点
     "回风流":    1.0,    # 回风流终点
     "井口":      0.05,   # 井口处
+    "入口":      0.0,    # 巷道入口起点
     "井底":      0.95,   # 井底处
     "硐室":      0.5,    # 硐室中部
     "充电站":    0.5,    # 充电站中部
@@ -700,6 +723,7 @@ _CLASSIFY_KEYWORD_TABLE = [
     ("工业广场",     "地面"),
     ("迎头",         "迎头"),
     ("回风流",       "回风流"),
+    ("入口处",       "入口"),
     ("井口",         "井口"),
     ("井底",         "井底"),
     ("充电站",       "充电站"),
@@ -928,7 +952,25 @@ def _has_hard_semantic_conflict(description: str, candidate_name: str) -> bool:
                 and desc_prefix not in cand_prefix):
             return True
 
-    # 5. 反向编码约束：候选含 specific code（如 8301/6301/15103）但描述完全不含 → REJECT
+    # 5. 通用巷道类型名冲突：描述和候选含同一通用类型名但限定语不同 → REJECT
+    # 避免"保安煤矿皮带大巷"匹配到"沿9号煤皮带大巷"(LCS=4仅在通用"皮带大巷"上)，
+    # 或"保安煤矿轨道斜巷"匹配到"9号煤轨道斜巷"等。类似联络巷同名异址规则。
+    for _tt_pattern in [r'(.+?)大巷', r'(.+?)斜巷', r'(.+?)顺槽',
+                        r'(.+?)(?:底抽巷|高抽巷)', r'(.+?)回风巷',
+                        r'(.+?)进风巷', r'(.+?)运输巷']:
+        desc_tt = re.search(_tt_pattern, description)
+        cand_tt = re.search(_tt_pattern, candidate_name)
+        if desc_tt and cand_tt:
+            desc_prefix_tt = desc_tt.group(1).strip()
+            cand_prefix_tt = cand_tt.group(1).strip()
+            if (desc_prefix_tt and cand_prefix_tt
+                    and len(desc_prefix_tt) >= 2 and len(cand_prefix_tt) >= 2
+                    and desc_prefix_tt != cand_prefix_tt
+                    and cand_prefix_tt not in desc_prefix_tt
+                    and desc_prefix_tt not in cand_prefix_tt):
+                return True
+
+    # 7. 反向编码约束：候选含 specific code（如 8301/6301/15103）但描述完全不含 → REJECT
     # 避免"三部强力皮带"靠"皮带"短 LCS 蹭到"8301皮带顺槽"等带工作面编码的候选。
     # specific code = 3+位纯数字、字母+数字（C8302/F1302）、负数水平（-650）
     cand_codes = re.findall(r'(?:-?\d{3,}|[A-Za-z]\d{2,})', candidate_name)
@@ -947,7 +989,7 @@ def _has_hard_semantic_conflict(description: str, candidate_name: str) -> bool:
         if not desc_has_any:
             return True
 
-    # 3. 地点语义硬性冲突：_LOCATION_SEMANTICS 中的规则直接拒绝匹配
+    # 8. 地点语义硬性冲突：_LOCATION_SEMANTICS 中的规则直接拒绝匹配
     for keyword, rule in _LOCATION_SEMANTICS.items():
         if keyword in description:
             # 若描述已明确包含候选名主体(LCS>=50%)，豁免设备类型关键词的硬性拒绝
@@ -960,6 +1002,30 @@ def _has_hard_semantic_conflict(description: str, candidate_name: str) -> bool:
                 continue
             if not any(allow in candidate_name for allow in rule["allow"]):
                 return True
+
+    # 9. 轨顺/皮顺→联络巷冲突：描述说"轨顺"/"皮顺"但未说"联络巷/联巷"，
+    # 候选却是"X轨顺联络巷"/"X皮顺联络巷"时拒绝。
+    # 轨顺/皮顺是主要运输巷道，联络巷是连接巷道 → 不同地点
+    for token in ("轨顺", "皮顺"):
+        if token in description and "联络巷" not in description and "联巷" not in description:
+            if re.search(f'{token}联[络]?巷', candidate_name):
+                return True
+
+    # 10. 支架工作面约束：描述含"工作面\d+[#]?架"(液压支架编号)但候选不含工作面关键词
+    # 液压支架位置必须在回采工作面/切眼/停采线上，不应匹配到普通巷道或联络巷
+    stent_match = re.search(r'工作面\s*\d+\s*[#]?\s*架', description)
+    if stent_match and not any(kw in candidate_name for kw in ["工作面", "切眼", "停采"]):
+        return True
+
+    # 11. 轨顺/皮顺类型互斥：描述说"皮顺"(皮带顺槽)但候选是"轨顺"(轨道顺槽)，反之亦然
+    # 皮带顺槽和轨道顺槽是完全不同的巷道类型，即使编码相同也不应匹配
+    if "皮顺" in description and "轨顺" in candidate_name:
+        return True
+    if "轨顺" in description and "皮顺" in candidate_name:
+        return True
+    # 12. 轨顺/皮顺→切眼冲突：描述说"轨顺"/"皮顺"（运输顺槽）但候选是"切眼"（工作面），不同巷道类型
+    if any(t in description for t in ("轨顺", "皮顺", "轨道顺槽", "皮带顺槽")) and "切眼" in candidate_name and "切眼" not in description:
+        return True
 
     return False
 
@@ -1146,6 +1212,17 @@ def _score_candidates(cleaned: str, candidates: list, sensor_type: str = None,
         # 硬性语义冲突：地点/功能词不一致时直接拒绝，宁缺毋滥
         has_conflict = _has_hard_semantic_conflict(cleaned, name)
 
+        # 额外语义检查：描述含"<code>工作面"且候选类型是普通巷道（非工作面类型）
+        # 避免"6302工作面33#架"错误匹配到"6302轨顺联络巷"(type=0-普通巷道)
+        # 当上游数据缺少工作面时保持宁缺毋滥，不降级匹配到普通巷道
+        if not has_conflict:
+            wf_m = re.search(r'(\d{3,})\s*工作面', cleaned)
+            if wf_m:
+                wf_code = wf_m.group(1)
+                cand_type = cand.get("type", "")
+                if wf_code in name and cand_type.split("-")[0] == "0":
+                    has_conflict = True
+
         # 分层判定
         idx = candidates.index(cand)
         if has_conflict:
@@ -1156,8 +1233,9 @@ def _score_candidates(cleaned: str, candidates: list, sensor_type: str = None,
         elif not is_generic and (code_hit or idx in code_indices):
             # 特定编码精确命中进入 EXACT；通用前缀不升层，避免短名称候选靠编码压倒语义
             layer = _MATCH_LAYER_EXACT if lcs_len >= 1 else _MATCH_LAYER_LCS_PREF
-        elif (prefix_hit or idx in prefix_indices or score >= 5) and lcs_len >= 2:
-            # LCS=1 的匹配语义价值极低，若 score>=5 必然是短名称候选膨胀（如 2 字候选 LCS=1→score=5）
+        elif (prefix_hit or idx in prefix_indices or score >= (7 if lcs_len < 3 else 5)) and lcs_len >= 2:
+            # LCS=2 的匹配需更高分值（≥7）才给予中置信度（含 sensor_type 偏好加分后达标），
+            # 避免"轨道"等短 LCS 蹭 sensor_type 偏好蒙上中匹配。
             layer = _MATCH_LAYER_LCS_PREF
         elif lcs_len >= 2 and score >= 2:
             layer = _MATCH_LAYER_LOW
@@ -1873,7 +1951,15 @@ def _match_devices(devices: list, candidates: list,
             if cand:
                 cand_name = cand.get("name", "")
                 # 缓存语义校验：即使缓存命中，若存在硬性语义冲突也应忽略缓存重新匹配
-                if not _has_hard_semantic_conflict(cleaned, cand_name):
+                cache_valid = not _has_hard_semantic_conflict(cleaned, cand_name)
+                if cache_valid:
+                    # 额外类型检查：工作面设备不应匹配到非工作面类型候选
+                    wf_m = re.search(r'(\d{3,})\s*工作面', cleaned)
+                    if wf_m and wf_m.group(1) in cand_name:
+                        cand_type = cand.get("type", "")
+                        if cand_type.split("-")[0] == "0":
+                            cache_valid = False
+                if cache_valid:
                     cache_hits += 1
                     match = {
                         "name": cand_name, "lcs": 0,
@@ -1968,8 +2054,17 @@ def _match_devices(devices: list, candidates: list,
 
         implicit_count = sum(1 for _, _, _, _, ed in entries if ed is None)
         explicit_entries = [(i, ed) for i, (_, _, _, _, ed) in enumerate(entries) if ed is not None]
-        implicit_distances = _assign_distances(implicit_count, keyword, total_len,
-                                                sensor_type=representative_st, tunnel_type=tunnel_type)
+        # 切眼交汇点：描述同时含轨顺/皮顺和切眼时→定位到折线起点（0%），即 junction 点
+        is_junction = False
+        for _, _, cleaned, _, _ in entries:
+            if any(t in cleaned for t in ("轨顺", "皮顺", "轨道顺槽", "皮带顺槽")) and "切眼" in cleaned:
+                is_junction = True
+                break
+        if is_junction:
+            implicit_distances = [0.0] * implicit_count
+        else:
+            implicit_distances = _assign_distances(implicit_count, keyword, total_len,
+                                                    sensor_type=representative_st, tunnel_type=tunnel_type)
 
         distances = [None] * len(entries)
         for idx, ed in explicit_entries:
@@ -2397,6 +2492,25 @@ def _audit_results(results: list) -> dict:
     }
 
 
+def _classify_low_confidence_reasons(low_conf_results: list) -> dict:
+    """分类统计低置信度匹配的原因分布。"""
+    counts = {}
+    for r in low_conf_results:
+        desc = r.get("description", "")
+        matched = r.get("matched_name", "")
+        lcs = r.get("match_lcs", 0)
+        code = extract_workface_code(strip_prefix(desc))
+        if lcs <= 2:
+            counts["LCS过短(≤2)"] = counts.get("LCS过短(≤2)", 0) + 1
+        elif code and not _code_in_name(code, matched):
+            counts["编码不在候选名中"] = counts.get("编码不在候选名中", 0) + 1
+        elif lcs <= 3:
+            counts["LCS偏短(=3)"] = counts.get("LCS偏短(=3)", 0) + 1
+        else:
+            counts["无编码仅LCS"] = counts.get("无编码仅LCS", 0) + 1
+    return counts
+
+
 def _build_report(devices, results, unmatched, summary, audit_data,
                   wind_warnings, generic_tunnel_names, mine_name,
                   phase="match") -> dict:
@@ -2510,6 +2624,33 @@ def _build_report(devices, results, unmatched, summary, audit_data,
     ]
 
     s = summary
+
+    # ── 低置信度样本 (Top 5) —— 宁缺毋滥，暂缓回写 ──
+    low_conf_results = [r for r in results if r.get("confidence") == "低"]
+    low_conf_results_sorted = sorted(low_conf_results, key=lambda x: -x.get("match_score", 0))
+    low_confidence_samples = [
+        {
+            "id": r.get("id", "?"),
+            "description": r.get("description", "")[:50],
+            "matched_name": r.get("matched_name", "?"),
+            "match_score": r.get("match_score", 0),
+            "match_lcs": r.get("match_lcs", 0),
+            "tunnel_type": r.get("tunnel_type", ""),
+        }
+        for r in low_conf_results_sorted[:5]
+    ]
+
+    # ── 回写计划 ──
+    bc = s.get("by_confidence", {"高": 0, "中": 0, "低": 0})
+    writeback_count = bc.get("高", 0) + bc.get("中", 0)
+    held_back_count = bc.get("低", 0)
+    writeback_plan = {
+        "writeback_count": writeback_count,
+        "held_back_count": held_back_count,
+        "by_tier": {"高": bc.get("高", 0), "中": bc.get("中", 0), "低": bc.get("低", 0)},
+        "held_back_reasons": _classify_low_confidence_reasons(low_conf_results),
+    }
+
     return {
         "phase": phase,
         "mine_name": mine_name,
@@ -2534,6 +2675,8 @@ def _build_report(devices, results, unmatched, summary, audit_data,
             "generic_tunnel_names": generic_tunnel_names[:5],
         },
         "confidence_samples": confidence_samples,
+        "low_confidence_samples": low_confidence_samples,
+        "writeback_plan": writeback_plan,
         "suspicious_devices": {
             "total": s.get("suspicious_count", 0),
             "top_10": suspicious_items,
@@ -2711,6 +2854,38 @@ def _print_report_stderr(report: dict):
             else:
                 _p(f"  (无)")
 
+    # ── 回写计划（高+中回写，低暂缓——宁缺毋滥）──
+    wp = report.get("writeback_plan", {})
+    if wp:
+        _p(f"\n{'='*60}")
+        _p(f"  回写计划")
+        _p(f"{'='*60}")
+        wb = wp.get("writeback_count", 0)
+        hb = wp.get("held_back_count", 0)
+        by_tier = wp.get("by_tier", {})
+        _p(f"  待回写 8385: {wb} 条  (高={by_tier.get('高', 0)}, 中={by_tier.get('中', 0)})")
+        if hb > 0:
+            _p(f"  暂缓回写:    {hb} 条  (低置信度 —— 宁缺毋滥)")
+        else:
+            _p(f"  暂缓回写:    0 条")
+        hbr = wp.get("held_back_reasons", {})
+        if hbr:
+            reasons_fmt = "  ".join(f"{k}={v}" for k, v in sorted(hbr.items(), key=lambda x: -x[1]))
+            _p(f"  暂缓原因: {reasons_fmt}")
+
+    # ── 低置信度样本（暂缓回写 Top 5）──
+    lcs_samples = report.get("low_confidence_samples", [])
+    held_back_total = report.get("writeback_plan", {}).get("held_back_count", 0)
+    if lcs_samples:
+        _p(f"\n【暂缓回写样本 (Top 5) —— 宁缺毋滥】")
+        for s in lcs_samples:
+            _p(f"  {s['id']} → {s['matched_name']}"
+               f"  score={s['match_score']}  lcs={s['match_lcs']}"
+               f"  {s['description']}")
+    elif held_back_total == 0:
+        _p(f"\n【暂缓回写】")
+        _p(f"  (无 —— 所有匹配置信度达标)")
+
 
 # ── 输出+回写 ──────────────────────────────────────────────────────
 def _save_and_writeback(output: dict, username: str, output_mode: str = "full",
@@ -2769,15 +2944,40 @@ def _save_and_writeback(output: dict, username: str, output_mode: str = "full",
         import tempfile
         full = output_full if output_full is not None else output
         results_list = full.get("results", [])
-        print(f"\n[3/3] 准备回写 {len(results_list)} 条定位结果到策略 8385...", file=sys.stderr)
-        for r in results_list[:5]:
+
+        # ── 宁缺毋滥：仅回写高+中置信度，低置信度暂缓 ──
+        to_writeback, held_back = _filter_low_confidence(results_list)
+
+        print(f"\n[3/3] 准备回写定位结果到策略 8385...", file=sys.stderr)
+        print(f"  置信度过滤: 待回写 {len(to_writeback)} 条 (高+中)  |"
+              f"  暂缓 {len(held_back)} 条 (低置信度, 宁缺毋滥)", file=sys.stderr)
+
+        for r in to_writeback[:5]:
             cid = r.get("id", "?")
             cname = r.get("matched_name", "?")
             coords = r.get("coordinates", {})
-            print(f"    {cid} → {cname}  ({coords.get('x', 0):.2f}, {coords.get('y', 0):.2f}, {coords.get('z', 0):.2f})", file=sys.stderr)
-        if len(results_list) > 5:
-            print(f"    ...及其他 {len(results_list) - 5} 条", file=sys.stderr)
-        data_param = json.dumps(full, ensure_ascii=False)
+            conf = r.get("confidence", "")
+            print(f"    {cid} → {cname}  ({coords.get('x', 0):.2f}, {coords.get('y', 0):.2f}, {coords.get('z', 0):.2f})  [{conf}]", file=sys.stderr)
+        if len(to_writeback) > 5:
+            print(f"    ...及其他 {len(to_writeback) - 5} 条", file=sys.stderr)
+
+        if held_back:
+            print(f"\n  ⚠ 暂缓回写 {len(held_back)} 条低置信度匹配（宁缺毋滥，人工确认后再决定）:", file=sys.stderr)
+            for r in held_back[:8]:
+                cid = r.get("id", "?")
+                cname = r.get("matched_name", "?")
+                score = r.get("match_score", 0)
+                lcs = r.get("match_lcs", 0)
+                desc = (r.get("description", "") or "")[:40]
+                print(f"    {cid} → {cname}  score={score}  lcs={lcs}  {desc}", file=sys.stderr)
+            if len(held_back) > 8:
+                print(f"    ...及其他 {len(held_back) - 8} 条", file=sys.stderr)
+            print(f"  → 已保存到结果文件供审计，可手动筛选后通过 --writeback 回写", file=sys.stderr)
+
+        writeback_data = dict(full)
+        writeback_data["results"] = to_writeback
+        writeback_data["_held_back_low_confidence"] = len(held_back)
+        data_param = json.dumps(writeback_data, ensure_ascii=False)
         try:
             with tempfile.NamedTemporaryFile(mode="w", suffix=".json", delete=False, encoding="utf-8") as tf:
                 tf.write(data_param)
@@ -2785,7 +2985,7 @@ def _save_and_writeback(output: dict, username: str, output_mode: str = "full",
             resp = call_strategy_api(8385, username, action="execute", param_file=f"data={tmp_path}")
             code = resp.get('code', 'unknown')
             if code == 100:
-                print(f"  → 8385 回写成功 (code=100)", file=sys.stderr)
+                print(f"  → 8385 回写成功 (code=100, 实际写入 {len(to_writeback)} 条)", file=sys.stderr)
             else:
                 msg = resp.get('msg', '') or resp.get('message', '')
                 print(f"  ! 8385 回写异常: code={code}, msg={msg}", file=sys.stderr)
@@ -2793,24 +2993,59 @@ def _save_and_writeback(output: dict, username: str, output_mode: str = "full",
         except Exception as e:
             print(f"  ! 8385 回写失败: {e}", file=sys.stderr)
     else:
-        print(f"\n  ⏸ 匹配完成，等待确认后回写（使用 --writeback 或再次运行回写）", file=sys.stderr)
+        # ── match-only 模式：提示用户关注暂缓回写项 ──
+        full = output_full if output_full is not None else output
+        results_list = full.get("results", [])
+        _to_writeback, held_back = _filter_low_confidence(results_list)
+        if held_back:
+            print(f"\n  ⏸ 匹配完成（{len(_to_writeback)} 条待回写, {len(held_back)} 条低置信度暂缓）", file=sys.stderr)
+            print(f"    请审查上方【暂缓回写样本】后确认回写", file=sys.stderr)
+        else:
+            print(f"\n  ⏸ 匹配完成，等待确认后回写", file=sys.stderr)
+        print(f"    使用 --writeback 或再次运行回写", file=sys.stderr)
 
 
 def _writeback_from_file(result_path: str, username: str):
-    """从已保存的结果文件回写 8385，不重复匹配。"""
+    """从已保存的结果文件回写 8385，不重复匹配。
+    仅回写高+中置信度结果，低置信度暂缓（宁缺毋滥）。
+    """
     import tempfile
     print(f"[1/1] 从文件加载结果: {result_path}", file=sys.stderr)
     data = _load_json_file(result_path)
     results_list = data.get("results", [])
-    print(f"  → 已加载 {len(results_list)} 条结果, 回写策略 8385...", file=sys.stderr)
-    for r in results_list[:5]:
+
+    # ── 宁缺毋滥：仅回写高+中置信度，低置信度暂缓 ──
+    to_writeback, held_back = _filter_low_confidence(results_list)
+
+    print(f"  → 已加载 {len(results_list)} 条结果", file=sys.stderr)
+    print(f"  置信度过滤: 待回写 {len(to_writeback)} 条 (高+中)  |"
+          f"  暂缓 {len(held_back)} 条 (低置信度, 宁缺毋滥)", file=sys.stderr)
+
+    for r in to_writeback[:5]:
         cid = r.get("id", "?")
         cname = r.get("matched_name", "?")
         coords = r.get("coordinates", {})
-        print(f"    {cid} → {cname}  ({coords.get('x', 0):.2f}, {coords.get('y', 0):.2f}, {coords.get('z', 0):.2f})", file=sys.stderr)
-    if len(results_list) > 5:
-        print(f"    ...及其他 {len(results_list) - 5} 条", file=sys.stderr)
-    data_param = json.dumps(data, ensure_ascii=False)
+        conf = r.get("confidence", "")
+        print(f"    {cid} → {cname}  ({coords.get('x', 0):.2f}, {coords.get('y', 0):.2f}, {coords.get('z', 0):.2f})  [{conf}]", file=sys.stderr)
+    if len(to_writeback) > 5:
+        print(f"    ...及其他 {len(to_writeback) - 5} 条", file=sys.stderr)
+
+    if held_back:
+        print(f"\n  ⚠ 暂缓回写 {len(held_back)} 条低置信度匹配:", file=sys.stderr)
+        for r in held_back[:8]:
+            cid = r.get("id", "?")
+            cname = r.get("matched_name", "?")
+            score = r.get("match_score", 0)
+            lcs = r.get("match_lcs", 0)
+            desc = (r.get("description", "") or "")[:40]
+            print(f"    {cid} → {cname}  score={score}  lcs={lcs}  {desc}", file=sys.stderr)
+        if len(held_back) > 8:
+            print(f"    ...及其他 {len(held_back) - 8} 条", file=sys.stderr)
+
+    writeback_data = dict(data)
+    writeback_data["results"] = to_writeback
+    writeback_data["_held_back_low_confidence"] = len(held_back)
+    data_param = json.dumps(writeback_data, ensure_ascii=False)
     try:
         with tempfile.NamedTemporaryFile(mode="w", suffix=".json", delete=False, encoding="utf-8") as tf:
             tf.write(data_param)
@@ -2818,7 +3053,7 @@ def _writeback_from_file(result_path: str, username: str):
         resp = call_strategy_api(8385, username, action="execute", param_file=f"data={tmp_path}")
         code = resp.get('code', 'unknown')
         if code == 100:
-            print(f"  → 8385 回写成功 (code=100)", file=sys.stderr)
+            print(f"  → 8385 回写成功 (code=100, 实际写入 {len(to_writeback)} 条)", file=sys.stderr)
         else:
             msg = resp.get('msg', '') or resp.get('message', '')
             print(f"  ! 8385 回写异常: code={code}, msg={msg}", file=sys.stderr)
@@ -3249,5 +3484,35 @@ _RULES_REGISTRY = {
         "table": "_FUNCTIONAL_SEMANTIC_CHECKS",
         "standard": "实际数据观察",
         "desc": "描述含水泵/远控开关/配电点等功能词但候选非硐室/变电/配电时→suspicious，需人工确认",
+    },
+    "轨顺/皮顺→联络巷冲突": {
+        "table": "_has_hard_semantic_conflict 规则 9",
+        "standard": "实际数据观察",
+        "desc": "描述说\"轨顺\"/\"皮顺\"但未说\"联络巷\"，候选却是\"X轨顺联络巷\"/\"X皮顺联络巷\"时→REJECT。轨顺/皮顺是主要运输巷道，联络巷是连接巷道，不同地点。",
+    },
+    "支架工作面约束": {
+        "table": "_has_hard_semantic_conflict 规则 10",
+        "standard": "实际数据观察",
+        "desc": "描述含\"工作面\\d+[#]?架\"（液压支架编号）但候选不含工作面/切眼/停采关键词时→REJECT。支架必须在回采工作面/切眼上。",
+    },
+    "工作面→非工作面类型拒绝": {
+        "table": "_score_candidates 内联检查",
+        "standard": "实际数据观察",
+        "desc": "描述含\"<code>工作面\"且候选类型是 0-普通巷道时→REJECT。当上游 8373 数据缺少工作面子项时宁缺毋滥，不降级匹配到普通巷道。",
+    },
+    "轨顺/皮顺类型互斥": {
+        "table": "_has_hard_semantic_conflict 规则 11",
+        "standard": "实际数据观察",
+        "desc": "描述含\"皮顺\"而候选含\"轨顺\"（或反之）时→REJECT。皮带顺槽和轨道顺槽是完全不同的巷道类型。",
+    },
+    "轨顺/皮顺→切眼冲突": {
+        "table": "_has_hard_semantic_conflict 规则 12",
+        "standard": "实际数据观察",
+        "desc": "描述说\"轨顺\"/\"皮顺\"/\"轨道顺槽\"/\"皮带顺槽\"但候选是\"切眼\"（工作面切眼）时→REJECT。运输顺槽与工作面切眼完全不同，不应混淆。",
+    },
+    "切眼交汇点定位": {
+        "table": "设备处理主循环内联",
+        "standard": "实际数据观察",
+        "desc": "描述同时含轨顺/皮顺（顺槽名）和切眼时→定位到切眼折线起点(0%)，即顺槽与切眼的交汇处。已验证 8301轨道顺槽终点 = 8301切眼起点。",
     },
 }

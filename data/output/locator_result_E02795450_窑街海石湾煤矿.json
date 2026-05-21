@@ -60288,6 +60288,62 @@
         }
       ]
     },
+    "low_confidence_samples": [
+      {
+        "id": "YJHSWMK030120003F00",
+        "description": "二采区回风巷",
+        "matched_name": "二采区总回风巷",
+        "match_score": 4,
+        "match_lcs": 3,
+        "tunnel_type": "0-普通巷道"
+      },
+      {
+        "id": "YJHSWMK030120051A4372",
+        "description": "二采区净化水箱_水位",
+        "matched_name": "二采区总回风巷",
+        "match_score": 4,
+        "match_lcs": 3,
+        "tunnel_type": "0-普通巷道"
+      },
+      {
+        "id": "YJHSWMK031140015007",
+        "description": "二采区(架空人车上平巷15号)_人数",
+        "matched_name": "二采区总回风巷",
+        "match_score": 4,
+        "match_lcs": 3,
+        "tunnel_type": "0-普通巷道"
+      },
+      {
+        "id": "YJHSWMK031140076007",
+        "description": "二采区(轨道上山90KW绞车处76号)_人数",
+        "matched_name": "二采区总回风巷",
+        "match_score": 4,
+        "match_lcs": 3,
+        "tunnel_type": "0-普通巷道"
+      },
+      {
+        "id": "YJHSWMK03114076",
+        "description": "二采区(轨道上山90KW绞车处76号)_人数",
+        "matched_name": "二采区总回风巷",
+        "match_score": 4,
+        "match_lcs": 3,
+        "tunnel_type": "0-普通巷道"
+      }
+    ],
+    "writeback_plan": {
+      "writeback_count": 443,
+      "held_back_count": 93,
+      "by_tier": {
+        "高": 258,
+        "中": 185,
+        "低": 93
+      },
+      "held_back_reasons": {
+        "LCS过短(≤2)": 63,
+        "编码不在候选名中": 28,
+        "无编码仅LCS": 2
+      }
+    },
     "suspicious_devices": {
       "total": 2,
       "top_10": [
