@@ -2198,6 +2198,17 @@ def _generate_analysis_report(data_path: str) -> dict:
         if not extract_workface_code(d.get("description", "")):
             hard_to_match.append(d)
 
+    # originData 分析（8385 当前存储的定位标注数据）
+    origin_data = data.get("originData", []) if isinstance(data, dict) else []
+    origin_has_coord = 0
+    origin_no_coord = 0
+    for od in origin_data:
+        coord_str = od.get("coordinates") or ""
+        if coord_str and coord_str != "{}":
+            origin_has_coord += 1
+        else:
+            origin_no_coord += 1
+
     # 煤层分布
     coalbeds = Counter(c.get("coalbed") or "(无)" for c in candidates)
 
@@ -2357,6 +2368,18 @@ def _generate_analysis_report(data_path: str) -> dict:
     print(f"\n【编码提取情况】", file=sys.stderr)
     print(_fmt_kv("成功提取编码:", f"{code_extracted}/{total_devices} ({code_pct:.1f}%)"), file=sys.stderr)
     print(_fmt_kv("未提取编码:", f"{len(hard_to_match)}/{total_devices} ({100-code_pct:.1f}%)"), file=sys.stderr)
+
+    # 【originData 分析（8385 当前标注数据）】固定 3 行
+    print(f"\n【originData 分析（8385 当前标注数据）】", file=sys.stderr)
+    if origin_data:
+        print(_fmt_kv("设备总数:", len(origin_data)), file=sys.stderr)
+        print(_fmt_kv("已有坐标:", f"{origin_has_coord}/{len(origin_data)}"), file=sys.stderr)
+        print(_fmt_kv("无坐标:", f"{origin_no_coord}/{len(origin_data)}"), file=sys.stderr)
+    else:
+        print(_fmt_kv("数据状态:", "(无 — 尚未标注过)"), file=sys.stderr)
+        print(_fmt_kv("设备总数:", 0), file=sys.stderr)
+        print(_fmt_kv("已有坐标:", "0/0"), file=sys.stderr)
+        print(_fmt_kv("无坐标:", "0/0"), file=sys.stderr)
 
     # 【潜在难匹配设备 (Top 10)】固定 11 行
     print(f"\n【潜在难匹配设备 ({len(hard_to_match)} 台)】", file=sys.stderr)
@@ -2887,10 +2910,72 @@ def _print_report_stderr(report: dict):
         _p(f"  (无 —— 所有匹配置信度达标)")
 
 
+# ── 回写前备份 ────────────────────────────────────────────────────
+def _confirm_overwrite(to_writeback_count: int, held_back_count: int,
+                        auto_yes: bool = False) -> bool:
+    """回写前提示用户确认覆盖原有标注数据。
+
+    Args:
+        to_writeback_count: 待回写设备数
+        held_back_count: 暂缓设备数
+        auto_yes: True 时跳过提示直接确认（用于 --yes 参数）
+
+    Returns:
+        True 表示确认回写，False 表示取消
+    """
+    if auto_yes:
+        return True
+
+    print(f"\n{'='*60}", file=sys.stderr)
+    print(f"  ⚠ 即将回写 {to_writeback_count} 条定位结果到策略 8385", file=sys.stderr)
+    if held_back_count:
+        print(f"  ⚠ {held_back_count} 条低置信度结果将暂缓（宁缺毋滥）", file=sys.stderr)
+    print(f"  ⚠ 此操作将会覆盖 8385 中原有的标注数据！", file=sys.stderr)
+    print(f"{'='*60}", file=sys.stderr)
+
+    try:
+        answer = input("  确认覆盖原有数据并提交回写？(y/N): ").strip().lower()
+        return answer in ("y", "yes")
+    except (EOFError, KeyboardInterrupt):
+        print(file=sys.stderr)
+        return False
+
+
+def _backup_origin_data(data: dict, mine_name: str) -> str:
+    """回写前备份当前 8385 originData 到 data/backup/。
+
+    从 8373 响应中提取 originData（即 8385 当前存储的定位标注数据），
+    保存到备份目录，以便回写出问题时恢复。
+
+    Args:
+        data: 包含 originData 字段的字典（output_full 或 locator 结果文件）
+        mine_name: 矿名，用于备份文件命名
+
+    Returns:
+        备份文件路径，若无 originData 则返回空字符串
+    """
+    origin = data.get("originData", [])
+    if not origin:
+        print("  ! 无 originData 可备份，跳过", file=sys.stderr)
+        return ""
+
+    backup_dir = PROJECT_ROOT / "data" / "backup"
+    backup_dir.mkdir(parents=True, exist_ok=True)
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    backup_path = backup_dir / f"data_8385_{mine_name}_{timestamp}.json"
+
+    with open(backup_path, "w", encoding="utf-8") as f:
+        json.dump(origin, f, ensure_ascii=False, indent=2)
+
+    print(f"  → 8385 备份已保存: {backup_path} ({len(origin)} 条)", file=sys.stderr)
+    return str(backup_path)
+
+
 # ── 输出+回写 ──────────────────────────────────────────────────────
 def _save_and_writeback(output: dict, username: str, output_mode: str = "full",
                         output_full: dict = None, html_mode: str = "auto",
-                        match_only: bool = False, report: dict = None):
+                        match_only: bool = False, report: dict = None,
+                        auto_yes: bool = False):
     """输出 JSON 到 stdout，保存到文件，可选回写策略 8385。
 
     Args:
@@ -2945,6 +3030,9 @@ def _save_and_writeback(output: dict, username: str, output_mode: str = "full",
         full = output_full if output_full is not None else output
         results_list = full.get("results", [])
 
+        # ── 回写前备份当前 8385 originData ──
+        _backup_origin_data(full, full.get("mine_name", ""))
+
         # ── 宁缺毋滥：仅回写高+中置信度，低置信度暂缓 ──
         to_writeback, held_back = _filter_low_confidence(results_list)
 
@@ -2973,6 +3061,12 @@ def _save_and_writeback(output: dict, username: str, output_mode: str = "full",
             if len(held_back) > 8:
                 print(f"    ...及其他 {len(held_back) - 8} 条", file=sys.stderr)
             print(f"  → 已保存到结果文件供审计，可手动筛选后通过 --writeback 回写", file=sys.stderr)
+
+        # ── 用户确认 ──
+        if not _confirm_overwrite(len(to_writeback), len(held_back), auto_yes=auto_yes):
+            print(f"  ⏸ 回写已取消。备份文件保留在 data/backup/ 中。", file=sys.stderr)
+            print(f"  确认后可通过: --writeback <结果文件> 再次回写", file=sys.stderr)
+            return
 
         writeback_data = dict(full)
         writeback_data["results"] = to_writeback
@@ -3005,7 +3099,7 @@ def _save_and_writeback(output: dict, username: str, output_mode: str = "full",
         print(f"    使用 --writeback 或再次运行回写", file=sys.stderr)
 
 
-def _writeback_from_file(result_path: str, username: str):
+def _writeback_from_file(result_path: str, username: str, auto_yes: bool = False):
     """从已保存的结果文件回写 8385，不重复匹配。
     仅回写高+中置信度结果，低置信度暂缓（宁缺毋滥）。
     """
@@ -3013,6 +3107,10 @@ def _writeback_from_file(result_path: str, username: str):
     print(f"[1/1] 从文件加载结果: {result_path}", file=sys.stderr)
     data = _load_json_file(result_path)
     results_list = data.get("results", [])
+
+    # ── 回写前备份当前 8385 originData ──
+    mine_name = data.get("mine_name", "")
+    _backup_origin_data(data, mine_name)
 
     # ── 宁缺毋滥：仅回写高+中置信度，低置信度暂缓 ──
     to_writeback, held_back = _filter_low_confidence(results_list)
@@ -3041,6 +3139,11 @@ def _writeback_from_file(result_path: str, username: str):
             print(f"    {cid} → {cname}  score={score}  lcs={lcs}  {desc}", file=sys.stderr)
         if len(held_back) > 8:
             print(f"    ...及其他 {len(held_back) - 8} 条", file=sys.stderr)
+
+        # ── 用户确认 ──
+        if not _confirm_overwrite(len(to_writeback), len(held_back), auto_yes=auto_yes):
+            print(f"  ⏸ 回写已取消。备份文件保留在 data/backup/ 中。", file=sys.stderr)
+            return
 
     writeback_data = dict(data)
     writeback_data["results"] = to_writeback
@@ -3083,6 +3186,8 @@ def main():
                         help="分析 8373 数据文件的结构化报告（仅分析，不匹配退出）")
     parser.add_argument("--html", choices=["auto", "always", "never"], default="auto",
                         help="CesiumJS 可视化: auto=自动生成路径, always=强制生成, never=跳过 (默认 auto)")
+    parser.add_argument("-y", "--yes", action="store_true",
+                        help="跳过回写前的覆盖确认提示（用于脚本自动化）")
     parser.add_argument("--match-only", action="store_true",
                         help="仅匹配不回写（展示汇总后等用户确认，再单独 --writeback）")
     parser.add_argument("--writeback", metavar="RESULT_JSON",
@@ -3099,7 +3204,7 @@ def main():
         return
 
     if args.writeback:
-        _writeback_from_file(args.writeback, username)
+        _writeback_from_file(args.writeback, username, auto_yes=args.yes)
         return
 
     # 判断哪些数据需要从文件加载（裸文件参数自动识别为 --load-devices）
@@ -3120,6 +3225,7 @@ def main():
     generic_tunnel_skipped = 0
     unnamed_tunnel_skipped = 0
     generic_tunnel_names = []
+    origin_data = []
 
     # 2a. 从文件加载
     if use_file:
@@ -3132,6 +3238,9 @@ def main():
                 if "devices" in data:
                     devices = _validate_devices(data["devices"])
                     print(f"  → 文件 devices: {len(devices)} 个", file=sys.stderr)
+                if "originData" in data:
+                    origin_data = data.get("originData", [])
+                    print(f"  → 文件 originData: {len(origin_data)} 条", file=sys.stderr)
                 if "tunnels" in data or "workfaces" in data:
                     # 先校验再提取
                     validated = {}
@@ -3207,6 +3316,10 @@ def main():
         resp_dev = call_strategy_api(8373, username, f"MineName={mine_name}", action="get_json")
         raw_data = resp_dev.get("data", {})
 
+        # 捕获 originData（8385 当前存储的定位标注数据）
+        if isinstance(raw_data, dict) and "originData" in raw_data:
+            origin_data = raw_data["originData"]
+
         if isinstance(raw_data, dict) and "devices" in raw_data:
             if need_api_devices:
                 devices = _validate_devices(raw_data.get("devices", []))
@@ -3240,6 +3353,8 @@ def main():
         save_dir.mkdir(parents=True, exist_ok=True)
         save_path = save_dir / f"data_8373_{mine_name}.json"
         merged = {"devices": devices, "candidates": candidates}
+        if origin_data:
+            merged["originData"] = origin_data
         with open(save_path, "w", encoding="utf-8") as f:
             json.dump(merged, f, ensure_ascii=False, indent=2)
         print(f"  → 合并结果已保存: {save_path}", file=sys.stderr)
@@ -3248,6 +3363,8 @@ def main():
         save_dir.mkdir(parents=True, exist_ok=True)
         save_path = save_dir / f"data_8373_{mine_name}.json"
         merged = {"devices": devices, "candidates": candidates}
+        if origin_data:
+            merged["originData"] = origin_data
         with open(save_path, "w", encoding="utf-8") as f:
             json.dump(merged, f, ensure_ascii=False, indent=2)
         print(f"  → 已保存: {save_path}", file=sys.stderr)
@@ -3358,7 +3475,22 @@ def main():
         "results": results,
         "unmatched_devices": unmatched,
         "warnings": all_warnings,
+        "originData": origin_data,
     }
+
+    # 更新 data_8373_*.json 也包含 originData 供后续使用
+    if origin_data:
+        try:
+            save_dir = PROJECT_ROOT / "data" / "output"
+            save_path = save_dir / f"data_8373_{mine_name}.json"
+            if save_path.exists():
+                existing = _load_json_file(str(save_path))
+                if isinstance(existing, dict):
+                    existing["originData"] = origin_data
+                    with open(save_path, "w", encoding="utf-8") as f:
+                        json.dump(existing, f, ensure_ascii=False, indent=2)
+        except Exception:
+            pass  # 非关键操作，失败不影响主流程
 
     output_mode = args.output_mode
     if output_mode == "full":
@@ -3389,7 +3521,8 @@ def main():
     else:
         output = output_full
 
-    _save_and_writeback(output, username, output_mode, output_full, args.html, args.match_only, report)
+    _save_and_writeback(output, username, output_mode, output_full, args.html,
+                        args.match_only, report, auto_yes=args.yes)
 
 
 if __name__ == "__main__":

@@ -157,6 +157,8 @@ python skill/bw-strategy-api-caller/scripts/strategy_api.py get_json \
 
 Claude 展示分析报告（设备数、巷道数、mark_type/sensor_type/area 分布、**系统命名巷道占比**、**无名巷道数**、地面/井下拆分），**等用户确认后**继续。
 
+> **⚠️ 原始 8385 数据醒目展示**：分析报告中必须将 `originData`（当前 8385 已有标注数据）放在报告显著位置，使用 ⚠️ 标记、**粗体**、边框线等方式醒目体现已有设备总数和已有坐标数，让用户一眼看到本次操作会覆盖的数据范围。
+
 **特别关注**：若 MineName 过滤返回空数据，应自动尝试不带 MineName 参数拉取全量数据，并检查设备 ID 前缀是否全部属于同一矿。
 
 **阶段 2：匹配定位 + 回写**（用户确认后执行）
@@ -237,6 +239,8 @@ options:
     │   系统命名巷道 vs 具名巷道 (⚠ 将被排除)  │
     │   地面 vs 井下设备                       │
     │   潜在难匹配设备 (无编码描述)             │
+    │   ⚠ **原始 8385 数据醒目展示**:          │
+    │     已有标注设备数 / 已有坐标数（覆盖范围）│
     │                                         │
     │ ▼ 等用户确认 ▼                          │
     └────┬────────────────────────────────────┘
@@ -300,6 +304,7 @@ python skill/bw-strategy-api-caller/scripts/strategy_api.py get_json \
 - 返回扁平数组，每条记录包含 `id`/`description`/`mark_type`/`area`（设备）或 `name`/`line`（巷道）或 `workFaceName`/`line`（工作面）
 - 数据落盘到 `data/output/data_8373_<mineName>.json`
 - **Claude 在此步后必须展示数据分析报告，等用户确认才继续**
+- **分析报告必须醒目展示 `originData`（当前 8385 已有标注数据）**：使用 ⚠️ **粗体** + 边框线突出显示已有设备总数和已有坐标数，让用户一眼看到本次会覆盖的数据量
 - **若 MineName 过滤返回空数据**：Claude 应自动尝试不带 MineName 参数拉取全量数据，检查设备 ID 前缀确认是否全部属于该矿，若属于则使用全量数据继续流程
 
 **注意：** `strategy_api.py` 依赖 `requests`。locator.py 会自动探测带 `requests` 的解释器（优先 `sys.executable`/`python3`/`python`），找不到就报错。可用 `BW_LOCATOR_PYTHON` 显式覆盖。
@@ -353,6 +358,7 @@ python skill/bw-mine-equipment-locator/scripts/locator.py <username> \
 - 向 `ExecuteStrategyCom` 发起 POST 请求时**仅发送高+中置信度结果**
 - 低置信度匹配保留在结果文件中供审计，不写入 8385
 - stderr 输出：待回写 N 条 | 暂缓 M 条（含样本明细）
+- **回写确认时醒目提示覆盖风险**：必须用 ⚠️ 标记 + **粗体** 明确提示会覆盖的原始数据条数（如"⚠ 会覆盖原有 **76 条**标注数据"），用户确认后再执行
 - 返回 `{"code": 100}` 表示成功
 
 **合并一步执行（用户明确说"直接跑"时）：** 不加 `--match-only`，locator.py 自动完成匹配+回写（同样仅回写高+中置信度）：

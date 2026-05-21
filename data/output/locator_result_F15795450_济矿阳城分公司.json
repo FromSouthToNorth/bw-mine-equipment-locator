@@ -8,7 +8,7 @@
     "filtered_by_id": 0,
     "wind_spacing_warnings": 0,
     "generic_tunnels_skipped": 0,
-    "unnamed_tunnels_skipped": 11,
+    "unnamed_tunnels_skipped": 0,
     "by_confidence": {
       "高": 123,
       "中": 183,
@@ -63,13 +63,13 @@
       "-650水平轨道大巷二号联络巷": 13,
       "六采区辅助轨道上山": 8,
       "6301皮顺联络巷": 4,
-      "8301轨顺联络巷": 3,
       "清理斜巷": 2,
       "风井": 2,
       "六采区轨道上山": 17,
       "混合立井": 10,
-      "8301切眼": 1,
-      "联络巷": 7
+      "8301轨顺联络巷": 3,
+      "联络巷": 7,
+      "8301切眼": 1
     },
     "suspicious_count": 4,
     "generic_tunnel_names": []
@@ -1034,8 +1034,8 @@
       "line_percentage": 97.2
     },
     {
-      "id": "JKYCFGS01014001862P00",
-      "description": "8301轨顺3#_人数",
+      "id": "JKYCFGS01014001835J00",
+      "description": "8301轨顺2#_人数",
       "matched": true,
       "matched_name": "8301轨道顺槽",
       "tunnel_id": "15F6B1BB-035F-4D9D-949F-B1D3BC4BD6C1",
@@ -1047,7 +1047,7 @@
       "confidence": "中",
       "mark_type": "B15",
       "sensor_type": "人数",
-      "area": "8301工作面劳动定员",
+      "area": "其他",
       "sysaliasname": "人员定位",
       "coordinates": {
         "x": 39438259.6209,
@@ -1059,8 +1059,8 @@
       "line_percentage": 97.4
     },
     {
-      "id": "JKYCFGS01014001862J00",
-      "description": "8301轨顺3#_人数",
+      "id": "JKYCFGS01014001848J00",
+      "description": "8301轨顺2#+_人数",
       "matched": true,
       "matched_name": "8301轨道顺槽",
       "tunnel_id": "15F6B1BB-035F-4D9D-949F-B1D3BC4BD6C1",
@@ -1084,8 +1084,8 @@
       "line_percentage": 97.5
     },
     {
-      "id": "JKYCFGS01014001835J00",
-      "description": "8301轨顺2#_人数",
+      "id": "JKYCFGS01014001835X20",
+      "description": "8301轨顺限员站_人数",
       "matched": true,
       "matched_name": "8301轨道顺槽",
       "tunnel_id": "15F6B1BB-035F-4D9D-949F-B1D3BC4BD6C1",
@@ -1109,7 +1109,7 @@
       "line_percentage": 97.6
     },
     {
-      "id": "JKYCFGS01014001848J00",
+      "id": "JKYCFGS01014001848P00",
       "description": "8301轨顺2#+_人数",
       "matched": true,
       "matched_name": "8301轨道顺槽",
@@ -1122,7 +1122,7 @@
       "confidence": "中",
       "mark_type": "B15",
       "sensor_type": "人数",
-      "area": "其他",
+      "area": "8301工作面劳动定员",
       "sysaliasname": "人员定位",
       "coordinates": {
         "x": 39438260.8054,
@@ -1134,8 +1134,8 @@
       "line_percentage": 97.7
     },
     {
-      "id": "JKYCFGS01014001860P00",
-      "description": "8301轨顺1#_人数",
+      "id": "JKYCFGS01014001835P00",
+      "description": "8301轨顺2#_人数",
       "matched": true,
       "matched_name": "8301轨道顺槽",
       "tunnel_id": "15F6B1BB-035F-4D9D-949F-B1D3BC4BD6C1",
@@ -1159,106 +1159,6 @@
       "line_percentage": 97.9
     },
     {
-      "id": "JKYCFGS01014001860J00",
-      "description": "8301轨顺1#_人数",
-      "matched": true,
-      "matched_name": "8301轨道顺槽",
-      "tunnel_id": "15F6B1BB-035F-4D9D-949F-B1D3BC4BD6C1",
-      "matched_type": "tunnel",
-      "tunnel_type": "26-工作面回风巷(辅运顺槽)",
-      "coalbed": "0300",
-      "match_lcs": 5,
-      "match_score": 7,
-      "confidence": "中",
-      "mark_type": "B15",
-      "sensor_type": "人数",
-      "area": "其他",
-      "sysaliasname": "人员定位",
-      "coordinates": {
-        "x": 39438261.5951,
-        "y": 3957756.518,
-        "z": -488.3725
-      },
-      "line_total_length": 794.11,
-      "distance_along_line": 778.11,
-      "line_percentage": 98.0
-    },
-    {
-      "id": "JKYCFGS01014001835X20",
-      "description": "8301轨顺限员站_人数",
-      "matched": true,
-      "matched_name": "8301轨道顺槽",
-      "tunnel_id": "15F6B1BB-035F-4D9D-949F-B1D3BC4BD6C1",
-      "matched_type": "tunnel",
-      "tunnel_type": "26-工作面回风巷(辅运顺槽)",
-      "coalbed": "0300",
-      "match_lcs": 5,
-      "match_score": 7,
-      "confidence": "中",
-      "mark_type": "B15",
-      "sensor_type": "人数",
-      "area": "其他",
-      "sysaliasname": "人员定位",
-      "coordinates": {
-        "x": 39438261.99,
-        "y": 3957757.4362,
-        "z": -488.4054
-      },
-      "line_total_length": 794.11,
-      "distance_along_line": 779.11,
-      "line_percentage": 98.1
-    },
-    {
-      "id": "JKYCFGS01014001848P00",
-      "description": "8301轨顺2#+_人数",
-      "matched": true,
-      "matched_name": "8301轨道顺槽",
-      "tunnel_id": "15F6B1BB-035F-4D9D-949F-B1D3BC4BD6C1",
-      "matched_type": "tunnel",
-      "tunnel_type": "26-工作面回风巷(辅运顺槽)",
-      "coalbed": "0300",
-      "match_lcs": 5,
-      "match_score": 7,
-      "confidence": "中",
-      "mark_type": "B15",
-      "sensor_type": "人数",
-      "area": "8301工作面劳动定员",
-      "sysaliasname": "人员定位",
-      "coordinates": {
-        "x": 39438262.3848,
-        "y": 3957758.3543,
-        "z": -488.4384
-      },
-      "line_total_length": 794.11,
-      "distance_along_line": 780.11,
-      "line_percentage": 98.2
-    },
-    {
-      "id": "JKYCFGS01014001835P00",
-      "description": "8301轨顺2#_人数",
-      "matched": true,
-      "matched_name": "8301轨道顺槽",
-      "tunnel_id": "15F6B1BB-035F-4D9D-949F-B1D3BC4BD6C1",
-      "matched_type": "tunnel",
-      "tunnel_type": "26-工作面回风巷(辅运顺槽)",
-      "coalbed": "0300",
-      "match_lcs": 5,
-      "match_score": 7,
-      "confidence": "中",
-      "mark_type": "B15",
-      "sensor_type": "人数",
-      "area": "8301工作面劳动定员",
-      "sysaliasname": "人员定位",
-      "coordinates": {
-        "x": 39438262.7797,
-        "y": 3957759.2725,
-        "z": -488.4714
-      },
-      "line_total_length": 794.11,
-      "distance_along_line": 781.11,
-      "line_percentage": 98.4
-    },
-    {
       "id": "JKYCFGS011121a6306bed8c882",
       "description": "阳城二号井8301轨顺定员站",
       "matched": true,
@@ -1275,13 +1175,63 @@
       "area": "8301工作面",
       "sysaliasname": "工业视频",
       "coordinates": {
-        "x": 39438263.1745,
-        "y": 3957760.1906,
-        "z": -486.7043
+        "x": 39438261.5951,
+        "y": 3957756.518,
+        "z": -486.5725
       },
       "line_total_length": 794.11,
-      "distance_along_line": 782.11,
-      "line_percentage": 98.5
+      "distance_along_line": 778.11,
+      "line_percentage": 98.0
+    },
+    {
+      "id": "JKYCFGS01014001862P00",
+      "description": "8301轨顺3#_人数",
+      "matched": true,
+      "matched_name": "8301轨道顺槽",
+      "tunnel_id": "15F6B1BB-035F-4D9D-949F-B1D3BC4BD6C1",
+      "matched_type": "tunnel",
+      "tunnel_type": "26-工作面回风巷(辅运顺槽)",
+      "coalbed": "0300",
+      "match_lcs": 5,
+      "match_score": 7,
+      "confidence": "中",
+      "mark_type": "B15",
+      "sensor_type": "人数",
+      "area": "8301工作面劳动定员",
+      "sysaliasname": "人员定位",
+      "coordinates": {
+        "x": 39438261.99,
+        "y": 3957757.4362,
+        "z": -488.4054
+      },
+      "line_total_length": 794.11,
+      "distance_along_line": 779.11,
+      "line_percentage": 98.1
+    },
+    {
+      "id": "JKYCFGS01014001862J00",
+      "description": "8301轨顺3#_人数",
+      "matched": true,
+      "matched_name": "8301轨道顺槽",
+      "tunnel_id": "15F6B1BB-035F-4D9D-949F-B1D3BC4BD6C1",
+      "matched_type": "tunnel",
+      "tunnel_type": "26-工作面回风巷(辅运顺槽)",
+      "coalbed": "0300",
+      "match_lcs": 5,
+      "match_score": 7,
+      "confidence": "中",
+      "mark_type": "B15",
+      "sensor_type": "人数",
+      "area": "其他",
+      "sysaliasname": "人员定位",
+      "coordinates": {
+        "x": 39438262.3848,
+        "y": 3957758.3543,
+        "z": -488.4384
+      },
+      "line_total_length": 794.11,
+      "distance_along_line": 780.11,
+      "line_percentage": 98.2
     },
     {
       "id": "JKYCFGS01112147c937368e116",
@@ -1300,9 +1250,59 @@
       "area": "上传",
       "sysaliasname": "工业视频",
       "coordinates": {
+        "x": 39438262.7797,
+        "y": 3957759.2725,
+        "z": -486.6714
+      },
+      "line_total_length": 794.11,
+      "distance_along_line": 781.11,
+      "line_percentage": 98.4
+    },
+    {
+      "id": "JKYCFGS01014001860P00",
+      "description": "8301轨顺1#_人数",
+      "matched": true,
+      "matched_name": "8301轨道顺槽",
+      "tunnel_id": "15F6B1BB-035F-4D9D-949F-B1D3BC4BD6C1",
+      "matched_type": "tunnel",
+      "tunnel_type": "26-工作面回风巷(辅运顺槽)",
+      "coalbed": "0300",
+      "match_lcs": 5,
+      "match_score": 7,
+      "confidence": "中",
+      "mark_type": "B15",
+      "sensor_type": "人数",
+      "area": "8301工作面劳动定员",
+      "sysaliasname": "人员定位",
+      "coordinates": {
+        "x": 39438263.1745,
+        "y": 3957760.1906,
+        "z": -488.5043
+      },
+      "line_total_length": 794.11,
+      "distance_along_line": 782.11,
+      "line_percentage": 98.5
+    },
+    {
+      "id": "JKYCFGS01014001860J00",
+      "description": "8301轨顺1#_人数",
+      "matched": true,
+      "matched_name": "8301轨道顺槽",
+      "tunnel_id": "15F6B1BB-035F-4D9D-949F-B1D3BC4BD6C1",
+      "matched_type": "tunnel",
+      "tunnel_type": "26-工作面回风巷(辅运顺槽)",
+      "coalbed": "0300",
+      "match_lcs": 5,
+      "match_score": 7,
+      "confidence": "中",
+      "mark_type": "B15",
+      "sensor_type": "人数",
+      "area": "其他",
+      "sysaliasname": "人员定位",
+      "coordinates": {
         "x": 39438263.5694,
         "y": 3957761.1088,
-        "z": -486.7373
+        "z": -488.5373
       },
       "line_total_length": 794.11,
       "distance_along_line": 783.11,
@@ -1359,31 +1359,6 @@
       "line_percentage": 98.9
     },
     {
-      "id": "JKYCFGS011121aba58d0a682a5",
-      "description": "阳城二号井8301轨顺超前",
-      "matched": true,
-      "matched_name": "8301轨道顺槽",
-      "tunnel_id": "15F6B1BB-035F-4D9D-949F-B1D3BC4BD6C1",
-      "matched_type": "tunnel",
-      "tunnel_type": "26-工作面回风巷(辅运顺槽)",
-      "coalbed": "0300",
-      "match_lcs": 5,
-      "match_score": 9,
-      "confidence": "中",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "area": "上传",
-      "sysaliasname": "工业视频",
-      "coordinates": {
-        "x": 39438264.7539,
-        "y": 3957763.8633,
-        "z": -486.8362
-      },
-      "line_total_length": 794.11,
-      "distance_along_line": 786.11,
-      "line_percentage": 99.0
-    },
-    {
       "id": "JKYCFGS011121458ab808a8a64",
       "description": "8301轨顺二段",
       "matched": true,
@@ -1400,6 +1375,31 @@
       "area": "零活",
       "sysaliasname": "工业视频",
       "coordinates": {
+        "x": 39438264.7539,
+        "y": 3957763.8633,
+        "z": -486.8362
+      },
+      "line_total_length": 794.11,
+      "distance_along_line": 786.11,
+      "line_percentage": 99.0
+    },
+    {
+      "id": "JKYCFGS0111216e246be89edb9",
+      "description": "阳城二号井8301轨顺防冲限员站",
+      "matched": true,
+      "matched_name": "8301轨道顺槽",
+      "tunnel_id": "15F6B1BB-035F-4D9D-949F-B1D3BC4BD6C1",
+      "matched_type": "tunnel",
+      "tunnel_type": "26-工作面回风巷(辅运顺槽)",
+      "coalbed": "0300",
+      "match_lcs": 5,
+      "match_score": 9,
+      "confidence": "中",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "area": "8301工作面",
+      "sysaliasname": "工业视频",
+      "coordinates": {
         "x": 39438265.1488,
         "y": 3957764.7814,
         "z": -486.8692
@@ -1409,8 +1409,8 @@
       "line_percentage": 99.1
     },
     {
-      "id": "JKYCFGS0111216e246be89edb9",
-      "description": "阳城二号井8301轨顺防冲限员站",
+      "id": "JKYCFGS0111214381bc036506a",
+      "description": "阳城二号井8301轨顺安全出口",
       "matched": true,
       "matched_name": "8301轨道顺槽",
       "tunnel_id": "15F6B1BB-035F-4D9D-949F-B1D3BC4BD6C1",
@@ -1434,8 +1434,8 @@
       "line_percentage": 99.2
     },
     {
-      "id": "JKYCFGS0111214381bc036506a",
-      "description": "阳城二号井8301轨顺安全出口",
+      "id": "JKYCFGS0111215be4d2303267a",
+      "description": "阳城二号井8301轨顺定员站",
       "matched": true,
       "matched_name": "8301轨道顺槽",
       "tunnel_id": "15F6B1BB-035F-4D9D-949F-B1D3BC4BD6C1",
@@ -1447,7 +1447,7 @@
       "confidence": "中",
       "mark_type": "B16",
       "sensor_type": "工业视频",
-      "area": "8301工作面",
+      "area": "上传",
       "sysaliasname": "工业视频",
       "coordinates": {
         "x": 39438265.9385,
@@ -1459,8 +1459,8 @@
       "line_percentage": 99.4
     },
     {
-      "id": "JKYCFGS0111215be4d2303267a",
-      "description": "阳城二号井8301轨顺定员站",
+      "id": "JKYCFGS011121aba58d0a682a5",
+      "description": "阳城二号井8301轨顺超前",
       "matched": true,
       "matched_name": "8301轨道顺槽",
       "tunnel_id": "15F6B1BB-035F-4D9D-949F-B1D3BC4BD6C1",
@@ -1584,8 +1584,8 @@
       "line_percentage": 10.7
     },
     {
-      "id": "JKYCFGS011121ab6da05565182",
-      "description": "阳城二号井内水仓",
+      "id": "JKYCFGS0111214d15b8bc8eed6",
+      "description": "阳城二号井水仓标尺",
       "matched": true,
       "matched_name": "水仓",
       "tunnel_id": "FD4184E1-F665-496E-9310-9DA0C9154575",
@@ -1609,8 +1609,8 @@
       "line_percentage": 11.0
     },
     {
-      "id": "JKYCFGS0111214d15b8bc8eed6",
-      "description": "阳城二号井水仓标尺",
+      "id": "JKYCFGS01112186398769e7459",
+      "description": "阳城二号井水仓入口",
       "matched": true,
       "matched_name": "水仓",
       "tunnel_id": "FD4184E1-F665-496E-9310-9DA0C9154575",
@@ -1634,31 +1634,6 @@
       "line_percentage": 11.3
     },
     {
-      "id": "JKYCFGS01112186398769e7459",
-      "description": "阳城二号井水仓入口",
-      "matched": true,
-      "matched_name": "水仓",
-      "tunnel_id": "FD4184E1-F665-496E-9310-9DA0C9154575",
-      "matched_type": "tunnel",
-      "tunnel_type": "0-普通巷道",
-      "coalbed": "0300",
-      "match_lcs": 2,
-      "match_score": 10,
-      "confidence": "中",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "area": "变电所、泵房、水仓",
-      "sysaliasname": "工业视频",
-      "coordinates": {
-        "x": 39437279.132,
-        "y": 3956438.1125,
-        "z": -631.6583
-      },
-      "line_total_length": 303.88,
-      "distance_along_line": 35.39,
-      "line_percentage": 11.6
-    },
-    {
       "id": "JKYCFGS011121473c73757410d",
       "description": "阳城二号井水仓入口",
       "matched": true,
@@ -1673,6 +1648,31 @@
       "mark_type": "B16",
       "sensor_type": "工业视频",
       "area": "上传",
+      "sysaliasname": "工业视频",
+      "coordinates": {
+        "x": 39437279.132,
+        "y": 3956438.1125,
+        "z": -631.6583
+      },
+      "line_total_length": 303.88,
+      "distance_along_line": 35.39,
+      "line_percentage": 11.6
+    },
+    {
+      "id": "JKYCFGS011121ab6da05565182",
+      "description": "阳城二号井内水仓",
+      "matched": true,
+      "matched_name": "水仓",
+      "tunnel_id": "FD4184E1-F665-496E-9310-9DA0C9154575",
+      "matched_type": "tunnel",
+      "tunnel_type": "0-普通巷道",
+      "coalbed": "0300",
+      "match_lcs": 2,
+      "match_score": 10,
+      "confidence": "中",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "area": "变电所、泵房、水仓",
       "sysaliasname": "工业视频",
       "coordinates": {
         "x": 39437278.1328,
@@ -1984,31 +1984,6 @@
       "line_percentage": 44.0
     },
     {
-      "id": "JKYCFGS011121a6fdbb02f135b",
-      "description": "35kV变电所大门",
-      "matched": true,
-      "matched_name": "中央变电所",
-      "tunnel_id": "38001780-D25D-419B-B5E9-7D775C95FB73",
-      "matched_type": "tunnel",
-      "tunnel_type": "0-普通巷道",
-      "coalbed": "0300",
-      "match_lcs": 3,
-      "match_score": 8,
-      "confidence": "中",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "area": "35KV变电所",
-      "sysaliasname": "工业视频",
-      "coordinates": {
-        "x": 39437195.2933,
-        "y": 3956535.6292,
-        "z": -603.2361
-      },
-      "line_total_length": 222.59,
-      "distance_along_line": 99.03,
-      "line_percentage": 44.5
-    },
-    {
       "id": "JKYCFGS011121d4e16dad8dc13",
       "description": "阳城二号井中央变电所 巡检",
       "matched": true,
@@ -2025,13 +2000,13 @@
       "area": "变电所、泵房、水仓",
       "sysaliasname": "工业视频",
       "coordinates": {
-        "x": 39437194.3653,
-        "y": 3956536.0016,
-        "z": -603.2493
+        "x": 39437195.2933,
+        "y": 3956535.6292,
+        "z": -603.2361
       },
       "line_total_length": 222.59,
-      "distance_along_line": 100.03,
-      "line_percentage": 44.9
+      "distance_along_line": 99.03,
+      "line_percentage": 44.5
     },
     {
       "id": "JKYCFGS011121e241d947dca64",
@@ -2048,6 +2023,31 @@
       "mark_type": "B16",
       "sensor_type": "工业视频",
       "area": "工矿区",
+      "sysaliasname": "工业视频",
+      "coordinates": {
+        "x": 39437194.3653,
+        "y": 3956536.0016,
+        "z": -603.2493
+      },
+      "line_total_length": 222.59,
+      "distance_along_line": 100.03,
+      "line_percentage": 44.9
+    },
+    {
+      "id": "JKYCFGS011121a6fdbb02f135b",
+      "description": "35kV变电所大门",
+      "matched": true,
+      "matched_name": "中央变电所",
+      "tunnel_id": "38001780-D25D-419B-B5E9-7D775C95FB73",
+      "matched_type": "tunnel",
+      "tunnel_type": "0-普通巷道",
+      "coalbed": "0300",
+      "match_lcs": 3,
+      "match_score": 8,
+      "confidence": "中",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "area": "35KV变电所",
       "sysaliasname": "工业视频",
       "coordinates": {
         "x": 39437193.4374,
@@ -3563,56 +3563,6 @@
       "line_percentage": 14.6
     },
     {
-      "id": "JKYCFGS0101201854",
-      "description": "十采区胶带下山一部皮带驱动烟雾",
-      "matched": true,
-      "matched_name": "十采区胶带联络巷",
-      "tunnel_id": "3D6A0ABD-8B1D-4030-9BEB-DC5329E971FB",
-      "matched_type": "tunnel",
-      "tunnel_type": "0-普通巷道",
-      "coalbed": "0300",
-      "match_lcs": 0,
-      "match_score": 8,
-      "confidence": "高",
-      "mark_type": "B14",
-      "sensor_type": "烟雾",
-      "area": "十采区胶带下山一部皮带驱动烟雾",
-      "sysaliasname": "安全监测",
-      "coordinates": {
-        "x": 39437424.9908,
-        "y": 3956382.3135,
-        "z": -627.5415
-      },
-      "line_total_length": 368.18,
-      "distance_along_line": 54.82,
-      "line_percentage": 14.9
-    },
-    {
-      "id": "JKYCFGS0101201856",
-      "description": "十采区胶带下山变频器配电点甲烷_环境瓦斯",
-      "matched": true,
-      "matched_name": "十采区胶带联络巷",
-      "tunnel_id": "3D6A0ABD-8B1D-4030-9BEB-DC5329E971FB",
-      "matched_type": "tunnel",
-      "tunnel_type": "0-普通巷道",
-      "coalbed": "0300",
-      "match_lcs": 0,
-      "match_score": 6,
-      "confidence": "高",
-      "mark_type": "B14",
-      "sensor_type": "瓦斯",
-      "area": "十采区胶带下山变频器配电点甲烷_环境瓦斯",
-      "sysaliasname": "安全监测",
-      "coordinates": {
-        "x": 39437425.9806,
-        "y": 3956382.3145,
-        "z": -627.5838
-      },
-      "line_total_length": 368.18,
-      "distance_along_line": 55.82,
-      "line_percentage": 15.2
-    },
-    {
       "id": "JKYCFGS0101201859",
       "description": "十采区胶带联络巷回风一氧化碳",
       "matched": true,
@@ -3629,17 +3579,17 @@
       "area": "十采区胶带联络巷回风一氧化碳",
       "sysaliasname": "安全监测",
       "coordinates": {
-        "x": 39437426.9705,
-        "y": 3956382.3155,
-        "z": -627.8261
+        "x": 39437424.9908,
+        "y": 3956382.3135,
+        "z": -627.5415
       },
       "line_total_length": 368.18,
-      "distance_along_line": 56.82,
-      "line_percentage": 15.4
+      "distance_along_line": 54.82,
+      "line_percentage": 14.9
     },
     {
-      "id": "JKYCFGS0101201860",
-      "description": "十采区胶带下山回风一氧化碳",
+      "id": "JKYCFGS0101201854",
+      "description": "十采区胶带下山一部皮带驱动烟雾",
       "matched": true,
       "matched_name": "十采区胶带联络巷",
       "tunnel_id": "3D6A0ABD-8B1D-4030-9BEB-DC5329E971FB",
@@ -3647,20 +3597,20 @@
       "tunnel_type": "0-普通巷道",
       "coalbed": "0300",
       "match_lcs": 0,
-      "match_score": 6,
+      "match_score": 8,
       "confidence": "高",
       "mark_type": "B14",
-      "sensor_type": "一氧化碳",
-      "area": "十采区胶带下山回风一氧化碳",
+      "sensor_type": "烟雾",
+      "area": "十采区胶带下山一部皮带驱动烟雾",
       "sysaliasname": "安全监测",
       "coordinates": {
-        "x": 39437427.9603,
-        "y": 3956382.3165,
-        "z": -627.9684
+        "x": 39437425.9806,
+        "y": 3956382.3145,
+        "z": -627.6838
       },
       "line_total_length": 368.18,
-      "distance_along_line": 57.82,
-      "line_percentage": 15.7
+      "distance_along_line": 55.82,
+      "line_percentage": 15.2
     },
     {
       "id": "JKYCFGS0101202100",
@@ -3679,9 +3629,59 @@
       "area": "十采区胶带下山水泵远控开关断电状态_断电器",
       "sysaliasname": "安全监测",
       "coordinates": {
+        "x": 39437426.9705,
+        "y": 3956382.3155,
+        "z": -628.0261
+      },
+      "line_total_length": 368.18,
+      "distance_along_line": 56.82,
+      "line_percentage": 15.4
+    },
+    {
+      "id": "JKYCFGS0101201856",
+      "description": "十采区胶带下山变频器配电点甲烷_环境瓦斯",
+      "matched": true,
+      "matched_name": "十采区胶带联络巷",
+      "tunnel_id": "3D6A0ABD-8B1D-4030-9BEB-DC5329E971FB",
+      "matched_type": "tunnel",
+      "tunnel_type": "0-普通巷道",
+      "coalbed": "0300",
+      "match_lcs": 0,
+      "match_score": 6,
+      "confidence": "高",
+      "mark_type": "B14",
+      "sensor_type": "瓦斯",
+      "area": "十采区胶带下山变频器配电点甲烷_环境瓦斯",
+      "sysaliasname": "安全监测",
+      "coordinates": {
+        "x": 39437427.9603,
+        "y": 3956382.3165,
+        "z": -627.8684
+      },
+      "line_total_length": 368.18,
+      "distance_along_line": 57.82,
+      "line_percentage": 15.7
+    },
+    {
+      "id": "JKYCFGS0101201860",
+      "description": "十采区胶带下山回风一氧化碳",
+      "matched": true,
+      "matched_name": "十采区胶带联络巷",
+      "tunnel_id": "3D6A0ABD-8B1D-4030-9BEB-DC5329E971FB",
+      "matched_type": "tunnel",
+      "tunnel_type": "0-普通巷道",
+      "coalbed": "0300",
+      "match_lcs": 0,
+      "match_score": 6,
+      "confidence": "高",
+      "mark_type": "B14",
+      "sensor_type": "一氧化碳",
+      "area": "十采区胶带下山回风一氧化碳",
+      "sysaliasname": "安全监测",
+      "coordinates": {
         "x": 39437428.9501,
         "y": 3956382.3176,
-        "z": -628.3107
+        "z": -628.1107
       },
       "line_total_length": 368.18,
       "distance_along_line": 58.82,
@@ -4371,31 +4371,6 @@
       "line_percentage": 0.0
     },
     {
-      "id": "JKYCFGS01014001859P00",
-      "description": "8301皮顺1#_人数",
-      "matched": true,
-      "matched_name": "8301皮带顺槽",
-      "tunnel_id": "AA15739D-4A1B-47E5-B9F7-B68E7CA32648",
-      "matched_type": "tunnel",
-      "tunnel_type": "27-工作面进风巷(胶运顺槽)",
-      "coalbed": "0300",
-      "match_lcs": 8,
-      "match_score": 11,
-      "confidence": "中",
-      "mark_type": "B15",
-      "sensor_type": "人数",
-      "area": "8301工作面劳动定员",
-      "sysaliasname": "人员定位",
-      "coordinates": {
-        "x": 39438080.0205,
-        "y": 3957043.3854,
-        "z": -658.0
-      },
-      "line_total_length": 784.62,
-      "distance_along_line": 0.0,
-      "line_percentage": 0.0
-    },
-    {
       "id": "JKYCFGS01014001850P00",
       "description": "8301皮顺4#_人数",
       "matched": true,
@@ -4410,31 +4385,6 @@
       "mark_type": "B15",
       "sensor_type": "人数",
       "area": "8301工作面劳动定员",
-      "sysaliasname": "人员定位",
-      "coordinates": {
-        "x": 39438080.0205,
-        "y": 3957043.3854,
-        "z": -658.0
-      },
-      "line_total_length": 784.62,
-      "distance_along_line": 0.0,
-      "line_percentage": 0.0
-    },
-    {
-      "id": "JKYCFGS01014001859J00",
-      "description": "8301皮顺1#_人数",
-      "matched": true,
-      "matched_name": "8301皮带顺槽",
-      "tunnel_id": "AA15739D-4A1B-47E5-B9F7-B68E7CA32648",
-      "matched_type": "tunnel",
-      "tunnel_type": "27-工作面进风巷(胶运顺槽)",
-      "coalbed": "0300",
-      "match_lcs": 8,
-      "match_score": 11,
-      "confidence": "中",
-      "mark_type": "B15",
-      "sensor_type": "人数",
-      "area": "其他",
       "sysaliasname": "人员定位",
       "coordinates": {
         "x": 39438080.0205,
@@ -4571,8 +4521,58 @@
       "line_percentage": 0.0
     },
     {
+      "id": "JKYCFGS01014001859P00",
+      "description": "8301皮顺1#_人数",
+      "matched": true,
+      "matched_name": "8301皮带顺槽",
+      "tunnel_id": "AA15739D-4A1B-47E5-B9F7-B68E7CA32648",
+      "matched_type": "tunnel",
+      "tunnel_type": "27-工作面进风巷(胶运顺槽)",
+      "coalbed": "0300",
+      "match_lcs": 8,
+      "match_score": 11,
+      "confidence": "中",
+      "mark_type": "B15",
+      "sensor_type": "人数",
+      "area": "8301工作面劳动定员",
+      "sysaliasname": "人员定位",
+      "coordinates": {
+        "x": 39438080.0205,
+        "y": 3957043.3854,
+        "z": -658.0
+      },
+      "line_total_length": 784.62,
+      "distance_along_line": 0.0,
+      "line_percentage": 0.0
+    },
+    {
       "id": "JKYCFGS01014001863J00",
       "description": "8301皮顺3#_人数",
+      "matched": true,
+      "matched_name": "8301皮带顺槽",
+      "tunnel_id": "AA15739D-4A1B-47E5-B9F7-B68E7CA32648",
+      "matched_type": "tunnel",
+      "tunnel_type": "27-工作面进风巷(胶运顺槽)",
+      "coalbed": "0300",
+      "match_lcs": 8,
+      "match_score": 11,
+      "confidence": "中",
+      "mark_type": "B15",
+      "sensor_type": "人数",
+      "area": "其他",
+      "sysaliasname": "人员定位",
+      "coordinates": {
+        "x": 39438080.0205,
+        "y": 3957043.3854,
+        "z": -658.0
+      },
+      "line_total_length": 784.62,
+      "distance_along_line": 0.0,
+      "line_percentage": 0.0
+    },
+    {
+      "id": "JKYCFGS01014001859J00",
+      "description": "8301皮顺1#_人数",
       "matched": true,
       "matched_name": "8301皮带顺槽",
       "tunnel_id": "AA15739D-4A1B-47E5-B9F7-B68E7CA32648",
@@ -5472,31 +5472,6 @@
       "line_percentage": 10.0
     },
     {
-      "id": "JKYCFGS01014001857P00",
-      "description": "8301皮顺联络巷2#_人数",
-      "matched": true,
-      "matched_name": "8301皮顺联络巷",
-      "tunnel_id": "BFA60782-A248-4F0F-85D3-779D51498CF6",
-      "matched_type": "tunnel",
-      "tunnel_type": "0-普通巷道",
-      "coalbed": "0300",
-      "match_lcs": 9,
-      "match_score": 11,
-      "confidence": "中",
-      "mark_type": "B15",
-      "sensor_type": "人数",
-      "area": "8301工作面劳动定员",
-      "sysaliasname": "人员定位",
-      "coordinates": {
-        "x": 39437298.0397,
-        "y": 3956570.5492,
-        "z": -585.5774
-      },
-      "line_total_length": 1072.51,
-      "distance_along_line": 108.25,
-      "line_percentage": 10.1
-    },
-    {
       "id": "JKYCFGS010120585",
       "description": "8301皮顺联络巷双风门风门双开",
       "matched": true,
@@ -5513,13 +5488,13 @@
       "area": "8301皮顺联络巷双风门风门双开",
       "sysaliasname": "安全监测",
       "coordinates": {
-        "x": 39437298.9177,
-        "y": 3956570.942,
-        "z": -585.8509
+        "x": 39437298.0397,
+        "y": 3956570.5492,
+        "z": -585.5774
       },
       "line_total_length": 1072.51,
-      "distance_along_line": 109.25,
-      "line_percentage": 10.2
+      "distance_along_line": 108.25,
+      "line_percentage": 10.1
     },
     {
       "id": "JKYCFGS01014001856P00",
@@ -5538,13 +5513,13 @@
       "area": "8301工作面劳动定员",
       "sysaliasname": "人员定位",
       "coordinates": {
-        "x": 39437299.7957,
-        "y": 3956571.3348,
-        "z": -586.1244
+        "x": 39437298.9177,
+        "y": 3956570.942,
+        "z": -585.8509
       },
       "line_total_length": 1072.51,
-      "distance_along_line": 110.25,
-      "line_percentage": 10.3
+      "distance_along_line": 109.25,
+      "line_percentage": 10.2
     },
     {
       "id": "JKYCFGS01014001857J00",
@@ -5561,6 +5536,31 @@
       "mark_type": "B15",
       "sensor_type": "人数",
       "area": "其他",
+      "sysaliasname": "人员定位",
+      "coordinates": {
+        "x": 39437299.7957,
+        "y": 3956571.3348,
+        "z": -586.1244
+      },
+      "line_total_length": 1072.51,
+      "distance_along_line": 110.25,
+      "line_percentage": 10.3
+    },
+    {
+      "id": "JKYCFGS01014001857P00",
+      "description": "8301皮顺联络巷2#_人数",
+      "matched": true,
+      "matched_name": "8301皮顺联络巷",
+      "tunnel_id": "BFA60782-A248-4F0F-85D3-779D51498CF6",
+      "matched_type": "tunnel",
+      "tunnel_type": "0-普通巷道",
+      "coalbed": "0300",
+      "match_lcs": 9,
+      "match_score": 11,
+      "confidence": "中",
+      "mark_type": "B15",
+      "sensor_type": "人数",
+      "area": "8301工作面劳动定员",
       "sysaliasname": "人员定位",
       "coordinates": {
         "x": 39437300.6738,
@@ -6599,81 +6599,6 @@
       "line_percentage": 15.1
     },
     {
-      "id": "JKYCFGS01014001858J00",
-      "description": "8301轨顺联络巷_人数",
-      "matched": true,
-      "matched_name": "8301轨顺联络巷",
-      "tunnel_id": "017A1018-2913-4F6B-9E7B-29BF60D52842",
-      "matched_type": "tunnel",
-      "tunnel_type": "0-普通巷道",
-      "coalbed": "0300",
-      "match_lcs": 9,
-      "match_score": 11,
-      "confidence": "中",
-      "mark_type": "B15",
-      "sensor_type": "人数",
-      "area": "其他",
-      "sysaliasname": "人员定位",
-      "coordinates": {
-        "x": 39437349.1163,
-        "y": 3956617.0506,
-        "z": -628.28
-      },
-      "line_total_length": 923.47,
-      "distance_along_line": 92.35,
-      "line_percentage": 10.0
-    },
-    {
-      "id": "JKYCFGS01014001858P00",
-      "description": "8301轨顺联络巷_人数",
-      "matched": true,
-      "matched_name": "8301轨顺联络巷",
-      "tunnel_id": "017A1018-2913-4F6B-9E7B-29BF60D52842",
-      "matched_type": "tunnel",
-      "tunnel_type": "0-普通巷道",
-      "coalbed": "0300",
-      "match_lcs": 9,
-      "match_score": 11,
-      "confidence": "中",
-      "mark_type": "B15",
-      "sensor_type": "人数",
-      "area": "8301工作面劳动定员",
-      "sysaliasname": "人员定位",
-      "coordinates": {
-        "x": 39437350.1163,
-        "y": 3956617.0505,
-        "z": -628.2675
-      },
-      "line_total_length": 923.47,
-      "distance_along_line": 93.35,
-      "line_percentage": 10.1
-    },
-    {
-      "id": "JKYCFGS01014001826X20",
-      "description": "8301轨顺联络巷_人数",
-      "matched": true,
-      "matched_name": "8301轨顺联络巷",
-      "tunnel_id": "017A1018-2913-4F6B-9E7B-29BF60D52842",
-      "matched_type": "tunnel",
-      "tunnel_type": "0-普通巷道",
-      "coalbed": "0300",
-      "match_lcs": 9,
-      "match_score": 11,
-      "confidence": "中",
-      "mark_type": "B15",
-      "sensor_type": "人数",
-      "area": "其他",
-      "sysaliasname": "人员定位",
-      "coordinates": {
-        "x": 39437351.1162,
-        "y": 3956617.0503,
-        "z": -628.255
-      },
-      "line_total_length": 923.47,
-      "distance_along_line": 94.35,
-      "line_percentage": 10.2
-    },
-    {
       "id": "JKYCFGS01014001815P10",
       "description": "清理斜巷入口_人数",
       "matched": true,
@@ -7610,15 +7535,65 @@
       "line_percentage": 11.2
     },
     {
-      "id": "JKYCFGS01014001862P10",
-      "description": "8301轨顺切眼_人数",
+      "id": "JKYCFGS01014001826X20",
+      "description": "8301轨顺联络巷_人数",
       "matched": true,
-      "matched_name": "8301切眼",
-      "tunnel_id": "F8CEA8A3-BF2F-4D87-B876-814CFDCDD765",
+      "matched_name": "8301轨顺联络巷",
+      "tunnel_id": "017A1018-2913-4F6B-9E7B-29BF60D52842",
       "matched_type": "tunnel",
-      "tunnel_type": "28-工作面切眼",
+      "tunnel_type": "0-普通巷道",
       "coalbed": "0300",
-      "match_lcs": 4,
+      "match_lcs": 9,
+      "match_score": 11,
+      "confidence": "中",
+      "mark_type": "B15",
+      "sensor_type": "人数",
+      "area": "其他",
+      "sysaliasname": "人员定位",
+      "coordinates": {
+        "x": 39437349.1163,
+        "y": 3956617.0506,
+        "z": -628.28
+      },
+      "line_total_length": 923.47,
+      "distance_along_line": 92.35,
+      "line_percentage": 10.0
+    },
+    {
+      "id": "JKYCFGS01014001858J00",
+      "description": "8301轨顺联络巷_人数",
+      "matched": true,
+      "matched_name": "8301轨顺联络巷",
+      "tunnel_id": "017A1018-2913-4F6B-9E7B-29BF60D52842",
+      "matched_type": "tunnel",
+      "tunnel_type": "0-普通巷道",
+      "coalbed": "0300",
+      "match_lcs": 9,
+      "match_score": 11,
+      "confidence": "中",
+      "mark_type": "B15",
+      "sensor_type": "人数",
+      "area": "其他",
+      "sysaliasname": "人员定位",
+      "coordinates": {
+        "x": 39437350.1163,
+        "y": 3956617.0505,
+        "z": -628.2675
+      },
+      "line_total_length": 923.47,
+      "distance_along_line": 93.35,
+      "line_percentage": 10.1
+    },
+    {
+      "id": "JKYCFGS01014001858P00",
+      "description": "8301轨顺联络巷_人数",
+      "matched": true,
+      "matched_name": "8301轨顺联络巷",
+      "tunnel_id": "017A1018-2913-4F6B-9E7B-29BF60D52842",
+      "matched_type": "tunnel",
+      "tunnel_type": "0-普通巷道",
+      "coalbed": "0300",
+      "match_lcs": 9,
       "match_score": 11,
       "confidence": "中",
       "mark_type": "B15",
@@ -7626,13 +7601,13 @@
       "area": "8301工作面劳动定员",
       "sysaliasname": "人员定位",
       "coordinates": {
-        "x": 39438267.9127,
-        "y": 3957771.2085,
-        "z": -488.9
+        "x": 39437351.1162,
+        "y": 3956617.0503,
+        "z": -628.255
       },
-      "line_total_length": 101.63,
-      "distance_along_line": 0.0,
-      "line_percentage": 0.0
+      "line_total_length": 923.47,
+      "distance_along_line": 94.35,
+      "line_percentage": 10.2
     },
     {
       "id": "JKYCFGS01014001853P20",
@@ -8106,6 +8081,31 @@
         "z": -626.6
       },
       "line_total_length": 589.54,
+      "distance_along_line": 0.0,
+      "line_percentage": 0.0
+    },
+    {
+      "id": "JKYCFGS01014001862P10",
+      "description": "8301轨顺切眼_人数",
+      "matched": true,
+      "matched_name": "8301切眼",
+      "tunnel_id": "F8CEA8A3-BF2F-4D87-B876-814CFDCDD765",
+      "matched_type": "tunnel",
+      "tunnel_type": "28-工作面切眼",
+      "coalbed": "0300",
+      "match_lcs": 4,
+      "match_score": 11,
+      "confidence": "中",
+      "mark_type": "B15",
+      "sensor_type": "人数",
+      "area": "8301工作面劳动定员",
+      "sysaliasname": "人员定位",
+      "coordinates": {
+        "x": 39438267.9127,
+        "y": 3957771.2085,
+        "z": -488.9
+      },
+      "line_total_length": 101.63,
       "distance_along_line": 0.0,
       "line_percentage": 0.0
     },
@@ -12673,39 +12673,6 @@
       ]
     },
     {
-      "id": "JKYCFGS01014001861P00",
-      "description": "八采区变电所_人数",
-      "mark_type": "B15",
-      "sensor_type": "人数",
-      "sysaliasname": "人员定位",
-      "reason": "SEMANTIC_CONFLICT",
-      "device_code": "8",
-      "area": "其他",
-      "candidates": [
-        {
-          "name": "中央变电所",
-          "score": 6,
-          "confidence": "拒绝",
-          "tunnel_type": "0-普通巷道",
-          "lcs": 3
-        },
-        {
-          "name": "六采区皮带上山",
-          "score": 3,
-          "confidence": "拒绝",
-          "tunnel_type": "0-普通巷道",
-          "lcs": 2
-        },
-        {
-          "name": "十采区轨道下山",
-          "score": 3,
-          "confidence": "拒绝",
-          "tunnel_type": "0-普通巷道",
-          "lcs": 2
-        }
-      ]
-    },
-    {
       "id": "JKYCFGS0101202054",
       "description": "1号压风机排气温度_环境温度",
       "mark_type": "B14",
@@ -13846,39 +13813,6 @@
           "confidence": "拒绝",
           "tunnel_type": "0-普通巷道",
           "lcs": 1
-        }
-      ]
-    },
-    {
-      "id": "JKYCFGS01014001861J00",
-      "description": "八采区变电所_人数",
-      "mark_type": "B15",
-      "sensor_type": "人数",
-      "sysaliasname": "人员定位",
-      "reason": "SEMANTIC_CONFLICT",
-      "device_code": "8",
-      "area": "其他",
-      "candidates": [
-        {
-          "name": "中央变电所",
-          "score": 6,
-          "confidence": "拒绝",
-          "tunnel_type": "0-普通巷道",
-          "lcs": 3
-        },
-        {
-          "name": "六采区皮带上山",
-          "score": 3,
-          "confidence": "拒绝",
-          "tunnel_type": "0-普通巷道",
-          "lcs": 2
-        },
-        {
-          "name": "十采区轨道下山",
-          "score": 3,
-          "confidence": "拒绝",
-          "tunnel_type": "0-普通巷道",
-          "lcs": 2
         }
       ]
     },
@@ -17755,39 +17689,6 @@
       "candidates": []
     },
     {
-      "id": "JKYCFGS011121ac5d8c4ad5a1f",
-      "description": "6302工作面33#架",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "sysaliasname": "工业视频",
-      "reason": "SEMANTIC_CONFLICT",
-      "device_code": "6302",
-      "area": "删除监控点",
-      "candidates": [
-        {
-          "name": "6302轨顺联络巷",
-          "score": 9,
-          "confidence": "拒绝",
-          "tunnel_type": "0-普通巷道",
-          "lcs": 4
-        },
-        {
-          "name": "8301工作面",
-          "score": -14,
-          "confidence": "拒绝",
-          "tunnel_type": "29-回采工作面巷道",
-          "lcs": 3
-        },
-        {
-          "name": "8301工作面",
-          "score": -14,
-          "confidence": "拒绝",
-          "tunnel_type": "25-工作面停采线",
-          "lcs": 3
-        }
-      ]
-    },
-    {
       "id": "JKYCFGS01112188dd0ca7b2561",
       "description": "3#变压器",
       "mark_type": "B16",
@@ -18184,39 +18085,6 @@
       ]
     },
     {
-      "id": "JKYCFGS011121b24863f786ca2",
-      "description": "八层楼梯间东",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "sysaliasname": "工业视频",
-      "reason": "LOW_LCS",
-      "device_code": null,
-      "area": "公寓楼",
-      "candidates": [
-        {
-          "name": "8301轨顺联络巷",
-          "score": 0,
-          "confidence": "拒绝",
-          "tunnel_type": "0-普通巷道",
-          "lcs": 0
-        },
-        {
-          "name": "六采区皮带上山",
-          "score": 0,
-          "confidence": "拒绝",
-          "tunnel_type": "0-普通巷道",
-          "lcs": 0
-        },
-        {
-          "name": "-650水平轨道大巷二号联络巷",
-          "score": 0,
-          "confidence": "拒绝",
-          "tunnel_type": "0-普通巷道",
-          "lcs": 0
-        }
-      ]
-    },
-    {
       "id": "JKYCFGS0111219f566fa2f178e",
       "description": "阳城二号井办公楼",
       "mark_type": "B16",
@@ -18286,39 +18154,6 @@
         },
         {
           "name": "中央泵房",
-          "score": 2,
-          "confidence": "拒绝",
-          "tunnel_type": "0-普通巷道",
-          "lcs": 1
-        }
-      ]
-    },
-    {
-      "id": "JKYCFGS011121ad59d316cb83c",
-      "description": "阳城二号井天轮",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "sysaliasname": "工业视频",
-      "reason": "LOW_LCS",
-      "device_code": null,
-      "area": "副井",
-      "candidates": [
-        {
-          "name": "风井",
-          "score": 5,
-          "confidence": "拒绝",
-          "tunnel_type": "1-罐笼井(双)",
-          "lcs": 1
-        },
-        {
-          "name": "-650水平轨道大巷二号联络巷",
-          "score": 3,
-          "confidence": "拒绝",
-          "tunnel_type": "0-普通巷道",
-          "lcs": 2
-        },
-        {
-          "name": "一号联络巷",
           "score": 2,
           "confidence": "拒绝",
           "tunnel_type": "0-普通巷道",
@@ -19262,105 +19097,6 @@
       ]
     },
     {
-      "id": "JKYCFGS011121af27bd19acb5e",
-      "description": "AO池西北球机",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "sysaliasname": "工业视频",
-      "reason": "LOW_LCS",
-      "device_code": null,
-      "area": "水处理站",
-      "candidates": [
-        {
-          "name": "南北区贯通联络巷Ⅱ段",
-          "score": 1,
-          "confidence": "拒绝",
-          "tunnel_type": "0-普通巷道",
-          "lcs": 1
-        },
-        {
-          "name": "-650南北区贯通联络巷",
-          "score": 1,
-          "confidence": "拒绝",
-          "tunnel_type": "0-普通巷道",
-          "lcs": 1
-        },
-        {
-          "name": "8301轨顺联络巷",
-          "score": 0,
-          "confidence": "拒绝",
-          "tunnel_type": "0-普通巷道",
-          "lcs": 0
-        }
-      ]
-    },
-    {
-      "id": "JKYCFGS011121abc4988a31960",
-      "description": "阳城二号井6302工作面17#架",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "sysaliasname": "工业视频",
-      "reason": "SEMANTIC_CONFLICT",
-      "device_code": "6302",
-      "area": "删除监控点",
-      "candidates": [
-        {
-          "name": "6302轨顺联络巷",
-          "score": 9,
-          "confidence": "拒绝",
-          "tunnel_type": "0-普通巷道",
-          "lcs": 4
-        },
-        {
-          "name": "8301工作面",
-          "score": -14,
-          "confidence": "拒绝",
-          "tunnel_type": "29-回采工作面巷道",
-          "lcs": 3
-        },
-        {
-          "name": "8301工作面",
-          "score": -14,
-          "confidence": "拒绝",
-          "tunnel_type": "25-工作面停采线",
-          "lcs": 3
-        }
-      ]
-    },
-    {
-      "id": "JKYCFGS011121af9282d523b9c",
-      "description": "室外东北角监控",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "sysaliasname": "工业视频",
-      "reason": "LOW_LCS",
-      "device_code": null,
-      "area": "35KV变电所",
-      "candidates": [
-        {
-          "name": "充电硐室",
-          "score": 2,
-          "confidence": "拒绝",
-          "tunnel_type": "0-普通巷道",
-          "lcs": 1
-        },
-        {
-          "name": "南北区贯通联络巷Ⅱ段",
-          "score": 1,
-          "confidence": "拒绝",
-          "tunnel_type": "0-普通巷道",
-          "lcs": 1
-        },
-        {
-          "name": "-650南北区贯通联络巷",
-          "score": 1,
-          "confidence": "拒绝",
-          "tunnel_type": "0-普通巷道",
-          "lcs": 1
-        }
-      ]
-    },
-    {
       "id": "JKYCFGS011121517d376b9daa3",
       "description": "四层电梯间西",
       "mark_type": "B16",
@@ -19823,39 +19559,6 @@
       "candidates": []
     },
     {
-      "id": "JKYCFGS011121abc8cabb82b92",
-      "description": "室外西北角监控",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "sysaliasname": "工业视频",
-      "reason": "LOW_LCS",
-      "device_code": null,
-      "area": "35KV变电所",
-      "candidates": [
-        {
-          "name": "充电硐室",
-          "score": 2,
-          "confidence": "拒绝",
-          "tunnel_type": "0-普通巷道",
-          "lcs": 1
-        },
-        {
-          "name": "南北区贯通联络巷Ⅱ段",
-          "score": 1,
-          "confidence": "拒绝",
-          "tunnel_type": "0-普通巷道",
-          "lcs": 1
-        },
-        {
-          "name": "-650南北区贯通联络巷",
-          "score": 1,
-          "confidence": "拒绝",
-          "tunnel_type": "0-普通巷道",
-          "lcs": 1
-        }
-      ]
-    },
-    {
       "id": "JKYCFGS011121001c9a4c172aa",
       "description": "阳城二号井100米",
       "mark_type": "B16",
@@ -20052,17 +19755,6 @@
           "lcs": 0
         }
       ]
-    },
-    {
-      "id": "JKYCFGS011121b124c8d229f55",
-      "description": "6楼脱泥筛3002",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "sysaliasname": "工业视频",
-      "reason": "AREA_SURFACE",
-      "device_code": "3002",
-      "area": "洗煤厂",
-      "candidates": []
     },
     {
       "id": "JKYCFGS01112120b3e1d38eb08",
@@ -20362,39 +20054,6 @@
       ]
     },
     {
-      "id": "JKYCFGS011121aac5d9621a5c1",
-      "description": "煤厂磅房值班室",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "sysaliasname": "工业视频",
-      "reason": "LOW_LCS",
-      "device_code": null,
-      "area": "岗位机台",
-      "candidates": [
-        {
-          "name": "充电硐室",
-          "score": 2,
-          "confidence": "拒绝",
-          "tunnel_type": "0-普通巷道",
-          "lcs": 1
-        },
-        {
-          "name": "中央泵房",
-          "score": 2,
-          "confidence": "拒绝",
-          "tunnel_type": "0-普通巷道",
-          "lcs": 1
-        },
-        {
-          "name": "8301轨顺联络巷",
-          "score": 0,
-          "confidence": "拒绝",
-          "tunnel_type": "0-普通巷道",
-          "lcs": 0
-        }
-      ]
-    },
-    {
       "id": "JKYCFGS01112100a2ebc8228dc",
       "description": "3楼浮精皮带",
       "mark_type": "B16",
@@ -20404,39 +20063,6 @@
       "device_code": null,
       "area": "洗煤厂",
       "candidates": []
-    },
-    {
-      "id": "JKYCFGS011121af713fb2b04fa",
-      "description": "压力间东北",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "sysaliasname": "工业视频",
-      "reason": "LOW_LCS",
-      "device_code": null,
-      "area": "水处理站",
-      "candidates": [
-        {
-          "name": "南北区贯通联络巷Ⅱ段",
-          "score": 1,
-          "confidence": "拒绝",
-          "tunnel_type": "0-普通巷道",
-          "lcs": 1
-        },
-        {
-          "name": "-650南北区贯通联络巷",
-          "score": 1,
-          "confidence": "拒绝",
-          "tunnel_type": "0-普通巷道",
-          "lcs": 1
-        },
-        {
-          "name": "8301轨顺联络巷",
-          "score": 0,
-          "confidence": "拒绝",
-          "tunnel_type": "0-普通巷道",
-          "lcs": 0
-        }
-      ]
     },
     {
       "id": "JKYCFGS011121777b128648c65",
@@ -21297,39 +20923,6 @@
       ]
     },
     {
-      "id": "JKYCFGS011121aee8e1a5a97c0",
-      "description": "主提1-1007",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "sysaliasname": "工业视频",
-      "reason": "CODE_MISMATCH",
-      "device_code": "-1007",
-      "area": "35KV变电所",
-      "candidates": [
-        {
-          "name": "8301切眼",
-          "score": -18,
-          "confidence": "拒绝",
-          "tunnel_type": "28-工作面切眼",
-          "lcs": 1
-        },
-        {
-          "name": "8301轨顺联络巷",
-          "score": -19,
-          "confidence": "拒绝",
-          "tunnel_type": "0-普通巷道",
-          "lcs": 1
-        },
-        {
-          "name": "-650水平轨道大巷二号联络巷",
-          "score": -19,
-          "confidence": "拒绝",
-          "tunnel_type": "0-普通巷道",
-          "lcs": 1
-        }
-      ]
-    },
-    {
       "id": "JKYCFGS0111216267ac73d98dc",
       "description": "阳城二号井副井尾绳",
       "mark_type": "B16",
@@ -21359,6 +20952,39 @@
           "confidence": "拒绝",
           "tunnel_type": "0-普通巷道",
           "lcs": 1
+        }
+      ]
+    },
+    {
+      "id": "JKYCFGS01014001861P00",
+      "description": "八采区变电所_人数",
+      "mark_type": "B15",
+      "sensor_type": "人数",
+      "sysaliasname": "人员定位",
+      "reason": "SEMANTIC_CONFLICT",
+      "device_code": "8",
+      "area": "其他",
+      "candidates": [
+        {
+          "name": "中央变电所",
+          "score": 6,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 3
+        },
+        {
+          "name": "六采区皮带上山",
+          "score": 3,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 2
+        },
+        {
+          "name": "十采区轨道下山",
+          "score": 3,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 2
         }
       ]
     },
@@ -22045,39 +21671,6 @@
       "candidates": []
     },
     {
-      "id": "JKYCFGS011121ae323bfdbf778",
-      "description": "阳城二号井入口",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "sysaliasname": "工业视频",
-      "reason": "LOW_LCS",
-      "device_code": null,
-      "area": "十采区轨道下山",
-      "candidates": [
-        {
-          "name": "风井",
-          "score": 5,
-          "confidence": "拒绝",
-          "tunnel_type": "1-罐笼井(双)",
-          "lcs": 1
-        },
-        {
-          "name": "-650水平轨道大巷二号联络巷",
-          "score": 3,
-          "confidence": "拒绝",
-          "tunnel_type": "0-普通巷道",
-          "lcs": 2
-        },
-        {
-          "name": "一号联络巷",
-          "score": 2,
-          "confidence": "拒绝",
-          "tunnel_type": "0-普通巷道",
-          "lcs": 1
-        }
-      ]
-    },
-    {
       "id": "JKYCFGS01112197117281e3427",
       "description": "IPCamera 11",
       "mark_type": "B16",
@@ -22551,17 +22144,6 @@
       "candidates": []
     },
     {
-      "id": "JKYCFGS011121af9375a7f4b75",
-      "description": "洗煤场北杆向南",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "sysaliasname": "工业视频",
-      "reason": "AREA_SURFACE",
-      "device_code": null,
-      "area": "工矿区",
-      "candidates": []
-    },
-    {
       "id": "JKYCFGS0111216694593928534",
       "description": "10kV西北-室内",
       "mark_type": "B16",
@@ -22727,17 +22309,6 @@
       ]
     },
     {
-      "id": "JKYCFGS011121aa70df1ce80b7",
-      "description": "东磅北摄像头",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "sysaliasname": "工业视频",
-      "reason": "AREA_SURFACE",
-      "device_code": null,
-      "area": "磅房",
-      "candidates": []
-    },
-    {
       "id": "JKYCFGS0111218fbe432d622a2",
       "description": "西北杆向北",
       "mark_type": "B16",
@@ -22826,39 +22397,6 @@
       "candidates": [
         {
           "name": "南北区贯通联络巷Ⅱ段",
-          "score": 1,
-          "confidence": "拒绝",
-          "tunnel_type": "0-普通巷道",
-          "lcs": 1
-        },
-        {
-          "name": "-650南北区贯通联络巷",
-          "score": 1,
-          "confidence": "拒绝",
-          "tunnel_type": "0-普通巷道",
-          "lcs": 1
-        },
-        {
-          "name": "8301轨顺联络巷",
-          "score": 0,
-          "confidence": "拒绝",
-          "tunnel_type": "0-普通巷道",
-          "lcs": 0
-        }
-      ]
-    },
-    {
-      "id": "JKYCFGS011121ac364c9478d6c",
-      "description": "东5",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "sysaliasname": "工业视频",
-      "reason": "LOW_LCS",
-      "device_code": null,
-      "area": "围墙",
-      "candidates": [
-        {
-          "name": "-650水平轨道大巷二号联络巷",
           "score": 1,
           "confidence": "拒绝",
           "tunnel_type": "0-普通巷道",
@@ -23495,17 +23033,6 @@
           "lcs": 1
         }
       ]
-    },
-    {
-      "id": "JKYCFGS011121abfef7b94436e",
-      "description": "北",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "sysaliasname": "工业视频",
-      "reason": "AREA_SURFACE",
-      "device_code": null,
-      "area": "洗煤厂",
-      "candidates": []
     },
     {
       "id": "JKYCFGS011121414d0f6beefb8",
@@ -24443,6 +23970,39 @@
       ]
     },
     {
+      "id": "JKYCFGS01014001861J00",
+      "description": "八采区变电所_人数",
+      "mark_type": "B15",
+      "sensor_type": "人数",
+      "sysaliasname": "人员定位",
+      "reason": "SEMANTIC_CONFLICT",
+      "device_code": "8",
+      "area": "其他",
+      "candidates": [
+        {
+          "name": "中央变电所",
+          "score": 6,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 3
+        },
+        {
+          "name": "六采区皮带上山",
+          "score": 3,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 2
+        },
+        {
+          "name": "十采区轨道下山",
+          "score": 3,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 2
+        }
+      ]
+    },
+    {
       "id": "JKYCFGS0111219e4588d30666c",
       "description": "6302工作面45#架",
       "mark_type": "B16",
@@ -24637,39 +24197,6 @@
         },
         {
           "name": "中央变电所",
-          "score": 2,
-          "confidence": "拒绝",
-          "tunnel_type": "0-普通巷道",
-          "lcs": 1
-        },
-        {
-          "name": "8301轨顺联络巷",
-          "score": 0,
-          "confidence": "拒绝",
-          "tunnel_type": "0-普通巷道",
-          "lcs": 0
-        }
-      ]
-    },
-    {
-      "id": "JKYCFGS011121a8502a67c7838",
-      "description": "西中向东",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "sysaliasname": "工业视频",
-      "reason": "LOW_LCS",
-      "device_code": null,
-      "area": "停车场",
-      "candidates": [
-        {
-          "name": "中央变电所",
-          "score": 2,
-          "confidence": "拒绝",
-          "tunnel_type": "0-普通巷道",
-          "lcs": 1
-        },
-        {
-          "name": "中央泵房",
           "score": 2,
           "confidence": "拒绝",
           "tunnel_type": "0-普通巷道",
@@ -25279,72 +24806,6 @@
       ]
     },
     {
-      "id": "JKYCFGS011121acc577c327d96",
-      "description": "南门向北1",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "sysaliasname": "工业视频",
-      "reason": "LOW_LCS",
-      "device_code": null,
-      "area": "南-西门",
-      "candidates": [
-        {
-          "name": "8301切眼",
-          "score": 2,
-          "confidence": "拒绝",
-          "tunnel_type": "28-工作面切眼",
-          "lcs": 1
-        },
-        {
-          "name": "8301轨顺联络巷",
-          "score": 1,
-          "confidence": "拒绝",
-          "tunnel_type": "0-普通巷道",
-          "lcs": 1
-        },
-        {
-          "name": "6301皮顺联络巷",
-          "score": 1,
-          "confidence": "拒绝",
-          "tunnel_type": "0-普通巷道",
-          "lcs": 1
-        }
-      ]
-    },
-    {
-      "id": "JKYCFGS011121b07eeda2b84fe",
-      "description": "200米",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "sysaliasname": "工业视频",
-      "reason": "LOW_LCS",
-      "device_code": null,
-      "area": "十采区轨道下山",
-      "candidates": [
-        {
-          "name": "8301切眼",
-          "score": 2,
-          "confidence": "拒绝",
-          "tunnel_type": "28-工作面切眼",
-          "lcs": 1
-        },
-        {
-          "name": "8301轨顺联络巷",
-          "score": 1,
-          "confidence": "拒绝",
-          "tunnel_type": "0-普通巷道",
-          "lcs": 1
-        },
-        {
-          "name": "-650水平轨道大巷二号联络巷",
-          "score": 1,
-          "confidence": "拒绝",
-          "tunnel_type": "0-普通巷道",
-          "lcs": 1
-        }
-      ]
-    },
-    {
       "id": "JKYCFGS01112145623ab768d5e",
       "description": "阳城二号井",
       "mark_type": "B16",
@@ -25574,17 +25035,6 @@
           "lcs": 1
         }
       ]
-    },
-    {
-      "id": "JKYCFGS011121abfcade43a24c",
-      "description": "集运队会议室",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "sysaliasname": "工业视频",
-      "reason": "AREA_SURFACE",
-      "device_code": null,
-      "area": "区队会议室",
-      "candidates": []
     },
     {
       "id": "JKYCFGS0111217bdbdd586fd4b",
@@ -26665,39 +26115,6 @@
       ]
     },
     {
-      "id": "JKYCFGS011121aafbaef3cef31",
-      "description": "阳城二号井200米",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "sysaliasname": "工业视频",
-      "reason": "LOW_LCS",
-      "device_code": null,
-      "area": "十采区胶带下山",
-      "candidates": [
-        {
-          "name": "风井",
-          "score": 5,
-          "confidence": "拒绝",
-          "tunnel_type": "1-罐笼井(双)",
-          "lcs": 1
-        },
-        {
-          "name": "-650水平轨道大巷二号联络巷",
-          "score": 3,
-          "confidence": "拒绝",
-          "tunnel_type": "0-普通巷道",
-          "lcs": 2
-        },
-        {
-          "name": "一号联络巷",
-          "score": 2,
-          "confidence": "拒绝",
-          "tunnel_type": "0-普通巷道",
-          "lcs": 1
-        }
-      ]
-    },
-    {
       "id": "JKYCFGS0111213b692b80979d9",
       "description": "3803北浓缩池溢流堰",
       "mark_type": "B16",
@@ -26988,39 +26405,6 @@
         {
           "name": "-650水平轨道大巷二号联络巷",
           "score": 1,
-          "confidence": "拒绝",
-          "tunnel_type": "0-普通巷道",
-          "lcs": 1
-        }
-      ]
-    },
-    {
-      "id": "JKYCFGS011121a7a870f29e15d",
-      "description": "一楼洗衣房2",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "sysaliasname": "工业视频",
-      "reason": "LOW_LCS",
-      "device_code": null,
-      "area": "行政楼",
-      "candidates": [
-        {
-          "name": "一号联络巷",
-          "score": 2,
-          "confidence": "拒绝",
-          "tunnel_type": "0-普通巷道",
-          "lcs": 1
-        },
-        {
-          "name": "一号联络巷",
-          "score": 2,
-          "confidence": "拒绝",
-          "tunnel_type": "0-普通巷道",
-          "lcs": 1
-        },
-        {
-          "name": "中央泵房",
-          "score": 2,
           "confidence": "拒绝",
           "tunnel_type": "0-普通巷道",
           "lcs": 1
@@ -27369,39 +26753,6 @@
       ]
     },
     {
-      "id": "JKYCFGS011121ad0f869fdc97f",
-      "description": "35kV西",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "sysaliasname": "工业视频",
-      "reason": "LOW_LCS",
-      "device_code": null,
-      "area": "35KV变电所",
-      "candidates": [
-        {
-          "name": "8301切眼",
-          "score": 2,
-          "confidence": "拒绝",
-          "tunnel_type": "28-工作面切眼",
-          "lcs": 1
-        },
-        {
-          "name": "8301轨顺联络巷",
-          "score": 1,
-          "confidence": "拒绝",
-          "tunnel_type": "0-普通巷道",
-          "lcs": 1
-        },
-        {
-          "name": "-650水平轨道大巷二号联络巷",
-          "score": 1,
-          "confidence": "拒绝",
-          "tunnel_type": "0-普通巷道",
-          "lcs": 1
-        }
-      ]
-    },
-    {
       "id": "JKYCFGS0111211ac8748e206be",
       "description": "2楼901皮带机尾",
       "mark_type": "B16",
@@ -27619,17 +26970,6 @@
       "reason": "AREA_SURFACE",
       "device_code": null,
       "area": "磅房",
-      "candidates": []
-    },
-    {
-      "id": "JKYCFGS011121b16585d89ca5e",
-      "description": "3008矸石脱介筛",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "sysaliasname": "工业视频",
-      "reason": "AREA_SURFACE",
-      "device_code": "3008",
-      "area": "洗煤厂",
       "candidates": []
     },
     {
@@ -27972,39 +27312,6 @@
       "device_code": null,
       "area": "行政会议室",
       "candidates": []
-    },
-    {
-      "id": "JKYCFGS011121b09f7f2037ca0",
-      "description": "6302工作面97#架",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "sysaliasname": "工业视频",
-      "reason": "SEMANTIC_CONFLICT",
-      "device_code": "6302",
-      "area": "删除监控点",
-      "candidates": [
-        {
-          "name": "6302轨顺联络巷",
-          "score": 9,
-          "confidence": "拒绝",
-          "tunnel_type": "0-普通巷道",
-          "lcs": 4
-        },
-        {
-          "name": "8301工作面",
-          "score": -14,
-          "confidence": "拒绝",
-          "tunnel_type": "29-回采工作面巷道",
-          "lcs": 3
-        },
-        {
-          "name": "8301工作面",
-          "score": -14,
-          "confidence": "拒绝",
-          "tunnel_type": "25-工作面停采线",
-          "lcs": 3
-        }
-      ]
     },
     {
       "id": "JKYCFGS0111211d383ffa37dfc",
@@ -29723,6 +29030,39 @@
       "candidates": []
     },
     {
+      "id": "JKYCFGS011121ac5d8c4ad5a1f",
+      "description": "6302工作面33#架",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "sysaliasname": "工业视频",
+      "reason": "SEMANTIC_CONFLICT",
+      "device_code": "6302",
+      "area": "删除监控点",
+      "candidates": [
+        {
+          "name": "6302轨顺联络巷",
+          "score": 9,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 4
+        },
+        {
+          "name": "8301工作面",
+          "score": -14,
+          "confidence": "拒绝",
+          "tunnel_type": "29-回采工作面巷道",
+          "lcs": 3
+        },
+        {
+          "name": "8301工作面",
+          "score": -14,
+          "confidence": "拒绝",
+          "tunnel_type": "25-工作面停采线",
+          "lcs": 3
+        }
+      ]
+    },
+    {
       "id": "JKYCFGS011121ddced3a68cc2d",
       "description": "IPCamera 12",
       "mark_type": "B16",
@@ -29921,6 +29261,39 @@
       "candidates": []
     },
     {
+      "id": "JKYCFGS011121b24863f786ca2",
+      "description": "八层楼梯间东",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "sysaliasname": "工业视频",
+      "reason": "LOW_LCS",
+      "device_code": null,
+      "area": "公寓楼",
+      "candidates": [
+        {
+          "name": "8301轨顺联络巷",
+          "score": 0,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 0
+        },
+        {
+          "name": "六采区皮带上山",
+          "score": 0,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 0
+        },
+        {
+          "name": "-650水平轨道大巷二号联络巷",
+          "score": 0,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 0
+        }
+      ]
+    },
+    {
       "id": "JKYCFGS011121b61eb0e447dc7",
       "description": "主井卸载站下口",
       "mark_type": "B16",
@@ -29949,6 +29322,39 @@
           "score": 2,
           "confidence": "拒绝",
           "tunnel_type": "2-箕斗立井",
+          "lcs": 1
+        }
+      ]
+    },
+    {
+      "id": "JKYCFGS011121ad59d316cb83c",
+      "description": "阳城二号井天轮",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "sysaliasname": "工业视频",
+      "reason": "LOW_LCS",
+      "device_code": null,
+      "area": "副井",
+      "candidates": [
+        {
+          "name": "风井",
+          "score": 5,
+          "confidence": "拒绝",
+          "tunnel_type": "1-罐笼井(双)",
+          "lcs": 1
+        },
+        {
+          "name": "-650水平轨道大巷二号联络巷",
+          "score": 3,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 2
+        },
+        {
+          "name": "一号联络巷",
+          "score": 2,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
           "lcs": 1
         }
       ]
@@ -30328,6 +29734,105 @@
       ]
     },
     {
+      "id": "JKYCFGS011121af27bd19acb5e",
+      "description": "AO池西北球机",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "sysaliasname": "工业视频",
+      "reason": "LOW_LCS",
+      "device_code": null,
+      "area": "水处理站",
+      "candidates": [
+        {
+          "name": "南北区贯通联络巷Ⅱ段",
+          "score": 1,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 1
+        },
+        {
+          "name": "-650南北区贯通联络巷",
+          "score": 1,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 1
+        },
+        {
+          "name": "8301轨顺联络巷",
+          "score": 0,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 0
+        }
+      ]
+    },
+    {
+      "id": "JKYCFGS011121abc4988a31960",
+      "description": "阳城二号井6302工作面17#架",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "sysaliasname": "工业视频",
+      "reason": "SEMANTIC_CONFLICT",
+      "device_code": "6302",
+      "area": "删除监控点",
+      "candidates": [
+        {
+          "name": "6302轨顺联络巷",
+          "score": 9,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 4
+        },
+        {
+          "name": "8301工作面",
+          "score": -14,
+          "confidence": "拒绝",
+          "tunnel_type": "29-回采工作面巷道",
+          "lcs": 3
+        },
+        {
+          "name": "8301工作面",
+          "score": -14,
+          "confidence": "拒绝",
+          "tunnel_type": "25-工作面停采线",
+          "lcs": 3
+        }
+      ]
+    },
+    {
+      "id": "JKYCFGS011121af9282d523b9c",
+      "description": "室外东北角监控",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "sysaliasname": "工业视频",
+      "reason": "LOW_LCS",
+      "device_code": null,
+      "area": "35KV变电所",
+      "candidates": [
+        {
+          "name": "充电硐室",
+          "score": 2,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 1
+        },
+        {
+          "name": "南北区贯通联络巷Ⅱ段",
+          "score": 1,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 1
+        },
+        {
+          "name": "-650南北区贯通联络巷",
+          "score": 1,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 1
+        }
+      ]
+    },
+    {
       "id": "JKYCFGS011121feca0a45cc7f2",
       "description": "东南角",
       "mark_type": "B16",
@@ -30559,6 +30064,39 @@
       "candidates": []
     },
     {
+      "id": "JKYCFGS011121abc8cabb82b92",
+      "description": "室外西北角监控",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "sysaliasname": "工业视频",
+      "reason": "LOW_LCS",
+      "device_code": null,
+      "area": "35KV变电所",
+      "candidates": [
+        {
+          "name": "充电硐室",
+          "score": 2,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 1
+        },
+        {
+          "name": "南北区贯通联络巷Ⅱ段",
+          "score": 1,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 1
+        },
+        {
+          "name": "-650南北区贯通联络巷",
+          "score": 1,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 1
+        }
+      ]
+    },
+    {
       "id": "JKYCFGS011121e898fda02e1ed",
       "description": "SVG1低压室",
       "mark_type": "B16",
@@ -30590,6 +30128,17 @@
           "lcs": 1
         }
       ]
+    },
+    {
+      "id": "JKYCFGS011121b124c8d229f55",
+      "description": "6楼脱泥筛3002",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "sysaliasname": "工业视频",
+      "reason": "AREA_SURFACE",
+      "device_code": "3002",
+      "area": "洗煤厂",
+      "candidates": []
     },
     {
       "id": "JKYCFGS011121cc83272a86471",
@@ -30797,6 +30346,72 @@
           "confidence": "拒绝",
           "tunnel_type": "27-工作面进风巷(胶运顺槽)",
           "lcs": 3
+        }
+      ]
+    },
+    {
+      "id": "JKYCFGS011121aac5d9621a5c1",
+      "description": "煤厂磅房值班室",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "sysaliasname": "工业视频",
+      "reason": "LOW_LCS",
+      "device_code": null,
+      "area": "岗位机台",
+      "candidates": [
+        {
+          "name": "充电硐室",
+          "score": 2,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 1
+        },
+        {
+          "name": "中央泵房",
+          "score": 2,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 1
+        },
+        {
+          "name": "8301轨顺联络巷",
+          "score": 0,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 0
+        }
+      ]
+    },
+    {
+      "id": "JKYCFGS011121af713fb2b04fa",
+      "description": "压力间东北",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "sysaliasname": "工业视频",
+      "reason": "LOW_LCS",
+      "device_code": null,
+      "area": "水处理站",
+      "candidates": [
+        {
+          "name": "南北区贯通联络巷Ⅱ段",
+          "score": 1,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 1
+        },
+        {
+          "name": "-650南北区贯通联络巷",
+          "score": 1,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 1
+        },
+        {
+          "name": "8301轨顺联络巷",
+          "score": 0,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 0
         }
       ]
     },
@@ -31340,6 +30955,39 @@
       ]
     },
     {
+      "id": "JKYCFGS011121aee8e1a5a97c0",
+      "description": "主提1-1007",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "sysaliasname": "工业视频",
+      "reason": "CODE_MISMATCH",
+      "device_code": "-1007",
+      "area": "35KV变电所",
+      "candidates": [
+        {
+          "name": "8301切眼",
+          "score": -18,
+          "confidence": "拒绝",
+          "tunnel_type": "28-工作面切眼",
+          "lcs": 1
+        },
+        {
+          "name": "8301轨顺联络巷",
+          "score": -19,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 1
+        },
+        {
+          "name": "-650水平轨道大巷二号联络巷",
+          "score": -19,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 1
+        }
+      ]
+    },
+    {
       "id": "JKYCFGS011121e70fba5441e14",
       "description": "1楼配电室-球",
       "mark_type": "B16",
@@ -31670,6 +31318,39 @@
       "candidates": []
     },
     {
+      "id": "JKYCFGS011121ae323bfdbf778",
+      "description": "阳城二号井入口",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "sysaliasname": "工业视频",
+      "reason": "LOW_LCS",
+      "device_code": null,
+      "area": "十采区轨道下山",
+      "candidates": [
+        {
+          "name": "风井",
+          "score": 5,
+          "confidence": "拒绝",
+          "tunnel_type": "1-罐笼井(双)",
+          "lcs": 1
+        },
+        {
+          "name": "-650水平轨道大巷二号联络巷",
+          "score": 3,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 2
+        },
+        {
+          "name": "一号联络巷",
+          "score": 2,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 1
+        }
+      ]
+    },
+    {
       "id": "JKYCFGS011121f477b81b44efc",
       "description": "机房东门",
       "mark_type": "B16",
@@ -31912,6 +31593,17 @@
       "candidates": []
     },
     {
+      "id": "JKYCFGS011121af9375a7f4b75",
+      "description": "洗煤场北杆向南",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "sysaliasname": "工业视频",
+      "reason": "AREA_SURFACE",
+      "device_code": null,
+      "area": "工矿区",
+      "candidates": []
+    },
+    {
       "id": "JKYCFGS011121b560e3adf7265",
       "description": "阳城二号井煤仓上口",
       "mark_type": "B16",
@@ -32033,6 +31725,17 @@
       "candidates": []
     },
     {
+      "id": "JKYCFGS011121aa70df1ce80b7",
+      "description": "东磅北摄像头",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "sysaliasname": "工业视频",
+      "reason": "AREA_SURFACE",
+      "device_code": null,
+      "area": "磅房",
+      "candidates": []
+    },
+    {
       "id": "JKYCFGS011121bf1443a4ab920",
       "description": "6302工作面81#架",
       "mark_type": "B16",
@@ -32077,6 +31780,39 @@
       "candidates": [
         {
           "name": "南北区贯通联络巷Ⅱ段",
+          "score": 1,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 1
+        },
+        {
+          "name": "-650南北区贯通联络巷",
+          "score": 1,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 1
+        },
+        {
+          "name": "8301轨顺联络巷",
+          "score": 0,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 0
+        }
+      ]
+    },
+    {
+      "id": "JKYCFGS011121ac364c9478d6c",
+      "description": "东5",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "sysaliasname": "工业视频",
+      "reason": "LOW_LCS",
+      "device_code": null,
+      "area": "围墙",
+      "candidates": [
+        {
+          "name": "-650水平轨道大巷二号联络巷",
           "score": 1,
           "confidence": "拒绝",
           "tunnel_type": "0-普通巷道",
@@ -32284,6 +32020,17 @@
           "lcs": 1
         }
       ]
+    },
+    {
+      "id": "JKYCFGS011121abfef7b94436e",
+      "description": "北",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "sysaliasname": "工业视频",
+      "reason": "AREA_SURFACE",
+      "device_code": null,
+      "area": "洗煤厂",
+      "candidates": []
     },
     {
       "id": "JKYCFGS011121f263382405336",
@@ -32737,6 +32484,39 @@
       ]
     },
     {
+      "id": "JKYCFGS011121a8502a67c7838",
+      "description": "西中向东",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "sysaliasname": "工业视频",
+      "reason": "LOW_LCS",
+      "device_code": null,
+      "area": "停车场",
+      "candidates": [
+        {
+          "name": "中央变电所",
+          "score": 2,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 1
+        },
+        {
+          "name": "中央泵房",
+          "score": 2,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 1
+        },
+        {
+          "name": "8301轨顺联络巷",
+          "score": 0,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 0
+        }
+      ]
+    },
+    {
       "id": "JKYCFGS011121d9528147de600",
       "description": "东",
       "mark_type": "B16",
@@ -33155,6 +32935,72 @@
       ]
     },
     {
+      "id": "JKYCFGS011121acc577c327d96",
+      "description": "南门向北1",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "sysaliasname": "工业视频",
+      "reason": "LOW_LCS",
+      "device_code": null,
+      "area": "南-西门",
+      "candidates": [
+        {
+          "name": "8301切眼",
+          "score": 2,
+          "confidence": "拒绝",
+          "tunnel_type": "28-工作面切眼",
+          "lcs": 1
+        },
+        {
+          "name": "8301轨顺联络巷",
+          "score": 1,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 1
+        },
+        {
+          "name": "6301皮顺联络巷",
+          "score": 1,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 1
+        }
+      ]
+    },
+    {
+      "id": "JKYCFGS011121b07eeda2b84fe",
+      "description": "200米",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "sysaliasname": "工业视频",
+      "reason": "LOW_LCS",
+      "device_code": null,
+      "area": "十采区轨道下山",
+      "candidates": [
+        {
+          "name": "8301切眼",
+          "score": 2,
+          "confidence": "拒绝",
+          "tunnel_type": "28-工作面切眼",
+          "lcs": 1
+        },
+        {
+          "name": "8301轨顺联络巷",
+          "score": 1,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 1
+        },
+        {
+          "name": "-650水平轨道大巷二号联络巷",
+          "score": 1,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 1
+        }
+      ]
+    },
+    {
       "id": "JKYCFGS011121d3dfedc7e8ee6",
       "description": "阳城二号井6302工作面切眼5",
       "mark_type": "B16",
@@ -33196,6 +33042,17 @@
       "reason": "AREA_SURFACE",
       "device_code": "213",
       "area": "洗煤厂",
+      "candidates": []
+    },
+    {
+      "id": "JKYCFGS011121abfcade43a24c",
+      "description": "集运队会议室",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "sysaliasname": "工业视频",
+      "reason": "AREA_SURFACE",
+      "device_code": null,
+      "area": "区队会议室",
       "candidates": []
     },
     {
@@ -33562,6 +33419,39 @@
       "candidates": []
     },
     {
+      "id": "JKYCFGS011121aafbaef3cef31",
+      "description": "阳城二号井200米",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "sysaliasname": "工业视频",
+      "reason": "LOW_LCS",
+      "device_code": null,
+      "area": "十采区胶带下山",
+      "candidates": [
+        {
+          "name": "风井",
+          "score": 5,
+          "confidence": "拒绝",
+          "tunnel_type": "1-罐笼井(双)",
+          "lcs": 1
+        },
+        {
+          "name": "-650水平轨道大巷二号联络巷",
+          "score": 3,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 2
+        },
+        {
+          "name": "一号联络巷",
+          "score": 2,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 1
+        }
+      ]
+    },
+    {
       "id": "JKYCFGS011121f07ea0e164f5c",
       "description": "阳城二号井8302轨顺综掘机一运",
       "mark_type": "B16",
@@ -33591,6 +33481,39 @@
           "confidence": "拒绝",
           "tunnel_type": "27-工作面进风巷(胶运顺槽)",
           "lcs": 3
+        }
+      ]
+    },
+    {
+      "id": "JKYCFGS011121a7a870f29e15d",
+      "description": "一楼洗衣房2",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "sysaliasname": "工业视频",
+      "reason": "LOW_LCS",
+      "device_code": null,
+      "area": "行政楼",
+      "candidates": [
+        {
+          "name": "一号联络巷",
+          "score": 2,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 1
+        },
+        {
+          "name": "一号联络巷",
+          "score": 2,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 1
+        },
+        {
+          "name": "中央泵房",
+          "score": 2,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 1
         }
       ]
     },
@@ -33714,6 +33637,39 @@
       "device_code": null,
       "area": "洗煤厂",
       "candidates": []
+    },
+    {
+      "id": "JKYCFGS011121ad0f869fdc97f",
+      "description": "35kV西",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "sysaliasname": "工业视频",
+      "reason": "LOW_LCS",
+      "device_code": null,
+      "area": "35KV变电所",
+      "candidates": [
+        {
+          "name": "8301切眼",
+          "score": 2,
+          "confidence": "拒绝",
+          "tunnel_type": "28-工作面切眼",
+          "lcs": 1
+        },
+        {
+          "name": "8301轨顺联络巷",
+          "score": 1,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 1
+        },
+        {
+          "name": "-650水平轨道大巷二号联络巷",
+          "score": 1,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 1
+        }
+      ]
     },
     {
       "id": "JKYCFGS011121f7c0f4084feb9",
@@ -33903,6 +33859,17 @@
       ]
     },
     {
+      "id": "JKYCFGS011121b16585d89ca5e",
+      "description": "3008矸石脱介筛",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "sysaliasname": "工业视频",
+      "reason": "AREA_SURFACE",
+      "device_code": "3008",
+      "area": "洗煤厂",
+      "candidates": []
+    },
+    {
       "id": "JKYCFGS011121f456938a3e03c",
       "description": "IPdome",
       "mark_type": "B16",
@@ -34031,6 +33998,39 @@
           "confidence": "拒绝",
           "tunnel_type": "0-普通巷道",
           "lcs": 0
+        }
+      ]
+    },
+    {
+      "id": "JKYCFGS011121b09f7f2037ca0",
+      "description": "6302工作面97#架",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "sysaliasname": "工业视频",
+      "reason": "SEMANTIC_CONFLICT",
+      "device_code": "6302",
+      "area": "删除监控点",
+      "candidates": [
+        {
+          "name": "6302轨顺联络巷",
+          "score": 9,
+          "confidence": "拒绝",
+          "tunnel_type": "0-普通巷道",
+          "lcs": 4
+        },
+        {
+          "name": "8301工作面",
+          "score": -14,
+          "confidence": "拒绝",
+          "tunnel_type": "29-回采工作面巷道",
+          "lcs": 3
+        },
+        {
+          "name": "8301工作面",
+          "score": -14,
+          "confidence": "拒绝",
+          "tunnel_type": "25-工作面停采线",
+          "lcs": 3
         }
       ]
     },
@@ -34233,11 +34233,843 @@
       ]
     }
   ],
-  "warnings": [
+  "warnings": [],
+  "originData": [
     {
-      "type": "unnamed_tunnels_excluded",
-      "count": 11,
-      "message": "11 条巷道缺少名称（name字段为空），无法作为候选参与设备匹配，已从候选池排除。"
+      "id": "JKYCFGS010120126F00",
+      "description": "中央变电所",
+      "tunnel_id": "6DE8C120-4186-494A-9B22-088CC4FD93D4",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 39437256.5221,
+        "y": 3956587.5631,
+        "z": -626.53
+      }
+    },
+    {
+      "id": "JKYCFGS010120143",
+      "description": "中央泵房 温度_环境温度",
+      "tunnel_id": "6DE8C120-4186-494A-9B22-088CC4FD93D4",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 39437256.0621,
+        "y": 3956523.4531,
+        "z": -625.79
+      }
+    },
+    {
+      "id": "JKYCFGS010120176",
+      "description": "六采区回风流GD3（A）甲烷_环境瓦斯",
+      "tunnel_id": "059A2600-D8EF-49D9-9BA3-B2B3C9E938C8",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 39437502.2121,
+        "y": 3956666.2831,
+        "z": -626.11
+      }
+    },
+    {
+      "id": "JKYCFGS010120177",
+      "description": "六采区回风流GD3（A）一氧化碳",
+      "tunnel_id": "059A2600-D8EF-49D9-9BA3-B2B3C9E938C8",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 39437502.2121,
+        "y": 3956666.2831,
+        "z": -626.11
+      }
+    },
+    {
+      "id": "JKYCFGS010120178",
+      "description": "六采区回风流GD3（A）温度_环境温度",
+      "tunnel_id": "059A2600-D8EF-49D9-9BA3-B2B3C9E938C8",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 39437502.2121,
+        "y": 3956666.2831,
+        "z": -626.11
+      }
+    },
+    {
+      "id": "JKYCFGS010120229",
+      "description": "单轨吊充电硐室温度_环境温度",
+      "tunnel_id": "90096C5E-5C79-4E4A-A563-4AB6938FE0-x",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 39437426.3991,
+        "y": 3956584.7822,
+        "z": -629.2
+      }
+    },
+    {
+      "id": "JKYCFGS010120410",
+      "description": "中央变电所 温度_环境温度",
+      "tunnel_id": "6DE8C120-4186-494A-9B22-088CC4FD93D4",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 39437256.5521,
+        "y": 3956590.5631,
+        "z": -626.55
+      }
+    },
+    {
+      "id": "JKYCFGS010120474",
+      "description": "总回风巷 GD3（A）甲烷_环境瓦斯",
+      "tunnel_id": "16135225-5CF5-48B7-B588-F0D0CAFD1E8E",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 39437428.9321,
+        "y": 3956602.8531,
+        "z": -618.0
+      }
+    },
+    {
+      "id": "JKYCFGS010120480",
+      "description": "总回风巷 GD3（A）温度_环境温度",
+      "tunnel_id": "16135225-5CF5-48B7-B588-F0D0CAFD1E8E",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 39437428.2721,
+        "y": 3956599.9231,
+        "z": -618.0
+      }
+    },
+    {
+      "id": "JKYCFGS010120558",
+      "description": "总回风巷 GD3（A）一氧化碳",
+      "tunnel_id": "16135225-5CF5-48B7-B588-F0D0CAFD1E8E",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 39437428.9321,
+        "y": 3956602.8531,
+        "z": -618.0
+      }
+    },
+    {
+      "id": "JKYCFGS010120674",
+      "description": "单轨吊充电硐室一氧化碳",
+      "tunnel_id": "90096C5E-5C79-4E4A-A563-4AB6938FE0-x",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 39437426.3991,
+        "y": 3956584.7822,
+        "z": -628.81
+      }
+    },
+    {
+      "id": "JKYCFGS010120675",
+      "description": "单轨吊充电硐室  甲烷_环境瓦斯",
+      "tunnel_id": "90096C5E-5C79-4E4A-A563-4AB6938FE0-x",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 39437426.3991,
+        "y": 3956584.7822,
+        "z": -628.98
+      }
+    },
+    {
+      "id": "JKYCFGS010120770",
+      "description": "二部强力皮带配电点甲烷_环境瓦斯",
+      "tunnel_id": "728E273E-DB62-4063-828D-E5586E9908B6",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 39437569.3421,
+        "y": 3957164.3131,
+        "z": -507.59
+      }
+    },
+    {
+      "id": "JKYCFGS010120772",
+      "description": "二部强力皮带驱动烟雾",
+      "tunnel_id": "059A2600-D8EF-49D9-9BA3-B2B3C9E938C8",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 39437588.4921,
+        "y": 3957104.3931,
+        "z": -524.65
+      }
+    },
+    {
+      "id": "JKYCFGS01014001803J00",
+      "description": "六采区轨道巷上把钩_人数",
+      "tunnel_id": "728E273E-DB62-4063-828D-E5586E9908B6",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437553.1121,
+        "y": 3957105.2031,
+        "z": -512.74
+      }
+    },
+    {
+      "id": "JKYCFGS01014001803P00",
+      "description": "六采区轨道巷上把钩_人数",
+      "tunnel_id": "728E273E-DB62-4063-828D-E5586E9908B6",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437553.1121,
+        "y": 3957105.2031,
+        "z": -512.74
+      }
+    },
+    {
+      "id": "JKYCFGS01014001804J00",
+      "description": "六采区轨道巷中部_人数",
+      "tunnel_id": "728E273E-DB62-4063-828D-E5586E9908B6",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437480.9321,
+        "y": 3956831.1531,
+        "z": -573.05
+      }
+    },
+    {
+      "id": "JKYCFGS01014001804P00",
+      "description": "六采区轨道巷中部_人数",
+      "tunnel_id": "728E273E-DB62-4063-828D-E5586E9908B6",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437480.9321,
+        "y": 3956831.1531,
+        "z": -573.05
+      }
+    },
+    {
+      "id": "JKYCFGS01014001806J00",
+      "description": "六采区轨道巷入口处_人数",
+      "tunnel_id": "728E273E-DB62-4063-828D-E5586E9908B6",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437435.8321,
+        "y": 3956659.6431,
+        "z": -618.23
+      }
+    },
+    {
+      "id": "JKYCFGS01014001806P00",
+      "description": "六采区轨道巷入口处_人数",
+      "tunnel_id": "728E273E-DB62-4063-828D-E5586E9908B6",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437435.8321,
+        "y": 3956659.6431,
+        "z": -618.23
+      }
+    },
+    {
+      "id": "JKYCFGS01014001808J00",
+      "description": "-650充电硐室1#_人数",
+      "tunnel_id": "2483C1B2-0C28-445F-9F6B-0FFDE23E68FE",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437422.2321,
+        "y": 3956513.1731,
+        "z": -628.99
+      }
+    },
+    {
+      "id": "JKYCFGS01014001808P00",
+      "description": "-650充电硐室1#_人数",
+      "tunnel_id": "2483C1B2-0C28-445F-9F6B-0FFDE23E68FE",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437419.7021,
+        "y": 3956521.8131,
+        "z": -629.02
+      }
+    },
+    {
+      "id": "JKYCFGS01014001809J00",
+      "description": "-650胶带大巷（东）入口处_人数",
+      "tunnel_id": "",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437516.4021,
+        "y": 3956667.6131,
+        "z": -628.22
+      }
+    },
+    {
+      "id": "JKYCFGS01014001809P00",
+      "description": "-650胶带大巷（东）入口处_人数",
+      "tunnel_id": "",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437521.9021,
+        "y": 3956670.0131,
+        "z": -628.19
+      }
+    },
+    {
+      "id": "JKYCFGS01014001810J00",
+      "description": "六采区胶带上山55m处_人数",
+      "tunnel_id": "059A2600-D8EF-49D9-9BA3-B2B3C9E938C8",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437509.5621,
+        "y": 3956703.5131,
+        "z": -619.14
+      }
+    },
+    {
+      "id": "JKYCFGS01014001810P00",
+      "description": "六采区胶带上山55m处_人数",
+      "tunnel_id": "059A2600-D8EF-49D9-9BA3-B2B3C9E938C8",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437509.5621,
+        "y": 3956703.5131,
+        "z": -619.14
+      }
+    },
+    {
+      "id": "JKYCFGS01014001811J00",
+      "description": "-650胶带大巷（西）_人数",
+      "tunnel_id": "728E273E-DB62-4063-828D-E5586E9908B6",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437425.4821,
+        "y": 3956620.2831,
+        "z": -628.6
+      }
+    },
+    {
+      "id": "JKYCFGS01014001811P00",
+      "description": "-650胶带大巷（西）_人数",
+      "tunnel_id": "728E273E-DB62-4063-828D-E5586E9908B6",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437425.4821,
+        "y": 3956620.2831,
+        "z": -628.6
+      }
+    },
+    {
+      "id": "JKYCFGS01014001813J00",
+      "description": "6301工作面皮顺入口处_人数",
+      "tunnel_id": "C33B2A1C-9318-4BF0-93C6-FCFD4FB77660",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437548.5521,
+        "y": 3957025.3531,
+        "z": -540.06
+      }
+    },
+    {
+      "id": "JKYCFGS01014001813P00",
+      "description": "6301工作面皮顺入口处_人数",
+      "tunnel_id": "C33B2A1C-9318-4BF0-93C6-FCFD4FB77660",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437545.5721,
+        "y": 3957025.4231,
+        "z": -539.71
+      }
+    },
+    {
+      "id": "JKYCFGS01014001815J00",
+      "description": "混合井南绕道_人数",
+      "tunnel_id": "FD4184E1-F665-496E-9310-9DA0C9154575",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437314.3521,
+        "y": 3956438.0431,
+        "z": -632.0
+      }
+    },
+    {
+      "id": "JKYCFGS01014001815P00",
+      "description": "混合井南绕道_人数",
+      "tunnel_id": "FD4184E1-F665-496E-9310-9DA0C9154575",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437314.3521,
+        "y": 3956438.0431,
+        "z": -632.0
+      }
+    },
+    {
+      "id": "JKYCFGS01014001815P10",
+      "description": "清理斜巷入口_人数",
+      "tunnel_id": "A9576919-F1D7-482B-B342-E96D581FDFD4",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437353.4521,
+        "y": 3956489.3431,
+        "z": -630.05
+      }
+    },
+    {
+      "id": "JKYCFGS01014001815P20",
+      "description": "混合井南绕道岔口_人数",
+      "tunnel_id": "FD4184E1-F665-496E-9310-9DA0C9154575",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437298.2521,
+        "y": 3956438.0631,
+        "z": -632.38
+      }
+    },
+    {
+      "id": "JKYCFGS01014001815P50",
+      "description": "清理斜巷_人数",
+      "tunnel_id": "775A95C7-C28B-49DB-91ED-76F1AEDDB324",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437311.7121,
+        "y": 3956503.0131,
+        "z": -631.53
+      }
+    },
+    {
+      "id": "JKYCFGS01014001815P60",
+      "description": "水仓_人数",
+      "tunnel_id": "ECD21C6B-C755-432B-B115-0AFD9C5A3BC3",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437255.7221,
+        "y": 3956444.9631,
+        "z": -634.0
+      }
+    },
+    {
+      "id": "JKYCFGS01014001817J00",
+      "description": "混合井下井口（北）_人数",
+      "tunnel_id": "08501DB0-B45E-4E21-9206-FA7DB821C3DE",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437296.5221,
+        "y": 3956550.2831,
+        "z": -630.0
+      }
+    },
+    {
+      "id": "JKYCFGS01014001817P00",
+      "description": "混合井下井口（北）_人数",
+      "tunnel_id": "08501DB0-B45E-4E21-9206-FA7DB821C3DE",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437296.5221,
+        "y": 3956550.2831,
+        "z": -630.0
+      }
+    },
+    {
+      "id": "JKYCFGS01014001821J00",
+      "description": "中央变电所_人数",
+      "tunnel_id": "6DE8C120-4186-494A-9B22-088CC4FD93D4",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437256.5221,
+        "y": 3956587.5631,
+        "z": -628.53
+      }
+    },
+    {
+      "id": "JKYCFGS01014001821P00",
+      "description": "中央变电所_人数",
+      "tunnel_id": "6DE8C120-4186-494A-9B22-088CC4FD93D4",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437256.4921,
+        "y": 3956584.5631,
+        "z": -628.51
+      }
+    },
+    {
+      "id": "JKYCFGS01014001822J00",
+      "description": "六采区轨道上山与六采区皮带上山联络巷_人数",
+      "tunnel_id": "728E273E-DB62-4063-828D-E5586E9908B6",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437576.2221,
+        "y": 3957188.3531,
+        "z": -509.5
+      }
+    },
+    {
+      "id": "JKYCFGS01014001822P00",
+      "description": "六采区轨道上山与六采区皮带上山联络巷_人数",
+      "tunnel_id": "8CEBD281-EECC-4898-94C1-DA3AB18A937F",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437577.2221,
+        "y": 3957191.3331,
+        "z": -509.5
+      }
+    },
+    {
+      "id": "JKYCFGS01014001823J00",
+      "description": "六采区皮带上山550米处_人数",
+      "tunnel_id": "059A2600-D8EF-49D9-9BA3-B2B3C9E938C8",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437596.3821,
+        "y": 3957144.8031,
+        "z": -518.32
+      }
+    },
+    {
+      "id": "JKYCFGS01014001823P00",
+      "description": "六采区皮带上山550米处_人数",
+      "tunnel_id": "059A2600-D8EF-49D9-9BA3-B2B3C9E938C8",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437596.9421,
+        "y": 3957147.6831,
+        "z": -517.72
+      }
+    },
+    {
+      "id": "JKYCFGS01014001824J00",
+      "description": "南轻车线_人数",
+      "tunnel_id": "A9576919-F1D7-482B-B342-E96D581FDFD4",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437353.4521,
+        "y": 3956530.0231,
+        "z": -629.55
+      }
+    },
+    {
+      "id": "JKYCFGS01014001824P00",
+      "description": "南轻车线_人数",
+      "tunnel_id": "A9576919-F1D7-482B-B342-E96D581FDFD4",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437353.4521,
+        "y": 3956530.0231,
+        "z": -629.55
+      }
+    },
+    {
+      "id": "JKYCFGS01014001825J00",
+      "description": "充电硐室_人数",
+      "tunnel_id": "9B7B0222-1012-4D31-BC29-9950CFFF6C80",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437398.5621,
+        "y": 3956584.7931,
+        "z": -629.2
+      }
+    },
+    {
+      "id": "JKYCFGS01014001825P00",
+      "description": "充电硐室_人数",
+      "tunnel_id": "9B7B0222-1012-4D31-BC29-9950CFFF6C80",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437395.9221,
+        "y": 3956583.2331,
+        "z": -629.2
+      }
+    },
+    {
+      "id": "JKYCFGS01014001826J00",
+      "description": "八采区轨道巷_人数",
+      "tunnel_id": "AE6EA781-7CD2-456D-8D51-2C45A8C3A425",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437761.7221,
+        "y": 3956755.6031,
+        "z": -627.0
+      }
+    },
+    {
+      "id": "JKYCFGS01014001827J00",
+      "description": "六采区辅助轨道上山180米处_人数",
+      "tunnel_id": "",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437088.4321,
+        "y": 3957363.0231,
+        "z": -378.7
+      }
+    },
+    {
+      "id": "JKYCFGS01014001828J00",
+      "description": "中央泵房_人数",
+      "tunnel_id": "6DE8C120-4186-494A-9B22-088CC4FD93D4",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437264.9021,
+        "y": 3956503.1031,
+        "z": -628.37
+      }
+    },
+    {
+      "id": "JKYCFGS01014001828P00",
+      "description": "中央泵房_人数",
+      "tunnel_id": "6DE8C120-4186-494A-9B22-088CC4FD93D4",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437261.9221,
+        "y": 3956503.1131,
+        "z": -627.99
+      }
+    },
+    {
+      "id": "JKYCFGS01014001831J00",
+      "description": "六采区皮带上山220米处_人数",
+      "tunnel_id": "059A2600-D8EF-49D9-9BA3-B2B3C9E938C8",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437540.0721,
+        "y": 3956858.1931,
+        "z": -581.85
+      }
+    },
+    {
+      "id": "JKYCFGS01014001831P00",
+      "description": "六采区皮带上山220米处_人数",
+      "tunnel_id": "059A2600-D8EF-49D9-9BA3-B2B3C9E938C8",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437540.6321,
+        "y": 3956861.0531,
+        "z": -581.16
+      }
+    },
+    {
+      "id": "JKYCFGS01014001832J00",
+      "description": "六采区轨道上山360米处_人数",
+      "tunnel_id": "728E273E-DB62-4063-828D-E5586E9908B6",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437519.3721,
+        "y": 3956977.3531,
+        "z": -534.53
+      }
+    },
+    {
+      "id": "JKYCFGS01014001832P00",
+      "description": "六采区轨道上山360米处_人数",
+      "tunnel_id": "3219BFF8-6EA6-4AF1-9263-97B5E5DE4D9E",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437521.1721,
+        "y": 3956984.1731,
+        "z": -533.5
+      }
+    },
+    {
+      "id": "JKYCFGS01014001832P40",
+      "description": "6301皮顺联络巷_人数",
+      "tunnel_id": "3219BFF8-6EA6-4AF1-9263-97B5E5DE4D9E",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437480.4521,
+        "y": 3957027.0331,
+        "z": -532.8
+      }
+    },
+    {
+      "id": "JKYCFGS01014001836J00",
+      "description": "8301皮顺2#_人数",
+      "tunnel_id": "",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437310.1521,
+        "y": 3957523.0231,
+        "z": -413.16
+      }
+    },
+    {
+      "id": "JKYCFGS01014001836P00",
+      "description": "8301皮顺2#_人数",
+      "tunnel_id": "",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437124.9421,
+        "y": 3957556.1531,
+        "z": -342.6
+      }
+    },
+    {
+      "id": "JKYCFGS01014001837P00",
+      "description": "六采区辅助皮带上山80米处_人数",
+      "tunnel_id": "8CEBD281-EECC-4898-94C1-DA3AB18A937F",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437482.7321,
+        "y": 3957225.6731,
+        "z": -491.49
+      }
+    },
+    {
+      "id": "JKYCFGS01014001841J00",
+      "description": "六采区辅助皮带上山260米_人数",
+      "tunnel_id": "",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437297.2121,
+        "y": 3957452.7131,
+        "z": -421.75
+      }
+    },
+    {
+      "id": "JKYCFGS01014001841P00",
+      "description": "六采区辅助皮带上山260米_人数",
+      "tunnel_id": "",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437310.1521,
+        "y": 3957523.0231,
+        "z": -413.16
+      }
+    },
+    {
+      "id": "JKYCFGS01014001845J00",
+      "description": "六采区辅助轨道上山2#联络巷_人数",
+      "tunnel_id": "",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437265.5721,
+        "y": 3957281.1731,
+        "z": -441.72
+      }
+    },
+    {
+      "id": "JKYCFGS01014001845P00",
+      "description": "六采区辅助轨道上山2#联络巷_人数",
+      "tunnel_id": "",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437265.5721,
+        "y": 3957281.1731,
+        "z": -441.72
+      }
+    },
+    {
+      "id": "JKYCFGS01014001848J00",
+      "description": "8301轨顺2#+_人数",
+      "tunnel_id": "",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437288.0321,
+        "y": 3957402.9231,
+        "z": -427.84
+      }
+    },
+    {
+      "id": "JKYCFGS01014001848P00",
+      "description": "8301轨顺2#+_人数",
+      "tunnel_id": "",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437291.8121,
+        "y": 3957423.4231,
+        "z": -425.33
+      }
+    },
+    {
+      "id": "JKYCFGS01014001850J00",
+      "description": "8301皮顺4#_人数",
+      "tunnel_id": "",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437103.7821,
+        "y": 3957444.2031,
+        "z": -363.52
+      }
+    },
+    {
+      "id": "JKYCFGS01014001850P00",
+      "description": "8301皮顺4#_人数",
+      "tunnel_id": "",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437106.5221,
+        "y": 3957458.7031,
+        "z": -360.81
+      }
+    },
+    {
+      "id": "JKYCFGS01014001853P20",
+      "description": "南北区贯通巷二号联络巷_人数",
+      "tunnel_id": "682EA910-17B0-4039-9D0E-5DD78CAE8788",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437738.1621,
+        "y": 3956747.5631,
+        "z": -623.36
+      }
+    },
+    {
+      "id": "JKYCFGS01014001853X10",
+      "description": "8301皮顺入口_人数",
+      "tunnel_id": "",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437790.2721,
+        "y": 3956787.5731,
+        "z": -633.95
+      }
+    },
+    {
+      "id": "JKYCFGS01014001856J00",
+      "description": "8301皮顺联络巷1#_人数",
+      "tunnel_id": "",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437811.9421,
+        "y": 3956797.2031,
+        "z": -637.66
+      }
+    },
+    {
+      "id": "JKYCFGS01014001856P00",
+      "description": "8301皮顺联络巷1#_人数",
+      "tunnel_id": "",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437982.5621,
+        "y": 3956873.0731,
+        "z": -666.86
+      }
+    },
+    {
+      "id": "JKYCFGS01014001857J00",
+      "description": "8301皮顺联络巷2#_人数",
+      "tunnel_id": "",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39438020.2221,
+        "y": 3956892.1131,
+        "z": -672.82
+      }
+    },
+    {
+      "id": "JKYCFGS01014001857P00",
+      "description": "8301皮顺联络巷2#_人数",
+      "tunnel_id": "",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39438019.1221,
+        "y": 3956889.3331,
+        "z": -673.1
+      }
+    },
+    {
+      "id": "JKYCFGS01014001859J00",
+      "description": "8301皮顺1#_人数",
+      "tunnel_id": "",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39438052.1521,
+        "y": 3956972.6431,
+        "z": -664.81
+      }
+    },
+    {
+      "id": "JKYCFGS01014001859P00",
+      "description": "8301皮顺1#_人数",
+      "tunnel_id": "",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39438046.6421,
+        "y": 3956958.7531,
+        "z": -666.2
+      }
     }
   ],
   "report": {
@@ -34254,7 +35086,7 @@
       "unmatched": 901,
       "filtered_by_id": 0,
       "generic_tunnels_skipped": 0,
-      "unnamed_tunnels_skipped": 11,
+      "unnamed_tunnels_skipped": 0,
       "wind_spacing_warnings": 0,
       "suspicious_count": 4,
       "by_confidence": {
