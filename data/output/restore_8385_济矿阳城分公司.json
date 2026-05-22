@@ -1,0 +1,841 @@
+{
+  "results": [
+    {
+      "id": "JKYCFGS010120126F00",
+      "description": "中央变电所",
+      "tunnel_id": "6DE8C120-4186-494A-9B22-088CC4FD93D4",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 39437256.5221,
+        "y": 3956587.5631,
+        "z": -626.53
+      }
+    },
+    {
+      "id": "JKYCFGS010120143",
+      "description": "中央泵房 温度_环境温度",
+      "tunnel_id": "6DE8C120-4186-494A-9B22-088CC4FD93D4",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 39437256.0621,
+        "y": 3956523.4531,
+        "z": -625.79
+      }
+    },
+    {
+      "id": "JKYCFGS010120176",
+      "description": "六采区回风流GD3（A）甲烷_环境瓦斯",
+      "tunnel_id": "059A2600-D8EF-49D9-9BA3-B2B3C9E938C8",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 39437502.2121,
+        "y": 3956666.2831,
+        "z": -626.11
+      }
+    },
+    {
+      "id": "JKYCFGS010120177",
+      "description": "六采区回风流GD3（A）一氧化碳",
+      "tunnel_id": "059A2600-D8EF-49D9-9BA3-B2B3C9E938C8",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 39437502.2121,
+        "y": 3956666.2831,
+        "z": -626.11
+      }
+    },
+    {
+      "id": "JKYCFGS010120178",
+      "description": "六采区回风流GD3（A）温度_环境温度",
+      "tunnel_id": "059A2600-D8EF-49D9-9BA3-B2B3C9E938C8",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 39437502.2121,
+        "y": 3956666.2831,
+        "z": -626.11
+      }
+    },
+    {
+      "id": "JKYCFGS010120229",
+      "description": "单轨吊充电硐室温度_环境温度",
+      "tunnel_id": "90096C5E-5C79-4E4A-A563-4AB6938FE0-x",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 39437426.3991,
+        "y": 3956584.7822,
+        "z": -629.2
+      }
+    },
+    {
+      "id": "JKYCFGS010120410",
+      "description": "中央变电所 温度_环境温度",
+      "tunnel_id": "6DE8C120-4186-494A-9B22-088CC4FD93D4",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 39437256.5521,
+        "y": 3956590.5631,
+        "z": -626.55
+      }
+    },
+    {
+      "id": "JKYCFGS010120474",
+      "description": "总回风巷 GD3（A）甲烷_环境瓦斯",
+      "tunnel_id": "16135225-5CF5-48B7-B588-F0D0CAFD1E8E",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 39437428.9321,
+        "y": 3956602.8531,
+        "z": -618.0
+      }
+    },
+    {
+      "id": "JKYCFGS010120480",
+      "description": "总回风巷 GD3（A）温度_环境温度",
+      "tunnel_id": "16135225-5CF5-48B7-B588-F0D0CAFD1E8E",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 39437428.2721,
+        "y": 3956599.9231,
+        "z": -618.0
+      }
+    },
+    {
+      "id": "JKYCFGS010120558",
+      "description": "总回风巷 GD3（A）一氧化碳",
+      "tunnel_id": "16135225-5CF5-48B7-B588-F0D0CAFD1E8E",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 39437428.9321,
+        "y": 3956602.8531,
+        "z": -618.0
+      }
+    },
+    {
+      "id": "JKYCFGS010120674",
+      "description": "单轨吊充电硐室一氧化碳",
+      "tunnel_id": "90096C5E-5C79-4E4A-A563-4AB6938FE0-x",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 39437426.3991,
+        "y": 3956584.7822,
+        "z": -628.81
+      }
+    },
+    {
+      "id": "JKYCFGS010120675",
+      "description": "单轨吊充电硐室  甲烷_环境瓦斯",
+      "tunnel_id": "90096C5E-5C79-4E4A-A563-4AB6938FE0-x",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 39437426.3991,
+        "y": 3956584.7822,
+        "z": -628.98
+      }
+    },
+    {
+      "id": "JKYCFGS010120770",
+      "description": "二部强力皮带配电点甲烷_环境瓦斯",
+      "tunnel_id": "728E273E-DB62-4063-828D-E5586E9908B6",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 39437569.3421,
+        "y": 3957164.3131,
+        "z": -507.59
+      }
+    },
+    {
+      "id": "JKYCFGS010120772",
+      "description": "二部强力皮带驱动烟雾",
+      "tunnel_id": "059A2600-D8EF-49D9-9BA3-B2B3C9E938C8",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 39437588.4921,
+        "y": 3957104.3931,
+        "z": -524.65
+      }
+    },
+    {
+      "id": "JKYCFGS01014001803J00",
+      "description": "六采区轨道巷上把钩_人数",
+      "tunnel_id": "728E273E-DB62-4063-828D-E5586E9908B6",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437553.1121,
+        "y": 3957105.2031,
+        "z": -512.74
+      }
+    },
+    {
+      "id": "JKYCFGS01014001803P00",
+      "description": "六采区轨道巷上把钩_人数",
+      "tunnel_id": "728E273E-DB62-4063-828D-E5586E9908B6",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437553.1121,
+        "y": 3957105.2031,
+        "z": -512.74
+      }
+    },
+    {
+      "id": "JKYCFGS01014001804J00",
+      "description": "六采区轨道巷中部_人数",
+      "tunnel_id": "728E273E-DB62-4063-828D-E5586E9908B6",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437480.9321,
+        "y": 3956831.1531,
+        "z": -573.05
+      }
+    },
+    {
+      "id": "JKYCFGS01014001804P00",
+      "description": "六采区轨道巷中部_人数",
+      "tunnel_id": "728E273E-DB62-4063-828D-E5586E9908B6",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437480.9321,
+        "y": 3956831.1531,
+        "z": -573.05
+      }
+    },
+    {
+      "id": "JKYCFGS01014001806J00",
+      "description": "六采区轨道巷入口处_人数",
+      "tunnel_id": "728E273E-DB62-4063-828D-E5586E9908B6",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437435.8321,
+        "y": 3956659.6431,
+        "z": -618.23
+      }
+    },
+    {
+      "id": "JKYCFGS01014001806P00",
+      "description": "六采区轨道巷入口处_人数",
+      "tunnel_id": "728E273E-DB62-4063-828D-E5586E9908B6",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437435.8321,
+        "y": 3956659.6431,
+        "z": -618.23
+      }
+    },
+    {
+      "id": "JKYCFGS01014001808J00",
+      "description": "-650充电硐室1#_人数",
+      "tunnel_id": "2483C1B2-0C28-445F-9F6B-0FFDE23E68FE",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437422.2321,
+        "y": 3956513.1731,
+        "z": -628.99
+      }
+    },
+    {
+      "id": "JKYCFGS01014001808P00",
+      "description": "-650充电硐室1#_人数",
+      "tunnel_id": "2483C1B2-0C28-445F-9F6B-0FFDE23E68FE",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437419.7021,
+        "y": 3956521.8131,
+        "z": -629.02
+      }
+    },
+    {
+      "id": "JKYCFGS01014001809J00",
+      "description": "-650胶带大巷（东）入口处_人数",
+      "tunnel_id": "",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437516.4021,
+        "y": 3956667.6131,
+        "z": -628.22
+      }
+    },
+    {
+      "id": "JKYCFGS01014001809P00",
+      "description": "-650胶带大巷（东）入口处_人数",
+      "tunnel_id": "",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437521.9021,
+        "y": 3956670.0131,
+        "z": -628.19
+      }
+    },
+    {
+      "id": "JKYCFGS01014001810J00",
+      "description": "六采区胶带上山55m处_人数",
+      "tunnel_id": "059A2600-D8EF-49D9-9BA3-B2B3C9E938C8",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437509.5621,
+        "y": 3956703.5131,
+        "z": -619.14
+      }
+    },
+    {
+      "id": "JKYCFGS01014001810P00",
+      "description": "六采区胶带上山55m处_人数",
+      "tunnel_id": "059A2600-D8EF-49D9-9BA3-B2B3C9E938C8",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437509.5621,
+        "y": 3956703.5131,
+        "z": -619.14
+      }
+    },
+    {
+      "id": "JKYCFGS01014001811J00",
+      "description": "-650胶带大巷（西）_人数",
+      "tunnel_id": "728E273E-DB62-4063-828D-E5586E9908B6",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437425.4821,
+        "y": 3956620.2831,
+        "z": -628.6
+      }
+    },
+    {
+      "id": "JKYCFGS01014001811P00",
+      "description": "-650胶带大巷（西）_人数",
+      "tunnel_id": "728E273E-DB62-4063-828D-E5586E9908B6",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437425.4821,
+        "y": 3956620.2831,
+        "z": -628.6
+      }
+    },
+    {
+      "id": "JKYCFGS01014001813J00",
+      "description": "6301工作面皮顺入口处_人数",
+      "tunnel_id": "C33B2A1C-9318-4BF0-93C6-FCFD4FB77660",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437548.5521,
+        "y": 3957025.3531,
+        "z": -540.06
+      }
+    },
+    {
+      "id": "JKYCFGS01014001813P00",
+      "description": "6301工作面皮顺入口处_人数",
+      "tunnel_id": "C33B2A1C-9318-4BF0-93C6-FCFD4FB77660",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437545.5721,
+        "y": 3957025.4231,
+        "z": -539.71
+      }
+    },
+    {
+      "id": "JKYCFGS01014001815J00",
+      "description": "混合井南绕道_人数",
+      "tunnel_id": "FD4184E1-F665-496E-9310-9DA0C9154575",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437314.3521,
+        "y": 3956438.0431,
+        "z": -632.0
+      }
+    },
+    {
+      "id": "JKYCFGS01014001815P00",
+      "description": "混合井南绕道_人数",
+      "tunnel_id": "FD4184E1-F665-496E-9310-9DA0C9154575",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437314.3521,
+        "y": 3956438.0431,
+        "z": -632.0
+      }
+    },
+    {
+      "id": "JKYCFGS01014001815P10",
+      "description": "清理斜巷入口_人数",
+      "tunnel_id": "A9576919-F1D7-482B-B342-E96D581FDFD4",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437353.4521,
+        "y": 3956489.3431,
+        "z": -630.05
+      }
+    },
+    {
+      "id": "JKYCFGS01014001815P20",
+      "description": "混合井南绕道岔口_人数",
+      "tunnel_id": "FD4184E1-F665-496E-9310-9DA0C9154575",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437298.2521,
+        "y": 3956438.0631,
+        "z": -632.38
+      }
+    },
+    {
+      "id": "JKYCFGS01014001815P50",
+      "description": "清理斜巷_人数",
+      "tunnel_id": "775A95C7-C28B-49DB-91ED-76F1AEDDB324",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437311.7121,
+        "y": 3956503.0131,
+        "z": -631.53
+      }
+    },
+    {
+      "id": "JKYCFGS01014001815P60",
+      "description": "水仓_人数",
+      "tunnel_id": "ECD21C6B-C755-432B-B115-0AFD9C5A3BC3",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437255.7221,
+        "y": 3956444.9631,
+        "z": -634.0
+      }
+    },
+    {
+      "id": "JKYCFGS01014001817J00",
+      "description": "混合井下井口（北）_人数",
+      "tunnel_id": "08501DB0-B45E-4E21-9206-FA7DB821C3DE",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437296.5221,
+        "y": 3956550.2831,
+        "z": -630.0
+      }
+    },
+    {
+      "id": "JKYCFGS01014001817P00",
+      "description": "混合井下井口（北）_人数",
+      "tunnel_id": "08501DB0-B45E-4E21-9206-FA7DB821C3DE",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437296.5221,
+        "y": 3956550.2831,
+        "z": -630.0
+      }
+    },
+    {
+      "id": "JKYCFGS01014001821J00",
+      "description": "中央变电所_人数",
+      "tunnel_id": "6DE8C120-4186-494A-9B22-088CC4FD93D4",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437256.5221,
+        "y": 3956587.5631,
+        "z": -628.53
+      }
+    },
+    {
+      "id": "JKYCFGS01014001821P00",
+      "description": "中央变电所_人数",
+      "tunnel_id": "6DE8C120-4186-494A-9B22-088CC4FD93D4",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437256.4921,
+        "y": 3956584.5631,
+        "z": -628.51
+      }
+    },
+    {
+      "id": "JKYCFGS01014001822J00",
+      "description": "六采区轨道上山与六采区皮带上山联络巷_人数",
+      "tunnel_id": "728E273E-DB62-4063-828D-E5586E9908B6",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437576.2221,
+        "y": 3957188.3531,
+        "z": -509.5
+      }
+    },
+    {
+      "id": "JKYCFGS01014001822P00",
+      "description": "六采区轨道上山与六采区皮带上山联络巷_人数",
+      "tunnel_id": "8CEBD281-EECC-4898-94C1-DA3AB18A937F",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437577.2221,
+        "y": 3957191.3331,
+        "z": -509.5
+      }
+    },
+    {
+      "id": "JKYCFGS01014001823J00",
+      "description": "六采区皮带上山550米处_人数",
+      "tunnel_id": "059A2600-D8EF-49D9-9BA3-B2B3C9E938C8",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437596.3821,
+        "y": 3957144.8031,
+        "z": -518.32
+      }
+    },
+    {
+      "id": "JKYCFGS01014001823P00",
+      "description": "六采区皮带上山550米处_人数",
+      "tunnel_id": "059A2600-D8EF-49D9-9BA3-B2B3C9E938C8",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437596.9421,
+        "y": 3957147.6831,
+        "z": -517.72
+      }
+    },
+    {
+      "id": "JKYCFGS01014001824J00",
+      "description": "南轻车线_人数",
+      "tunnel_id": "A9576919-F1D7-482B-B342-E96D581FDFD4",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437353.4521,
+        "y": 3956530.0231,
+        "z": -629.55
+      }
+    },
+    {
+      "id": "JKYCFGS01014001824P00",
+      "description": "南轻车线_人数",
+      "tunnel_id": "A9576919-F1D7-482B-B342-E96D581FDFD4",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437353.4521,
+        "y": 3956530.0231,
+        "z": -629.55
+      }
+    },
+    {
+      "id": "JKYCFGS01014001825J00",
+      "description": "充电硐室_人数",
+      "tunnel_id": "9B7B0222-1012-4D31-BC29-9950CFFF6C80",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437398.5621,
+        "y": 3956584.7931,
+        "z": -629.2
+      }
+    },
+    {
+      "id": "JKYCFGS01014001825P00",
+      "description": "充电硐室_人数",
+      "tunnel_id": "9B7B0222-1012-4D31-BC29-9950CFFF6C80",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437395.9221,
+        "y": 3956583.2331,
+        "z": -629.2
+      }
+    },
+    {
+      "id": "JKYCFGS01014001826J00",
+      "description": "八采区轨道巷_人数",
+      "tunnel_id": "AE6EA781-7CD2-456D-8D51-2C45A8C3A425",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437761.7221,
+        "y": 3956755.6031,
+        "z": -627.0
+      }
+    },
+    {
+      "id": "JKYCFGS01014001827J00",
+      "description": "六采区辅助轨道上山180米处_人数",
+      "tunnel_id": "",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437088.4321,
+        "y": 3957363.0231,
+        "z": -378.7
+      }
+    },
+    {
+      "id": "JKYCFGS01014001828J00",
+      "description": "中央泵房_人数",
+      "tunnel_id": "6DE8C120-4186-494A-9B22-088CC4FD93D4",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437264.9021,
+        "y": 3956503.1031,
+        "z": -628.37
+      }
+    },
+    {
+      "id": "JKYCFGS01014001828P00",
+      "description": "中央泵房_人数",
+      "tunnel_id": "6DE8C120-4186-494A-9B22-088CC4FD93D4",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437261.9221,
+        "y": 3956503.1131,
+        "z": -627.99
+      }
+    },
+    {
+      "id": "JKYCFGS01014001831J00",
+      "description": "六采区皮带上山220米处_人数",
+      "tunnel_id": "059A2600-D8EF-49D9-9BA3-B2B3C9E938C8",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437540.0721,
+        "y": 3956858.1931,
+        "z": -581.85
+      }
+    },
+    {
+      "id": "JKYCFGS01014001831P00",
+      "description": "六采区皮带上山220米处_人数",
+      "tunnel_id": "059A2600-D8EF-49D9-9BA3-B2B3C9E938C8",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437540.6321,
+        "y": 3956861.0531,
+        "z": -581.16
+      }
+    },
+    {
+      "id": "JKYCFGS01014001832J00",
+      "description": "六采区轨道上山360米处_人数",
+      "tunnel_id": "728E273E-DB62-4063-828D-E5586E9908B6",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437519.3721,
+        "y": 3956977.3531,
+        "z": -534.53
+      }
+    },
+    {
+      "id": "JKYCFGS01014001832P00",
+      "description": "六采区轨道上山360米处_人数",
+      "tunnel_id": "3219BFF8-6EA6-4AF1-9263-97B5E5DE4D9E",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437521.1721,
+        "y": 3956984.1731,
+        "z": -533.5
+      }
+    },
+    {
+      "id": "JKYCFGS01014001832P40",
+      "description": "6301皮顺联络巷_人数",
+      "tunnel_id": "3219BFF8-6EA6-4AF1-9263-97B5E5DE4D9E",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437480.4521,
+        "y": 3957027.0331,
+        "z": -532.8
+      }
+    },
+    {
+      "id": "JKYCFGS01014001836J00",
+      "description": "8301皮顺2#_人数",
+      "tunnel_id": "",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437310.1521,
+        "y": 3957523.0231,
+        "z": -413.16
+      }
+    },
+    {
+      "id": "JKYCFGS01014001836P00",
+      "description": "8301皮顺2#_人数",
+      "tunnel_id": "",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437124.9421,
+        "y": 3957556.1531,
+        "z": -342.6
+      }
+    },
+    {
+      "id": "JKYCFGS01014001837P00",
+      "description": "六采区辅助皮带上山80米处_人数",
+      "tunnel_id": "8CEBD281-EECC-4898-94C1-DA3AB18A937F",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437482.7321,
+        "y": 3957225.6731,
+        "z": -491.49
+      }
+    },
+    {
+      "id": "JKYCFGS01014001841J00",
+      "description": "六采区辅助皮带上山260米_人数",
+      "tunnel_id": "",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437297.2121,
+        "y": 3957452.7131,
+        "z": -421.75
+      }
+    },
+    {
+      "id": "JKYCFGS01014001841P00",
+      "description": "六采区辅助皮带上山260米_人数",
+      "tunnel_id": "",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437310.1521,
+        "y": 3957523.0231,
+        "z": -413.16
+      }
+    },
+    {
+      "id": "JKYCFGS01014001845J00",
+      "description": "六采区辅助轨道上山2#联络巷_人数",
+      "tunnel_id": "",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437265.5721,
+        "y": 3957281.1731,
+        "z": -441.72
+      }
+    },
+    {
+      "id": "JKYCFGS01014001845P00",
+      "description": "六采区辅助轨道上山2#联络巷_人数",
+      "tunnel_id": "",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437265.5721,
+        "y": 3957281.1731,
+        "z": -441.72
+      }
+    },
+    {
+      "id": "JKYCFGS01014001848J00",
+      "description": "8301轨顺2#+_人数",
+      "tunnel_id": "",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437288.0321,
+        "y": 3957402.9231,
+        "z": -427.84
+      }
+    },
+    {
+      "id": "JKYCFGS01014001848P00",
+      "description": "8301轨顺2#+_人数",
+      "tunnel_id": "",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437291.8121,
+        "y": 3957423.4231,
+        "z": -425.33
+      }
+    },
+    {
+      "id": "JKYCFGS01014001850J00",
+      "description": "8301皮顺4#_人数",
+      "tunnel_id": "",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437103.7821,
+        "y": 3957444.2031,
+        "z": -363.52
+      }
+    },
+    {
+      "id": "JKYCFGS01014001850P00",
+      "description": "8301皮顺4#_人数",
+      "tunnel_id": "",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437106.5221,
+        "y": 3957458.7031,
+        "z": -360.81
+      }
+    },
+    {
+      "id": "JKYCFGS01014001853P20",
+      "description": "南北区贯通巷二号联络巷_人数",
+      "tunnel_id": "682EA910-17B0-4039-9D0E-5DD78CAE8788",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437738.1621,
+        "y": 3956747.5631,
+        "z": -623.36
+      }
+    },
+    {
+      "id": "JKYCFGS01014001853X10",
+      "description": "8301皮顺入口_人数",
+      "tunnel_id": "",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437790.2721,
+        "y": 3956787.5731,
+        "z": -633.95
+      }
+    },
+    {
+      "id": "JKYCFGS01014001856J00",
+      "description": "8301皮顺联络巷1#_人数",
+      "tunnel_id": "",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437811.9421,
+        "y": 3956797.2031,
+        "z": -637.66
+      }
+    },
+    {
+      "id": "JKYCFGS01014001856P00",
+      "description": "8301皮顺联络巷1#_人数",
+      "tunnel_id": "",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39437982.5621,
+        "y": 3956873.0731,
+        "z": -666.86
+      }
+    },
+    {
+      "id": "JKYCFGS01014001857J00",
+      "description": "8301皮顺联络巷2#_人数",
+      "tunnel_id": "",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39438020.2221,
+        "y": 3956892.1131,
+        "z": -672.82
+      }
+    },
+    {
+      "id": "JKYCFGS01014001857P00",
+      "description": "8301皮顺联络巷2#_人数",
+      "tunnel_id": "",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39438019.1221,
+        "y": 3956889.3331,
+        "z": -673.1
+      }
+    },
+    {
+      "id": "JKYCFGS01014001859J00",
+      "description": "8301皮顺1#_人数",
+      "tunnel_id": "",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39438052.1521,
+        "y": 3956972.6431,
+        "z": -664.81
+      }
+    },
+    {
+      "id": "JKYCFGS01014001859P00",
+      "description": "8301皮顺1#_人数",
+      "tunnel_id": "",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 39438046.6421,
+        "y": 3956958.7531,
+        "z": -666.2
+      }
+    }
+  ],
+  "_held_back_low_confidence": 0
+}
