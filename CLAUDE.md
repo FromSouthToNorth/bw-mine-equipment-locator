@@ -138,7 +138,7 @@ Claude 采用**两阶段交互流程**，不直接一键执行：
 
 触发关键词：`定位`、`设备定位`、`locator` + 用户名（`F\d+` 格式）
 
-**快捷跳过**：若用户明确说"直接跑"、"不用确认"、"自动跑完"，可跳过审查直接走完整流程。
+**快捷跳过**：若用户明确说"直接跑"、"不用确认"、"自动跑完"，可跳过审查直接走完整流程。但脚本层面已启用**两阶段硬约束**：不加 `--yes` 时，即使 Claude 尝试一步执行，locator.py 也会物理拒绝匹配+回写一步完成，强制报错退出。只有显式 `--yes` 才能绕过（见下方"合并一步执行"）。
 
 ### 交互式运行流程
 
@@ -361,19 +361,21 @@ python skill/bw-mine-equipment-locator/scripts/locator.py <username> \
 - **回写确认时醒目提示覆盖风险**：必须用 ⚠️ 标记 + **粗体** 明确提示会覆盖的原始数据条数（如"⚠ 会覆盖原有 **76 条**标注数据"），用户确认后再执行
 - 返回 `{"code": 100}` 表示成功
 
-**合并一步执行（用户明确说"直接跑"时）：** 不加 `--match-only`，locator.py 自动完成匹配+回写（同样仅回写高+中置信度）：
+**合并一步执行（用户明确说"直接跑"时）：** 脚本层面已启用硬约束，不加 `--yes` 会报错退出。一步完成需要显式 `--yes`（同样仅回写高+中置信度）：
 
 ```bash
 python skill/bw-mine-equipment-locator/scripts/locator.py <username> \
-  --load data/output/data_8373_<mineName>.json
+  --load data/output/data_8373_<mineName>.json --yes
 ```
+
+> **跨平台约束说明**：此硬约束写入 `locator.py` 代码，不依赖 Claude Code 的提示工程或记忆系统。无论运行在 Claude Code、OpenClaw、人工终端或 CI 中，行为一致。
 
 ---
 
 ## 项目结构
 
 ```
-F:\gis\Point\
+<repo-root>/
 ├── CLAUDE.md              # 本文件
 ├── data/
 │   ├── pdf/              # 煤矿安全规范等 PDF 文档

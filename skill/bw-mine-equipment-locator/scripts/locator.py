@@ -24,7 +24,7 @@ from pathlib import Path
 
 
 # ── 路径 ──────────────────────────────────────────────────────────
-PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent.parent  # F:\gis\Point
+PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent.parent  # 仓库根目录
 TOKEN_MANAGER = PROJECT_ROOT / "skill" / "bw-token-manager" / "scripts" / "bw_token_manager.py"
 STRATEGY_API = PROJECT_ROOT / "skill" / "bw-strategy-api-caller" / "scripts" / "strategy_api.py"
 CACHE_DIR = PROJECT_ROOT / "data" / "cache"
@@ -43,8 +43,6 @@ def _resolve_python_exe() -> str:
         which = shutil.which(name)
         if which:
             candidates.append(which)
-    # Windows 历史约定路径作兜底（不存在不报错）
-    candidates.append(r"C:\Users\bw\AppData\Local\Programs\Python\Python310\python.exe")
 
     seen, errors = set(), []
     for exe in candidates:
@@ -2964,8 +2962,9 @@ def _backup_origin_data(data: dict, mine_name: str) -> str:
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     backup_path = backup_dir / f"data_8385_{mine_name}_{timestamp}.json"
 
+    backup_obj = {"results": origin}
     with open(backup_path, "w", encoding="utf-8") as f:
-        json.dump(origin, f, ensure_ascii=False, indent=2)
+        json.dump(backup_obj, f, ensure_ascii=False, indent=2)
 
     print(f"  → 8385 备份已保存: {backup_path} ({len(origin)} 条)", file=sys.stderr)
     return str(backup_path)
@@ -3140,10 +3139,10 @@ def _writeback_from_file(result_path: str, username: str, auto_yes: bool = False
         if len(held_back) > 8:
             print(f"    ...及其他 {len(held_back) - 8} 条", file=sys.stderr)
 
-        # ── 用户确认 ──
-        if not _confirm_overwrite(len(to_writeback), len(held_back), auto_yes=auto_yes):
-            print(f"  ⏸ 回写已取消。备份文件保留在 data/backup/ 中。", file=sys.stderr)
-            return
+    # ── 用户确认 ──
+    if not _confirm_overwrite(len(to_writeback), len(held_back), auto_yes=auto_yes):
+        print(f"  ⏸ 回写已取消。备份文件保留在 data/backup/ 中。", file=sys.stderr)
+        return
 
     writeback_data = dict(data)
     writeback_data["results"] = to_writeback
@@ -3370,6 +3369,21 @@ def main():
         print(f"  → 已保存: {save_path}", file=sys.stderr)
 
     print(f"  → 设备: {len(devices)} 个, 候选名: {len(candidates)} 个", file=sys.stderr)
+
+    # ── 两阶段流程硬约束 ──
+    # 默认禁止一步完成匹配+回写，强制分步执行。
+    # 只有显式 --yes 才能绕过（用于自动化/CI）。
+    if args.load and not args.match_only and not args.yes:
+        print("\n============================================================", file=sys.stderr)
+        print("  错误: 直接匹配+回写已禁用（两阶段流程约束）", file=sys.stderr)
+        print("============================================================", file=sys.stderr)
+        print("请分步执行：", file=sys.stderr)
+        print(f"  阶段 1（匹配）: python locator.py {username} --load {args.load} --match-only", file=sys.stderr)
+        print(f"  阶段 2（回写）: python locator.py {username} --writeback data/output/locator_result_{username}_{mine_name}.json", file=sys.stderr)
+        print("\n或使用 --yes 显式跳过确认（仅用于自动化/CI）：", file=sys.stderr)
+        print(f"  python locator.py {username} --load {args.load} --yes", file=sys.stderr)
+        print("============================================================", file=sys.stderr)
+        sys.exit(1)
 
     # ── 设备 ID 过滤 ──
     filtered_by_id = 0
