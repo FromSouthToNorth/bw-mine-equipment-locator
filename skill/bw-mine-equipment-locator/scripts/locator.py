@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 """
 煤矿设备定位 — 根据设备描述匹配巷道/工作面，计算 (x, y, z) 坐标
 
@@ -315,6 +315,7 @@ _TUNNEL_ALIAS_MAP = {
     # 斜井等价：副井/主井 与 副斜井/主斜井 在口语中常混用
     "副井": ["副斜井"],
     "主井": ["主斜井"],
+    "回风井": ["回风斜井"],
 }
 
 
@@ -447,6 +448,17 @@ def _is_surface_description(description: str) -> bool:
         if pattern in description:
             return True
     return False
+
+
+def _is_shaft_mouth(description: str) -> bool:
+    """检测是否为井口设备（主井井口、副井井口、回风井井口、风井井口等）。
+    这类设备 area 虽标记为井上，但实际是井下斜井的入口点，
+    应匹配到对应斜井起始位置，而非被 AREA_SURFACE 过滤掉。
+    """
+    if not description:
+        return False
+    # 匹配 "主井井口"、"副井井口"、"回风井井口"、"风井井口" 等
+    return bool(re.search(r'(主井|副井|回风井|风井)井口', description))
 
 
 # ── 地点类型语义过滤 ──────────────────────────────────────────────
@@ -1968,7 +1980,7 @@ def _match_devices(devices: list, candidates: list,
                                           extract_explicit_distance(desc)))
                     continue
 
-        if _is_surface_area(device.get("area")) or _is_surface_description(desc):
+        if (_is_surface_area(device.get("area")) or _is_surface_description(desc)) and not _is_shaft_mouth(desc):
             unmatched.append({
                 "id": device.get("id", ""), "description": desc,
                 "mark_type": mark_type or "", "sensor_type": sensor_type,
