@@ -1,0 +1,6653 @@
+{
+  "devices": [
+    {
+      "id": "YJMDTBMY10120011F00",
+      "description": "主斜井井口130分站",
+      "sensor_type": "分站",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "主斜井井口130分站"
+    },
+    {
+      "id": "YJMDTBMY10120012F00",
+      "description": "副斜井井口130分站",
+      "sensor_type": "分站",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "副斜井井口130分站"
+    },
+    {
+      "id": "YJMDTBMY10120014F00",
+      "description": "副斜井井底车场130分站",
+      "sensor_type": "分站",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "副斜井井底车场130分站"
+    },
+    {
+      "id": "YJMDTBMY10120015F00",
+      "description": "主扇通风机房130分站",
+      "sensor_type": "分站",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "主扇通风机房130分站"
+    },
+    {
+      "id": "YJMDTBMY10120016F00",
+      "description": "胶带石门130分站",
+      "sensor_type": "分站",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "胶带石门130分站"
+    },
+    {
+      "id": "YJMDTBMY10120017F00",
+      "description": "轨道石门130分站",
+      "sensor_type": "分站",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "轨道石门130分站"
+    },
+    {
+      "id": "YJMDTBMY10120102",
+      "description": "中央辅运大巷工作面  主风机开停中央辅运大巷工作面  主风机开停_设备开停",
+      "sensor_type": "开停",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "中央辅运大巷工作面  主风机开停中央辅运大巷工作面  "
+    },
+    {
+      "id": "YJMDTBMY10120106",
+      "description": "中央辅运大巷工作面  副风机开停中央辅运大巷工作面  副风机开停_设备开停",
+      "sensor_type": "开停",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "中央辅运大巷工作面  副风机开停中央辅运大巷工作面  "
+    },
+    {
+      "id": "YJMDTBMY10120107",
+      "description": "主井口风速",
+      "sensor_type": "风速",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "主井口风速"
+    },
+    {
+      "id": "YJMDTBMY10120115",
+      "description": "中央胶带大巷工作面   副风机开停中央胶带大巷工作面   副风机开停_设备开停",
+      "sensor_type": "开停",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "中央胶带大巷工作面   副风机开停中央胶带大巷工作面 "
+    },
+    {
+      "id": "YJMDTBMY10120119",
+      "description": "中央回风大巷工作面副风机开停中央回风大巷工作面副风机开停_设备开停",
+      "sensor_type": "开停",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "中央回风大巷工作面副风机开停中央回风大巷工作面副风"
+    },
+    {
+      "id": "YJMDTBMY10120121",
+      "description": "中央回风大巷工作面回风流温度_环境温度",
+      "sensor_type": "温度",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "中央回风大巷工作面回风流温度_环境温度"
+    },
+    {
+      "id": "YJMDTBMY10120122",
+      "description": "中央回风大巷掘进工作面CH4  (T2)_激光甲烷",
+      "sensor_type": "瓦斯",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "中央回风大巷掘进工作面CH4  (T2)_激光甲烷"
+    },
+    {
+      "id": "YJMDTBMY10120131",
+      "description": "中央回风大巷掘进工作面风筒状态 风筒开关风筒开关",
+      "sensor_type": "风筒",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "中央回风大巷掘进工作面风筒状态 风筒开关风筒开关"
+    },
+    {
+      "id": "YJMDTBMY10120140",
+      "description": "中央回风大巷工作面主风机开停中央回风大巷工作面主风机开停_设备开停",
+      "sensor_type": "开停",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "中央回风大巷工作面主风机开停中央回风大巷工作面主风"
+    },
+    {
+      "id": "YJMDTBMY10120141",
+      "description": "总回风风速",
+      "sensor_type": "风速",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "总回风风速"
+    },
+    {
+      "id": "YJMDTBMY10120142",
+      "description": "总回风温度_环境温度",
+      "sensor_type": "温度",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "总回风温度_环境温度"
+    },
+    {
+      "id": "YJMDTBMY10120143",
+      "description": "总回风CO_一氧化碳",
+      "sensor_type": "一氧化碳",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "总回风CO_一氧化碳"
+    },
+    {
+      "id": "YJMDTBMY10120144",
+      "description": "总回风CH4_激光甲烷",
+      "sensor_type": "瓦斯",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "总回风CH4_激光甲烷"
+    },
+    {
+      "id": "YJMDTBMY10120146",
+      "description": "回风大巷副风机远控开关馈电状态_馈电器",
+      "sensor_type": "馈电",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "回风大巷副风机远控开关馈电状态_馈电器"
+    },
+    {
+      "id": "YJMDTBMY10120148",
+      "description": "中央胶带大巷皮带机尾CO_一氧化碳",
+      "sensor_type": "一氧化碳",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "中央胶带大巷皮带机尾CO_一氧化碳"
+    },
+    {
+      "id": "YJMDTBMY10120149",
+      "description": "中央胶带大巷皮带机尾烟雾",
+      "sensor_type": "烟雾",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "中央胶带大巷皮带机尾烟雾"
+    },
+    {
+      "id": "YJMDTBMY1012015",
+      "description": "中央辅运大巷工作面回风流温度_环境温度",
+      "sensor_type": "温度",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "中央辅运大巷工作面回风流温度_环境温度"
+    },
+    {
+      "id": "YJMDTBMY10120151",
+      "description": "中央辅运大巷皮带机尾CO_一氧化碳",
+      "sensor_type": "一氧化碳",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "中央辅运大巷皮带机尾CO_一氧化碳"
+    },
+    {
+      "id": "YJMDTBMY10120152",
+      "description": "中央辅运大巷皮带机尾烟雾",
+      "sensor_type": "烟雾",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "中央辅运大巷皮带机尾烟雾"
+    },
+    {
+      "id": "YJMDTBMY10120155",
+      "description": "回风大巷副风机远控开关断电状态_断电器",
+      "sensor_type": "断电",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "回风大巷副风机远控开关断电状态_断电器"
+    },
+    {
+      "id": "YJMDTBMY10120158",
+      "description": "机头硐室皮带机尾CO_一氧化碳",
+      "sensor_type": "一氧化碳",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "机头硐室皮带机尾CO_一氧化碳"
+    },
+    {
+      "id": "YJMDTBMY10120159",
+      "description": "机头硐室皮带机尾烟雾",
+      "sensor_type": "烟雾",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "机头硐室皮带机尾烟雾"
+    },
+    {
+      "id": "YJMDTBMY1012016",
+      "description": "中央辅运大巷工作面回风流CO_一氧化碳",
+      "sensor_type": "一氧化碳",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "中央辅运大巷工作面回风流CO_一氧化碳"
+    },
+    {
+      "id": "YJMDTBMY10120160",
+      "description": "回风大巷主风机远控开关馈电状态_馈电器",
+      "sensor_type": "馈电",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "回风大巷主风机远控开关馈电状态_馈电器"
+    },
+    {
+      "id": "YJMDTBMY10120162",
+      "description": "中央胶带大巷工作面粉尘",
+      "sensor_type": "粉尘",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "中央胶带大巷工作面粉尘"
+    },
+    {
+      "id": "YJMDTBMY10120163",
+      "description": "中央辅运大巷工作面粉尘",
+      "sensor_type": "粉尘",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "中央辅运大巷工作面粉尘"
+    },
+    {
+      "id": "YJMDTBMY10120164",
+      "description": "中央回风大巷工作面粉尘",
+      "sensor_type": "粉尘",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "中央回风大巷工作面粉尘"
+    },
+    {
+      "id": "YJMDTBMY10120166",
+      "description": "中部通风联络巷主风机远控开关馈电状态_馈电器",
+      "sensor_type": "馈电",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "中部通风联络巷主风机远控开关馈电状态_馈电器"
+    },
+    {
+      "id": "YJMDTBMY10120167",
+      "description": "中部通风联络巷主风机远控开关断电状态_断电器",
+      "sensor_type": "断电",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "中部通风联络巷主风机远控开关断电状态_断电器"
+    },
+    {
+      "id": "YJMDTBMY10120177",
+      "description": "回风大巷主风机远控开关断电状态_断电器",
+      "sensor_type": "断电",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "回风大巷主风机远控开关断电状态_断电器"
+    },
+    {
+      "id": "YJMDTBMY10120178",
+      "description": "中央回风大巷二部皮带机头CO_一氧化碳",
+      "sensor_type": "一氧化碳",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "中央回风大巷二部皮带机头CO_一氧化碳"
+    },
+    {
+      "id": "YJMDTBMY10120180",
+      "description": "中央回风大巷一部皮带机头CO_一氧化碳",
+      "sensor_type": "一氧化碳",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "中央回风大巷一部皮带机头CO_一氧化碳"
+    },
+    {
+      "id": "YJMDTBMY10120181",
+      "description": "中央回风大巷一部皮带机头烟雾",
+      "sensor_type": "烟雾",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "中央回风大巷一部皮带机头烟雾"
+    },
+    {
+      "id": "YJMDTBMY10120182",
+      "description": "中央回风大巷二部皮带机头烟雾",
+      "sensor_type": "烟雾",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "中央回风大巷二部皮带机头烟雾"
+    },
+    {
+      "id": "YJMDTBMY10120183",
+      "description": "中央回风大巷二部皮带机尾CO_一氧化碳",
+      "sensor_type": "一氧化碳",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "中央回风大巷二部皮带机尾CO_一氧化碳"
+    },
+    {
+      "id": "YJMDTBMY10120184",
+      "description": "中央回风大巷二部皮带机尾烟雾",
+      "sensor_type": "烟雾",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "中央回风大巷二部皮带机尾烟雾"
+    },
+    {
+      "id": "YJMDTBMY10120185",
+      "description": "副井口风速",
+      "sensor_type": "风速",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "副井口风速"
+    },
+    {
+      "id": "YJMDTBMY10120193",
+      "description": "中部通风联络巷掘进工作面CH4（T1）_激光甲烷",
+      "sensor_type": "瓦斯",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "中部通风联络巷掘进工作面CH4（T1）_激光甲烷"
+    },
+    {
+      "id": "YJMDTBMY10120196",
+      "description": "中部通风联络巷风筒状态风筒开关风筒开关",
+      "sensor_type": "风筒",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "中部通风联络巷风筒状态风筒开关风筒开关"
+    },
+    {
+      "id": "YJMDTBMY10120201",
+      "description": "中部通风联络巷工作面主风机开停中部通风联络巷工作面主风机开停_设备开停",
+      "sensor_type": "开停",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "中部通风联络巷工作面主风机开停中部通风联络巷工作面"
+    },
+    {
+      "id": "YJMDTBMY10120202F00",
+      "description": "集控楼三楼1#130分站",
+      "sensor_type": "分站",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "集控楼三楼1#130分站"
+    },
+    {
+      "id": "YJMDTBMY10120203F00",
+      "description": "集控楼三楼2#130分站",
+      "sensor_type": "分站",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "集控楼三楼2#130分站"
+    },
+    {
+      "id": "YJMDTBMY10120204",
+      "description": "中部通风联络巷工作面副风机开停中部通风联络巷工作面副风机开停_设备开停",
+      "sensor_type": "开停",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "中部通风联络巷工作面副风机开停中部通风联络巷工作面"
+    },
+    {
+      "id": "YJMDTBMY10120206",
+      "description": "中部通风联络巷掘进工作面CH4（T2）_激光甲烷",
+      "sensor_type": "瓦斯",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "中部通风联络巷掘进工作面CH4（T2）_激光甲烷"
+    },
+    {
+      "id": "YJMDTBMY10120207",
+      "description": "中部通风联络巷工作面回风流温度_环境温度",
+      "sensor_type": "温度",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "中部通风联络巷工作面回风流温度_环境温度"
+    },
+    {
+      "id": "YJMDTBMY10120209",
+      "description": "中部通风联络巷工作面回风流CO_一氧化碳",
+      "sensor_type": "一氧化碳",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "中部通风联络巷工作面回风流CO_一氧化碳"
+    },
+    {
+      "id": "YJMDTBMY10120314",
+      "description": "副井井口皮带机头烟雾传感器",
+      "sensor_type": "烟雾",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "副井井口皮带机头烟雾传感器"
+    },
+    {
+      "id": "YJMDTBMY10120357",
+      "description": "副井井口皮带机头CO_一氧化碳",
+      "sensor_type": "一氧化碳",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "副井井口皮带机头CO_一氧化碳"
+    },
+    {
+      "id": "YJMDTBMY10120414",
+      "description": "中央辅运大巷掘进工作面CH4(T2)_激光甲烷",
+      "sensor_type": "瓦斯",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "中央辅运大巷掘进工作面CH4(T2)_激光甲烷"
+    },
+    {
+      "id": "YJMDTBMY1012045",
+      "description": "主通风机1号机开停状态主通风机1号机开停状态_设备开停",
+      "sensor_type": "开停",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "主通风机1号机开停状态主通风机1号机开停状态_设备开"
+    },
+    {
+      "id": "YJMDTBMY10120467",
+      "description": "地面选煤楼主厂房2楼CH4_激光甲烷",
+      "sensor_type": "瓦斯",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "地面选煤楼主厂房2楼CH4_激光甲烷"
+    },
+    {
+      "id": "YJMDTBMY10120468",
+      "description": "地面选煤楼主厂房2楼CO_一氧化碳",
+      "sensor_type": "一氧化碳",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "地面选煤楼主厂房2楼CO_一氧化碳"
+    },
+    {
+      "id": "YJMDTBMY10120469",
+      "description": "地面选煤楼主厂房2楼烟雾",
+      "sensor_type": "烟雾",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "地面选煤楼主厂房2楼烟雾"
+    },
+    {
+      "id": "YJMDTBMY10120470",
+      "description": "地面选煤楼主厂房3楼CH4_激光甲烷",
+      "sensor_type": "瓦斯",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "地面选煤楼主厂房3楼CH4_激光甲烷"
+    },
+    {
+      "id": "YJMDTBMY10120471",
+      "description": "地面选煤楼主厂房3楼CO_一氧化碳",
+      "sensor_type": "一氧化碳",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "地面选煤楼主厂房3楼CO_一氧化碳"
+    },
+    {
+      "id": "YJMDTBMY10120472",
+      "description": "地面选煤楼主厂房3楼烟雾",
+      "sensor_type": "烟雾",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "地面选煤楼主厂房3楼烟雾"
+    },
+    {
+      "id": "YJMDTBMY10120473",
+      "description": "地面选煤楼301皮带机头CH4_激光甲烷",
+      "sensor_type": "瓦斯",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "地面选煤楼301皮带机头CH4_激光甲烷"
+    },
+    {
+      "id": "YJMDTBMY10120474",
+      "description": "地面选煤楼301皮带机头CO_一氧化碳",
+      "sensor_type": "一氧化碳",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "地面选煤楼301皮带机头CO_一氧化碳"
+    },
+    {
+      "id": "YJMDTBMY10120475",
+      "description": "地面选煤楼301皮带机头烟雾",
+      "sensor_type": "烟雾",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "地面选煤楼301皮带机头烟雾"
+    },
+    {
+      "id": "YJMDTBMY10120476",
+      "description": "地面选煤楼主厂房5楼CH4_激光甲烷",
+      "sensor_type": "瓦斯",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "地面选煤楼主厂房5楼CH4_激光甲烷"
+    },
+    {
+      "id": "YJMDTBMY10120478",
+      "description": "地面选煤楼矸石仓CH4_激光甲烷",
+      "sensor_type": "瓦斯",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "地面选煤楼矸石仓CH4_激光甲烷"
+    },
+    {
+      "id": "YJMDTBMY10120479",
+      "description": "地面选煤楼矸石仓CO_一氧化碳",
+      "sensor_type": "一氧化碳",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "地面选煤楼矸石仓CO_一氧化碳"
+    },
+    {
+      "id": "YJMDTBMY1012048",
+      "description": "主通风机2号机开停状态主通风机2号机开停状态_设备开停",
+      "sensor_type": "开停",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "主通风机2号机开停状态主通风机2号机开停状态_设备开"
+    },
+    {
+      "id": "YJMDTBMY10120480",
+      "description": "地面选煤楼矸石仓烟雾",
+      "sensor_type": "烟雾",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "地面选煤楼矸石仓烟雾"
+    },
+    {
+      "id": "YJMDTBMY10120481",
+      "description": "地面万吨产品仓-西仓CH4_激光甲烷",
+      "sensor_type": "瓦斯",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "地面万吨产品仓-西仓CH4_激光甲烷"
+    },
+    {
+      "id": "YJMDTBMY10120482",
+      "description": "地面万吨产品仓-西仓烟雾",
+      "sensor_type": "烟雾",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "地面万吨产品仓-西仓烟雾"
+    },
+    {
+      "id": "YJMDTBMY10120483",
+      "description": "地面万吨产品仓-东仓CH4_激光甲烷",
+      "sensor_type": "瓦斯",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "地面万吨产品仓-东仓CH4_激光甲烷"
+    },
+    {
+      "id": "YJMDTBMY10120484",
+      "description": "地面万吨产品仓-东仓烟雾",
+      "sensor_type": "烟雾",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "地面万吨产品仓-东仓烟雾"
+    },
+    {
+      "id": "YJMDTBMY10120485",
+      "description": "地面万吨原煤仓-西仓CH4_激光甲烷",
+      "sensor_type": "瓦斯",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "地面万吨原煤仓-西仓CH4_激光甲烷"
+    },
+    {
+      "id": "YJMDTBMY10120486",
+      "description": "地面万吨原煤仓-西仓烟雾",
+      "sensor_type": "烟雾",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "地面万吨原煤仓-西仓烟雾"
+    },
+    {
+      "id": "YJMDTBMY10120487",
+      "description": "地面万吨原煤仓-东仓CH4_激光甲烷",
+      "sensor_type": "瓦斯",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "地面万吨原煤仓-东仓CH4_激光甲烷"
+    },
+    {
+      "id": "YJMDTBMY10120488",
+      "description": "地面万吨原煤仓-东仓烟雾",
+      "sensor_type": "烟雾",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "地面万吨原煤仓-东仓烟雾"
+    },
+    {
+      "id": "YJMDTBMY10120491",
+      "description": "地面选煤楼主厂房4楼CH4_激光甲烷",
+      "sensor_type": "瓦斯",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "地面选煤楼主厂房4楼CH4_激光甲烷"
+    },
+    {
+      "id": "YJMDTBMY10120492",
+      "description": "地面万吨产品东仓CO_一氧化碳",
+      "sensor_type": "一氧化碳",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "地面万吨产品东仓CO_一氧化碳"
+    },
+    {
+      "id": "YJMDTBMY10120493",
+      "description": "地面万吨产品西仓CO_一氧化碳",
+      "sensor_type": "一氧化碳",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "地面万吨产品西仓CO_一氧化碳"
+    },
+    {
+      "id": "YJMDTBMY10120494",
+      "description": "地面万吨原煤东仓CO_一氧化碳",
+      "sensor_type": "一氧化碳",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "地面万吨原煤东仓CO_一氧化碳"
+    },
+    {
+      "id": "YJMDTBMY10120495",
+      "description": "地面万吨原煤西仓CO_一氧化碳",
+      "sensor_type": "一氧化碳",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "地面万吨原煤西仓CO_一氧化碳"
+    },
+    {
+      "id": "YJMDTBMY10120497",
+      "description": "集控化验楼变压器08G远控开关馈电状态_馈电器",
+      "sensor_type": "馈电",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "集控化验楼变压器08G远控开关馈电状态_馈电器"
+    },
+    {
+      "id": "YJMDTBMY10120498",
+      "description": "集控化验楼变压器08G远控开关断电状态_断电器",
+      "sensor_type": "断电",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "集控化验楼变压器08G远控开关断电状态_断电器"
+    },
+    {
+      "id": "YJMDTBMY10120500",
+      "description": "集控化验楼变压器07G远控开关馈电状态_馈电器",
+      "sensor_type": "馈电",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "集控化验楼变压器07G远控开关馈电状态_馈电器"
+    },
+    {
+      "id": "YJMDTBMY10120501",
+      "description": "集控化验楼变压器07G远控开关断电状态_断电器",
+      "sensor_type": "断电",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "集控化验楼变压器07G远控开关断电状态_断电器"
+    },
+    {
+      "id": "YJMDTBMY10120503",
+      "description": "产品仓下变电室高压开关09G远控开关馈电状态_馈电器",
+      "sensor_type": "馈电",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "产品仓下变电室高压开关09G远控开关馈电状态_馈电器"
+    },
+    {
+      "id": "YJMDTBMY10120504",
+      "description": "产品仓下变电室高压开关09G远控开关断电状态_断电器",
+      "sensor_type": "断电",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "产品仓下变电室高压开关09G远控开关断电状态_断电器"
+    },
+    {
+      "id": "YJMDTBMY10120506",
+      "description": "产品仓下变电室高压开关10G远控开关馈电状态_馈电器",
+      "sensor_type": "馈电",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "产品仓下变电室高压开关10G远控开关馈电状态_馈电器"
+    },
+    {
+      "id": "YJMDTBMY10120507",
+      "description": "产品仓下变电室高压开关10G远控开关断电状态_断电器",
+      "sensor_type": "断电",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "产品仓下变电室高压开关10G远控开关断电状态_断电器"
+    },
+    {
+      "id": "YJMDTBMY10120509",
+      "description": "原煤仓变电室高压开关11G远控开关馈电状态_馈电器",
+      "sensor_type": "馈电",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "原煤仓变电室高压开关11G远控开关馈电状态_馈电器"
+    },
+    {
+      "id": "YJMDTBMY10120510",
+      "description": "原煤仓变电室高压开关11G远控开关断电状态_断电器",
+      "sensor_type": "断电",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "原煤仓变电室高压开关11G远控开关断电状态_断电器"
+    },
+    {
+      "id": "YJMDTBMY10120512",
+      "description": "原煤仓变电室高压开关12G远控开关馈电状态_馈电器",
+      "sensor_type": "馈电",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "原煤仓变电室高压开关12G远控开关馈电状态_馈电器"
+    },
+    {
+      "id": "YJMDTBMY10120513",
+      "description": "原煤仓变电室高压开关12G远控开关断电状态_断电器",
+      "sensor_type": "断电",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "原煤仓变电室高压开关12G远控开关断电状态_断电器"
+    },
+    {
+      "id": "YJMDTBMY10120515",
+      "description": "地面选煤楼103变电室1#进线柜馈电状态_馈电器",
+      "sensor_type": "馈电",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "地面选煤楼103变电室1#进线柜馈电状态_馈电器"
+    },
+    {
+      "id": "YJMDTBMY10120516",
+      "description": "地面选煤楼103变电室1#进线柜断电状态_断电器",
+      "sensor_type": "断电",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "地面选煤楼103变电室1#进线柜断电状态_断电器"
+    },
+    {
+      "id": "YJMDTBMY10120518",
+      "description": "地面选煤楼103变电室2#接线柜馈电状态_馈电器",
+      "sensor_type": "馈电",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "地面选煤楼103变电室2#接线柜馈电状态_馈电器"
+    },
+    {
+      "id": "YJMDTBMY10120519",
+      "description": "地面选煤楼103变电室2#接线柜断电状态_断电器",
+      "sensor_type": "断电",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "地面选煤楼103变电室2#接线柜断电状态_断电器"
+    },
+    {
+      "id": "YJMDTBMY10120537",
+      "description": "中央辅运大巷掘进工作面 风筒状态风筒开关",
+      "sensor_type": "风筒",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "中央辅运大巷掘进工作面 风筒状态风筒开关"
+    },
+    {
+      "id": "YJMDTBMY10120538",
+      "description": "中央辅运大巷掘进工作面CH4(T1)_激光甲烷",
+      "sensor_type": "瓦斯",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "中央辅运大巷掘进工作面CH4(T1)_激光甲烷"
+    },
+    {
+      "id": "YJMDTBMY1012067",
+      "description": "中央胶带大巷工作面CH4（T1）_激光甲烷",
+      "sensor_type": "瓦斯",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "中央胶带大巷工作面CH4（T1）_激光甲烷"
+    },
+    {
+      "id": "YJMDTBMY1012068",
+      "description": "中央胶带大巷工作面 风筒状态风筒开关",
+      "sensor_type": "风筒",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "中央胶带大巷工作面 风筒状态风筒开关"
+    },
+    {
+      "id": "YJMDTBMY1012069",
+      "description": "辅运联络巷皮带机头 CO_一氧化碳",
+      "sensor_type": "一氧化碳",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "辅运联络巷皮带机头 CO_一氧化碳"
+    },
+    {
+      "id": "YJMDTBMY1012070",
+      "description": "辅运联络巷皮带机头 烟雾",
+      "sensor_type": "烟雾",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "辅运联络巷皮带机头 烟雾"
+    },
+    {
+      "id": "YJMDTBMY1012071",
+      "description": "中央胶带大巷工作面CH4 (T2)_激光甲烷",
+      "sensor_type": "瓦斯",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "中央胶带大巷工作面CH4 (T2)_激光甲烷"
+    },
+    {
+      "id": "YJMDTBMY1012072",
+      "description": "中央胶带大巷工作面回风流 CO_一氧化碳",
+      "sensor_type": "一氧化碳",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "中央胶带大巷工作面回风流 CO_一氧化碳"
+    },
+    {
+      "id": "YJMDTBMY1012074",
+      "description": "中央胶带大巷工作面 回风流温度_环境温度",
+      "sensor_type": "温度",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "中央胶带大巷工作面 回风流温度_环境温度"
+    },
+    {
+      "id": "YJMDTBMY1012075",
+      "description": "中央胶带大巷工作面 回风流湿度",
+      "sensor_type": "湿度",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "中央胶带大巷工作面 回风流湿度"
+    },
+    {
+      "id": "YJMDTBMY1012076",
+      "description": "机头硐室皮带机头C O_一氧化碳",
+      "sensor_type": "一氧化碳",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "机头硐室皮带机头C O_一氧化碳"
+    },
+    {
+      "id": "YJMDTBMY1012077",
+      "description": "机头硐室 皮带机头烟雾",
+      "sensor_type": "烟雾",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "机头硐室 皮带机头烟雾"
+    },
+    {
+      "id": "YJMDTBMY1012078",
+      "description": "二号交岔点皮带机头 CO_一氧化碳",
+      "sensor_type": "一氧化碳",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "二号交岔点皮带机头 CO_一氧化碳"
+    },
+    {
+      "id": "YJMDTBMY1012079",
+      "description": "二号交岔点皮带机头 烟雾",
+      "sensor_type": "烟雾",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "二号交岔点皮带机头 烟雾"
+    },
+    {
+      "id": "YJMDTBMY1012080",
+      "description": "主通风机2号机负压",
+      "sensor_type": "负压",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "主通风机2号机负压"
+    },
+    {
+      "id": "YJMDTBMY1012081",
+      "description": "主通风机1号机负压",
+      "sensor_type": "负压",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "主通风机1号机负压"
+    },
+    {
+      "id": "YJMDTBMY1012084",
+      "description": "中央胶带大巷远控开关1140v馈电状态_馈电器",
+      "sensor_type": "馈电",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "中央胶带大巷远控开关1140v馈电状态_馈电器"
+    },
+    {
+      "id": "YJMDTBMY1012085",
+      "description": "中央胶带大巷远控开关1140v断电状态_断电器",
+      "sensor_type": "断电",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "中央胶带大巷远控开关1140v断电状态_断电器"
+    },
+    {
+      "id": "YJMDTBMY1012088",
+      "description": "中央辅运大巷远控开关1140v馈电状态_馈电器",
+      "sensor_type": "馈电",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "中央辅运大巷远控开关1140v馈电状态_馈电器"
+    },
+    {
+      "id": "YJMDTBMY1012089",
+      "description": "中央辅运大巷远控开关1140v断电状态_断电器",
+      "sensor_type": "断电",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "中央辅运大巷远控开关1140v断电状态_断电器"
+    },
+    {
+      "id": "YJMDTBMY101209",
+      "description": "副井绞车开停状态副井绞车开停状态_设备开停",
+      "sensor_type": "开停",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "副井绞车开停状态副井绞车开停状态_设备开停"
+    },
+    {
+      "id": "YJMDTBMY1012091",
+      "description": "中央回风大巷远控开关1140v馈电状态_馈电器",
+      "sensor_type": "馈电",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "中央回风大巷远控开关1140v馈电状态_馈电器"
+    },
+    {
+      "id": "YJMDTBMY1012092",
+      "description": "中央回风大巷远控开关1140v断电状态_断电器",
+      "sensor_type": "断电",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "中央回风大巷远控开关1140v断电状态_断电器"
+    },
+    {
+      "id": "YJMDTBMY1012093",
+      "description": "中央回风大巷回风流CO_一氧化碳",
+      "sensor_type": "一氧化碳",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "中央回风大巷回风流CO_一氧化碳"
+    },
+    {
+      "id": "YJMDTBMY1012094",
+      "description": "中央回风大巷掘进工作面CH4 (T1)_激光甲烷",
+      "sensor_type": "瓦斯",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "中央回风大巷掘进工作面CH4 (T1)_激光甲烷"
+    },
+    {
+      "id": "YJMDTBMY1012096",
+      "description": "单轨吊充电检修硐室回风流CH4_激光甲烷",
+      "sensor_type": "瓦斯",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "单轨吊充电检修硐室回风流CH4_激光甲烷"
+    },
+    {
+      "id": "YJMDTBMY1012099",
+      "description": "中央胶带大巷工作面  主风机开停中央胶带大巷工作面  主风机开停_设备开停",
+      "sensor_type": "开停",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "中央胶带大巷工作面  主风机开停中央胶带大巷工作面  "
+    },
+    {
+      "id": "YJMDTBMY10120BL9999",
+      "description": "监测设备良好率",
+      "sensor_type": "比率",
+      "mark_type": "B14",
+      "sysaliasname": "安全监测",
+      "area": "井下"
+    },
+    {
+      "id": "YJMDTBMY10121N4098",
+      "description": "天宝磅房1",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4099",
+      "description": "天宝磅房2",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4287",
+      "description": "天宝1#锅炉汽包压力表",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4288",
+      "description": "天宝1#-2#锅炉中间楼梯",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4289",
+      "description": "天宝锅炉房冷渣机一楼中",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4290",
+      "description": "天宝1#锅炉给煤机",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4292",
+      "description": "天宝锅炉房循环水泵房",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4293",
+      "description": "天宝锅炉房脱硫水处理间",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4294",
+      "description": "天宝锅炉房脱硫塔厂房",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4295",
+      "description": "天宝锅炉引风厂房1#引风机",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4296",
+      "description": "天宝锅炉引风厂房2#引风机",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4297",
+      "description": "天宝锅炉脱硫集控室二层水处理间",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4298",
+      "description": "天宝锅炉房循环水泵房北侧",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4299",
+      "description": "天宝锅炉脱硫控制室低压柜",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4300",
+      "description": "天宝锅炉房低压室1#球机",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4301",
+      "description": "天宝锅炉脱硝车间",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4302",
+      "description": "天宝2#锅炉汽包压力表",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4303",
+      "description": "天宝锅炉房七米平台西侧",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4304",
+      "description": "天宝锅炉脱硫集控室二层框架压滤机",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4305",
+      "description": "天宝2#锅炉给煤机",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4306",
+      "description": "天宝锅炉房低压室3#球机",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4649",
+      "description": "天宝煤业选煤厂311312皮带机尾",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4479",
+      "description": "天宝变院内东北角（6号箱）",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4388",
+      "description": "天宝职工宿舍二楼东北楼梯监控",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4377",
+      "description": "天宝职工宿舍楼一楼车库",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4442",
+      "description": "天宝综合水处理车间3",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝水处理车间"
+    },
+    {
+      "id": "YJMDTBMY10121N5197",
+      "description": "天宝公司-空磅房",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4638",
+      "description": "天宝煤业选煤厂矸石仓下",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N5212",
+      "description": "天宝变二次监控室室北",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4374",
+      "description": "天宝综合楼三楼西楼梯",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4399",
+      "description": "天宝餐厅南门监控",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N5969",
+      "description": "天宝公司-煤一3队会议室",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "矿井"
+    },
+    {
+      "id": "YJMDTBMY10121N4422",
+      "description": "天宝设备用房丙类库房3监控",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4633",
+      "description": "天宝煤业选煤厂802皮带机头",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4439",
+      "description": "天宝预处理间1",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝水处理车间"
+    },
+    {
+      "id": "YJMDTBMY10121N4606",
+      "description": "天宝煤业选煤厂301皮带除铁器",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4505",
+      "description": "天宝4#库房西",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4515",
+      "description": "旧生活区增压泵",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝水处理车间"
+    },
+    {
+      "id": "YJMDTBMY10121N5182",
+      "description": "天宝公司-主井井口皮带",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "矿井"
+    },
+    {
+      "id": "YJMDTBMY10121N5983",
+      "description": "天宝公司-露天矿采场西帮",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "露天矿"
+    },
+    {
+      "id": "YJMDTBMY10121N4823",
+      "description": "103皮带机头落煤点",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "露天矿"
+    },
+    {
+      "id": "YJMDTBMY10121N4313",
+      "description": "天宝锅炉房破碎机",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4532",
+      "description": "天宝煤业选煤厂产品仓南侧场地",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4383",
+      "description": "天宝职工宿舍五楼西北楼梯监控",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N5213",
+      "description": "天宝变二次监控室东南",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4635",
+      "description": "天宝煤业选煤厂802皮带通廊",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4822",
+      "description": "天宝煤业露天矿103一楼驱动间",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "露天矿"
+    },
+    {
+      "id": "YJMDTBMY10121N4426",
+      "description": "天宝设备用房主食品库房监控",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4444",
+      "description": "天宝综合水处理车间1",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝水处理车间"
+    },
+    {
+      "id": "YJMDTBMY10121N5166",
+      "description": "天宝公司-露天矿外排土场",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4441",
+      "description": "天宝预沉调节及煤泥处理间1",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝水处理车间"
+    },
+    {
+      "id": "YJMDTBMY10121N5169",
+      "description": "天宝公司-主井绞车房提升机",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "矿井"
+    },
+    {
+      "id": "YJMDTBMY10121N5973",
+      "description": "天宝井工矿-回风斜井井口",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "矿井"
+    },
+    {
+      "id": "YJMDTBMY10121N4650",
+      "description": "天宝煤业选煤厂801901皮带机尾",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4509",
+      "description": "水源井大门",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝水处理车间"
+    },
+    {
+      "id": "YJMDTBMY10121N4830",
+      "description": "天宝煤业选煤厂203皮带机头",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "露天矿"
+    },
+    {
+      "id": "YJMDTBMY10121N6029",
+      "description": "天宝联建楼-2楼东边通道",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4414",
+      "description": "天宝蓄水池西",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4419",
+      "description": "天宝设备用房丙类库房4监控",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N6008",
+      "description": "天宝联建楼-1楼西门厅",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4311",
+      "description": "天宝锅炉房2#传输带东侧",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4637",
+      "description": "天宝煤业选煤厂901皮带机头",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N6011",
+      "description": "天宝联建楼-1楼西门厅北向",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4372",
+      "description": "天宝综合楼二楼西楼梯",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4683",
+      "description": "天宝煤业选煤厂集控楼低压配电室",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N5163",
+      "description": "天宝磅房2",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N5975",
+      "description": "天宝公司--采坑",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "露天矿"
+    },
+    {
+      "id": "YJMDTBMY10121N4680",
+      "description": "天宝主扇控制电磁室",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4708",
+      "description": "天宝煤业选煤厂产品仓东侧通道",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4363",
+      "description": "天宝生活区消控室前",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4843",
+      "description": "天宝设备用房配电室1监控",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N6023",
+      "description": "天宝联建楼-2楼西过道",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4427",
+      "description": "天宝设备用房丙类库房2监控",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4308",
+      "description": "天宝锅炉房2#传输带西侧",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N5106",
+      "description": "天宝公司-副斜井井口上",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "矿井"
+    },
+    {
+      "id": "YJMDTBMY10121N4842",
+      "description": "天宝设备用房配电室监控",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4529",
+      "description": "天宝变综合楼南",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4652",
+      "description": "天宝煤业选煤厂801皮带头部通廊",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N5046",
+      "description": "天宝公司-机房冷通外",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4421",
+      "description": "天宝设备用房主食品库房监控2",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N5991",
+      "description": "天宝公司-露天矿充电桩",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "露天矿"
+    },
+    {
+      "id": "YJMDTBMY10121N4406",
+      "description": "天宝食堂洗菜池小",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N5987",
+      "description": "天宝公司-露天矿内排土场",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "露天矿"
+    },
+    {
+      "id": "YJMDTBMY10121N5998",
+      "description": "天宝联建楼-1楼洗衣房-1",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N5135",
+      "description": "天宝公司-回风单轨吊换装点",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "矿井"
+    },
+    {
+      "id": "YJMDTBMY10121N4384",
+      "description": "天宝职工宿舍三楼西南楼梯监控",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4362",
+      "description": "天宝生活消控室后",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N6019",
+      "description": "天宝联建楼-2楼西过道",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4307",
+      "description": "天宝锅炉房七米平台东侧",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N5064",
+      "description": "天宝公司-主井绞车房",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "矿井"
+    },
+    {
+      "id": "YJMDTBMY10121N4463",
+      "description": "天宝变电缆夹层北门",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4528",
+      "description": "天宝变综合楼东球机",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4380",
+      "description": "天宝职工宿舍一楼西门监控",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4605",
+      "description": "天宝煤业选煤厂306干选机",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N5127",
+      "description": "天宝公司-中央回风大巷二部皮带带式输送机机头",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "矿井"
+    },
+    {
+      "id": "YJMDTBMY10121N5976",
+      "description": "天宝煤业-调度室",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "露天矿"
+    },
+    {
+      "id": "YJMDTBMY10121N4619",
+      "description": "天宝煤业选煤厂301皮带机头北",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4356",
+      "description": "天宝井工矿调度室1",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N6018",
+      "description": "天宝联建楼-2楼西过道",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4461",
+      "description": "天宝变院内东（5号箱）",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4385",
+      "description": "天宝职工宿舍三楼东北楼梯监控",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N6012",
+      "description": "天宝联建楼-1楼东门厅",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4821",
+      "description": "天宝煤业露天矿103驱动间三楼",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "露天矿"
+    },
+    {
+      "id": "YJMDTBMY10121N4370",
+      "description": "天宝综合楼一楼大厅北门",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4389",
+      "description": "天宝职工宿舍二楼西北楼梯监控",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4636",
+      "description": "天宝煤业选煤厂801皮带机头",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4829",
+      "description": "天宝煤业选煤厂203皮带机头",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "露天矿"
+    },
+    {
+      "id": "YJMDTBMY10121N5990",
+      "description": "天宝公司-露天矿南帮工作面",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "露天矿"
+    },
+    {
+      "id": "YJMDTBMY10121N5977",
+      "description": "天宝公司--排土场",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "露天矿"
+    },
+    {
+      "id": "YJMDTBMY10121N4436",
+      "description": "天宝预沉调节及煤泥处理间2",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝水处理车间"
+    },
+    {
+      "id": "YJMDTBMY10121N4476",
+      "description": "天宝变院内东南角（4号箱）",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4641",
+      "description": "天宝煤业选煤厂东原煤仓下西侧",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N5985",
+      "description": "天宝公司-神州分选站",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "露天矿"
+    },
+    {
+      "id": "YJMDTBMY10121N4418",
+      "description": "天宝设备用房热交换站监控",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4506",
+      "description": "天宝2#库房东",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4707",
+      "description": "天宝煤业水源井-配电控制室",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4460",
+      "description": "天宝变电缆夹层西南角",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4417",
+      "description": "天宝设备用房给水房监控",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N5125",
+      "description": "天宝公司-中央回风大巷掘进工作面T1朝向迎头",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "矿井"
+    },
+    {
+      "id": "YJMDTBMY10121N4378",
+      "description": "天宝职工宿舍一楼车库监控2",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N6030",
+      "description": "天宝联建楼-2楼等候休息室-1",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4926",
+      "description": "天宝103驱动间球机",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4503",
+      "description": "天宝公司-磅房3",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N6022",
+      "description": "天宝联建楼-2楼西过道",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4455",
+      "description": "天宝变10kV配电室西南角",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4446",
+      "description": "天宝综合水处理车间4",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝水处理车间"
+    },
+    {
+      "id": "YJMDTBMY10121N4925",
+      "description": "天宝103皮带机头变坡点",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "露天矿"
+    },
+    {
+      "id": "YJMDTBMY10121N4514",
+      "description": "天宝煤业-水源井泵房",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝水处理车间"
+    },
+    {
+      "id": "YJMDTBMY10121N5999",
+      "description": "天宝联建楼-1楼洗衣房-2",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N5104",
+      "description": "天宝公司-副斜井上部乘车点",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "矿井"
+    },
+    {
+      "id": "YJMDTBMY10121N4391",
+      "description": "天宝职工宿舍三楼西北楼梯监控",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4706",
+      "description": "天宝设备用房弱电机房监控",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4462",
+      "description": "天宝变电缆夹层东",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4409",
+      "description": "天宝餐厅食堂电梯",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4824",
+      "description": "103一楼张紧部位",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "露天矿"
+    },
+    {
+      "id": "YJMDTBMY10121N4979",
+      "description": "三楼大会议室前",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4471",
+      "description": "天宝变院内西北角（7号箱）",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N5164",
+      "description": "天宝公司-磅房3",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4447",
+      "description": "天宝综合水处理间3",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝水处理车间"
+    },
+    {
+      "id": "YJMDTBMY10121N5116",
+      "description": "天宝公司-副斜井一部皮带带式输送机机头",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "矿井"
+    },
+    {
+      "id": "YJMDTBMY10121N4655",
+      "description": "天宝煤业选煤厂305306干选机",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4375",
+      "description": "天宝综合楼电梯",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4845",
+      "description": "天宝设备用房配电室3监控",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4457",
+      "description": "天宝变院内西(9号箱)",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4456",
+      "description": "天宝变东南门口球机（2号箱）",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4465",
+      "description": "天宝变SVG及FC配电室东",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N5971",
+      "description": "天宝井工矿-主斜井井口",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "矿井"
+    },
+    {
+      "id": "YJMDTBMY10121N5191",
+      "description": "天宝公司-机头硐室带式输送机机头",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "矿井"
+    },
+    {
+      "id": "YJMDTBMY10121N5188",
+      "description": "天宝公司-中央辅运大巷掘进工作面T2处",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "矿井"
+    },
+    {
+      "id": "YJMDTBMY10121N4379",
+      "description": "天宝职工宿舍四楼西南楼梯监控",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4657",
+      "description": "天宝煤业选煤厂产品仓下二楼通廊",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4604",
+      "description": "天宝煤业选煤厂307干选机",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N5996",
+      "description": "天宝联建楼-1楼充电柜-3",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4401",
+      "description": "天宝餐厅二楼监控2",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4512",
+      "description": "天宝老生活区",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝水处理车间"
+    },
+    {
+      "id": "YJMDTBMY10121N4524",
+      "description": "天宝110变南侧",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4658",
+      "description": "天宝煤业选煤厂主厂房一楼吊装口",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4682",
+      "description": "天宝煤业选煤厂集控楼低压配电室",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4679",
+      "description": "天宝主扇控制低压室",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4622",
+      "description": "天宝煤业选煤厂305干选机",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4382",
+      "description": "天宝职工宿舍一楼东门监控",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N5170",
+      "description": "天宝公司-副井绞车提升机",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "矿井"
+    },
+    {
+      "id": "YJMDTBMY10121N5968",
+      "description": "天宝公司-煤一1队会议室",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "矿井"
+    },
+    {
+      "id": "YJMDTBMY10121N5995",
+      "description": "天宝联建楼-1楼充电柜-2",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N5133",
+      "description": "天宝公司-回风料场东",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "矿井"
+    },
+    {
+      "id": "YJMDTBMY10121N4373",
+      "description": "天宝综合楼三楼东楼梯",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4454",
+      "description": "天宝变会议室",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4621",
+      "description": "天宝煤业选煤厂304原煤分级筛",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N5105",
+      "description": "天宝公司-副斜井防跑车(1)",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "矿井"
+    },
+    {
+      "id": "YJMDTBMY10121N5214",
+      "description": "天宝变二次监控室东北",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N6017",
+      "description": "天宝联建楼-2楼西过道",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N5045",
+      "description": "EVS_319",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4639",
+      "description": "天宝煤业选煤厂西原煤仓下东侧",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4651",
+      "description": "天宝煤业选煤厂311312皮带机头",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N6021",
+      "description": "天宝联建楼-2楼西过道",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4429",
+      "description": "天宝设备用房副食品库房监控2",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4817",
+      "description": "天宝煤业露天矿破碎站落煤点",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "露天矿"
+    },
+    {
+      "id": "YJMDTBMY10121N6014",
+      "description": "天宝联建楼-1楼南门厅",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4407",
+      "description": "天宝食堂洗菜池大",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N5970",
+      "description": "天宝井工矿-副斜井井口",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "矿井"
+    },
+    {
+      "id": "YJMDTBMY10121N5119",
+      "description": "天宝公司-回风工业广场",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "矿井"
+    },
+    {
+      "id": "YJMDTBMY10121N6016",
+      "description": "天宝联建楼-2楼西过道",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4371",
+      "description": "天宝综合楼二楼东楼梯",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4469",
+      "description": "天宝变站用变室",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N5198",
+      "description": "天宝公司-空磅房",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4510",
+      "description": "水源井供电变压器",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝水处理车间"
+    },
+    {
+      "id": "YJMDTBMY10121N6010",
+      "description": "天宝联建楼-1楼西过道",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N6003",
+      "description": "天宝联建楼-1楼高压室-1",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4474",
+      "description": "天宝变GIS配电室东北角",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4310",
+      "description": "天宝锅炉房1#运输带",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4381",
+      "description": "天宝职工宿舍二楼东南楼梯监控",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4386",
+      "description": "天宝职工宿舍五楼东北楼梯监控",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4416",
+      "description": "天宝设备用房丙类库房监控",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4530",
+      "description": "天宝变综合楼楼顶球机",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4404",
+      "description": "天宝餐厅二楼监控",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4634",
+      "description": "天宝煤业选煤厂802皮带机尾",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N5992",
+      "description": "天宝公司-主斜井维修点下部",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "矿井"
+    },
+    {
+      "id": "YJMDTBMY10121N4511",
+      "description": "旧生活区水处理室",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝水处理车间"
+    },
+    {
+      "id": "YJMDTBMY10121N4642",
+      "description": "天宝煤业选煤厂西原煤仓下西侧",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4316",
+      "description": "天宝主扇控制室外球机",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N6031",
+      "description": "天宝联建楼-2楼等待休息室-2",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4413",
+      "description": "天宝蓄水池东",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4828",
+      "description": "天宝煤业选煤厂203皮带机尾",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "露天矿"
+    },
+    {
+      "id": "YJMDTBMY10121N4599",
+      "description": "天宝煤业选煤厂801皮带驱动",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N5128",
+      "description": "天宝公司-单轨吊充电检修硐室回风流T2处",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "矿井"
+    },
+    {
+      "id": "YJMDTBMY10121N4365",
+      "description": "天宝主扇控制室",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4420",
+      "description": "天宝设备用房副食品库房监控",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N6004",
+      "description": "天宝联建楼-1楼高压室-2",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N5980",
+      "description": "天宝公司--采坑积水池",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "露天矿"
+    },
+    {
+      "id": "YJMDTBMY10121N4659",
+      "description": "天宝煤业选煤厂集控室后",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4403",
+      "description": "天宝餐厅二楼后厨",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4430",
+      "description": "天宝设备用房丙类库房4监控2",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4475",
+      "description": "天宝变GIS配电室西南",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N5112",
+      "description": "天宝公司-副井绞车房",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "矿井"
+    },
+    {
+      "id": "YJMDTBMY10121N4466",
+      "description": "天宝变排烟机房",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N5988",
+      "description": "天宝公司-露天矿外排土场",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "露天矿"
+    },
+    {
+      "id": "YJMDTBMY10121N6013",
+      "description": "天宝联建楼-1楼东门厅",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4646",
+      "description": "天宝煤业选煤厂313皮带机尾",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4358",
+      "description": "天宝井工矿调度室2",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N5216",
+      "description": "天宝锅炉房控制室",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4400",
+      "description": "天宝餐厅一楼大厅1",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4452",
+      "description": "天宝变综合楼南球机（西）",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4361",
+      "description": "天宝煤业选煤厂集控室后",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N5192",
+      "description": "天宝公司-胶带石门皮带搭接处",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "矿井"
+    },
+    {
+      "id": "YJMDTBMY10121N4355",
+      "description": "天宝露天矿调度室1",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4598",
+      "description": "天宝煤业选煤厂801皮带机尾",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N6009",
+      "description": "天宝联建楼-1楼西过道",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N5103",
+      "description": "天宝公司-副斜井防跑车(4)",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "矿井"
+    },
+    {
+      "id": "YJMDTBMY10121N4624",
+      "description": "天宝煤业选煤厂空压机冷干机",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4640",
+      "description": "天宝煤业选煤厂东原煤仓下东侧",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4513",
+      "description": "天宝煤业-旧生活区增压泵房",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝水处理车间"
+    },
+    {
+      "id": "YJMDTBMY10121N4815",
+      "description": "天宝露天矿破碎站入料仓口1北",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "露天矿"
+    },
+    {
+      "id": "YJMDTBMY10121N4398",
+      "description": "天宝餐厅东门监控",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4704",
+      "description": "天宝煤业选煤厂301皮带通廊",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4819",
+      "description": "天宝煤业露天矿102皮带机头",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "露天矿"
+    },
+    {
+      "id": "YJMDTBMY10121N4686",
+      "description": "102配电室1",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N6000",
+      "description": "天宝联建楼-1楼洗衣房-3",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4688",
+      "description": "天宝煤业选煤厂产品仓下配电室南",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4927",
+      "description": "天宝预处理间室外",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N5126",
+      "description": "天宝公司-中央回风大巷掘进工作面T1朝向外口",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "矿井"
+    },
+    {
+      "id": "YJMDTBMY10121N5978",
+      "description": "天宝煤业-路口",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "露天矿"
+    },
+    {
+      "id": "YJMDTBMY10121N4985",
+      "description": "天宝职工宿舍四楼东南楼梯监控",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4387",
+      "description": "天宝职工宿舍四楼西北楼梯监控",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4601",
+      "description": "天宝煤业选煤厂破碎机",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4623",
+      "description": "天宝煤业选煤厂303原煤分级筛",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N5190",
+      "description": "天宝公司-轨道石门",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "矿井"
+    },
+    {
+      "id": "YJMDTBMY10121N4453",
+      "description": "天宝变综合楼南球机东",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N6026",
+      "description": "天宝联建楼-2楼东过道",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4314",
+      "description": "天宝锅炉房低压室2#球机",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4390",
+      "description": "天宝职工宿舍四楼东北楼梯监控",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4681",
+      "description": "102配电室2",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4309",
+      "description": "天宝锅炉房1#传输带机头",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4467",
+      "description": "天宝变消弧线圈配电室",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4689",
+      "description": "天宝煤业选煤厂产品仓下配电室北",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N5994",
+      "description": "天宝联建楼-1楼充电柜-1",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N5162",
+      "description": "天宝磅房1",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4440",
+      "description": "天宝综合水处理间1",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝水处理车间"
+    },
+    {
+      "id": "YJMDTBMY10121N4705",
+      "description": "天宝煤业选煤厂301皮带机尾",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4630",
+      "description": "天宝煤业选煤厂集控楼高压补偿柜",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4827",
+      "description": "天宝煤业露天矿103驱动间",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "露天矿"
+    },
+    {
+      "id": "YJMDTBMY10121N5181",
+      "description": "天宝公司-主斜井井口下",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "矿井"
+    },
+    {
+      "id": "YJMDTBMY10121N4369",
+      "description": "天宝综合楼一楼大厅南门",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4602",
+      "description": "天宝煤业选煤厂307干选机",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4392",
+      "description": "天宝职工宿舍二楼西南楼梯监控",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N5047",
+      "description": "天宝公司-机房电池间",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4654",
+      "description": "天宝煤业选煤厂901皮带头部通廊",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N5986",
+      "description": "天宝公司-露天矿采场东帮",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "露天矿"
+    },
+    {
+      "id": "YJMDTBMY10121N5196",
+      "description": "天宝公司-胶带石门",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "矿井"
+    },
+    {
+      "id": "YJMDTBMY10121N4443",
+      "description": "天宝预处理间2",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝水处理车间"
+    },
+    {
+      "id": "YJMDTBMY10121N4312",
+      "description": "天宝锅炉房外渣库灰库油库",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N5984",
+      "description": "天宝公司-露天矿急转弯处",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "露天矿"
+    },
+    {
+      "id": "YJMDTBMY10121N6028",
+      "description": "天宝联建楼-2楼东过道",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4504",
+      "description": "天宝4#库房东",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N5974",
+      "description": "天宝井工矿-调度室",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "矿井"
+    },
+    {
+      "id": "YJMDTBMY10121N4597",
+      "description": "天宝煤业选煤厂801901皮带通廊",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N6006",
+      "description": "天宝联建楼-1楼医务室",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N6007",
+      "description": "天宝联建楼-1楼热交换",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N6024",
+      "description": "天宝联建楼-2楼库房",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4684",
+      "description": "天宝103驱动间配电室1",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4818",
+      "description": "天宝煤业露天矿破碎站上平台",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "露天矿"
+    },
+    {
+      "id": "YJMDTBMY10121N4408",
+      "description": "天宝食堂后厨楼梯口",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N5187",
+      "description": "天宝公司-副斜井下部乘车点",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "矿井"
+    },
+    {
+      "id": "YJMDTBMY10121N4523",
+      "description": "天宝综合水处理间2",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝水处理车间"
+    },
+    {
+      "id": "YJMDTBMY10121N4687",
+      "description": "天宝煤业选煤厂集控楼高压配电室",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N5053",
+      "description": "天宝煤业露天矿-运输线煤坑",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "露天矿"
+    },
+    {
+      "id": "YJMDTBMY10121N4685",
+      "description": "天宝103驱动间配电室2",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4826",
+      "description": "天宝煤业选煤厂202皮带通廊",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "露天矿"
+    },
+    {
+      "id": "YJMDTBMY10121N4600",
+      "description": "天宝煤业选煤厂202皮带机头",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N5972",
+      "description": "天宝井工矿-车辆出入口",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "矿井"
+    },
+    {
+      "id": "YJMDTBMY10121N4678",
+      "description": "天宝主扇控制变频室",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4653",
+      "description": "天宝煤业选煤厂主厂房一楼门口",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4825",
+      "description": "天宝煤业露天矿102皮带机尾",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "露天矿"
+    },
+    {
+      "id": "YJMDTBMY10121N6032",
+      "description": "天宝联建楼-3楼西过道",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N6020",
+      "description": "天宝联建楼-2楼西过道",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4376",
+      "description": "天宝职工宿舍三楼东南楼梯监控",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N5186",
+      "description": "天宝公司-副斜井防跑车(5)",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "矿井"
+    },
+    {
+      "id": "YJMDTBMY10121N6005",
+      "description": "天宝联建楼-1楼消控室",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N6025",
+      "description": "天宝联建楼-2楼东过道",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4468",
+      "description": "天宝变SVG及FC配电室西",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4978",
+      "description": "三楼大会议室后",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4816",
+      "description": "天宝煤业露天矿破碎站入料口2南",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "露天矿"
+    },
+    {
+      "id": "YJMDTBMY10121N6027",
+      "description": "天宝联建楼-2楼东过道",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4402",
+      "description": "天宝餐厅一楼监控2",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N5981",
+      "description": "天宝公司-露天矿十字路口",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "露天矿"
+    },
+    {
+      "id": "YJMDTBMY10121N4656",
+      "description": "天宝煤业选煤厂产品西仓给料机平",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4844",
+      "description": "天宝设备用房配电室2监控",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N4405",
+      "description": "天宝餐厅一楼后厨监控",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N5050",
+      "description": "天宝公司-露天矿外排土场",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "露天矿"
+    },
+    {
+      "id": "YJMDTBMY10121N4357",
+      "description": "天宝露天矿调度室2",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4473",
+      "description": "天宝变10kV配电室西",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4648",
+      "description": "天宝煤业选煤厂308干选机",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N5989",
+      "description": "天宝公司-露天矿主要出入口",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "露天矿"
+    },
+    {
+      "id": "YJMDTBMY10121N4464",
+      "description": "天宝变10kV配电室东",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N5982",
+      "description": "天宝公司-露天矿采场南帮",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "露天矿"
+    },
+    {
+      "id": "YJMDTBMY10121N4360",
+      "description": "天宝煤业选煤厂集控室前",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N5215",
+      "description": "天宝变二次监控室室西北角",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N4603",
+      "description": "天宝煤业选煤厂312皮带机头",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N6038",
+      "description": "天宝联建楼-3楼西过道",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N6035",
+      "description": "天宝联建楼-3楼西过道",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N6046",
+      "description": "天宝公司-副井水平井底车场",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "矿井"
+    },
+    {
+      "id": "YJMDTBMY10121N6099",
+      "description": "天宝主扇控制室外球机",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N6084",
+      "description": "天宝公司-主斜井防跑车(下)",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "矿井"
+    },
+    {
+      "id": "YJMDTBMY10140028007",
+      "description": "副斜井600米28-7_人数",
+      "sensor_type": "人数",
+      "mark_type": "B15",
+      "sysaliasname": "人员定位",
+      "area": "井下"
+    },
+    {
+      "id": "YJMDTBMY10121N6089",
+      "description": "采场闸机入口",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10140023007",
+      "description": "中央回风大巷掘进工作面23-7_人数",
+      "sensor_type": "人数",
+      "mark_type": "B15",
+      "sysaliasname": "人员定位",
+      "area": "井下"
+    },
+    {
+      "id": "YJMDTBMY10121N6100",
+      "description": "天宝公司-中央回风大巷掘进工作面T2处",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "矿井"
+    },
+    {
+      "id": "YJMDTBMY10121N6043",
+      "description": "天宝联建楼-3楼东过道",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N6075",
+      "description": "天宝职工宿舍五楼西北楼梯监控",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N6053",
+      "description": "天宝公司-辅运联络巷带式输送机机头",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "矿井"
+    },
+    {
+      "id": "YJMDTBMY10121N6078",
+      "description": "天宝公司-档案室办公室",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝综合办公楼"
+    },
+    {
+      "id": "YJMDTBMY10121N6045",
+      "description": "天宝公司-副斜井二号交岔点",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "矿井"
+    },
+    {
+      "id": "YJMDTBMY10121N6080",
+      "description": "天宝公司-副斜井防跑车(3)",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "矿井"
+    },
+    {
+      "id": "YJMDTBMY10121N6087",
+      "description": "信息站监控",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N6108",
+      "description": "天宝联建楼-出口虹膜考勤",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "矿井"
+    },
+    {
+      "id": "YJMDTBMY10140020007",
+      "description": "副井300米20-7_人数",
+      "sensor_type": "人数",
+      "mark_type": "B15",
+      "sysaliasname": "人员定位",
+      "area": "井下"
+    },
+    {
+      "id": "YJMDTBMY10121N6103",
+      "description": "天宝公司-中央辅运大巷掘进工作面T1朝向外口",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "矿井"
+    },
+    {
+      "id": "YJMDTBMY10121N6037",
+      "description": "天宝联建楼-3楼西过道",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N6107",
+      "description": "天宝联建楼-入口虹膜考勤",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "矿井"
+    },
+    {
+      "id": "YJMDTBMY10140000000",
+      "description": "缺省安装点(手动上井位置)_人数",
+      "sensor_type": "人数",
+      "mark_type": "B15",
+      "sysaliasname": "人员定位",
+      "area": "井上"
+    },
+    {
+      "id": "YJMDTBMY10121N6036",
+      "description": "天宝联建楼-3楼西过道",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N6093",
+      "description": "天宝煤业露天矿102与103皮带搭接",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "露天矿"
+    },
+    {
+      "id": "YJMDTBMY10121N6097",
+      "description": "天宝公司-中央回风大巷一部皮带带式输送机机头",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "矿井"
+    },
+    {
+      "id": "YJMDTBMY10121N6033",
+      "description": "天宝联建楼-3楼西过道",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N6082",
+      "description": "天宝公司-主斜井防跑车(上)",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "矿井"
+    },
+    {
+      "id": "YJMDTBMY10140025007",
+      "description": "辅运联络巷25-7_人数",
+      "sensor_type": "人数",
+      "mark_type": "B15",
+      "sysaliasname": "人员定位",
+      "area": "井下"
+    },
+    {
+      "id": "YJMDTBMY10121N6061",
+      "description": "天宝公司-副斜井井口道岔",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "矿井"
+    },
+    {
+      "id": "YJMDTBMY10121N6076",
+      "description": "天宝职工宿舍五楼东北楼梯监控",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N6049",
+      "description": "天宝公司-中央胶带大巷掘进工作面T1朝向迎头",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "矿井"
+    },
+    {
+      "id": "YJMDTBMY10121N6096",
+      "description": "天宝公司-架空硐室临时配电点内向",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "矿井"
+    },
+    {
+      "id": "YJMDTBMY10140019007",
+      "description": "主井底湾19-7_人数",
+      "sensor_type": "人数",
+      "mark_type": "B15",
+      "sysaliasname": "人员定位",
+      "area": "井下"
+    },
+    {
+      "id": "YJMDTBMY10121N6059",
+      "description": "天宝公司-河南锦源会议室",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "矿井"
+    },
+    {
+      "id": "YJMDTBMY10121N6040",
+      "description": "天宝联建楼-3楼东过道",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10140022007",
+      "description": "机头硐室工作面22-7_人数",
+      "sensor_type": "人数",
+      "mark_type": "B15",
+      "sysaliasname": "人员定位",
+      "area": "井下"
+    },
+    {
+      "id": "YJMDTBMY10140013007",
+      "description": "回风井井口_人数",
+      "sensor_type": "人数",
+      "mark_type": "B15",
+      "sysaliasname": "人员定位",
+      "area": "井上"
+    },
+    {
+      "id": "YJMDTBMY10121N6034",
+      "description": "天宝联建楼-3楼西过道",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N6094",
+      "description": "天宝公司-煤一2队会议室",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "矿井"
+    },
+    {
+      "id": "YJMDTBMY10140012007",
+      "description": "副井井口12-7_人数",
+      "sensor_type": "人数",
+      "mark_type": "B15",
+      "sysaliasname": "人员定位",
+      "area": "井上"
+    },
+    {
+      "id": "YJMDTBMY10121N6041",
+      "description": "天宝联建楼-3楼东过道",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10140021007",
+      "description": "中央辅运大巷21-7_人数",
+      "sensor_type": "人数",
+      "mark_type": "B15",
+      "sysaliasname": "人员定位",
+      "area": "井下"
+    },
+    {
+      "id": "YJMDTBMY10140029007",
+      "description": "单轨吊充电检修硐室29-7_人数",
+      "sensor_type": "人数",
+      "mark_type": "B15",
+      "sysaliasname": "人员定位",
+      "area": "井下"
+    },
+    {
+      "id": "YJMDTBMY10121N6088",
+      "description": "采场闸机出口",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N6069",
+      "description": "天宝公司-中央胶带大巷掘进工作面T2处",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "矿井"
+    },
+    {
+      "id": "YJMDTBMY10121N6106",
+      "description": "天宝公司-中部联络巷回风侧工作面T1朝向迎头",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "矿井"
+    },
+    {
+      "id": "YJMDTBMY10140016007",
+      "description": "中央回风大巷900米16-7_人数",
+      "sensor_type": "人数",
+      "mark_type": "B15",
+      "sysaliasname": "人员定位",
+      "area": "井下"
+    },
+    {
+      "id": "YJMDTBMY10121N6077",
+      "description": "天宝公司-档案室借阅室",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝综合办公楼"
+    },
+    {
+      "id": "YJMDTBMY10140018007",
+      "description": "主井400米18-7_人数",
+      "sensor_type": "人数",
+      "mark_type": "B15",
+      "sysaliasname": "人员定位",
+      "area": "井下"
+    },
+    {
+      "id": "YJMDTBMY10121N6104",
+      "description": "天宝公司-副井放料点",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝红沙梁矿井回风井"
+    },
+    {
+      "id": "YJMDTBMY10140024007",
+      "description": "架空乘人装置硐室24-7_人数",
+      "sensor_type": "人数",
+      "mark_type": "B15",
+      "sysaliasname": "人员定位",
+      "area": "井下"
+    },
+    {
+      "id": "YJMDTBMY10121N6109",
+      "description": "天宝联建楼-井口信息站",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "矿井"
+    },
+    {
+      "id": "YJMDTBMY10121N6083",
+      "description": "天宝公司-主斜井防跑车(中)",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "矿井"
+    },
+    {
+      "id": "YJMDTBMY10121N6052",
+      "description": "天宝公司-中央辅运大巷掘进工作面T1朝向迎头",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "矿井"
+    },
+    {
+      "id": "YJMDTBMY10140027007",
+      "description": "中央胶带大巷27-7_人数",
+      "sensor_type": "人数",
+      "mark_type": "B15",
+      "sysaliasname": "人员定位",
+      "area": "井下"
+    },
+    {
+      "id": "YJMDTBMY10121N6054",
+      "description": "天宝公司-二号交岔点带式输送机机尾",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "矿井"
+    },
+    {
+      "id": "YJMDTBMY10121N6090",
+      "description": "天宝公司-神州分选站",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N6051",
+      "description": "天宝公司-中央回风大巷一部皮带带式输送机机头",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "矿井"
+    },
+    {
+      "id": "YJMDTBMY10140026007",
+      "description": "副井井底26-7_人数",
+      "sensor_type": "人数",
+      "mark_type": "B15",
+      "sysaliasname": "人员定位",
+      "area": "井下"
+    },
+    {
+      "id": "YJMDTBMY10121N6039",
+      "description": "天宝联建楼-3楼东过道",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N6105",
+      "description": "天宝井工矿-副斜井井口",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝红沙梁矿井回风井"
+    },
+    {
+      "id": "YJMDTBMY10121N6074",
+      "description": "天宝公司-副井放料点",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "矿井"
+    },
+    {
+      "id": "YJMDTBMY10121N6110",
+      "description": "天宝公司-主斜井管路安装处",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "矿井"
+    },
+    {
+      "id": "YJMDTBMY10121N6048",
+      "description": "天宝公司-中部联络巷回风侧工作面T1朝向外口",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "矿井"
+    },
+    {
+      "id": "YJMDTBMY10121N6098",
+      "description": "天宝公司-架空硐室临时配电点外向",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "矿井"
+    },
+    {
+      "id": "YJMDTBMY10121N6095",
+      "description": "天宝公司-煤一运输队会议室",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "矿井"
+    },
+    {
+      "id": "YJMDTBMY10140011007",
+      "description": "主井井口11-7_人数",
+      "sensor_type": "人数",
+      "mark_type": "B15",
+      "sysaliasname": "人员定位",
+      "area": "井上"
+    },
+    {
+      "id": "YJMDTBMY10121N6042",
+      "description": "天宝联建楼-3楼东过道",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "天宝地面安保"
+    },
+    {
+      "id": "YJMDTBMY10121N6079",
+      "description": "天宝公司-副斜井防跑车(2)",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "矿井"
+    },
+    {
+      "id": "YJMDTBMY10121N6091",
+      "description": "天宝公司--采坑",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "地面"
+    },
+    {
+      "id": "YJMDTBMY10121N6050",
+      "description": "天宝公司-中央胶带大巷掘进工作面T1朝向外口",
+      "sensor_type": "工业视频",
+      "mark_type": "B16",
+      "sysaliasname": "工业视频",
+      "area": "矿井"
+    }
+  ],
+  "candidates": [
+    {
+      "name": "1105进风巷",
+      "type": "0-普通巷道",
+      "category": "tunnel",
+      "line": [
+        {
+          "x": 32550976.8542,
+          "y": 4620149.0081,
+          "z": 1670.0
+        },
+        {
+          "x": 32550493.0569,
+          "y": 4620683.6362,
+          "z": 1670.0
+        }
+      ],
+      "id": "016B41FC-C8F3-4394-82CF-8E6E43C666C7",
+      "coalbed": "0100"
+    },
+    {
+      "name": "主水仓",
+      "type": "0-普通巷道",
+      "category": "tunnel",
+      "line": [
+        {
+          "x": 32550713.0658,
+          "y": 4619917.424,
+          "z": 1628.0
+        },
+        {
+          "x": 32550707.3404,
+          "y": 4619925.5697,
+          "z": 1628.0
+        },
+        {
+          "x": 32550676.4964,
+          "y": 4619970.3142,
+          "z": 1623.0
+        },
+        {
+          "x": 32550676.0356,
+          "y": 4619980.1632,
+          "z": 1623.0
+        },
+        {
+          "x": 32550678.4081,
+          "y": 4619984.7896,
+          "z": 1623.0
+        },
+        {
+          "x": 32550682.8979,
+          "y": 4619988.9422,
+          "z": 1623.0
+        },
+        {
+          "x": 32550715.7941,
+          "y": 4620009.3682,
+          "z": 1623.0
+        },
+        {
+          "x": 32550721.6584,
+          "y": 4620008.6322,
+          "z": 1623.0
+        },
+        {
+          "x": 32550726.3029,
+          "y": 4620006.2214,
+          "z": 1623.0
+        },
+        {
+          "x": 32550732.2121,
+          "y": 4619999.1434,
+          "z": 1623.0
+        },
+        {
+          "x": 32550736.2157,
+          "y": 4619993.196,
+          "z": 1623.0
+        }
+      ],
+      "id": "047B2728-4F74-466E-86B6-64DFF813A0CD",
+      "coalbed": "0100"
+    },
+    {
+      "name": "主排水泵房变电所",
+      "type": "0-普通巷道",
+      "category": "tunnel",
+      "line": [
+        {
+          "x": 32550764.6228,
+          "y": 4620009.3585,
+          "z": 1630.0
+        },
+        {
+          "x": 32550793.2762,
+          "y": 4620029.5105,
+          "z": 1637.0
+        },
+        {
+          "x": 32550819.5922,
+          "y": 4619991.943,
+          "z": 1637.0
+        }
+      ],
+      "id": "067B05F8-FB4B-40C4-A292-5E82CFE2E202",
+      "coalbed": "0100"
+    },
+    {
+      "name": "中部通风联络巷",
+      "type": "0-普通巷道",
+      "category": "tunnel",
+      "line": [
+        {
+          "x": 32551045.6423,
+          "y": 4620028.2382,
+          "z": 1670.0
+        },
+        {
+          "x": 32551011.7698,
+          "y": 4620065.5767,
+          "z": 1672.0
+        },
+        {
+          "x": 32551000.3637,
+          "y": 4620078.3516,
+          "z": 1672.0
+        },
+        {
+          "x": 32551014.0997,
+          "y": 4620107.7314,
+          "z": 1670.0
+        }
+      ],
+      "id": "0D3FAF76-A9EA-4DF4-8453-6E4CDACF9E9D",
+      "coalbed": "0100"
+    },
+    {
+      "name": "中央辅运大巷",
+      "type": "0-普通巷道",
+      "category": "tunnel",
+      "line": [
+        {
+          "x": 32551401.9821,
+          "y": 4620400.5776,
+          "z": 1738.36
+        },
+        {
+          "x": 32551349.5156,
+          "y": 4620363.0867,
+          "z": 1738.0
+        },
+        {
+          "x": 32551240.1583,
+          "y": 4620286.4966,
+          "z": 1721.0
+        },
+        {
+          "x": 32551192.8498,
+          "y": 4620253.3694,
+          "z": 1711.0
+        },
+        {
+          "x": 32551158.5585,
+          "y": 4620229.3162,
+          "z": 1711.0
+        },
+        {
+          "x": 32551076.4029,
+          "y": 4620171.7874,
+          "z": 1680.0
+        },
+        {
+          "x": 32551034.5089,
+          "y": 4620142.443,
+          "z": 1671.0
+        },
+        {
+          "x": 32550946.6861,
+          "y": 4620081.0161,
+          "z": 1665.0
+        },
+        {
+          "x": 32550819.5922,
+          "y": 4619991.943,
+          "z": 1637.0
+        },
+        {
+          "x": 32550749.8607,
+          "y": 4619943.2427,
+          "z": 1630.0
+        },
+        {
+          "x": 32550713.0658,
+          "y": 4619917.424,
+          "z": 1628.0
+        }
+      ],
+      "id": "189910C5-A97E-4E0F-A417-18ADBCFDB778",
+      "coalbed": "0100"
+    },
+    {
+      "name": "单轨吊充电硐室",
+      "type": "0-普通巷道",
+      "category": "tunnel",
+      "line": [
+        {
+          "x": 32551193.6844,
+          "y": 4620131.9046,
+          "z": 1718.0
+        },
+        {
+          "x": 32551159.8801,
+          "y": 4620169.2769,
+          "z": 1710.0
+        },
+        {
+          "x": 32551143.2309,
+          "y": 4620187.569,
+          "z": 1690.0
+        },
+        {
+          "x": 32551113.3076,
+          "y": 4620177.1933,
+          "z": 1690.0
+        }
+      ],
+      "id": "252DF084-3ABA-48F9-9DFC-5BE8BB210B02",
+      "coalbed": "0100"
+    },
+    {
+      "name": "主斜井机尾联络巷",
+      "type": "0-普通巷道",
+      "category": "tunnel",
+      "line": [
+        {
+          "x": 32551574.1065,
+          "y": 4620459.32,
+          "z": 1733.0
+        },
+        {
+          "x": 32551516.1416,
+          "y": 4620480.4606,
+          "z": 1733.3
+        }
+      ],
+      "id": "41679536-5BDF-49A6-96C2-D9C9C3E73D72",
+      "coalbed": "0100"
+    },
+    {
+      "name": "回风斜井",
+      "type": "0-普通巷道",
+      "category": "tunnel",
+      "line": [
+        {
+          "x": 32552163.0281,
+          "y": 4620449.671,
+          "z": 1931.3
+        },
+        {
+          "x": 32551905.9828,
+          "y": 4620449.6813,
+          "z": 1831.3
+        },
+        {
+          "x": 32551647.473,
+          "y": 4620449.7125,
+          "z": 1740.6
+        }
+      ],
+      "id": "45C43CEF-2B86-487D-8E87-D7F9F07ECFB4",
+      "coalbed": "0100"
+    },
+    {
+      "name": "架空乘人器硐室",
+      "type": "0-普通巷道",
+      "category": "tunnel",
+      "line": [
+        {
+          "x": 32551602.5307,
+          "y": 4620448.8031,
+          "z": 1733.15
+        },
+        {
+          "x": 32551550.1183,
+          "y": 4620411.7334,
+          "z": 1731.0
+        },
+        {
+          "x": 32551515.1407,
+          "y": 4620417.8738,
+          "z": 1727.45
+        }
+      ],
+      "id": "4E4BB781-E8E2-4D69-AB7C-4C0FC3447338",
+      "coalbed": "0100"
+    },
+    {
+      "name": "辅运联络巷",
+      "type": "0-普通巷道",
+      "category": "tunnel",
+      "line": [
+        {
+          "x": 32551516.1416,
+          "y": 4620480.4606,
+          "z": 1733.3
+        },
+        {
+          "x": 32551401.9821,
+          "y": 4620400.5776,
+          "z": 1738.36
+        }
+      ],
+      "id": "63711DCA-20E7-455A-8A74-AF0B46C76F7D",
+      "coalbed": "0100"
+    },
+    {
+      "name": "管子道",
+      "type": "0-普通巷道",
+      "category": "tunnel",
+      "line": [
+        {
+          "x": 32550819.4786,
+          "y": 4619930.9757,
+          "z": 1652.48
+        },
+        {
+          "x": 32550790.7801,
+          "y": 4619971.8787,
+          "z": 1634.0
+        },
+        {
+          "x": 32550764.6228,
+          "y": 4620009.3585,
+          "z": 1630.0
+        }
+      ],
+      "id": "6D6D0CCC-4486-4A95-B8F7-3D1C196BF559",
+      "coalbed": "0100"
+    },
+    {
+      "name": "机头硐室",
+      "type": "0-普通巷道",
+      "category": "tunnel",
+      "line": [
+        {
+          "x": 32551383.3872,
+          "y": 4620325.6319,
+          "z": 1721.6
+        },
+        {
+          "x": 32551360.5964,
+          "y": 4620350.9222,
+          "z": 1721.6
+        },
+        {
+          "x": 32551316.1619,
+          "y": 4620399.6097,
+          "z": 1710.0
+        },
+        {
+          "x": 32551214.4651,
+          "y": 4620511.8705,
+          "z": 1710.0
+        }
+      ],
+      "id": "8532ABE7-03E4-4083-9F3C-D8FFABC5D730",
+      "coalbed": "0100"
+    },
+    {
+      "name": "胶带石门",
+      "type": "0-普通巷道",
+      "category": "tunnel",
+      "line": [
+        {
+          "x": 32551661.1643,
+          "y": 4620427.5852,
+          "z": 1735.6
+        },
+        {
+          "x": 32551602.5307,
+          "y": 4620448.8031,
+          "z": 1733.15
+        },
+        {
+          "x": 32551574.1065,
+          "y": 4620459.32,
+          "z": 1733.0
+        }
+      ],
+      "id": "97B2D9F0-CEAE-419F-B746-99151D57F2EA",
+      "coalbed": "0100"
+    },
+    {
+      "name": "永久避难硐室",
+      "type": "0-普通巷道",
+      "category": "tunnel",
+      "line": [
+        {
+          "x": 32550944.314,
+          "y": 4620018.315,
+          "z": 1663.0
+        },
+        {
+          "x": 32550946.6861,
+          "y": 4620081.0161,
+          "z": 1665.0
+        }
+      ],
+      "id": "9C673FCC-93E9-42DF-96B1-8E08C3277D53",
+      "coalbed": "0100"
+    },
+    {
+      "name": "1105回风巷",
+      "type": "0-普通巷道",
+      "category": "tunnel",
+      "line": [
+        {
+          "x": 32551135.6698,
+          "y": 4620152.3036,
+          "z": 1690.0
+        },
+        {
+          "x": 32551113.3076,
+          "y": 4620177.1933,
+          "z": 1690.0
+        },
+        {
+          "x": 32551101.8169,
+          "y": 4620189.6627,
+          "z": 1680.0
+        },
+        {
+          "x": 32551055.7637,
+          "y": 4620240.6507,
+          "z": 1685.0
+        },
+        {
+          "x": 32550617.9206,
+          "y": 4620724.3819,
+          "z": 1685.0
+        }
+      ],
+      "id": "ADB64E96-9260-4F44-ADDD-61F59CAD0277",
+      "coalbed": "0100"
+    },
+    {
+      "name": "主排水泵房",
+      "type": "0-普通巷道",
+      "category": "tunnel",
+      "line": [
+        {
+          "x": 32550749.8607,
+          "y": 4619943.2427,
+          "z": 1630.0
+        },
+        {
+          "x": 32550727.3275,
+          "y": 4619975.5167,
+          "z": 1630.0
+        },
+        {
+          "x": 32550723.7128,
+          "y": 4619980.6005,
+          "z": 1630.0
+        },
+        {
+          "x": 32550737.873,
+          "y": 4619990.6974,
+          "z": 1630.0
+        },
+        {
+          "x": 32550754.4364,
+          "y": 4620002.2554,
+          "z": 1630.0
+        },
+        {
+          "x": 32550764.6228,
+          "y": 4620009.3585,
+          "z": 1630.0
+        }
+      ],
+      "id": "ADC535B3-370E-48F0-8A9E-5661419E79C2",
+      "coalbed": "0100"
+    },
+    {
+      "name": "中央胶带大巷",
+      "type": "0-普通巷道",
+      "category": "tunnel",
+      "line": [
+        {
+          "x": 32551574.1065,
+          "y": 4620459.32,
+          "z": 1733.0
+        },
+        {
+          "x": 32551515.1407,
+          "y": 4620417.8738,
+          "z": 1727.45
+        },
+        {
+          "x": 32551459.3937,
+          "y": 4620379.0043,
+          "z": 1721.87
+        },
+        {
+          "x": 32551408.1984,
+          "y": 4620343.063,
+          "z": 1721.65
+        },
+        {
+          "x": 32551383.3872,
+          "y": 4620325.6319,
+          "z": 1721.6
+        },
+        {
+          "x": 32551309.0257,
+          "y": 4620273.6495,
+          "z": 1721.45
+        },
+        {
+          "x": 32551284.1498,
+          "y": 4620256.2771,
+          "z": 1721.4
+        },
+        {
+          "x": 32551245.1157,
+          "y": 4620228.9658,
+          "z": 1721.0
+        },
+        {
+          "x": 32551197.8612,
+          "y": 4620195.9172,
+          "z": 1712.0
+        },
+        {
+          "x": 32551159.8801,
+          "y": 4620169.2769,
+          "z": 1710.0
+        },
+        {
+          "x": 32551135.6698,
+          "y": 4620152.3036,
+          "z": 1690.0
+        },
+        {
+          "x": 32551081.4154,
+          "y": 4620114.2534,
+          "z": 1680.0
+        },
+        {
+          "x": 32551036.4976,
+          "y": 4620082.8992,
+          "z": 1670.0
+        },
+        {
+          "x": 32550944.314,
+          "y": 4620018.315,
+          "z": 1663.0
+        },
+        {
+          "x": 32550819.4786,
+          "y": 4619930.9757,
+          "z": 1652.48
+        },
+        {
+          "x": 32550741.7866,
+          "y": 4619876.4078,
+          "z": 1642.0
+        },
+        {
+          "x": 32550725.2961,
+          "y": 4619864.9046,
+          "z": 1641.0
+        },
+        {
+          "x": 32550700.8054,
+          "y": 4619847.8195,
+          "z": 1638.9
+        }
+      ],
+      "id": "C15E263C-9369-422D-A192-3DFFF3B56CF2",
+      "coalbed": "0100"
+    },
+    {
+      "name": "单轨吊充电检修硐室",
+      "type": "0-普通巷道",
+      "category": "tunnel",
+      "line": [
+        {
+          "x": 32551250.2142,
+          "y": 4620171.53,
+          "z": 1730.0
+        },
+        {
+          "x": 32551240.1583,
+          "y": 4620286.4966,
+          "z": 1721.0
+        }
+      ],
+      "id": "CC93DF87-1058-4383-89D6-D6235558CF0F",
+      "coalbed": "0100"
+    },
+    {
+      "name": "一采区变电所",
+      "type": "0-普通巷道",
+      "category": "tunnel",
+      "line": [
+        {
+          "x": 32551203.0176,
+          "y": 4620138.3692,
+          "z": 1718.0
+        },
+        {
+          "x": 32551197.8612,
+          "y": 4620195.9172,
+          "z": 1712.0
+        },
+        {
+          "x": 32551192.8498,
+          "y": 4620253.3694,
+          "z": 1711.0
+        }
+      ],
+      "id": "CEDCC9C9-D607-499E-8067-4E91D7FA6C6F",
+      "coalbed": "0100"
+    },
+    {
+      "name": "主水仓",
+      "type": "0-普通巷道",
+      "category": "tunnel",
+      "line": [
+        {
+          "x": 32550707.3404,
+          "y": 4619925.5697,
+          "z": 1628.0
+        },
+        {
+          "x": 32550668.1125,
+          "y": 4619933.0785,
+          "z": 1626.0
+        },
+        {
+          "x": 32550663.791,
+          "y": 4619936.8911,
+          "z": 1626.0
+        },
+        {
+          "x": 32550634.8594,
+          "y": 4619979.5722,
+          "z": 1623.0
+        },
+        {
+          "x": 32550637.9981,
+          "y": 4619993.5564,
+          "z": 1623.0
+        },
+        {
+          "x": 32550708.9602,
+          "y": 4620043.6306,
+          "z": 1623.0
+        },
+        {
+          "x": 32550714.3657,
+          "y": 4620045.3905,
+          "z": 1623.0
+        },
+        {
+          "x": 32550720.2855,
+          "y": 4620045.0436,
+          "z": 1623.0
+        },
+        {
+          "x": 32550725.2632,
+          "y": 4620042.5797,
+          "z": 1623.0
+        },
+        {
+          "x": 32550729.4835,
+          "y": 4620037.7668,
+          "z": 1623.0
+        },
+        {
+          "x": 32550752.6012,
+          "y": 4620004.6509,
+          "z": 1623.0
+        }
+      ],
+      "id": "D76C0DB6-0577-4170-8442-800C837EAB1C",
+      "coalbed": "0100"
+    },
+    {
+      "name": "主斜井",
+      "type": "13-主斜井",
+      "category": "tunnel",
+      "line": [
+        {
+          "x": 32552316.3773,
+          "y": 4620189.0087,
+          "z": 1931.3
+        },
+        {
+          "x": 32551990.9528,
+          "y": 4620307.3113,
+          "z": 1831.3
+        },
+        {
+          "x": 32551661.1643,
+          "y": 4620427.5852,
+          "z": 1735.6
+        }
+      ],
+      "id": "D077AB2D-917D-4457-8431-4F9BD4A72765",
+      "coalbed": "0100"
+    },
+    {
+      "name": "副斜井",
+      "type": "14-副斜井",
+      "category": "tunnel",
+      "line": [
+        {
+          "x": 32552155.5581,
+          "y": 4620125.668,
+          "z": 1932.3
+        },
+        {
+          "x": 32551994.961,
+          "y": 4620185.0252,
+          "z": 1889.0
+        },
+        {
+          "x": 32551829.2314,
+          "y": 4620244.4267,
+          "z": 1845.5
+        },
+        {
+          "x": 32551516.8,
+          "y": 4620358.1795,
+          "z": 1750.1
+        },
+        {
+          "x": 32551474.3878,
+          "y": 4620373.5583,
+          "z": 1738.9
+        }
+      ],
+      "id": "409316B8-ABA2-4248-9F02-38DC2DB96867",
+      "coalbed": "0100"
+    },
+    {
+      "name": "中央回风大巷",
+      "type": "17-总回风巷",
+      "category": "tunnel",
+      "line": [
+        {
+          "x": 32551459.606,
+          "y": 4620318.1594,
+          "z": 1738.4
+        },
+        {
+          "x": 32551441.9517,
+          "y": 4620305.8033,
+          "z": 1735.4
+        },
+        {
+          "x": 32551342.7787,
+          "y": 4620236.3376,
+          "z": 1734.0
+        },
+        {
+          "x": 32551250.2142,
+          "y": 4620171.53,
+          "z": 1730.0
+        },
+        {
+          "x": 32551203.0176,
+          "y": 4620138.3692,
+          "z": 1718.0
+        },
+        {
+          "x": 32551193.6844,
+          "y": 4620131.9046,
+          "z": 1718.0
+        },
+        {
+          "x": 32551045.6423,
+          "y": 4620028.2382,
+          "z": 1670.0
+        },
+        {
+          "x": 32550753.8838,
+          "y": 4619824.111,
+          "z": 1641.0
+        }
+      ],
+      "id": "7D7FA2D7-4DB9-498F-BE00-4C38D6D8CB53",
+      "coalbed": "0100"
+    },
+    {
+      "name": "大巷联络巷",
+      "type": "22-回风联络巷",
+      "category": "tunnel",
+      "line": [
+        {
+          "x": 32550753.8838,
+          "y": 4619824.111,
+          "z": 1641.0
+        },
+        {
+          "x": 32550725.2961,
+          "y": 4619864.9046,
+          "z": 1641.0
+        }
+      ],
+      "id": "9A065974-B7F0-4E31-892D-8B5FD0BCC6D9",
+      "coalbed": "0100"
+    },
+    {
+      "name": "1015工作面停采线",
+      "type": "25-工作面停采线",
+      "category": "tunnel",
+      "line": [
+        {
+          "x": 32550493.0569,
+          "y": 4620683.6362,
+          "z": 1670.0
+        },
+        {
+          "x": 32550617.9206,
+          "y": 4620724.3819,
+          "z": 1685.0
+        }
+      ],
+      "id": "152B3CF5-0EF4-45C7-8E19-A5F6DE1C12BD",
+      "coalbed": "0100"
+    },
+    {
+      "name": "1105回风顺槽",
+      "type": "26-工作面回风巷(辅运顺槽)",
+      "category": "tunnel",
+      "line": [
+        {
+          "x": 32550617.9206,
+          "y": 4620724.3819,
+          "z": 1685.0
+        },
+        {
+          "x": 32550005.7935,
+          "y": 4621400.8557,
+          "z": 1690.0
+        },
+        {
+          "x": 32549976.7416,
+          "y": 4621432.9623,
+          "z": 1690.0
+        },
+        {
+          "x": 32549439.979,
+          "y": 4622026.162,
+          "z": 1690.0
+        }
+      ],
+      "id": "616692BC-DCC2-4D79-B755-97F1BE40C5A5",
+      "coalbed": "0100"
+    },
+    {
+      "name": "1105胶带顺槽",
+      "type": "27-工作面进风巷(胶运顺槽)",
+      "category": "tunnel",
+      "line": [
+        {
+          "x": 32550493.0569,
+          "y": 4620683.6362,
+          "z": 1670.0
+        },
+        {
+          "x": 32549887.8187,
+          "y": 4621352.7538,
+          "z": 1679.78
+        },
+        {
+          "x": 32549881.2637,
+          "y": 4621360.0007,
+          "z": 1679.89
+        },
+        {
+          "x": 32549351.1306,
+          "y": 4621946.0201,
+          "z": 1680.0
+        }
+      ],
+      "id": "828A416A-711C-4294-9DE0-E54C2BB42060",
+      "coalbed": "0100"
+    },
+    {
+      "name": "1015工作面切眼",
+      "type": "28-工作面切眼",
+      "category": "tunnel",
+      "line": [
+        {
+          "x": 32549351.1306,
+          "y": 4621946.0201,
+          "z": 1680.0
+        },
+        {
+          "x": 32549439.979,
+          "y": 4622026.162,
+          "z": 1690.0
+        }
+      ],
+      "id": "4F32720B-5DA6-4DAD-B620-606EEAEC3360",
+      "coalbed": "0100"
+    },
+    {
+      "name": "1015工作面巷道",
+      "type": "29-回采工作面巷道",
+      "category": "tunnel",
+      "line": [
+        {
+          "x": 32549887.8187,
+          "y": 4621352.7538,
+          "z": 1679.78
+        },
+        {
+          "x": 32549976.7416,
+          "y": 4621432.9623,
+          "z": 1690.0
+        }
+      ],
+      "id": "79CCBE0C-A72F-4F42-B1F2-6B25D51A3602",
+      "coalbed": "0100"
+    },
+    {
+      "name": "1105工作面",
+      "type": "25-工作面停采线",
+      "category": "workface",
+      "line": [
+        {
+          "x": 32550493.0569,
+          "y": 4620683.6362,
+          "z": 1670.0
+        },
+        {
+          "x": 32550617.9206,
+          "y": 4620724.3819,
+          "z": 1685.0
+        }
+      ],
+      "id": "152B3CF5-0EF4-45C7-8E19-A5F6DE1C12BD",
+      "tunnelId": "152B3CF5-0EF4-45C7-8E19-A5F6DE1C12BD",
+      "coalbed": ""
+    },
+    {
+      "name": "1105工作面",
+      "type": "26-工作面回风巷(辅运顺槽)",
+      "category": "workface",
+      "line": [
+        {
+          "x": 32550617.9206,
+          "y": 4620724.3819,
+          "z": 1685.0
+        },
+        {
+          "x": 32550005.7935,
+          "y": 4621400.8557,
+          "z": 1690.0
+        },
+        {
+          "x": 32549976.7416,
+          "y": 4621432.9623,
+          "z": 1690.0
+        },
+        {
+          "x": 32549439.979,
+          "y": 4622026.162,
+          "z": 1690.0
+        }
+      ],
+      "id": "616692BC-DCC2-4D79-B755-97F1BE40C5A5",
+      "tunnelId": "616692BC-DCC2-4D79-B755-97F1BE40C5A5",
+      "coalbed": ""
+    },
+    {
+      "name": "1105工作面",
+      "type": "27-工作面进风巷(胶运顺槽)",
+      "category": "workface",
+      "line": [
+        {
+          "x": 32550493.0569,
+          "y": 4620683.6362,
+          "z": 1670.0
+        },
+        {
+          "x": 32549887.8187,
+          "y": 4621352.7538,
+          "z": 1679.78
+        },
+        {
+          "x": 32549881.2637,
+          "y": 4621360.0007,
+          "z": 1679.89
+        },
+        {
+          "x": 32549351.1306,
+          "y": 4621946.0201,
+          "z": 1680.0
+        }
+      ],
+      "id": "828A416A-711C-4294-9DE0-E54C2BB42060",
+      "tunnelId": "828A416A-711C-4294-9DE0-E54C2BB42060",
+      "coalbed": ""
+    },
+    {
+      "name": "1105工作面",
+      "type": "28-工作面切眼",
+      "category": "workface",
+      "line": [
+        {
+          "x": 32549351.1306,
+          "y": 4621946.0201,
+          "z": 1680.0
+        },
+        {
+          "x": 32549439.979,
+          "y": 4622026.162,
+          "z": 1690.0
+        }
+      ],
+      "id": "4F32720B-5DA6-4DAD-B620-606EEAEC3360",
+      "tunnelId": "4F32720B-5DA6-4DAD-B620-606EEAEC3360",
+      "coalbed": ""
+    },
+    {
+      "name": "1105工作面",
+      "type": "29-回采工作面巷道",
+      "category": "workface",
+      "line": [
+        {
+          "x": 32549887.8187,
+          "y": 4621352.7538,
+          "z": 1679.78
+        },
+        {
+          "x": 32549976.7416,
+          "y": 4621432.9623,
+          "z": 1690.0
+        }
+      ],
+      "id": "79CCBE0C-A72F-4F42-B1F2-6B25D51A3602",
+      "tunnelId": "79CCBE0C-A72F-4F42-B1F2-6B25D51A3602",
+      "coalbed": ""
+    }
+  ],
+  "originData": [
+    {
+      "id": "YJMDTBMY10120011F00",
+      "description": "主斜井井口130分站",
+      "tunnel_id": "D077AB2D-917D-4457-8431-4F9BD4A72765",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32552316.3773,
+        "y": 4620189.0087,
+        "z": 1931.3
+      }
+    },
+    {
+      "id": "YJMDTBMY10120012F00",
+      "description": "副斜井井口130分站",
+      "tunnel_id": "409316B8-ABA2-4248-9F02-38DC2DB96867",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32552155.5581,
+        "y": 4620125.668,
+        "z": 1932.3
+      }
+    },
+    {
+      "id": "YJMDTBMY10120014F00",
+      "description": "副斜井井底车场130分站",
+      "tunnel_id": "409316B8-ABA2-4248-9F02-38DC2DB96867",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551542.5877,
+        "y": 4620348.7905,
+        "z": 1757.97
+      }
+    },
+    {
+      "id": "YJMDTBMY10120016F00",
+      "description": "胶带石门130分站",
+      "tunnel_id": "97B2D9F0-CEAE-419F-B746-99151D57F2EA",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551652.4532,
+        "y": 4620430.7375,
+        "z": 1735.24
+      }
+    },
+    {
+      "id": "YJMDTBMY10120102",
+      "description": "中央辅运大巷工作面  主风机开停中央辅运大巷工作面  主风机开停_设备开停",
+      "tunnel_id": "189910C5-A97E-4E0F-A417-18ADBCFDB778",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551332.6956,
+        "y": 4620351.3065,
+        "z": 1735.39
+      }
+    },
+    {
+      "id": "YJMDTBMY10120106",
+      "description": "中央辅运大巷工作面  副风机开停中央辅运大巷工作面  副风机开停_设备开停",
+      "tunnel_id": "189910C5-A97E-4E0F-A417-18ADBCFDB778",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551331.883,
+        "y": 4620350.7375,
+        "z": 1735.26
+      }
+    },
+    {
+      "id": "YJMDTBMY10120107",
+      "description": "主井口风速",
+      "tunnel_id": "D077AB2D-917D-4457-8431-4F9BD4A72765",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32552315.4744,
+        "y": 4620189.3369,
+        "z": 1931.22
+      }
+    },
+    {
+      "id": "YJMDTBMY10120115",
+      "description": "中央胶带大巷工作面   副风机开停中央胶带大巷工作面   副风机开停_设备开停",
+      "tunnel_id": "C15E263C-9369-422D-A192-3DFFF3B56CF2",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551486.2444,
+        "y": 4620397.7259,
+        "z": 1724.56
+      }
+    },
+    {
+      "id": "YJMDTBMY10120119",
+      "description": "中央回风大巷工作面副风机开停中央回风大巷工作面副风机开停_设备开停",
+      "tunnel_id": "7D7FA2D7-4DB9-498F-BE00-4C38D6D8CB53",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551388.4814,
+        "y": 4620268.3501,
+        "z": 1734.65
+      }
+    },
+    {
+      "id": "YJMDTBMY10120121",
+      "description": "中央回风大巷工作面回风流温度_环境温度",
+      "tunnel_id": "7D7FA2D7-4DB9-498F-BE00-4C38D6D8CB53",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32550860.5118,
+        "y": 4619898.7127,
+        "z": 1651.8
+      }
+    },
+    {
+      "id": "YJMDTBMY10120122",
+      "description": "中央回风大巷掘进工作面CH4  (T2)_激光甲烷",
+      "tunnel_id": "7D7FA2D7-4DB9-498F-BE00-4C38D6D8CB53",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32550860.5118,
+        "y": 4619898.7127,
+        "z": 1651.9
+      }
+    },
+    {
+      "id": "YJMDTBMY10120131",
+      "description": "中央回风大巷掘进工作面风筒状态 风筒开关风筒开关",
+      "tunnel_id": "7D7FA2D7-4DB9-498F-BE00-4C38D6D8CB53",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551387.6624,
+        "y": 4620267.7764,
+        "z": 1734.63
+      }
+    },
+    {
+      "id": "YJMDTBMY10120140",
+      "description": "中央回风大巷工作面主风机开停中央回风大巷工作面主风机开停_设备开停",
+      "tunnel_id": "7D7FA2D7-4DB9-498F-BE00-4C38D6D8CB53",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551386.8434,
+        "y": 4620267.2027,
+        "z": 1734.62
+      }
+    },
+    {
+      "id": "YJMDTBMY10120141",
+      "description": "总回风风速",
+      "tunnel_id": "45C43CEF-2B86-487D-8E87-D7F9F07ECFB4",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551958.0825,
+        "y": 4620449.6792,
+        "z": 1851.77
+      }
+    },
+    {
+      "id": "YJMDTBMY10120142",
+      "description": "总回风温度_环境温度",
+      "tunnel_id": "45C43CEF-2B86-487D-8E87-D7F9F07ECFB4",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551957.1505,
+        "y": 4620449.6792,
+        "z": 1851.41
+      }
+    },
+    {
+      "id": "YJMDTBMY10120143",
+      "description": "总回风CO_一氧化碳",
+      "tunnel_id": "45C43CEF-2B86-487D-8E87-D7F9F07ECFB4",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551956.2185,
+        "y": 4620449.6793,
+        "z": 1851.04
+      }
+    },
+    {
+      "id": "YJMDTBMY10120144",
+      "description": "总回风CH4_激光甲烷",
+      "tunnel_id": "45C43CEF-2B86-487D-8E87-D7F9F07ECFB4",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551955.2866,
+        "y": 4620449.6793,
+        "z": 1850.78
+      }
+    },
+    {
+      "id": "YJMDTBMY10120146",
+      "description": "回风大巷副风机远控开关馈电状态_馈电器",
+      "tunnel_id": "7D7FA2D7-4DB9-498F-BE00-4C38D6D8CB53",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551386.0244,
+        "y": 4620266.6291,
+        "z": 1734.61
+      }
+    },
+    {
+      "id": "YJMDTBMY10120148",
+      "description": "中央胶带大巷皮带机尾CO_一氧化碳",
+      "tunnel_id": "C15E263C-9369-422D-A192-3DFFF3B56CF2",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32550788.6109,
+        "y": 4619909.2954,
+        "z": 1648.52
+      }
+    },
+    {
+      "id": "YJMDTBMY10120149",
+      "description": "中央胶带大巷皮带机尾烟雾",
+      "tunnel_id": "C15E263C-9369-422D-A192-3DFFF3B56CF2",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32550787.7975,
+        "y": 4619908.7241,
+        "z": 1648.41
+      }
+    },
+    {
+      "id": "YJMDTBMY1012015",
+      "description": "中央辅运大巷工作面回风流温度_环境温度",
+      "tunnel_id": "189910C5-A97E-4E0F-A417-18ADBCFDB778",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32550817.5039,
+        "y": 4619990.4846,
+        "z": 1636.99
+      }
+    },
+    {
+      "id": "YJMDTBMY10120151",
+      "description": "中央辅运大巷皮带机尾CO_一氧化碳",
+      "tunnel_id": "189910C5-A97E-4E0F-A417-18ADBCFDB778",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32550782.7015,
+        "y": 4619966.1786,
+        "z": 1633.5
+      }
+    },
+    {
+      "id": "YJMDTBMY10120152",
+      "description": "中央辅运大巷皮带机尾烟雾",
+      "tunnel_id": "189910C5-A97E-4E0F-A417-18ADBCFDB778",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32550781.8844,
+        "y": 4619965.608,
+        "z": 1633.41
+      }
+    },
+    {
+      "id": "YJMDTBMY10120155",
+      "description": "回风大巷副风机远控开关断电状态_断电器",
+      "tunnel_id": "7D7FA2D7-4DB9-498F-BE00-4C38D6D8CB53",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551385.2054,
+        "y": 4620266.0554,
+        "z": 1734.6
+      }
+    },
+    {
+      "id": "YJMDTBMY10120158",
+      "description": "机头硐室皮带机尾CO_一氧化碳",
+      "tunnel_id": "8532ABE7-03E4-4083-9F3C-D8FFABC5D730",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551383.3872,
+        "y": 4620325.6319,
+        "z": 1721.8
+      }
+    },
+    {
+      "id": "YJMDTBMY10120159",
+      "description": "机头硐室皮带机尾烟雾",
+      "tunnel_id": "8532ABE7-03E4-4083-9F3C-D8FFABC5D730",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551382.7178,
+        "y": 4620326.3748,
+        "z": 1721.8
+      }
+    },
+    {
+      "id": "YJMDTBMY1012016",
+      "description": "中央辅运大巷工作面回风流CO_一氧化碳",
+      "tunnel_id": "189910C5-A97E-4E0F-A417-18ADBCFDB778",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32550816.6868,
+        "y": 4619989.9139,
+        "z": 1636.91
+      }
+    },
+    {
+      "id": "YJMDTBMY10120160",
+      "description": "回风大巷主风机远控开关馈电状态_馈电器",
+      "tunnel_id": "7D7FA2D7-4DB9-498F-BE00-4C38D6D8CB53",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551384.3864,
+        "y": 4620265.4817,
+        "z": 1734.59
+      }
+    },
+    {
+      "id": "YJMDTBMY10120162",
+      "description": "中央胶带大巷工作面粉尘",
+      "tunnel_id": "C15E263C-9369-422D-A192-3DFFF3B56CF2",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551485.4268,
+        "y": 4620397.1558,
+        "z": 1725.98
+      }
+    },
+    {
+      "id": "YJMDTBMY10120163",
+      "description": "中央辅运大巷工作面粉尘",
+      "tunnel_id": "189910C5-A97E-4E0F-A417-18ADBCFDB778",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551331.0705,
+        "y": 4620350.1684,
+        "z": 1736.63
+      }
+    },
+    {
+      "id": "YJMDTBMY10120164",
+      "description": "中央回风大巷工作面粉尘",
+      "tunnel_id": "7D7FA2D7-4DB9-498F-BE00-4C38D6D8CB53",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551383.5674,
+        "y": 4620264.908,
+        "z": 1736.08
+      }
+    },
+    {
+      "id": "YJMDTBMY10120166",
+      "description": "中部通风联络巷主风机远控开关馈电状态_馈电器",
+      "tunnel_id": "0D3FAF76-A9EA-4DF4-8453-6E4CDACF9E9D",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551038.9237,
+        "y": 4620035.6442,
+        "z": 1670.4
+      }
+    },
+    {
+      "id": "YJMDTBMY10120167",
+      "description": "中部通风联络巷主风机远控开关断电状态_断电器",
+      "tunnel_id": "0D3FAF76-A9EA-4DF4-8453-6E4CDACF9E9D",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551038.2524,
+        "y": 4620036.3843,
+        "z": 1670.44
+      }
+    },
+    {
+      "id": "YJMDTBMY10120177",
+      "description": "回风大巷主风机远控开关断电状态_断电器",
+      "tunnel_id": "7D7FA2D7-4DB9-498F-BE00-4C38D6D8CB53",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551382.7484,
+        "y": 4620264.3344,
+        "z": 1734.56
+      }
+    },
+    {
+      "id": "YJMDTBMY10120178",
+      "description": "中央回风大巷二部皮带机头CO_一氧化碳",
+      "tunnel_id": "7D7FA2D7-4DB9-498F-BE00-4C38D6D8CB53",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551459.606,
+        "y": 4620318.1594,
+        "z": 1738.6
+      }
+    },
+    {
+      "id": "YJMDTBMY10120180",
+      "description": "中央回风大巷一部皮带机头CO_一氧化碳",
+      "tunnel_id": "7D7FA2D7-4DB9-498F-BE00-4C38D6D8CB53",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551458.7946,
+        "y": 4620317.5915,
+        "z": 1738.46
+      }
+    },
+    {
+      "id": "YJMDTBMY10120181",
+      "description": "中央回风大巷一部皮带机头烟雾",
+      "tunnel_id": "7D7FA2D7-4DB9-498F-BE00-4C38D6D8CB53",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551457.9831,
+        "y": 4620317.0235,
+        "z": 1738.32
+      }
+    },
+    {
+      "id": "YJMDTBMY10120182",
+      "description": "中央回风大巷二部皮带机头烟雾",
+      "tunnel_id": "7D7FA2D7-4DB9-498F-BE00-4C38D6D8CB53",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551457.1717,
+        "y": 4620316.4556,
+        "z": 1738.19
+      }
+    },
+    {
+      "id": "YJMDTBMY10120183",
+      "description": "中央回风大巷二部皮带机尾CO_一氧化碳",
+      "tunnel_id": "7D7FA2D7-4DB9-498F-BE00-4C38D6D8CB53",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32550824.9691,
+        "y": 4619873.8455,
+        "z": 1648.27
+      }
+    },
+    {
+      "id": "YJMDTBMY10120184",
+      "description": "中央回风大巷二部皮带机尾烟雾",
+      "tunnel_id": "7D7FA2D7-4DB9-498F-BE00-4C38D6D8CB53",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32550824.1525,
+        "y": 4619873.2741,
+        "z": 1648.18
+      }
+    },
+    {
+      "id": "YJMDTBMY10120185",
+      "description": "副井口风速",
+      "tunnel_id": "409316B8-ABA2-4248-9F02-38DC2DB96867",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32552154.6487,
+        "y": 4620126.0041,
+        "z": 1932.25
+      }
+    },
+    {
+      "id": "YJMDTBMY10120193",
+      "description": "中部通风联络巷掘进工作面CH4（T1）_激光甲烷",
+      "tunnel_id": "0D3FAF76-A9EA-4DF4-8453-6E4CDACF9E9D",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551043.9639,
+        "y": 4620030.0884,
+        "z": 1670.4
+      }
+    },
+    {
+      "id": "YJMDTBMY10120196",
+      "description": "中部通风联络巷风筒状态风筒开关风筒开关",
+      "tunnel_id": "0D3FAF76-A9EA-4DF4-8453-6E4CDACF9E9D",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551037.581,
+        "y": 4620037.1244,
+        "z": 1670.48
+      }
+    },
+    {
+      "id": "YJMDTBMY10120201",
+      "description": "中部通风联络巷工作面主风机开停中部通风联络巷工作面主风机开停_设备开停",
+      "tunnel_id": "0D3FAF76-A9EA-4DF4-8453-6E4CDACF9E9D",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551036.9096,
+        "y": 4620037.8644,
+        "z": 1670.52
+      }
+    },
+    {
+      "id": "YJMDTBMY10120204",
+      "description": "中部通风联络巷工作面副风机开停中部通风联络巷工作面副风机开停_设备开停",
+      "tunnel_id": "0D3FAF76-A9EA-4DF4-8453-6E4CDACF9E9D",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551036.2383,
+        "y": 4620038.6045,
+        "z": 1670.56
+      }
+    },
+    {
+      "id": "YJMDTBMY10120206",
+      "description": "中部通风联络巷掘进工作面CH4（T2）_激光甲烷",
+      "tunnel_id": "0D3FAF76-A9EA-4DF4-8453-6E4CDACF9E9D",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551010.9269,
+        "y": 4620100.9452,
+        "z": 1670.76
+      }
+    },
+    {
+      "id": "YJMDTBMY10120207",
+      "description": "中部通风联络巷工作面回风流温度_环境温度",
+      "tunnel_id": "0D3FAF76-A9EA-4DF4-8453-6E4CDACF9E9D",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551007.7542,
+        "y": 4620094.1591,
+        "z": 1671.12
+      }
+    },
+    {
+      "id": "YJMDTBMY10120209",
+      "description": "中部通风联络巷工作面回风流CO_一氧化碳",
+      "tunnel_id": "0D3FAF76-A9EA-4DF4-8453-6E4CDACF9E9D",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551008.1769,
+        "y": 4620095.0632,
+        "z": 1671.06
+      }
+    },
+    {
+      "id": "YJMDTBMY10120414",
+      "description": "中央辅运大巷掘进工作面CH4(T2)_激光甲烷",
+      "tunnel_id": "189910C5-A97E-4E0F-A417-18ADBCFDB778",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32550817.5039,
+        "y": 4619990.4846,
+        "z": 1637.09
+      }
+    },
+    {
+      "id": "YJMDTBMY10120537",
+      "description": "中央辅运大巷掘进工作面 风筒状态风筒开关",
+      "tunnel_id": "189910C5-A97E-4E0F-A417-18ADBCFDB778",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551330.258,
+        "y": 4620349.5993,
+        "z": 1735.01
+      }
+    },
+    {
+      "id": "YJMDTBMY10120538",
+      "description": "中央辅运大巷掘进工作面CH4(T1)_激光甲烷",
+      "tunnel_id": "189910C5-A97E-4E0F-A417-18ADBCFDB778",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551401.9821,
+        "y": 4620400.5776,
+        "z": 1738.66
+      }
+    },
+    {
+      "id": "YJMDTBMY1012067",
+      "description": "中央胶带大巷工作面CH4（T1）_激光甲烷",
+      "tunnel_id": "C15E263C-9369-422D-A192-3DFFF3B56CF2",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551574.1065,
+        "y": 4620459.32,
+        "z": 1733.3
+      }
+    },
+    {
+      "id": "YJMDTBMY1012068",
+      "description": "中央胶带大巷工作面 风筒状态风筒开关",
+      "tunnel_id": "C15E263C-9369-422D-A192-3DFFF3B56CF2",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551484.6093,
+        "y": 4620396.5858,
+        "z": 1724.39
+      }
+    },
+    {
+      "id": "YJMDTBMY1012069",
+      "description": "辅运联络巷皮带机头 CO_一氧化碳",
+      "tunnel_id": "63711DCA-20E7-455A-8A74-AF0B46C76F7D",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551516.1416,
+        "y": 4620480.4606,
+        "z": 1733.5
+      }
+    },
+    {
+      "id": "YJMDTBMY1012070",
+      "description": "辅运联络巷皮带机头 烟雾",
+      "tunnel_id": "63711DCA-20E7-455A-8A74-AF0B46C76F7D",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551515.3228,
+        "y": 4620479.8877,
+        "z": 1733.54
+      }
+    },
+    {
+      "id": "YJMDTBMY1012071",
+      "description": "中央胶带大巷工作面CH4 (T2)_激光甲烷",
+      "tunnel_id": "C15E263C-9369-422D-A192-3DFFF3B56CF2",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32550832.4487,
+        "y": 4619940.05,
+        "z": 1653.87
+      }
+    },
+    {
+      "id": "YJMDTBMY1012072",
+      "description": "中央胶带大巷工作面回风流 CO_一氧化碳",
+      "tunnel_id": "C15E263C-9369-422D-A192-3DFFF3B56CF2",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32550832.4487,
+        "y": 4619940.05,
+        "z": 1653.77
+      }
+    },
+    {
+      "id": "YJMDTBMY1012074",
+      "description": "中央胶带大巷工作面 回风流温度_环境温度",
+      "tunnel_id": "C15E263C-9369-422D-A192-3DFFF3B56CF2",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32550831.6312,
+        "y": 4619939.4781,
+        "z": 1653.7
+      }
+    },
+    {
+      "id": "YJMDTBMY1012075",
+      "description": "中央胶带大巷工作面 回风流湿度",
+      "tunnel_id": "C15E263C-9369-422D-A192-3DFFF3B56CF2",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32550830.8138,
+        "y": 4619938.9062,
+        "z": 1653.44
+      }
+    },
+    {
+      "id": "YJMDTBMY1012076",
+      "description": "机头硐室皮带机头C O_一氧化碳",
+      "tunnel_id": "8532ABE7-03E4-4083-9F3C-D8FFABC5D730",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551382.0483,
+        "y": 4620327.1176,
+        "z": 1721.8
+      }
+    },
+    {
+      "id": "YJMDTBMY1012077",
+      "description": "机头硐室 皮带机头烟雾",
+      "tunnel_id": "8532ABE7-03E4-4083-9F3C-D8FFABC5D730",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551381.3789,
+        "y": 4620327.8605,
+        "z": 1721.8
+      }
+    },
+    {
+      "id": "YJMDTBMY1012084",
+      "description": "中央胶带大巷远控开关1140v馈电状态_馈电器",
+      "tunnel_id": "C15E263C-9369-422D-A192-3DFFF3B56CF2",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551483.7917,
+        "y": 4620396.0158,
+        "z": 1724.31
+      }
+    },
+    {
+      "id": "YJMDTBMY1012085",
+      "description": "中央胶带大巷远控开关1140v断电状态_断电器",
+      "tunnel_id": "C15E263C-9369-422D-A192-3DFFF3B56CF2",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551482.9742,
+        "y": 4620395.4458,
+        "z": 1724.23
+      }
+    },
+    {
+      "id": "YJMDTBMY1012088",
+      "description": "中央辅运大巷远控开关1140v馈电状态_馈电器",
+      "tunnel_id": "189910C5-A97E-4E0F-A417-18ADBCFDB778",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551329.4454,
+        "y": 4620349.0303,
+        "z": 1734.88
+      }
+    },
+    {
+      "id": "YJMDTBMY1012089",
+      "description": "中央辅运大巷远控开关1140v断电状态_断电器",
+      "tunnel_id": "189910C5-A97E-4E0F-A417-18ADBCFDB778",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551328.6329,
+        "y": 4620348.4612,
+        "z": 1734.75
+      }
+    },
+    {
+      "id": "YJMDTBMY101209",
+      "description": "副井绞车开停状态副井绞车开停状态_设备开停",
+      "tunnel_id": "409316B8-ABA2-4248-9F02-38DC2DB96867",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32552087.3249,
+        "y": 4620150.8872,
+        "z": 1913.9
+      }
+    },
+    {
+      "id": "YJMDTBMY1012091",
+      "description": "中央回风大巷远控开关1140v馈电状态_馈电器",
+      "tunnel_id": "7D7FA2D7-4DB9-498F-BE00-4C38D6D8CB53",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551381.9294,
+        "y": 4620263.7607,
+        "z": 1734.55
+      }
+    },
+    {
+      "id": "YJMDTBMY1012092",
+      "description": "中央回风大巷远控开关1140v断电状态_断电器",
+      "tunnel_id": "7D7FA2D7-4DB9-498F-BE00-4C38D6D8CB53",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551381.1104,
+        "y": 4620263.187,
+        "z": 1734.54
+      }
+    },
+    {
+      "id": "YJMDTBMY1012093",
+      "description": "中央回风大巷回风流CO_一氧化碳",
+      "tunnel_id": "7D7FA2D7-4DB9-498F-BE00-4C38D6D8CB53",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32550859.6952,
+        "y": 4619898.1413,
+        "z": 1651.72
+      }
+    },
+    {
+      "id": "YJMDTBMY1012094",
+      "description": "中央回风大巷掘进工作面CH4 (T1)_激光甲烷",
+      "tunnel_id": "7D7FA2D7-4DB9-498F-BE00-4C38D6D8CB53",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551459.606,
+        "y": 4620318.1594,
+        "z": 1738.7
+      }
+    },
+    {
+      "id": "YJMDTBMY1012096",
+      "description": "单轨吊充电检修硐室回风流CH4_激光甲烷",
+      "tunnel_id": "CC93DF87-1058-4383-89D6-D6235558CF0F",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551240.1583,
+        "y": 4620286.4966,
+        "z": 1721.3
+      }
+    },
+    {
+      "id": "YJMDTBMY1012099",
+      "description": "中央胶带大巷工作面  主风机开停中央胶带大巷工作面  主风机开停_设备开停",
+      "tunnel_id": "C15E263C-9369-422D-A192-3DFFF3B56CF2",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551482.1567,
+        "y": 4620394.8757,
+        "z": 1724.15
+      }
+    },
+    {
+      "id": "YJMDTBMY10140011007",
+      "description": "主井井口11-7_人数",
+      "tunnel_id": "D077AB2D-917D-4457-8431-4F9BD4A72765",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 32552312.7656,
+        "y": 4620190.3217,
+        "z": 1930.19
+      }
+    },
+    {
+      "id": "YJMDTBMY10140012007",
+      "description": "副井井口12-7_人数",
+      "tunnel_id": "409316B8-ABA2-4248-9F02-38DC2DB96867",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 32552151.0113,
+        "y": 4620127.3485,
+        "z": 1931.07
+      }
+    },
+    {
+      "id": "YJMDTBMY10140013007",
+      "description": "回风井井口_人数",
+      "tunnel_id": "45C43CEF-2B86-487D-8E87-D7F9F07ECFB4",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 32552162.0961,
+        "y": 4620449.671,
+        "z": 1930.94
+      }
+    },
+    {
+      "id": "YJMDTBMY10140016007",
+      "description": "中央回风大巷900米16-7_人数",
+      "tunnel_id": "7D7FA2D7-4DB9-498F-BE00-4C38D6D8CB53",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 32550753.8838,
+        "y": 4619824.111,
+        "z": 1641.0
+      }
+    },
+    {
+      "id": "YJMDTBMY10140018007",
+      "description": "主井400米18-7_人数",
+      "tunnel_id": "D077AB2D-917D-4457-8431-4F9BD4A72765",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 32551955.0703,
+        "y": 4620320.3977,
+        "z": 1820.89
+      }
+    },
+    {
+      "id": "YJMDTBMY10140019007",
+      "description": "主井底湾19-7_人数",
+      "tunnel_id": "D077AB2D-917D-4457-8431-4F9BD4A72765",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 32551693.9875,
+        "y": 4620415.6146,
+        "z": 1745.12
+      }
+    },
+    {
+      "id": "YJMDTBMY10140020007",
+      "description": "副井300米20-7_人数",
+      "tunnel_id": "409316B8-ABA2-4248-9F02-38DC2DB96867",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 32551882.1939,
+        "y": 4620225.4436,
+        "z": 1859.4
+      }
+    },
+    {
+      "id": "YJMDTBMY10140021007",
+      "description": "中央辅运大巷21-7",
+      "tunnel_id": "189910C5-A97E-4E0F-A417-18ADBCFDB778",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 32551327.8204,
+        "y": 4620347.8921,
+        "z": 1734.63
+      }
+    },
+    {
+      "id": "YJMDTBMY10140022007",
+      "description": "机头硐室工作面22-7",
+      "tunnel_id": "8532ABE7-03E4-4083-9F3C-D8FFABC5D730",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 32551380.04,
+        "y": 4620329.3462,
+        "z": 1721.6
+      }
+    },
+    {
+      "id": "YJMDTBMY10140023007",
+      "description": "中央回风大巷掘进工作面23-7_人数",
+      "tunnel_id": "7D7FA2D7-4DB9-498F-BE00-4C38D6D8CB53",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 32551380.2914,
+        "y": 4620262.6134,
+        "z": 1734.53
+      }
+    },
+    {
+      "id": "YJMDTBMY10140024007",
+      "description": "架空乘人装置硐室24-7_人数",
+      "tunnel_id": "4E4BB781-E8E2-4D69-AB7C-4C0FC3447338",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 32551561.7636,
+        "y": 4620419.9698,
+        "z": 1731.48
+      }
+    },
+    {
+      "id": "YJMDTBMY10140025007",
+      "description": "辅运联络巷25-7_人数",
+      "tunnel_id": "63711DCA-20E7-455A-8A74-AF0B46C76F7D",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 32551459.0619,
+        "y": 4620440.5191,
+        "z": 1735.83
+      }
+    },
+    {
+      "id": "YJMDTBMY10140026007",
+      "description": "副井井底26-7",
+      "tunnel_id": "409316B8-ABA2-4248-9F02-38DC2DB96867",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 32551540.7813,
+        "y": 4620349.4482,
+        "z": 1757.42
+      }
+    },
+    {
+      "id": "YJMDTBMY10140027007",
+      "description": "中央胶带大巷27-7",
+      "tunnel_id": "C15E263C-9369-422D-A192-3DFFF3B56CF2",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 32551481.3391,
+        "y": 4620394.3057,
+        "z": 1724.07
+      }
+    },
+    {
+      "id": "YJMDTBMY10140028007",
+      "description": "副斜井600米28-7_人数",
+      "tunnel_id": "409316B8-ABA2-4248-9F02-38DC2DB96867",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 32551610.6118,
+        "y": 4620324.0237,
+        "z": 1778.75
+      }
+    },
+    {
+      "id": "YJMDTBMY10140029007",
+      "description": "单轨吊充电检修硐室29-7",
+      "tunnel_id": "CC93DF87-1058-4383-89D6-D6235558CF0F",
+      "mark_type": "B15",
+      "coordinates": {
+        "x": 32551245.1863,
+        "y": 4620229.0133,
+        "z": 1725.5
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N5064",
+      "description": "天宝公司-主井绞车房",
+      "tunnel_id": "D077AB2D-917D-4457-8431-4F9BD4A72765",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32552053.894,
+        "y": 4620284.4301,
+        "z": 1852.44
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N5103",
+      "description": "天宝公司-副斜井防跑车(4)",
+      "tunnel_id": "409316B8-ABA2-4248-9F02-38DC2DB96867",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32552083.6875,
+        "y": 4620152.2316,
+        "z": 1914.72
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N5104",
+      "description": "天宝公司-副斜井上部乘车点",
+      "tunnel_id": "409316B8-ABA2-4248-9F02-38DC2DB96867",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32552086.4156,
+        "y": 4620151.2233,
+        "z": 1915.46
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N5105",
+      "description": "天宝公司-副斜井防跑车(1)",
+      "tunnel_id": "409316B8-ABA2-4248-9F02-38DC2DB96867",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32552084.5968,
+        "y": 4620151.8955,
+        "z": 1914.97
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N5106",
+      "description": "天宝公司-副斜井井口上",
+      "tunnel_id": "409316B8-ABA2-4248-9F02-38DC2DB96867",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32552153.7394,
+        "y": 4620126.3402,
+        "z": 1933.61
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N5112",
+      "description": "天宝公司-副井绞车房",
+      "tunnel_id": "409316B8-ABA2-4248-9F02-38DC2DB96867",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32551813.6777,
+        "y": 4620250.0896,
+        "z": 1842.55
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N5116",
+      "description": "天宝公司-副斜井一部皮带带式输送机机头",
+      "tunnel_id": "409316B8-ABA2-4248-9F02-38DC2DB96867",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32552155.5581,
+        "y": 4620125.668,
+        "z": 1934.1
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N5125",
+      "description": "天宝公司-中央回风大巷掘进工作面T1朝向迎头",
+      "tunnel_id": "7D7FA2D7-4DB9-498F-BE00-4C38D6D8CB53",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32551458.7946,
+        "y": 4620317.5915,
+        "z": 1740.06
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N5126",
+      "description": "天宝公司-中央回风大巷掘进工作面T1朝向外口",
+      "tunnel_id": "7D7FA2D7-4DB9-498F-BE00-4C38D6D8CB53",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32551457.9831,
+        "y": 4620317.0235,
+        "z": 1739.92
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N5127",
+      "description": "天宝公司-中央回风大巷二部皮带带式输送机机头",
+      "tunnel_id": "7D7FA2D7-4DB9-498F-BE00-4C38D6D8CB53",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32551456.3602,
+        "y": 4620315.8877,
+        "z": 1739.65
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N5128",
+      "description": "天宝公司-单轨吊充电检修硐室回风流T2处",
+      "tunnel_id": "CC93DF87-1058-4383-89D6-D6235558CF0F",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32551240.9125,
+        "y": 4620277.8741,
+        "z": 1723.48
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N5135",
+      "description": "天宝公司-回风单轨吊换装点",
+      "tunnel_id": "252DF084-3ABA-48F9-9DFC-5BE8BB210B02",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32551156.6202,
+        "y": 4620172.8584,
+        "z": 1707.88
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N5169",
+      "description": "天宝公司-主井绞车房提升机",
+      "tunnel_id": "D077AB2D-917D-4457-8431-4F9BD4A72765",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32552054.7969,
+        "y": 4620284.1018,
+        "z": 1852.72
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N5170",
+      "description": "天宝公司-副井绞车提升机",
+      "tunnel_id": "409316B8-ABA2-4248-9F02-38DC2DB96867",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32552085.5062,
+        "y": 4620151.5594,
+        "z": 1915.21
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N5181",
+      "description": "天宝公司-主斜井井口下",
+      "tunnel_id": "D077AB2D-917D-4457-8431-4F9BD4A72765",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32552313.6685,
+        "y": 4620189.9934,
+        "z": 1932.27
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N5182",
+      "description": "天宝公司-主井井口皮带",
+      "tunnel_id": "41679536-5BDF-49A6-96C2-D9C9C3E73D72",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32551571.2083,
+        "y": 4620460.377,
+        "z": 1734.82
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N5186",
+      "description": "天宝公司-副斜井防跑车(5)",
+      "tunnel_id": "409316B8-ABA2-4248-9F02-38DC2DB96867",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32552081.8688,
+        "y": 4620152.9038,
+        "z": 1914.23
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N5187",
+      "description": "天宝公司-副斜井下部乘车点",
+      "tunnel_id": "409316B8-ABA2-4248-9F02-38DC2DB96867",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32552082.7781,
+        "y": 4620152.5677,
+        "z": 1914.48
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N5188",
+      "description": "天宝公司-中央辅运大巷掘进工作面T2处",
+      "tunnel_id": "189910C5-A97E-4E0F-A417-18ADBCFDB778",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32550816.6868,
+        "y": 4619989.9139,
+        "z": 1638.51
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N5191",
+      "description": "天宝公司-机头硐室带式输送机机头",
+      "tunnel_id": "8532ABE7-03E4-4083-9F3C-D8FFABC5D730",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32551380.7094,
+        "y": 4620328.6034,
+        "z": 1723.4
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N5192",
+      "description": "天宝公司-胶带石门皮带搭接处",
+      "tunnel_id": "97B2D9F0-CEAE-419F-B746-99151D57F2EA",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32551650.574,
+        "y": 4620431.4175,
+        "z": 1736.96
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N5196",
+      "description": "天宝公司-胶带石门",
+      "tunnel_id": "97B2D9F0-CEAE-419F-B746-99151D57F2EA",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32551648.6948,
+        "y": 4620432.0976,
+        "z": 1736.88
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N5970",
+      "description": "天宝井工矿-副斜井井口",
+      "tunnel_id": "409316B8-ABA2-4248-9F02-38DC2DB96867",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32552152.83,
+        "y": 4620126.6763,
+        "z": 1933.36
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N5971",
+      "description": "天宝井工矿-主斜井井口",
+      "tunnel_id": "D077AB2D-917D-4457-8431-4F9BD4A72765",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32552314.5715,
+        "y": 4620189.6652,
+        "z": 1932.55
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N5973",
+      "description": "天宝井工矿-回风斜井井口",
+      "tunnel_id": "45C43CEF-2B86-487D-8E87-D7F9F07ECFB4",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32552163.0281,
+        "y": 4620449.671,
+        "z": 1933.1
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N5992",
+      "description": "天宝公司-主斜井维修点下部",
+      "tunnel_id": "D077AB2D-917D-4457-8431-4F9BD4A72765",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32552250.9822,
+        "y": 4620212.782,
+        "z": 1913.0
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N6046",
+      "description": "天宝公司-副井水平井底车场",
+      "tunnel_id": "409316B8-ABA2-4248-9F02-38DC2DB96867",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32551541.6845,
+        "y": 4620349.1193,
+        "z": 1759.5
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N6049",
+      "description": "天宝公司-中央胶带大巷掘进工作面T1朝向迎头",
+      "tunnel_id": "C15E263C-9369-422D-A192-3DFFF3B56CF2",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32551573.2908,
+        "y": 4620458.7467,
+        "z": 1734.72
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N6050",
+      "description": "天宝公司-中央胶带大巷掘进工作面T1朝向外口",
+      "tunnel_id": "C15E263C-9369-422D-A192-3DFFF3B56CF2",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32551572.4751,
+        "y": 4620458.1733,
+        "z": 1734.65
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N6051",
+      "description": "天宝公司-中央回风大巷一部皮带带式输送机机头",
+      "tunnel_id": "7D7FA2D7-4DB9-498F-BE00-4C38D6D8CB53",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32551454.7373,
+        "y": 4620314.7518,
+        "z": 1739.37
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N6052",
+      "description": "天宝公司-中央辅运大巷掘进工作面T1朝向迎头",
+      "tunnel_id": "189910C5-A97E-4E0F-A417-18ADBCFDB778",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32551400.3549,
+        "y": 4620399.4148,
+        "z": 1740.15
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N6053",
+      "description": "天宝公司-辅运联络巷带式输送机机头",
+      "tunnel_id": "63711DCA-20E7-455A-8A74-AF0B46C76F7D",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32551514.504,
+        "y": 4620479.3147,
+        "z": 1735.17
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N6061",
+      "description": "天宝公司-副斜井井口道岔",
+      "tunnel_id": "409316B8-ABA2-4248-9F02-38DC2DB96867",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32552151.9207,
+        "y": 4620127.0124,
+        "z": 1933.12
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N6069",
+      "description": "天宝公司-中央胶带大巷掘进工作面T2处",
+      "tunnel_id": "C15E263C-9369-422D-A192-3DFFF3B56CF2",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32550831.6312,
+        "y": 4619939.4781,
+        "z": 1655.3
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N6074",
+      "description": "天宝公司-副井放料点",
+      "tunnel_id": "409316B8-ABA2-4248-9F02-38DC2DB96867",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32552079.1407,
+        "y": 4620153.9121,
+        "z": 1913.5
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N6079",
+      "description": "天宝公司-副斜井防跑车(2)",
+      "tunnel_id": "409316B8-ABA2-4248-9F02-38DC2DB96867",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32552078.2314,
+        "y": 4620154.2482,
+        "z": 1913.25
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N6080",
+      "description": "天宝公司-副斜井防跑车(3)",
+      "tunnel_id": "409316B8-ABA2-4248-9F02-38DC2DB96867",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32552080.9594,
+        "y": 4620153.2399,
+        "z": 1913.99
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N6082",
+      "description": "天宝公司-主斜井防跑车(上)",
+      "tunnel_id": "D077AB2D-917D-4457-8431-4F9BD4A72765",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32552249.1764,
+        "y": 4620213.4385,
+        "z": 1912.45
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N6083",
+      "description": "天宝公司-主斜井防跑车(中)",
+      "tunnel_id": "D077AB2D-917D-4457-8431-4F9BD4A72765",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32552248.2734,
+        "y": 4620213.7667,
+        "z": 1912.17
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N6084",
+      "description": "天宝公司-主斜井防跑车(下)",
+      "tunnel_id": "D077AB2D-917D-4457-8431-4F9BD4A72765",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32552250.0793,
+        "y": 4620213.1102,
+        "z": 1912.73
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N6097",
+      "description": "天宝公司-中央回风大巷一部皮带带式输送机机头",
+      "tunnel_id": "7D7FA2D7-4DB9-498F-BE00-4C38D6D8CB53",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32551455.5488,
+        "y": 4620315.3198,
+        "z": 1739.51
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N6100",
+      "description": "天宝公司-中央回风大巷掘进工作面T2处",
+      "tunnel_id": "7D7FA2D7-4DB9-498F-BE00-4C38D6D8CB53",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32550859.6952,
+        "y": 4619898.1413,
+        "z": 1653.32
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N6103",
+      "description": "天宝公司-中央辅运大巷掘进工作面T1朝向外口",
+      "tunnel_id": "189910C5-A97E-4E0F-A417-18ADBCFDB778",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32551401.1685,
+        "y": 4620399.9962,
+        "z": 1740.15
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N6104",
+      "description": "天宝公司-副井放料点",
+      "tunnel_id": "409316B8-ABA2-4248-9F02-38DC2DB96867",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32552080.0501,
+        "y": 4620153.576,
+        "z": 1913.74
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N6105",
+      "description": "天宝井工矿-副斜井井口",
+      "tunnel_id": "409316B8-ABA2-4248-9F02-38DC2DB96867",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32552150.102,
+        "y": 4620127.6846,
+        "z": 1932.63
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N6110",
+      "description": "天宝公司-主斜井管路安装处",
+      "tunnel_id": "D077AB2D-917D-4457-8431-4F9BD4A72765",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32552247.3705,
+        "y": 4620214.095,
+        "z": 1911.89
+      }
+    }
+  ]
+}

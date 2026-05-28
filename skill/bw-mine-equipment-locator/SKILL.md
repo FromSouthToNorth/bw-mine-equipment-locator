@@ -1,4 +1,4 @@
----
+﻿---
 name: bw-mine-equipment-locator
 description: 煤矿设备定位技能。根据设备描述（description）匹配到对应巷道或工作面，再从巷道/工作面的折线（line）坐标中计算得出设备 (x, y, z) 坐标。当用户提到"设备定位"、"计算设备坐标"、"匹配设备到巷道"、"调用定位流程"或直接提供一个 username（如 F18795450）要求定位设备时触发。采用两阶段交互式流程：阶段1拉取8373数据并展示分析报告等信息确认（原始 8385 数据醒目展示——粗体/⚠️标记突出已有标注数和覆盖范围），阶段2执行匹配定位并展示汇总+回写计划（含暂缓回写样本），宁缺毋滥——仅高+中置信度写入8385，低置信度暂缓需人工确认。系统生成巷道名称（巷道NNN及纯数字名）自动从候选池排除。新增 audit 模式可自动标出高风险匹配。
 ---
@@ -78,22 +78,16 @@ description: 煤矿设备定位技能。根据设备描述（description）匹�
 ```bash
 cd F:/gis/Point
 
-# 一键运行（阶段 1+2 全自动，适用"直接跑"场景，同样仅回写高+中置信度）
+# ★ 推荐方式：一键运行（内部自动获取 mineName，无需用户提供）
 python skill/bw-mine-equipment-locator/scripts/locator.py <username>
 
-# 两阶段交互（推荐 — Claude 会在每阶段展示分析等待确认）
-# 阶段 1: 手动拉数据 + 分析展示
-python skill/bw-token-manager/scripts/bw_token_manager.py <username>
-python skill/bw-strategy-api-caller/scripts/strategy_api.py get_json --id 8373 --param "MineName=<mineName>" --username <username>
-# → Claude 展示分析报告，等用户确认
-# 阶段 2: 确认后执行匹配（仅匹配不回写）
-python skill/bw-mine-equipment-locator/scripts/locator.py <username> --load data/output/data_8373_<mineName>.json --match-only
-# → Claude 展示匹配汇总 + 回写计划，等用户确认回写
-python skill/bw-mine-equipment-locator/scripts/locator.py <username> --writeback data/output/locator_result_<username>_<mineName>.json
+# 如果需分步查看中间结果（不推荐，仅用于调试）：
+python skill/bw-mine-equipment-locator/scripts/locator.py <username>
+# → 内部自动完成：获取token → 获取mineName → 拉取8373数据 → 匹配 → 展示报告
+# → 等用户确认后执行回写（仅高+中置信度）
 
 # 审计模式：查看高风险/中风险匹配列表
-python skill/bw-mine-equipment-locator/scripts/locator.py <username> \
-  --load data/output/data_8373_<mineName>.json --match-only --output-mode audit
+python skill/bw-mine-equipment-locator/scripts/locator.py <username> --match-only --output-mode audit
 ```
 
 ### 输出示例

@@ -861,7 +861,7 @@ def _semantic_penalty(description: str, candidate_name: str, mark_type: str = No
             # 若描述已明确包含候选名主体(LCS>=50%)，豁免设备类型关键词的惩罚
             # 避免"中央回风大巷皮带机头CO"因"皮带/机头"被错误惩罚
             if keyword in ("皮带", "机头", "压带轮", "卸料器"):
-                lcs = longest_common_substring_len(description, candidate_name)
+                lcs = max(longest_common_substring_len(cv, candidate_name) for cv in _expand_aliases(description))
                 if lcs >= len(candidate_name) * 0.5:
                     continue
             # 特殊放宽："皮带机头硐室"等特定硐室地点，不应被运输设备关键词泛化拦截
@@ -1004,7 +1004,7 @@ def _has_hard_semantic_conflict(description: str, candidate_name: str) -> bool:
         if keyword in description:
             # 若描述已明确包含候选名主体(LCS>=50%)，豁免设备类型关键词的硬性拒绝
             if keyword in ("皮带", "机头", "压带轮", "卸料器"):
-                lcs = longest_common_substring_len(description, candidate_name)
+                lcs = max(longest_common_substring_len(cv, candidate_name) for cv in _expand_aliases(description))
                 if lcs >= len(candidate_name) * 0.5:
                     continue
             # 特殊放宽："皮带机头硐室"等特定硐室地点，不应被运输设备关键词泛化拦截
@@ -1199,6 +1199,10 @@ def _score_candidates(cleaned: str, candidates: list, sensor_type: str = None,
             if kw in cleaned and cand_type == type_str:
                 score += bonus
                 break
+
+        # 总回风加分：描述含"总回风"且候选名含"回风"时加分
+        if "总回风" in cleaned and "回风" in name:
+            score += 3
 
         # coalbed 验证惩罚（跨煤层不匹配）
         if device_coalbed and cand.get("coalbed"):
@@ -3042,7 +3046,16 @@ def _save_and_writeback(output: dict, username: str, output_mode: str = "full",
         results_list = full.get("results", [])
 
         # ── 回写前备份当前 8385 originData ──
-        _backup_origin_data(full, full.get("mine_name", ""))
+        mine_name = full.get("mine_name", "")
+        if not full.get("originData"):
+            try:
+                resp = call_strategy_api(8373, username, f"MineName={mine_name}", action="get_json")
+                raw = resp.get("data", {})
+                if isinstance(raw, dict) and "originData" in raw:
+                    full["originData"] = raw["originData"]
+            except Exception:
+                pass
+        _backup_origin_data(full, mine_name)
 
         # ── 宁缺毋滥：仅回写高+中置信度，低置信度暂缓 ──
         to_writeback, held_back = _filter_low_confidence(results_list)
@@ -3121,8 +3134,17 @@ def _writeback_from_file(result_path: str, username: str, auto_yes: bool = False
 
     # ── 回写前备份当前 8385 originData ──
     mine_name = data.get("mine_name", "")
+    # 如果结果文件中没有 originData，主动从 8373 API 获取
+    if not data.get("originData"):
+        try:
+            print(f"  → 结果文件无 originData，从 API 获取...", file=sys.stderr)
+            resp = call_strategy_api(8373, username, f"MineName={mine_name}", action="get_json")
+            raw = resp.get("data", {})
+            if isinstance(raw, dict) and "originData" in raw:
+                data["originData"] = raw["originData"]
+        except Exception as e:
+            print(f"  ! API 获取 originData 失败: {e}", file=sys.stderr)
     _backup_origin_data(data, mine_name)
-
     # ── 宁缺毋滥：仅回写高+中置信度，低置信度暂缓 ──
     to_writeback, held_back = _filter_low_confidence(results_list)
 
