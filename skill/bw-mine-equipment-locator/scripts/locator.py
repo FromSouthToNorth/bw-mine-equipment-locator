@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env python3
+#!/usr/bin/env python3
 """
 煤矿设备定位 — 根据设备描述匹配巷道/工作面，计算 (x, y, z) 坐标
 
@@ -73,19 +73,25 @@ _PYTHON_EXE = _resolve_python_exe()
 
 # ── API 调用 ──────────────────────────────────────────────────────
 def get_token_and_mine_name(username: str) -> tuple:
-    """调用 bw-token-manager 获取 token 和 mineName。"""
+    """调用 bw-token-manager 获取 token 和 mineName。
+    兼容新旧两种 CLI：新版用 --username，旧版用位置参数。"""
+    # 先尝试新版接口 (--username)
     result = subprocess.run(
-        [_PYTHON_EXE, str(TOKEN_MANAGER), username, "--output", "json"],
+        [_PYTHON_EXE, str(TOKEN_MANAGER), "--username", username, "--output", "json"],
         capture_output=True, text=True, cwd=PROJECT_ROOT
     )
     if result.returncode != 0:
-        raise RuntimeError(f"Token manager failed: {result.stderr.strip()}")
+        # fallback 到旧版接口（位置参数）
+        result = subprocess.run(
+            [_PYTHON_EXE, str(TOKEN_MANAGER), username, "--output", "json"],
+            capture_output=True, text=True, cwd=PROJECT_ROOT
+        )
+        if result.returncode != 0:
+            raise RuntimeError(f"Token manager failed: {result.stderr.strip()}")
     tokens = json.loads(result.stdout.strip())
-    mine_name = tokens.get("mineName", "")
     if not tokens.get("bw_token"):
         raise RuntimeError("bw_token not found")
-    if not mine_name:
-        raise RuntimeError("mineName not found")
+    mine_name = tokens.get("mineName") or username
     return tokens, mine_name
 
 
@@ -312,10 +318,10 @@ _TUNNEL_ALIAS_MAP = {
     "工作面": ["面"],
     "回风": ["回风巷"],
     "进风": ["进风巷"],
-    # 斜井等价：副井/主井 与 副斜井/主斜井 在口语中常混用
-    "副井": ["副斜井"],
-    "主井": ["主斜井"],
-    "回风井": ["回风斜井"],
+    # 斜井/立井等价：副井/主井/回风井 与 副斜井/副立井 等在口语中常混用
+    "副井": ["副斜井", "副立井"],
+    "主井": ["主斜井", "主立井"],
+    "回风井": ["回风斜井", "回风立井"],
 }
 
 
@@ -804,6 +810,10 @@ def extract_workface_code(description: str) -> str:
             continue
         # 排除距离值（如 600米、300m）— B15 人员定位常用格式
         if re.match(r'[米mM]', description[end:end+1]):
+            excluded_ranges.append((start, end))
+            continue
+        # 排除传感器通道编号（如 "传感器903"、"传感器温度903"、"温度传感器903"）
+        if '传感器' in description[max(0, start-5):start]:
             excluded_ranges.append((start, end))
             continue
         return num
@@ -2926,24 +2936,33 @@ def _print_report_stderr(report: dict):
 
 # ── 回写前备份 ────────────────────────────────────────────────────
 def _confirm_overwrite(to_writeback_count: int, held_back_count: int,
-                        auto_yes: bool = False) -> bool:
+                        auto_yes: bool = False,
+                        low_confidence_count: int = 0) -> bool:
     """回写前提示用户确认覆盖原有标注数据。
 
     Args:
         to_writeback_count: 待回写设备数
         held_back_count: 暂缓设备数
         auto_yes: True 时跳过提示直接确认（用于 --yes 参数）
+        low_confidence_count: 低置信度匹配数量（强制提示，不受 held_back 影响）
 
     Returns:
         True 表示确认回写，False 表示取消
     """
     if auto_yes:
+        print(f"\n{'='*60}", file=sys.stderr)
+        print(f"  ⚠ 自动跳过确认（--yes 模式）", file=sys.stderr)
+        print(f"  ⚠ 即将回写 {to_writeback_count} 条定位结果到策略 8385", file=sys.stderr)
+        if low_confidence_count:
+            print(f"  ⚠ 包含 {low_confidence_count} 条低置信度匹配（宁缺毋滥已关闭）", file=sys.stderr)
+        print(f"  ⚠ 此操作将会覆盖 8385 中原有的标注数据！", file=sys.stderr)
+        print(f"{'='*60}", file=sys.stderr)
         return True
 
     print(f"\n{'='*60}", file=sys.stderr)
     print(f"  ⚠ 即将回写 {to_writeback_count} 条定位结果到策略 8385", file=sys.stderr)
-    if held_back_count:
-        print(f"  ⚠ {held_back_count} 条低置信度结果将暂缓（宁缺毋滥）", file=sys.stderr)
+    if low_confidence_count:
+        print(f"  ⚠ 包含 {low_confidence_count} 条低置信度匹配（宁缺毋滥已关闭）", file=sys.stderr)
     print(f"  ⚠ 此操作将会覆盖 8385 中原有的标注数据！", file=sys.stderr)
     print(f"{'='*60}", file=sys.stderr)
 
@@ -3057,12 +3076,12 @@ def _save_and_writeback(output: dict, username: str, output_mode: str = "full",
                 pass
         _backup_origin_data(full, mine_name)
 
-        # ── 宁缺毋滥：仅回写高+中置信度，低置信度暂缓 ──
-        to_writeback, held_back = _filter_low_confidence(results_list)
+    # ── 置信度过滤：低置信度也回写，但报告给用户 ──
+        to_writeback, held_back = _filter_low_confidence(results_list, include_low=True)
 
         print(f"\n[3/3] 准备回写定位结果到策略 8385...", file=sys.stderr)
-        print(f"  置信度过滤: 待回写 {len(to_writeback)} 条 (高+中)  |"
-              f"  暂缓 {len(held_back)} 条 (低置信度, 宁缺毋滥)", file=sys.stderr)
+        low_count = sum(1 for r in to_writeback if r.get("confidence") == "低")
+        print(f"  待回写: {len(to_writeback)} 条 (含 {low_count} 条低置信度 ⚠)", file=sys.stderr)
 
         for r in to_writeback[:5]:
             cid = r.get("id", "?")
@@ -3073,28 +3092,16 @@ def _save_and_writeback(output: dict, username: str, output_mode: str = "full",
         if len(to_writeback) > 5:
             print(f"    ...及其他 {len(to_writeback) - 5} 条", file=sys.stderr)
 
-        if held_back:
-            print(f"\n  ⚠ 暂缓回写 {len(held_back)} 条低置信度匹配（宁缺毋滥，人工确认后再决定）:", file=sys.stderr)
-            for r in held_back[:8]:
-                cid = r.get("id", "?")
-                cname = r.get("matched_name", "?")
-                score = r.get("match_score", 0)
-                lcs = r.get("match_lcs", 0)
-                desc = (r.get("description", "") or "")[:40]
-                print(f"    {cid} → {cname}  score={score}  lcs={lcs}  {desc}", file=sys.stderr)
-            if len(held_back) > 8:
-                print(f"    ...及其他 {len(held_back) - 8} 条", file=sys.stderr)
-            print(f"  → 已保存到结果文件供审计，可手动筛选后通过 --writeback 回写", file=sys.stderr)
-
         # ── 用户确认 ──
-        if not _confirm_overwrite(len(to_writeback), len(held_back), auto_yes=auto_yes):
+        low_count = sum(1 for r in to_writeback if r.get("confidence") == "低")
+        if not _confirm_overwrite(len(to_writeback), len(held_back), auto_yes=auto_yes, low_confidence_count=low_count):
             print(f"  ⏸ 回写已取消。备份文件保留在 data/backup/ 中。", file=sys.stderr)
             print(f"  确认后可通过: --writeback <结果文件> 再次回写", file=sys.stderr)
             return
 
         writeback_data = dict(full)
         writeback_data["results"] = to_writeback
-        writeback_data["_held_back_low_confidence"] = len(held_back)
+        writeback_data["total_low_confidence"] = low_count
         data_param = json.dumps(writeback_data, ensure_ascii=False)
         try:
             with tempfile.NamedTemporaryFile(mode="w", suffix=".json", delete=False, encoding="utf-8") as tf:
@@ -3111,22 +3118,22 @@ def _save_and_writeback(output: dict, username: str, output_mode: str = "full",
         except Exception as e:
             print(f"  ! 8385 回写失败: {e}", file=sys.stderr)
     else:
-        # ── match-only 模式：提示用户关注暂缓回写项 ──
+        # ── match-only 模式：提示用户关注低置信度项 ──
         full = output_full if output_full is not None else output
         results_list = full.get("results", [])
-        _to_writeback, held_back = _filter_low_confidence(results_list)
-        if held_back:
-            print(f"\n  ⏸ 匹配完成（{len(_to_writeback)} 条待回写, {len(held_back)} 条低置信度暂缓）", file=sys.stderr)
-            print(f"    请审查上方【暂缓回写样本】后确认回写", file=sys.stderr)
+        _to_writeback, held_back = _filter_low_confidence(results_list, include_low=True)
+        low_count = sum(1 for r in _to_writeback if r.get("confidence") == "低")
+        if low_count:
+            print(f"\n  ⏸ 匹配完成（{len(_to_writeback)} 条待回写, 含 {low_count} 条低置信度 ⚠）", file=sys.stderr)
+            print(f"    宁缺毋滥已关闭，低置信度将一并回写，请审查后确认", file=sys.stderr)
         else:
             print(f"\n  ⏸ 匹配完成，等待确认后回写", file=sys.stderr)
         print(f"    使用 --writeback 或再次运行回写", file=sys.stderr)
 
-
 def _writeback_from_file(result_path: str, username: str, auto_yes: bool = False):
     """从已保存的结果文件回写 8385，不重复匹配。
-    仅回写高+中置信度结果，低置信度暂缓（宁缺毋滥）。
     """
+
     import tempfile
     print(f"[1/1] 从文件加载结果: {result_path}", file=sys.stderr)
     data = _load_json_file(result_path)
@@ -3145,12 +3152,12 @@ def _writeback_from_file(result_path: str, username: str, auto_yes: bool = False
         except Exception as e:
             print(f"  ! API 获取 originData 失败: {e}", file=sys.stderr)
     _backup_origin_data(data, mine_name)
-    # ── 宁缺毋滥：仅回写高+中置信度，低置信度暂缓 ──
-    to_writeback, held_back = _filter_low_confidence(results_list)
+    # ── 置信度过滤：低置信度也回写，但报告给用户 ──
+    to_writeback, held_back = _filter_low_confidence(results_list, include_low=True)
 
     print(f"  → 已加载 {len(results_list)} 条结果", file=sys.stderr)
-    print(f"  置信度过滤: 待回写 {len(to_writeback)} 条 (高+中)  |"
-          f"  暂缓 {len(held_back)} 条 (低置信度, 宁缺毋滥)", file=sys.stderr)
+    low_count = sum(1 for r in to_writeback if r.get("confidence") == "低")
+    print(f"  待回写: {len(to_writeback)} 条 (含 {low_count} 条低置信度 ⚠)", file=sys.stderr)
 
     for r in to_writeback[:5]:
         cid = r.get("id", "?")
@@ -3161,26 +3168,16 @@ def _writeback_from_file(result_path: str, username: str, auto_yes: bool = False
     if len(to_writeback) > 5:
         print(f"    ...及其他 {len(to_writeback) - 5} 条", file=sys.stderr)
 
-    if held_back:
-        print(f"\n  ⚠ 暂缓回写 {len(held_back)} 条低置信度匹配:", file=sys.stderr)
-        for r in held_back[:8]:
-            cid = r.get("id", "?")
-            cname = r.get("matched_name", "?")
-            score = r.get("match_score", 0)
-            lcs = r.get("match_lcs", 0)
-            desc = (r.get("description", "") or "")[:40]
-            print(f"    {cid} → {cname}  score={score}  lcs={lcs}  {desc}", file=sys.stderr)
-        if len(held_back) > 8:
-            print(f"    ...及其他 {len(held_back) - 8} 条", file=sys.stderr)
-
     # ── 用户确认 ──
-    if not _confirm_overwrite(len(to_writeback), len(held_back), auto_yes=auto_yes):
+    low_count = sum(1 for r in to_writeback if r.get("confidence") == "低")
+    if not _confirm_overwrite(len(to_writeback), len(held_back), auto_yes=auto_yes, low_confidence_count=low_count):
         print(f"  ⏸ 回写已取消。备份文件保留在 data/backup/ 中。", file=sys.stderr)
         return
 
     writeback_data = dict(data)
     writeback_data["results"] = to_writeback
     writeback_data["_held_back_low_confidence"] = len(held_back)
+    writeback_data["total_low_confidence"] = low_count
     data_param = json.dumps(writeback_data, ensure_ascii=False)
     try:
         with tempfile.NamedTemporaryFile(mode="w", suffix=".json", delete=False, encoding="utf-8") as tf:

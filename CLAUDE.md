@@ -32,6 +32,15 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 这意味着修改 `strategy_api.py` 或 `bw_token_manager.py` 会立即影响 locator 的行为，无需重新安装或编译。
 
+> **强制约定：Skill 修改边界**
+> 本仓库中，**仅允许修改 `bw-mine-equipment-locator` skill 的代码**（即 `skill/bw-mine-equipment-locator/` 目录下的文件，核心为 `locator.py`）。
+> **`bw-token-manager` 和 `bw-strategy-api-caller` 两个 skill 的代码禁止修改**。如果它们存在 bug 或行为不符合预期，应通过以下方式绕过或上报，而不是直接修改：
+> - Token 获取失败 → 直接调用 API 获取 token，或手写 Python 脚本完成同等功能
+> - API 调用异常 → 使用 `curl` / `requests` 直接调用，或另写独立脚本
+> - 参数格式变更 → 在 `locator.py` 的 subprocess 调用参数中适配
+>
+> 此约定确保上游 skill 保持独立性和可替换性，避免将业务逻辑泄漏到通用基础设施中。
+
 ### 数据流与缓存
 
 ```

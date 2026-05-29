@@ -172,10 +172,8 @@ def main():
     parser.add_argument("action", choices=["get_data", "get_json", "execute"],
                         help="API action to call")
     parser.add_argument("--id", type=int, required=True, help="策略 ID")
-    parser.add_argument("--param", action="append", default=[],
+    parser.add_argument("--param", action="append", default=[], 
                         help="策略参数 (name=value)，可多次使用")
-    parser.add_argument("--param-from-file", action="append", default=[],
-                        help="从文件读取参数值 (name=filepath)，可多次使用")
     parser.add_argument("--query-type", type=int, default=1, choices=[1, 2],
                         help="查询类型 (1 或 2)")
     parser.add_argument("--order", action="append", default=[],
@@ -190,15 +188,6 @@ def main():
     
     # 解析参数
     parameters = parse_parameters(args.param)
-    # 解析 --param-from-file: name=filepath，value 从文件读取
-    for pf in args.param_from_file:
-        if "=" in pf:
-            name, filepath = pf.split("=", 1)
-            with open(filepath, "r", encoding="utf-8") as f:
-                value = f.read()
-            parameters.append({"name": name.strip(), "value": value})
-        else:
-            print(f"[WARNING] Invalid param-from-file format: {pf} (expected name=filepath)", file=sys.stderr)
     orders = parse_orders(args.order) if args.order else [{"name": "id", "value": "asc"}]
     
     # 调用 API
