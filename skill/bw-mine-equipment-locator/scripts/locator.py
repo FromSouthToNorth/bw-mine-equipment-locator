@@ -2763,8 +2763,6 @@ def _print_report_stderr(report: dict):
 
     _p(f"\n【概况】")
     _p(f"  总计: {s['total']}  匹配: {s['matched']} ✓  未匹配: {s['unmatched']}")
-    bc = s.get("by_confidence", {})
-    _p(f"  置信度: 高={bc.get('高', 0)}  中={bc.get('中', 0)}  低={bc.get('低', 0)}")
     bm = s.get("by_mark_type", {})
     _p(f"  类型: B14={bm.get('B14', 0)}  B15={bm.get('B15', 0)}  B16={bm.get('B16', 0)}")
     bs = s.get("by_sensor_type", {})
@@ -2786,6 +2784,31 @@ def _print_report_stderr(report: dict):
            f" ({', '.join(sample)}{'...' if len(excluded) > 5 else ''})")
     if s.get("unnamed_tunnels_skipped", 0):
         _p(f"  无名称巷道已排除: {s['unnamed_tunnels_skipped']} 条")
+
+    # ── 置信度分布（独立区块，含百分比条）──
+    bc = s.get("by_confidence", {})
+    total_all = s["total"]
+    high = bc.get("高", 0)
+    medium = bc.get("中", 0)
+    low = bc.get("低", 0)
+    unmatched_count = s["unmatched"]
+
+    def _pct_bar(n, total):
+        if total <= 0:
+            return "0.0%", ""
+        pct = n / total * 100
+        bar = "█" * min(20, max(0, round(pct / 5)))
+        return f"{pct:.1f}%", bar
+
+    _p(f"\n【置信度分布】")
+    for label, count in [("高", high), ("中", medium), ("低", low)]:
+        pct_str, bar = _pct_bar(count, total_all)
+        _p(f"  {label}:   {count:>3} 条 ({pct_str})  {bar}")
+    if unmatched_count:
+        pct_str, bar = _pct_bar(unmatched_count, total_all)
+        _p(f"  未匹配: {unmatched_count:>3} 台 ({pct_str})  {bar}")
+    match_rate = (s["matched"] / total_all * 100) if total_all > 0 else 0
+    _p(f"  匹配率: {match_rate:.1f}%")
 
     # ── 巷道设备密度（始终输出，无数据时显示"无"）──
     td = report.get("tunnel_density", [])
