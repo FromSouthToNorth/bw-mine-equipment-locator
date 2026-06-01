@@ -1,0 +1,552 @@
+{
+  "type": "FeatureCollection",
+  "name": "cad_anomaly",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.620156,
+          41.717104,
+          1737.4
+        ]
+      },
+      "properties": {
+        "content": "安装地点：中央胶带大巷掘进工作",
+        "nearest_tunnel": "架空乘人器硐室",
+        "should_be": "中央胶带大巷",
+        "distance": 41.6,
+        "category": "cad_anomaly"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.608011,
+          41.719424,
+          1675.0
+        ]
+      },
+      "properties": {
+        "content": "1105工作面",
+        "nearest_tunnel": "1105进风巷",
+        "should_be": "1105工作面",
+        "distance": 54.3,
+        "category": "cad_anomaly"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.620149,
+          41.718431,
+          1738.0
+        ]
+      },
+      "properties": {
+        "content": "胶带石门",
+        "nearest_tunnel": "主斜井机尾联络巷",
+        "should_be": "胶带石门",
+        "distance": 94.9,
+        "category": "cad_anomaly"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.614312,
+          41.716438,
+          1716.0
+        ]
+      },
+      "properties": {
+        "content": "一采区变电所",
+        "nearest_tunnel": "中央辅运大巷",
+        "should_be": "一采区变电所",
+        "distance": 98.6,
+        "category": "cad_anomaly"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.618047,
+          41.71835,
+          1739.6
+        ]
+      },
+      "properties": {
+        "content": "(兼机头硐室配电点)",
+        "nearest_tunnel": "辅运联络巷",
+        "should_be": "机头硐室",
+        "distance": 96.4,
+        "category": "cad_anomaly"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.619077,
+          41.718209,
+          1738.3
+        ]
+      },
+      "properties": {
+        "content": "主斜井机尾联络巷",
+        "nearest_tunnel": "主斜井机尾联络巷",
+        "should_be": "主斜井",
+        "distance": 42.9,
+        "category": "cad_anomaly"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.616622,
+          41.715023,
+          1736.8
+        ]
+      },
+      "properties": {
+        "content": "中央胶带大巷",
+        "nearest_tunnel": "中央回风大巷",
+        "should_be": "中央胶带大巷",
+        "distance": 39.9,
+        "category": "cad_anomaly"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.618861,
+          41.717635,
+          1739.2
+        ]
+      },
+      "properties": {
+        "content": "胶带大巷架空乘人器硐室交岔点",
+        "nearest_tunnel": "辅运联络巷",
+        "should_be": "架空乘人器硐室",
+        "distance": 7.5,
+        "category": "cad_anomaly"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.619715,
+          41.71795,
+          1738.1
+        ]
+      },
+      "properties": {
+        "content": "安装地点：辅运联络巷维修工作面",
+        "nearest_tunnel": "主斜井机尾联络巷",
+        "should_be": "辅运联络巷",
+        "distance": 32.2,
+        "category": "cad_anomaly"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.628599,
+          41.715499,
+          1931.1
+        ]
+      },
+      "properties": {
+        "content": "辅运联络巷维修工作面",
+        "nearest_tunnel": "主斜井",
+        "should_be": "辅运联络巷",
+        "distance": 35.0,
+        "category": "cad_anomaly"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.61927,
+          41.718102,
+          1738.3
+        ]
+      },
+      "properties": {
+        "content": "安装地点：辅运联络巷皮带机头",
+        "nearest_tunnel": "主斜井机尾联络巷",
+        "should_be": "辅运联络巷",
+        "distance": 35.1,
+        "category": "cad_anomaly"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.626432,
+          41.717169,
+          1923.3
+        ]
+      },
+      "properties": {
+        "content": "中央回风大巷掘面",
+        "nearest_tunnel": "回风斜井",
+        "should_be": "中央回风大巷",
+        "distance": 37.4,
+        "category": "cad_anomaly"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.620814,
+          41.71784,
+          1750.6
+        ]
+      },
+      "properties": {
+        "content": "安装地点：中央回风大巷二台皮带",
+        "nearest_tunnel": "回风斜井",
+        "should_be": "中央回风大巷",
+        "distance": 33.7,
+        "category": "cad_anomaly"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.609294,
+          41.714466,
+          1628.0
+        ]
+      },
+      "properties": {
+        "content": "主排水泵房",
+        "nearest_tunnel": "主水仓",
+        "should_be": "主排水泵房",
+        "distance": 57.2,
+        "category": "cad_anomaly"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.618855,
+          41.716954,
+          1748.8
+        ]
+      },
+      "properties": {
+        "content": "安装地点：中央胶带大巷掘进工作",
+        "nearest_tunnel": "副斜井",
+        "should_be": "中央胶带大巷",
+        "distance": 18.3,
+        "category": "cad_anomaly"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.618427,
+          41.717334,
+          1741.0
+        ]
+      },
+      "properties": {
+        "content": "安装地点：中央胶带大巷掘进工作",
+        "nearest_tunnel": "辅运联络巷",
+        "should_be": "中央胶带大巷",
+        "distance": 14.5,
+        "category": "cad_anomaly"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.620423,
+          41.717852,
+          1745.6
+        ]
+      },
+      "properties": {
+        "content": "胶带石门",
+        "nearest_tunnel": "回风斜井",
+        "should_be": "胶带石门",
+        "distance": 39.4,
+        "category": "cad_anomaly"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.619193,
+          41.71766,
+          1738.2
+        ]
+      },
+      "properties": {
+        "content": "安装地点：中央胶带大巷二台皮带",
+        "nearest_tunnel": "主斜井机尾联络巷",
+        "should_be": "中央胶带大巷",
+        "distance": 13.2,
+        "category": "cad_anomaly"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.616846,
+          41.715157,
+          1737.7
+        ]
+      },
+      "properties": {
+        "content": "中央辅运大巷",
+        "nearest_tunnel": "中央回风大巷",
+        "should_be": "中央辅运大巷",
+        "distance": 38.3,
+        "category": "cad_anomaly"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.618416,
+          41.716113,
+          1741.6
+        ]
+      },
+      "properties": {
+        "content": "回风斜井落底点",
+        "nearest_tunnel": "中央回风大巷",
+        "should_be": "回风斜井",
+        "distance": 25.0,
+        "category": "cad_anomaly"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.615604,
+          41.714783,
+          1728.0
+        ]
+      },
+      "properties": {
+        "content": "单轨吊充电硐室",
+        "nearest_tunnel": "中央回风大巷",
+        "should_be": "单轨吊充电硐室",
+        "distance": 13.8,
+        "category": "cad_anomaly"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.618102,
+          41.717176,
+          1742.2
+        ]
+      },
+      "properties": {
+        "content": "安装地点：中央胶带大巷巷综掘机",
+        "nearest_tunnel": "辅运联络巷",
+        "should_be": "中央胶带大巷",
+        "distance": 13.6,
+        "category": "cad_anomaly"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.627748,
+          41.714608,
+          1921.8
+        ]
+      },
+      "properties": {
+        "content": "副斜井",
+        "nearest_tunnel": "主斜井",
+        "should_be": "副斜井",
+        "distance": 82.5,
+        "category": "cad_anomaly"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.60949,
+          41.714612,
+          1628.0
+        ]
+      },
+      "properties": {
+        "content": "主排水泵房变电所",
+        "nearest_tunnel": "主水仓",
+        "should_be": "主排水泵房变电所",
+        "distance": 73.2,
+        "category": "cad_anomaly"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.628941,
+          41.71567,
+          1936.3
+        ]
+      },
+      "properties": {
+        "content": "中央胶带大巷掘进工作面",
+        "nearest_tunnel": "主斜井",
+        "should_be": "中央胶带大巷",
+        "distance": 62.7,
+        "category": "cad_anomaly"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.611118,
+          41.714698,
+          1661.7
+        ]
+      },
+      "properties": {
+        "content": "永久避难硐室",
+        "nearest_tunnel": "中央辅运大巷",
+        "should_be": "永久避难硐室",
+        "distance": 90.4,
+        "category": "cad_anomaly"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.611679,
+          41.712539,
+          1659.2
+        ]
+      },
+      "properties": {
+        "content": "管子道",
+        "nearest_tunnel": "中央回风大巷",
+        "should_be": "管子道",
+        "distance": 33.5,
+        "category": "cad_anomaly"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.620217,
+          41.717131,
+          1739.1
+        ]
+      },
+      "properties": {
+        "content": "主斜井落底点",
+        "nearest_tunnel": "胶带石门",
+        "should_be": "主斜井",
+        "distance": 38.4,
+        "category": "cad_anomaly"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.609358,
+          41.711921,
+          1643.9
+        ]
+      },
+      "properties": {
+        "content": "大巷联络巷",
+        "nearest_tunnel": "中央胶带大巷",
+        "should_be": "大巷联络巷",
+        "distance": 31.0,
+        "category": "cad_anomaly"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.620053,
+          41.717934,
+          1738.1
+        ]
+      },
+      "properties": {
+        "content": "主斜井架空乘人器硐室交岔点",
+        "nearest_tunnel": "胶带石门",
+        "should_be": "架空乘人器硐室",
+        "distance": 40.4,
+        "category": "cad_anomaly"
+      }
+    }
+  ]
+}

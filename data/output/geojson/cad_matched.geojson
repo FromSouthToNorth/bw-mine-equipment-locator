@@ -1,0 +1,6183 @@
+{
+  "type": "FeatureCollection",
+  "name": "cad_matched",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.620004,
+          41.716943,
+          1736.7
+        ]
+      },
+      "properties": {
+        "content": "架空乘人器硐室",
+        "nearest_tunnel": "架空乘人器硐室",
+        "distance": 49.1,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.62882,
+          41.71568,
+          1934.0
+        ]
+      },
+      "properties": {
+        "content": "断电控制器",
+        "nearest_tunnel": "主斜井",
+        "distance": 60.2,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.601464,
+          41.726229,
+          1694.9
+        ]
+      },
+      "properties": {
+        "content": "无煤区Ⅵ",
+        "nearest_tunnel": "1105回风顺槽",
+        "distance": 31.0,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.61927,
+          41.71808,
+          1738.3
+        ]
+      },
+      "properties": {
+        "content": "CO、烟雾。",
+        "nearest_tunnel": "主斜井机尾联络巷",
+        "distance": 32.8,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.617762,
+          41.716859,
+          1726.7
+        ]
+      },
+      "properties": {
+        "content": "风筒开停报警值：无风。",
+        "nearest_tunnel": "中央胶带大巷",
+        "distance": 24.2,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.623187,
+          41.718117,
+          1819.8
+        ]
+      },
+      "properties": {
+        "content": "1750",
+        "nearest_tunnel": "回风斜井",
+        "distance": 65.9,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.61398,
+          41.714056,
+          1690.6
+        ]
+      },
+      "properties": {
+        "content": "掘进迎头位置",
+        "nearest_tunnel": "中央回风大巷",
+        "distance": 3.5,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.617731,
+          41.716542,
+          1726.6
+        ]
+      },
+      "properties": {
+        "content": "2024.12.8掘进迎头位置",
+        "nearest_tunnel": "中央胶带大巷",
+        "distance": 3.3,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.628478,
+          41.715509,
+          1928.2
+        ]
+      },
+      "properties": {
+        "content": "断电控制器",
+        "nearest_tunnel": "主斜井",
+        "distance": 32.5,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.628703,
+          41.71461,
+          1936.3
+        ]
+      },
+      "properties": {
+        "content": "环网交换机",
+        "nearest_tunnel": "主斜井",
+        "distance": 59.8,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.607029,
+          41.719291,
+          1675.0
+        ]
+      },
+      "properties": {
+        "content": "15.91",
+        "nearest_tunnel": "1105进风巷",
+        "distance": 16.5,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.620051,
+          41.717949,
+          1738.0
+        ]
+      },
+      "properties": {
+        "content": "安装地点：架空乘人装置皮带机头",
+        "nearest_tunnel": "胶带石门",
+        "distance": 41.9,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.628818,
+          41.714728,
+          1936.3
+        ]
+      },
+      "properties": {
+        "content": "主斜井",
+        "nearest_tunnel": "主斜井",
+        "distance": 48.4,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.611107,
+          41.711885,
+          1652.6
+        ]
+      },
+      "properties": {
+        "content": "1680",
+        "nearest_tunnel": "中央回风大巷",
+        "distance": 66.4,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.61927,
+          41.718038,
+          1738.3
+        ]
+      },
+      "properties": {
+        "content": "23ppm。",
+        "nearest_tunnel": "主斜井机尾联络巷",
+        "distance": 28.4,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.627248,
+          41.714179,
+          1937.3
+        ]
+      },
+      "properties": {
+        "content": "Z=1932.3",
+        "nearest_tunnel": "副斜井",
+        "distance": 63.2,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.61027,
+          41.713647,
+          1639.0
+        ]
+      },
+      "properties": {
+        "content": "+1630",
+        "nearest_tunnel": "主排水泵房变电所",
+        "distance": 11.3,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.620002,
+          41.716692,
+          1776.4
+        ]
+      },
+      "properties": {
+        "content": "架空乘人装置等候室",
+        "nearest_tunnel": "副斜井",
+        "distance": 24.3,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.627248,
+          41.714238,
+          1937.3
+        ]
+      },
+      "properties": {
+        "content": "Y=32552155.5",
+        "nearest_tunnel": "副斜井",
+        "distance": 58.7,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.617715,
+          41.715875,
+          1739.8
+        ]
+      },
+      "properties": {
+        "content": "单轨吊检修硐室",
+        "nearest_tunnel": "中央回风大巷",
+        "distance": 13.7,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.618855,
+          41.716868,
+          1749.7
+        ]
+      },
+      "properties": {
+        "content": "值＜1.0%.",
+        "nearest_tunnel": "副斜井",
+        "distance": 9.3,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.628604,
+          41.714631,
+          1936.3
+        ]
+      },
+      "properties": {
+        "content": "Y=32552316.5",
+        "nearest_tunnel": "主斜井",
+        "distance": 57.6,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.62005,
+          41.717862,
+          1738.1
+        ]
+      },
+      "properties": {
+        "content": "烟雾报警值：有烟",
+        "nearest_tunnel": "胶带石门",
+        "distance": 32.9,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.624674,
+          41.716425,
+          1832.5
+        ]
+      },
+      "properties": {
+        "content": "16°",
+        "nearest_tunnel": "主斜井",
+        "distance": 17.6,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.624168,
+          41.717696,
+          1849.9
+        ]
+      },
+      "properties": {
+        "content": "1770",
+        "nearest_tunnel": "回风斜井",
+        "distance": 19.7,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.620814,
+          41.717753,
+          1750.6
+        ]
+      },
+      "properties": {
+        "content": "烟雾报警值：有烟",
+        "nearest_tunnel": "回风斜井",
+        "distance": 24.1,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.626687,
+          41.717447,
+          1931.5
+        ]
+      },
+      "properties": {
+        "content": "回风斜井分站",
+        "nearest_tunnel": "回风斜井",
+        "distance": 6.4,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.627257,
+          41.716376,
+          1891.0
+        ]
+      },
+      "properties": {
+        "content": "1860",
+        "nearest_tunnel": "主斜井",
+        "distance": 87.4,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.614369,
+          41.714224,
+          1700.5
+        ]
+      },
+      "properties": {
+        "content": "CH4（T1)",
+        "nearest_tunnel": "中央回风大巷",
+        "distance": 6.5,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.619514,
+          41.71862,
+          1738.3
+        ]
+      },
+      "properties": {
+        "content": "搭接硐室",
+        "nearest_tunnel": "主斜井机尾联络巷",
+        "distance": 96.1,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.610614,
+          41.712982,
+          1654.8
+        ]
+      },
+      "properties": {
+        "content": "+1652.480",
+        "nearest_tunnel": "管子道",
+        "distance": 1.7,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.6291,
+          41.715655,
+          1936.3
+        ]
+      },
+      "properties": {
+        "content": "副风机开停",
+        "nearest_tunnel": "主斜井",
+        "distance": 67.4,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.594868,
+          41.728447,
+          1685.0
+        ]
+      },
+      "properties": {
+        "content": "1730",
+        "nearest_tunnel": "1105胶带顺槽",
+        "distance": 94.9,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.619985,
+          41.717381,
+          1737.6
+        ]
+      },
+      "properties": {
+        "content": "CH4（T2)",
+        "nearest_tunnel": "架空乘人器硐室",
+        "distance": 8.2,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.619738,
+          41.717944,
+          1738.1
+        ]
+      },
+      "properties": {
+        "content": "X=4620464.913",
+        "nearest_tunnel": "主斜井机尾联络巷",
+        "distance": 32.2,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.596412,
+          41.728416,
+          1684.9
+        ]
+      },
+      "properties": {
+        "content": "4.77",
+        "nearest_tunnel": "1105胶带顺槽",
+        "distance": 1.3,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.613167,
+          41.715298,
+          1680.4
+        ]
+      },
+      "properties": {
+        "content": "+1670",
+        "nearest_tunnel": "中央辅运大巷",
+        "distance": 48.5,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.61627,
+          41.716335,
+          1732.6
+        ]
+      },
+      "properties": {
+        "content": "掘进迎头位置",
+        "nearest_tunnel": "中央辅运大巷",
+        "distance": 3.3,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.611773,
+          41.714128,
+          1663.3
+        ]
+      },
+      "properties": {
+        "content": "+1651.008",
+        "nearest_tunnel": "中央辅运大巷",
+        "distance": 7.4,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.615152,
+          41.715874,
+          1716.7
+        ]
+      },
+      "properties": {
+        "content": "+1711.025",
+        "nearest_tunnel": "中央辅运大巷",
+        "distance": 7.4,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.614405,
+          41.715815,
+          1713.3
+        ]
+      },
+      "properties": {
+        "content": "五号交岔点",
+        "nearest_tunnel": "中央辅运大巷",
+        "distance": 37.3,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.619395,
+          41.718185,
+          1738.2
+        ]
+      },
+      "properties": {
+        "content": "煤泥沉淀水仓",
+        "nearest_tunnel": "主斜井机尾联络巷",
+        "distance": 47.3,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.628421,
+          41.71502,
+          1932.4
+        ]
+      },
+      "properties": {
+        "content": "主斜井分站",
+        "nearest_tunnel": "主斜井",
+        "distance": 20.1,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.619016,
+          41.718304,
+          1738.3
+        ]
+      },
+      "properties": {
+        "content": "Y=32551516.103",
+        "nearest_tunnel": "主斜井机尾联络巷",
+        "distance": 53.7,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.626279,
+          41.717358,
+          1918.3
+        ]
+      },
+      "properties": {
+        "content": "CH4(T2)。",
+        "nearest_tunnel": "回风斜井",
+        "distance": 16.5,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.622828,
+          41.715538,
+          1852.2
+        ]
+      },
+      "properties": {
+        "content": "15°",
+        "nearest_tunnel": "副斜井",
+        "distance": 14.0,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.617619,
+          41.717907,
+          1741.7
+        ]
+      },
+      "properties": {
+        "content": "轨道石门",
+        "nearest_tunnel": "辅运联络巷",
+        "distance": 76.1,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.611048,
+          41.71266,
+          1656.3
+        ]
+      },
+      "properties": {
+        "content": "+1671",
+        "nearest_tunnel": "中央回风大巷",
+        "distance": 7.3,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.620051,
+          41.717905,
+          1738.1
+        ]
+      },
+      "properties": {
+        "content": "CO上报值：24ppm，上解值：",
+        "nearest_tunnel": "胶带石门",
+        "distance": 37.3,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.626432,
+          41.714489,
+          1932.6
+        ]
+      },
+      "properties": {
+        "content": "副斜井分站",
+        "nearest_tunnel": "副斜井",
+        "distance": 18.6,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.620051,
+          41.717885,
+          1738.1
+        ]
+      },
+      "properties": {
+        "content": "23ppm。",
+        "nearest_tunnel": "胶带石门",
+        "distance": 35.2,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.625946,
+          41.714518,
+          1922.8
+        ]
+      },
+      "properties": {
+        "content": "23ppm。",
+        "nearest_tunnel": "副斜井",
+        "distance": 29.9,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.626548,
+          41.714828,
+          1931.5
+        ]
+      },
+      "properties": {
+        "content": "CH4（T2)",
+        "nearest_tunnel": "副斜井",
+        "distance": 19.9,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.618001,
+          41.717548,
+          1741.6
+        ]
+      },
+      "properties": {
+        "content": "+1710",
+        "nearest_tunnel": "辅运联络巷",
+        "distance": 25.2,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.617535,
+          41.717288,
+          1743.3
+        ]
+      },
+      "properties": {
+        "content": "报警值≥1.0%,断电值≥1.5%,复电",
+        "nearest_tunnel": "辅运联络巷",
+        "distance": 23.5,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.596054,
+          41.728452,
+          1684.9
+        ]
+      },
+      "properties": {
+        "content": "1005",
+        "nearest_tunnel": "1105胶带顺槽",
+        "distance": 20.9,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.626857,
+          41.714934,
+          1936.6
+        ]
+      },
+      "properties": {
+        "content": "副风机开停",
+        "nearest_tunnel": "副斜井",
+        "distance": 40.1,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.618525,
+          41.715979,
+          1741.5
+        ]
+      },
+      "properties": {
+        "content": "Z=+1738.481",
+        "nearest_tunnel": "中央回风大巷",
+        "distance": 42.5,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.628236,
+          41.715538,
+          1922.5
+        ]
+      },
+      "properties": {
+        "content": "双风机双电源开关",
+        "nearest_tunnel": "主斜井",
+        "distance": 28.5,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.617437,
+          41.717033,
+          1743.2
+        ]
+      },
+      "properties": {
+        "content": "+1738.213",
+        "nearest_tunnel": "中央辅运大巷",
+        "distance": 5.0,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.601441,
+          41.726917,
+          1695.0
+        ]
+      },
+      "properties": {
+        "content": "1740",
+        "nearest_tunnel": "1105回风顺槽",
+        "distance": 80.5,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.619076,
+          41.717128,
+          1731.9
+        ]
+      },
+      "properties": {
+        "content": "K=4800",
+        "nearest_tunnel": "中央胶带大巷",
+        "distance": 13.3,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.618983,
+          41.718344,
+          1738.3
+        ]
+      },
+      "properties": {
+        "content": "X=4620485.034",
+        "nearest_tunnel": "主斜井机尾联络巷",
+        "distance": 58.4,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.625093,
+          41.717282,
+          1879.9
+        ]
+      },
+      "properties": {
+        "content": "1790",
+        "nearest_tunnel": "回风斜井",
+        "distance": 25.7,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.622095,
+          41.715687,
+          1834.4
+        ]
+      },
+      "properties": {
+        "content": "副斜井",
+        "nearest_tunnel": "副斜井",
+        "distance": 19.7,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.619193,
+          41.717616,
+          1738.2
+        ]
+      },
+      "properties": {
+        "content": "CO上报值：24ppm，上解值：",
+        "nearest_tunnel": "主斜井机尾联络巷",
+        "distance": 17.8,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.59438,
+          41.730936,
+          1685.0
+        ]
+      },
+      "properties": {
+        "content": "1105综采放顶煤工作面",
+        "nearest_tunnel": "1105胶带顺槽",
+        "distance": 58.8,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.610984,
+          41.712215,
+          1653.6
+        ]
+      },
+      "properties": {
+        "content": "躲避硐（3处）",
+        "nearest_tunnel": "中央回风大巷",
+        "distance": 30.4,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.627278,
+          41.714382,
+          1937.3
+        ]
+      },
+      "properties": {
+        "content": "副斜井",
+        "nearest_tunnel": "副斜井",
+        "distance": 51.8,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.596015,
+          41.728387,
+          1684.9
+        ]
+      },
+      "properties": {
+        "content": "1707.45",
+        "nearest_tunnel": "1105胶带顺槽",
+        "distance": 28.1,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.626359,
+          41.714898,
+          1927.1
+        ]
+      },
+      "properties": {
+        "content": "闭锁开关",
+        "nearest_tunnel": "副斜井",
+        "distance": 21.7,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.618476,
+          41.717281,
+          1741.0
+        ]
+      },
+      "properties": {
+        "content": "风筒开停报警值：无风。",
+        "nearest_tunnel": "辅运联络巷",
+        "distance": 21.6,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.613276,
+          41.71465,
+          1675.5
+        ]
+      },
+      "properties": {
+        "content": "躲避硐（19处）",
+        "nearest_tunnel": "中央辅运大巷",
+        "distance": 15.9,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.618165,
+          41.717106,
+          1742.2
+        ]
+      },
+      "properties": {
+        "content": "值＜1.0%.",
+        "nearest_tunnel": "辅运联络巷",
+        "distance": 23.0,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.628615,
+          41.715298,
+          1933.7
+        ]
+      },
+      "properties": {
+        "content": "CO、烟雾",
+        "nearest_tunnel": "主斜井",
+        "distance": 14.5,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.618966,
+          41.717824,
+          1738.5
+        ]
+      },
+      "properties": {
+        "content": "+1733.306",
+        "nearest_tunnel": "辅运联络巷",
+        "distance": 4.8,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.626706,
+          41.717375,
+          1932.1
+        ]
+      },
+      "properties": {
+        "content": "CH4（T2)",
+        "nearest_tunnel": "回风斜井",
+        "distance": 14.4,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.614265,
+          41.715059,
+          1695.0
+        ]
+      },
+      "properties": {
+        "content": "+1690",
+        "nearest_tunnel": "1105回风巷",
+        "distance": 0.2,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.619058,
+          41.717313,
+          1732.8
+        ]
+      },
+      "properties": {
+        "content": "+1727.453",
+        "nearest_tunnel": "中央胶带大巷",
+        "distance": 4.4,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.617323,
+          41.715289,
+          1739.0
+        ]
+      },
+      "properties": {
+        "content": "中央回风大巷",
+        "nearest_tunnel": "中央回风大巷",
+        "distance": 48.7,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.62396,
+          41.717806,
+          1843.1
+        ]
+      },
+      "properties": {
+        "content": "16°",
+        "nearest_tunnel": "回风斜井",
+        "distance": 31.9,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.619193,
+          41.717596,
+          1738.2
+        ]
+      },
+      "properties": {
+        "content": "23ppm。",
+        "nearest_tunnel": "主斜井机尾联络巷",
+        "distance": 19.9,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.627871,
+          41.715055,
+          1919.6
+        ]
+      },
+      "properties": {
+        "content": "烟雾报警值：有烟",
+        "nearest_tunnel": "主斜井",
+        "distance": 32.4,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.626271,
+          41.717831,
+          1917.9
+        ]
+      },
+      "properties": {
+        "content": "安装地点：回风斜井井口皮带机头",
+        "nearest_tunnel": "回风斜井",
+        "distance": 36.1,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.614658,
+          41.71433,
+          1707.6
+        ]
+      },
+      "properties": {
+        "content": "安装地点：中央回风大巷掘进工作",
+        "nearest_tunnel": "中央回风大巷",
+        "distance": 10.5,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.620155,
+          41.717081,
+          1737.3
+        ]
+      },
+      "properties": {
+        "content": "面回风流CH4(T2)。",
+        "nearest_tunnel": "架空乘人器硐室",
+        "distance": 43.6,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.60665,
+          41.719261,
+          1675.0
+        ]
+      },
+      "properties": {
+        "content": "1617.23",
+        "nearest_tunnel": "1105进风巷",
+        "distance": 42.2,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.616323,
+          41.716915,
+          1715.0
+        ]
+      },
+      "properties": {
+        "content": "二号交岔点",
+        "nearest_tunnel": "机头硐室",
+        "distance": 34.9,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.614045,
+          41.714393,
+          1697.5
+        ]
+      },
+      "properties": {
+        "content": "躲避硐（15处）",
+        "nearest_tunnel": "中央回风大巷",
+        "distance": 24.2,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.620043,
+          41.717394,
+          1737.7
+        ]
+      },
+      "properties": {
+        "content": "T=2603",
+        "nearest_tunnel": "架空乘人器硐室",
+        "distance": 9.8,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.620623,
+          41.717972,
+          1745.6
+        ]
+      },
+      "properties": {
+        "content": "+1740",
+        "nearest_tunnel": "回风斜井",
+        "distance": 48.3,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.628004,
+          41.717618,
+          1936.3
+        ]
+      },
+      "properties": {
+        "content": "回风斜井",
+        "nearest_tunnel": "回风斜井",
+        "distance": 98.0,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.629015,
+          41.714838,
+          1936.3
+        ]
+      },
+      "properties": {
+        "content": "X=4620193.5",
+        "nearest_tunnel": "主斜井",
+        "distance": 45.5,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.619585,
+          41.716647,
+          1767.6
+        ]
+      },
+      "properties": {
+        "content": "Y=32551516.800",
+        "nearest_tunnel": "副斜井",
+        "distance": 7.4,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.612005,
+          41.712062,
+          1658.5
+        ]
+      },
+      "properties": {
+        "content": "1710",
+        "nearest_tunnel": "中央回风大巷",
+        "distance": 92.6,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.614658,
+          41.714265,
+          1706.5
+        ]
+      },
+      "properties": {
+        "content": "风筒开停报警值：无风。",
+        "nearest_tunnel": "中央回风大巷",
+        "distance": 16.4,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.62826,
+          41.715448,
+          1924.0
+        ]
+      },
+      "properties": {
+        "content": "闭锁开关",
+        "nearest_tunnel": "主斜井",
+        "distance": 19.8,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.619225,
+          41.716518,
+          1761.0
+        ]
+      },
+      "properties": {
+        "content": "+1730",
+        "nearest_tunnel": "副斜井",
+        "distance": 16.5,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.620508,
+          41.71667,
+          1788.0
+        ]
+      },
+      "properties": {
+        "content": "1734.78",
+        "nearest_tunnel": "副斜井",
+        "distance": 36.6,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.628025,
+          41.717525,
+          1936.3
+        ]
+      },
+      "properties": {
+        "content": "X=4620454.0",
+        "nearest_tunnel": "回风斜井",
+        "distance": 99.0,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.619841,
+          41.718089,
+          1738.1
+        ]
+      },
+      "properties": {
+        "content": "主井机尾联络巷",
+        "nearest_tunnel": "主斜井机尾联络巷",
+        "distance": 50.3,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.619035,
+          41.717172,
+          1731.9
+        ]
+      },
+      "properties": {
+        "content": "a=55°",
+        "nearest_tunnel": "中央胶带大巷",
+        "distance": 7.3,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.626067,
+          41.717207,
+          1911.5
+        ]
+      },
+      "properties": {
+        "content": "双风机双电源开关",
+        "nearest_tunnel": "回风斜井",
+        "distance": 33.5,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.628757,
+          41.715511,
+          1934.5
+        ]
+      },
+      "properties": {
+        "content": "主风机开停",
+        "nearest_tunnel": "主斜井",
+        "distance": 40.8,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.61979,
+          41.717627,
+          1738.0
+        ]
+      },
+      "properties": {
+        "content": "+1733.000",
+        "nearest_tunnel": "胶带石门",
+        "distance": 0.8,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.619192,
+          41.717573,
+          1734.7
+        ]
+      },
+      "properties": {
+        "content": "烟雾报警值：有烟",
+        "nearest_tunnel": "中央胶带大巷",
+        "distance": 21.9,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.617944,
+          41.717369,
+          1742.1
+        ]
+      },
+      "properties": {
+        "content": "风筒",
+        "nearest_tunnel": "辅运联络巷",
+        "distance": 11.5,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.620434,
+          41.717169,
+          1739.7
+        ]
+      },
+      "properties": {
+        "content": "16°",
+        "nearest_tunnel": "胶带石门",
+        "distance": 28.1,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.619715,
+          41.717863,
+          1738.1
+        ]
+      },
+      "properties": {
+        "content": "值＜1.0%.",
+        "nearest_tunnel": "主斜井机尾联络巷",
+        "distance": 23.1,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.628578,
+          41.715709,
+          1928.3
+        ]
+      },
+      "properties": {
+        "content": "双风机双电源开关",
+        "nearest_tunnel": "主斜井",
+        "distance": 56.2,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.614616,
+          41.715028,
+          1707.8
+        ]
+      },
+      "properties": {
+        "content": "+1700",
+        "nearest_tunnel": "中央胶带大巷",
+        "distance": 5.3,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.617781,
+          41.717456,
+          1742.3
+        ]
+      },
+      "properties": {
+        "content": "风筒传感器。",
+        "nearest_tunnel": "辅运联络巷",
+        "distance": 27.2,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.620332,
+          41.717002,
+          1739.7
+        ]
+      },
+      "properties": {
+        "content": "Z=+1735.607",
+        "nearest_tunnel": "胶带石门",
+        "distance": 48.5,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.615352,
+          41.716357,
+          1724.4
+        ]
+      },
+      "properties": {
+        "content": "四号交岔点",
+        "nearest_tunnel": "中央辅运大巷",
+        "distance": 42.1,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.617265,
+          41.717149,
+          1743.2
+        ]
+      },
+      "properties": {
+        "content": "报警值≥1.0%,断电值≥1.5%,复电",
+        "nearest_tunnel": "中央辅运大巷",
+        "distance": 23.8,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.619053,
+          41.717032,
+          1731.3
+        ]
+      },
+      "properties": {
+        "content": "23ppm。",
+        "nearest_tunnel": "中央胶带大巷",
+        "distance": 21.0,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.617243,
+          41.717352,
+          1743.3
+        ]
+      },
+      "properties": {
+        "content": "一号交岔点",
+        "nearest_tunnel": "中央辅运大巷",
+        "distance": 43.2,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.628758,
+          41.715484,
+          1934.8
+        ]
+      },
+      "properties": {
+        "content": "副风机开停",
+        "nearest_tunnel": "主斜井",
+        "distance": 38.0,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.617434,
+          41.716847,
+          1743.2
+        ]
+      },
+      "properties": {
+        "content": "报警值≥1.0%,断电值≥1.5%,复电",
+        "nearest_tunnel": "中央辅运大巷",
+        "distance": 11.8,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.612706,
+          41.715517,
+          1675.0
+        ]
+      },
+      "properties": {
+        "content": "远距离供液硐室",
+        "nearest_tunnel": "1105进风巷",
+        "distance": 56.9,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.617465,
+          41.718004,
+          1741.9
+        ]
+      },
+      "properties": {
+        "content": "单轨吊等候室",
+        "nearest_tunnel": "辅运联络巷",
+        "distance": 92.2,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.620357,
+          41.717444,
+          1739.1
+        ]
+      },
+      "properties": {
+        "content": "+1733.309",
+        "nearest_tunnel": "胶带石门",
+        "distance": 1.7,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.615613,
+          41.716502,
+          1728.2
+        ]
+      },
+      "properties": {
+        "content": "二号交岔点",
+        "nearest_tunnel": "中央辅运大巷",
+        "distance": 43.0,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.626589,
+          41.717153,
+          1928.4
+        ]
+      },
+      "properties": {
+        "content": "副风机开停",
+        "nearest_tunnel": "回风斜井",
+        "distance": 39.1,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.602728,
+          41.725304,
+          1694.1
+        ]
+      },
+      "properties": {
+        "content": "临时避难硐室",
+        "nearest_tunnel": "1105回风顺槽",
+        "distance": 41.1,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.628024,
+          41.717466,
+          1936.3
+        ]
+      },
+      "properties": {
+        "content": "Y=32552163.0",
+        "nearest_tunnel": "回风斜井",
+        "distance": 99.0,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.619269,
+          41.718016,
+          1738.3
+        ]
+      },
+      "properties": {
+        "content": "烟雾报警值：有烟",
+        "nearest_tunnel": "主斜井机尾联络巷",
+        "distance": 26.1,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.612146,
+          41.715367,
+          1675.0
+        ]
+      },
+      "properties": {
+        "content": "+1650",
+        "nearest_tunnel": "1105进风巷",
+        "distance": 11.1,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.620611,
+          41.717318,
+          1740.0
+        ]
+      },
+      "properties": {
+        "content": "+1735.607",
+        "nearest_tunnel": "胶带石门",
+        "distance": 7.5,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.615898,
+          41.716703,
+          1732.3
+        ]
+      },
+      "properties": {
+        "content": "三号交岔点",
+        "nearest_tunnel": "中央辅运大巷",
+        "distance": 47.9,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.617405,
+          41.716893,
+          1743.2
+        ]
+      },
+      "properties": {
+        "content": "+1710",
+        "nearest_tunnel": "中央辅运大巷",
+        "distance": 6.2,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.618855,
+          41.716933,
+          1749.0
+        ]
+      },
+      "properties": {
+        "content": "面CH4(T1)。",
+        "nearest_tunnel": "副斜井",
+        "distance": 16.0,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.618359,
+          41.716953,
+          1727.0
+        ]
+      },
+      "properties": {
+        "content": "+1738.837(轨)",
+        "nearest_tunnel": "中央胶带大巷",
+        "distance": 4.5,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.620656,
+          41.717615,
+          1746.0
+        ]
+      },
+      "properties": {
+        "content": "CO、烟雾",
+        "nearest_tunnel": "回风斜井",
+        "distance": 8.6,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.626768,
+          41.717003,
+          1934.3
+        ]
+      },
+      "properties": {
+        "content": "Z=1931.3",
+        "nearest_tunnel": "回风斜井",
+        "distance": 55.7,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.626091,
+          41.717117,
+          1912.3
+        ]
+      },
+      "properties": {
+        "content": "闭锁开关",
+        "nearest_tunnel": "回风斜井",
+        "distance": 43.4,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.626986,
+          41.716468,
+          1883.9
+        ]
+      },
+      "properties": {
+        "content": "1850",
+        "nearest_tunnel": "主斜井",
+        "distance": 89.1,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.612401,
+          41.713845,
+          1669.6
+        ]
+      },
+      "properties": {
+        "content": "加903",
+        "nearest_tunnel": "中央胶带大巷",
+        "distance": 1.8,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.608024,
+          41.713713,
+          1628.0
+        ]
+      },
+      "properties": {
+        "content": "1620",
+        "nearest_tunnel": "主水仓",
+        "distance": 44.5,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.618355,
+          41.717108,
+          1727.8
+        ]
+      },
+      "properties": {
+        "content": "CH4",
+        "nearest_tunnel": "中央胶带大巷",
+        "distance": 18.8,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.618892,
+          41.716431,
+          1754.6
+        ]
+      },
+      "properties": {
+        "content": "Y=32551474.284",
+        "nearest_tunnel": "副斜井",
+        "distance": 35.2,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.617763,
+          41.716924,
+          1743.3
+        ]
+      },
+      "properties": {
+        "content": "安装地点：二号交岔点维修工作面",
+        "nearest_tunnel": "中央辅运大巷",
+        "distance": 20.5,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.625946,
+          41.714538,
+          1922.6
+        ]
+      },
+      "properties": {
+        "content": "CO上报值：24ppm，上解值：",
+        "nearest_tunnel": "副斜井",
+        "distance": 27.8,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.626727,
+          41.716569,
+          1876.9
+        ]
+      },
+      "properties": {
+        "content": "1840",
+        "nearest_tunnel": "主斜井",
+        "distance": 92.1,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.628707,
+          41.714357,
+          1936.3
+        ]
+      },
+      "properties": {
+        "content": "地面中心站",
+        "nearest_tunnel": "主斜井",
+        "distance": 87.9,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.617434,
+          41.716825,
+          1743.2
+        ]
+      },
+      "properties": {
+        "content": "值＜1.0%.",
+        "nearest_tunnel": "中央辅运大巷",
+        "distance": 13.8,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.615652,
+          41.715586,
+          1724.7
+        ]
+      },
+      "properties": {
+        "content": "+1721",
+        "nearest_tunnel": "中央胶带大巷",
+        "distance": 7.4,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.626279,
+          41.71738,
+          1918.3
+        ]
+      },
+      "properties": {
+        "content": "安装地点：回风斜井井口回风流",
+        "nearest_tunnel": "回风斜井",
+        "distance": 14.0,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.620815,
+          41.717795,
+          1750.6
+        ]
+      },
+      "properties": {
+        "content": "CO上报值：24ppm，上解值：",
+        "nearest_tunnel": "回风斜井",
+        "distance": 28.8,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.619075,
+          41.716748,
+          1755.1
+        ]
+      },
+      "properties": {
+        "content": "+1750.097(轨)",
+        "nearest_tunnel": "副斜井",
+        "distance": 3.1,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.618152,
+          41.718426,
+          1739.2
+        ]
+      },
+      "properties": {
+        "content": "辅运联络巷",
+        "nearest_tunnel": "辅运联络巷",
+        "distance": 98.4,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.619922,
+          41.717711,
+          1738.0
+        ]
+      },
+      "properties": {
+        "content": "CH4（T2)",
+        "nearest_tunnel": "胶带石门",
+        "distance": 13.3,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.619769,
+          41.716138,
+          1777.4
+        ]
+      },
+      "properties": {
+        "content": "H=18m",
+        "nearest_tunnel": "副斜井",
+        "distance": 40.2,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.609857,
+          41.712608,
+          1649.3
+        ]
+      },
+      "properties": {
+        "content": "+1640",
+        "nearest_tunnel": "中央胶带大巷",
+        "distance": 9.0,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.629014,
+          41.714779,
+          1936.3
+        ]
+      },
+      "properties": {
+        "content": "Y=32552316.5",
+        "nearest_tunnel": "主斜井",
+        "distance": 50.6,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.618164,
+          41.717221,
+          1741.9
+        ]
+      },
+      "properties": {
+        "content": "二号立交",
+        "nearest_tunnel": "辅运联络巷",
+        "distance": 12.4,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.626842,
+          41.717052,
+          1936.3
+        ]
+      },
+      "properties": {
+        "content": "Y=32552163.0",
+        "nearest_tunnel": "回风斜井",
+        "distance": 50.2,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.627872,
+          41.715141,
+          1918.7
+        ]
+      },
+      "properties": {
+        "content": "安装地点：主斜井井口皮带机头",
+        "nearest_tunnel": "主斜井",
+        "distance": 23.4,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.627872,
+          41.715077,
+          1919.4
+        ]
+      },
+      "properties": {
+        "content": "23ppm。",
+        "nearest_tunnel": "主斜井",
+        "distance": 30.1,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.618129,
+          41.715969,
+          1740.2
+        ]
+      },
+      "properties": {
+        "content": "+1720",
+        "nearest_tunnel": "中央回风大巷",
+        "distance": 24.7,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.626278,
+          41.717316,
+          1918.3
+        ]
+      },
+      "properties": {
+        "content": "报警值≥1.0%,断电值≥1.0%,复电",
+        "nearest_tunnel": "回风斜井",
+        "distance": 21.2,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.629016,
+          41.714929,
+          1936.3
+        ]
+      },
+      "properties": {
+        "content": "主斜井",
+        "nearest_tunnel": "主斜井",
+        "distance": 38.4,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.619123,
+          41.717926,
+          1738.3
+        ]
+      },
+      "properties": {
+        "content": "CO、烟雾",
+        "nearest_tunnel": "主斜井机尾联络巷",
+        "distance": 12.5,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.62756,
+          41.7146,
+          1937.3
+        ]
+      },
+      "properties": {
+        "content": "X=4620130.0",
+        "nearest_tunnel": "副斜井",
+        "distance": 70.0,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.625507,
+          41.714673,
+          1912.6
+        ]
+      },
+      "properties": {
+        "content": "安装地点：二号交岔点维修工作面",
+        "nearest_tunnel": "副斜井",
+        "distance": 26.8,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.593498,
+          41.732548,
+          1695.0
+        ]
+      },
+      "properties": {
+        "content": "1700",
+        "nearest_tunnel": "1105回风顺槽",
+        "distance": 97.8,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.628024,
+          41.717407,
+          1936.3
+        ]
+      },
+      "properties": {
+        "content": "Z=1931.3",
+        "nearest_tunnel": "回风斜井",
+        "distance": 99.4,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.610014,
+          41.712128,
+          1647.8
+        ]
+      },
+      "properties": {
+        "content": "+1641.000",
+        "nearest_tunnel": "中央回风大巷",
+        "distance": 7.4,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.620155,
+          41.717017,
+          1737.2
+        ]
+      },
+      "properties": {
+        "content": "值＜1.0%.",
+        "nearest_tunnel": "架空乘人器硐室",
+        "distance": 49.5,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.617763,
+          41.716902,
+          1743.3
+        ]
+      },
+      "properties": {
+        "content": "风筒传感器。",
+        "nearest_tunnel": "中央辅运大巷",
+        "distance": 22.6,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.616042,
+          41.714112,
+          1725.4
+        ]
+      },
+      "properties": {
+        "content": "1740",
+        "nearest_tunnel": "中央回风大巷",
+        "distance": 95.8,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.614184,
+          41.714039,
+          1694.1
+        ]
+      },
+      "properties": {
+        "content": "值＜1.0%.",
+        "nearest_tunnel": "中央回风大巷",
+        "distance": 14.6,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.627873,
+          41.715119,
+          1918.9
+        ]
+      },
+      "properties": {
+        "content": "CO、烟雾。",
+        "nearest_tunnel": "主斜井",
+        "distance": 25.6,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.625507,
+          41.714586,
+          1913.5
+        ]
+      },
+      "properties": {
+        "content": "值＜1.0%.",
+        "nearest_tunnel": "副斜井",
+        "distance": 35.8,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.618333,
+          41.716432,
+          1743.4
+        ]
+      },
+      "properties": {
+        "content": "+1738.481",
+        "nearest_tunnel": "中央回风大巷",
+        "distance": 8.2,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.618855,
+          41.71689,
+          1749.5
+        ]
+      },
+      "properties": {
+        "content": "报警值≥1.0%,断电值≥1.5%,复电",
+        "nearest_tunnel": "副斜井",
+        "distance": 11.6,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.619783,
+          41.716402,
+          1774.8
+        ]
+      },
+      "properties": {
+        "content": "1720",
+        "nearest_tunnel": "副斜井",
+        "distance": 12.4,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.609746,
+          41.716765,
+          1675.0
+        ]
+      },
+      "properties": {
+        "content": "1620",
+        "nearest_tunnel": "1105进风巷",
+        "distance": 34.6,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.611264,
+          41.711782,
+          1653.0
+        ]
+      },
+      "properties": {
+        "content": "1690",
+        "nearest_tunnel": "中央回风大巷",
+        "distance": 83.2,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.610189,
+          41.712518,
+          1651.2
+        ]
+      },
+      "properties": {
+        "content": "+1650",
+        "nearest_tunnel": "中央胶带大巷",
+        "distance": 15.0,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.625575,
+          41.717095,
+          1895.6
+        ]
+      },
+      "properties": {
+        "content": "1800",
+        "nearest_tunnel": "回风斜井",
+        "distance": 46.2,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.620016,
+          41.717424,
+          1737.7
+        ]
+      },
+      "properties": {
+        "content": "a=55°",
+        "nearest_tunnel": "架空乘人器硐室",
+        "distance": 5.8,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.620261,
+          41.717076,
+          1739.3
+        ]
+      },
+      "properties": {
+        "content": "X=4620431.978",
+        "nearest_tunnel": "胶带石门",
+        "distance": 42.8,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.598607,
+          41.726894,
+          1684.9
+        ]
+      },
+      "properties": {
+        "content": "1105胶带顺槽",
+        "nearest_tunnel": "1105胶带顺槽",
+        "distance": 22.5,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.624656,
+          41.716971,
+          1865.9
+        ]
+      },
+      "properties": {
+        "content": "1790.19",
+        "nearest_tunnel": "回风斜井",
+        "distance": 60.4,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.614537,
+          41.714085,
+          1701.3
+        ]
+      },
+      "properties": {
+        "content": "报警值≥1.0%,断电值≥1.5%,复电",
+        "nearest_tunnel": "中央回风大巷",
+        "distance": 27.1,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.627872,
+          41.715097,
+          1919.2
+        ]
+      },
+      "properties": {
+        "content": "CO上报值：24ppm，上解值：",
+        "nearest_tunnel": "主斜井",
+        "distance": 28.0,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.626689,
+          41.717674,
+          1931.5
+        ]
+      },
+      "properties": {
+        "content": "CO、烟雾",
+        "nearest_tunnel": "回风斜井",
+        "distance": 18.8,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.617934,
+          41.716437,
+          1726.7
+        ]
+      },
+      "properties": {
+        "content": "中央胶带大巷",
+        "nearest_tunnel": "中央胶带大巷",
+        "distance": 22.5,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.610504,
+          41.712449,
+          1652.2
+        ]
+      },
+      "properties": {
+        "content": "+1660",
+        "nearest_tunnel": "中央回风大巷",
+        "distance": 13.7,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.618933,
+          41.717248,
+          1731.7
+        ]
+      },
+      "properties": {
+        "content": "+1727.453",
+        "nearest_tunnel": "中央胶带大巷",
+        "distance": 4.4,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.614537,
+          41.714063,
+          1700.9
+        ]
+      },
+      "properties": {
+        "content": "值＜1.0%.",
+        "nearest_tunnel": "中央回风大巷",
+        "distance": 29.2,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.620497,
+          41.717369,
+          1739.6
+        ]
+      },
+      "properties": {
+        "content": "井底车场分站",
+        "nearest_tunnel": "胶带石门",
+        "distance": 5.4,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.618598,
+          41.717161,
+          1729.4
+        ]
+      },
+      "properties": {
+        "content": "风筒",
+        "nearest_tunnel": "中央胶带大巷",
+        "distance": 12.2,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.617435,
+          41.716912,
+          1743.2
+        ]
+      },
+      "properties": {
+        "content": "安装地点：二号交岔点维修工作面",
+        "nearest_tunnel": "中央辅运大巷",
+        "distance": 6.0,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.596476,
+          41.731056,
+          1695.0
+        ]
+      },
+      "properties": {
+        "content": "1690",
+        "nearest_tunnel": "1105回风顺槽",
+        "distance": 78.2,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.627413,
+          41.714502,
+          1937.3
+        ]
+      },
+      "properties": {
+        "content": "Z=1932.3",
+        "nearest_tunnel": "副斜井",
+        "distance": 58.5,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.626576,
+          41.71496,
+          1930.8
+        ]
+      },
+      "properties": {
+        "content": "断电控制器",
+        "nearest_tunnel": "副斜井",
+        "distance": 34.5,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.625053,
+          41.717001,
+          1878.7
+        ]
+      },
+      "properties": {
+        "content": "1.58",
+        "nearest_tunnel": "回风斜井",
+        "distance": 56.9,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.619048,
+          41.717158,
+          1731.9
+        ]
+      },
+      "properties": {
+        "content": "R=5000",
+        "nearest_tunnel": "中央胶带大巷",
+        "distance": 9.3,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.615141,
+          41.71744,
+          1715.0
+        ]
+      },
+      "properties": {
+        "content": "1710",
+        "nearest_tunnel": "机头硐室",
+        "distance": 69.3,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.608519,
+          41.712806,
+          1631.0
+        ]
+      },
+      "properties": {
+        "content": "+1620",
+        "nearest_tunnel": "主水仓",
+        "distance": 29.1,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.612291,
+          41.716829,
+          1690.0
+        ]
+      },
+      "properties": {
+        "content": "13.35",
+        "nearest_tunnel": "1105回风巷",
+        "distance": 8.2,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.61927,
+          41.718058,
+          1738.3
+        ]
+      },
+      "properties": {
+        "content": "CO上报值：24ppm，上解值：",
+        "nearest_tunnel": "主斜井机尾联络巷",
+        "distance": 30.5,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.626309,
+          41.717178,
+          1919.3
+        ]
+      },
+      "properties": {
+        "content": "断电控制器",
+        "nearest_tunnel": "回风斜井",
+        "distance": 36.5,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.619553,
+          41.716687,
+          1766.4
+        ]
+      },
+      "properties": {
+        "content": "X=4620362.467",
+        "nearest_tunnel": "副斜井",
+        "distance": 10.6,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.592269,
+          41.731224,
+          1685.0
+        ]
+      },
+      "properties": {
+        "content": "1690",
+        "nearest_tunnel": "1105胶带顺槽",
+        "distance": 75.6,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.595951,
+          41.729129,
+          1685.0
+        ]
+      },
+      "properties": {
+        "content": "1700",
+        "nearest_tunnel": "1105胶带顺槽",
+        "distance": 22.8,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.600805,
+          41.72606,
+          1695.0
+        ]
+      },
+      "properties": {
+        "content": "1740",
+        "nearest_tunnel": "1105回风顺槽",
+        "distance": 22.4,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.619509,
+          41.716742,
+          1764.9
+        ]
+      },
+      "properties": {
+        "content": "一号立交",
+        "nearest_tunnel": "副斜井",
+        "distance": 15.1,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.620019,
+          41.717538,
+          1738.1
+        ]
+      },
+      "properties": {
+        "content": "+1733.159",
+        "nearest_tunnel": "胶带石门",
+        "distance": 1.7,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.619355,
+          41.717466,
+          1735.1
+        ]
+      },
+      "properties": {
+        "content": "+1730.000",
+        "nearest_tunnel": "中央胶带大巷",
+        "distance": 4.4,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.617551,
+          41.71727,
+          1743.3
+        ]
+      },
+      "properties": {
+        "content": "值＜1.0%.",
+        "nearest_tunnel": "辅运联络巷",
+        "distance": 21.0,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.619054,
+          41.717052,
+          1731.4
+        ]
+      },
+      "properties": {
+        "content": "CO上报值：24ppm，上解值：",
+        "nearest_tunnel": "中央胶带大巷",
+        "distance": 19.2,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.623752,
+          41.717881,
+          1836.4
+        ]
+      },
+      "properties": {
+        "content": "1760",
+        "nearest_tunnel": "回风斜井",
+        "distance": 40.1,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.625946,
+          41.71456,
+          1922.4
+        ]
+      },
+      "properties": {
+        "content": "CO、烟雾。",
+        "nearest_tunnel": "副斜井",
+        "distance": 25.5,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.617785,
+          41.717096,
+          1743.1
+        ]
+      },
+      "properties": {
+        "content": "+1738.559",
+        "nearest_tunnel": "辅运联络巷",
+        "distance": 6.0,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.618898,
+          41.716274,
+          1743.4
+        ]
+      },
+      "properties": {
+        "content": "轨道石门",
+        "nearest_tunnel": "中央回风大巷",
+        "distance": 44.9,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.620155,
+          41.717039,
+          1737.2
+        ]
+      },
+      "properties": {
+        "content": "报警值≥1.0%,断电值≥1.0%,复电",
+        "nearest_tunnel": "架空乘人器硐室",
+        "distance": 47.5,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.615949,
+          41.717622,
+          1715.0
+        ]
+      },
+      "properties": {
+        "content": "+1700",
+        "nearest_tunnel": "机头硐室",
+        "distance": 5.7,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.618924,
+          41.716391,
+          1755.7
+        ]
+      },
+      "properties": {
+        "content": "Z=+1738.916",
+        "nearest_tunnel": "副斜井",
+        "distance": 38.4,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.605018,
+          41.722057,
+          1691.9
+        ]
+      },
+      "properties": {
+        "content": "1632.84",
+        "nearest_tunnel": "1105回风顺槽",
+        "distance": 56.8,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.604285,
+          41.724492,
+          1693.2
+        ]
+      },
+      "properties": {
+        "content": "一采区",
+        "nearest_tunnel": "1105回风顺槽",
+        "distance": 77.8,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.614434,
+          41.714272,
+          1702.5
+        ]
+      },
+      "properties": {
+        "content": "风筒",
+        "nearest_tunnel": "中央回风大巷",
+        "distance": 5.2,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.626271,
+          41.717767,
+          1917.9
+        ]
+      },
+      "properties": {
+        "content": "23ppm。",
+        "nearest_tunnel": "回风斜井",
+        "distance": 28.9,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.617764,
+          41.717475,
+          1742.3
+        ]
+      },
+      "properties": {
+        "content": "安装地点：辅运联络巷维修工作面",
+        "nearest_tunnel": "辅运联络巷",
+        "distance": 29.7,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.618492,
+          41.716019,
+          1741.5
+        ]
+      },
+      "properties": {
+        "content": "Y=32551459.630",
+        "nearest_tunnel": "中央回风大巷",
+        "distance": 37.3,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.60885,
+          41.714148,
+          1628.0
+        ]
+      },
+      "properties": {
+        "content": "主水仓",
+        "nearest_tunnel": "主水仓",
+        "distance": 41.6,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.620297,
+          41.717039,
+          1739.5
+        ]
+      },
+      "properties": {
+        "content": "Y=32551661.286",
+        "nearest_tunnel": "胶带石门",
+        "distance": 45.7,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.627249,
+          41.714297,
+          1937.3
+        ]
+      },
+      "properties": {
+        "content": "X=4620130.0",
+        "nearest_tunnel": "副斜井",
+        "distance": 54.6,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.619333,
+          41.718094,
+          1738.2
+        ]
+      },
+      "properties": {
+        "content": "+1720",
+        "nearest_tunnel": "主斜井机尾联络巷",
+        "distance": 36.1,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.61703,
+          41.716823,
+          1722.8
+        ]
+      },
+      "properties": {
+        "content": "+1737.998",
+        "nearest_tunnel": "机头硐室",
+        "distance": 2.1,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.618859,
+          41.716471,
+          1753.5
+        ]
+      },
+      "properties": {
+        "content": "X=4620377.942",
+        "nearest_tunnel": "副斜井",
+        "distance": 32.0,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.605397,
+          41.722087,
+          1691.8
+        ]
+      },
+      "properties": {
+        "content": "11.27",
+        "nearest_tunnel": "1105回风顺槽",
+        "distance": 31.0,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.629013,
+          41.71472,
+          1936.3
+        ]
+      },
+      "properties": {
+        "content": "Z=1931.6",
+        "nearest_tunnel": "主斜井",
+        "distance": 56.0,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.615832,
+          41.71496,
+          1733.5
+        ]
+      },
+      "properties": {
+        "content": "+1730",
+        "nearest_tunnel": "中央回风大巷",
+        "distance": 8.4,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.609556,
+          41.717607,
+          1675.0
+        ]
+      },
+      "properties": {
+        "content": "(暂不装备)",
+        "nearest_tunnel": "1105进风巷",
+        "distance": 15.9,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.617701,
+          41.717252,
+          1743.0
+        ]
+      },
+      "properties": {
+        "content": "CH4（T1)",
+        "nearest_tunnel": "辅运联络巷",
+        "distance": 12.3,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.617729,
+          41.717184,
+          1743.1
+        ]
+      },
+      "properties": {
+        "content": "+1738.559",
+        "nearest_tunnel": "辅运联络巷",
+        "distance": 4.8,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.619771,
+          41.717904,
+          1738.0
+        ]
+      },
+      "properties": {
+        "content": "Y=32551574.016",
+        "nearest_tunnel": "主斜井机尾联络巷",
+        "distance": 29.0,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.611036,
+          41.715932,
+          1675.0
+        ]
+      },
+      "properties": {
+        "content": "1630",
+        "nearest_tunnel": "1105进风巷",
+        "distance": 16.1,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.618816,
+          41.716526,
+          1752.2
+        ]
+      },
+      "properties": {
+        "content": "副斜井落底点",
+        "nearest_tunnel": "副斜井",
+        "distance": 27.5,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.615069,
+          41.717185,
+          1715.0
+        ]
+      },
+      "properties": {
+        "content": "+1710",
+        "nearest_tunnel": "机头硐室",
+        "distance": 92.7,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.619715,
+          41.717885,
+          1738.1
+        ]
+      },
+      "properties": {
+        "content": "报警值≥1.0%,断电值≥1.0%,复电",
+        "nearest_tunnel": "主斜井机尾联络巷",
+        "distance": 25.5,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.618149,
+          41.717124,
+          1742.2
+        ]
+      },
+      "properties": {
+        "content": "报警值≥1.0%,断电值≥1.5%,复电",
+        "nearest_tunnel": "辅运联络巷",
+        "distance": 20.5,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.619062,
+          41.717143,
+          1731.9
+        ]
+      },
+      "properties": {
+        "content": "T=2603",
+        "nearest_tunnel": "中央胶带大巷",
+        "distance": 11.3,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.614184,
+          41.714062,
+          1694.5
+        ]
+      },
+      "properties": {
+        "content": "报警值≥1.0%,断电值≥1.5%,复电",
+        "nearest_tunnel": "中央回风大巷",
+        "distance": 12.6,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.628602,
+          41.715619,
+          1929.8
+        ]
+      },
+      "properties": {
+        "content": "闭锁开关",
+        "nearest_tunnel": "主斜井",
+        "distance": 47.5,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.597257,
+          41.72953,
+          1695.0
+        ]
+      },
+      "properties": {
+        "content": "1690",
+        "nearest_tunnel": "1105回风顺槽",
+        "distance": 13.9,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.611591,
+          41.715727,
+          1675.0
+        ]
+      },
+      "properties": {
+        "content": "1640",
+        "nearest_tunnel": "1105进风巷",
+        "distance": 3.2,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.617486,
+          41.717341,
+          1743.3
+        ]
+      },
+      "properties": {
+        "content": "安装地点：辅运联络巷维修工作面",
+        "nearest_tunnel": "辅运联络巷",
+        "distance": 30.6,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.624675,
+          41.717477,
+          1866.3
+        ]
+      },
+      "properties": {
+        "content": "1780",
+        "nearest_tunnel": "回风斜井",
+        "distance": 4.3,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.626335,
+          41.714988,
+          1925.8
+        ]
+      },
+      "properties": {
+        "content": "双风机双电源开关",
+        "nearest_tunnel": "副斜井",
+        "distance": 30.4,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.614658,
+          41.714307,
+          1707.2
+        ]
+      },
+      "properties": {
+        "content": "面风筒传感器。",
+        "nearest_tunnel": "中央回风大巷",
+        "distance": 12.5,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.619395,
+          41.717307,
+          1735.2
+        ]
+      },
+      "properties": {
+        "content": "CO、烟雾",
+        "nearest_tunnel": "架空乘人器硐室",
+        "distance": 10.4,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.622169,
+          41.715665,
+          1836.3
+        ]
+      },
+      "properties": {
+        "content": "15°",
+        "nearest_tunnel": "副斜井",
+        "distance": 19.8,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.622738,
+          41.716461,
+          1791.0
+        ]
+      },
+      "properties": {
+        "content": "主斜井",
+        "nearest_tunnel": "主斜井",
+        "distance": 35.0,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.625505,
+          41.71465,
+          1912.8
+        ]
+      },
+      "properties": {
+        "content": "回风流CH4(T2)。",
+        "nearest_tunnel": "副斜井",
+        "distance": 29.1,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.6196,
+          41.717604,
+          1737.0
+        ]
+      },
+      "properties": {
+        "content": "+1733.000",
+        "nearest_tunnel": "中央胶带大巷",
+        "distance": 5.4,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.598236,
+          41.72561,
+          1684.9
+        ]
+      },
+      "properties": {
+        "content": "无煤区Ⅴ",
+        "nearest_tunnel": "1105胶带顺槽",
+        "distance": 95.4,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.61242,
+          41.713807,
+          1669.6
+        ]
+      },
+      "properties": {
+        "content": "1663.91",
+        "nearest_tunnel": "中央胶带大巷",
+        "distance": 2.5,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.61846,
+          41.716059,
+          1741.5
+        ]
+      },
+      "properties": {
+        "content": "X=4620322.437",
+        "nearest_tunnel": "中央回风大巷",
+        "distance": 32.1,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.617507,
+          41.717148,
+          1743.3
+        ]
+      },
+      "properties": {
+        "content": "CH4",
+        "nearest_tunnel": "中央辅运大巷",
+        "distance": 12.0,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.610667,
+          41.718406,
+          1690.0
+        ]
+      },
+      "properties": {
+        "content": "(暂不装备)",
+        "nearest_tunnel": "1105回风巷",
+        "distance": 24.0,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.614538,
+          41.71415,
+          1702.4
+        ]
+      },
+      "properties": {
+        "content": "安装地点：中央回风大巷掘进工作",
+        "nearest_tunnel": "中央回风大巷",
+        "distance": 21.3,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.626271,
+          41.717745,
+          1917.9
+        ]
+      },
+      "properties": {
+        "content": "烟雾报警值：有烟",
+        "nearest_tunnel": "回风斜井",
+        "distance": 26.4,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.617216,
+          41.717203,
+          1743.2
+        ]
+      },
+      "properties": {
+        "content": "安装地点：二号交岔点维修工作面",
+        "nearest_tunnel": "中央辅运大巷",
+        "distance": 30.9,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.617282,
+          41.717131,
+          1743.2
+        ]
+      },
+      "properties": {
+        "content": "值＜1.0%.",
+        "nearest_tunnel": "中央辅运大巷",
+        "distance": 21.3,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.619013,
+          41.71715,
+          1731.7
+        ]
+      },
+      "properties": {
+        "content": "CO、烟雾",
+        "nearest_tunnel": "中央胶带大巷",
+        "distance": 8.3,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.626272,
+          41.717809,
+          1917.9
+        ]
+      },
+      "properties": {
+        "content": "CO、烟雾。",
+        "nearest_tunnel": "回风斜井",
+        "distance": 33.6,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.619723,
+          41.718014,
+          1738.1
+        ]
+      },
+      "properties": {
+        "content": "胶带搭接点",
+        "nearest_tunnel": "主斜井机尾联络巷",
+        "distance": 39.1,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.627717,
+          41.717956,
+          1936.3
+        ]
+      },
+      "properties": {
+        "content": "1850",
+        "nearest_tunnel": "回风斜井",
+        "distance": 88.9,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.619043,
+          41.716765,
+          1754.3
+        ]
+      },
+      "properties": {
+        "content": "+1758.493(风)",
+        "nearest_tunnel": "副斜井",
+        "distance": 4.0,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.623663,
+          41.717598,
+          1833.8
+        ]
+      },
+      "properties": {
+        "content": "16°",
+        "nearest_tunnel": "回风斜井",
+        "distance": 8.6,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.617436,
+          41.71689,
+          1743.2
+        ]
+      },
+      "properties": {
+        "content": "CH4(T1)。",
+        "nearest_tunnel": "中央辅运大巷",
+        "distance": 8.0,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.615037,
+          41.715035,
+          1715.8
+        ]
+      },
+      "properties": {
+        "content": "+1710",
+        "nearest_tunnel": "中央胶带大巷",
+        "distance": 13.9,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.616425,
+          41.716688,
+          1736.8
+        ]
+      },
+      "properties": {
+        "content": "9.11",
+        "nearest_tunnel": "中央辅运大巷",
+        "distance": 21.7,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.6186,
+          41.716869,
+          1744.7
+        ]
+      },
+      "properties": {
+        "content": "+1738.916",
+        "nearest_tunnel": "副斜井",
+        "distance": 2.0,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.609778,
+          41.713097,
+          1635.0
+        ]
+      },
+      "properties": {
+        "content": "+1630.000",
+        "nearest_tunnel": "主排水泵房",
+        "distance": 1.7,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.626246,
+          41.716807,
+          1917.4
+        ]
+      },
+      "properties": {
+        "content": "1820",
+        "nearest_tunnel": "回风斜井",
+        "distance": 77.7,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.620164,
+          41.717705,
+          1738.1
+        ]
+      },
+      "properties": {
+        "content": "CO、烟雾",
+        "nearest_tunnel": "胶带石门",
+        "distance": 19.9,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.619053,
+          41.717096,
+          1731.6
+        ]
+      },
+      "properties": {
+        "content": "安装地点：中央胶带大巷一台皮带",
+        "nearest_tunnel": "中央胶带大巷",
+        "distance": 15.1,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.628531,
+          41.714581,
+          1936.3
+        ]
+      },
+      "properties": {
+        "content": "Z=1931.6",
+        "nearest_tunnel": "主斜井",
+        "distance": 63.7,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.625945,
+          41.714496,
+          1923.0
+        ]
+      },
+      "properties": {
+        "content": "烟雾报警值：有烟",
+        "nearest_tunnel": "副斜井",
+        "distance": 32.3,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.614537,
+          41.714128,
+          1702.0
+        ]
+      },
+      "properties": {
+        "content": "面CH4(T1)。",
+        "nearest_tunnel": "中央回风大巷",
+        "distance": 23.3,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.611402,
+          41.712352,
+          1656.7
+        ]
+      },
+      "properties": {
+        "content": "+1680",
+        "nearest_tunnel": "中央回风大巷",
+        "distance": 37.6,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.617406,
+          41.717637,
+          1742.9
+        ]
+      },
+      "properties": {
+        "content": "+1710",
+        "nearest_tunnel": "辅运联络巷",
+        "distance": 61.4,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.593571,
+          41.732056,
+          1692.6
+        ]
+      },
+      "properties": {
+        "content": "0.80",
+        "nearest_tunnel": "1015工作面切眼",
+        "distance": 52.9,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.61905,
+          41.718268,
+          1738.3
+        ]
+      },
+      "properties": {
+        "content": "Z=+1733.306",
+        "nearest_tunnel": "主斜井机尾联络巷",
+        "distance": 49.5,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.620814,
+          41.717817,
+          1750.6
+        ]
+      },
+      "properties": {
+        "content": "机头CO、烟雾。",
+        "nearest_tunnel": "回风斜井",
+        "distance": 31.3,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.62,
+          41.717988,
+          1738.0
+        ]
+      },
+      "properties": {
+        "content": "+1730",
+        "nearest_tunnel": "胶带石门",
+        "distance": 44.5,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.626486,
+          41.716686,
+          1925.2
+        ]
+      },
+      "properties": {
+        "content": "1830",
+        "nearest_tunnel": "回风斜井",
+        "distance": 91.0,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.626588,
+          41.71718,
+          1928.4
+        ]
+      },
+      "properties": {
+        "content": "主风机开停",
+        "nearest_tunnel": "回风斜井",
+        "distance": 36.1,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.612696,
+          41.715304,
+          1675.0
+        ]
+      },
+      "properties": {
+        "content": "+1660",
+        "nearest_tunnel": "1105进风巷",
+        "distance": 40.6,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.614185,
+          41.714104,
+          1695.2
+        ]
+      },
+      "properties": {
+        "content": "CH4。",
+        "nearest_tunnel": "中央回风大巷",
+        "distance": 8.8,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.610083,
+          41.711254,
+          1646.0
+        ]
+      },
+      "properties": {
+        "content": "1650",
+        "nearest_tunnel": "中央回风大巷",
+        "distance": 81.0,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.616243,
+          41.716572,
+          1734.3
+        ]
+      },
+      "properties": {
+        "content": "1708.90",
+        "nearest_tunnel": "中央辅运大巷",
+        "distance": 19.6,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.609686,
+          41.717694,
+          1675.0
+        ]
+      },
+      "properties": {
+        "content": "临时避难硐室",
+        "nearest_tunnel": "1105进风巷",
+        "distance": 30.3,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.601337,
+          41.727184,
+          1695.0
+        ]
+      },
+      "properties": {
+        "content": "1730",
+        "nearest_tunnel": "1105回风顺槽",
+        "distance": 93.7,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.625962,
+          41.716927,
+          1908.2
+        ]
+      },
+      "properties": {
+        "content": "1810",
+        "nearest_tunnel": "回风斜井",
+        "distance": 64.6,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.614184,
+          41.714124,
+          1695.5
+        ]
+      },
+      "properties": {
+        "content": "安装地点：中央回风大巷综掘机",
+        "nearest_tunnel": "中央回风大巷",
+        "distance": 6.9,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.627055,
+          41.71715,
+          1936.3
+        ]
+      },
+      "properties": {
+        "content": "回风斜井",
+        "nearest_tunnel": "回风斜井",
+        "distance": 43.4,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.620057,
+          41.717379,
+          1737.7
+        ]
+      },
+      "properties": {
+        "content": "K=4800",
+        "nearest_tunnel": "架空乘人器硐室",
+        "distance": 11.8,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.618389,
+          41.716942,
+          1727.1
+        ]
+      },
+      "properties": {
+        "content": "+1721.871(胶)",
+        "nearest_tunnel": "中央胶带大巷",
+        "distance": 2.1,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.62003,
+          41.717409,
+          1737.7
+        ]
+      },
+      "properties": {
+        "content": "R=5000",
+        "nearest_tunnel": "架空乘人器硐室",
+        "distance": 7.8,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.608338,
+          41.711966,
+          1643.9
+        ]
+      },
+      "properties": {
+        "content": "+1630",
+        "nearest_tunnel": "中央胶带大巷",
+        "distance": 76.7,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.617811,
+          41.71742,
+          1742.3
+        ]
+      },
+      "properties": {
+        "content": "风筒开停报警值：无风。",
+        "nearest_tunnel": "辅运联络巷",
+        "distance": 22.5,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.601582,
+          41.72442,
+          1682.4
+        ]
+      },
+      "properties": {
+        "content": "临时避难硐室",
+        "nearest_tunnel": "1105胶带顺槽",
+        "distance": 24.4,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.59514,
+          41.728548,
+          1685.0
+        ]
+      },
+      "properties": {
+        "content": "1720",
+        "nearest_tunnel": "1105胶带顺槽",
+        "distance": 70.5,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.61596,
+          41.715198,
+          1735.6
+        ]
+      },
+      "properties": {
+        "content": "+1730.000",
+        "nearest_tunnel": "中央回风大巷",
+        "distance": 7.3,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.61875,
+          41.717069,
+          1729.8
+        ]
+      },
+      "properties": {
+        "content": "掘进迎头位置",
+        "nearest_tunnel": "中央胶带大巷",
+        "distance": 3.4,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.623421,
+          41.717321,
+          1826.8
+        ]
+      },
+      "properties": {
+        "content": "回风斜井",
+        "nearest_tunnel": "回风斜井",
+        "distance": 22.3,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.619713,
+          41.717928,
+          1738.1
+        ]
+      },
+      "properties": {
+        "content": "回风流CH4(T2)。",
+        "nearest_tunnel": "主斜井机尾联络巷",
+        "distance": 29.8,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.619193,
+          41.717638,
+          1738.2
+        ]
+      },
+      "properties": {
+        "content": "机头CO、烟雾。",
+        "nearest_tunnel": "主斜井机尾联络巷",
+        "distance": 15.5,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.625507,
+          41.714608,
+          1913.2
+        ]
+      },
+      "properties": {
+        "content": "报警值≥1.0%,断电值≥1.0%,复电",
+        "nearest_tunnel": "副斜井",
+        "distance": 33.5,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.625011,
+          41.71597,
+          1845.0
+        ]
+      },
+      "properties": {
+        "content": "16°",
+        "nearest_tunnel": "主斜井",
+        "distance": 20.0,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.61426,
+          41.714179,
+          1697.8
+        ]
+      },
+      "properties": {
+        "content": "CH4",
+        "nearest_tunnel": "中央回风大巷",
+        "distance": 5.5,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.626272,
+          41.717787,
+          1917.9
+        ]
+      },
+      "properties": {
+        "content": "CO上报值：24ppm，上解值：",
+        "nearest_tunnel": "回风斜井",
+        "distance": 31.1,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.626855,
+          41.714962,
+          1936.3
+        ]
+      },
+      "properties": {
+        "content": "主风机开停",
+        "nearest_tunnel": "副斜井",
+        "distance": 42.9,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.611415,
+          41.714264,
+          1660.5
+        ]
+      },
+      "properties": {
+        "content": "五号交岔点",
+        "nearest_tunnel": "中央辅运大巷",
+        "distance": 36.7,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.626915,
+          41.717101,
+          1936.3
+        ]
+      },
+      "properties": {
+        "content": "X=4620454.0",
+        "nearest_tunnel": "回风斜井",
+        "distance": 45.2,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.612609,
+          41.713929,
+          1670.8
+        ]
+      },
+      "properties": {
+        "content": "7.54",
+        "nearest_tunnel": "中央胶带大巷",
+        "distance": 0.3,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.618444,
+          41.717316,
+          1741.0
+        ]
+      },
+      "properties": {
+        "content": "面风筒传感器。",
+        "nearest_tunnel": "辅运联络巷",
+        "distance": 16.9,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.613226,
+          41.714879,
+          1676.5
+        ]
+      },
+      "properties": {
+        "content": "+1671.011",
+        "nearest_tunnel": "中央辅运大巷",
+        "distance": 7.4,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.626278,
+          41.717294,
+          1918.3
+        ]
+      },
+      "properties": {
+        "content": "值＜1.0%.",
+        "nearest_tunnel": "回风斜井",
+        "distance": 23.6,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.613633,
+          41.715261,
+          1686.1
+        ]
+      },
+      "properties": {
+        "content": "+1680",
+        "nearest_tunnel": "中央辅运大巷",
+        "distance": 23.1,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.617573,
+          41.717104,
+          1743.3
+        ]
+      },
+      "properties": {
+        "content": "+1738.282",
+        "nearest_tunnel": "中央辅运大巷",
+        "distance": 4.8,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.618117,
+          41.717159,
+          1742.2
+        ]
+      },
+      "properties": {
+        "content": "CH4。",
+        "nearest_tunnel": "辅运联络巷",
+        "distance": 15.8,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.621076,
+          41.717699,
+          1758.2
+        ]
+      },
+      "properties": {
+        "content": "+1730",
+        "nearest_tunnel": "回风斜井",
+        "distance": 18.3,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.619053,
+          41.717074,
+          1731.5
+        ]
+      },
+      "properties": {
+        "content": "机头CO、烟雾。",
+        "nearest_tunnel": "中央胶带大巷",
+        "distance": 17.2,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.611912,
+          41.716799,
+          1690.0
+        ]
+      },
+      "properties": {
+        "content": "1639.12",
+        "nearest_tunnel": "1105回风巷",
+        "distance": 17.5,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.606436,
+          41.718665,
+          1675.0
+        ]
+      },
+      "properties": {
+        "content": "1106工作面",
+        "nearest_tunnel": "1105进风巷",
+        "distance": 99.7,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.626689,
+          41.714739,
+          1935.2
+        ]
+      },
+      "properties": {
+        "content": "CO、烟雾",
+        "nearest_tunnel": "副斜井",
+        "distance": 14.9,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.617233,
+          41.717184,
+          1743.2
+        ]
+      },
+      "properties": {
+        "content": "综掘机CH4。",
+        "nearest_tunnel": "中央辅运大巷",
+        "distance": 28.5,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.625946,
+          41.714582,
+          1922.1
+        ]
+      },
+      "properties": {
+        "content": "安装地点：副斜井井口皮带机头",
+        "nearest_tunnel": "副斜井",
+        "distance": 23.2,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.627487,
+          41.714551,
+          1937.3
+        ]
+      },
+      "properties": {
+        "content": "Y=32552155.5",
+        "nearest_tunnel": "副斜井",
+        "distance": 64.0,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.628377,
+          41.71611,
+          1919.2
+        ]
+      },
+      "properties": {
+        "content": "无煤区Ⅰ",
+        "nearest_tunnel": "主斜井",
+        "distance": 92.1,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.620052,
+          41.717927,
+          1738.1
+        ]
+      },
+      "properties": {
+        "content": "CO、烟雾。",
+        "nearest_tunnel": "胶带石门",
+        "distance": 39.6,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.599789,
+          41.727568,
+          1695.0
+        ]
+      },
+      "properties": {
+        "content": "1105回风顺槽",
+        "nearest_tunnel": "1105回风顺槽",
+        "distance": 26.0,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.606655,
+          41.719324,
+          1675.0
+        ]
+      },
+      "properties": {
+        "content": "加1004",
+        "nearest_tunnel": "1105进风巷",
+        "distance": 37.3,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.610798,
+          41.718493,
+          1690.0
+        ]
+      },
+      "properties": {
+        "content": "临时避难硐室",
+        "nearest_tunnel": "1105回风巷",
+        "distance": 38.5,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.617503,
+          41.717323,
+          1743.3
+        ]
+      },
+      "properties": {
+        "content": "CH4(T1)。",
+        "nearest_tunnel": "辅运联络巷",
+        "distance": 28.2,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.612893,
+          41.715027,
+          1675.0
+        ]
+      },
+      "properties": {
+        "content": "六号交岔点",
+        "nearest_tunnel": "1105进风巷",
+        "distance": 32.8,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.626715,
+          41.714948,
+          1933.6
+        ]
+      },
+      "properties": {
+        "content": "二号交岔点",
+        "nearest_tunnel": "副斜井",
+        "distance": 37.4,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.620814,
+          41.717775,
+          1750.6
+        ]
+      },
+      "properties": {
+        "content": "23ppm。",
+        "nearest_tunnel": "回风斜井",
+        "distance": 26.6,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.619053,
+          41.717009,
+          1731.2
+        ]
+      },
+      "properties": {
+        "content": "烟雾报警值：有烟",
+        "nearest_tunnel": "中央胶带大巷",
+        "distance": 23.1,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.595522,
+          41.728782,
+          1685.0
+        ]
+      },
+      "properties": {
+        "content": "1710",
+        "nearest_tunnel": "1105胶带顺槽",
+        "distance": 29.5,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.60928,
+          41.720393,
+          1690.0
+        ]
+      },
+      "properties": {
+        "content": "1103工作面",
+        "nearest_tunnel": "1105回风巷",
+        "distance": 84.8,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.61894,
+          41.718399,
+          1738.3
+        ]
+      },
+      "properties": {
+        "content": "轨道延长线交点",
+        "nearest_tunnel": "主斜井机尾联络巷",
+        "distance": 64.9,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.618701,
+          41.716944,
+          1728.9
+        ]
+      },
+      "properties": {
+        "content": "CH4（T1)",
+        "nearest_tunnel": "中央胶带大巷",
+        "distance": 12.5,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.61877,
+          41.717722,
+          1739.3
+        ]
+      },
+      "properties": {
+        "content": "+1733.143",
+        "nearest_tunnel": "辅运联络巷",
+        "distance": 4.8,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.628678,
+          41.71468,
+          1936.3
+        ]
+      },
+      "properties": {
+        "content": "X=4620193.5",
+        "nearest_tunnel": "主斜井",
+        "distance": 52.0,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.616431,
+          41.714881,
+          1736.0
+        ]
+      },
+      "properties": {
+        "content": "中央回风大巷",
+        "nearest_tunnel": "中央回风大巷",
+        "distance": 43.9,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.615722,
+          41.714262,
+          1723.0
+        ]
+      },
+      "properties": {
+        "content": "1730",
+        "nearest_tunnel": "中央回风大巷",
+        "distance": 66.9,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.629099,
+          41.715682,
+          1936.3
+        ]
+      },
+      "properties": {
+        "content": "主风机开停",
+        "nearest_tunnel": "主斜井",
+        "distance": 69.9,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.615453,
+          41.716408,
+          1726.1
+        ]
+      },
+      "properties": {
+        "content": "+1710",
+        "nearest_tunnel": "中央辅运大巷",
+        "distance": 42.0,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.615626,
+          41.714608,
+          1726.0
+        ]
+      },
+      "properties": {
+        "content": "躲避硐（6处）",
+        "nearest_tunnel": "中央回风大巷",
+        "distance": 30.8,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.617221,
+          41.716922,
+          1743.1
+        ]
+      },
+      "properties": {
+        "content": "+1738.149",
+        "nearest_tunnel": "中央辅运大巷",
+        "distance": 5.2,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.615448,
+          41.715053,
+          1719.8
+        ]
+      },
+      "properties": {
+        "content": "+1720",
+        "nearest_tunnel": "一采区变电所",
+        "distance": 17.1,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.620853,
+          41.716892,
+          1746.4
+        ]
+      },
+      "properties": {
+        "content": "6.01",
+        "nearest_tunnel": "主斜井",
+        "distance": 44.9,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.617719,
+          41.717003,
+          1743.3
+        ]
+      },
+      "properties": {
+        "content": "CH4（T1)",
+        "nearest_tunnel": "中央辅运大巷",
+        "distance": 11.3,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.622432,
+          41.718424,
+          1797.7
+        ]
+      },
+      "properties": {
+        "content": "1740",
+        "nearest_tunnel": "回风斜井",
+        "distance": 99.6,
+        "category": "cad_matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.617961,
+          41.716965,
+          1726.8
+        ]
+      },
+      "properties": {
+        "content": "风筒",
+        "nearest_tunnel": "中央胶带大巷",
+        "distance": 24.4,
+        "category": "cad_matched"
+      }
+    }
+  ]
+}

@@ -1,0 +1,2912 @@
+{
+  "type": "FeatureCollection",
+  "name": "devices",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.628657,
+          41.715147,
+          1931.3
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10120011F00",
+        "name": "主斜井井口130分站",
+        "sensor_type": "分站",
+        "matched_tunnel": "主斜井",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.628646,
+          41.71515,
+          1931.2
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10120107",
+        "name": "主井口风速",
+        "sensor_type": "风速",
+        "matched_tunnel": "主斜井",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.628635,
+          41.715153,
+          1932.5
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10121N5182",
+        "name": "天宝公司-主井井口皮带",
+        "sensor_type": "工业视频",
+        "matched_tunnel": "主斜井",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.628624,
+          41.715156,
+          1932.3
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10121N5971",
+        "name": "天宝井工矿-主斜井井口",
+        "sensor_type": "工业视频",
+        "matched_tunnel": "主斜井",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.628614,
+          41.715159,
+          1932.0
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10121N5181",
+        "name": "天宝公司-主斜井井口下",
+        "sensor_type": "工业视频",
+        "matched_tunnel": "主斜井",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.628603,
+          41.715162,
+          1929.9
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10140011007",
+        "name": "主井井口11-7_人数",
+        "sensor_type": "人数",
+        "matched_tunnel": "主斜井",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.626719,
+          41.714587,
+          1932.3
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10120012F00",
+        "name": "副斜井井口130分站",
+        "sensor_type": "分站",
+        "matched_tunnel": "副斜井",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.626708,
+          41.71459,
+          1932.3
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10120185",
+        "name": "副井口风速",
+        "sensor_type": "风速",
+        "matched_tunnel": "副斜井",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.626697,
+          41.714593,
+          1932.0
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10120314",
+        "name": "副井井口皮带机头烟雾传感器",
+        "sensor_type": "烟雾",
+        "matched_tunnel": "副斜井",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.626686,
+          41.714597,
+          1931.8
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10120357",
+        "name": "副井井口皮带机头CO_一氧化碳",
+        "sensor_type": "一氧化碳",
+        "matched_tunnel": "副斜井",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.626675,
+          41.7146,
+          1933.1
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10121N5106",
+        "name": "天宝公司-副斜井井口上",
+        "sensor_type": "工业视频",
+        "matched_tunnel": "副斜井",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.626664,
+          41.714603,
+          1932.9
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10121N5970",
+        "name": "天宝井工矿-副斜井井口",
+        "sensor_type": "工业视频",
+        "matched_tunnel": "副斜井",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.626654,
+          41.714606,
+          1932.6
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10121N6061",
+        "name": "天宝公司-副斜井井口道岔",
+        "sensor_type": "工业视频",
+        "matched_tunnel": "副斜井",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.626643,
+          41.714609,
+          1930.6
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10140012007",
+        "name": "副井井口12-7_人数",
+        "sensor_type": "人数",
+        "matched_tunnel": "副斜井",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.626632,
+          41.714612,
+          1932.1
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10121N6105",
+        "name": "天宝井工矿-副斜井井口",
+        "sensor_type": "工业视频",
+        "matched_tunnel": "副斜井",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.619372,
+          41.716635,
+          1758.0
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10120014F00",
+        "name": "副斜井井底车场130分站",
+        "sensor_type": "分站",
+        "matched_tunnel": "副斜井",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.619361,
+          41.716638,
+          1759.5
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10121N6046",
+        "name": "天宝公司-副井水平井底车场",
+        "sensor_type": "工业视频",
+        "matched_tunnel": "副斜井",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.61935,
+          41.716641,
+          1757.4
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10140026007",
+        "name": "副井井底26-7_人数",
+        "sensor_type": "人数",
+        "matched_tunnel": "副斜井",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.620699,
+          41.717366,
+          1735.2
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10120016F00",
+        "name": "胶带石门130分站",
+        "sensor_type": "分站",
+        "matched_tunnel": "胶带石门",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.620688,
+          41.717369,
+          1735.2
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10120017F00",
+        "name": "轨道石门130分站",
+        "sensor_type": "分站",
+        "matched_tunnel": "胶带石门",
+        "confidence": "低",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.620677,
+          41.717372,
+          1737.0
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10121N5192",
+        "name": "天宝公司-胶带石门皮带搭接处",
+        "sensor_type": "工业视频",
+        "matched_tunnel": "胶带石门",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.620665,
+          41.717375,
+          1736.9
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10121N5190",
+        "name": "天宝公司-轨道石门",
+        "sensor_type": "工业视频",
+        "matched_tunnel": "胶带石门",
+        "confidence": "低",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.620654,
+          41.717378,
+          1736.9
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10121N5196",
+        "name": "天宝公司-胶带石门",
+        "sensor_type": "工业视频",
+        "matched_tunnel": "胶带石门",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.61685,
+          41.716671,
+          1735.4
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10120102",
+        "name": "中央辅运大巷工作面  主风机开停中央辅运大巷工作面  主风机开停_设备开停",
+        "sensor_type": "开停",
+        "matched_tunnel": "中央辅运大巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.61684,
+          41.716666,
+          1735.3
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10120106",
+        "name": "中央辅运大巷工作面  副风机开停中央辅运大巷工作面  副风机开停_设备开停",
+        "sensor_type": "开停",
+        "matched_tunnel": "中央辅运大巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.61683,
+          41.716661,
+          1736.6
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10120163",
+        "name": "中央辅运大巷工作面粉尘",
+        "sensor_type": "粉尘",
+        "matched_tunnel": "中央辅运大巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.616821,
+          41.716656,
+          1735.0
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10120537",
+        "name": "中央辅运大巷掘进工作面 风筒状态风筒开关",
+        "sensor_type": "风筒",
+        "matched_tunnel": "中央辅运大巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.616811,
+          41.716651,
+          1734.9
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY1012088",
+        "name": "中央辅运大巷远控开关1140v馈电状态_馈电器",
+        "sensor_type": "馈电",
+        "matched_tunnel": "中央辅运大巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.616801,
+          41.716646,
+          1734.8
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY1012089",
+        "name": "中央辅运大巷远控开关1140v断电状态_断电器",
+        "sensor_type": "断电",
+        "matched_tunnel": "中央辅运大巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.616791,
+          41.716641,
+          1734.6
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10140021007",
+        "name": "中央辅运大巷21-7_人数",
+        "sensor_type": "人数",
+        "matched_tunnel": "中央辅运大巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.618699,
+          41.717079,
+          1724.6
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10120115",
+        "name": "中央胶带大巷工作面   副风机开停中央胶带大巷工作面   副风机开停_设备开停",
+        "sensor_type": "开停",
+        "matched_tunnel": "中央胶带大巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.618689,
+          41.717074,
+          1726.0
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10120162",
+        "name": "中央胶带大巷工作面粉尘",
+        "sensor_type": "粉尘",
+        "matched_tunnel": "中央胶带大巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.618679,
+          41.717069,
+          1724.4
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY1012068",
+        "name": "中央胶带大巷工作面 风筒状态风筒开关",
+        "sensor_type": "风筒",
+        "matched_tunnel": "中央胶带大巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.618669,
+          41.717064,
+          1724.3
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY1012084",
+        "name": "中央胶带大巷远控开关1140v馈电状态_馈电器",
+        "sensor_type": "馈电",
+        "matched_tunnel": "中央胶带大巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.61866,
+          41.717059,
+          1724.2
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY1012085",
+        "name": "中央胶带大巷远控开关1140v断电状态_断电器",
+        "sensor_type": "断电",
+        "matched_tunnel": "中央胶带大巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.61865,
+          41.717054,
+          1724.1
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY1012099",
+        "name": "中央胶带大巷工作面  主风机开停中央胶带大巷工作面  主风机开停_设备开停",
+        "sensor_type": "开停",
+        "matched_tunnel": "中央胶带大巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.61864,
+          41.717049,
+          1724.1
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10140027007",
+        "name": "中央胶带大巷27-7_人数",
+        "sensor_type": "人数",
+        "matched_tunnel": "中央胶带大巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.617513,
+          41.715921,
+          1734.6
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10120119",
+        "name": "中央回风大巷工作面副风机开停中央回风大巷工作面副风机开停_设备开停",
+        "sensor_type": "开停",
+        "matched_tunnel": "中央回风大巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.617504,
+          41.715916,
+          1734.6
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10120131",
+        "name": "中央回风大巷掘进工作面风筒状态 风筒开关风筒开关",
+        "sensor_type": "风筒",
+        "matched_tunnel": "中央回风大巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.617494,
+          41.71591,
+          1734.6
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10120140",
+        "name": "中央回风大巷工作面主风机开停中央回风大巷工作面主风机开停_设备开停",
+        "sensor_type": "开停",
+        "matched_tunnel": "中央回风大巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.617484,
+          41.715905,
+          1734.6
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10120146",
+        "name": "回风大巷副风机远控开关馈电状态_馈电器",
+        "sensor_type": "馈电",
+        "matched_tunnel": "中央回风大巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.617474,
+          41.7159,
+          1734.6
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10120155",
+        "name": "回风大巷副风机远控开关断电状态_断电器",
+        "sensor_type": "断电",
+        "matched_tunnel": "中央回风大巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.617464,
+          41.715895,
+          1734.6
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10120160",
+        "name": "回风大巷主风机远控开关馈电状态_馈电器",
+        "sensor_type": "馈电",
+        "matched_tunnel": "中央回风大巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.617454,
+          41.71589,
+          1736.1
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10120164",
+        "name": "中央回风大巷工作面粉尘",
+        "sensor_type": "粉尘",
+        "matched_tunnel": "中央回风大巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.617444,
+          41.715885,
+          1734.6
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10120177",
+        "name": "回风大巷主风机远控开关断电状态_断电器",
+        "sensor_type": "断电",
+        "matched_tunnel": "中央回风大巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.617434,
+          41.71588,
+          1734.6
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY1012091",
+        "name": "中央回风大巷远控开关1140v馈电状态_馈电器",
+        "sensor_type": "馈电",
+        "matched_tunnel": "中央回风大巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.617424,
+          41.715875,
+          1734.5
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY1012092",
+        "name": "中央回风大巷远控开关1140v断电状态_断电器",
+        "sensor_type": "断电",
+        "matched_tunnel": "中央回风大巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.617415,
+          41.71587,
+          1734.5
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10140023007",
+        "name": "中央回风大巷掘进工作面23-7_人数",
+        "sensor_type": "人数",
+        "matched_tunnel": "中央回风大巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.60985,
+          41.711962,
+          1641.0
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10140016007",
+        "name": "中央回风大巷900米16-7_人数",
+        "sensor_type": "人数",
+        "matched_tunnel": "中央回风大巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.611138,
+          41.712627,
+          1651.8
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10120121",
+        "name": "中央回风大巷工作面回风流温度_环境温度",
+        "sensor_type": "温度",
+        "matched_tunnel": "中央回风大巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.611128,
+          41.712621,
+          1651.7
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY1012093",
+        "name": "中央回风大巷回风流CO_一氧化碳",
+        "sensor_type": "一氧化碳",
+        "matched_tunnel": "中央回风大巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.611138,
+          41.712627,
+          1651.9
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10120122",
+        "name": "中央回风大巷掘进工作面CH4  (T2)_激光甲烷",
+        "sensor_type": "瓦斯",
+        "matched_tunnel": "中央回风大巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.611128,
+          41.712621,
+          1653.3
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10121N6100",
+        "name": "天宝公司-中央回风大巷掘进工作面T2处",
+        "sensor_type": "工业视频",
+        "matched_tunnel": "中央回风大巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.624373,
+          41.717517,
+          1851.8
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10120141",
+        "name": "总回风风速",
+        "sensor_type": "风速",
+        "matched_tunnel": "回风斜井",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.624362,
+          41.717517,
+          1851.4
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10120142",
+        "name": "总回风温度_环境温度",
+        "sensor_type": "温度",
+        "matched_tunnel": "回风斜井",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.624351,
+          41.717517,
+          1851.0
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10120143",
+        "name": "总回风CO_一氧化碳",
+        "sensor_type": "一氧化碳",
+        "matched_tunnel": "回风斜井",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.62434,
+          41.717517,
+          1850.8
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10120144",
+        "name": "总回风CH4_激光甲烷",
+        "sensor_type": "瓦斯",
+        "matched_tunnel": "回风斜井",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.624329,
+          41.717517,
+          1851.9
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10121N5133",
+        "name": "天宝公司-回风料场东",
+        "sensor_type": "工业视频",
+        "matched_tunnel": "回风斜井",
+        "confidence": "低",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.610275,
+          41.712726,
+          1648.5
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10120148",
+        "name": "中央胶带大巷皮带机尾CO_一氧化碳",
+        "sensor_type": "一氧化碳",
+        "matched_tunnel": "中央胶带大巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.610265,
+          41.712721,
+          1648.4
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10120149",
+        "name": "中央胶带大巷皮带机尾烟雾",
+        "sensor_type": "烟雾",
+        "matched_tunnel": "中央胶带大巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.610629,
+          41.713456,
+          1637.0
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY1012015",
+        "name": "中央辅运大巷工作面回风流温度_环境温度",
+        "sensor_type": "温度",
+        "matched_tunnel": "中央辅运大巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.610619,
+          41.71345,
+          1636.9
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY1012016",
+        "name": "中央辅运大巷工作面回风流CO_一氧化碳",
+        "sensor_type": "一氧化碳",
+        "matched_tunnel": "中央辅运大巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.610209,
+          41.713239,
+          1633.5
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10120151",
+        "name": "中央辅运大巷皮带机尾CO_一氧化碳",
+        "sensor_type": "一氧化碳",
+        "matched_tunnel": "中央辅运大巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.610199,
+          41.713234,
+          1633.4
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10120152",
+        "name": "中央辅运大巷皮带机尾烟雾",
+        "sensor_type": "烟雾",
+        "matched_tunnel": "中央辅运大巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.617457,
+          41.716437,
+          1721.8
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10120158",
+        "name": "机头硐室皮带机尾CO_一氧化碳",
+        "sensor_type": "一氧化碳",
+        "matched_tunnel": "机头硐室",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.617449,
+          41.716443,
+          1721.8
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10120159",
+        "name": "机头硐室皮带机尾烟雾",
+        "sensor_type": "烟雾",
+        "matched_tunnel": "机头硐室",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.617441,
+          41.71645,
+          1721.8
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY1012076",
+        "name": "机头硐室皮带机头C O_一氧化碳",
+        "sensor_type": "一氧化碳",
+        "matched_tunnel": "机头硐室",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.617433,
+          41.716457,
+          1721.8
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY1012077",
+        "name": "机头硐室 皮带机头烟雾",
+        "sensor_type": "烟雾",
+        "matched_tunnel": "机头硐室",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.617425,
+          41.716464,
+          1723.4
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10121N5191",
+        "name": "天宝公司-机头硐室带式输送机机头",
+        "sensor_type": "工业视频",
+        "matched_tunnel": "机头硐室",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.617417,
+          41.71647,
+          1721.6
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10140022007",
+        "name": "机头硐室工作面22-7_人数",
+        "sensor_type": "人数",
+        "matched_tunnel": "机头硐室",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.613293,
+          41.713848,
+          1670.4
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10120166",
+        "name": "中部通风联络巷主风机远控开关馈电状态_馈电器",
+        "sensor_type": "馈电",
+        "matched_tunnel": "中部通风联络巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.613285,
+          41.713855,
+          1670.4
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10120167",
+        "name": "中部通风联络巷主风机远控开关断电状态_断电器",
+        "sensor_type": "断电",
+        "matched_tunnel": "中部通风联络巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.613277,
+          41.713861,
+          1670.5
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10120196",
+        "name": "中部通风联络巷风筒状态风筒开关风筒开关",
+        "sensor_type": "风筒",
+        "matched_tunnel": "中部通风联络巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.613269,
+          41.713868,
+          1670.5
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10120201",
+        "name": "中部通风联络巷工作面主风机开停中部通风联络巷工作面主风机开停_设备开停",
+        "sensor_type": "开停",
+        "matched_tunnel": "中部通风联络巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.613261,
+          41.713875,
+          1670.6
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10120204",
+        "name": "中部通风联络巷工作面副风机开停中部通风联络巷工作面副风机开停_设备开停",
+        "sensor_type": "开停",
+        "matched_tunnel": "中部通风联络巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.613253,
+          41.713881,
+          1670.6
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY1012045",
+        "name": "主通风机1号机开停状态主通风机1号机开停状态_设备开停",
+        "sensor_type": "开停",
+        "matched_tunnel": "中部通风联络巷",
+        "confidence": "低",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.613245,
+          41.713888,
+          1670.6
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY1012048",
+        "name": "主通风机2号机开停状态主通风机2号机开停状态_设备开停",
+        "sensor_type": "开停",
+        "matched_tunnel": "中部通风联络巷",
+        "confidence": "低",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.613237,
+          41.713895,
+          1670.7
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY1012080",
+        "name": "主通风机2号机负压",
+        "sensor_type": "负压",
+        "matched_tunnel": "中部通风联络巷",
+        "confidence": "低",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.613229,
+          41.713902,
+          1670.7
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY1012081",
+        "name": "主通风机1号机负压",
+        "sensor_type": "负压",
+        "matched_tunnel": "中部通风联络巷",
+        "confidence": "低",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.618372,
+          41.716365,
+          1738.6
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10120178",
+        "name": "中央回风大巷二部皮带机头CO_一氧化碳",
+        "sensor_type": "一氧化碳",
+        "matched_tunnel": "中央回风大巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.618363,
+          41.71636,
+          1738.5
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10120180",
+        "name": "中央回风大巷一部皮带机头CO_一氧化碳",
+        "sensor_type": "一氧化碳",
+        "matched_tunnel": "中央回风大巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.618353,
+          41.716354,
+          1738.3
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10120181",
+        "name": "中央回风大巷一部皮带机头烟雾",
+        "sensor_type": "烟雾",
+        "matched_tunnel": "中央回风大巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.618343,
+          41.716349,
+          1738.2
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10120182",
+        "name": "中央回风大巷二部皮带机头烟雾",
+        "sensor_type": "烟雾",
+        "matched_tunnel": "中央回风大巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.618333,
+          41.716344,
+          1739.6
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10121N5127",
+        "name": "天宝公司-中央回风大巷二部皮带带式输送机机头",
+        "sensor_type": "工业视频",
+        "matched_tunnel": "中央回风大巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.618323,
+          41.716339,
+          1739.5
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10121N6097",
+        "name": "天宝公司-中央回风大巷一部皮带带式输送机机头",
+        "sensor_type": "工业视频",
+        "matched_tunnel": "中央回风大巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.618314,
+          41.716334,
+          1739.4
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10121N6051",
+        "name": "天宝公司-中央回风大巷一部皮带带式输送机机头",
+        "sensor_type": "工业视频",
+        "matched_tunnel": "中央回风大巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.610709,
+          41.712405,
+          1648.3
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10120183",
+        "name": "中央回风大巷二部皮带机尾CO_一氧化碳",
+        "sensor_type": "一氧化碳",
+        "matched_tunnel": "中央回风大巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.610699,
+          41.7124,
+          1648.2
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10120184",
+        "name": "中央回风大巷二部皮带机尾烟雾",
+        "sensor_type": "烟雾",
+        "matched_tunnel": "中央回风大巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.613353,
+          41.713798,
+          1670.4
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10120193",
+        "name": "中部通风联络巷掘进工作面CH4（T1）_激光甲烷",
+        "sensor_type": "瓦斯",
+        "matched_tunnel": "中部通风联络巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.612962,
+          41.714438,
+          1670.8
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10120206",
+        "name": "中部通风联络巷掘进工作面CH4（T2）_激光甲烷",
+        "sensor_type": "瓦斯",
+        "matched_tunnel": "中部通风联络巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.612924,
+          41.714377,
+          1671.1
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10120207",
+        "name": "中部通风联络巷工作面回风流温度_环境温度",
+        "sensor_type": "温度",
+        "matched_tunnel": "中部通风联络巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.612929,
+          41.714385,
+          1671.1
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10120209",
+        "name": "中部通风联络巷工作面回风流CO_一氧化碳",
+        "sensor_type": "一氧化碳",
+        "matched_tunnel": "中部通风联络巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.610629,
+          41.713456,
+          1637.1
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10120414",
+        "name": "中央辅运大巷掘进工作面CH4(T2)_激光甲烷",
+        "sensor_type": "瓦斯",
+        "matched_tunnel": "中央辅运大巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.610619,
+          41.71345,
+          1638.5
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10121N5188",
+        "name": "天宝公司-中央辅运大巷掘进工作面T2处",
+        "sensor_type": "工业视频",
+        "matched_tunnel": "中央辅运大巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.617687,
+          41.71711,
+          1738.7
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10120538",
+        "name": "中央辅运大巷掘进工作面CH4(T1)_激光甲烷",
+        "sensor_type": "瓦斯",
+        "matched_tunnel": "中央辅运大巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.617677,
+          41.717105,
+          1740.2
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10121N6103",
+        "name": "天宝公司-中央辅运大巷掘进工作面T1朝向外口",
+        "sensor_type": "工业视频",
+        "matched_tunnel": "中央辅运大巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.617667,
+          41.7171,
+          1740.1
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10121N6052",
+        "name": "天宝公司-中央辅运大巷掘进工作面T1朝向迎头",
+        "sensor_type": "工业视频",
+        "matched_tunnel": "中央辅运大巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.61976,
+          41.717628,
+          1733.3
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY1012067",
+        "name": "中央胶带大巷工作面CH4（T1）_激光甲烷",
+        "sensor_type": "瓦斯",
+        "matched_tunnel": "中央胶带大巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.61975,
+          41.717623,
+          1734.7
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10121N6049",
+        "name": "天宝公司-中央胶带大巷掘进工作面T1朝向迎头",
+        "sensor_type": "工业视频",
+        "matched_tunnel": "中央胶带大巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.61974,
+          41.717618,
+          1734.6
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10121N6050",
+        "name": "天宝公司-中央胶带大巷掘进工作面T1朝向外口",
+        "sensor_type": "工业视频",
+        "matched_tunnel": "中央胶带大巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.619065,
+          41.717822,
+          1733.5
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY1012069",
+        "name": "辅运联络巷皮带机头 CO_一氧化碳",
+        "sensor_type": "一氧化碳",
+        "matched_tunnel": "辅运联络巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.619055,
+          41.717817,
+          1733.5
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY1012070",
+        "name": "辅运联络巷皮带机头 烟雾",
+        "sensor_type": "烟雾",
+        "matched_tunnel": "辅运联络巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.619046,
+          41.717812,
+          1735.2
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10121N6053",
+        "name": "天宝公司-辅运联络巷带式输送机机头",
+        "sensor_type": "工业视频",
+        "matched_tunnel": "辅运联络巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.610804,
+          41.713001,
+          1653.9
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY1012071",
+        "name": "中央胶带大巷工作面CH4 (T2)_激光甲烷",
+        "sensor_type": "瓦斯",
+        "matched_tunnel": "中央胶带大巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.610794,
+          41.712995,
+          1655.3
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10121N6069",
+        "name": "天宝公司-中央胶带大巷掘进工作面T2处",
+        "sensor_type": "工业视频",
+        "matched_tunnel": "中央胶带大巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.610804,
+          41.713001,
+          1653.8
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY1012072",
+        "name": "中央胶带大巷工作面回风流 CO_一氧化碳",
+        "sensor_type": "一氧化碳",
+        "matched_tunnel": "中央胶带大巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.610794,
+          41.712995,
+          1653.7
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY1012074",
+        "name": "中央胶带大巷工作面 回风流温度_环境温度",
+        "sensor_type": "温度",
+        "matched_tunnel": "中央胶带大巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.610784,
+          41.71299,
+          1653.4
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY1012075",
+        "name": "中央胶带大巷工作面 回风流湿度",
+        "sensor_type": "湿度",
+        "matched_tunnel": "中央胶带大巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.625901,
+          41.714819,
+          1913.9
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY101209",
+        "name": "副井绞车开停状态副井绞车开停状态_设备开停",
+        "sensor_type": "开停",
+        "matched_tunnel": "副斜井",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.62589,
+          41.714822,
+          1915.5
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10121N5104",
+        "name": "天宝公司-副斜井上部乘车点",
+        "sensor_type": "工业视频",
+        "matched_tunnel": "副斜井",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.625879,
+          41.714825,
+          1915.2
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10121N5170",
+        "name": "天宝公司-副井绞车提升机",
+        "sensor_type": "工业视频",
+        "matched_tunnel": "副斜井",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.625868,
+          41.714828,
+          1915.0
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10121N5105",
+        "name": "天宝公司-副斜井防跑车(1)",
+        "sensor_type": "工业视频",
+        "matched_tunnel": "副斜井",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.625858,
+          41.714831,
+          1914.7
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10121N5103",
+        "name": "天宝公司-副斜井防跑车(4)",
+        "sensor_type": "工业视频",
+        "matched_tunnel": "副斜井",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.625847,
+          41.714834,
+          1914.5
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10121N5187",
+        "name": "天宝公司-副斜井下部乘车点",
+        "sensor_type": "工业视频",
+        "matched_tunnel": "副斜井",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.625836,
+          41.714837,
+          1914.2
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10121N5186",
+        "name": "天宝公司-副斜井防跑车(5)",
+        "sensor_type": "工业视频",
+        "matched_tunnel": "副斜井",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.620187,
+          41.716408,
+          1778.7
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10140028007",
+        "name": "副斜井600米28-7_人数",
+        "sensor_type": "人数",
+        "matched_tunnel": "副斜井",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.625825,
+          41.71484,
+          1914.0
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10121N6080",
+        "name": "天宝公司-副斜井防跑车(3)",
+        "sensor_type": "工业视频",
+        "matched_tunnel": "副斜井",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.623443,
+          41.715503,
+          1859.4
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10140020007",
+        "name": "副井300米20-7_人数",
+        "sensor_type": "人数",
+        "matched_tunnel": "副斜井",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.625814,
+          41.714843,
+          1913.7
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10121N6104",
+        "name": "天宝公司-副井放料点",
+        "sensor_type": "工业视频",
+        "matched_tunnel": "副斜井",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.625803,
+          41.714846,
+          1913.5
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10121N6074",
+        "name": "天宝公司-副井放料点",
+        "sensor_type": "工业视频",
+        "matched_tunnel": "副斜井",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.625792,
+          41.71485,
+          1913.3
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10121N6079",
+        "name": "天宝公司-副斜井防跑车(2)",
+        "sensor_type": "工业视频",
+        "matched_tunnel": "副斜井",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.618372,
+          41.716365,
+          1738.7
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY1012094",
+        "name": "中央回风大巷掘进工作面CH4 (T1)_激光甲烷",
+        "sensor_type": "瓦斯",
+        "matched_tunnel": "中央回风大巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.618363,
+          41.71636,
+          1740.1
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10121N5125",
+        "name": "天宝公司-中央回风大巷掘进工作面T1朝向迎头",
+        "sensor_type": "工业视频",
+        "matched_tunnel": "中央回风大巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.618353,
+          41.716354,
+          1739.9
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10121N5126",
+        "name": "天宝公司-中央回风大巷掘进工作面T1朝向外口",
+        "sensor_type": "工业视频",
+        "matched_tunnel": "中央回风大巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.615733,
+          41.716094,
+          1721.3
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY1012096",
+        "name": "单轨吊充电检修硐室回风流CH4_激光甲烷",
+        "sensor_type": "瓦斯",
+        "matched_tunnel": "单轨吊充电检修硐室",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.625522,
+          41.71602,
+          1852.7
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10121N5169",
+        "name": "天宝公司-主井绞车房提升机",
+        "sensor_type": "工业视频",
+        "matched_tunnel": "主斜井",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.625511,
+          41.716023,
+          1852.4
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10121N5064",
+        "name": "天宝公司-主井绞车房",
+        "sensor_type": "工业视频",
+        "matched_tunnel": "主斜井",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.626836,
+          41.717504,
+          1933.1
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10121N5973",
+        "name": "天宝井工矿-回风斜井井口",
+        "sensor_type": "工业视频",
+        "matched_tunnel": "回风斜井",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.626825,
+          41.717504,
+          1930.9
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10140013007",
+        "name": "回风井井口_人数",
+        "sensor_type": "人数",
+        "matched_tunnel": "回风斜井",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.614719,
+          41.715076,
+          1707.9
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10121N5135",
+        "name": "天宝公司-回风单轨吊换装点",
+        "sensor_type": "工业视频",
+        "matched_tunnel": "单轨吊充电硐室",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.609747,
+          41.713105,
+          1631.8
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10121N4514",
+        "name": "天宝煤业-水源井泵房",
+        "sensor_type": "工业视频",
+        "matched_tunnel": "主排水泵房",
+        "confidence": "低",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.60974,
+          41.713113,
+          1631.8
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10121N4513",
+        "name": "天宝煤业-旧生活区增压泵房",
+        "sensor_type": "工业视频",
+        "matched_tunnel": "主排水泵房",
+        "confidence": "低",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.626719,
+          41.714587,
+          1934.1
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10121N5116",
+        "name": "天宝公司-副斜井一部皮带带式输送机机头",
+        "sensor_type": "工业视频",
+        "matched_tunnel": "副斜井",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.627873,
+          41.715365,
+          1913.0
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10121N5992",
+        "name": "天宝公司-主斜井维修点下部",
+        "sensor_type": "工业视频",
+        "matched_tunnel": "主斜井",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.627862,
+          41.715368,
+          1912.7
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10121N6084",
+        "name": "天宝公司-主斜井防跑车(下)",
+        "sensor_type": "工业视频",
+        "matched_tunnel": "主斜井",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.627851,
+          41.715371,
+          1912.4
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10121N6082",
+        "name": "天宝公司-主斜井防跑车(上)",
+        "sensor_type": "工业视频",
+        "matched_tunnel": "主斜井",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.624326,
+          41.716353,
+          1820.9
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10140018007",
+        "name": "主井400米18-7_人数",
+        "sensor_type": "人数",
+        "matched_tunnel": "主斜井",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.627841,
+          41.715375,
+          1912.2
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10121N6083",
+        "name": "天宝公司-主斜井防跑车(中)",
+        "sensor_type": "工业视频",
+        "matched_tunnel": "主斜井",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.62783,
+          41.715378,
+          1911.9
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10121N6110",
+        "name": "天宝公司-主斜井管路安装处",
+        "sensor_type": "工业视频",
+        "matched_tunnel": "主斜井",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.615741,
+          41.716016,
+          1723.5
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10121N5128",
+        "name": "天宝公司-单轨吊充电检修硐室回风流T2处",
+        "sensor_type": "工业视频",
+        "matched_tunnel": "单轨吊充电检修硐室",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.622621,
+          41.715729,
+          1842.6
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10121N5112",
+        "name": "天宝公司-副井绞车房",
+        "sensor_type": "工业视频",
+        "matched_tunnel": "副斜井",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.618376,
+          41.717466,
+          1735.8
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10140025007",
+        "name": "辅运联络巷25-7_人数",
+        "sensor_type": "人数",
+        "matched_tunnel": "辅运联络巷",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.621197,
+          41.717227,
+          1745.1
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10140019007",
+        "name": "主井底湾19-7_人数",
+        "sensor_type": "人数",
+        "matched_tunnel": "主斜井",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.615788,
+          41.715576,
+          1725.5
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10140029007",
+        "name": "单轨吊充电检修硐室29-7_人数",
+        "sensor_type": "人数",
+        "matched_tunnel": "单轨吊充电检修硐室",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          96.619608,
+          41.717275,
+          1731.5
+        ]
+      },
+      "properties": {
+        "id": "YJMDTBMY10140024007",
+        "name": "架空乘人装置硐室24-7_人数",
+        "sensor_type": "人数",
+        "matched_tunnel": "架空乘人器硐室",
+        "confidence": "中",
+        "score": 0,
+        "category": "device"
+      }
+    }
+  ]
+}
