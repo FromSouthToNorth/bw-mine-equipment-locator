@@ -74,7 +74,8 @@ _PYTHON_EXE = _resolve_python_exe()
 # ── API 调用 ──────────────────────────────────────────────────────
 def get_token_and_mine_name(username: str) -> tuple:
     """调用 bw-token-manager 获取 token 和 mineName。
-    兼容新旧两种 CLI：新版用 --username，旧版用位置参数。"""
+    兼容新旧两种 CLI：新版用 --username，旧版用位置参数。
+    若上游 skill 不可用（如 Windows 上 fcntl 缺失），直接调用 API 获取。"""
     # 先尝试新版接口 (--username)
     result = subprocess.run(
         [_PYTHON_EXE, str(TOKEN_MANAGER), "--username", username, "--output", "json"],
@@ -86,18 +87,43 @@ def get_token_and_mine_name(username: str) -> tuple:
             [_PYTHON_EXE, str(TOKEN_MANAGER), username, "--output", "json"],
             capture_output=True, text=True, cwd=PROJECT_ROOT
         )
-        if result.returncode != 0:
-            raise RuntimeError(f"Token manager failed: {result.stderr.strip()}")
-    tokens = json.loads(result.stdout.strip())
-    if not tokens.get("bw_token"):
-        raise RuntimeError("bw_token not found")
-    mine_name = tokens.get("mineName") or username
-    return tokens, mine_name
+    if result.returncode == 0:
+        try:
+            tokens = json.loads(result.stdout.strip())
+            if tokens.get("bw_token"):
+                mine_name = tokens.get("mineName") or username
+                return tokens, mine_name
+        except json.JSONDecodeError:
+            pass
+    # 上游 skill 不可用 → 直接调用 API
+    print(f"[locator] Token manager unavailable, fetching token directly via API...", file=sys.stderr)
+    import urllib.request
+    api_url = f"http://192.168.133.110:33382/bwRuleNode/getUserToken?username={username}"
+    try:
+        with urllib.request.urlopen(api_url, timeout=30) as response:
+            data = json.loads(response.read().decode("utf-8"))
+        if data.get("code") == 100:
+            tokens = data.get("data", {})
+            tokens["mineName"] = tokens.get("mineName") or username
+            if not tokens.get("bw_token"):
+                raise RuntimeError("bw_token not found in API response")
+            return tokens, tokens["mineName"]
+        else:
+            raise RuntimeError(f"API error: {data.get('mesg', 'Unknown')}")
+    except Exception as e:
+        raise RuntimeError(f"Failed to get token via API: {e}")
 
 
 def call_strategy_api(strategy_id: int, username: str, param: str = None,
                       action: str = "get_data", param_file: str = None) -> dict:
-    """调用 strategy_api.py，返回完整响应 dict。"""
+    """调用 strategy_api.py，返回完整响应 dict。
+
+    对于 execute 操作且数据量大时，strategy_api.py CLI 不支持 --param-from-file，
+    此时自动回退到直接 API 调用。"""
+    # execute + param_file → 直接调用 API（上游 CLI 不支持大参数文件）
+    if action == "execute" and param_file:
+        return _call_execute_strategy_api_directly(strategy_id, username, param_file)
+
     cmd = [
         _PYTHON_EXE, str(STRATEGY_API), action,
         "--id", str(strategy_id),
@@ -106,13 +132,65 @@ def call_strategy_api(strategy_id: int, username: str, param: str = None,
     ]
     if param:
         cmd.extend(["--param", param])
-    if param_file:
-        cmd.extend(["--param-from-file", param_file])
 
     result = subprocess.run(cmd, capture_output=True, text=True, cwd=PROJECT_ROOT)
     if result.returncode != 0:
         raise RuntimeError(f"Strategy API (id={strategy_id}) failed: {result.stderr.strip()}")
     return json.loads(result.stdout.strip())
+
+
+def _call_execute_strategy_api_directly(strategy_id: int, username: str, param_file: str) -> dict:
+    """直接调用 ExecuteStrategyCom API，绕过 strategy_api.py CLI 限制。
+
+    param_file 格式: data=文件路径
+    API 期望的请求体: {"id": 8385, "parameter": [{"name": "data", "value": "<json_string>"}], ...}
+    """
+    import urllib.request
+
+    # 获取 token
+    tokens, _ = get_token_and_mine_name(username)
+    token = tokens.get("bw_token", "")
+    if not token:
+        raise RuntimeError("bw_token not available for execute API")
+
+    # 解析 param_file
+    if param_file.startswith("data="):
+        file_path = param_file[5:]
+    else:
+        file_path = param_file
+
+    with open(file_path, "r", encoding="utf-8") as f:
+        data_content = f.read()
+
+    # 构建 API 请求体（包装策略ID和参数）
+    payload = {
+        "id": strategy_id,
+        "parameter": [{"name": "data", "value": data_content}],
+        "queryType": 1,
+        "orders": [{"name": "id", "value": "asc"}]
+    }
+    payload_json = json.dumps(payload, ensure_ascii=False)
+
+    url = f"http://192.168.133.110:33382/net/api/poininfoSmartValid/ExecuteStrategyCom"
+    req = urllib.request.Request(
+        url,
+        data=payload_json.encode("utf-8"),
+        headers={
+            "caller": "openclaw",
+            "token": token,
+            "Content-Type": "application/json",
+        },
+        method="POST",
+    )
+
+    with urllib.request.urlopen(req, timeout=60) as resp:
+        result = json.loads(resp.read().decode("utf-8"))
+
+    code = result.get("code", 0)
+    if code != 100:
+        print(f"[WARNING] Execute API returned code {code}: {result.get('mesg', 'Unknown')}", file=sys.stderr)
+
+    return result
 
 
 def extract_items(raw_data):
@@ -2560,7 +2638,7 @@ def _classify_low_confidence_reasons(low_conf_results: list) -> dict:
 
 def _build_report(devices, results, unmatched, summary, audit_data,
                   wind_warnings, generic_tunnel_names, mine_name,
-                  phase="match") -> dict:
+                  phase="match", include_low_in_writeback: bool = True) -> dict:
     """构建结构化报告数据，供 JSON 嵌入和 stderr 模板化输出使用。"""
 
     # ── 置信度样本（每级 Top 3）──
@@ -2672,7 +2750,7 @@ def _build_report(devices, results, unmatched, summary, audit_data,
 
     s = summary
 
-    # ── 低置信度样本 (Top 5) —— 宁缺毋滥，暂缓回写 ──
+    # ── 低置信度样本 (Top 5) —— 已包含在回写中，建议审查 ──
     low_conf_results = [r for r in results if r.get("confidence") == "低"]
     low_conf_results_sorted = sorted(low_conf_results, key=lambda x: -x.get("match_score", 0))
     low_confidence_samples = [
@@ -2689,13 +2767,18 @@ def _build_report(devices, results, unmatched, summary, audit_data,
 
     # ── 回写计划 ──
     bc = s.get("by_confidence", {"高": 0, "中": 0, "低": 0})
-    writeback_count = bc.get("高", 0) + bc.get("中", 0)
-    held_back_count = bc.get("低", 0)
+    if include_low_in_writeback:
+        writeback_count = bc.get("高", 0) + bc.get("中", 0) + bc.get("低", 0)
+        held_back_count = 0
+    else:
+        writeback_count = bc.get("高", 0) + bc.get("中", 0)
+        held_back_count = bc.get("低", 0)
     writeback_plan = {
         "writeback_count": writeback_count,
         "held_back_count": held_back_count,
         "by_tier": {"高": bc.get("高", 0), "中": bc.get("中", 0), "低": bc.get("低", 0)},
         "held_back_reasons": _classify_low_confidence_reasons(low_conf_results),
+        "include_low_in_writeback": include_low_in_writeback,
     }
 
     return {
@@ -2924,8 +3007,9 @@ def _print_report_stderr(report: dict):
             else:
                 _p(f"  (无)")
 
-    # ── 回写计划（高+中回写，低暂缓——宁缺毋滥）──
+    # ── 回写计划 ──
     wp = report.get("writeback_plan", {})
+    include_low = wp.get("include_low_in_writeback", True)
     if wp:
         _p(f"\n{'='*60}")
         _p(f"  回写计划")
@@ -2933,27 +3017,37 @@ def _print_report_stderr(report: dict):
         wb = wp.get("writeback_count", 0)
         hb = wp.get("held_back_count", 0)
         by_tier = wp.get("by_tier", {})
-        _p(f"  待回写 8385: {wb} 条  (高={by_tier.get('高', 0)}, 中={by_tier.get('中', 0)})")
-        if hb > 0:
-            _p(f"  暂缓回写:    {hb} 条  (低置信度 —— 宁缺毋滥)")
+        low_count = by_tier.get('低', 0)
+        if include_low and low_count > 0:
+            _p(f"  待回写 8385: {wb} 条  (高={by_tier.get('高', 0)}, 中={by_tier.get('中', 0)}, 低={low_count} ⚠)")
+            _p(f"  ⚠ 包含 {low_count} 条低置信度匹配，建议审查后确认")
         else:
-            _p(f"  暂缓回写:    0 条")
-        hbr = wp.get("held_back_reasons", {})
-        if hbr:
-            reasons_fmt = "  ".join(f"{k}={v}" for k, v in sorted(hbr.items(), key=lambda x: -x[1]))
-            _p(f"  暂缓原因: {reasons_fmt}")
+            _p(f"  待回写 8385: {wb} 条  (高={by_tier.get('高', 0)}, 中={by_tier.get('中', 0)})")
+        if hb > 0 and not include_low:
+            _p(f"  暂缓回写:    {hb} 条  (低置信度 —— 宁缺毋滥)")
+            hbr = wp.get("held_back_reasons", {})
+            if hbr:
+                reasons_fmt = "  ".join(f"{k}={v}" for k, v in sorted(hbr.items(), key=lambda x: -x[1]))
+                _p(f"  暂缓原因: {reasons_fmt}")
 
-    # ── 低置信度样本（暂缓回写 Top 5）──
+    # ── 低置信度样本（已包含在回写中 ⚠）──
     lcs_samples = report.get("low_confidence_samples", [])
-    held_back_total = report.get("writeback_plan", {}).get("held_back_count", 0)
-    if lcs_samples:
+    low_total = report.get("writeback_plan", {}).get("by_tier", {}).get("低", 0)
+    if lcs_samples and include_low:
+        _p(f"\n【低置信度样本 (Top 5) —— 已包含在回写中 ⚠】")
+        for s in lcs_samples:
+            _p(f"  {s['id']} → {s['matched_name']}"
+               f"  score={s['match_score']}  lcs={s['match_lcs']}"
+               f"  {s['description']}")
+        _p(f"  以上 {low_total} 条低置信度匹配将一并回写，建议人工审查确认")
+    elif lcs_samples and not include_low:
         _p(f"\n【暂缓回写样本 (Top 5) —— 宁缺毋滥】")
         for s in lcs_samples:
             _p(f"  {s['id']} → {s['matched_name']}"
                f"  score={s['match_score']}  lcs={s['match_lcs']}"
                f"  {s['description']}")
-    elif held_back_total == 0:
-        _p(f"\n【暂缓回写】")
+    elif low_total == 0:
+        _p(f"\n【低置信度匹配】")
         _p(f"  (无 —— 所有匹配置信度达标)")
 
 
