@@ -19,6 +19,7 @@ import json
 import shutil
 import subprocess
 import argparse
+import math
 from datetime import datetime
 from pathlib import Path
 
@@ -955,6 +956,9 @@ def _semantic_penalty(description: str, candidate_name: str, mark_type: str = No
             # 特殊放宽："皮带机头硐室"等特定硐室地点，不应被运输设备关键词泛化拦截
             if keyword in ("皮带", "机头", "压带轮", "卸料器") and "硐室" in description:
                 continue
+            # 皮带/机头→辅运豁免：皮带输送机属辅运系统，"辅运"巷道不应被运输设备关键词惩罚
+            if keyword in ("皮带", "机头") and "辅运" in candidate_name:
+                continue
             if not any(allow in candidate_name for allow in rule["allow"]):
                 return rule["penalty"]
     return 0
@@ -979,6 +983,12 @@ def _has_hard_semantic_conflict(description: str, candidate_name: str) -> bool:
     """
     if not description or not candidate_name:
         return False
+
+    # 0. 路标豁免：描述包含该巷道的路标 → 不触发语义冲突
+    if _LANDMARKS and candidate_name in _LANDMARKS:
+        for landmark_name in _LANDMARKS[candidate_name]:
+            if landmark_name in description:
+                return False
 
     # 1. 地点锚定词冲突（双向）
     # 描述含地点限定词 → 候选必须含相同词
@@ -1097,6 +1107,9 @@ def _has_hard_semantic_conflict(description: str, candidate_name: str) -> bool:
                     continue
             # 特殊放宽："皮带机头硐室"等特定硐室地点，不应被运输设备关键词泛化拦截
             if keyword in ("皮带", "机头", "压带轮", "卸料器") and "硐室" in description:
+                continue
+            # 皮带/机头→辅运豁免：皮带输送机属辅运系统，"辅运"巷道不应被运输设备关键词惩罚
+            if keyword in ("皮带", "机头") and "辅运" in candidate_name:
                 continue
             if not any(allow in candidate_name for allow in rule["allow"]):
                 return True
@@ -1253,6 +1266,13 @@ def _score_candidates(cleaned: str, candidates: list, sensor_type: str = None,
         )
         score = round(lcs_len * 10 / len(name)) if name else 0
 
+        # 路标匹配加分：描述包含该巷道的路标 → 强加分，帮助低 LCS 匹配
+        if _LANDMARKS and name in _LANDMARKS:
+            for landmark_name in _LANDMARKS[name]:
+                if landmark_name in cleaned:
+                    score += 8  # 强加分，使路标匹配的设备得分超过语义惩罚
+                    break
+
         # sensor_type 巷道偏好加权
         if sensor_type and lcs_len >= 2 and _candidate_matches_sensor_pref(name, sensor_type):
             score += 2
@@ -1291,6 +1311,11 @@ def _score_candidates(cleaned: str, candidates: list, sensor_type: str = None,
         # 总回风加分：描述含"总回风"且候选名含"回风"时加分
         if "总回风" in cleaned and "回风" in name:
             score += 3
+
+        # 皮带→辅运加分：描述含"皮带"且候选名含"辅运"时加分
+        # 皮带输送机属于辅助运输系统，应匹配到辅运类巷道
+        if "皮带" in cleaned and "辅运" in name:
+            score += 8
 
         # coalbed 验证惩罚（跨煤层不匹配）
         if device_coalbed and cand.get("coalbed"):
@@ -1340,6 +1365,10 @@ def _score_candidates(cleaned: str, candidates: list, sensor_type: str = None,
             # 避免"轨道"等短 LCS 蹭 sensor_type 偏好蒙上中匹配。
             layer = _MATCH_LAYER_LCS_PREF
         elif lcs_len >= 2 and score >= 2:
+            layer = _MATCH_LAYER_LOW
+        # 功能词匹配豁免：描述含明确功能关键词且候选对应时，降低 LCS 门槛
+        # 如"皮带"→"辅运"（皮带机属于辅助运输系统）
+        elif score >= 2 and "皮带" in cleaned and "辅运" in name:
             layer = _MATCH_LAYER_LOW
         else:
             layer = _MATCH_LAYER_REJECT
@@ -1456,11 +1485,189 @@ def _polyline_interpolate(line: list, ratio: float) -> dict:
     return {"x": line[-1]["x"], "y": line[-1]["y"], "z": line[-1]["z"]}
 
 
+# ── CAD 路标定位系统 ─────────────────────────────────────────────────
+# 从 CAD 标注数据提取有意义的地点名称，计算其在巷道折线上的投影比例，
+# 当设备描述包含路标名称时，直接定位到路标位置（替代默认区间规则）。
+
+_LANDMARKS = {}  # {tunnel_name: {landmark_name: ratio, ...}}
+
+def _build_landmarks(cad_data: list, tunnels: list, max_dist: float = 100.0) -> dict:
+    """
+    从 CAD 数据构建路标表。
+
+    对每个有意义的 CAD 标注点：
+    1. 过滤噪声（高程数字、图签文字、报警阈值等）
+    2. 计算到最近巷道折线的投影比例（0-1）
+    3. 只保留投影距离 <= max_dist 的路标
+
+    返回 {tunnel_name: {landmark_name: ratio, ...}}
+    """
+    import re
+
+    # 噪声内容集合（同 cesium_cad_data.json 的过滤逻辑）
+    _NOISE_CONTENTS = {
+        '值＜1.0%.', '23ppm。', '烟雾报警值：有烟', 'CO上报值：24ppm，上解值：',
+        'CO、烟雾', 'CO、烟雾。', '报警值≥1.0%,断电值≥1.5%,复电', '报警值≥1.0%,断电值≥1.0%,复电',
+        '风筒开停报警值：无风。', '断电控制器', 'CH4（T1)', 'CH4（T2)', 'CH4', 'CH4(T1)。',
+        '面CH4(T1)。', '面风筒传感器。', '回风流CH4(T2)。', '风筒传感器。', '主风机开停',
+        '副风机开停', '闭锁开关', '双风机双电源开关', '风筒', '传感器', '分站', '光缆',
+        '信号传输线', '局部通风机', '乏风', '环网交换机', '16°', '15°', '掘进迎头位置',
+        '图号', '资料来源', '制图', '审核', '日期', '比例尺', '图例', '说明', '总工程师',
+        '安全生产部', '天宝公司', '吴冬红', '2024年10月', '1:1000', '1.煤、岩巷',
+        'T2报警值≥1.0%,断电值≥1.0%,复电值＜1.0%.',
+        '2.断电范围:掘进巷道内全部非本质型安全电气设备',
+        '红沙梁矿井安全监控布置图', '窑街煤电集团酒泉天宝煤业有限公司',
+    }
+
+    # 巷道/地点关键词
+    _TUNNEL_KWS = ['井', '巷', '硐室', '石门', '大巷', '联络', '工作面', '车场', '水仓', '变电所', '泵站', '交岔点', '落底点']
+
+    # 计算折线总长度（2D）
+    def _poly_len(line):
+        length = 0.0
+        for i in range(len(line) - 1):
+            x1, y1 = line[i].get('x'), line[i].get('y')
+            x2, y2 = line[i + 1].get('x'), line[i + 1].get('y')
+            if None in (x1, y1, x2, y2):
+                continue
+            length += math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)
+        return length
+
+    # 计算点到折线的投影比例
+    def _project_ratio(px, py, line):
+        best_dist = float('inf')
+        best_ratio = 0.0
+        cum_len = 0.0
+        total_len = _poly_len(line)
+        if total_len <= 0:
+            return 0.0, float('inf')
+
+        for i in range(len(line) - 1):
+            x1, y1 = line[i].get('x'), line[i].get('y')
+            x2, y2 = line[i + 1].get('x'), line[i + 1].get('y')
+            if None in (x1, y1, x2, y2):
+                continue
+
+            dx, dy = x2 - x1, y2 - y1
+            seg_len_sq = dx * dx + dy * dy
+            if seg_len_sq == 0:
+                t = 0.0
+            else:
+                t = max(0.0, min(1.0, ((px - x1) * dx + (py - y1) * dy) / seg_len_sq))
+
+            nx = x1 + t * dx
+            ny = y1 + t * dy
+            dist = math.sqrt((px - nx) ** 2 + (py - ny) ** 2)
+            seg_len = math.sqrt(seg_len_sq)
+
+            if dist < best_dist:
+                best_dist = dist
+                best_ratio = (cum_len + t * seg_len) / total_len
+
+            cum_len += seg_len
+
+        return best_ratio, best_dist
+
+    # 构建隧道映射
+    tunnel_map = {}
+    for t in tunnels:
+        if t.get('line') and t.get('name'):
+            tunnel_map[t['name']] = t['line']
+
+    landmarks = {}
+    for item in cad_data:
+        coords = item.get('coordinates', {})
+        if not coords.get('x') or not coords.get('y'):
+            continue
+
+        content = item.get('content', '').strip()
+        if not content:
+            continue
+
+        # 过滤噪声
+        if re.match(r'^[+\-]?\d+(\.\d+)?$', content) or re.match(r'^(X|Y|Z)=', content):
+            continue
+        if content in _NOISE_CONTENTS:
+            continue
+
+        # 清理前缀
+        clean = content[5:] if content.startswith('安装地点：') else content
+        if clean.startswith('(兼') and clean.endswith(')'):
+            clean = clean[1:-1]
+
+        # 只保留有巷道关键词的
+        if not any(kw in clean for kw in _TUNNEL_KWS):
+            continue
+
+        x, y = coords['x'], coords['y']
+
+        # 找最近巷道（优先语义匹配：CAD 内容含巷道名时，若距离合理则优先）
+        best_dist = float('inf')
+        best_name = None
+        best_ratio = 0.0
+        semantic_name = None
+        semantic_dist = float('inf')
+        semantic_ratio = 0.0
+        for name, line in tunnel_map.items():
+            ratio, dist = _project_ratio(x, y, line)
+            # 语义匹配：CAD 内容含该巷道名
+            if dist <= max_dist and name in clean:
+                if dist < semantic_dist:
+                    semantic_dist = dist
+                    semantic_name = name
+                    semantic_ratio = ratio
+            # 空间最近（兜底）
+            if dist < best_dist:
+                best_dist = dist
+                best_name = name
+                best_ratio = ratio
+
+        # 语义匹配优先于空间最近
+        if semantic_name:
+            best_name = semantic_name
+            best_dist = semantic_dist
+            best_ratio = semantic_ratio
+
+        if best_dist <= max_dist and best_name:
+            if best_name not in landmarks:
+                landmarks[best_name] = {}
+            # 跳过：隧道名自身作为路标（隧道名已是候选，用作其他巷道路标会产生误匹配）
+            if clean in tunnel_map:
+                continue
+            # 去重：如果同一路标在同一巷道有多个，保留比例最合理的（中间优先）
+            existing = landmarks[best_name].get(clean)
+            if existing is None or abs(best_ratio - 0.5) < abs(existing - 0.5):
+                landmarks[best_name][clean] = round(best_ratio, 4)
+
+    return landmarks
+
+
+def _find_landmark_ratio(description: str, tunnel_name: str) -> float:
+    """
+    检查设备描述是否包含当前巷道上的路标。
+    如果包含，返回路标在折线上的投影比例（0-1）；否则返回 None。
+    当多个路标匹配时，优先选择最长的（最具体）路标名称。
+    """
+    if not _LANDMARKS or tunnel_name not in _LANDMARKS:
+        return None
+
+    tunnel_landmarks = _LANDMARKS[tunnel_name]
+    best_match = None
+    best_len = 0
+    for landmark_name, ratio in tunnel_landmarks.items():
+        if landmark_name in description and len(landmark_name) > best_len:
+            best_match = ratio
+            best_len = len(landmark_name)
+    return best_match
+
+
+# ──────────────────────────────────────────────────────────────────────
+
 def _assign_distances(count: int, keyword: str, line_length: float,
                       sensor_type: str = None, tunnel_type: str = None, step: float = 1.0) -> list:
     """
     沿折线分配距起点的距离（米），分配策略优先级：
-    T 标识规则 > 巷道类型×sensor_type > AQ1029 距离 > 关键词区间 > sensor_type 默认 > 兜底
+    路标定位 > T 标识规则 > 巷道类型×sensor_type > AQ1029 距离 > 关键词区间 > sensor_type 默认 > 兜底
     """
     # B16 工业视频同组多设备的标准间距（MT/T 1201.6-2023 附录 A）
     if sensor_type == "工业视频":
@@ -2153,6 +2360,27 @@ def _match_devices(devices: list, candidates: list,
         for _, _, _, st, _ in entries:
             st_counts[st] = st_counts.get(st, 0) + 1
         representative_st = max(st_counts, key=st_counts.get) if st_counts else None
+
+        # ── 路标定位：为没有显式距离的设备检查路标 ──
+        if _LANDMARKS:
+            new_entries = []
+            landmark_ratios = []
+            for device, match, cleaned, st, ed in entries:
+                if ed is None:
+                    ratio = _find_landmark_ratio(cleaned, name)
+                    if ratio is not None:
+                        ed = total_len * ratio
+                        landmark_ratios.append(ratio)
+                new_entries.append((device, match, cleaned, st, ed))
+            entries = new_entries
+            # 同组多设备共用同一路标时，按 1m 步长分散
+            if len(landmark_ratios) > 1:
+                step = 1.0
+                off_idx = 0
+                for i, (device, match, cleaned, st, ed) in enumerate(entries):
+                    if ed is not None and any(abs(ed - total_len * r) < 0.01 for r in landmark_ratios):
+                        entries[i] = (device, match, cleaned, st, ed + off_idx * step)
+                        off_idx += 1
 
         implicit_count = sum(1 for _, _, _, _, ed in entries if ed is None)
         explicit_entries = [(i, ed) for i, (_, _, _, _, ed) in enumerate(entries) if ed is not None]
@@ -3400,6 +3628,14 @@ def main():
                     unnamed_tunnel_skipped += u_skip
                     generic_tunnel_names.extend(g_names)
                     print(f"  → 文件候选: {len(candidates)} 个", file=sys.stderr)
+                # ── CAD 路标构建 ──
+                if "cadData" in data:
+                    cad_data = data["cadData"]
+                    _LANDMARKS.clear()
+                    _LANDMARKS.update(_build_landmarks(cad_data, data.get("tunnels", [])))
+                    total_lm = sum(len(v) for v in _LANDMARKS.values())
+                    if total_lm > 0:
+                        print(f"  → CAD 路标: {total_lm} 个 ({len(_LANDMARKS)} 条巷道)", file=sys.stderr)
             elif isinstance(data, list):
                 devices, candidates, u_skip = classify_items(data)
                 unnamed_tunnel_skipped += u_skip
@@ -3477,6 +3713,13 @@ def main():
                 unnamed_tunnel_skipped += u_skip
                 generic_tunnel_names.extend(g_names)
                 print(f"  → API 候选: {len(candidates)} 个", file=sys.stderr)
+                # ── CAD 路标构建 ──
+                if isinstance(raw_data, dict) and "cadData" in raw_data:
+                    _LANDMARKS.clear()
+                    _LANDMARKS.update(_build_landmarks(raw_data["cadData"], raw_data.get("tunnels", [])))
+                    total_lm = sum(len(v) for v in _LANDMARKS.values())
+                    if total_lm > 0:
+                        print(f"  → CAD 路标: {total_lm} 个 ({len(_LANDMARKS)} 条巷道)", file=sys.stderr)
         else:
             device_items = extract_items(raw_data)
             if need_api_devices:

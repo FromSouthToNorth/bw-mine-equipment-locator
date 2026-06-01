@@ -3,29 +3,29 @@
   "mine_name": "窑街煤电天宝煤业",
   "summary": {
     "total": 515,
-    "matched": 145,
-    "unmatched": 370,
+    "matched": 148,
+    "unmatched": 367,
     "filtered_by_id": 0,
     "wind_spacing_warnings": 0,
     "generic_tunnels_skipped": 0,
     "unnamed_tunnels_skipped": 0,
     "by_confidence": {
       "高": 0,
-      "中": 136,
-      "低": 9
+      "中": 137,
+      "低": 11
     },
     "by_mark_type": {
-      "B14": 79,
-      "B16": 50,
+      "B14": 81,
+      "B16": 51,
       "B15": 16
     },
     "by_sensor_type": {
       "分站": 5,
       "风速": 3,
-      "工业视频": 50,
+      "工业视频": 51,
       "人数": 16,
-      "烟雾": 9,
-      "一氧化碳": 14,
+      "烟雾": 10,
+      "一氧化碳": 15,
       "开停": 11,
       "粉尘": 3,
       "风筒": 4,
@@ -38,14 +38,14 @@
     },
     "by_reason": {
       "AREA_SURFACE": 337,
-      "LOW_LCS": 22,
-      "SEMANTIC_CONFLICT": 11
+      "LOW_LCS": 23,
+      "SEMANTIC_CONFLICT": 7
     },
     "by_tunnel": {
       "主斜井": 15,
-      "副斜井": 27,
+      "副斜井": 28,
       "胶带石门": 5,
-      "中央辅运大巷": 16,
+      "中央辅运大巷": 18,
       "中央胶带大巷": 17,
       "中央回风大巷": 28,
       "回风斜井": 7,
@@ -1029,20 +1029,21 @@
       "tunnel_type": "17-总回风巷",
       "coalbed": "0100",
       "match_lcs": 6,
-      "match_score": 10,
+      "match_score": 18,
       "confidence": "中",
       "mark_type": "B14",
       "sensor_type": "风筒",
       "area": "中央回风大巷掘进工作面风筒状态 风筒开关风筒开关",
       "sysaliasname": "安全监测",
+      "explicit_distance": 406.6,
       "coordinates": {
-        "x": 32551387.6624,
-        "y": 4620267.7764,
-        "z": 1734.6336
+        "x": 32551130.0353,
+        "y": 4620087.3343,
+        "z": 1697.3629
       },
       "line_total_length": 870.43,
-      "distance_along_line": 88.04,
-      "line_percentage": 10.1
+      "distance_along_line": 406.58,
+      "line_percentage": 46.7
     },
     {
       "id": "YJMDTBMY10120140",
@@ -1061,13 +1062,13 @@
       "area": "中央回风大巷工作面主风机开停中央回风大巷工作面主风",
       "sysaliasname": "安全监测",
       "coordinates": {
-        "x": 32551386.8434,
-        "y": 4620267.2027,
-        "z": 1734.6221
+        "x": 32551387.6624,
+        "y": 4620267.7764,
+        "z": 1734.6336
       },
       "line_total_length": 870.43,
-      "distance_along_line": 89.04,
-      "line_percentage": 10.2
+      "distance_along_line": 88.04,
+      "line_percentage": 10.1
     },
     {
       "id": "YJMDTBMY10120146",
@@ -1086,13 +1087,13 @@
       "area": "回风大巷副风机远控开关馈电状态_馈电器",
       "sysaliasname": "安全监测",
       "coordinates": {
-        "x": 32551386.0244,
-        "y": 4620266.6291,
-        "z": 1734.6105
+        "x": 32551386.8434,
+        "y": 4620267.2027,
+        "z": 1734.6221
       },
       "line_total_length": 870.43,
-      "distance_along_line": 90.04,
-      "line_percentage": 10.3,
+      "distance_along_line": 89.04,
+      "line_percentage": 10.2,
       "suspicious": true,
       "suspicious_reason": "设备含远控开关但候选非配电/硐室"
     },
@@ -1113,13 +1114,13 @@
       "area": "回风大巷副风机远控开关断电状态_断电器",
       "sysaliasname": "安全监测",
       "coordinates": {
-        "x": 32551385.2054,
-        "y": 4620266.0554,
-        "z": 1734.5989
+        "x": 32551386.0244,
+        "y": 4620266.6291,
+        "z": 1734.6105
       },
       "line_total_length": 870.43,
-      "distance_along_line": 91.04,
-      "line_percentage": 10.5,
+      "distance_along_line": 90.04,
+      "line_percentage": 10.3,
       "suspicious": true,
       "suspicious_reason": "设备含远控开关但候选非配电/硐室"
     },
@@ -1140,13 +1141,13 @@
       "area": "回风大巷主风机远控开关馈电状态_馈电器",
       "sysaliasname": "安全监测",
       "coordinates": {
-        "x": 32551384.3864,
-        "y": 4620265.4817,
-        "z": 1734.5874
+        "x": 32551385.2054,
+        "y": 4620266.0554,
+        "z": 1734.5989
       },
       "line_total_length": 870.43,
-      "distance_along_line": 92.04,
-      "line_percentage": 10.6,
+      "distance_along_line": 91.04,
+      "line_percentage": 10.5,
       "suspicious": true,
       "suspicious_reason": "设备含远控开关但候选非配电/硐室"
     },
@@ -1167,13 +1168,13 @@
       "area": "中央回风大巷工作面粉尘",
       "sysaliasname": "安全监测",
       "coordinates": {
-        "x": 32551383.5674,
-        "y": 4620264.908,
-        "z": 1736.0758
+        "x": 32551384.3864,
+        "y": 4620265.4817,
+        "z": 1736.0874
       },
       "line_total_length": 870.43,
-      "distance_along_line": 93.04,
-      "line_percentage": 10.7
+      "distance_along_line": 92.04,
+      "line_percentage": 10.6
     },
     {
       "id": "YJMDTBMY10120177",
@@ -1192,13 +1193,13 @@
       "area": "回风大巷主风机远控开关断电状态_断电器",
       "sysaliasname": "安全监测",
       "coordinates": {
-        "x": 32551382.7484,
-        "y": 4620264.3344,
-        "z": 1734.5642
+        "x": 32551383.5674,
+        "y": 4620264.908,
+        "z": 1734.5758
       },
       "line_total_length": 870.43,
-      "distance_along_line": 94.04,
-      "line_percentage": 10.8,
+      "distance_along_line": 93.04,
+      "line_percentage": 10.7,
       "suspicious": true,
       "suspicious_reason": "设备含远控开关但候选非配电/硐室"
     },
@@ -1219,13 +1220,13 @@
       "area": "中央回风大巷远控开关1140v馈电状态_馈电器",
       "sysaliasname": "安全监测",
       "coordinates": {
-        "x": 32551381.9294,
-        "y": 4620263.7607,
-        "z": 1734.5527
+        "x": 32551382.7484,
+        "y": 4620264.3344,
+        "z": 1734.5642
       },
       "line_total_length": 870.43,
-      "distance_along_line": 95.04,
-      "line_percentage": 10.9,
+      "distance_along_line": 94.04,
+      "line_percentage": 10.8,
       "suspicious": true,
       "suspicious_reason": "设备含远控开关但候选非配电/硐室"
     },
@@ -1246,13 +1247,13 @@
       "area": "中央回风大巷远控开关1140v断电状态_断电器",
       "sysaliasname": "安全监测",
       "coordinates": {
-        "x": 32551381.1104,
-        "y": 4620263.187,
-        "z": 1734.5411
+        "x": 32551381.9294,
+        "y": 4620263.7607,
+        "z": 1734.5527
       },
       "line_total_length": 870.43,
-      "distance_along_line": 96.04,
-      "line_percentage": 11.0,
+      "distance_along_line": 95.04,
+      "line_percentage": 10.9,
       "suspicious": true,
       "suspicious_reason": "设备含远控开关但候选非配电/硐室"
     },
@@ -1266,20 +1267,21 @@
       "tunnel_type": "17-总回风巷",
       "coalbed": "0100",
       "match_lcs": 6,
-      "match_score": 10,
+      "match_score": 18,
       "confidence": "中",
       "mark_type": "B15",
       "sensor_type": "人数",
       "area": "井下",
       "sysaliasname": "人员定位",
+      "explicit_distance": 407.6,
       "coordinates": {
-        "x": 32551380.2914,
-        "y": 4620262.6134,
-        "z": 1734.5296
+        "x": 32551129.2436,
+        "y": 4620086.78,
+        "z": 1697.1062
       },
       "line_total_length": 870.43,
-      "distance_along_line": 97.04,
-      "line_percentage": 11.1
+      "distance_along_line": 407.58,
+      "line_percentage": 46.8
     },
     {
       "id": "YJMDTBMY10140016007",
@@ -1368,20 +1370,21 @@
       "tunnel_type": "17-总回风巷",
       "coalbed": "0100",
       "match_lcs": 6,
-      "match_score": 12,
+      "match_score": 20,
       "confidence": "中",
       "mark_type": "B14",
       "sensor_type": "瓦斯",
       "area": "中央回风大巷掘进工作面CH4  (T2)_激光甲烷",
       "sysaliasname": "安全监测",
+      "explicit_distance": 406.6,
       "coordinates": {
-        "x": 32550860.5118,
-        "y": 4619898.7127,
-        "z": 1651.8985
+        "x": 32551130.0353,
+        "y": 4620087.3343,
+        "z": 1697.6629
       },
       "line_total_length": 870.43,
-      "distance_along_line": 739.87,
-      "line_percentage": 85.0
+      "distance_along_line": 406.58,
+      "line_percentage": 46.7
     },
     {
       "id": "YJMDTBMY10121N6100",
@@ -1393,20 +1396,21 @@
       "tunnel_type": "17-总回风巷",
       "coalbed": "0100",
       "match_lcs": 6,
-      "match_score": 12,
+      "match_score": 20,
       "confidence": "中",
       "mark_type": "B16",
       "sensor_type": "工业视频",
       "area": "矿井",
       "sysaliasname": "工业视频",
+      "explicit_distance": 407.6,
       "coordinates": {
-        "x": 32550859.6952,
-        "y": 4619898.1413,
-        "z": 1653.3174
+        "x": 32551129.2436,
+        "y": 4620086.78,
+        "z": 1698.9062
       },
       "line_total_length": 870.43,
-      "distance_along_line": 740.87,
-      "line_percentage": 85.1
+      "distance_along_line": 407.58,
+      "line_percentage": 46.8
     },
     {
       "id": "YJMDTBMY10120141",
@@ -1643,7 +1647,7 @@
       "tunnel_type": "0-普通巷道",
       "coalbed": "0100",
       "match_lcs": 6,
-      "match_score": 10,
+      "match_score": 18,
       "confidence": "中",
       "mark_type": "B14",
       "sensor_type": "一氧化碳",
@@ -1668,7 +1672,7 @@
       "tunnel_type": "0-普通巷道",
       "coalbed": "0100",
       "match_lcs": 6,
-      "match_score": 10,
+      "match_score": 18,
       "confidence": "中",
       "mark_type": "B14",
       "sensor_type": "烟雾",
@@ -2529,13 +2533,13 @@
       "area": "中央胶带大巷工作面CH4（T1）_激光甲烷",
       "sysaliasname": "安全监测",
       "coordinates": {
-        "x": 32551574.1065,
-        "y": 4620459.32,
-        "z": 1733.3
+        "x": 32551572.0672,
+        "y": 4620457.8866,
+        "z": 1733.1081
       },
       "line_total_length": 1076.33,
-      "distance_along_line": 0.0,
-      "line_percentage": 0.0
+      "distance_along_line": 2.5,
+      "line_percentage": 0.2
     },
     {
       "id": "YJMDTBMY10121N6049",
@@ -2547,20 +2551,21 @@
       "tunnel_type": "0-普通巷道",
       "coalbed": "0100",
       "match_lcs": 6,
-      "match_score": 12,
+      "match_score": 20,
       "confidence": "中",
       "mark_type": "B16",
       "sensor_type": "工业视频",
       "area": "矿井",
       "sysaliasname": "工业视频",
+      "explicit_distance": 111.0,
       "coordinates": {
-        "x": 32551573.2908,
-        "y": 4620458.7467,
-        "z": 1734.7232
+        "x": 32551483.5165,
+        "y": 4620395.8239,
+        "z": 1726.0846
       },
       "line_total_length": 1076.33,
-      "distance_along_line": 1.0,
-      "line_percentage": 0.1
+      "distance_along_line": 110.97,
+      "line_percentage": 10.3
     },
     {
       "id": "YJMDTBMY10121N6050",
@@ -2572,20 +2577,21 @@
       "tunnel_type": "0-普通巷道",
       "coalbed": "0100",
       "match_lcs": 6,
-      "match_score": 12,
+      "match_score": 20,
       "confidence": "中",
       "mark_type": "B16",
       "sensor_type": "工业视频",
       "area": "矿井",
       "sysaliasname": "工业视频",
+      "explicit_distance": 112.0,
       "coordinates": {
-        "x": 32551572.4751,
-        "y": 4620458.1733,
-        "z": 1734.6464
+        "x": 32551482.699,
+        "y": 4620395.2539,
+        "z": 1726.0027
       },
       "line_total_length": 1076.33,
-      "distance_along_line": 2.0,
-      "line_percentage": 0.2
+      "distance_along_line": 111.97,
+      "line_percentage": 10.4
     },
     {
       "id": "YJMDTBMY1012069",
@@ -2597,12 +2603,13 @@
       "tunnel_type": "0-普通巷道",
       "coalbed": "0100",
       "match_lcs": 5,
-      "match_score": 10,
+      "match_score": 26,
       "confidence": "中",
       "mark_type": "B14",
       "sensor_type": "一氧化碳",
       "area": "辅运联络巷皮带机头 CO_一氧化碳",
       "sysaliasname": "安全监测",
+      "explicit_distance": 0.0,
       "coordinates": {
         "x": 32551516.1416,
         "y": 4620480.4606,
@@ -2622,12 +2629,13 @@
       "tunnel_type": "0-普通巷道",
       "coalbed": "0100",
       "match_lcs": 5,
-      "match_score": 10,
+      "match_score": 26,
       "confidence": "中",
       "mark_type": "B14",
       "sensor_type": "烟雾",
       "area": "辅运联络巷皮带机头 烟雾",
       "sysaliasname": "安全监测",
+      "explicit_distance": 1.0,
       "coordinates": {
         "x": 32551515.3228,
         "y": 4620479.8877,
@@ -2654,13 +2662,13 @@
       "area": "矿井",
       "sysaliasname": "工业视频",
       "coordinates": {
-        "x": 32551514.504,
-        "y": 4620479.3147,
-        "z": 1735.1726
+        "x": 32551516.1416,
+        "y": 4620480.4606,
+        "z": 1735.1
       },
       "line_total_length": 139.42,
-      "distance_along_line": 2.0,
-      "line_percentage": 1.4
+      "distance_along_line": 0.0,
+      "line_percentage": 0.0
     },
     {
       "id": "YJMDTBMY1012071",
@@ -2679,13 +2687,13 @@
       "area": "中央胶带大巷工作面CH4 (T2)_激光甲烷",
       "sysaliasname": "安全监测",
       "coordinates": {
-        "x": 32550832.4487,
-        "y": 4619940.05,
-        "z": 1653.873
+        "x": 32550766.7241,
+        "y": 4619893.923,
+        "z": 1645.6639
       },
       "line_total_length": 1076.33,
-      "distance_along_line": 914.88,
-      "line_percentage": 85.0
+      "distance_along_line": 995.61,
+      "line_percentage": 92.5
     },
     {
       "id": "YJMDTBMY10121N6069",
@@ -2697,20 +2705,21 @@
       "tunnel_type": "0-普通巷道",
       "coalbed": "0100",
       "match_lcs": 6,
-      "match_score": 12,
+      "match_score": 20,
       "confidence": "中",
       "mark_type": "B16",
       "sensor_type": "工业视频",
       "area": "矿井",
       "sysaliasname": "工业视频",
+      "explicit_distance": 111.0,
       "coordinates": {
-        "x": 32550831.6312,
-        "y": 4619939.4781,
-        "z": 1655.3041
+        "x": 32551483.5165,
+        "y": 4620395.8239,
+        "z": 1726.0846
       },
       "line_total_length": 1076.33,
-      "distance_along_line": 915.88,
-      "line_percentage": 85.1
+      "distance_along_line": 110.97,
+      "line_percentage": 10.3
     },
     {
       "id": "YJMDTBMY1012072",
@@ -2786,6 +2795,58 @@
       "line_total_length": 1076.33,
       "distance_along_line": 916.88,
       "line_percentage": 85.2
+    },
+    {
+      "id": "YJMDTBMY1012078",
+      "description": "二号交岔点皮带机头 CO_一氧化碳",
+      "matched": true,
+      "matched_name": "中央辅运大巷",
+      "tunnel_id": "189910C5-A97E-4E0F-A417-18ADBCFDB778",
+      "matched_type": "tunnel",
+      "tunnel_type": "0-普通巷道",
+      "coalbed": "0100",
+      "match_lcs": 0,
+      "match_score": 16,
+      "confidence": "低",
+      "mark_type": "B14",
+      "sensor_type": "一氧化碳",
+      "area": "二号交岔点皮带机头 CO_一氧化碳",
+      "sysaliasname": "安全监测",
+      "explicit_distance": 182.6,
+      "coordinates": {
+        "x": 32551253.5115,
+        "y": 4620295.8487,
+        "z": 1723.2758
+      },
+      "line_total_length": 851.87,
+      "distance_along_line": 182.64,
+      "line_percentage": 21.4
+    },
+    {
+      "id": "YJMDTBMY1012079",
+      "description": "二号交岔点皮带机头 烟雾",
+      "matched": true,
+      "matched_name": "中央辅运大巷",
+      "tunnel_id": "189910C5-A97E-4E0F-A417-18ADBCFDB778",
+      "matched_type": "tunnel",
+      "tunnel_type": "0-普通巷道",
+      "coalbed": "0100",
+      "match_lcs": 0,
+      "match_score": 16,
+      "confidence": "低",
+      "mark_type": "B14",
+      "sensor_type": "烟雾",
+      "area": "二号交岔点皮带机头 烟雾",
+      "sysaliasname": "安全监测",
+      "explicit_distance": 183.6,
+      "coordinates": {
+        "x": 32551252.699,
+        "y": 4620295.2797,
+        "z": 1723.1495
+      },
+      "line_total_length": 851.87,
+      "distance_along_line": 183.64,
+      "line_percentage": 21.6
     },
     {
       "id": "YJMDTBMY101209",
@@ -2989,6 +3050,32 @@
       "line_percentage": 80.0
     },
     {
+      "id": "YJMDTBMY10121N6045",
+      "description": "天宝公司-副斜井二号交岔点",
+      "matched": true,
+      "matched_name": "副斜井",
+      "tunnel_id": "409316B8-ABA2-4248-9F02-38DC2DB96867",
+      "matched_type": "tunnel",
+      "tunnel_type": "14-副斜井",
+      "coalbed": "0100",
+      "match_lcs": 3,
+      "match_score": 18,
+      "confidence": "中",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "area": "矿井",
+      "sysaliasname": "工业视频",
+      "explicit_distance": 15.0,
+      "coordinates": {
+        "x": 32552141.9115,
+        "y": 4620130.7118,
+        "z": 1930.4206
+      },
+      "line_total_length": 750.35,
+      "distance_along_line": 15.01,
+      "line_percentage": 2.0
+    },
+    {
       "id": "YJMDTBMY10121N6080",
       "description": "天宝公司-副斜井防跑车(3)",
       "matched": true,
@@ -3124,20 +3211,21 @@
       "tunnel_type": "17-总回风巷",
       "coalbed": "0100",
       "match_lcs": 6,
-      "match_score": 12,
+      "match_score": 20,
       "confidence": "中",
       "mark_type": "B14",
       "sensor_type": "瓦斯",
       "area": "中央回风大巷掘进工作面CH4 (T1)_激光甲烷",
       "sysaliasname": "安全监测",
+      "explicit_distance": 406.6,
       "coordinates": {
-        "x": 32551459.606,
-        "y": 4620318.1594,
-        "z": 1738.7
+        "x": 32551130.0353,
+        "y": 4620087.3343,
+        "z": 1697.6629
       },
       "line_total_length": 870.43,
-      "distance_along_line": 0.0,
-      "line_percentage": 0.0
+      "distance_along_line": 406.58,
+      "line_percentage": 46.7
     },
     {
       "id": "YJMDTBMY10121N5125",
@@ -3149,20 +3237,21 @@
       "tunnel_type": "17-总回风巷",
       "coalbed": "0100",
       "match_lcs": 6,
-      "match_score": 12,
+      "match_score": 20,
       "confidence": "中",
       "mark_type": "B16",
       "sensor_type": "工业视频",
       "area": "矿井",
       "sysaliasname": "工业视频",
+      "explicit_distance": 407.6,
       "coordinates": {
-        "x": 32551458.7946,
-        "y": 4620317.5915,
-        "z": 1740.0621
+        "x": 32551129.2436,
+        "y": 4620086.78,
+        "z": 1698.9062
       },
       "line_total_length": 870.43,
-      "distance_along_line": 1.0,
-      "line_percentage": 0.1
+      "distance_along_line": 407.58,
+      "line_percentage": 46.8
     },
     {
       "id": "YJMDTBMY10121N5126",
@@ -3174,20 +3263,21 @@
       "tunnel_type": "17-总回风巷",
       "coalbed": "0100",
       "match_lcs": 6,
-      "match_score": 12,
+      "match_score": 20,
       "confidence": "中",
       "mark_type": "B16",
       "sensor_type": "工业视频",
       "area": "矿井",
       "sysaliasname": "工业视频",
+      "explicit_distance": 408.6,
       "coordinates": {
-        "x": 32551457.9831,
-        "y": 4620317.0235,
-        "z": 1739.9242
+        "x": 32551128.4519,
+        "y": 4620086.2256,
+        "z": 1698.6495
       },
       "line_total_length": 870.43,
-      "distance_along_line": 2.0,
-      "line_percentage": 0.2
+      "distance_along_line": 408.58,
+      "line_percentage": 46.9
     },
     {
       "id": "YJMDTBMY1012096",
@@ -4255,72 +4345,6 @@
       "device_code": "103",
       "area": "地面选煤楼103变电室2#接线柜断电状态_断电器",
       "candidates": []
-    },
-    {
-      "id": "YJMDTBMY1012078",
-      "description": "二号交岔点皮带机头 CO_一氧化碳",
-      "mark_type": "B14",
-      "sensor_type": "一氧化碳",
-      "sysaliasname": "安全监测",
-      "reason": "SEMANTIC_CONFLICT",
-      "device_code": null,
-      "area": "二号交岔点皮带机头 CO_一氧化碳",
-      "candidates": [
-        {
-          "name": "机头硐室",
-          "score": 7,
-          "confidence": "拒绝",
-          "tunnel_type": "0-普通巷道",
-          "lcs": 2
-        },
-        {
-          "name": "1105胶带顺槽",
-          "score": 1,
-          "confidence": "拒绝",
-          "tunnel_type": "27-工作面进风巷(胶运顺槽)",
-          "lcs": 1
-        },
-        {
-          "name": "1105回风顺槽",
-          "score": 0,
-          "confidence": "拒绝",
-          "tunnel_type": "26-工作面回风巷(辅运顺槽)",
-          "lcs": 0
-        }
-      ]
-    },
-    {
-      "id": "YJMDTBMY1012079",
-      "description": "二号交岔点皮带机头 烟雾",
-      "mark_type": "B14",
-      "sensor_type": "烟雾",
-      "sysaliasname": "安全监测",
-      "reason": "SEMANTIC_CONFLICT",
-      "device_code": null,
-      "area": "二号交岔点皮带机头 烟雾",
-      "candidates": [
-        {
-          "name": "机头硐室",
-          "score": 7,
-          "confidence": "拒绝",
-          "tunnel_type": "0-普通巷道",
-          "lcs": 2
-        },
-        {
-          "name": "1105胶带顺槽",
-          "score": 1,
-          "confidence": "拒绝",
-          "tunnel_type": "27-工作面进风巷(胶运顺槽)",
-          "lcs": 1
-        },
-        {
-          "name": "1105回风顺槽",
-          "score": 0,
-          "confidence": "拒绝",
-          "tunnel_type": "26-工作面回风巷(辅运顺槽)",
-          "lcs": 0
-        }
-      ]
     },
     {
       "id": "YJMDTBMY10120BL9999",
@@ -7953,39 +7977,6 @@
       ]
     },
     {
-      "id": "YJMDTBMY10121N6045",
-      "description": "天宝公司-副斜井二号交岔点",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "sysaliasname": "工业视频",
-      "reason": "SEMANTIC_CONFLICT",
-      "device_code": null,
-      "area": "矿井",
-      "candidates": [
-        {
-          "name": "副斜井",
-          "score": 10,
-          "confidence": "拒绝",
-          "tunnel_type": "14-副斜井",
-          "lcs": 3
-        },
-        {
-          "name": "主斜井",
-          "score": 7,
-          "confidence": "拒绝",
-          "tunnel_type": "13-主斜井",
-          "lcs": 2
-        },
-        {
-          "name": "回风斜井",
-          "score": 5,
-          "confidence": "拒绝",
-          "tunnel_type": "0-普通巷道",
-          "lcs": 2
-        }
-      ]
-    },
-    {
       "id": "YJMDTBMY10121N6087",
       "description": "信息站监控",
       "mark_type": "B16",
@@ -8354,30 +8345,30 @@
       "mark_type": "B16",
       "sensor_type": "工业视频",
       "sysaliasname": "工业视频",
-      "reason": "SEMANTIC_CONFLICT",
+      "reason": "LOW_LCS",
       "device_code": null,
       "area": "矿井",
       "candidates": [
         {
-          "name": "主斜井机尾联络巷",
-          "score": 4,
-          "confidence": "拒绝",
-          "tunnel_type": "0-普通巷道",
-          "lcs": 2
-        },
-        {
           "name": "机头硐室",
-          "score": 2,
+          "score": 10,
           "confidence": "拒绝",
           "tunnel_type": "0-普通巷道",
           "lcs": 1
         },
         {
-          "name": "胶带石门",
-          "score": 2,
+          "name": "中央辅运大巷",
+          "score": 8,
           "confidence": "拒绝",
           "tunnel_type": "0-普通巷道",
-          "lcs": 1
+          "lcs": 0
+        },
+        {
+          "name": "副斜井",
+          "score": 8,
+          "confidence": "拒绝",
+          "tunnel_type": "14-副斜井",
+          "lcs": 0
         }
       ]
     },
@@ -9138,13 +9129,13 @@
     "mine_name": "窑街煤电天宝煤业",
     "overview": {
       "total_devices": 515,
-      "matched": 145,
-      "unmatched": 370
+      "matched": 148,
+      "unmatched": 367
     },
     "match_summary": {
       "total": 515,
-      "matched": 145,
-      "unmatched": 370,
+      "matched": 148,
+      "unmatched": 367,
       "filtered_by_id": 0,
       "generic_tunnels_skipped": 0,
       "unnamed_tunnels_skipped": 0,
@@ -9152,21 +9143,21 @@
       "suspicious_count": 12,
       "by_confidence": {
         "高": 0,
-        "中": 136,
-        "低": 9
+        "中": 137,
+        "低": 11
       },
       "by_mark_type": {
-        "B14": 79,
-        "B16": 50,
+        "B14": 81,
+        "B16": 51,
         "B15": 16
       },
       "by_sensor_type": {
         "分站": 5,
         "风速": 3,
-        "工业视频": 50,
+        "工业视频": 51,
         "人数": 16,
-        "烟雾": 9,
-        "一氧化碳": 14,
+        "烟雾": 10,
+        "一氧化碳": 15,
         "开停": 11,
         "粉尘": 3,
         "风筒": 4,
@@ -9179,8 +9170,8 @@
       },
       "by_reason": {
         "AREA_SURFACE": 337,
-        "LOW_LCS": 22,
-        "SEMANTIC_CONFLICT": 11
+        "LOW_LCS": 23,
+        "SEMANTIC_CONFLICT": 7
       },
       "generic_tunnel_names": []
     },
@@ -9188,52 +9179,68 @@
       "高": [],
       "中": [
         {
-          "id": "YJMDTBMY10120158",
-          "description": "机头硐室皮带机尾CO_一氧化碳",
-          "matched_name": "机头硐室",
-          "match_score": 13,
+          "id": "YJMDTBMY1012069",
+          "description": "辅运联络巷皮带机头 CO_一氧化碳",
+          "matched_name": "辅运联络巷",
+          "match_score": 26,
           "line_percentage": 0.0
         },
         {
-          "id": "YJMDTBMY10120159",
-          "description": "机头硐室皮带机尾烟雾",
-          "matched_name": "机头硐室",
-          "match_score": 13,
-          "line_percentage": 0.4
+          "id": "YJMDTBMY1012070",
+          "description": "辅运联络巷皮带机头 烟雾",
+          "matched_name": "辅运联络巷",
+          "match_score": 26,
+          "line_percentage": 0.7
         },
         {
-          "id": "YJMDTBMY1012076",
-          "description": "机头硐室皮带机头C O_一氧化碳",
-          "matched_name": "机头硐室",
-          "match_score": 13,
-          "line_percentage": 0.8
+          "id": "YJMDTBMY10120122",
+          "description": "中央回风大巷掘进工作面CH4  (T2)_激光甲烷",
+          "matched_name": "中央回风大巷",
+          "match_score": 20,
+          "line_percentage": 46.7
         }
       ],
       "低": [
+        {
+          "id": "YJMDTBMY1012078",
+          "description": "二号交岔点皮带机头 CO_一氧化碳",
+          "matched_name": "中央辅运大巷",
+          "match_score": 16,
+          "line_percentage": 21.4
+        },
+        {
+          "id": "YJMDTBMY1012079",
+          "description": "二号交岔点皮带机头 烟雾",
+          "matched_name": "中央辅运大巷",
+          "match_score": 16,
+          "line_percentage": 21.6
+        },
         {
           "id": "YJMDTBMY10121N4514",
           "description": "天宝煤业-水源井泵房",
           "matched_name": "主排水泵房",
           "match_score": 6,
           "line_percentage": 10.0
-        },
-        {
-          "id": "YJMDTBMY10121N4513",
-          "description": "天宝煤业-旧生活区增压泵房",
-          "matched_name": "主排水泵房",
-          "match_score": 6,
-          "line_percentage": 11.0
-        },
-        {
-          "id": "YJMDTBMY10120017F00",
-          "description": "轨道石门130分站",
-          "matched_name": "胶带石门",
-          "match_score": 5,
-          "line_percentage": 11.1
         }
       ]
     },
     "low_confidence_samples": [
+      {
+        "id": "YJMDTBMY1012078",
+        "description": "二号交岔点皮带机头 CO_一氧化碳",
+        "matched_name": "中央辅运大巷",
+        "match_score": 16,
+        "match_lcs": 0,
+        "tunnel_type": "0-普通巷道"
+      },
+      {
+        "id": "YJMDTBMY1012079",
+        "description": "二号交岔点皮带机头 烟雾",
+        "matched_name": "中央辅运大巷",
+        "match_score": 16,
+        "match_lcs": 0,
+        "tunnel_type": "0-普通巷道"
+      },
       {
         "id": "YJMDTBMY10121N4514",
         "description": "天宝煤业-水源井泵房",
@@ -9257,34 +9264,18 @@
         "match_score": 5,
         "match_lcs": 2,
         "tunnel_type": "0-普通巷道"
-      },
-      {
-        "id": "YJMDTBMY10121N5190",
-        "description": "天宝公司-轨道石门",
-        "matched_name": "胶带石门",
-        "match_score": 5,
-        "match_lcs": 2,
-        "tunnel_type": "0-普通巷道"
-      },
-      {
-        "id": "YJMDTBMY10121N5133",
-        "description": "天宝公司-回风料场东",
-        "matched_name": "回风斜井",
-        "match_score": 5,
-        "match_lcs": 2,
-        "tunnel_type": "0-普通巷道"
       }
     ],
     "writeback_plan": {
-      "writeback_count": 145,
+      "writeback_count": 148,
       "held_back_count": 0,
       "by_tier": {
         "高": 0,
-        "中": 136,
-        "低": 9
+        "中": 137,
+        "低": 11
       },
       "held_back_reasons": {
-        "LCS过短(≤2)": 9
+        "LCS过短(≤2)": 11
       },
       "include_low_in_writeback": true
     },
@@ -9364,11 +9355,11 @@
       ]
     },
     "unmatched_devices": {
-      "total": 370,
+      "total": 367,
       "by_reason": {
         "AREA_SURFACE": 337,
-        "LOW_LCS": 22,
-        "SEMANTIC_CONFLICT": 11
+        "LOW_LCS": 23,
+        "SEMANTIC_CONFLICT": 7
       },
       "top_10": [
         {
@@ -9448,15 +9439,15 @@
     "sensor_type_match_rate": [
       {
         "sensor_type": "工业视频",
-        "matched": 50,
+        "matched": 51,
         "total": 371,
-        "rate_pct": 13.5
+        "rate_pct": 13.7
       },
       {
         "sensor_type": "一氧化碳",
-        "matched": 14,
+        "matched": 15,
         "total": 23,
-        "rate_pct": 60.9
+        "rate_pct": 65.2
       },
       {
         "sensor_type": "瓦斯",
@@ -9466,9 +9457,9 @@
       },
       {
         "sensor_type": "烟雾",
-        "matched": 9,
+        "matched": 10,
         "total": 18,
-        "rate_pct": 50.0
+        "rate_pct": 55.6
       },
       {
         "sensor_type": "人数",
@@ -9545,11 +9536,11 @@
     ],
     "spatial_distribution": {
       "buckets": {
-        "0-20%": 101,
-        "20-40%": 3,
-        "40-60%": 11,
+        "0-20%": 98,
+        "20-40%": 5,
+        "40-60%": 18,
         "60-80%": 1,
-        "80-100%": 29
+        "80-100%": 26
       },
       "coordinate_range": {
         "x": [
@@ -9568,20 +9559,20 @@
     },
     "tunnel_density": [
       {
+        "name": "副斜井",
+        "count": 28
+      },
+      {
         "name": "中央回风大巷",
         "count": 28
       },
       {
-        "name": "副斜井",
-        "count": 27
+        "name": "中央辅运大巷",
+        "count": 18
       },
       {
         "name": "中央胶带大巷",
         "count": 17
-      },
-      {
-        "name": "中央辅运大巷",
-        "count": 16
       },
       {
         "name": "主斜井",
