@@ -6,15 +6,28 @@
 
 ## 一、自然语言调用（向 Claude 发出请求）
 
-### 标准两阶段流程（推荐）
+### ⚠️ 严格两阶段流程（默认）
 
+用户触发词：
 ```
 设备定位 F15795450
 定位 F09795450
-跑一下 locator F18795450
+locator F18795450
 ```
 
-触发两阶段交互：Phase 1 拉数据 → 展示分析报告 → 等确认 → Phase 2 匹配 → 展示汇总 → 等确认 → 回写
+Claude **必须**按以下流程执行，**严禁**自动跳过确认环节：
+
+**阶段 1 — 数据获取 + 分析审查：**
+1. 获取 Token + mineName（bw-token-manager）
+2. 拉取 8373 数据（bw-strategy-api-caller）
+3. 运行 `--analyze` 展示分析报告
+4. **STOP — 等待用户明确确认**（如"确认"、"继续"、"匹配"）
+
+**阶段 2 — 匹配定位 + 回写（用户确认后）：**
+5. 运行 `--match-only` 执行匹配
+6. 展示匹配汇总 + 回写计划
+7. **STOP — 等待用户明确确认回写**（如"确认回写"、"回写"、"确定"）
+8. 运行 `--writeback` 回写 8385
 
 ### 指定设备数据文件
 
@@ -23,7 +36,9 @@
 设备定位 F09795450 data/test/test_locator.json
 ```
 
-### 快捷跳过（一步到位）
+仍按两阶段流程执行（阶段1分析 → 等确认 → 阶段2匹配 → 等确认 → 回写）。
+
+### 快捷跳过（用户明确说"不用确认"时才使用）
 
 ```
 直接跑设备定位 F15795450
@@ -31,7 +46,7 @@
 不用确认，直接定位 F18795450
 ```
 
-跳过审查环节，自动完成匹配+回写
+仅当用户**明确说**上述关键词时，才跳过阶段间的确认等待。否则必须严格执行两阶段流程。
 
 ### 只匹配不回写
 
@@ -39,6 +54,8 @@
 设备定位 F09795450 --match-only
 定位 F15795450 --match-only
 ```
+
+运行匹配后展示汇总，**等待用户确认后再单独回写**。
 
 ### 指定输出模式
 
@@ -55,6 +72,8 @@
 分析 8373 数据 data/output/data_8373_济矿阳城分公司.json
 分析定位数据 data/output/data_8373_山西保安煤业.json
 ```
+
+分析输出包含：设备/巷道/工作面统计、mark_type/sensor_type 分布、地面/井下拆分、**CAD 数据分析**（标注点分类、路标覆盖、噪声占比）、originData 覆盖风险提示。
 
 ### 从已有结果回写
 
@@ -74,13 +93,34 @@
 
 ## 二、命令行直接调用
 
-### 完整流程（匹配+回写一步）
+### 两阶段分离（推荐，严格按阶段执行）
 
+**阶段 1 — 分析（等用户确认后再进阶段 2）：**
 ```bash
-python skill/bw-mine-equipment-locator/scripts/locator.py <username>
+python skill/bw-mine-equipment-locator/scripts/locator.py <username> \
+  --load data/output/data_8373_<mineName>.json --analyze
 ```
 
-自动：获取 token → 拉 8373 → 匹配 → 过滤低置信度 → 回写 8385
+**阶段 2 — 匹配（用户确认后执行）：**
+```bash
+python skill/bw-mine-equipment-locator/scripts/locator.py <username> \
+  --load data/output/data_8373_<mineName>.json --match-only
+```
+
+**回写（用户确认匹配结果后执行）：**
+```bash
+python skill/bw-mine-equipment-locator/scripts/locator.py <username> \
+  --writeback data/output/locator_result_<username>_<mineName>.json
+```
+
+### 一步到位（跳过确认，仅用于脚本/CI）
+
+```bash
+python skill/bw-mine-equipment-locator/scripts/locator.py <username> \
+  --load data/output/data_8373_<mineName>.json --yes
+```
+
+⚠️ `--yes` 是唯一跳过确认的方式。交互式场景严禁自动使用。
 
 ### 指定本地数据（不调 API）
 
@@ -188,12 +228,22 @@ python data/output/generate_cesium_html.py \
 
 ---
 
-## 四、触发词速查表
+## 四、平台行为约束（openclaw 等 Skill 平台）
+
+当本 skill 在 openclaw 等平台上被触发时，Claude **必须**严格遵守以下约束：
+
+1. **阶段 1 必须 STOP**：拉取 8373 数据并运行 `--analyze` 后，展示分析报告给用户，**必须等待用户明确回复**"确认"/"继续"/"匹配"后才进入阶段 2。
+2. **阶段 2 必须 STOP**：运行 `--match-only` 后，展示匹配汇总 + 回写计划给用户，**必须等待用户明确回复**"确认回写"/"回写"/"确定"后才执行 `--writeback`。
+3. **严禁自动推进**：除非用户明确说"直接跑"、"不用确认"、"自动跑完"等快捷跳过关键词，否则不得自动执行匹配或回写。
+4. **`--analyze` 不是可选步骤**：阶段 1 必须执行 `--analyze` 并展示完整报告（含 CAD 数据分析、originData 覆盖风险提示），不能只拉数据不分析。
+5. **每次调用独立**：前一次用户说"直接跑"不影响下一次调用，每次触发默认执行两阶段流程。
+
+## 五、触发词速查表
 
 | 意图 | 关键词 |
 |------|--------|
 | 定位设备 | `定位`、`设备定位`、`locator` + `F\d+` 用户名 |
-| 快捷执行 | `直接跑`、`自动跑完`、`不用确认` |
+| 快捷执行（跳过确认） | `直接跑`、`自动跑完`、`不用确认` |
 | 仅匹配 | `--match-only` |
 | 仅分析 | `分析`、`--analyze` |
 | 回写结果 | `回写`、`--writeback` |

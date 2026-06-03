@@ -1,6 +1,6 @@
 ﻿---
 name: bw-mine-equipment-locator
-description: 煤矿设备定位技能。根据设备描述（description）匹配到对应巷道或工作面，再从巷道/工作面的折线（line）坐标中计算得出设备 (x, y, z) 坐标。当用户提到"设备定位"、"计算设备坐标"、"匹配设备到巷道"、"调用定位流程"或直接提供一个 username（如 F18795450）要求定位设备时触发。只需用户提供 username，矿井名称由 bw-token-manager 自动获取，无需用户输入。采用交互式流程：locator.py <username> 一条命令自动完成数据拉取、匹配、展示报告，等待用户确认后回写。低置信度匹配默认回写但报告给用户。系统生成巷道名称（巷道NNN及纯数字名）自动从候选池排除。
+description: 煤矿设备定位技能——严格两阶段交互式流程。**阶段1**：获取 Token + 拉取 8373 数据 + 展示分析报告 → **必须等待用户明确确认** → **阶段2**：执行匹配 + 展示匹配汇总 → **必须等待用户明确确认** → 回写 8385。严禁在阶段1自动进入阶段2。当用户提到"设备定位"、"计算设备坐标"、"匹配设备到巷道"、"调用定位流程"或直接提供 username（如 F18795450）时触发。只需用户提供 username，矿井名称由 bw-token-manager 自动获取。低置信度匹配默认回写但 stderr 报告给用户。系统生成巷道名称（巷道NNN及纯数字名）自动从候选池排除。
 ---
 
 # 煤矿设备定位
@@ -15,6 +15,8 @@ description: 煤矿设备定位技能。根据设备描述（description）匹�
     ▼
 ┌─ ★ 阶段 1: 数据获取 + 分析审查 ★ ─────────────────────┐
 │                                                         │
+│ 【此阶段必须完整执行，展示报告后 STOP 等待用户确认】     │
+│                                                         │
 │ Step 1: 获取 Token + mineName  ← bw-token-manager       │
 │     │                                                   │
 │     ▼                                                   │
@@ -27,20 +29,25 @@ description: 煤矿设备定位技能。根据设备描述（description）匹�
 │     │    （必须到上游修复重复 ID 后才能继续）            │
 │     │  · 空 description → 跳过                           │
 │     ▼                                                   │
-│ Claude 分析数据质量:                                     │
+│ Claude 分析数据质量并展示报告:                           │
 │   · 设备/巷道/工作面总数                                 │
 │   · mark_type 分布 (B14/B15/B16)                        │
 │   · sensor_type 分布                                    │
 │   · 系统命名巷道 vs 具名巷道 (⚠ 将被排除)               │
 │   · 地面 vs 井下设备                                    │
+│   · CAD 数据分析: 标注点总数/图纸/路标分类/噪声占比     │
 │   · ⚠ 原始 8385 数据醒目展示:                           │
 │     已有标注设备数 / 已有坐标数 (覆盖范围)               │
 │     │                                                   │
-│     ▼ 等用户确认 ▼                                      │
+│     ▼ ⛔ STOP — 必须等待用户确认 ⛔ ▼                    │
+│       用户说"确认"/"继续"/"匹配" → 进入阶段 2          │
+│       用户说"取消"/"不跑了" → 终止流程                 │
 └─────────────────────────────────────────────────────────┘
     │ (用户确认)
     ▼
 ┌─ ★ 阶段 2: 匹配定位 + 回写 ★ ──────────────────────────┐
+│                                                         │
+│ 【此阶段必须完整执行，展示汇总后 STOP 等待用户确认回写】 │
 │                                                         │
 │ Step 3: 匹配设备 description → 巷道/工作面               │
 │     · 系统巷道(巷道NNN/纯数字名)从候选池排除            │
@@ -52,42 +59,96 @@ description: 煤矿设备定位技能。根据设备描述（description）匹�
 │     · LCS（最长公共子串）匹配                            │
 │     · 坐标计算（几何中心 / 迎头 / 回风流）               │
 │     │                                                   │
-│     ▼ 展示匹配汇总 + 回写计划 → 等用户确认 ▼            │
+│     ▼                                                   │
+│ Claude 展示匹配汇总 + 回写计划:                          │
 │       · 匹配置信度分布 (高/中/低)                        │
-│       · 回写计划: 待回写 N (高+中) / 暂缓 M (低)       │
-│       · 暂缓回写样本 Top 5 (含 score/lcs/描述)          │
+│       · 回写计划: 待回写 N 条（含低置信度警告）          │
+│       · 低置信度样本 Top 5 (含 score/lcs/描述) ⚠        │
 │       · 审查摘要 (高/中风险匹配数及类型)                 │
 │       · ⚠ **醒目提示覆盖风险**: 原始 8385 数据条数      │
+│     │                                                   │
+│     ▼ ⛔ STOP — 必须等待用户确认回写 ⛔ ▼                │
+│       用户说"确认回写"/"回写"/"确定" → 执行 Step 4      │
+│       用户说"取消"/"不回写" → 终止流程                  │
 │                                                         │
 │ Step 4: 回写定位结果到策略 8385  ← bw-strategy-api-caller │
-│     · _filter_low_confidence() 过滤低置信度              │
-│     · 仅 高+中 置信度写入 8385（宁缺毋滥）              │
-│     · 低置信度保留在结果文件供审计                      │
-│     · stderr 输出: 待回写 N 条 | 暂缓 M 条              │
+│     · _filter_low_confidence(include_low=True)          │
+│     · 全部置信度结果写入 8385（低置信度带警告）         │
+│     · stderr 输出低置信度数量                           │
 │     │                                                   │
 │     ▼                                                   │
 │ 输出 JSON（每个设备的 matched_name + coordinates）       │
-│   summary 含 generic_tunnels_skipped 字段               │
+│   summary 含 generic_tunnels_skipped / landmark_count   │
 │   report 含 writeback_plan / low_confidence_samples     │
 │   warnings 含 generic_tunnels_excluded 条目              │
+│                                                         │
+│ 【两阶段硬约束】                                        │
+│   · 默认禁止一步完成匹配+回写（强制分步执行）           │
+│   · 不加 --match-only 且不加 --yes 时直接报错退出       │
+│   · 只有显式 --yes 才能绕过（用于自动化/CI）            │
 └─────────────────────────────────────────────────────────┘
 ```
 
-## 快速开始
+## 快速开始（两阶段严格分离）
+
+**阶段 1：数据获取 + 分析审查（必须先完成，等用户确认）**
 
 ```bash
 cd F:/gis/Point
 
-# ★ 推荐方式：一键运行（内部自动获取 mineName，无需用户提供）
-python skill/bw-mine-equipment-locator/scripts/locator.py <username>
+# Step 1: 获取 Token + mineName
+python skill/bw-token-manager/scripts/bw_token_manager.py <username>
 
-# 如果需分步查看中间结果（不推荐，仅用于调试）：
-python skill/bw-mine-equipment-locator/scripts/locator.py <username>
-# → 内部自动完成：获取token → 获取mineName → 拉取8373数据 → 匹配 → 展示报告
-# → 等用户确认后执行回写（仅高+中置信度）
+# Step 2: 拉取 8373 数据
+python skill/bw-strategy-api-caller/scripts/strategy_api.py get_json \
+  --id 8373 --param "MineName=<mineName>" --username <username>
 
-# 审计模式：查看高风险/中风险匹配列表
-python skill/bw-mine-equipment-locator/scripts/locator.py <username> --match-only --output-mode audit
+# Step 2.5: 分析数据（展示报告，等用户确认后再进入阶段 2）
+python skill/bw-mine-equipment-locator/scripts/locator.py <username> \
+  --load data/output/data_8373_<mineName>.json --analyze
+```
+
+**→ 展示分析报告给用户，必须等待用户明确回复"确认"/"继续"/"匹配"后才进入阶段 2**
+
+**阶段 2：匹配定位 + 回写（用户确认后执行）**
+
+```bash
+# Step 3: 仅匹配不回写
+python skill/bw-mine-equipment-locator/scripts/locator.py <username> \
+  --load data/output/data_8373_<mineName>.json --match-only
+```
+
+**→ 展示匹配汇总 + 回写计划给用户，必须等待用户明确回复"确认回写"/"回写"/"确定"后才执行 Step 4**
+
+```bash
+# Step 4: 单独回写（用户确认后执行）
+python skill/bw-mine-equipment-locator/scripts/locator.py <username> \
+  --writeback data/output/locator_result_<username>_<mineName>.json
+```
+
+---
+
+## 命令行直接调用（适用于脚本/CI）
+
+### 完整流程（匹配+回写一步，跳过确认）
+
+```bash
+python skill/bw-mine-equipment-locator/scripts/locator.py <username> \
+  --load data/output/data_8373_<mineName>.json --yes
+```
+
+### 仅匹配不回写
+
+```bash
+python skill/bw-mine-equipment-locator/scripts/locator.py <username> \
+  --load data/output/data_8373_<mineName>.json --match-only
+```
+
+### 审计模式
+
+```bash
+python skill/bw-mine-equipment-locator/scripts/locator.py <username> \
+  --load data/output/data_8373_<mineName>.json --match-only --output-mode audit
 ```
 
 ### 输出示例
@@ -214,10 +275,12 @@ python skill/bw-mine-equipment-locator/scripts/locator.py <username> --match-onl
 
 ```
 score = round(LCS_长度(别名扩展后) × 10 / 候选名长度)
+      + 8  if  设备描述匹配到该巷道的 CAD 路标（含组合路标部分匹配、T标识路标传感器部分匹配）
       + 2  if  sensor_type 命中候选名巷道偏好且 LCS≥2
       + 5  if  device_code 在候选名内(精确匹配，通用前缀仅+1)
       + 3  if  device_code 是候选名中数字编码的前缀(前缀模糊匹配)
       + 3  if  候选 tunnelId 含 device_code  (workface 关联)
+      + 3  if  "总回风" in 描述且 "回风" in 候选名
       + n  巷道类型匹配关键词加分(见 6)
       - 1  coalbed 不一致
       - 10 _LOCATION_SEMANTICS 语义冲突
@@ -356,10 +419,10 @@ score = round(LCS_长度(别名扩展后) × 10 / 候选名长度)
 |-------|------|------------|----------|
 | EXACT (1) | 编码精确命中(非通用前缀) 且 lcs≥1 | 高 | 写入 8385 |
 | LCS_PREF (2) | (前缀模糊命中 或 score≥5) **且 LCS≥2** | 中 | 写入 8385 |
-| LOW (3) | score≥2 但无编码/前缀命中 | 低 | **暂缓**（宁缺毋滥） |
+| LOW (3) | score≥2 但无编码/前缀命中 | 低 | **写入 8385（带警告）** |
 | REJECT (4) | score<2 或 硬性语义冲突 | 极低 | 不匹配 |
 
-**宁缺毋滥**: `_filter_low_confidence()` 在回写前过滤低置信度匹配。仅 高+中 写入 8385，低置信度保留在结果文件供审计。`_classify_low_confidence_reasons()` 按原因分类统计暂缓项。
+**低置信度回写**: `_filter_low_confidence(results, include_low=True)` 将全部结果（高/中/低）标记为待回写。stderr 会醒目提示低置信度数量（如"含 11 条低置信度 ⚠"），用户可在确认环节取消。低置信度样本在 JSON 报告中保留供审计。此行为与早期版本（仅高+中回写）不同。
 
 ### 10. 未匹配拒绝原因
 
@@ -394,22 +457,38 @@ score = round(LCS_长度(别名扩展后) × 10 / 候选名长度)
 | `generic_tunnels_excluded` | 系统生成巷道名称(如"巷道136")已被排除，含 `count` 和 `message` |
 | `unnamed_tunnels_excluded` | name 为空的巷道已从候选池跳过，含 `count` 和 `message` |
 
-### 13. 回写计划与低置信度过滤
+### 13. 回写计划与低置信度
 
-`_filter_low_confidence()` (locator.py:613) — 回写 8385 前拆分结果：
+`_filter_low_confidence(results, include_low=True)` — 回写 8385 前标记全部结果为待回写：
 
-- **待回写**: 高 + 中置信度 → 发送到 8385 API
-- **暂缓回写**: 低置信度 → 保留在结果文件，不写入 8385（宁缺毋滥）
-
-`_classify_low_confidence_reasons()` — 按原因分类暂缓项（LCS过短/编码不在候选名中/无编码仅LCS）。
+- **待回写**: 高 + 中 + 低置信度 → 全部发送到 8385 API
+- 低置信度在 stderr 中以 ⚠ 醒目提示，用户可在确认环节取消
+- 低置信度样本保留在结果文件和 JSON 报告中供审计
 
 stderr 新增区块：
-- **`【回写计划】`**: 待回写 N (高=A, 中=B) | 暂缓 M + 原因分布
-- **`【暂缓回写样本】`**: Top 5 暂缓项 (score/lcs/描述)
+- **`【回写计划】`**: 待回写 N 条（高=A, 中=B, 低=C ⚠）
+- **`【低置信度样本】`**: Top 5 低置信度项 (score/lcs/描述)
 
-JSON 报告新增字段：
-- `report.writeback_plan`: `{ writeback_count, held_back_count, by_tier, held_back_reasons }`
+JSON 报告字段：
+- `report.writeback_plan`: `{ writeback_count, by_tier }`
 - `report.low_confidence_samples`: Top 5 低置信度匹配样本
+
+### 13b. CAD 路标定位增强
+
+当 8373 数据包含 `cadData`（CAD 图纸标注点）时，`--analyze` 模式输出完整的 CAD 数据分析：
+
+- **标注点分类统计**: 纯数字(高程)/坐标标注/噪声(阈值/图签)/有效路标 占比
+- **路标覆盖**: 有效路标总数及覆盖巷道数
+- **内容分类明细**: 传感器标注/安装地点/巷道名/分站/硐室/设备 Top 5
+- `_build_landmarks()` 过滤噪声后计算投影比例，但**传感器位置标注**（CH4/CO/风筒/烟雾/T1/T2等）**不再被过滤**，`_TUNNEL_KWS` 放行传感器标注进入路标表；**安装地点标签**从路标表排除
+- `_find_landmark_ratio()` 返回 `(ratio, matched_name)` 元组，将设备描述匹配到 CAD 路标位置实现精确定位：
+  - **归一化**: 全角括号→半角、移除空格、去除末尾标点（`CH4（T1)` ↔ `CH4 (T1)`）
+  - **组合路标拆分**: `CO、烟雾` 中的 `CO` 可匹配 `总回风CO`
+  - **T 标识路标传感器部分匹配**: `CH4` 可匹配 `CH4(T2)` 路标（无 T 设备允许匹配传感器部分）
+  - **T 标识精确过滤**: 设备有 T 标识时，优先匹配含对应 T 的路标；无对应 T 路标时**回退**到不含 T 的路标
+  - **端点优先**: 同路标多个标注点长度相同时，优先选择更靠近端点的
+  - 匹配结果 JSON 中自动带上 `_landmark_cad_id` 字段（CAD 标注的原始 ID）
+- `_group_sensor_fragments()` 将打散标注点聚合成完整传感器标识（如 "CH" + "4" → "CH4"）
 
 ## 坐标计算
 
@@ -433,8 +512,14 @@ group_key = (matched_name, keyword)
 ### 14. 区间确定优先级 (`_assign_distances`,locator.py:578-682)
 
 ```
-T 标识规则 > 巷道类型×sensor_type 规则 > AQ1029 距离规则 > 关键词区间 > sensor_type 默认百分比
+CAD 路标定位 > T 标识规则 > 巷道类型×sensor_type 规则 > AQ1029 距离规则 > 关键词区间 > sensor_type 默认百分比
 ```
+
+**CAD 路标定位优先级说明**:
+- 设备描述匹配到巷道上的 CAD 路标时，直接使用路标的投影比例定位（最精确）
+- T 标识设备（T1/T2/T0/T4）不再完全跳过路标定位，而是要求路标名**精确包含**对应 T 标识
+- 无 T 标识设备允许匹配 T 标识路标的**传感器部分**（如 `CH4` 匹配 `CH4(T2)` 路标）
+- 路标匹配失败时回退到 T 标识规则或默认区间
 
 #### 14a. T 标识区间 (`_T_POSITION_RULES`,locator.py:255-262)
 
@@ -572,9 +657,12 @@ T 标识规则 > 巷道类型×sensor_type 规则 > AQ1029 距离规则 > 关键
 - JSON 结果输出（summary 含 `generic_tunnels_skipped`/`unnamed_tunnels_skipped`）
 - 自动审计摘要 — 每次匹配后输出高风险/中风险匹配统计
 - `--output-mode audit` — 输出完整审计报告
-- **宁缺毋滥过滤** (`_filter_low_confidence`) — 回写 8385 前自动过滤低置信度，仅高+中写入
-- **暂缓原因分类** (`_classify_low_confidence_reasons`) — 按 LCS过短/编码不在候选名中 分类
-- stderr 回写计划区块: `【回写计划】` + `【暂缓回写样本】`
+- **低置信度包含回写** (`_filter_low_confidence(include_low=True)`) — 全部置信度结果写入 8385，stderr 醒目提示低置信度数量
+- **低置信度样本展示** — Top 5 低置信度匹配样本(score/lcs/描述)
+- stderr 回写计划区块: `【回写计划】` + `【低置信度样本】`
 - JSON 报告含 `writeback_plan` + `low_confidence_samples`
+- **CAD 数据分析** (`--analyze`) — 路标分类统计(噪声/有效/传感器/安装地点等)、路标覆盖(总数/巷道数)
+- **CAD 路标统计** — 匹配汇总报告中展示 CAD 路标覆盖情况(总数/巷道数)及通过路标精确定位的设备数
+- **两阶段流程硬约束** — 默认禁止一步完成匹配+回写，不加 `--match-only` 且不加 `--yes` 时报错退出，强制分步执行
 
-**Step 4（回写 8385）已内置在 locator.py 末尾**，匹配计算完成后自动调用 `strategy_api.py execute` 回写结果。仅高+中置信度写入。stderr 会打印待回写/暂缓统计及回写状态码。详见 CLAUDE.md。
+**Step 4（回写 8385）已内置在 locator.py 末尾**，匹配计算完成后自动调用 `strategy_api.py execute` 回写结果。`include_low=True` 全部置信度结果（高/中/低）均写入，stderr 醒目提示低置信度数量，用户可在确认环节取消。详见 CLAUDE.md。

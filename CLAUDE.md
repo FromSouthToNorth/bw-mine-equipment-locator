@@ -108,10 +108,12 @@ python skill/bw-mine-equipment-locator/scripts/locator.py TESTUSER \
 ### 数据分析（不执行匹配）
 
 ```bash
-# 分析已拉取的 8373 数据结构
+# 分析已拉取的 8373 数据结构（含设备/巷道/工作面/CAD 数据）
 python skill/bw-mine-equipment-locator/scripts/locator.py TESTUSER \
   --analyze data/output/data_8373_<mineName>.json
 ```
+
+分析输出包含：设备/巷道/工作面总数、mark_type/sensor_type 分布、系统命名巷道 vs 具名巷道、地面 vs 井下拆分、**CAD 数据分析**（标注点分类统计、路标覆盖、噪声/有效路标占比）、originData 覆盖风险提示。
 
 ### 分步回写（从已有结果文件）
 
@@ -154,12 +156,18 @@ Claude 采用**两阶段交互流程**，不直接一键执行：
 
 | 用户说 | Claude 行为 |
 |--------|-------------|
-| `设备定位 F09795450` | 阶段 1：拉 8373 数据 → 展示分析报告 → 等确认 → 阶段 2：匹配+回写 |
-| `定位 F18795450` | 同上 |
+| `设备定位 F09795450` | **阶段 1**：拉 8373 数据 → `--analyze` 展示分析报告 → **STOP 等用户确认** → **阶段 2**：`--match-only` 匹配 → 展示汇总 → **STOP 等用户确认回写** → `--writeback` 回写 |
+| `定位 F18795450` | 同上（严格执行两阶段，每阶段后 STOP 等待确认） |
 | `跑一下 locator F09795450` | 同上 |
 | `设备定位 F09795450 evals/devices.json` | 使用本地设备文件，其余同上 |
 
 触发关键词：`定位`、`设备定位`、`locator` + 用户名（`F\d+` 格式）
+
+**⚠️ 平台约束（openclaw 等 Skill 平台）**：
+- **阶段 1 必须 STOP**：拉取 8373 数据后运行 `--analyze` 展示分析报告，**严禁自动进入阶段 2**，必须等待用户明确回复"确认"/"继续"/"匹配"。
+- **阶段 2 必须 STOP**：运行 `--match-only` 展示匹配汇总后，**严禁自动回写**，必须等待用户明确回复"确认回写"/"回写"/"确定"。
+- **每次调用独立**：前一次用户说"直接跑"不影响下一次调用，每次触发默认执行两阶段流程。
+- **`--analyze` 不是可选步骤**：阶段 1 必须执行 `--analyze` 并展示完整报告（含 CAD 数据分析、originData 覆盖风险提示）。
 
 **快捷跳过**：若用户明确说"直接跑"、"不用确认"、"自动跑完"，可跳过审查直接走完整流程。脚本层面有 `--yes` 可绕过确认提示：
 
@@ -185,7 +193,7 @@ python skill/bw-strategy-api-caller/scripts/strategy_api.py get_json \
   --id 8373 --param "MineName=<mineName>" --username <username>
 ```
 
-Claude 展示分析报告（设备数、巷道数、mark_type/sensor_type/area 分布、**系统命名巷道占比**、**无名巷道数**、地面/井下拆分），**等用户确认后**继续。
+Claude 执行 `--analyze` 展示完整分析报告（设备数、巷道数、mark_type/sensor_type/area 分布、**系统命名巷道占比**、**无名巷道数**、地面/井下拆分、**CAD 数据分析**），**等用户确认后**继续。
 
 > **⚠️ 原始 8385 数据醒目展示**：分析报告中必须将 `originData`（当前 8385 已有标注数据）放在报告显著位置，使用 ⚠️ 标记、**粗体**、边框线等方式醒目体现已有设备总数和已有坐标数，让用户一眼看到本次操作会覆盖的数据范围。
 
@@ -202,7 +210,8 @@ python skill/bw-mine-equipment-locator/scripts/locator.py <username> \
 
 Claude 应明确展示：
 - 匹配率、置信度分布（高/中/低）、未匹配原因分布
-- **回写计划**：待回写 N 条（含低置信度警告）、暂缓 M 条
+- **CAD 路标统计**：路标总数 / 覆盖巷道数 / 通过路标精确定位的设备数
+- **回写计划**：待回写 N 条（含低置信度数量警告）
 - 审查摘要（高/中风险匹配数）
 
 **重要**：locator 不会给重复 ID 加 `_1`、`_2` 后缀来回写。上游数据有重复 ID 时必须先到 BW-MES 后台清理。
@@ -260,10 +269,10 @@ options:
   --output-mode MODE    输出模式: full=完整结果(默认), summary=仅汇总,
                         unmatched=仅未匹配(含候选), json-summary=汇总JSON,
                         audit=审计报告(含风险匹配列表)
-  --analyze PATH        分析 8373 数据文件的结构化报告（仅分析，不匹配退出）
+  --analyze PATH        分析 8373 数据文件的结构化报告（含 CAD 数据分析，仅分析退出）
   --html MODE           CesiumJS 可视化: auto=自动, always=强制, never=跳过
   -y, --yes             跳过回写前的覆盖确认提示（用于脚本自动化）
-  --match-only          仅匹配不回写（展示汇总后等用户确认，再单独 --writeback）
+  --match-only          仅匹配不回写（阶段 1 必需标记。展示汇总后等用户确认，再单独 --writeback）
   --writeback RESULT_JSON  从已保存的结果文件回写 8385，不重复匹配
   --device-ids IDS      只匹配指定的设备 ID（逗号分隔），如 ID1,ID2,ID3
   --device-ids-file PATH  从文件读取设备 ID 列表（JSON 数组 / 逗号分隔 /
@@ -314,6 +323,7 @@ options:
     │                                         │
     │ Claude 展示匹配汇总:                     │
     │   匹配率 / 置信度分布 / 未匹配原因        │
+    │   **CAD 路标统计**: 路标数/巷道数/定位设备数│
     │   **回写计划**（自动输出到 stderr）:       │
     │     待回写: N 条 (含低置信度警告)         │
     │   **审查摘要**:                           │
@@ -385,7 +395,13 @@ python skill/bw-mine-equipment-locator/scripts/locator.py <username> \
 4. **候选来源**（均来自 8373，已排除系统命名巷道）：
    - `tunnels` 数组中的 `name`（主候选，仅具名巷道）
    - `workfaces` 数组中的 `workFaceName`（补充候选）
-5. **可选：CAD 路标定位** — 若数据含 `cadData`，`_build_landmarks`（locator.py:1814）从 CAD 标注构建路标表，`_find_landmark_ratio`（locator.py:1992）将设备描述匹配到 CAD 路标位置，用于精确定位
+5. **可选：CAD 路标定位** — 若数据含 `cadData`：
+   - `_build_landmarks`（locator.py:1814）从 CAD 标注构建路标表，传感器位置标注（CH4/CO/风筒/烟雾等）不再被 `_NOISE_CONTENTS` 过滤，`_TUNNEL_KWS` 放行传感器标注进入路标表；**安装地点标签**（"安装地点：XXX"）从路标表排除
+   - `_find_landmark_ratio`（locator.py:1992）返回 `(ratio, matched_name)` 元组：支持括号/空格/末尾标点归一化（`CH4（T1)` ↔ `CH4 (T1)`）、组合路标部分匹配（`CO、烟雾` 中的 `CO` 匹配 `总回风CO`）、T 标识路标传感器部分匹配（`CH4` 匹配 `CH4(T2)`）
+   - **T 标识精确匹配**：有 T 标识时优先匹配含对应 T 的路标；无对应 T 路标时**回退**到不含 T 的路标（如 `CH4(T2)` 设备回退匹配 `CH4` 路标）
+   - **端点优先**：同路标多个标注点长度相同时，优先选择**更靠近端点**的
+   - 结果 JSON 中自动带上 `_landmark_cad_id` 字段（CAD 标注的原始 ID）
+   - 用于精确定位，替代默认区间分配
 6. 按[坐标计算](#坐标计算)规则计算 (x, y, z)
 7. **Claude 展示匹配汇总后必须等用户确认**，再进入 Step 4
 
@@ -419,7 +435,14 @@ python skill/bw-mine-equipment-locator/scripts/locator.py <username> \
   --load data/output/data_8373_<mineName>.json --yes
 ```
 
-> 不加 `--yes` 时，即使不加 `--match-only`，脚本也会交互式提示确认回写。`--yes` 唯一用途是自动化/CI 跳过确认。
+> **两阶段流程硬约束**：locator.py 默认禁止一步完成匹配+回写。当同时满足以下条件时直接报错退出：
+> - 传入了 `--load` 参数（从文件加载数据）
+> - **没有** `--match-only`（阶段 1 未标记）
+> - **没有** `--yes`（未显式跳过确认）
+>
+> 报错信息会提示正确的分步命令：先 `--match-only` 匹配 → 等确认 → 再 `--writeback` 回写。
+>
+> `--yes` 是显式跳过确认的唯一方式，仅用于自动化/CI。不加 `--yes` 时 locator.py 会在回写前交互式提示确认。
 
 ---
 
@@ -600,10 +623,12 @@ locator.py 启动时自动探测可用解释器，按优先级：
 
 ```
 score = round(LCS_长度(别名扩展后) × 10 / 候选名长度)
+      + 8  if  设备描述匹配到该巷道的 CAD 路标（含组合路标部分匹配、T标识路标传感器部分匹配）
       + 2  if  sensor_type 命中候选名巷道偏好且 LCS≥2
       + 5  if  device_code 在候选名内(精确匹配，通用前缀仅+1)
       + 3  if  device_code 是候选名中数字编码的前缀(前缀模糊匹配)
       + 3  if  候选 tunnelId 含 device_code(workface 关联)
+      + 3  if  "总回风" in 描述且 "回风" in 候选名
       + n  巷道类型匹配关键词加分
       - 1  coalbed 不一致
       - 10 _LOCATION_SEMANTICS 语义冲突
@@ -825,8 +850,18 @@ score = round(LCS_长度(别名扩展后) × 10 / 候选名长度)
 当 8373 数据包含 `cadData`（CAD 图纸标注点）时，locator.py 启用路标定位增强：
 
 1. **`_group_sensor_fragments`**（locator.py:1670）：将相邻 CAD 标注点聚合成完整传感器标识（如 "CH" + "4" → "CH4"，"T" + "CO" → "TCO"）
-2. **`_build_landmarks`**（locator.py:1814）：过滤噪声（高程数字、图签文字、报警阈值等），计算每个有意义标注点到最近巷道折线的投影比例，构建 `{tunnel_name: {landmark_name: ratio}}` 路标表
-3. **`_find_landmark_ratio`**（locator.py:1992）：设备描述匹配路标名称时，返回该路标在巷道上的投影比例，替代默认区间分配，实现更精确的定位
+2. **`_build_landmarks`**（locator.py:1814）：
+   - 过滤噪声（高程数字、图签文字等），但**传感器位置标注**（CH4/CO/风筒/烟雾/T1/T2）**不再被过滤**，作为有效路标保留
+   - `_TUNNEL_KWS` 放行传感器标注进入路标表（即使不含传统巷道关键词）
+   - 计算每个有意义标注点到最近巷道折线的投影比例，构建 `{tunnel_name: {landmark_name: ratio}}` 路标表
+3. **`_find_landmark_ratio`**（locator.py:1992）：
+   - 设备描述匹配路标名称时，返回该路标在巷道上的投影比例
+   - **归一化**：全角括号→半角、移除空格、去除末尾标点（`CH4（T1)` ↔ `CH4 (T1)`）
+   - **组合路标拆分**：`CO、烟雾` 中的 `CO` 可匹配 `总回风CO`
+   - **T 标识路标传感器部分匹配**：`CH4` 可匹配 `CH4(T2)` 路标（无 T 设备允许匹配传感器部分）
+   - **T 标识精确过滤**：设备有 T 标识时，路标名也必须包含对应 T 标识（避免 `CH4` 路标覆盖 `CH4(T1)` 设备）
+   - **端点优先**：同路标多个标注点长度相同时，优先选择更靠近端点的（T 传感器通常在端点）
+   - 替代默认区间分配，实现更精确的定位
 
 ---
 
@@ -851,8 +886,14 @@ score = round(LCS_长度(别名扩展后) × 10 / 候选名长度)
 `_assign_distances`（locator.py:2013）：
 
 ```
-显式距离(米) > T 标识规则 > 巷道类型×sensor_type 规则 > AQ1029 距离规则 > 关键词区间 > sensor_type 默认百分比
+显式距离(米) > CAD 路标定位 > T 标识规则 > 巷道类型×sensor_type 规则 > AQ1029 距离规则 > 关键词区间 > sensor_type 默认百分比
 ```
+
+**CAD 路标定位优先级说明**：
+- 设备描述匹配到巷道上的 CAD 路标时，直接使用路标的投影比例定位（最精确）
+- T 标识设备（T1/T2/T0/T4）不再完全跳过路标定位，而是要求路标名**精确包含**对应 T 标识（如 `CH4(T1)` 设备匹配 `CH4（T1)` 路标）
+- 无 T 标识设备允许匹配 T 标识路标的**传感器部分**（如 `CH4` 匹配 `CH4(T2)` 路标）
+- 路标匹配失败时回退到 T 标识规则或默认区间
 
 **显式距离**：若 description 含 `NN米` 模式（如 `2730米`、`660米`、`10米`），提取距离值。当 keyword 有语义区间且描述含方向词时，从区间基准偏移（如 keyword=硐室+外西60米=50%-60m）；否则作为绝对距离（clamp 到折线总长）。
 
