@@ -1001,94 +1001,6 @@
       "mark_type": "B14"
     },
     {
-      "id": "YJMDTBMY1012099",
-      "sysaliasname": "安全监测",
-      "description": "中央胶带大巷工作面  主风机开停中央胶带大巷工作面  主风机开停_设备开停",
-      "sensor_type": "开停",
-      "area": "中央胶带大巷工作面  主风机开停中央胶带大巷工作面  ",
-      "mark_type": "B14"
-    },
-    {
-      "id": "YJMDTBMY10120BL9999",
-      "sysaliasname": "安全监测",
-      "description": "监测设备良好率",
-      "sensor_type": "比率",
-      "area": "井下",
-      "mark_type": "B14"
-    },
-    {
-      "id": "YJMDTBMY10121N4098",
-      "sysaliasname": "工业视频",
-      "description": "天宝磅房1",
-      "sensor_type": "工业视频",
-      "area": "天宝地面安保",
-      "mark_type": "B16"
-    },
-    {
-      "id": "YJMDTBMY10121N4099",
-      "sysaliasname": "工业视频",
-      "description": "天宝磅房2",
-      "sensor_type": "工业视频",
-      "area": "天宝地面安保",
-      "mark_type": "B16"
-    },
-    {
-      "id": "YJMDTBMY10121N4287",
-      "sysaliasname": "工业视频",
-      "description": "天宝1#锅炉汽包压力表",
-      "sensor_type": "工业视频",
-      "area": "地面",
-      "mark_type": "B16"
-    },
-    {
-      "id": "YJMDTBMY10121N4288",
-      "sysaliasname": "工业视频",
-      "description": "天宝1#-2#锅炉中间楼梯",
-      "sensor_type": "工业视频",
-      "area": "地面",
-      "mark_type": "B16"
-    },
-    {
-      "id": "YJMDTBMY10121N4289",
-      "sysaliasname": "工业视频",
-      "description": "天宝锅炉房冷渣机一楼中",
-      "sensor_type": "工业视频",
-      "area": "地面",
-      "mark_type": "B16"
-    },
-    {
-      "id": "YJMDTBMY10121N4290",
-      "sysaliasname": "工业视频",
-      "description": "天宝1#锅炉给煤机",
-      "sensor_type": "工业视频",
-      "area": "地面",
-      "mark_type": "B16"
-    },
-    {
-      "id": "YJMDTBMY10121N4292",
-      "sysaliasname": "工业视频",
-      "description": "天宝锅炉房循环水泵房",
-      "sensor_type": "工业视频",
-      "area": "地面",
-      "mark_type": "B16"
-    },
-    {
-      "id": "YJMDTBMY10121N4293",
-      "sysaliasname": "工业视频",
-      "description": "天宝锅炉房脱硫水处理间",
-      "sensor_type": "工业视频",
-      "area": "地面",
-      "mark_type": "B16"
-    },
-    {
-      "id": "YJMDTBMY10121N4294",
-      "sysaliasname": "工业视频",
-      "description": "天宝锅炉房脱硫塔厂房",
-      "sensor_type": "工业视频",
-      "area": "地面",
-      "mark_type": "B16"
-    },
-    {
       "id": "YJMDTBMY10121N4649",
       "sysaliasname": "工业视频",
       "description": "天宝煤业选煤厂311312皮带机尾",
@@ -1129,25 +1041,9 @@
       "mark_type": "B16"
     },
     {
-      "id": "YJMDTBMY10121N5197",
-      "sysaliasname": "工业视频",
-      "description": "天宝公司-空磅房",
-      "sensor_type": "工业视频",
-      "area": "地面",
-      "mark_type": "B16"
-    },
-    {
       "id": "YJMDTBMY10121N4638",
       "sysaliasname": "工业视频",
       "description": "天宝煤业选煤厂矸石仓下",
-      "sensor_type": "工业视频",
-      "area": "地面",
-      "mark_type": "B16"
-    },
-    {
-      "id": "YJMDTBMY10121N5212",
-      "sysaliasname": "工业视频",
-      "description": "天宝变二次监控室室北",
       "sensor_type": "工业视频",
       "area": "地面",
       "mark_type": "B16"
@@ -1166,14 +1062,6 @@
       "description": "天宝餐厅南门监控",
       "sensor_type": "工业视频",
       "area": "天宝地面安保",
-      "mark_type": "B16"
-    },
-    {
-      "id": "YJMDTBMY10121N5969",
-      "sysaliasname": "工业视频",
-      "description": "天宝公司-煤一3队会议室",
-      "sensor_type": "工业视频",
-      "area": "矿井",
       "mark_type": "B16"
     },
     {
@@ -1233,14 +1121,6 @@
       "mark_type": "B16"
     },
     {
-      "id": "YJMDTBMY10121N5983",
-      "sysaliasname": "工业视频",
-      "description": "天宝公司-露天矿采场西帮",
-      "sensor_type": "工业视频",
-      "area": "露天矿",
-      "mark_type": "B16"
-    },
-    {
       "id": "YJMDTBMY10121N4823",
       "sysaliasname": "工业视频",
       "description": "103皮带机头落煤点",
@@ -1270,14 +1150,6 @@
       "description": "天宝职工宿舍五楼西北楼梯监控",
       "sensor_type": "工业视频",
       "area": "天宝地面安保",
-      "mark_type": "B16"
-    },
-    {
-      "id": "YJMDTBMY10121N5213",
-      "sysaliasname": "工业视频",
-      "description": "天宝变二次监控室东南",
-      "sensor_type": "工业视频",
-      "area": "地面",
       "mark_type": "B16"
     },
     {
@@ -1337,6 +1209,14 @@
       "mark_type": "B16"
     },
     {
+      "id": "YJMDTBMY10121N4289",
+      "sysaliasname": "工业视频",
+      "description": "天宝锅炉房冷渣机一楼中",
+      "sensor_type": "工业视频",
+      "area": "地面",
+      "mark_type": "B16"
+    },
+    {
       "id": "YJMDTBMY10121N4441",
       "sysaliasname": "工业视频",
       "description": "天宝预沉调节及煤泥处理间1",
@@ -1348,14 +1228,6 @@
       "id": "YJMDTBMY10121N5169",
       "sysaliasname": "工业视频",
       "description": "天宝公司-主井绞车房提升机",
-      "sensor_type": "工业视频",
-      "area": "矿井",
-      "mark_type": "B16"
-    },
-    {
-      "id": "YJMDTBMY10121N5973",
-      "sysaliasname": "工业视频",
-      "description": "天宝井工矿-回风斜井井口",
       "sensor_type": "工业视频",
       "area": "矿井",
       "mark_type": "B16"
@@ -1441,11 +1313,11 @@
       "mark_type": "B16"
     },
     {
-      "id": "YJMDTBMY10121N5975",
+      "id": "YJMDTBMY10121N4098",
       "sysaliasname": "工业视频",
-      "description": "天宝公司--采坑",
+      "description": "天宝磅房1",
       "sensor_type": "工业视频",
-      "area": "露天矿",
+      "area": "天宝地面安保",
       "mark_type": "B16"
     },
     {
@@ -1489,12 +1361,28 @@
       "mark_type": "B16"
     },
     {
+      "id": "YJMDTBMY10121N4293",
+      "sysaliasname": "工业视频",
+      "description": "天宝锅炉房脱硫水处理间",
+      "sensor_type": "工业视频",
+      "area": "地面",
+      "mark_type": "B16"
+    },
+    {
       "id": "YJMDTBMY10121N4308",
       "sysaliasname": "工业视频",
       "description": "天宝锅炉房2#传输带西侧",
       "sensor_type": "工业视频",
       "area": "地面",
       "mark_type": "B16"
+    },
+    {
+      "id": "YJMDTBMY1012099",
+      "sysaliasname": "安全监测",
+      "description": "中央胶带大巷工作面  主风机开停中央胶带大巷工作面  主风机开停_设备开停",
+      "sensor_type": "开停",
+      "area": "中央胶带大巷工作面  主风机开停中央胶带大巷工作面  ",
+      "mark_type": "B14"
     },
     {
       "id": "YJMDTBMY10121N5106",
@@ -1537,6 +1425,14 @@
       "mark_type": "B16"
     },
     {
+      "id": "YJMDTBMY10121N4288",
+      "sysaliasname": "工业视频",
+      "description": "天宝1#-2#锅炉中间楼梯",
+      "sensor_type": "工业视频",
+      "area": "地面",
+      "mark_type": "B16"
+    },
+    {
       "id": "YJMDTBMY10121N5046",
       "sysaliasname": "工业视频",
       "description": "天宝公司-机房冷通外",
@@ -1561,27 +1457,11 @@
       "mark_type": "B16"
     },
     {
-      "id": "YJMDTBMY10121N5991",
-      "sysaliasname": "工业视频",
-      "description": "天宝公司-露天矿充电桩",
-      "sensor_type": "工业视频",
-      "area": "露天矿",
-      "mark_type": "B16"
-    },
-    {
       "id": "YJMDTBMY10121N4406",
       "sysaliasname": "工业视频",
       "description": "天宝食堂洗菜池小",
       "sensor_type": "工业视频",
       "area": "天宝地面安保",
-      "mark_type": "B16"
-    },
-    {
-      "id": "YJMDTBMY10121N5987",
-      "sysaliasname": "工业视频",
-      "description": "天宝公司-露天矿内排土场",
-      "sensor_type": "工业视频",
-      "area": "露天矿",
       "mark_type": "B16"
     },
     {
@@ -1665,14 +1545,6 @@
       "mark_type": "B16"
     },
     {
-      "id": "YJMDTBMY10121N5976",
-      "sysaliasname": "工业视频",
-      "description": "天宝煤业-调度室",
-      "sensor_type": "工业视频",
-      "area": "露天矿",
-      "mark_type": "B16"
-    },
-    {
       "id": "YJMDTBMY10121N4619",
       "sysaliasname": "工业视频",
       "description": "天宝煤业选煤厂301皮带机头北",
@@ -1745,22 +1617,6 @@
       "mark_type": "B16"
     },
     {
-      "id": "YJMDTBMY10121N5990",
-      "sysaliasname": "工业视频",
-      "description": "天宝公司-露天矿南帮工作面",
-      "sensor_type": "工业视频",
-      "area": "露天矿",
-      "mark_type": "B16"
-    },
-    {
-      "id": "YJMDTBMY10121N5977",
-      "sysaliasname": "工业视频",
-      "description": "天宝公司--排土场",
-      "sensor_type": "工业视频",
-      "area": "露天矿",
-      "mark_type": "B16"
-    },
-    {
       "id": "YJMDTBMY10121N4300",
       "sysaliasname": "工业视频",
       "description": "天宝锅炉房低压室1#球机",
@@ -1790,14 +1646,6 @@
       "description": "天宝煤业选煤厂东原煤仓下西侧",
       "sensor_type": "工业视频",
       "area": "地面",
-      "mark_type": "B16"
-    },
-    {
-      "id": "YJMDTBMY10121N5985",
-      "sysaliasname": "工业视频",
-      "description": "天宝公司-神州分选站",
-      "sensor_type": "工业视频",
-      "area": "露天矿",
       "mark_type": "B16"
     },
     {
@@ -2009,6 +1857,14 @@
       "mark_type": "B16"
     },
     {
+      "id": "YJMDTBMY10121N4292",
+      "sysaliasname": "工业视频",
+      "description": "天宝锅炉房循环水泵房",
+      "sensor_type": "工业视频",
+      "area": "地面",
+      "mark_type": "B16"
+    },
+    {
       "id": "YJMDTBMY10121N4655",
       "sysaliasname": "工业视频",
       "description": "天宝煤业选煤厂305306干选机",
@@ -2033,6 +1889,14 @@
       "mark_type": "B16"
     },
     {
+      "id": "YJMDTBMY10121N4290",
+      "sysaliasname": "工业视频",
+      "description": "天宝1#锅炉给煤机",
+      "sensor_type": "工业视频",
+      "area": "地面",
+      "mark_type": "B16"
+    },
+    {
       "id": "YJMDTBMY10121N4457",
       "sysaliasname": "工业视频",
       "description": "天宝变院内西(9号箱)",
@@ -2054,22 +1918,6 @@
       "description": "天宝变SVG及FC配电室东",
       "sensor_type": "工业视频",
       "area": "地面",
-      "mark_type": "B16"
-    },
-    {
-      "id": "YJMDTBMY10121N5971",
-      "sysaliasname": "工业视频",
-      "description": "天宝井工矿-主斜井井口",
-      "sensor_type": "工业视频",
-      "area": "矿井",
-      "mark_type": "B16"
-    },
-    {
-      "id": "YJMDTBMY10121N5191",
-      "sysaliasname": "工业视频",
-      "description": "天宝公司-机头硐室带式输送机机头",
-      "sensor_type": "工业视频",
-      "area": "矿井",
       "mark_type": "B16"
     },
     {
@@ -2177,14 +2025,6 @@
       "mark_type": "B16"
     },
     {
-      "id": "YJMDTBMY10121N5968",
-      "sysaliasname": "工业视频",
-      "description": "天宝公司-煤一1队会议室",
-      "sensor_type": "工业视频",
-      "area": "矿井",
-      "mark_type": "B16"
-    },
-    {
       "id": "YJMDTBMY10121N5133",
       "sysaliasname": "工业视频",
       "description": "天宝公司-回风料场东",
@@ -2222,14 +2062,6 @@
       "description": "天宝公司-副斜井防跑车(1)",
       "sensor_type": "工业视频",
       "area": "矿井",
-      "mark_type": "B16"
-    },
-    {
-      "id": "YJMDTBMY10121N5214",
-      "sysaliasname": "工业视频",
-      "description": "天宝变二次监控室东北",
-      "sensor_type": "工业视频",
-      "area": "地面",
       "mark_type": "B16"
     },
     {
@@ -2281,14 +2113,6 @@
       "mark_type": "B16"
     },
     {
-      "id": "YJMDTBMY10121N5970",
-      "sysaliasname": "工业视频",
-      "description": "天宝井工矿-副斜井井口",
-      "sensor_type": "工业视频",
-      "area": "矿井",
-      "mark_type": "B16"
-    },
-    {
       "id": "YJMDTBMY10121N5119",
       "sysaliasname": "工业视频",
       "description": "天宝公司-回风工业广场",
@@ -2308,14 +2132,6 @@
       "id": "YJMDTBMY10121N4469",
       "sysaliasname": "工业视频",
       "description": "天宝变站用变室",
-      "sensor_type": "工业视频",
-      "area": "地面",
-      "mark_type": "B16"
-    },
-    {
-      "id": "YJMDTBMY10121N5198",
-      "sysaliasname": "工业视频",
-      "description": "天宝公司-空磅房",
       "sensor_type": "工业视频",
       "area": "地面",
       "mark_type": "B16"
@@ -2465,14 +2281,6 @@
       "mark_type": "B16"
     },
     {
-      "id": "YJMDTBMY10121N5980",
-      "sysaliasname": "工业视频",
-      "description": "天宝公司--采坑积水池",
-      "sensor_type": "工业视频",
-      "area": "露天矿",
-      "mark_type": "B16"
-    },
-    {
       "id": "YJMDTBMY10121N4659",
       "sysaliasname": "工业视频",
       "description": "天宝煤业选煤厂集控室后",
@@ -2521,14 +2329,6 @@
       "mark_type": "B16"
     },
     {
-      "id": "YJMDTBMY10121N5988",
-      "sysaliasname": "工业视频",
-      "description": "天宝公司-露天矿外排土场",
-      "sensor_type": "工业视频",
-      "area": "露天矿",
-      "mark_type": "B16"
-    },
-    {
       "id": "YJMDTBMY10121N4646",
       "sysaliasname": "工业视频",
       "description": "天宝煤业选煤厂313皮带机尾",
@@ -2540,14 +2340,6 @@
       "id": "YJMDTBMY10121N4358",
       "sysaliasname": "工业视频",
       "description": "天宝井工矿调度室2",
-      "sensor_type": "工业视频",
-      "area": "地面",
-      "mark_type": "B16"
-    },
-    {
-      "id": "YJMDTBMY10121N5216",
-      "sysaliasname": "工业视频",
-      "description": "天宝锅炉房控制室",
       "sensor_type": "工业视频",
       "area": "地面",
       "mark_type": "B16"
@@ -2585,14 +2377,6 @@
       "mark_type": "B16"
     },
     {
-      "id": "YJMDTBMY10121N5192",
-      "sysaliasname": "工业视频",
-      "description": "天宝公司-胶带石门皮带搭接处",
-      "sensor_type": "工业视频",
-      "area": "矿井",
-      "mark_type": "B16"
-    },
-    {
       "id": "YJMDTBMY10121N4355",
       "sysaliasname": "工业视频",
       "description": "天宝露天矿调度室1",
@@ -2604,6 +2388,14 @@
       "id": "YJMDTBMY10121N4598",
       "sysaliasname": "工业视频",
       "description": "天宝煤业选煤厂801皮带机尾",
+      "sensor_type": "工业视频",
+      "area": "地面",
+      "mark_type": "B16"
+    },
+    {
+      "id": "YJMDTBMY10121N4294",
+      "sysaliasname": "工业视频",
+      "description": "天宝锅炉房脱硫塔厂房",
       "sensor_type": "工业视频",
       "area": "地面",
       "mark_type": "B16"
@@ -2681,6 +2473,14 @@
       "mark_type": "B16"
     },
     {
+      "id": "YJMDTBMY10121N4287",
+      "sysaliasname": "工业视频",
+      "description": "天宝1#锅炉汽包压力表",
+      "sensor_type": "工业视频",
+      "area": "地面",
+      "mark_type": "B16"
+    },
+    {
       "id": "YJMDTBMY10121N4688",
       "sysaliasname": "工业视频",
       "description": "天宝煤业选煤厂产品仓下配电室南",
@@ -2702,14 +2502,6 @@
       "description": "天宝公司-中央回风大巷掘进工作面T1朝向外口",
       "sensor_type": "工业视频",
       "area": "矿井",
-      "mark_type": "B16"
-    },
-    {
-      "id": "YJMDTBMY10121N5978",
-      "sysaliasname": "工业视频",
-      "description": "天宝煤业-路口",
-      "sensor_type": "工业视频",
-      "area": "露天矿",
       "mark_type": "B16"
     },
     {
@@ -2905,22 +2697,6 @@
       "mark_type": "B16"
     },
     {
-      "id": "YJMDTBMY10121N5986",
-      "sysaliasname": "工业视频",
-      "description": "天宝公司-露天矿采场东帮",
-      "sensor_type": "工业视频",
-      "area": "露天矿",
-      "mark_type": "B16"
-    },
-    {
-      "id": "YJMDTBMY10121N5196",
-      "sysaliasname": "工业视频",
-      "description": "天宝公司-胶带石门",
-      "sensor_type": "工业视频",
-      "area": "矿井",
-      "mark_type": "B16"
-    },
-    {
       "id": "YJMDTBMY10121N4443",
       "sysaliasname": "工业视频",
       "description": "天宝预处理间2",
@@ -2937,27 +2713,11 @@
       "mark_type": "B16"
     },
     {
-      "id": "YJMDTBMY10121N5984",
-      "sysaliasname": "工业视频",
-      "description": "天宝公司-露天矿急转弯处",
-      "sensor_type": "工业视频",
-      "area": "露天矿",
-      "mark_type": "B16"
-    },
-    {
       "id": "YJMDTBMY10121N4504",
       "sysaliasname": "工业视频",
       "description": "天宝4#库房东",
       "sensor_type": "工业视频",
       "area": "地面",
-      "mark_type": "B16"
-    },
-    {
-      "id": "YJMDTBMY10121N5974",
-      "sysaliasname": "工业视频",
-      "description": "天宝井工矿-调度室",
-      "sensor_type": "工业视频",
-      "area": "矿井",
       "mark_type": "B16"
     },
     {
@@ -3057,14 +2817,6 @@
       "mark_type": "B16"
     },
     {
-      "id": "YJMDTBMY10121N5972",
-      "sysaliasname": "工业视频",
-      "description": "天宝井工矿-车辆出入口",
-      "sensor_type": "工业视频",
-      "area": "矿井",
-      "mark_type": "B16"
-    },
-    {
       "id": "YJMDTBMY10121N4678",
       "sysaliasname": "工业视频",
       "description": "天宝主扇控制变频室",
@@ -3153,12 +2905,12 @@
       "mark_type": "B16"
     },
     {
-      "id": "YJMDTBMY10121N5981",
-      "sysaliasname": "工业视频",
-      "description": "天宝公司-露天矿十字路口",
-      "sensor_type": "工业视频",
-      "area": "露天矿",
-      "mark_type": "B16"
+      "id": "YJMDTBMY10120BL9999",
+      "sysaliasname": "安全监测",
+      "description": "监测设备良好率",
+      "sensor_type": "比率",
+      "area": "井下",
+      "mark_type": "B14"
     },
     {
       "id": "YJMDTBMY10121N4656",
@@ -3193,6 +2945,14 @@
       "mark_type": "B16"
     },
     {
+      "id": "YJMDTBMY10121N4099",
+      "sysaliasname": "工业视频",
+      "description": "天宝磅房2",
+      "sensor_type": "工业视频",
+      "area": "天宝地面安保",
+      "mark_type": "B16"
+    },
+    {
       "id": "YJMDTBMY10121N4357",
       "sysaliasname": "工业视频",
       "description": "天宝露天矿调度室2",
@@ -3217,14 +2977,6 @@
       "mark_type": "B16"
     },
     {
-      "id": "YJMDTBMY10121N5989",
-      "sysaliasname": "工业视频",
-      "description": "天宝公司-露天矿主要出入口",
-      "sensor_type": "工业视频",
-      "area": "露天矿",
-      "mark_type": "B16"
-    },
-    {
       "id": "YJMDTBMY10121N4464",
       "sysaliasname": "工业视频",
       "description": "天宝变10kV配电室东",
@@ -3233,25 +2985,9 @@
       "mark_type": "B16"
     },
     {
-      "id": "YJMDTBMY10121N5982",
-      "sysaliasname": "工业视频",
-      "description": "天宝公司-露天矿采场南帮",
-      "sensor_type": "工业视频",
-      "area": "露天矿",
-      "mark_type": "B16"
-    },
-    {
       "id": "YJMDTBMY10121N4360",
       "sysaliasname": "工业视频",
       "description": "天宝煤业选煤厂集控室前",
-      "sensor_type": "工业视频",
-      "area": "地面",
-      "mark_type": "B16"
-    },
-    {
-      "id": "YJMDTBMY10121N5215",
-      "sysaliasname": "工业视频",
-      "description": "天宝变二次监控室室西北角",
       "sensor_type": "工业视频",
       "area": "地面",
       "mark_type": "B16"
@@ -3289,6 +3025,30 @@
       "mark_type": "B16"
     },
     {
+      "id": "YJMDTBMY10121N5197",
+      "sysaliasname": "工业视频",
+      "description": "天宝公司-空磅房",
+      "sensor_type": "工业视频",
+      "area": "地面",
+      "mark_type": "B16"
+    },
+    {
+      "id": "YJMDTBMY10121N5212",
+      "sysaliasname": "工业视频",
+      "description": "天宝变二次监控室室北",
+      "sensor_type": "工业视频",
+      "area": "地面",
+      "mark_type": "B16"
+    },
+    {
+      "id": "YJMDTBMY10121N5969",
+      "sysaliasname": "工业视频",
+      "description": "天宝公司-煤一3队会议室",
+      "sensor_type": "工业视频",
+      "area": "矿井",
+      "mark_type": "B16"
+    },
+    {
       "id": "YJMDTBMY10121N6099",
       "sysaliasname": "工业视频",
       "description": "天宝主扇控制室外球机",
@@ -3305,12 +3065,28 @@
       "mark_type": "B16"
     },
     {
+      "id": "YJMDTBMY10121N5983",
+      "sysaliasname": "工业视频",
+      "description": "天宝公司-露天矿采场西帮",
+      "sensor_type": "工业视频",
+      "area": "露天矿",
+      "mark_type": "B16"
+    },
+    {
       "id": "YJMDTBMY10140028007",
       "sysaliasname": "人员定位",
       "description": "副斜井600米28-7_人数",
       "sensor_type": "人数",
       "area": "井下",
       "mark_type": "B15"
+    },
+    {
+      "id": "YJMDTBMY10121N5213",
+      "sysaliasname": "工业视频",
+      "description": "天宝变二次监控室东南",
+      "sensor_type": "工业视频",
+      "area": "地面",
+      "mark_type": "B16"
     },
     {
       "id": "YJMDTBMY10121N6089",
@@ -3332,6 +3108,14 @@
       "id": "YJMDTBMY10121N6100",
       "sysaliasname": "工业视频",
       "description": "天宝公司-中央回风大巷掘进工作面T2处",
+      "sensor_type": "工业视频",
+      "area": "矿井",
+      "mark_type": "B16"
+    },
+    {
+      "id": "YJMDTBMY10121N5973",
+      "sysaliasname": "工业视频",
+      "description": "天宝井工矿-回风斜井井口",
       "sensor_type": "工业视频",
       "area": "矿井",
       "mark_type": "B16"
@@ -3398,6 +3182,14 @@
       "description": "天宝公司-副斜井二号交岔点",
       "sensor_type": "工业视频",
       "area": "矿井",
+      "mark_type": "B16"
+    },
+    {
+      "id": "YJMDTBMY10121N5975",
+      "sysaliasname": "工业视频",
+      "description": "天宝公司--采坑",
+      "sensor_type": "工业视频",
+      "area": "露天矿",
       "mark_type": "B16"
     },
     {
@@ -3481,9 +3273,25 @@
       "mark_type": "B16"
     },
     {
+      "id": "YJMDTBMY10121N5991",
+      "sysaliasname": "工业视频",
+      "description": "天宝公司-露天矿充电桩",
+      "sensor_type": "工业视频",
+      "area": "露天矿",
+      "mark_type": "B16"
+    },
+    {
       "id": "YJMDTBMY10121N6093",
       "sysaliasname": "工业视频",
       "description": "天宝煤业露天矿102与103皮带搭接",
+      "sensor_type": "工业视频",
+      "area": "露天矿",
+      "mark_type": "B16"
+    },
+    {
+      "id": "YJMDTBMY10121N5987",
+      "sysaliasname": "工业视频",
+      "description": "天宝公司-露天矿内排土场",
       "sensor_type": "工业视频",
       "area": "露天矿",
       "mark_type": "B16"
@@ -3529,6 +3337,14 @@
       "mark_type": "B16"
     },
     {
+      "id": "YJMDTBMY10121N5976",
+      "sysaliasname": "工业视频",
+      "description": "天宝煤业-调度室",
+      "sensor_type": "工业视频",
+      "area": "露天矿",
+      "mark_type": "B16"
+    },
+    {
       "id": "YJMDTBMY10121N6018",
       "sysaliasname": "工业视频",
       "description": "天宝联建楼-2楼西过道",
@@ -3553,11 +3369,35 @@
       "mark_type": "B15"
     },
     {
+      "id": "YJMDTBMY10121N5990",
+      "sysaliasname": "工业视频",
+      "description": "天宝公司-露天矿南帮工作面",
+      "sensor_type": "工业视频",
+      "area": "露天矿",
+      "mark_type": "B16"
+    },
+    {
+      "id": "YJMDTBMY10121N5977",
+      "sysaliasname": "工业视频",
+      "description": "天宝公司--排土场",
+      "sensor_type": "工业视频",
+      "area": "露天矿",
+      "mark_type": "B16"
+    },
+    {
       "id": "YJMDTBMY10121N6061",
       "sysaliasname": "工业视频",
       "description": "天宝公司-副斜井井口道岔",
       "sensor_type": "工业视频",
       "area": "矿井",
+      "mark_type": "B16"
+    },
+    {
+      "id": "YJMDTBMY10121N5985",
+      "sysaliasname": "工业视频",
+      "description": "天宝公司-神州分选站",
+      "sensor_type": "工业视频",
+      "area": "露天矿",
       "mark_type": "B16"
     },
     {
@@ -3633,6 +3473,22 @@
       "mark_type": "B16"
     },
     {
+      "id": "YJMDTBMY10121N5971",
+      "sysaliasname": "工业视频",
+      "description": "天宝井工矿-主斜井井口",
+      "sensor_type": "工业视频",
+      "area": "矿井",
+      "mark_type": "B16"
+    },
+    {
+      "id": "YJMDTBMY10121N5191",
+      "sysaliasname": "工业视频",
+      "description": "天宝公司-机头硐室带式输送机机头",
+      "sensor_type": "工业视频",
+      "area": "矿井",
+      "mark_type": "B16"
+    },
+    {
       "id": "YJMDTBMY10140022007",
       "sysaliasname": "人员定位",
       "description": "机头硐室工作面22-7_人数",
@@ -3673,11 +3529,27 @@
       "mark_type": "B16"
     },
     {
+      "id": "YJMDTBMY10121N5968",
+      "sysaliasname": "工业视频",
+      "description": "天宝公司-煤一1队会议室",
+      "sensor_type": "工业视频",
+      "area": "矿井",
+      "mark_type": "B16"
+    },
+    {
       "id": "YJMDTBMY10121N5995",
       "sysaliasname": "工业视频",
       "description": "天宝联建楼-1楼充电柜-2",
       "sensor_type": "工业视频",
       "area": "天宝地面安保",
+      "mark_type": "B16"
+    },
+    {
+      "id": "YJMDTBMY10121N5214",
+      "sysaliasname": "工业视频",
+      "description": "天宝变二次监控室东北",
+      "sensor_type": "工业视频",
+      "area": "地面",
       "mark_type": "B16"
     },
     {
@@ -3705,6 +3577,14 @@
       "mark_type": "B16"
     },
     {
+      "id": "YJMDTBMY10121N5970",
+      "sysaliasname": "工业视频",
+      "description": "天宝井工矿-副斜井井口",
+      "sensor_type": "工业视频",
+      "area": "矿井",
+      "mark_type": "B16"
+    },
+    {
       "id": "YJMDTBMY10121N6016",
       "sysaliasname": "工业视频",
       "description": "天宝联建楼-2楼西过道",
@@ -3719,6 +3599,14 @@
       "sensor_type": "人数",
       "area": "井上",
       "mark_type": "B15"
+    },
+    {
+      "id": "YJMDTBMY10121N5198",
+      "sysaliasname": "工业视频",
+      "description": "天宝公司-空磅房",
+      "sensor_type": "工业视频",
+      "area": "地面",
+      "mark_type": "B16"
     },
     {
       "id": "YJMDTBMY10121N6010",
@@ -3801,11 +3689,27 @@
       "mark_type": "B16"
     },
     {
+      "id": "YJMDTBMY10121N5980",
+      "sysaliasname": "工业视频",
+      "description": "天宝公司--采坑积水池",
+      "sensor_type": "工业视频",
+      "area": "露天矿",
+      "mark_type": "B16"
+    },
+    {
       "id": "YJMDTBMY10121N6106",
       "sysaliasname": "工业视频",
       "description": "天宝公司-中部联络巷回风侧工作面T1朝向迎头",
       "sensor_type": "工业视频",
       "area": "矿井",
+      "mark_type": "B16"
+    },
+    {
+      "id": "YJMDTBMY10121N5988",
+      "sysaliasname": "工业视频",
+      "description": "天宝公司-露天矿外排土场",
+      "sensor_type": "工业视频",
+      "area": "露天矿",
       "mark_type": "B16"
     },
     {
@@ -3817,12 +3721,28 @@
       "mark_type": "B16"
     },
     {
+      "id": "YJMDTBMY10121N5216",
+      "sysaliasname": "工业视频",
+      "description": "天宝锅炉房控制室",
+      "sensor_type": "工业视频",
+      "area": "地面",
+      "mark_type": "B16"
+    },
+    {
       "id": "YJMDTBMY10140016007",
       "sysaliasname": "人员定位",
       "description": "中央回风大巷900米16-7_人数",
       "sensor_type": "人数",
       "area": "井下",
       "mark_type": "B15"
+    },
+    {
+      "id": "YJMDTBMY10121N5192",
+      "sysaliasname": "工业视频",
+      "description": "天宝公司-胶带石门皮带搭接处",
+      "sensor_type": "工业视频",
+      "area": "矿井",
+      "mark_type": "B16"
     },
     {
       "id": "YJMDTBMY10121N6077",
@@ -3897,6 +3817,14 @@
       "mark_type": "B16"
     },
     {
+      "id": "YJMDTBMY10121N5978",
+      "sysaliasname": "工业视频",
+      "description": "天宝煤业-路口",
+      "sensor_type": "工业视频",
+      "area": "露天矿",
+      "mark_type": "B16"
+    },
+    {
       "id": "YJMDTBMY10121N6026",
       "sysaliasname": "工业视频",
       "description": "天宝联建楼-2楼东过道",
@@ -3937,6 +3865,30 @@
       "mark_type": "B16"
     },
     {
+      "id": "YJMDTBMY10121N5986",
+      "sysaliasname": "工业视频",
+      "description": "天宝公司-露天矿采场东帮",
+      "sensor_type": "工业视频",
+      "area": "露天矿",
+      "mark_type": "B16"
+    },
+    {
+      "id": "YJMDTBMY10121N5196",
+      "sysaliasname": "工业视频",
+      "description": "天宝公司-胶带石门",
+      "sensor_type": "工业视频",
+      "area": "矿井",
+      "mark_type": "B16"
+    },
+    {
+      "id": "YJMDTBMY10121N5984",
+      "sysaliasname": "工业视频",
+      "description": "天宝公司-露天矿急转弯处",
+      "sensor_type": "工业视频",
+      "area": "露天矿",
+      "mark_type": "B16"
+    },
+    {
       "id": "YJMDTBMY10121N6028",
       "sysaliasname": "工业视频",
       "description": "天宝联建楼-2楼东过道",
@@ -3948,6 +3900,14 @@
       "id": "YJMDTBMY10121N6051",
       "sysaliasname": "工业视频",
       "description": "天宝公司-中央回风大巷一部皮带带式输送机机头",
+      "sensor_type": "工业视频",
+      "area": "矿井",
+      "mark_type": "B16"
+    },
+    {
+      "id": "YJMDTBMY10121N5974",
+      "sysaliasname": "工业视频",
+      "description": "天宝井工矿-调度室",
       "sensor_type": "工业视频",
       "area": "矿井",
       "mark_type": "B16"
@@ -3998,6 +3958,14 @@
       "description": "天宝井工矿-副斜井井口",
       "sensor_type": "工业视频",
       "area": "天宝红沙梁矿井回风井",
+      "mark_type": "B16"
+    },
+    {
+      "id": "YJMDTBMY10121N5972",
+      "sysaliasname": "工业视频",
+      "description": "天宝井工矿-车辆出入口",
+      "sensor_type": "工业视频",
+      "area": "矿井",
       "mark_type": "B16"
     },
     {
@@ -4105,6 +4073,14 @@
       "mark_type": "B16"
     },
     {
+      "id": "YJMDTBMY10121N5981",
+      "sysaliasname": "工业视频",
+      "description": "天宝公司-露天矿十字路口",
+      "sensor_type": "工业视频",
+      "area": "露天矿",
+      "mark_type": "B16"
+    },
+    {
       "id": "YJMDTBMY10121N6091",
       "sysaliasname": "工业视频",
       "description": "天宝公司--采坑",
@@ -4118,6 +4094,30 @@
       "description": "天宝公司-中央胶带大巷掘进工作面T1朝向外口",
       "sensor_type": "工业视频",
       "area": "矿井",
+      "mark_type": "B16"
+    },
+    {
+      "id": "YJMDTBMY10121N5989",
+      "sysaliasname": "工业视频",
+      "description": "天宝公司-露天矿主要出入口",
+      "sensor_type": "工业视频",
+      "area": "露天矿",
+      "mark_type": "B16"
+    },
+    {
+      "id": "YJMDTBMY10121N5982",
+      "sysaliasname": "工业视频",
+      "description": "天宝公司-露天矿采场南帮",
+      "sensor_type": "工业视频",
+      "area": "露天矿",
+      "mark_type": "B16"
+    },
+    {
+      "id": "YJMDTBMY10121N5215",
+      "sysaliasname": "工业视频",
+      "description": "天宝变二次监控室室西北角",
+      "sensor_type": "工业视频",
+      "area": "地面",
       "mark_type": "B16"
     }
   ],
@@ -5319,9 +5319,86 @@
       "tunnel_id": "D077AB2D-917D-4457-8431-4F9BD4A72765",
       "mark_type": "B14",
       "coordinates": {
-        "x": 32552291.9687,
-        "y": 4620197.8787,
-        "z": 1925.8
+        "x": 32552316.3773,
+        "y": 4620189.0087,
+        "z": 1931.3
+      }
+    },
+    {
+      "id": "YJMDTBMY10120012F00",
+      "description": "副斜井井口130分站",
+      "tunnel_id": "409316B8-ABA2-4248-9F02-38DC2DB96867",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32552155.5581,
+        "y": 4620125.668,
+        "z": 1932.3
+      }
+    },
+    {
+      "id": "YJMDTBMY10120014F00",
+      "description": "副斜井井底车场130分站",
+      "tunnel_id": "409316B8-ABA2-4248-9F02-38DC2DB96867",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551542.5877,
+        "y": 4620348.7905,
+        "z": 1757.97
+      }
+    },
+    {
+      "id": "YJMDTBMY10120016F00",
+      "description": "胶带石门130分站",
+      "tunnel_id": "97B2D9F0-CEAE-419F-B746-99151D57F2EA",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551652.4532,
+        "y": 4620430.7375,
+        "z": 1735.24
+      }
+    },
+    {
+      "id": "YJMDTBMY10120017F00",
+      "description": "轨道石门130分站",
+      "tunnel_id": "97B2D9F0-CEAE-419F-B746-99151D57F2EA",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551651.5136,
+        "y": 4620431.0775,
+        "z": 1735.2
+      }
+    },
+    {
+      "id": "YJMDTBMY10120102",
+      "description": "中央辅运大巷工作面  主风机开停中央辅运大巷工作面  主风机开停_设备开停",
+      "tunnel_id": "189910C5-A97E-4E0F-A417-18ADBCFDB778",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551332.6956,
+        "y": 4620351.3065,
+        "z": 1735.39
+      }
+    },
+    {
+      "id": "YJMDTBMY10120106",
+      "description": "中央辅运大巷工作面  副风机开停中央辅运大巷工作面  副风机开停_设备开停",
+      "tunnel_id": "189910C5-A97E-4E0F-A417-18ADBCFDB778",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551331.883,
+        "y": 4620350.7375,
+        "z": 1735.26
+      }
+    },
+    {
+      "id": "YJMDTBMY10120107",
+      "description": "主井口风速",
+      "tunnel_id": "D077AB2D-917D-4457-8431-4F9BD4A72765",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32552315.4744,
+        "y": 4620189.3369,
+        "z": 1931.22
       }
     },
     {
@@ -5330,9 +5407,9 @@
       "tunnel_id": "C15E263C-9369-422D-A192-3DFFF3B56CF2",
       "mark_type": "B14",
       "coordinates": {
-        "x": 32551426.0387,
-        "y": 4620355.5887,
-        "z": 1723.73
+        "x": 32551486.2444,
+        "y": 4620397.7259,
+        "z": 1724.56
       }
     },
     {
@@ -5341,9 +5418,9 @@
       "tunnel_id": "7D7FA2D7-4DB9-498F-BE00-4C38D6D8CB53",
       "mark_type": "B14",
       "coordinates": {
-        "x": 32551093.2987,
-        "y": 4620061.6087,
-        "z": 1687.74
+        "x": 32551388.4814,
+        "y": 4620268.3501,
+        "z": 1734.65
       }
     },
     {
@@ -5352,9 +5429,9 @@
       "tunnel_id": "7D7FA2D7-4DB9-498F-BE00-4C38D6D8CB53",
       "mark_type": "B14",
       "coordinates": {
-        "x": 32551098.0687,
-        "y": 4620064.9487,
-        "z": 1689.31
+        "x": 32550753.8838,
+        "y": 4619824.111,
+        "z": 1641.2
       }
     },
     {
@@ -5363,9 +5440,9 @@
       "tunnel_id": "7D7FA2D7-4DB9-498F-BE00-4C38D6D8CB53",
       "mark_type": "B14",
       "coordinates": {
-        "x": 32551088.5387,
-        "y": 4620058.2787,
-        "z": 1686.16
+        "x": 32550860.5118,
+        "y": 4619898.7127,
+        "z": 1651.9
       }
     },
     {
@@ -5374,9 +5451,9 @@
       "tunnel_id": "7D7FA2D7-4DB9-498F-BE00-4C38D6D8CB53",
       "mark_type": "B14",
       "coordinates": {
-        "x": 32551081.3887,
-        "y": 4620053.2687,
-        "z": 1683.8
+        "x": 32551130.0353,
+        "y": 4620087.3343,
+        "z": 1697.36
       }
     },
     {
@@ -5385,9 +5462,42 @@
       "tunnel_id": "7D7FA2D7-4DB9-498F-BE00-4C38D6D8CB53",
       "mark_type": "B14",
       "coordinates": {
-        "x": 32551102.8287,
-        "y": 4620068.2887,
-        "z": 1690.89
+        "x": 32551387.6624,
+        "y": 4620267.7764,
+        "z": 1734.63
+      }
+    },
+    {
+      "id": "YJMDTBMY10120141",
+      "description": "总回风风速",
+      "tunnel_id": "45C43CEF-2B86-487D-8E87-D7F9F07ECFB4",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551958.0825,
+        "y": 4620449.6792,
+        "z": 1851.77
+      }
+    },
+    {
+      "id": "YJMDTBMY10120142",
+      "description": "总回风温度_环境温度",
+      "tunnel_id": "45C43CEF-2B86-487D-8E87-D7F9F07ECFB4",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551957.1505,
+        "y": 4620449.6792,
+        "z": 1851.41
+      }
+    },
+    {
+      "id": "YJMDTBMY10120143",
+      "description": "总回风CO_一氧化碳",
+      "tunnel_id": "45C43CEF-2B86-487D-8E87-D7F9F07ECFB4",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32552150.6801,
+        "y": 4620449.6715,
+        "z": 1926.7
       }
     },
     {
@@ -5396,9 +5506,273 @@
       "tunnel_id": "45C43CEF-2B86-487D-8E87-D7F9F07ECFB4",
       "mark_type": "B14",
       "coordinates": {
-        "x": 32552092.3987,
-        "y": 4620449.6787,
-        "z": 1905.82
+        "x": 32552151.439,
+        "y": 4620449.6715,
+        "z": 1927.09
+      }
+    },
+    {
+      "id": "YJMDTBMY10120146",
+      "description": "回风大巷副风机远控开关馈电状态_馈电器",
+      "tunnel_id": "7D7FA2D7-4DB9-498F-BE00-4C38D6D8CB53",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551386.8434,
+        "y": 4620267.2027,
+        "z": 1734.62
+      }
+    },
+    {
+      "id": "YJMDTBMY10120148",
+      "description": "中央胶带大巷皮带机尾CO_一氧化碳",
+      "tunnel_id": "C15E263C-9369-422D-A192-3DFFF3B56CF2",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551507.0991,
+        "y": 4620412.2668,
+        "z": 1726.85
+      }
+    },
+    {
+      "id": "YJMDTBMY10120149",
+      "description": "中央胶带大巷皮带机尾烟雾",
+      "tunnel_id": "C15E263C-9369-422D-A192-3DFFF3B56CF2",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551504.6097,
+        "y": 4620410.531,
+        "z": 1726.6
+      }
+    },
+    {
+      "id": "YJMDTBMY1012015",
+      "description": "中央辅运大巷工作面回风流温度_环境温度",
+      "tunnel_id": "189910C5-A97E-4E0F-A417-18ADBCFDB778",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32550713.0658,
+        "y": 4619917.424,
+        "z": 1628.2
+      }
+    },
+    {
+      "id": "YJMDTBMY10120151",
+      "description": "中央辅运大巷皮带机尾CO_一氧化碳",
+      "tunnel_id": "189910C5-A97E-4E0F-A417-18ADBCFDB778",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32550782.7015,
+        "y": 4619966.1786,
+        "z": 1633.5
+      }
+    },
+    {
+      "id": "YJMDTBMY10120152",
+      "description": "中央辅运大巷皮带机尾烟雾",
+      "tunnel_id": "189910C5-A97E-4E0F-A417-18ADBCFDB778",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32550781.8844,
+        "y": 4619965.608,
+        "z": 1633.41
+      }
+    },
+    {
+      "id": "YJMDTBMY10120155",
+      "description": "回风大巷副风机远控开关断电状态_断电器",
+      "tunnel_id": "7D7FA2D7-4DB9-498F-BE00-4C38D6D8CB53",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551386.0244,
+        "y": 4620266.6291,
+        "z": 1734.61
+      }
+    },
+    {
+      "id": "YJMDTBMY10120158",
+      "description": "机头硐室皮带机尾CO_一氧化碳",
+      "tunnel_id": "8532ABE7-03E4-4083-9F3C-D8FFABC5D730",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551383.3872,
+        "y": 4620325.6319,
+        "z": 1721.8
+      }
+    },
+    {
+      "id": "YJMDTBMY10120159",
+      "description": "机头硐室皮带机尾烟雾",
+      "tunnel_id": "8532ABE7-03E4-4083-9F3C-D8FFABC5D730",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551382.7178,
+        "y": 4620326.3748,
+        "z": 1721.8
+      }
+    },
+    {
+      "id": "YJMDTBMY1012016",
+      "description": "中央辅运大巷工作面回风流CO_一氧化碳",
+      "tunnel_id": "45C43CEF-2B86-487D-8E87-D7F9F07ECFB4",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32552150.6801,
+        "y": 4620449.6715,
+        "z": 1926.7
+      }
+    },
+    {
+      "id": "YJMDTBMY10120160",
+      "description": "回风大巷主风机远控开关馈电状态_馈电器",
+      "tunnel_id": "7D7FA2D7-4DB9-498F-BE00-4C38D6D8CB53",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551385.2054,
+        "y": 4620266.0554,
+        "z": 1734.6
+      }
+    },
+    {
+      "id": "YJMDTBMY10120162",
+      "description": "中央胶带大巷工作面粉尘",
+      "tunnel_id": "C15E263C-9369-422D-A192-3DFFF3B56CF2",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551485.4268,
+        "y": 4620397.1558,
+        "z": 1725.98
+      }
+    },
+    {
+      "id": "YJMDTBMY10120163",
+      "description": "中央辅运大巷工作面粉尘",
+      "tunnel_id": "189910C5-A97E-4E0F-A417-18ADBCFDB778",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551331.0705,
+        "y": 4620350.1684,
+        "z": 1736.63
+      }
+    },
+    {
+      "id": "YJMDTBMY10120164",
+      "description": "中央回风大巷工作面粉尘",
+      "tunnel_id": "7D7FA2D7-4DB9-498F-BE00-4C38D6D8CB53",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551384.3864,
+        "y": 4620265.4817,
+        "z": 1736.09
+      }
+    },
+    {
+      "id": "YJMDTBMY10120166",
+      "description": "中部通风联络巷主风机远控开关馈电状态_馈电器",
+      "tunnel_id": "0D3FAF76-A9EA-4DF4-8453-6E4CDACF9E9D",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551038.9237,
+        "y": 4620035.6442,
+        "z": 1670.4
+      }
+    },
+    {
+      "id": "YJMDTBMY10120167",
+      "description": "中部通风联络巷主风机远控开关断电状态_断电器",
+      "tunnel_id": "0D3FAF76-A9EA-4DF4-8453-6E4CDACF9E9D",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551038.2524,
+        "y": 4620036.3843,
+        "z": 1670.44
+      }
+    },
+    {
+      "id": "YJMDTBMY10120177",
+      "description": "回风大巷主风机远控开关断电状态_断电器",
+      "tunnel_id": "7D7FA2D7-4DB9-498F-BE00-4C38D6D8CB53",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551383.5674,
+        "y": 4620264.908,
+        "z": 1734.58
+      }
+    },
+    {
+      "id": "YJMDTBMY10120178",
+      "description": "中央回风大巷二部皮带机头CO_一氧化碳",
+      "tunnel_id": "45C43CEF-2B86-487D-8E87-D7F9F07ECFB4",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551661.7391,
+        "y": 4620449.7108,
+        "z": 1745.81
+      }
+    },
+    {
+      "id": "YJMDTBMY10120180",
+      "description": "中央回风大巷一部皮带机头CO_一氧化碳",
+      "tunnel_id": "45C43CEF-2B86-487D-8E87-D7F9F07ECFB4",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551660.7955,
+        "y": 4620449.7109,
+        "z": 1745.47
+      }
+    },
+    {
+      "id": "YJMDTBMY10120181",
+      "description": "中央回风大巷一部皮带机头烟雾",
+      "tunnel_id": "45C43CEF-2B86-487D-8E87-D7F9F07ECFB4",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551659.8519,
+        "y": 4620449.711,
+        "z": 1745.14
+      }
+    },
+    {
+      "id": "YJMDTBMY10120182",
+      "description": "中央回风大巷二部皮带机头烟雾",
+      "tunnel_id": "45C43CEF-2B86-487D-8E87-D7F9F07ECFB4",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551658.9083,
+        "y": 4620449.7111,
+        "z": 1744.81
+      }
+    },
+    {
+      "id": "YJMDTBMY10120183",
+      "description": "中央回风大巷二部皮带机尾CO_一氧化碳",
+      "tunnel_id": "45C43CEF-2B86-487D-8E87-D7F9F07ECFB4",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32552150.6801,
+        "y": 4620449.6715,
+        "z": 1926.7
+      }
+    },
+    {
+      "id": "YJMDTBMY10120184",
+      "description": "中央回风大巷二部皮带机尾烟雾",
+      "tunnel_id": "45C43CEF-2B86-487D-8E87-D7F9F07ECFB4",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551660.7955,
+        "y": 4620449.7109,
+        "z": 1745.47
+      }
+    },
+    {
+      "id": "YJMDTBMY10120185",
+      "description": "副井口风速",
+      "tunnel_id": "409316B8-ABA2-4248-9F02-38DC2DB96867",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32552154.6487,
+        "y": 4620126.0041,
+        "z": 1932.25
       }
     },
     {
@@ -5407,9 +5781,42 @@
       "tunnel_id": "0D3FAF76-A9EA-4DF4-8453-6E4CDACF9E9D",
       "mark_type": "B14",
       "coordinates": {
-        "x": 32551433.3787,
-        "y": 4620422.5487,
-        "z": 1739.09
+        "x": 32551043.9639,
+        "y": 4620030.0884,
+        "z": 1670.4
+      }
+    },
+    {
+      "id": "YJMDTBMY10120196",
+      "description": "中部通风联络巷风筒状态风筒开关风筒开关",
+      "tunnel_id": "63711DCA-20E7-455A-8A74-AF0B46C76F7D",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551429.8142,
+        "y": 4620420.0531,
+        "z": 1737.13
+      }
+    },
+    {
+      "id": "YJMDTBMY10120201",
+      "description": "中部通风联络巷工作面主风机开停中部通风联络巷工作面主风机开停_设备开停",
+      "tunnel_id": "0D3FAF76-A9EA-4DF4-8453-6E4CDACF9E9D",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551037.581,
+        "y": 4620037.1244,
+        "z": 1670.48
+      }
+    },
+    {
+      "id": "YJMDTBMY10120204",
+      "description": "中部通风联络巷工作面副风机开停中部通风联络巷工作面副风机开停_设备开停",
+      "tunnel_id": "0D3FAF76-A9EA-4DF4-8453-6E4CDACF9E9D",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551036.9096,
+        "y": 4620037.8644,
+        "z": 1670.52
       }
     },
     {
@@ -5418,9 +5825,53 @@
       "tunnel_id": "0D3FAF76-A9EA-4DF4-8453-6E4CDACF9E9D",
       "mark_type": "B14",
       "coordinates": {
-        "x": 32551647.4687,
-        "y": 4620449.7087,
-        "z": 1742.6
+        "x": 32551010.9269,
+        "y": 4620100.9452,
+        "z": 1670.76
+      }
+    },
+    {
+      "id": "YJMDTBMY10120207",
+      "description": "中部通风联络巷工作面回风流温度_环境温度",
+      "tunnel_id": "0D3FAF76-A9EA-4DF4-8453-6E4CDACF9E9D",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551007.7542,
+        "y": 4620094.1591,
+        "z": 1671.12
+      }
+    },
+    {
+      "id": "YJMDTBMY10120209",
+      "description": "中部通风联络巷工作面回风流CO_一氧化碳",
+      "tunnel_id": "0D3FAF76-A9EA-4DF4-8453-6E4CDACF9E9D",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551008.1769,
+        "y": 4620095.0632,
+        "z": 1671.06
+      }
+    },
+    {
+      "id": "YJMDTBMY10120314",
+      "description": "副井井口皮带机头烟雾传感器",
+      "tunnel_id": "409316B8-ABA2-4248-9F02-38DC2DB96867",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32552147.7795,
+        "y": 4620128.543,
+        "z": 1930.4
+      }
+    },
+    {
+      "id": "YJMDTBMY10120357",
+      "description": "副井井口皮带机头CO_一氧化碳",
+      "tunnel_id": "409316B8-ABA2-4248-9F02-38DC2DB96867",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32552146.8702,
+        "y": 4620128.8791,
+        "z": 1930.16
       }
     },
     {
@@ -5429,42 +5880,42 @@
       "tunnel_id": "189910C5-A97E-4E0F-A417-18ADBCFDB778",
       "mark_type": "B14",
       "coordinates": {
-        "x": 32551379.4387,
-        "y": 4620384.4687,
-        "z": 1740.2
+        "x": 32550817.5039,
+        "y": 4619990.4846,
+        "z": 1637.09
       }
     },
     {
-      "id": "YJMDTBMY10120467",
-      "description": "地面选煤楼主厂房2楼CH4_激光甲烷",
-      "tunnel_id": "409316B8-ABA2-4248-9F02-38DC2DB96867",
+      "id": "YJMDTBMY1012045",
+      "description": "主通风机1号机开停状态主通风机1号机开停状态_设备开停",
+      "tunnel_id": "0D3FAF76-A9EA-4DF4-8453-6E4CDACF9E9D",
       "mark_type": "B14",
       "coordinates": {
-        "x": 32552125.0887,
-        "y": 4620136.9287,
-        "z": 1926.08
+        "x": 32551036.2383,
+        "y": 4620038.6045,
+        "z": 1670.56
       }
     },
     {
-      "id": "YJMDTBMY10120470",
-      "description": "地面选煤楼主厂房3楼CH4_激光甲烷",
-      "tunnel_id": "D077AB2D-917D-4457-8431-4F9BD4A72765",
+      "id": "YJMDTBMY1012048",
+      "description": "主通风机2号机开停状态主通风机2号机开停状态_设备开停",
+      "tunnel_id": "0D3FAF76-A9EA-4DF4-8453-6E4CDACF9E9D",
       "mark_type": "B14",
       "coordinates": {
-        "x": 32552167.2187,
-        "y": 4620243.2287,
-        "z": 1887.47
+        "x": 32551035.5669,
+        "y": 4620039.3446,
+        "z": 1670.59
       }
     },
     {
-      "id": "YJMDTBMY10120473",
-      "description": "地面选煤楼301皮带机头CH4_激光甲烷",
-      "tunnel_id": "D077AB2D-917D-4457-8431-4F9BD4A72765",
+      "id": "YJMDTBMY10120537",
+      "description": "中央辅运大巷掘进工作面 风筒状态风筒开关",
+      "tunnel_id": "63711DCA-20E7-455A-8A74-AF0B46C76F7D",
       "mark_type": "B14",
       "coordinates": {
-        "x": 32551988.2287,
-        "y": 4620308.2987,
-        "z": 1832.51
+        "x": 32551428.9954,
+        "y": 4620419.4801,
+        "z": 1737.16
       }
     },
     {
@@ -5473,9 +5924,9 @@
       "tunnel_id": "189910C5-A97E-4E0F-A417-18ADBCFDB778",
       "mark_type": "B14",
       "coordinates": {
-        "x": 32551093.3487,
-        "y": 4620183.6487,
-        "z": 1688.39
+        "x": 32551398.1701,
+        "y": 4620397.8537,
+        "z": 1738.63
       }
     },
     {
@@ -5484,9 +5935,42 @@
       "tunnel_id": "C15E263C-9369-422D-A192-3DFFF3B56CF2",
       "mark_type": "B14",
       "coordinates": {
-        "x": 32550964.2687,
-        "y": 4620093.3087,
-        "z": 1668.27
+        "x": 32551478.7648,
+        "y": 4620392.5108,
+        "z": 1724.11
+      }
+    },
+    {
+      "id": "YJMDTBMY1012068",
+      "description": "中央胶带大巷工作面 风筒状态风筒开关",
+      "tunnel_id": "C15E263C-9369-422D-A192-3DFFF3B56CF2",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551437.9997,
+        "y": 4620363.9848,
+        "z": 1721.78
+      }
+    },
+    {
+      "id": "YJMDTBMY1012069",
+      "description": "辅运联络巷皮带机头 CO_一氧化碳",
+      "tunnel_id": "63711DCA-20E7-455A-8A74-AF0B46C76F7D",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551516.1416,
+        "y": 4620480.4606,
+        "z": 1733.5
+      }
+    },
+    {
+      "id": "YJMDTBMY1012070",
+      "description": "辅运联络巷皮带机头 烟雾",
+      "tunnel_id": "63711DCA-20E7-455A-8A74-AF0B46C76F7D",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551515.3228,
+        "y": 4620479.8877,
+        "z": 1733.54
       }
     },
     {
@@ -5495,9 +5979,196 @@
       "tunnel_id": "C15E263C-9369-422D-A192-3DFFF3B56CF2",
       "mark_type": "B14",
       "coordinates": {
-        "x": 32551143.2287,
-        "y": 4620187.5687,
-        "z": 1692.0
+        "x": 32550832.4487,
+        "y": 4619940.05,
+        "z": 1653.87
+      }
+    },
+    {
+      "id": "YJMDTBMY1012072",
+      "description": "中央胶带大巷工作面回风流 CO_一氧化碳",
+      "tunnel_id": "C15E263C-9369-422D-A192-3DFFF3B56CF2",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551507.0991,
+        "y": 4620412.2668,
+        "z": 1726.85
+      }
+    },
+    {
+      "id": "YJMDTBMY1012074",
+      "description": "中央胶带大巷工作面 回风流温度_环境温度",
+      "tunnel_id": "C15E263C-9369-422D-A192-3DFFF3B56CF2",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32550832.4487,
+        "y": 4619940.05,
+        "z": 1653.77
+      }
+    },
+    {
+      "id": "YJMDTBMY1012075",
+      "description": "中央胶带大巷工作面 回风流湿度",
+      "tunnel_id": "C15E263C-9369-422D-A192-3DFFF3B56CF2",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32550831.6312,
+        "y": 4619939.4781,
+        "z": 1653.5
+      }
+    },
+    {
+      "id": "YJMDTBMY1012076",
+      "description": "机头硐室皮带机头C O_一氧化碳",
+      "tunnel_id": "8532ABE7-03E4-4083-9F3C-D8FFABC5D730",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551382.0483,
+        "y": 4620327.1176,
+        "z": 1721.8
+      }
+    },
+    {
+      "id": "YJMDTBMY1012077",
+      "description": "机头硐室 皮带机头烟雾",
+      "tunnel_id": "8532ABE7-03E4-4083-9F3C-D8FFABC5D730",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551381.3789,
+        "y": 4620327.8605,
+        "z": 1721.8
+      }
+    },
+    {
+      "id": "YJMDTBMY1012078",
+      "description": "二号交岔点皮带机头 CO_一氧化碳",
+      "tunnel_id": "189910C5-A97E-4E0F-A417-18ADBCFDB778",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551253.5115,
+        "y": 4620295.8487,
+        "z": 1723.28
+      }
+    },
+    {
+      "id": "YJMDTBMY1012079",
+      "description": "二号交岔点皮带机头 烟雾",
+      "tunnel_id": "189910C5-A97E-4E0F-A417-18ADBCFDB778",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551252.699,
+        "y": 4620295.2797,
+        "z": 1723.15
+      }
+    },
+    {
+      "id": "YJMDTBMY1012080",
+      "description": "主通风机2号机负压",
+      "tunnel_id": "0D3FAF76-A9EA-4DF4-8453-6E4CDACF9E9D",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551034.8955,
+        "y": 4620040.0846,
+        "z": 1670.63
+      }
+    },
+    {
+      "id": "YJMDTBMY1012081",
+      "description": "主通风机1号机负压",
+      "tunnel_id": "0D3FAF76-A9EA-4DF4-8453-6E4CDACF9E9D",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551034.2242,
+        "y": 4620040.8247,
+        "z": 1670.67
+      }
+    },
+    {
+      "id": "YJMDTBMY1012084",
+      "description": "中央胶带大巷远控开关1140v馈电状态_馈电器",
+      "tunnel_id": "C15E263C-9369-422D-A192-3DFFF3B56CF2",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551484.6093,
+        "y": 4620396.5858,
+        "z": 1724.39
+      }
+    },
+    {
+      "id": "YJMDTBMY1012085",
+      "description": "中央胶带大巷远控开关1140v断电状态_断电器",
+      "tunnel_id": "C15E263C-9369-422D-A192-3DFFF3B56CF2",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551483.7917,
+        "y": 4620396.0158,
+        "z": 1724.31
+      }
+    },
+    {
+      "id": "YJMDTBMY1012088",
+      "description": "中央辅运大巷远控开关1140v馈电状态_馈电器",
+      "tunnel_id": "189910C5-A97E-4E0F-A417-18ADBCFDB778",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551330.258,
+        "y": 4620349.5993,
+        "z": 1735.01
+      }
+    },
+    {
+      "id": "YJMDTBMY1012089",
+      "description": "中央辅运大巷远控开关1140v断电状态_断电器",
+      "tunnel_id": "189910C5-A97E-4E0F-A417-18ADBCFDB778",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551329.4454,
+        "y": 4620349.0303,
+        "z": 1734.88
+      }
+    },
+    {
+      "id": "YJMDTBMY101209",
+      "description": "副井绞车开停状态副井绞车开停状态_设备开停",
+      "tunnel_id": "409316B8-ABA2-4248-9F02-38DC2DB96867",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32552087.3249,
+        "y": 4620150.8872,
+        "z": 1913.9
+      }
+    },
+    {
+      "id": "YJMDTBMY1012091",
+      "description": "中央回风大巷远控开关1140v馈电状态_馈电器",
+      "tunnel_id": "7D7FA2D7-4DB9-498F-BE00-4C38D6D8CB53",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551382.7484,
+        "y": 4620264.3344,
+        "z": 1734.56
+      }
+    },
+    {
+      "id": "YJMDTBMY1012092",
+      "description": "中央回风大巷远控开关1140v断电状态_断电器",
+      "tunnel_id": "7D7FA2D7-4DB9-498F-BE00-4C38D6D8CB53",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551381.9294,
+        "y": 4620263.7607,
+        "z": 1734.55
+      }
+    },
+    {
+      "id": "YJMDTBMY1012093",
+      "description": "中央回风大巷回风流CO_一氧化碳",
+      "tunnel_id": "45C43CEF-2B86-487D-8E87-D7F9F07ECFB4",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32552149.7482,
+        "y": 4620449.6715,
+        "z": 1926.33
       }
     },
     {
@@ -5506,9 +6177,9 @@
       "tunnel_id": "7D7FA2D7-4DB9-498F-BE00-4C38D6D8CB53",
       "mark_type": "B14",
       "coordinates": {
-        "x": 32551273.5287,
-        "y": 4620187.8587,
-        "z": 1732.89
+        "x": 32551128.9327,
+        "y": 4620086.5623,
+        "z": 1697.31
       }
     },
     {
@@ -5517,9 +6188,20 @@
       "tunnel_id": "CC93DF87-1058-4383-89D6-D6235558CF0F",
       "mark_type": "B14",
       "coordinates": {
-        "x": 32551162.0787,
-        "y": 4620166.8487,
-        "z": 1712.0
+        "x": 32551240.1583,
+        "y": 4620286.4966,
+        "z": 1721.3
+      }
+    },
+    {
+      "id": "YJMDTBMY1012099",
+      "description": "中央胶带大巷工作面  主风机开停中央胶带大巷工作面  主风机开停_设备开停",
+      "tunnel_id": "C15E263C-9369-422D-A192-3DFFF3B56CF2",
+      "mark_type": "B14",
+      "coordinates": {
+        "x": 32551482.9742,
+        "y": 4620395.4458,
+        "z": 1724.23
       }
     },
     {
@@ -5528,9 +6210,9 @@
       "tunnel_id": "D077AB2D-917D-4457-8431-4F9BD4A72765",
       "mark_type": "B15",
       "coordinates": {
-        "x": 32552297.3987,
-        "y": 4620195.9087,
-        "z": 1925.47
+        "x": 32552311.8627,
+        "y": 4620190.6499,
+        "z": 1929.91
       }
     },
     {
@@ -5539,9 +6221,9 @@
       "tunnel_id": "409316B8-ABA2-4248-9F02-38DC2DB96867",
       "mark_type": "B15",
       "coordinates": {
-        "x": 32552133.3987,
-        "y": 4620133.8587,
-        "z": 1926.32
+        "x": 32552151.0113,
+        "y": 4620127.3485,
+        "z": 1931.07
       }
     },
     {
@@ -5550,9 +6232,9 @@
       "tunnel_id": "45C43CEF-2B86-487D-8E87-D7F9F07ECFB4",
       "mark_type": "B15",
       "coordinates": {
-        "x": 32552143.2487,
-        "y": 4620449.6687,
-        "z": 1923.61
+        "x": 32552162.0961,
+        "y": 4620449.671,
+        "z": 1930.94
       }
     },
     {
@@ -5561,9 +6243,9 @@
       "tunnel_id": "7D7FA2D7-4DB9-498F-BE00-4C38D6D8CB53",
       "mark_type": "B15",
       "coordinates": {
-        "x": 32551497.0287,
-        "y": 4620365.3487,
-        "z": 1744.88
+        "x": 32550753.8838,
+        "y": 4619824.111,
+        "z": 1641.0
       }
     },
     {
@@ -5572,9 +6254,9 @@
       "tunnel_id": "D077AB2D-917D-4457-8431-4F9BD4A72765",
       "mark_type": "B15",
       "coordinates": {
-        "x": 32551843.7787,
-        "y": 4620360.9887,
-        "z": 1788.59
+        "x": 32551955.0703,
+        "y": 4620320.3977,
+        "z": 1820.89
       }
     },
     {
@@ -5583,9 +6265,9 @@
       "tunnel_id": "D077AB2D-917D-4457-8431-4F9BD4A72765",
       "mark_type": "B15",
       "coordinates": {
-        "x": 32551674.7787,
-        "y": 4620422.6187,
-        "z": 1739.55
+        "x": 32551693.9875,
+        "y": 4620415.6146,
+        "z": 1745.12
       }
     },
     {
@@ -5594,9 +6276,9 @@
       "tunnel_id": "409316B8-ABA2-4248-9F02-38DC2DB96867",
       "mark_type": "B15",
       "coordinates": {
-        "x": 32551856.8287,
-        "y": 4620234.5387,
-        "z": 1852.74
+        "x": 32551882.1939,
+        "y": 4620225.4436,
+        "z": 1859.4
       }
     },
     {
@@ -5605,9 +6287,9 @@
       "tunnel_id": "189910C5-A97E-4E0F-A417-18ADBCFDB778",
       "mark_type": "B15",
       "coordinates": {
-        "x": 32551067.7587,
-        "y": 4620165.7387,
-        "z": 1678.8
+        "x": 32551328.6329,
+        "y": 4620348.4612,
+        "z": 1734.75
       }
     },
     {
@@ -5616,9 +6298,9 @@
       "tunnel_id": "8532ABE7-03E4-4083-9F3C-D8FFABC5D730",
       "mark_type": "B15",
       "coordinates": {
-        "x": 32551628.6987,
-        "y": 4620439.3287,
-        "z": 1734.19
+        "x": 32551380.04,
+        "y": 4620329.3462,
+        "z": 1721.6
       }
     },
     {
@@ -5627,9 +6309,9 @@
       "tunnel_id": "7D7FA2D7-4DB9-498F-BE00-4C38D6D8CB53",
       "mark_type": "B15",
       "coordinates": {
-        "x": 32551119.5187,
-        "y": 4620079.9687,
-        "z": 1694.39
+        "x": 32551129.2436,
+        "y": 4620086.78,
+        "z": 1697.11
       }
     },
     {
@@ -5638,9 +6320,9 @@
       "tunnel_id": "4E4BB781-E8E2-4D69-AB7C-4C0FC3447338",
       "mark_type": "B15",
       "coordinates": {
-        "x": 32551532.3587,
-        "y": 4620429.9787,
-        "z": 1728.84
+        "x": 32551561.7636,
+        "y": 4620419.9698,
+        "z": 1731.48
       }
     },
     {
@@ -5649,9 +6331,9 @@
       "tunnel_id": "63711DCA-20E7-455A-8A74-AF0B46C76F7D",
       "mark_type": "B15",
       "coordinates": {
-        "x": 32551524.5987,
-        "y": 4620477.3787,
-        "z": 1733.25
+        "x": 32551459.0619,
+        "y": 4620440.5191,
+        "z": 1735.83
       }
     },
     {
@@ -5660,9 +6342,9 @@
       "tunnel_id": "409316B8-ABA2-4248-9F02-38DC2DB96867",
       "mark_type": "B15",
       "coordinates": {
-        "x": 32551464.2987,
-        "y": 4620382.4287,
-        "z": 1722.36
+        "x": 32551540.7813,
+        "y": 4620349.4482,
+        "z": 1757.42
       }
     },
     {
@@ -5671,9 +6353,9 @@
       "tunnel_id": "C15E263C-9369-422D-A192-3DFFF3B56CF2",
       "mark_type": "B15",
       "coordinates": {
-        "x": 32551250.0287,
-        "y": 4620232.4087,
-        "z": 1721.05
+        "x": 32551482.1567,
+        "y": 4620394.8757,
+        "z": 1724.15
       }
     },
     {
@@ -5682,9 +6364,9 @@
       "tunnel_id": "409316B8-ABA2-4248-9F02-38DC2DB96867",
       "mark_type": "B15",
       "coordinates": {
-        "x": 32551663.5087,
-        "y": 4620304.7687,
-        "z": 1794.9
+        "x": 32551610.6118,
+        "y": 4620324.0237,
+        "z": 1778.75
       }
     },
     {
@@ -5693,9 +6375,108 @@
       "tunnel_id": "CC93DF87-1058-4383-89D6-D6235558CF0F",
       "mark_type": "B15",
       "coordinates": {
-        "x": 32550899.6387,
-        "y": 4619926.0887,
-        "z": 1655.62
+        "x": 32551245.1863,
+        "y": 4620229.0133,
+        "z": 1725.5
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N4513",
+      "description": "天宝煤业-旧生活区增压泵房",
+      "tunnel_id": "ADC535B3-370E-48F0-8A9E-5661419E79C2",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32550743.8151,
+        "y": 4619951.9017,
+        "z": 1631.8
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N4514",
+      "description": "天宝煤业-水源井泵房",
+      "tunnel_id": "ADC535B3-370E-48F0-8A9E-5661419E79C2",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32550744.3876,
+        "y": 4619951.0818,
+        "z": 1631.8
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N5064",
+      "description": "天宝公司-主井绞车房",
+      "tunnel_id": "D077AB2D-917D-4457-8431-4F9BD4A72765",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32552053.894,
+        "y": 4620284.4301,
+        "z": 1852.44
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N5103",
+      "description": "天宝公司-副斜井防跑车(4)",
+      "tunnel_id": "409316B8-ABA2-4248-9F02-38DC2DB96867",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32552083.6875,
+        "y": 4620152.2316,
+        "z": 1914.72
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N5104",
+      "description": "天宝公司-副斜井上部乘车点",
+      "tunnel_id": "409316B8-ABA2-4248-9F02-38DC2DB96867",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32552086.4156,
+        "y": 4620151.2233,
+        "z": 1915.46
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N5105",
+      "description": "天宝公司-副斜井防跑车(1)",
+      "tunnel_id": "409316B8-ABA2-4248-9F02-38DC2DB96867",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32552084.5968,
+        "y": 4620151.8955,
+        "z": 1914.97
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N5106",
+      "description": "天宝公司-副斜井井口上",
+      "tunnel_id": "409316B8-ABA2-4248-9F02-38DC2DB96867",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32552153.7394,
+        "y": 4620126.3402,
+        "z": 1933.61
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N5112",
+      "description": "天宝公司-副井绞车房",
+      "tunnel_id": "409316B8-ABA2-4248-9F02-38DC2DB96867",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32551813.6777,
+        "y": 4620250.0896,
+        "z": 1842.55
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N5116",
+      "description": "天宝公司-副斜井一部皮带带式输送机机头",
+      "tunnel_id": "409316B8-ABA2-4248-9F02-38DC2DB96867",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32552155.5581,
+        "y": 4620125.668,
+        "z": 1934.1
       }
     },
     {
@@ -5704,9 +6485,64 @@
       "tunnel_id": "7D7FA2D7-4DB9-498F-BE00-4C38D6D8CB53",
       "mark_type": "B16",
       "coordinates": {
-        "x": 32550989.0887,
-        "y": 4620314.3187,
-        "z": 1687.0
+        "x": 32551459.606,
+        "y": 4620318.1594,
+        "z": 1740.2
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N5126",
+      "description": "天宝公司-中央回风大巷掘进工作面T1朝向外口",
+      "tunnel_id": "7D7FA2D7-4DB9-498F-BE00-4C38D6D8CB53",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32551458.7946,
+        "y": 4620317.5915,
+        "z": 1740.06
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N5127",
+      "description": "天宝公司-中央回风大巷二部皮带带式输送机机头",
+      "tunnel_id": "7D7FA2D7-4DB9-498F-BE00-4C38D6D8CB53",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32551459.606,
+        "y": 4620318.1594,
+        "z": 1740.2
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N5128",
+      "description": "天宝公司-单轨吊充电检修硐室回风流T2处",
+      "tunnel_id": "CC93DF87-1058-4383-89D6-D6235558CF0F",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32551240.9125,
+        "y": 4620277.8741,
+        "z": 1723.48
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N5133",
+      "description": "天宝公司-回风料场东",
+      "tunnel_id": "45C43CEF-2B86-487D-8E87-D7F9F07ECFB4",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32551956.2185,
+        "y": 4620449.6793,
+        "z": 1852.64
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N5135",
+      "description": "天宝公司-回风单轨吊换装点",
+      "tunnel_id": "252DF084-3ABA-48F9-9DFC-5BE8BB210B02",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32551156.6202,
+        "y": 4620172.8584,
+        "z": 1707.88
       }
     },
     {
@@ -5715,9 +6551,9 @@
       "tunnel_id": "D077AB2D-917D-4457-8431-4F9BD4A72765",
       "mark_type": "B16",
       "coordinates": {
-        "x": 32551571.0387,
-        "y": 4620396.1387,
-        "z": 1753.07
+        "x": 32552054.7969,
+        "y": 4620284.1018,
+        "z": 1852.72
       }
     },
     {
@@ -5726,9 +6562,9 @@
       "tunnel_id": "409316B8-ABA2-4248-9F02-38DC2DB96867",
       "mark_type": "B16",
       "coordinates": {
-        "x": 32551527.6487,
-        "y": 4620354.2287,
-        "z": 1755.41
+        "x": 32552085.5062,
+        "y": 4620151.5594,
+        "z": 1915.21
       }
     },
     {
@@ -5737,9 +6573,9 @@
       "tunnel_id": "D077AB2D-917D-4457-8431-4F9BD4A72765",
       "mark_type": "B16",
       "coordinates": {
-        "x": 32552291.9687,
-        "y": 4620197.8787,
-        "z": 1925.8
+        "x": 32552313.6685,
+        "y": 4620189.9934,
+        "z": 1932.27
       }
     },
     {
@@ -5748,9 +6584,9 @@
       "tunnel_id": "D077AB2D-917D-4457-8431-4F9BD4A72765",
       "mark_type": "B16",
       "coordinates": {
-        "x": 32551607.8287,
-        "y": 4620446.8887,
-        "z": 1735.28
+        "x": 32552314.5715,
+        "y": 4620189.6652,
+        "z": 1932.55
       }
     },
     {
@@ -5759,9 +6595,9 @@
       "tunnel_id": "409316B8-ABA2-4248-9F02-38DC2DB96867",
       "mark_type": "B16",
       "coordinates": {
-        "x": 32551843.0087,
-        "y": 4620239.4887,
-        "z": 1851.12
+        "x": 32552081.8688,
+        "y": 4620152.9038,
+        "z": 1914.23
       }
     },
     {
@@ -5770,9 +6606,9 @@
       "tunnel_id": "409316B8-ABA2-4248-9F02-38DC2DB96867",
       "mark_type": "B16",
       "coordinates": {
-        "x": 32551474.3887,
-        "y": 4620373.5587,
-        "z": 1740.9
+        "x": 32552082.7781,
+        "y": 4620152.5677,
+        "z": 1914.48
       }
     },
     {
@@ -5781,9 +6617,119 @@
       "tunnel_id": "189910C5-A97E-4E0F-A417-18ADBCFDB778",
       "mark_type": "B16",
       "coordinates": {
-        "x": 32551617.3187,
-        "y": 4620321.5787,
-        "z": 1782.79
+        "x": 32550816.6868,
+        "y": 4619989.9139,
+        "z": 1638.51
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N5190",
+      "description": "天宝公司-轨道石门",
+      "tunnel_id": "97B2D9F0-CEAE-419F-B746-99151D57F2EA",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32551650.574,
+        "y": 4620431.4175,
+        "z": 1736.96
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N5191",
+      "description": "天宝公司-机头硐室带式输送机机头",
+      "tunnel_id": "8532ABE7-03E4-4083-9F3C-D8FFABC5D730",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32551380.7094,
+        "y": 4620328.6034,
+        "z": 1723.4
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N5192",
+      "description": "天宝公司-胶带石门皮带搭接处",
+      "tunnel_id": "97B2D9F0-CEAE-419F-B746-99151D57F2EA",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32551649.6344,
+        "y": 4620431.7575,
+        "z": 1736.92
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N5196",
+      "description": "天宝公司-胶带石门",
+      "tunnel_id": "97B2D9F0-CEAE-419F-B746-99151D57F2EA",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32551648.6948,
+        "y": 4620432.0976,
+        "z": 1736.88
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N5970",
+      "description": "天宝井工矿-副斜井井口",
+      "tunnel_id": "409316B8-ABA2-4248-9F02-38DC2DB96867",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32552151.9207,
+        "y": 4620127.0124,
+        "z": 1933.12
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N5971",
+      "description": "天宝井工矿-主斜井井口",
+      "tunnel_id": "D077AB2D-917D-4457-8431-4F9BD4A72765",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32552312.7656,
+        "y": 4620190.3217,
+        "z": 1931.99
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N5973",
+      "description": "天宝井工矿-回风斜井井口",
+      "tunnel_id": "45C43CEF-2B86-487D-8E87-D7F9F07ECFB4",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32552163.0281,
+        "y": 4620449.671,
+        "z": 1933.1
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N5992",
+      "description": "天宝公司-主斜井维修点下部",
+      "tunnel_id": "D077AB2D-917D-4457-8431-4F9BD4A72765",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32552249.1764,
+        "y": 4620213.4385,
+        "z": 1912.45
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N6045",
+      "description": "天宝公司-副斜井二号交岔点",
+      "tunnel_id": "409316B8-ABA2-4248-9F02-38DC2DB96867",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32552141.9115,
+        "y": 4620130.7118,
+        "z": 1930.42
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N6046",
+      "description": "天宝公司-副井水平井底车场",
+      "tunnel_id": "409316B8-ABA2-4248-9F02-38DC2DB96867",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32551541.6845,
+        "y": 4620349.1193,
+        "z": 1759.5
       }
     },
     {
@@ -5792,9 +6738,9 @@
       "tunnel_id": "C15E263C-9369-422D-A192-3DFFF3B56CF2",
       "mark_type": "B16",
       "coordinates": {
-        "x": 32551043.8787,
-        "y": 4620088.0487,
-        "z": 1673.18
+        "x": 32551574.1065,
+        "y": 4620459.32,
+        "z": 1734.8
       }
     },
     {
@@ -5803,9 +6749,9 @@
       "tunnel_id": "C15E263C-9369-422D-A192-3DFFF3B56CF2",
       "mark_type": "B16",
       "coordinates": {
-        "x": 32551250.0287,
-        "y": 4620232.4087,
-        "z": 1723.05
+        "x": 32551573.2908,
+        "y": 4620458.7467,
+        "z": 1734.72
       }
     },
     {
@@ -5814,9 +6760,9 @@
       "tunnel_id": "7D7FA2D7-4DB9-498F-BE00-4C38D6D8CB53",
       "mark_type": "B16",
       "coordinates": {
-        "x": 32551245.6987,
-        "y": 4620168.3587,
-        "z": 1731.29
+        "x": 32551457.9831,
+        "y": 4620317.0235,
+        "z": 1739.92
       }
     },
     {
@@ -5825,9 +6771,9 @@
       "tunnel_id": "189910C5-A97E-4E0F-A417-18ADBCFDB778",
       "mark_type": "B16",
       "coordinates": {
-        "x": 32551017.0087,
-        "y": 4620130.1987,
-        "z": 1672.09
+        "x": 32551401.1685,
+        "y": 4620399.9962,
+        "z": 1740.15
       }
     },
     {
@@ -5836,9 +6782,9 @@
       "tunnel_id": "63711DCA-20E7-455A-8A74-AF0B46C76F7D",
       "mark_type": "B16",
       "coordinates": {
-        "x": 32550741.4487,
-        "y": 4619841.8587,
-        "z": 1643.0
+        "x": 32551516.1416,
+        "y": 4620480.4606,
+        "z": 1735.1
       }
     },
     {
@@ -5847,9 +6793,9 @@
       "tunnel_id": "409316B8-ABA2-4248-9F02-38DC2DB96867",
       "mark_type": "B16",
       "coordinates": {
-        "x": 32551441.9087,
-        "y": 4620385.5787,
-        "z": 1740.68
+        "x": 32552152.83,
+        "y": 4620126.6763,
+        "z": 1933.36
       }
     },
     {
@@ -5858,9 +6804,9 @@
       "tunnel_id": "C15E263C-9369-422D-A192-3DFFF3B56CF2",
       "mark_type": "B16",
       "coordinates": {
-        "x": 32551283.6787,
-        "y": 4620316.9787,
-        "z": 1729.57
+        "x": 32550831.6312,
+        "y": 4619939.4781,
+        "z": 1655.3
       }
     },
     {
@@ -5869,9 +6815,9 @@
       "tunnel_id": "409316B8-ABA2-4248-9F02-38DC2DB96867",
       "mark_type": "B16",
       "coordinates": {
-        "x": 32551394.4687,
-        "y": 4620395.2087,
-        "z": 1740.3
+        "x": 32552079.1407,
+        "y": 4620153.9121,
+        "z": 1913.5
       }
     },
     {
@@ -5880,9 +6826,31 @@
       "tunnel_id": "409316B8-ABA2-4248-9F02-38DC2DB96867",
       "mark_type": "B16",
       "coordinates": {
-        "x": 32552178.0687,
-        "y": 4620239.2887,
-        "z": 1890.8
+        "x": 32552078.2314,
+        "y": 4620154.2482,
+        "z": 1913.25
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N6080",
+      "description": "天宝公司-副斜井防跑车(3)",
+      "tunnel_id": "409316B8-ABA2-4248-9F02-38DC2DB96867",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32552080.9594,
+        "y": 4620153.2399,
+        "z": 1913.99
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N6082",
+      "description": "天宝公司-主斜井防跑车(上)",
+      "tunnel_id": "D077AB2D-917D-4457-8431-4F9BD4A72765",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32552250.0793,
+        "y": 4620213.1102,
+        "z": 1912.73
       }
     },
     {
@@ -5891,9 +6859,9 @@
       "tunnel_id": "D077AB2D-917D-4457-8431-4F9BD4A72765",
       "mark_type": "B16",
       "coordinates": {
-        "x": 32551876.4887,
-        "y": 4620349.0587,
-        "z": 1800.08
+        "x": 32552248.2734,
+        "y": 4620213.7667,
+        "z": 1912.17
       }
     },
     {
@@ -5902,9 +6870,9 @@
       "tunnel_id": "D077AB2D-917D-4457-8431-4F9BD4A72765",
       "mark_type": "B16",
       "coordinates": {
-        "x": 32551680.2287,
-        "y": 4620420.6287,
-        "z": 1743.13
+        "x": 32552250.9822,
+        "y": 4620212.782,
+        "z": 1913.0
       }
     },
     {
@@ -5913,9 +6881,9 @@
       "tunnel_id": "7D7FA2D7-4DB9-498F-BE00-4C38D6D8CB53",
       "mark_type": "B16",
       "coordinates": {
-        "x": 32550926.8187,
-        "y": 4619945.0987,
-        "z": 1660.35
+        "x": 32551458.7946,
+        "y": 4620317.5915,
+        "z": 1740.06
       }
     },
     {
@@ -5924,9 +6892,53 @@
       "tunnel_id": "7D7FA2D7-4DB9-498F-BE00-4C38D6D8CB53",
       "mark_type": "B16",
       "coordinates": {
-        "x": 32551100.4487,
-        "y": 4620066.6187,
-        "z": 1690.1
+        "x": 32550859.6952,
+        "y": 4619898.1413,
+        "z": 1653.32
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N6103",
+      "description": "天宝公司-中央辅运大巷掘进工作面T1朝向外口",
+      "tunnel_id": "189910C5-A97E-4E0F-A417-18ADBCFDB778",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32551401.9821,
+        "y": 4620400.5776,
+        "z": 1740.16
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N6104",
+      "description": "天宝公司-副井放料点",
+      "tunnel_id": "409316B8-ABA2-4248-9F02-38DC2DB96867",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32552080.0501,
+        "y": 4620153.576,
+        "z": 1913.74
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N6105",
+      "description": "天宝井工矿-副斜井井口",
+      "tunnel_id": "409316B8-ABA2-4248-9F02-38DC2DB96867",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32552150.102,
+        "y": 4620127.6846,
+        "z": 1932.63
+      }
+    },
+    {
+      "id": "YJMDTBMY10121N6110",
+      "description": "天宝公司-主斜井管路安装处",
+      "tunnel_id": "D077AB2D-917D-4457-8431-4F9BD4A72765",
+      "mark_type": "B16",
+      "coordinates": {
+        "x": 32552247.3705,
+        "y": 4620214.095,
+        "z": 1911.89
       }
     }
   ],
@@ -13300,7 +14312,7 @@
       }
     },
     {
-      "id": "d5e5ac50-b076-4b99-b065-768d3d7994ec",
+      "id": "a088b409-44fa-4427-9a74-ecd4d61cf329",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -13312,7 +14324,7 @@
       }
     },
     {
-      "id": "b582561c-2202-4630-a8f1-b38135634ae6",
+      "id": "d92bc55e-a438-4e00-90c8-64bec98d5936",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -13324,7 +14336,7 @@
       }
     },
     {
-      "id": "8201ef09-46f6-4a6c-a96c-d5c21d2e1662",
+      "id": "aeca5e8c-5d23-4a72-9510-9ea2204fcc13",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -13336,7 +14348,7 @@
       }
     },
     {
-      "id": "d3359638-5ad6-45d1-be8b-e74135dcfe90",
+      "id": "ca0e3010-089f-4778-a938-8afcab32be82",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -13348,7 +14360,7 @@
       }
     },
     {
-      "id": "e1bd2081-b944-4b7f-890c-15d4e1d8eb8f",
+      "id": "4d933849-ed22-4467-aafe-172a5403d4a3",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -13360,7 +14372,7 @@
       }
     },
     {
-      "id": "1376bd7c-4b72-4166-b94c-0cf303d2cd96",
+      "id": "5c49cbd9-7ef1-44b3-82c5-0432740a579d",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -13372,7 +14384,7 @@
       }
     },
     {
-      "id": "a3670e8e-926f-4380-9983-70ec3d035ca8",
+      "id": "27146767-551e-431f-a7ed-1cbfbe6f9a9c",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -13384,7 +14396,7 @@
       }
     },
     {
-      "id": "cda31d5e-1cdf-4baa-89fb-c83f8f0ffc2b",
+      "id": "f1d074ff-ce87-47c2-8c0d-0db3f44e6cfd",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -13396,7 +14408,7 @@
       }
     },
     {
-      "id": "bf885a55-3a5f-40c5-a945-48a1a60b5a97",
+      "id": "f8bfa43d-017a-4a52-97e1-9cf30fef0a5d",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -13408,7 +14420,7 @@
       }
     },
     {
-      "id": "8a5d992b-fc32-49d5-bb5a-9f96c4c49a0c",
+      "id": "04749e8c-3388-4edb-8f1f-2dfcaefb773e",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -13420,7 +14432,7 @@
       }
     },
     {
-      "id": "8f5d18ac-9f76-4f15-aca9-523aa2699a9d",
+      "id": "f00d8074-24b5-4bc7-9219-064767ac51a6",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -13432,7 +14444,7 @@
       }
     },
     {
-      "id": "b977c2bd-bb93-47da-81c8-3a56d39630b1",
+      "id": "b5b4e451-6118-484c-936b-0b6d5b69865f",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -13444,7 +14456,7 @@
       }
     },
     {
-      "id": "3ed097f9-f174-474a-80bb-a56327ef4e7c",
+      "id": "4bd5cc03-eccb-4833-aea5-0ef206ea8aba",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -13456,7 +14468,7 @@
       }
     },
     {
-      "id": "45f19b14-8520-4c9a-8d95-072b3b2834e5",
+      "id": "171e3238-ee56-4ddd-a868-b0ccf5003207",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -13468,7 +14480,7 @@
       }
     },
     {
-      "id": "dc1f725c-5c60-448c-97e2-01fcc0007a19",
+      "id": "240e9c37-befd-45f0-ba7b-2fc3a0aaee21",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -13480,7 +14492,7 @@
       }
     },
     {
-      "id": "c0297ec5-214f-4644-a86c-78b29751c53f",
+      "id": "518e7fdf-046b-44b9-9ae9-75ef2a2b1f7b",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -13492,7 +14504,7 @@
       }
     },
     {
-      "id": "eb5802e0-0ef7-4db4-a724-1937314ca428",
+      "id": "6a39ef43-e548-414d-85bf-39d1a8ebbc26",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -13504,7 +14516,7 @@
       }
     },
     {
-      "id": "531bd39b-0c53-4c2f-ae74-ebaac11d6ec7",
+      "id": "7cb4f6f1-e29b-4b15-8466-202016ca81e6",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -13516,7 +14528,7 @@
       }
     },
     {
-      "id": "c0353f18-510d-42a8-91ce-1d5d76e804b0",
+      "id": "4fc98c20-5087-4291-b81a-95badeb4c4b5",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -13528,7 +14540,7 @@
       }
     },
     {
-      "id": "3a272824-1a2d-438a-963f-a9fa9d05a820",
+      "id": "bbb4e930-11bc-4948-bec3-ec3b57f3adfd",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -13540,7 +14552,7 @@
       }
     },
     {
-      "id": "92d10f07-4582-4965-9bcd-7ec8df3dee40",
+      "id": "e4c303c2-4994-4665-915a-31167045ac9e",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -13552,7 +14564,7 @@
       }
     },
     {
-      "id": "568738c2-e6ad-4cbe-9ad2-efa1ce2646ce",
+      "id": "dd2f98bb-1664-4fb5-a690-1811e5e7aacb",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -13564,7 +14576,7 @@
       }
     },
     {
-      "id": "6ea0b961-bf6a-418b-8988-bf4926a0e0b1",
+      "id": "ffe6dc2d-02cc-4ea6-823c-04e6aa5fe338",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -13576,7 +14588,7 @@
       }
     },
     {
-      "id": "c36c1fd3-d6bf-4435-bd6f-334cf1b28433",
+      "id": "4bc24391-8af9-4efa-bf73-1520c7d0415a",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -13588,7 +14600,7 @@
       }
     },
     {
-      "id": "b68dc542-2fc0-4f7b-af0d-843029777292",
+      "id": "3fa9411c-0092-4d0f-8a61-9225b39cd71a",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -13600,7 +14612,7 @@
       }
     },
     {
-      "id": "ef1909f3-ae3d-4c9f-86c9-35075d87bf95",
+      "id": "57087eff-0119-43fe-be37-92d0d62cffb2",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -13612,7 +14624,7 @@
       }
     },
     {
-      "id": "be27cb85-a4e5-4c54-808f-fe5bd2082b0e",
+      "id": "f940c02b-b45c-4b62-8970-e020b5f6a4b3",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -13624,7 +14636,7 @@
       }
     },
     {
-      "id": "242407a1-c442-4f8d-b8c1-2d43d7f968b0",
+      "id": "77057d59-7a36-4e7b-9c3c-d96ffbb2ad5b",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -13636,7 +14648,7 @@
       }
     },
     {
-      "id": "9fe74eb0-539f-422b-96da-fbd0c67b5018",
+      "id": "69065288-7037-4166-9cfb-6086c63867b1",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -13648,7 +14660,7 @@
       }
     },
     {
-      "id": "1d1305cc-ad84-4ce8-9678-0159d15b36e4",
+      "id": "1260835b-628f-46b5-9b63-ab1d5e311f4e",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -13660,7 +14672,7 @@
       }
     },
     {
-      "id": "8082c1fc-9eca-4108-9966-77d4d9616e82",
+      "id": "a2198a3f-464b-4a37-8a73-f6013fea8e3d",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -13672,7 +14684,7 @@
       }
     },
     {
-      "id": "716c6f82-946b-4028-a88a-a8dda25df2e8",
+      "id": "1d6baeec-ba71-45a4-b3ce-fb90ca796f41",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -13684,7 +14696,7 @@
       }
     },
     {
-      "id": "ab0dd240-79b7-41fd-8bb8-29f0fadf8ea8",
+      "id": "c87958d7-ccef-4dac-af9a-dfb6ecc65fe0",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -13696,7 +14708,7 @@
       }
     },
     {
-      "id": "fe83e7bd-9067-480e-98c9-02cf4831089b",
+      "id": "8381b2bb-3e65-493d-83e2-b5a1504bde04",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -13708,7 +14720,7 @@
       }
     },
     {
-      "id": "0f46239b-6e5e-4b66-a901-1e7eea27e163",
+      "id": "63781bc6-3ec9-49d4-8bb1-8a4b9a789fb8",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -13720,7 +14732,7 @@
       }
     },
     {
-      "id": "a41addab-9d88-4f7c-9dd6-b5c643af7287",
+      "id": "8154ee08-3ca9-4378-be90-3b5b0799cf85",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -13732,7 +14744,7 @@
       }
     },
     {
-      "id": "6a999b8c-1498-47ea-b3d7-336cdbb12699",
+      "id": "1f4847ed-572f-477e-9ac1-ad05f667fdda",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -13744,7 +14756,7 @@
       }
     },
     {
-      "id": "04949ece-b654-41ba-9613-b7af604d8a09",
+      "id": "068ae1ac-99a1-44e0-82e0-430e082d386d",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -13756,7 +14768,7 @@
       }
     },
     {
-      "id": "8164b735-b3b9-4957-9ca8-1b10abfa33de",
+      "id": "133d8ae1-aa5b-4051-a92e-1d0a12ee5f4b",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -13768,7 +14780,7 @@
       }
     },
     {
-      "id": "515fcbcf-7f49-4887-8734-1c80a944ec47",
+      "id": "3066bbe4-0631-4128-b351-aafc664301cd",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -13780,7 +14792,7 @@
       }
     },
     {
-      "id": "172dd05e-4c7c-49f6-b990-06e5f74e7c45",
+      "id": "c93c035a-e46a-41ce-af7d-d3b29e4f6139",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -13792,7 +14804,7 @@
       }
     },
     {
-      "id": "d91e8ed0-23dc-48f1-9058-3c90f182541d",
+      "id": "41e62d96-20ba-4255-a637-4302c39fc437",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -13804,7 +14816,7 @@
       }
     },
     {
-      "id": "7db41b21-6164-4bd8-8483-90e989db9185",
+      "id": "5e66298c-0bcb-49ea-b109-d9c37a9ac77c",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -13816,7 +14828,7 @@
       }
     },
     {
-      "id": "8c03e757-493b-4d99-9b6b-4b66e916cb8d",
+      "id": "aedc85e2-bf86-4f6f-a1cf-55e5ac7753f7",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -13828,7 +14840,7 @@
       }
     },
     {
-      "id": "4d2c5e7f-b644-438a-a425-67790aa24691",
+      "id": "300f1027-e707-4b0d-b98c-e33862de3b08",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -13840,7 +14852,7 @@
       }
     },
     {
-      "id": "ff2feafb-e307-4391-b3cc-3557b16ba428",
+      "id": "db90f9c1-ba75-484f-8457-ddeac4acced0",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -13852,7 +14864,7 @@
       }
     },
     {
-      "id": "e42efc12-106c-4e8d-a5f8-1189a1014916",
+      "id": "de57d312-b6ac-4a6b-a503-61806b18f4f0",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -13864,7 +14876,7 @@
       }
     },
     {
-      "id": "e9413385-60a0-4beb-b0d3-ca2b8f736f0c",
+      "id": "e20df3e2-4c79-4537-b709-4d60fb80e90d",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -13876,7 +14888,7 @@
       }
     },
     {
-      "id": "b1e78a75-c084-4542-be51-2b5e004cf320",
+      "id": "5bb0d017-611b-4b58-b4de-8cad3e5cd0a1",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -13888,7 +14900,7 @@
       }
     },
     {
-      "id": "33ba0868-1101-4cb2-a310-a338faa45a10",
+      "id": "b228263c-dd5b-4cc6-8b54-d6d066c276f8",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -13900,7 +14912,7 @@
       }
     },
     {
-      "id": "699cbfac-b74f-46f7-b7ef-d932d6452916",
+      "id": "8e9b0d9e-bd6e-4201-a648-7b986f241079",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -13912,7 +14924,7 @@
       }
     },
     {
-      "id": "be30c925-ff14-4b71-b36d-8ecad2669e7b",
+      "id": "ef8cc745-ebce-48a9-b6f3-9d25374b899f",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -13924,7 +14936,7 @@
       }
     },
     {
-      "id": "e44fc46b-3532-4a06-b624-ed0505c3c68d",
+      "id": "5f1d00d1-99d8-4b17-a366-a53230ad71d5",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -13936,7 +14948,7 @@
       }
     },
     {
-      "id": "31f13df7-e108-4a8f-b7ca-a4f7e843ae92",
+      "id": "a9b5de7d-2784-4573-bc62-78ab6e17fa46",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -13948,7 +14960,7 @@
       }
     },
     {
-      "id": "916d210c-35a5-4e1d-8c2a-eceb8482e0ee",
+      "id": "64032273-15d3-477f-a1e7-9136cc3ac3e0",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -13960,7 +14972,7 @@
       }
     },
     {
-      "id": "f473c447-48ec-4255-ad6f-93f6930f82ae",
+      "id": "86218b79-9cdc-4ef2-b241-e269fa8cf732",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -13972,7 +14984,7 @@
       }
     },
     {
-      "id": "63d50801-db98-429e-b624-1c4887c815a8",
+      "id": "9f4c44b6-00c4-451b-a56f-48d3a5e7e3d3",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -13984,7 +14996,7 @@
       }
     },
     {
-      "id": "aee4ced8-ca3f-4f71-a225-e35c892db5a0",
+      "id": "3b55a2fe-66cb-43a5-8498-04d43331022d",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -13996,7 +15008,7 @@
       }
     },
     {
-      "id": "836a7826-2eb8-4339-9e4d-33d58d5ee3bb",
+      "id": "2bf85a4d-de1c-4b53-91fa-e43cdca35a8c",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14008,7 +15020,7 @@
       }
     },
     {
-      "id": "1014aafa-712a-4c3d-9f8d-bbac07eb4e3c",
+      "id": "3cbf661d-b0df-4f03-9e27-ed2049cecdec",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14020,7 +15032,7 @@
       }
     },
     {
-      "id": "c0636efb-a101-4e33-96ce-44de486fd932",
+      "id": "5ff488d0-4e47-4719-bf31-0a273d23cfc5",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14032,7 +15044,7 @@
       }
     },
     {
-      "id": "ca95e636-2baa-4cf1-ba2c-8890780c5df8",
+      "id": "8e5c2e0c-42d8-4248-8009-577cf54558ab",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14044,7 +15056,7 @@
       }
     },
     {
-      "id": "e95a7288-afc0-4e27-a812-d0a548b76f25",
+      "id": "93239c90-9285-449c-a1cb-ad84eab3a20d",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14056,7 +15068,7 @@
       }
     },
     {
-      "id": "f0845fda-716d-45ed-97a3-f7b7fcd46577",
+      "id": "80e8cbe2-d24c-47fe-9890-9f4c7a239381",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14068,7 +15080,7 @@
       }
     },
     {
-      "id": "533d9d2b-251a-4b84-a3c6-c7d17d39fe0a",
+      "id": "98999a0a-e02a-4a35-8f11-98654d1e9a32",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14080,7 +15092,7 @@
       }
     },
     {
-      "id": "a00ed1b1-6148-4645-bec5-d33bf59be615",
+      "id": "c4934ecd-dcf5-400e-8e97-25d189a760e6",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14092,7 +15104,7 @@
       }
     },
     {
-      "id": "7b004918-1b81-48a9-9aab-7ef1c21db5f7",
+      "id": "2fbd6301-4ab2-4020-8b99-0af2c4d167f2",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14104,7 +15116,7 @@
       }
     },
     {
-      "id": "c949ca0e-f663-4a34-84b8-bf02fc826dfc",
+      "id": "0d9be3ee-a96b-44aa-a1c6-de82ad344490",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14116,7 +15128,7 @@
       }
     },
     {
-      "id": "df637f1c-5bb5-411b-a04f-f61b3485cfef",
+      "id": "d4bd542a-4b71-4123-852b-2ad6ceb49fcf",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14128,7 +15140,7 @@
       }
     },
     {
-      "id": "4cd973c2-456b-44f4-93aa-5f04600244dd",
+      "id": "818be3fd-d395-46c4-93cc-b356708cedec",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14140,7 +15152,7 @@
       }
     },
     {
-      "id": "3c95700e-1ee6-41b8-a84c-3a73e4d41d0e",
+      "id": "0fa00506-d2c1-4b36-aca9-ad76a607b99f",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14152,7 +15164,7 @@
       }
     },
     {
-      "id": "2d5f30a8-6e66-41c1-a585-49923db39a61",
+      "id": "132f40e7-48c5-4764-8b4d-22c3adb66ce4",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14164,7 +15176,7 @@
       }
     },
     {
-      "id": "86f05072-a4bf-4e0d-b720-9b41a3835511",
+      "id": "eeddf170-b563-4b07-b2e2-a09c5fc96774",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14176,7 +15188,7 @@
       }
     },
     {
-      "id": "5e10032b-b674-4f5a-a38e-019c22605ff8",
+      "id": "58287512-f2be-467d-a3de-d90221e3794a",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14188,7 +15200,7 @@
       }
     },
     {
-      "id": "082689a9-5e49-4df9-aeca-735ee1dabddf",
+      "id": "4f2965c5-81cd-4ce8-a322-47fe5a345461",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14200,7 +15212,7 @@
       }
     },
     {
-      "id": "98c84928-cf9a-4d3f-9831-60bd45851e6d",
+      "id": "d03a8b76-cf38-4aea-bb09-5d427bec7631",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14212,7 +15224,7 @@
       }
     },
     {
-      "id": "04500315-bfc4-4b72-8666-1656e0e4bc9d",
+      "id": "faaa406a-03a5-4c6f-b443-4942b05dee29",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14224,7 +15236,7 @@
       }
     },
     {
-      "id": "b9ab6229-6a4e-40f8-b6c7-8487ddc2a470",
+      "id": "7e6c3fa5-ea2f-45b0-b8c1-a09d6c68554d",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14236,7 +15248,7 @@
       }
     },
     {
-      "id": "ddff2e1b-1fed-46ff-94e9-2a8ade69452e",
+      "id": "fc3d7d78-9f0b-4edc-8e9d-60411ad6fbf8",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14248,7 +15260,7 @@
       }
     },
     {
-      "id": "8009d1dd-1ba8-4fef-8bfe-23c4afda95bb",
+      "id": "ae04acd8-75ce-4be3-a5e4-ec8c70fbb0f6",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14260,7 +15272,7 @@
       }
     },
     {
-      "id": "b1c56e80-65e9-4bee-96ff-3c4a923f0087",
+      "id": "65943a7a-03f1-4d52-883e-edb38f570a5c",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14272,7 +15284,7 @@
       }
     },
     {
-      "id": "4e4f748e-c68f-454f-b879-2b4cecffe2c4",
+      "id": "d2306ecf-cd7b-46ef-90b4-a13a1323c241",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14284,7 +15296,7 @@
       }
     },
     {
-      "id": "48240a90-9166-4bcb-827a-d77097b6cc2d",
+      "id": "114c59b7-0b2f-46b2-81ca-d42a332804ec",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14296,7 +15308,7 @@
       }
     },
     {
-      "id": "74d1a3a8-b29f-4b89-9fd0-ab8758022b89",
+      "id": "30652234-d108-47d3-b0b3-537f9917efae",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14308,7 +15320,7 @@
       }
     },
     {
-      "id": "162227e2-6aa3-432b-967f-5bca892d6538",
+      "id": "78c2c8c4-9ba7-468f-9c50-62766657558c",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14320,7 +15332,7 @@
       }
     },
     {
-      "id": "0d1f3cab-feec-42f5-bd9f-90eb29243fce",
+      "id": "1f640049-8638-4619-a08a-f76c90699462",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14332,7 +15344,7 @@
       }
     },
     {
-      "id": "067829d0-98f2-4b7d-81ca-931830b50d7f",
+      "id": "c59db3a6-ef39-4120-bfee-28f444d50bf2",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14344,7 +15356,7 @@
       }
     },
     {
-      "id": "11141321-ab93-4584-9475-2e18f00a9c27",
+      "id": "903e2bf9-7631-4e11-bf57-f5322e968792",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14356,7 +15368,7 @@
       }
     },
     {
-      "id": "1f705ba7-c400-4b3e-b60c-d80a932d503f",
+      "id": "06b9ee9e-70d1-4fa2-9e9f-a2d2692e0d57",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14368,7 +15380,7 @@
       }
     },
     {
-      "id": "1e2d040c-4788-461d-8bf4-df841bf60131",
+      "id": "cdb89fbb-e038-46d9-8e22-28c2662b401e",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14380,7 +15392,7 @@
       }
     },
     {
-      "id": "ecb1b679-2587-45cc-9aaa-f2a9f57cd0ae",
+      "id": "12fee0c4-3c1e-4f55-8c2a-378adb687fac",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14392,7 +15404,7 @@
       }
     },
     {
-      "id": "3fce4955-65c4-4206-8836-4a57d66001fa",
+      "id": "f64b0f2a-0ca5-4629-9cc4-356c1bc5ce74",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14404,7 +15416,7 @@
       }
     },
     {
-      "id": "086e2409-a7b0-43b3-b848-5ca7336d6239",
+      "id": "672b288d-9f0f-476f-a37e-51cb27c78e31",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14416,7 +15428,7 @@
       }
     },
     {
-      "id": "a2174600-162b-477a-8d3f-7979d42a8e9f",
+      "id": "8b9f1108-90b9-4600-82ed-0140ba20f71f",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14428,7 +15440,7 @@
       }
     },
     {
-      "id": "7fcf053c-1f56-4af3-9bb4-cdc0229bb1ae",
+      "id": "52c02f38-a7cf-4e97-b13f-e24a39a8d163",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14440,7 +15452,7 @@
       }
     },
     {
-      "id": "c9450471-36c5-4112-90dc-5c73918e8a9e",
+      "id": "283247b2-776b-471f-9459-54cf2dd2d220",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14452,7 +15464,7 @@
       }
     },
     {
-      "id": "c37f9956-fba0-4f0c-b5dd-3932f151be45",
+      "id": "a9a30b09-3869-4082-ba4d-83eb51c62d7b",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14464,7 +15476,7 @@
       }
     },
     {
-      "id": "4dd45bcf-0d64-498b-ac1a-d49dae93de0e",
+      "id": "605c59cf-9673-411d-b461-56b91d848d6f",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14476,7 +15488,7 @@
       }
     },
     {
-      "id": "90698974-f118-4b5e-b0d3-733100f5def6",
+      "id": "63565049-2ef7-41f7-af52-0ebccac16e16",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14488,7 +15500,19 @@
       }
     },
     {
-      "id": "65c9bf9f-404b-4ecd-b73b-ea794047bf6e",
+      "id": "c36c165b-ae2c-4c55-baee-a1ed78bd6f10",
+      "dwgID": "YJMDTBMYA02A040100",
+      "name": "天宝-安全监测",
+      "typeName": "安全监测监控系统图",
+      "content": "F14",
+      "latLng": "41.7173386/96.6205211",
+      "coordinates": {
+        "x": 32551637.6579,
+        "y": 4620427.5996
+      }
+    },
+    {
+      "id": "75b0ee45-4fc1-4506-a22e-a7a80c7938d3",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14500,7 +15524,7 @@
       }
     },
     {
-      "id": "a2463fd1-ac51-47a5-a3c0-c106911dd050",
+      "id": "c5e2f113-d995-4e9d-9940-499c9587d95b",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14512,7 +15536,7 @@
       }
     },
     {
-      "id": "cfd15a26-b4a7-49ea-b03e-b8a1a74901cd",
+      "id": "b0c70bc2-d7f8-4d28-83ec-c08d53b2f6c3",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14524,7 +15548,7 @@
       }
     },
     {
-      "id": "12589524-665a-4d2a-aa0c-fd750935b0c8",
+      "id": "6bde6ecb-190f-4462-93e3-1f6fdaeb8a59",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14536,7 +15560,7 @@
       }
     },
     {
-      "id": "effec98e-d7c2-489f-bfc9-36af755ab8e5",
+      "id": "54edc45e-e81e-4c9c-b3aa-878a8921a562",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14548,7 +15572,7 @@
       }
     },
     {
-      "id": "71ab31bc-208a-4802-afec-8726f4a2f7c8",
+      "id": "0ba13823-832c-4c1d-b5c5-97887445ed8b",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14560,7 +15584,7 @@
       }
     },
     {
-      "id": "7d32bc8f-cc0a-49e9-b927-bb5b5e5c51dc",
+      "id": "454096c2-78b1-44e3-b200-c51fa78ae934",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14572,7 +15596,7 @@
       }
     },
     {
-      "id": "eaab338f-0f9f-4c20-95de-6607018f2a03",
+      "id": "3c0bc0fd-0c39-417b-98f3-76f478e8716d",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14584,7 +15608,7 @@
       }
     },
     {
-      "id": "ccdc53db-8557-4203-b5b1-d784d1211f77",
+      "id": "63cb07fb-2777-47a3-9da3-1b0af2a1398e",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14596,7 +15620,7 @@
       }
     },
     {
-      "id": "131cca7c-1cc1-4ce8-b6f6-d246ab1f0fc1",
+      "id": "f1835506-47f6-49c8-be01-efb6fc2632c2",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14608,7 +15632,7 @@
       }
     },
     {
-      "id": "d7282dd0-4270-44b7-92b4-415a6966aa37",
+      "id": "b8fe4af9-ef4b-4fb1-93ca-5e80bddea60e",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14620,7 +15644,7 @@
       }
     },
     {
-      "id": "28c27796-a82b-4ebc-853e-742113bf13e4",
+      "id": "1dfb0731-da1f-4827-b726-8e833bff9764",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14632,7 +15656,7 @@
       }
     },
     {
-      "id": "8e0a3762-337a-4cf3-b8bc-50773738d4db",
+      "id": "48125d58-c749-46b7-8982-a3e64d00a253",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14644,7 +15668,7 @@
       }
     },
     {
-      "id": "b9d5cd74-ae68-45c6-87bf-e1b3c95c2ec7",
+      "id": "378a05fb-24b0-4cff-8df9-3d7ae50dfa4c",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14656,7 +15680,7 @@
       }
     },
     {
-      "id": "893b1319-4754-49d6-adc2-b453f69ffafa",
+      "id": "07f6acc7-6dd8-46ec-bba8-b8e53d0e4884",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14668,7 +15692,7 @@
       }
     },
     {
-      "id": "f810e79f-c9aa-4573-ba34-b8389dd31c4e",
+      "id": "30947086-9dd5-4b84-b7a1-4ac636398a97",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14680,7 +15704,19 @@
       }
     },
     {
-      "id": "31ac5512-51fe-4845-aebb-6b754429fd6e",
+      "id": "c2b29144-7f9f-4ddb-a2f5-2ac650d70704",
+      "dwgID": "YJMDTBMYA02A040100",
+      "name": "天宝-安全监测",
+      "typeName": "安全监测监控系统图",
+      "content": "F",
+      "latLng": "41.7141269/96.6224837",
+      "coordinates": {
+        "x": 32551803.5564,
+        "y": 4620072.0613
+      }
+    },
+    {
+      "id": "e62aa6a9-685e-4a58-bba6-a42aaa567a1c",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14692,7 +15728,7 @@
       }
     },
     {
-      "id": "caef52f8-5cc7-47c8-b25f-a30e0d182da7",
+      "id": "9c87e242-31a9-4b8a-8967-a388cae2b104",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14704,7 +15740,7 @@
       }
     },
     {
-      "id": "3b14af16-f099-4673-880f-f9a4beb3c18d",
+      "id": "c12a1dc7-c7a4-418d-af2c-afbc8d403740",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14716,7 +15752,7 @@
       }
     },
     {
-      "id": "e11a67c7-593f-4abc-b674-741ee77e6ab8",
+      "id": "d693790a-2a8c-4bbc-becd-5b893ef1ded0",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14728,7 +15764,7 @@
       }
     },
     {
-      "id": "bae9092b-120c-4c77-9c0e-5751adc73cbf",
+      "id": "801aea67-9957-4702-82e5-f65531585aeb",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14740,7 +15776,7 @@
       }
     },
     {
-      "id": "7b293f5c-f81f-453f-8edc-62a2acb51854",
+      "id": "8fa2a3b0-232f-4623-89af-b472e0fb0c15",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14752,7 +15788,7 @@
       }
     },
     {
-      "id": "e02f8f01-9555-4a0a-9169-02f23fd9d89b",
+      "id": "a605ea4c-5358-489d-90c9-c250f03b07f9",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14764,7 +15800,7 @@
       }
     },
     {
-      "id": "833b7f59-bdaf-4e41-91e3-3fc2658f178b",
+      "id": "89b89ee9-1429-432e-84cb-f86f50d2d1ca",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14776,7 +15812,7 @@
       }
     },
     {
-      "id": "eb89e513-784e-4d1a-9c38-0274628cb809",
+      "id": "79909df4-261b-4990-aad8-ceba7854c2aa",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14788,7 +15824,7 @@
       }
     },
     {
-      "id": "cb20b463-7441-4970-90fa-f774a2c2cf00",
+      "id": "ab0876f3-d7ee-4a58-872a-b685372ccf87",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14800,7 +15836,7 @@
       }
     },
     {
-      "id": "20687866-7d59-40a3-ae75-181904d97b4c",
+      "id": "c5e86062-2d3d-4ce6-a981-6d0b12ab54ed",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14812,7 +15848,7 @@
       }
     },
     {
-      "id": "6c1acd95-3f67-4fbe-a135-0ae992072c85",
+      "id": "e8c604b3-dce5-4b7b-8cf9-5f74d17ece82",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14824,7 +15860,7 @@
       }
     },
     {
-      "id": "a0a524f7-b7b8-492b-8f5e-79b834e4936f",
+      "id": "b803818d-e079-41fd-bc08-c752d1704221",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14836,7 +15872,7 @@
       }
     },
     {
-      "id": "4a80112d-5aba-4126-a39b-2c2b6084c4d5",
+      "id": "e2d74e71-0aa2-4a99-b10e-55def064b1d1",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14848,7 +15884,7 @@
       }
     },
     {
-      "id": "66ee026f-4796-454f-9ae3-31f4e0dfb0ef",
+      "id": "35258073-9cc0-4a34-bfe3-73a2158ad969",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14860,7 +15896,7 @@
       }
     },
     {
-      "id": "3d866e68-87d7-4aa1-9ca6-dc7bf5bff82d",
+      "id": "638753aa-93f7-4eaa-853c-6734e516721e",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14872,7 +15908,7 @@
       }
     },
     {
-      "id": "bff9e040-30b2-4e8a-8c98-252eb8634c9d",
+      "id": "07ab18aa-6fbe-41fe-9a68-e558dbdf60b8",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14884,7 +15920,7 @@
       }
     },
     {
-      "id": "a382d52e-ab87-4fce-be3e-bad627bcf1fc",
+      "id": "b363cbda-c742-45fb-9057-cc1a4c5fd987",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14896,7 +15932,7 @@
       }
     },
     {
-      "id": "e1c92eaa-cbce-4a34-a59e-500c41ffe6b8",
+      "id": "64844c98-8aa5-46a8-bdd3-4409eb8b2f97",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14908,7 +15944,7 @@
       }
     },
     {
-      "id": "c0b439ea-7571-4835-a6cd-903a9256bce2",
+      "id": "34452b9f-cd0a-4619-8a93-7d8287453921",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14920,7 +15956,7 @@
       }
     },
     {
-      "id": "7151ac9d-591a-4ed1-8fa9-5a749b5da974",
+      "id": "49fb07ef-e087-4545-b355-c5208fefe1d3",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14932,7 +15968,7 @@
       }
     },
     {
-      "id": "7ad82b76-8a32-4024-8eec-7db532c5c3e5",
+      "id": "62799a15-a90a-4c8d-9820-4c2edb1ce20d",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14944,7 +15980,7 @@
       }
     },
     {
-      "id": "e6619b10-be6d-4ff9-8a73-54186f0b43f0",
+      "id": "738155e1-5292-470a-ad14-a83af1913e05",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14956,7 +15992,7 @@
       }
     },
     {
-      "id": "1b87db61-79db-4cbd-adfd-19a044efc2a8",
+      "id": "3d2654d0-22b7-404e-a31e-8ff1182beea9",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14968,7 +16004,7 @@
       }
     },
     {
-      "id": "98cfe8e4-9696-49af-92d8-1c4ce91b4c6a",
+      "id": "8a5a8b9a-1365-47b5-89af-4aaaac5da646",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14980,7 +16016,7 @@
       }
     },
     {
-      "id": "b82e7d92-41a4-41ec-a345-43f460340b19",
+      "id": "f8fea4d6-9c79-42c0-85b8-bbb343a02bd5",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -14992,7 +16028,7 @@
       }
     },
     {
-      "id": "312dd1aa-9392-45ee-a8a8-e79c72e5e221",
+      "id": "c5e0ddc7-d940-46f0-9ecd-1a4b9581fa43",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -15004,7 +16040,7 @@
       }
     },
     {
-      "id": "93a339d2-0688-42dd-ac4c-a8aa63d2f3be",
+      "id": "f8a3f530-5ce7-454a-9c39-8cca03685106",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -15016,7 +16052,7 @@
       }
     },
     {
-      "id": "1f5fe1a0-4418-4942-82ea-398cb8bd6a0a",
+      "id": "ad589fcc-e297-4131-8023-f5363dd8494a",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -15028,7 +16064,31 @@
       }
     },
     {
-      "id": "20c499fe-e05f-4b75-9732-faab609da02d",
+      "id": "39eb275f-eb0c-4167-b680-eb4b1799f450",
+      "dwgID": "YJMDTBMYA02A040100",
+      "name": "天宝-安全监测",
+      "typeName": "安全监测监控系统图",
+      "content": "F13",
+      "latLng": "41.7171406/96.6264867",
+      "coordinates": {
+        "x": 32552134.2502,
+        "y": 4620409.21
+      }
+    },
+    {
+      "id": "08c246e6-c719-48c6-b098-5071677b4aa8",
+      "dwgID": "YJMDTBMYA02A040100",
+      "name": "天宝-安全监测",
+      "typeName": "安全监测监控系统图",
+      "content": "F12",
+      "latLng": "41.7144625/96.6264653",
+      "coordinates": {
+        "x": 32552134.639,
+        "y": 4620111.747
+      }
+    },
+    {
+      "id": "f93b55b8-89af-40d5-bed6-dc6096c519e0",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -15040,7 +16100,7 @@
       }
     },
     {
-      "id": "d17535c1-bad6-4125-acf9-55fb6c82b08d",
+      "id": "7c773e3a-89c3-4112-b00d-fdcfc15d6f60",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -15052,7 +16112,7 @@
       }
     },
     {
-      "id": "5d3aafd4-0b70-4b1d-abff-52aa01bf75f7",
+      "id": "95e9e830-cd61-430a-87e8-1a16a4df604e",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -15064,7 +16124,7 @@
       }
     },
     {
-      "id": "95376295-af0a-4d23-804b-53a2d0b7c2f8",
+      "id": "ba9a232b-94c0-4395-9125-a2562a5f1d4e",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -15076,7 +16136,7 @@
       }
     },
     {
-      "id": "8b3cce64-1374-46da-ac0d-7eea610784fa",
+      "id": "cfcfb2ad-8335-4fb8-9438-b33c200b5d21",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -15088,7 +16148,7 @@
       }
     },
     {
-      "id": "132a5f9b-6273-4179-ac08-a86700eac1dd",
+      "id": "304bc5f4-7146-4d57-8a2c-92cac01efe61",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -15100,7 +16160,7 @@
       }
     },
     {
-      "id": "35e36873-548a-43f5-b7e6-01560ee4e687",
+      "id": "d95205ba-86eb-440f-8717-e8e78af9f982",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -15112,7 +16172,7 @@
       }
     },
     {
-      "id": "ea622441-849a-4f5d-8b91-6df475dd1dd2",
+      "id": "b1d0c8d9-16eb-4c12-a0ed-5df742af9593",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -15124,7 +16184,19 @@
       }
     },
     {
-      "id": "eff15278-bf15-4923-8f05-9bfd1aec9786",
+      "id": "f88794ec-4532-44ff-8c4d-7d0f2196365c",
+      "dwgID": "YJMDTBMYA02A040100",
+      "name": "天宝-安全监测",
+      "typeName": "安全监测监控系统图",
+      "content": "F13",
+      "latLng": "41.7174204/96.6267204",
+      "coordinates": {
+        "x": 32552153.4725,
+        "y": 4620440.423
+      }
+    },
+    {
+      "id": "80dc2f21-bd5a-47c4-aa40-197b0b8e7560",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -15136,7 +16208,31 @@
       }
     },
     {
-      "id": "e1f4d5e3-ce26-4577-9657-c8eaea8ef3ff",
+      "id": "538620b2-2be3-436d-83bb-43686fda9bfa",
+      "dwgID": "YJMDTBMYA02A040100",
+      "name": "天宝-安全监测",
+      "typeName": "安全监测监控系统图",
+      "content": "F12",
+      "latLng": "41.7149242/96.6267548",
+      "coordinates": {
+        "x": 32552158.357,
+        "y": 4620163.194
+      }
+    },
+    {
+      "id": "542b90f9-f6b9-40ce-9a81-5f9312360852",
+      "dwgID": "YJMDTBMYA02A040100",
+      "name": "天宝-安全监测",
+      "typeName": "安全监测监控系统图",
+      "content": "F",
+      "latLng": "41.7172302/96.6268735",
+      "coordinates": {
+        "x": 32552166.3675,
+        "y": 4620419.3902
+      }
+    },
+    {
+      "id": "23b7d3ad-0e6b-4f1e-b230-e6d00f30e767",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -15148,7 +16244,7 @@
       }
     },
     {
-      "id": "28c9df87-ded2-4f0b-a922-e5008d0b63ec",
+      "id": "4b7de7cd-8f5b-4046-a163-f9dda93c1817",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -15160,7 +16256,19 @@
       }
     },
     {
-      "id": "0a359251-6aab-448a-8823-48d9f95474e2",
+      "id": "e59a97a9-25c0-429f-a147-89e9065b3c40",
+      "dwgID": "YJMDTBMYA02A040100",
+      "name": "天宝-安全监测",
+      "typeName": "安全监测监控系统图",
+      "content": "F",
+      "latLng": "41.7148208/96.6268548",
+      "coordinates": {
+        "x": 32552166.7655,
+        "y": 4620151.7764
+      }
+    },
+    {
+      "id": "bf0aa1a4-bd97-4aa3-a3f2-5407b7876450",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -15172,7 +16280,7 @@
       }
     },
     {
-      "id": "0e8e5a5a-ad59-4bf9-b9c8-a132958b73b7",
+      "id": "1722a9cf-b0fb-48d0-8b34-380008112995",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -15184,7 +16292,7 @@
       }
     },
     {
-      "id": "a67423e6-4d99-4cd4-a3d0-da962200fe74",
+      "id": "03de2235-e420-48fb-970e-a35cec0ca115",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -15196,7 +16304,7 @@
       }
     },
     {
-      "id": "30edbda2-840b-4156-b713-5acdf49096d0",
+      "id": "cdfcefa7-2caf-4204-bf6e-cf9d94a94129",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -15208,7 +16316,7 @@
       }
     },
     {
-      "id": "77b08dc4-6814-4872-b565-d682fc66e87e",
+      "id": "e4e0e062-cd2e-4ba0-acf3-d81ce4f3a352",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -15220,7 +16328,7 @@
       }
     },
     {
-      "id": "3cea29d2-2a16-4170-bd63-756090a8bc80",
+      "id": "ecf1a3e0-6c7f-4bd8-8d12-1d958ebd40cf",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -15232,7 +16340,7 @@
       }
     },
     {
-      "id": "788137ed-43e9-4b65-a2a6-f80e482c2982",
+      "id": "bb4625f4-4e22-4b6a-a1e9-faad6a72751d",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -15244,7 +16352,7 @@
       }
     },
     {
-      "id": "8b1572c1-3329-47a3-82fd-6e1a23612375",
+      "id": "f204a21e-13c2-4297-92d3-98dcdef99dbd",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -15256,7 +16364,7 @@
       }
     },
     {
-      "id": "82262637-26cf-4f41-b202-640ecd621c3a",
+      "id": "35ec2c61-7e71-410c-b281-26570c9f7430",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -15268,7 +16376,7 @@
       }
     },
     {
-      "id": "5545804c-ecab-4af9-8d2b-cd2ef5324296",
+      "id": "904fb68e-048d-43aa-ab0a-6e0c12c6d4ee",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -15280,7 +16388,7 @@
       }
     },
     {
-      "id": "66b5dcfc-4369-4193-a603-b48ec9951573",
+      "id": "5a29dfca-564f-4f02-b086-980c86b873bb",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -15292,7 +16400,7 @@
       }
     },
     {
-      "id": "c497e4d8-62cd-489f-932c-f72ca87485e1",
+      "id": "50daf7db-af4b-4073-a654-9dd982b44d53",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -15304,7 +16412,7 @@
       }
     },
     {
-      "id": "3858a341-4553-47a6-b580-0166b5a9d619",
+      "id": "918db3fe-eed8-418d-8bd7-46271fadd144",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -15316,7 +16424,7 @@
       }
     },
     {
-      "id": "43592d93-3d0e-4b7d-905e-d23cf91f5962",
+      "id": "ee0b9e7d-0266-4a74-8e54-c5e309697d79",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -15328,7 +16436,7 @@
       }
     },
     {
-      "id": "7cdef354-f3a2-4b1d-a85b-aca39ff835ac",
+      "id": "cf54f04c-b17e-4b79-9bac-3f0b3bb36ed1",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -15340,7 +16448,7 @@
       }
     },
     {
-      "id": "5df97051-2da3-452c-a8cf-eb97148eb59f",
+      "id": "bff374ae-0b1a-4f92-9c45-912b1fc8d71e",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -15352,7 +16460,7 @@
       }
     },
     {
-      "id": "476ef5e8-afc5-4aef-8e5b-dd5a514b8f2c",
+      "id": "1d695571-1b31-4092-967c-c760e39d7932",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -15364,7 +16472,7 @@
       }
     },
     {
-      "id": "27599aa3-29aa-4b9a-ad48-e4654663d83d",
+      "id": "0904a066-a4ec-476a-991d-6b0060402de9",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -15376,7 +16484,7 @@
       }
     },
     {
-      "id": "292c6bab-ce0a-422b-ab2a-1c788c8a4fc5",
+      "id": "f5eb14ac-de2e-4bed-9881-4160b6731ca4",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -15388,7 +16496,7 @@
       }
     },
     {
-      "id": "45f4993b-f7bd-421e-b9d6-615b7d196b39",
+      "id": "59691e24-782c-4c95-a0bf-f50a2ec471b0",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -15400,7 +16508,7 @@
       }
     },
     {
-      "id": "5bb5645c-6bc5-496c-91fe-6a6668562e2d",
+      "id": "bf0e98ec-5dd5-49c3-928f-ae693f3dc9fc",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -15412,7 +16520,7 @@
       }
     },
     {
-      "id": "b327ce13-03e1-48f3-9e37-2de969f31786",
+      "id": "505b5a4d-8c3e-4771-a582-52434f67d818",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -15424,7 +16532,7 @@
       }
     },
     {
-      "id": "19f58e7c-9dbf-47e0-8a91-2352b6752080",
+      "id": "82072451-988d-4ed8-b9ea-9ba71138cbaf",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -15436,7 +16544,19 @@
       }
     },
     {
-      "id": "0578638f-e311-41cc-a5c2-1056f61cd94a",
+      "id": "7a792597-d790-4c81-a7bb-5614b332293a",
+      "dwgID": "YJMDTBMYA02A040100",
+      "name": "天宝-安全监测",
+      "typeName": "安全监测监控系统图",
+      "content": "F11",
+      "latLng": "41.7149951/96.6284550",
+      "coordinates": {
+        "x": 32552299.7865,
+        "y": 4620172.107
+      }
+    },
+    {
+      "id": "00ebab71-52a7-4c79-8266-8ef4ea112d99",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -15448,7 +16568,7 @@
       }
     },
     {
-      "id": "4fff5405-991d-4c00-9a7b-435603afd2b1",
+      "id": "1ece302e-37eb-4447-a89c-e588c5876e09",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -15460,7 +16580,7 @@
       }
     },
     {
-      "id": "83dd93e2-9824-4bbd-b2b1-1e277b30b85d",
+      "id": "d8bcb2d8-7547-4983-8322-e0a02282e8e0",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -15472,7 +16592,7 @@
       }
     },
     {
-      "id": "b59ca7c7-3de6-4b8c-8adc-4f899ff858b7",
+      "id": "8bb37f1f-76d7-49fe-85c7-8ab189b2864b",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -15484,7 +16604,7 @@
       }
     },
     {
-      "id": "33f3abb7-58ab-43d9-8a1f-022303f557a7",
+      "id": "6c0c8bdc-cd68-4eec-a482-31efd0668319",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -15496,7 +16616,19 @@
       }
     },
     {
-      "id": "06592403-5b7c-4056-94aa-d1bf2eff1ac8",
+      "id": "e8febe9d-3cb4-4e3d-8f3e-683332945887",
+      "dwgID": "YJMDTBMYA02A040100",
+      "name": "天宝-安全监测",
+      "typeName": "安全监测监控系统图",
+      "content": "F11",
+      "latLng": "41.7154727/96.6286537",
+      "coordinates": {
+        "x": 32552315.9384,
+        "y": 4620225.2764
+      }
+    },
+    {
+      "id": "e496e27e-0c04-4e88-815b-c8caf986f927",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -15508,7 +16640,7 @@
       }
     },
     {
-      "id": "6d532a94-d186-4042-9ffc-85a50e71695c",
+      "id": "e4982849-ca93-4a41-92bf-0d6eceb1c9e7",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -15520,7 +16652,19 @@
       }
     },
     {
-      "id": "4b01144b-bade-4134-9f6c-650da866224f",
+      "id": "8cd134eb-bf7d-43f3-b905-e6aa0937d300",
+      "dwgID": "YJMDTBMYA02A040100",
+      "name": "天宝-安全监测",
+      "typeName": "安全监测监控系统图",
+      "content": "北",
+      "latLng": "41.7188253/96.6287531",
+      "coordinates": {
+        "x": 32552321.4938,
+        "y": 4620597.6961
+      }
+    },
+    {
+      "id": "cac036b6-ef01-4dc6-992c-a4a84a0f5807",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -15532,7 +16676,7 @@
       }
     },
     {
-      "id": "541b4092-2b06-4c21-9df5-cf1f19431f01",
+      "id": "b8707b34-b191-4772-b8ba-a847f2fe2100",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -15544,7 +16688,19 @@
       }
     },
     {
-      "id": "1606d964-0984-4309-8808-bbfda4af79af",
+      "id": "f2e4d501-c5b7-4eb0-b457-39a97d089ea7",
+      "dwgID": "YJMDTBMYA02A040100",
+      "name": "天宝-安全监测",
+      "typeName": "安全监测监控系统图",
+      "content": "F",
+      "latLng": "41.7153728/96.6287569",
+      "coordinates": {
+        "x": 32552324.609,
+        "y": 4620214.2386
+      }
+    },
+    {
+      "id": "b968ea6c-351b-4fae-b8cb-e960378a5d6c",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -15556,7 +16712,7 @@
       }
     },
     {
-      "id": "f887405a-97fe-475c-ae13-bac51a6ac330",
+      "id": "235d0c63-1442-458e-b2d5-21702e845136",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -15568,7 +16724,7 @@
       }
     },
     {
-      "id": "c528b62a-3ffb-46b4-ae45-14f3fd0b38a7",
+      "id": "2522848d-c68e-48a0-91cb-96fafb3ad445",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -15580,7 +16736,7 @@
       }
     },
     {
-      "id": "26221d4c-2f4c-481f-9baf-1ad5049a08f1",
+      "id": "d5b00e89-472b-4edc-b135-feaff24215fc",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -15592,7 +16748,7 @@
       }
     },
     {
-      "id": "02c9c346-9a14-406a-a819-1e20a0be2c6d",
+      "id": "a7d9dcce-e508-46e3-8bc4-6368a7602deb",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -15604,7 +16760,19 @@
       }
     },
     {
-      "id": "ec24507d-ab94-48c6-ae98-2f6980ec7a7f",
+      "id": "6976f61b-304c-4007-b044-d426d7557b3f",
+      "dwgID": "YJMDTBMYA02A040100",
+      "name": "天宝-安全监测",
+      "typeName": "安全监测监控系统图",
+      "content": "F",
+      "latLng": "41.7153014/96.6288492",
+      "coordinates": {
+        "x": 32552332.3464,
+        "y": 4620206.3651
+      }
+    },
+    {
+      "id": "777acf43-5c13-4c45-8ff4-a2043f29271f",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -15616,7 +16784,19 @@
       }
     },
     {
-      "id": "aa04d475-f284-4d9a-b45d-31e147261b90",
+      "id": "77a05bce-8f89-4b4f-bfa8-b290098967ad",
+      "dwgID": "YJMDTBMYA02A040100",
+      "name": "天宝-安全监测",
+      "typeName": "安全监测监控系统图",
+      "content": "F11",
+      "latLng": "41.7156435/96.6289971",
+      "coordinates": {
+        "x": 32552344.3786,
+        "y": 4620244.4465
+      }
+    },
+    {
+      "id": "80cd4fc7-0c16-4795-806c-d3b45b90a22f",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -15628,7 +16808,7 @@
       }
     },
     {
-      "id": "76329236-60b2-46bf-9d15-ddcb662e8954",
+      "id": "467c89c8-3f44-42b0-bbb1-0cb49d4d2fae",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -15640,7 +16820,7 @@
       }
     },
     {
-      "id": "443a76ae-d653-48f6-b778-1aa025eb58b0",
+      "id": "d3937230-4f1e-4262-ba07-73b659c27adb",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -15652,7 +16832,7 @@
       }
     },
     {
-      "id": "7af606de-e1a4-46cc-be09-7aeb9d3b9a59",
+      "id": "8e0bd77a-593f-4636-845e-b6fda8f9ceae",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -15664,7 +16844,7 @@
       }
     },
     {
-      "id": "f98b5cee-f0b2-4608-96a9-576d30ad889b",
+      "id": "c050ae6b-c997-43d8-938c-c05a7ac4ec3d",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -15676,7 +16856,7 @@
       }
     },
     {
-      "id": "14e1b0f5-8b14-451a-94d4-67dea2a13f99",
+      "id": "d4adb488-9357-4ede-822c-ab39d471ddea",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -15688,7 +16868,7 @@
       }
     },
     {
-      "id": "5ea447f6-64b0-4142-9bdc-1b56115b5b87",
+      "id": "ffd6e115-3aea-44f3-b822-21de42f5bc9e",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -15700,7 +16880,7 @@
       }
     },
     {
-      "id": "bbe77907-5fcf-4696-98ae-2a411d562a98",
+      "id": "679da3f5-3b53-45f4-8451-46dd0c8ba1db",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",
@@ -15712,7 +16892,7 @@
       }
     },
     {
-      "id": "4d1af664-de15-4eaa-b501-e77979b91447",
+      "id": "240a6746-12e2-4645-a0bd-281d064cf3f4",
       "dwgID": "YJMDTBMYA02A040100",
       "name": "天宝-安全监测",
       "typeName": "安全监测监控系统图",

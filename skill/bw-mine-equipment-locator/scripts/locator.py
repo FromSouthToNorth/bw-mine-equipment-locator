@@ -1275,17 +1275,15 @@ def _score_candidates(cleaned: str, candidates: list, sensor_type: str = None,
         # 路标匹配加分：描述包含该巷道的路标 → 强加分，帮助低 LCS 匹配
         # 支持组合路标部分匹配（如 "CH4（T2)" 中的 "CH4" 匹配 "总回风CH4"）
         if _LANDMARKS and name in _LANDMARKS:
-            _TRAIL_PUNCT = '。，.,'
-            norm_clean = cleaned.replace('（', '(').replace('）', ')').replace(' ', '').rstrip(_TRAIL_PUNCT)
+            norm_clean = _norm_lm(cleaned)
             for landmark_name in _LANDMARKS[name]:
-                norm_lm = landmark_name.replace('（', '(').replace('）', ')').replace(' ', '').rstrip(_TRAIL_PUNCT)
+                norm_lm = _norm_lm(landmark_name)
                 matched = norm_lm in norm_clean
                 if not matched and '、' in norm_lm:
                     matched = any(p in norm_clean for p in norm_lm.split('、') if len(p) >= 2)
                 # T 标识路标：无 T 设备允许部分匹配（如 CH4 匹配 CH4(T2)）
-                if not matched and any(t in norm_lm for t in ('T0', 'T1', 'T2', 'T4')):
-                    # 提取路标中的传感器标识（如 CH4）检查是否在描述中
-                    sensor_part = re.sub(r'T[0124]', '', norm_lm).strip('()（）')
+                if not matched and _has_t_id(norm_lm):
+                    sensor_part = _strip_t_id(norm_lm)
                     if sensor_part and sensor_part in norm_clean:
                         matched = True
                 if matched:
@@ -1578,6 +1576,21 @@ def _project_ratio_2d(px, py, line):
 _LANDMARKS = {}      # {tunnel_name: {landmark_name: ratio, ...}}
 _LANDMARK_IDS = {}   # {tunnel_name: {landmark_name: cad_item_id}} — 路标→CAD原始ID映射
 
+# ── 路标匹配归一化工具 ──────────────────────────────────────────────
+_TRAIL_PUNCT = '。，.,'
+
+def _norm_lm(s: str) -> str:
+    """归一化路标名：全角括号→半角，移除空格，去除末尾标点"""
+    return s.replace('（', '(').replace('）', ')').replace(' ', '').rstrip(_TRAIL_PUNCT)
+
+def _has_t_id(name: str) -> bool:
+    """检查名称是否包含 T 标识（T0/T1/T2/T4）"""
+    return any(t in name for t in ('T0', 'T1', 'T2', 'T4'))
+
+def _strip_t_id(name: str) -> str:
+    """移除 T 标识，返回传感器主体部分（如 CH4(T2) → CH4）"""
+    return re.sub(r'T[0124]', '', name).strip('()（）')
+
 # ── CAD 传感器标识组合系统 ────────────────────────────────────────────
 # 将 CAD 图纸上打散的传感器标识（如 CH+4→CH4, T+CH+4→TCH4）聚合成完整标识，
 # 作为传感器路标辅助设备匹配和精确定位。
@@ -1848,7 +1861,7 @@ def _build_landmarks(cad_data: list, tunnels: list, max_dist: float = 100.0) -> 
 
     # 噪声内容集合（同 cesium_cad_data.json 的过滤逻辑）
     # 注意：传感器位置标注（如 CH4(T1)、风筒传感器）已从噪声中移除，
-    # 保留为有效路标用于精确定位。T 标识设备会跳过路标定位（见下方路标定位阶段）。
+    # 保留为有效路标用于精确定位。T 标识设备通过 T 感知匹配使用路标（见下方路标定位阶段）。
     _NOISE_CONTENTS = {
         '值＜1.0%.', '23ppm。', '烟雾报警值：有烟', 'CO上报值：24ppm，上解值：',
         '报警值≥1.0%,断电值≥1.5%,复电', '报警值≥1.0%,断电值≥1.0%,复电',
@@ -2043,35 +2056,33 @@ def _find_landmark_ratio(description: str, tunnel_name: str,
     best_name = None
     best_len = 0
     # 归一化：全角括号→半角，移除空格，去除末尾标点
-    # 使 "CH4（T1)" / "CH4(T1)" 都能匹配 "CH4 (T1)"
-    # 使 "CO、烟雾。" 与 "CO、烟雾" 公平竞争
-    _TRAIL_PUNCT = '。，.,'
-    def _norm(s: str) -> str:
-        return s.replace('（', '(').replace('）', ')').replace(' ', '').rstrip(_TRAIL_PUNCT)
-    norm_desc = _norm(description)
+    norm_desc = _norm_lm(description)
+
+    def _is_better(lm_len, ratio, best_len, best_match):
+        return lm_len > best_len or (lm_len == best_len and abs(ratio - 0.5) > abs(best_match - 0.5))
+
     for landmark_name, ratio in tunnel_landmarks.items():
-        norm_name = _norm(landmark_name)
+        norm_name = _norm_lm(landmark_name)
         # 组合路标支持（如 "CO、烟雾"）：只要任一子串(≥2字符)在描述中即可匹配
         matched = norm_name in norm_desc
         if not matched and '、' in norm_name:
             matched = any(p in norm_desc for p in norm_name.split('、') if len(p) >= 2)
         # T 标识路标传感器部分匹配：无 T 设备允许匹配传感器部分（如 CH4 匹配 CH4(T2)）
-        if not matched and any(t in norm_name for t in ('T0', 'T1', 'T2', 'T4')):
-            import re
-            sensor_part = re.sub(r'T[0124]', '', norm_name).strip('()（）')
+        if not matched and _has_t_id(norm_name):
+            sensor_part = _strip_t_id(norm_name)
             if sensor_part and sensor_part in norm_desc:
                 matched = True
         if matched:
             lm_len = len(norm_name)
             # T 标识精确匹配：设备有 T 标识时，优先找同样含该 T 标识的路标
             if t_keyword and t_keyword in norm_name:
-                if lm_len > best_len or (lm_len == best_len and abs(ratio - 0.5) > abs(best_match - 0.5)):
+                if _is_better(lm_len, ratio, best_len, best_match):
                     best_match = ratio
                     best_name = landmark_name
                     best_len = lm_len
             # 无 T 设备 或 T 标识不匹配时：回退到不含 T 的路标（如 CH4）
             elif not t_keyword:
-                if lm_len > best_len or (lm_len == best_len and abs(ratio - 0.5) > abs(best_match - 0.5)):
+                if _is_better(lm_len, ratio, best_len, best_match):
                     best_match = ratio
                     best_name = landmark_name
                     best_len = lm_len
@@ -2081,21 +2092,20 @@ def _find_landmark_ratio(description: str, tunnel_name: str,
         fb_name = None
         fb_len = 0
         for landmark_name, ratio in tunnel_landmarks.items():
-            norm_name = _norm(landmark_name)
+            norm_name = _norm_lm(landmark_name)
             matched = norm_name in norm_desc
             if not matched and '、' in norm_name:
                 matched = any(p in norm_desc for p in norm_name.split('、') if len(p) >= 2)
-            if not matched and any(t in norm_name for t in ('T0', 'T1', 'T2', 'T4')):
-                import re
-                sensor_part = re.sub(r'T[0124]', '', norm_name).strip('()（）')
+            if not matched and _has_t_id(norm_name):
+                sensor_part = _strip_t_id(norm_name)
                 if sensor_part and sensor_part in norm_desc:
                     matched = True
             if matched:
                 # 跳过含 T 标识的路标（已在第一轮尝试）
-                if any(t in norm_name for t in ('T0', 'T1', 'T2', 'T4')):
+                if _has_t_id(norm_name):
                     continue
                 lm_len = len(norm_name)
-                if lm_len > fb_len or (lm_len == fb_len and abs(ratio - 0.5) > abs(fb_match - 0.5)):
+                if _is_better(lm_len, ratio, fb_len, fb_match):
                     fb_match = ratio
                     fb_name = landmark_name
                     fb_len = lm_len
