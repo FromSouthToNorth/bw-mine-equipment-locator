@@ -990,6 +990,12 @@ def _has_hard_semantic_conflict(description: str, candidate_name: str) -> bool:
             if landmark_name in description:
                 return False
 
+    # 0b. 传感器路标豁免：描述包含传感器路标 → 不触发语义冲突
+    if _SENSOR_LANDMARKS and candidate_name in _SENSOR_LANDMARKS:
+        sl_ratio, _, _ = _find_sensor_landmark_ratio(description, candidate_name)
+        if sl_ratio is not None:
+            return False
+
     # 1. 地点锚定词冲突（双向）
     # 描述含地点限定词 → 候选必须含相同词
     for match in _AREA_ANCHOR_RE.finditer(description):
@@ -1273,6 +1279,23 @@ def _score_candidates(cleaned: str, candidates: list, sensor_type: str = None,
                     score += 8  # 强加分，使路标匹配的设备得分超过语义惩罚
                     break
 
+        # 传感器路标匹配加分
+        if _SENSOR_LANDMARKS and name in _SENSOR_LANDMARKS:
+            sl_ratio, sl_sensor_type, sl_confidence = _find_sensor_landmark_ratio(cleaned, name, sensor_type)
+            if sl_ratio is not None:
+                if sl_confidence == "exact":
+                    score += 10  # 标识+类型都匹配 → 最强加分
+                elif sl_confidence == "partial":
+                    score += 5   # 仅标识匹配 → 中等加分
+                elif sl_confidence == "type_match":
+                    score += 3   # sensor_type 一致但无标识 → 弱加分
+                # 将传感器路标信息附加到 candidate，供后续定位使用
+                cand["_sensor_landmark"] = {
+                    "ratio": sl_ratio,
+                    "sensor_type": sl_sensor_type,
+                    "confidence": sl_confidence,
+                }
+
         # sensor_type 巷道偏好加权
         if sensor_type and lcs_len >= 2 and _candidate_matches_sensor_pref(name, sensor_type):
             score += 2
@@ -1485,11 +1508,308 @@ def _polyline_interpolate(line: list, ratio: float) -> dict:
     return {"x": line[-1]["x"], "y": line[-1]["y"], "z": line[-1]["z"]}
 
 
+# ── 折线几何工具（模块级，供路标和传感器路标复用）────────────────────
+
+def _poly_len_2d(line):
+    """计算折线总长度（2D）。"""
+    length = 0.0
+    for i in range(len(line) - 1):
+        x1, y1 = line[i].get('x'), line[i].get('y')
+        x2, y2 = line[i + 1].get('x'), line[i + 1].get('y')
+        if None in (x1, y1, x2, y2):
+            continue
+        length += math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)
+    return length
+
+
+def _project_ratio_2d(px, py, line):
+    """计算点到折线的投影比例和距离。"""
+    best_dist = float('inf')
+    best_ratio = 0.0
+    cum_len = 0.0
+    total_len = _poly_len_2d(line)
+    if total_len <= 0:
+        return 0.0, float('inf')
+
+    for i in range(len(line) - 1):
+        x1, y1 = line[i].get('x'), line[i].get('y')
+        x2, y2 = line[i + 1].get('x'), line[i + 1].get('y')
+        if None in (x1, y1, x2, y2):
+            continue
+
+        dx, dy = x2 - x1, y2 - y1
+        seg_len_sq = dx * dx + dy * dy
+        if seg_len_sq == 0:
+            t = 0.0
+        else:
+            t = max(0.0, min(1.0, ((px - x1) * dx + (py - y1) * dy) / seg_len_sq))
+
+        nx = x1 + t * dx
+        ny = y1 + t * dy
+        dist = math.sqrt((px - nx) ** 2 + (py - ny) ** 2)
+        seg_len = math.sqrt(seg_len_sq)
+
+        if dist < best_dist:
+            best_dist = dist
+            best_ratio = (cum_len + t * seg_len) / total_len
+
+        cum_len += seg_len
+
+    return best_ratio, best_dist
+
+
 # ── CAD 路标定位系统 ─────────────────────────────────────────────────
 # 从 CAD 标注数据提取有意义的地点名称，计算其在巷道折线上的投影比例，
 # 当设备描述包含路标名称时，直接定位到路标位置（替代默认区间规则）。
 
 _LANDMARKS = {}  # {tunnel_name: {landmark_name: ratio, ...}}
+
+# ── CAD 传感器标识组合系统 ────────────────────────────────────────────
+# 将 CAD 图纸上打散的传感器标识（如 CH+4→CH4, T+CH+4→TCH4）聚合成完整标识，
+# 作为传感器路标辅助设备匹配和精确定位。
+
+_SENSOR_LANDMARKS = {}  # {tunnel_name: {sensor_id: {"ratio": float, "sensor_type": str, "x": x, "y": y}}}
+
+# 组合后的传感器标识 → sensor_type 映射
+_SENSOR_ID_TO_TYPE = {
+    # 化学拆分模式
+    "CH4": "瓦斯",
+    "CO": "一氧化碳",
+    "CO2": "二氧化碳",
+    "O2": "氧气",
+    "H2": "氢气",
+    "NO2": "二氧化氮",
+    "SO2": "二氧化硫",
+    "NO": "一氧化氮",
+    "SO": "二氧化硫前缀",
+    # T 前缀模式（T = 传感器编号前缀）
+    "TCH4": "瓦斯",
+    "TCO": "一氧化碳",
+    "TCO2": "二氧化碳",
+    "TO2": "氧气",
+    "TH2": "氢气",
+    "Tt": "温度",
+    "Tw": "瓦斯",
+    "Tv": "风速",
+    "TD": "断电",
+    "Tf": "粉尘",
+}
+
+# Unicode 下标数字 → 普通数字
+_SUBSCRIPT_DIGITS = {
+    '₀': '0', '₁': '1', '₂': '2', '₃': '3', '₄': '4',
+    '₅': '5', '₆': '6', '₇': '7', '₈': '8', '₉': '9',
+}
+
+
+def _normalize_subscript(text: str) -> str:
+    """将 Unicode 下标数字替换为普通数字。如 CO₂ → CO2, H₂ → H2。"""
+    if not text:
+        return text
+    result = []
+    for ch in text:
+        result.append(_SUBSCRIPT_DIGITS.get(ch, ch))
+    return ''.join(result)
+
+
+def _is_sensor_fragment(content: str) -> bool:
+    """判断内容是否为可能的传感器标识片段。"""
+    if not content:
+        return False
+    content = _normalize_subscript(content.strip())
+    # 化学前缀/后缀
+    if content in {"CH", "CO", "O", "H", "NO", "SO", "2", "4"}:
+        return True
+    # T 前缀
+    if content == "T":
+        return True
+    # 温度后缀
+    if content in {"t", "温度"}:
+        return True
+    # 已经是完整标识
+    if content in _SENSOR_ID_TO_TYPE:
+        return True
+    return False
+
+
+def _can_combine(contents: list, new_content: str) -> bool:
+    """判断 new_content 是否可以与当前片段列表组合成完整标识。"""
+    all_c = contents + [new_content]
+    n = len(all_c)
+
+    # 规则1: 化学前缀 + 数字
+    if n == 2:
+        c1, c2 = all_c[0], all_c[1]
+        if c1 in {"CH", "CO", "O", "H", "NO", "SO"} and c2 in {"2", "4"}:
+            # 验证组合结果是否有效
+            combined = c1 + c2
+            return combined in _SENSOR_ID_TO_TYPE
+
+    # 规则2: T 前缀 + 化学前缀/温度
+    if n == 2:
+        c1, c2 = all_c[0], all_c[1]
+        if c1 == "T":
+            # T + 化学前缀 → 中间态（后续可加数字形成 TCH4/TCO2 等）
+            if c2 in {"CH", "CO", "O", "H", "NO", "SO"}:
+                return True
+            # T + 温度后缀 → 直接检查完整标识
+            if c2 in {"t", "温度"}:
+                combined = "T" + c2
+                return combined in _SENSOR_ID_TO_TYPE
+
+    # 规则3: T + 化学前缀 + 数字
+    if n == 3:
+        c1, c2, c3 = all_c[0], all_c[1], all_c[2]
+        if c1 == "T" and c2 in {"CH", "CO", "O", "H", "NO", "SO"} and c3 in {"2", "4"}:
+            combined = "T" + c2 + c3
+            return combined in _SENSOR_ID_TO_TYPE
+
+    return False
+
+
+def _group_sensor_fragments(cad_items: list, max_spacing: float = 10.0) -> list:
+    """
+    将相邻的 CAD 标注点聚合成传感器完整标识。
+
+    聚合规则：
+    1. 化学拆分: CH + 4 → CH4, CO + 2 → CO2, O + 2 → O2, H + 2 → H2
+    2. T 前缀: T + CH + 4 → TCH4, T + CO → TCO, T + t → Tt(温度)
+
+    返回: 组合后的标识列表，每项为 dict(combined_id, sensor_type, x, y, components)
+    """
+    if not cad_items:
+        return []
+
+    # 按 x 坐标排序
+    items = sorted(cad_items, key=lambda item: (item.get('x', 0), item.get('y', 0)))
+
+    used = set()
+    groups = []
+
+    def _try_combine(start_idx, start_item):
+        """从起始点开始贪心组合，返回组合结果或 None。"""
+        if start_idx in used:
+            return None
+        content = _normalize_subscript(start_item.get('content', '').strip())
+        if not _is_sensor_fragment(content):
+            return None
+        if content not in {"CH", "CO", "O", "H", "NO", "SO", "T"}:
+            return None
+
+        group = [start_item]
+        local_used = {start_idx}
+        cx, cy = start_item.get('x', 0), start_item.get('y', 0)
+
+        while True:
+            best_j = None
+            best_dist = max_spacing
+            current_contents = [_normalize_subscript(it.get('content', '').strip()) for it in group]
+
+            for j, other in enumerate(items):
+                if j in used or j in local_used:
+                    continue
+                other_content = _normalize_subscript(other.get('content', '').strip())
+                if not _is_sensor_fragment(other_content):
+                    continue
+                ox, oy = other.get('x', 0), other.get('y', 0)
+                dist = math.sqrt((cx - ox) ** 2 + (cy - oy) ** 2)
+                if dist < best_dist and _can_combine(current_contents, other_content):
+                    best_j = j
+                    best_dist = dist
+
+            if best_j is None:
+                break
+
+            group.append(items[best_j])
+            local_used.add(best_j)
+            cx = sum(it.get('x', 0) for it in group) / len(group)
+            cy = sum(it.get('y', 0) for it in group) / len(group)
+
+        # 组合组内片段
+        combined_id = "".join(_normalize_subscript(it.get('content', '').strip()) for it in group)
+        sensor_type = _SENSOR_ID_TO_TYPE.get(combined_id)
+        if sensor_type:
+            for idx in local_used:
+                used.add(idx)
+            avg_x = sum(it.get('x', 0) for it in group) / len(group)
+            avg_y = sum(it.get('y', 0) for it in group) / len(group)
+            return {
+                "combined_id": combined_id,
+                "sensor_type": sensor_type,
+                "x": avg_x,
+                "y": avg_y,
+                "components": [_normalize_subscript(it.get('content', '').strip()) for it in group],
+            }
+        return None
+
+    # 第一轮：优先处理 T 标注（尝试 T + CH + 4 等三三组合）
+    for i, item in enumerate(items):
+        content = _normalize_subscript(item.get('content', '').strip())
+        if content == "T":
+            result = _try_combine(i, item)
+            if result:
+                groups.append(result)
+
+    # 第二轮：处理剩余化学前缀标注（CH + 4, CO + 2 等）
+    for i, item in enumerate(items):
+        if i in used:
+            continue
+        content = _normalize_subscript(item.get('content', '').strip())
+        if content in {"CH", "CO", "O", "H", "NO", "SO"}:
+            result = _try_combine(i, item)
+            if result:
+                groups.append(result)
+
+    return groups
+
+
+def _find_sensor_landmark_ratio(description: str, tunnel_name: str, sensor_type: str = None):
+    """
+    检查设备描述是否包含当前巷道上的传感器路标。
+
+    匹配优先级：
+    1. exact: 描述包含传感器标识且 sensor_type 一致（最强）
+    2. partial: 描述包含传感器标识但 sensor_type 不一致
+    3. type_match: 描述不含标识但 sensor_type 与路标类型一致
+
+    返回: (ratio, matched_sensor_type, confidence)
+    """
+    if not _SENSOR_LANDMARKS or tunnel_name not in _SENSOR_LANDMARKS:
+        return None, None, None
+
+    tunnel_sensors = _SENSOR_LANDMARKS[tunnel_name]
+    best_ratio = None
+    best_sensor_type = None
+    best_confidence = None
+    best_len = 0
+
+    # 1. 直接标识匹配（传感器标识在设备描述中）
+    for sensor_id, info in tunnel_sensors.items():
+        if sensor_id in description:
+            matched_st = info.get("sensor_type")
+            # 长度优先：更长的标识更具体（TCH4 > CH4）
+            if len(sensor_id) > best_len:
+                best_len = len(sensor_id)
+                best_ratio = info.get("ratio")
+                best_sensor_type = matched_st
+                if sensor_type and matched_st == sensor_type:
+                    best_confidence = "exact"
+                else:
+                    best_confidence = "partial"
+
+    # 2. sensor_type 类型匹配（描述不含标识，但类型一致）
+    if best_confidence is None and sensor_type:
+        type_matches = []
+        for sensor_id, info in tunnel_sensors.items():
+            if info.get("sensor_type") == sensor_type:
+                type_matches.append((info.get("ratio"), info.get("sensor_type")))
+        if type_matches:
+            # 选择比例最接近 0.5 的（巷道中间最可能安装该类型传感器）
+            type_matches.sort(key=lambda x: abs(x[0] - 0.5))
+            best_ratio, best_sensor_type = type_matches[0]
+            best_confidence = "type_match"
+
+    return best_ratio, best_sensor_type, best_confidence
 
 def _build_landmarks(cad_data: list, tunnels: list, max_dist: float = 100.0) -> dict:
     """
@@ -1521,52 +1841,6 @@ def _build_landmarks(cad_data: list, tunnels: list, max_dist: float = 100.0) -> 
 
     # 巷道/地点关键词
     _TUNNEL_KWS = ['井', '巷', '硐室', '石门', '大巷', '联络', '工作面', '车场', '水仓', '变电所', '泵站', '交岔点', '落底点']
-
-    # 计算折线总长度（2D）
-    def _poly_len(line):
-        length = 0.0
-        for i in range(len(line) - 1):
-            x1, y1 = line[i].get('x'), line[i].get('y')
-            x2, y2 = line[i + 1].get('x'), line[i + 1].get('y')
-            if None in (x1, y1, x2, y2):
-                continue
-            length += math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)
-        return length
-
-    # 计算点到折线的投影比例
-    def _project_ratio(px, py, line):
-        best_dist = float('inf')
-        best_ratio = 0.0
-        cum_len = 0.0
-        total_len = _poly_len(line)
-        if total_len <= 0:
-            return 0.0, float('inf')
-
-        for i in range(len(line) - 1):
-            x1, y1 = line[i].get('x'), line[i].get('y')
-            x2, y2 = line[i + 1].get('x'), line[i + 1].get('y')
-            if None in (x1, y1, x2, y2):
-                continue
-
-            dx, dy = x2 - x1, y2 - y1
-            seg_len_sq = dx * dx + dy * dy
-            if seg_len_sq == 0:
-                t = 0.0
-            else:
-                t = max(0.0, min(1.0, ((px - x1) * dx + (py - y1) * dy) / seg_len_sq))
-
-            nx = x1 + t * dx
-            ny = y1 + t * dy
-            dist = math.sqrt((px - nx) ** 2 + (py - ny) ** 2)
-            seg_len = math.sqrt(seg_len_sq)
-
-            if dist < best_dist:
-                best_dist = dist
-                best_ratio = (cum_len + t * seg_len) / total_len
-
-            cum_len += seg_len
-
-        return best_ratio, best_dist
 
     # 构建隧道映射
     tunnel_map = {}
@@ -1609,7 +1883,7 @@ def _build_landmarks(cad_data: list, tunnels: list, max_dist: float = 100.0) -> 
         semantic_dist = float('inf')
         semantic_ratio = 0.0
         for name, line in tunnel_map.items():
-            ratio, dist = _project_ratio(x, y, line)
+            ratio, dist = _project_ratio_2d(x, y, line)
             # 语义匹配：CAD 内容含该巷道名
             if dist <= max_dist and name in clean:
                 if dist < semantic_dist:
@@ -1638,6 +1912,79 @@ def _build_landmarks(cad_data: list, tunnels: list, max_dist: float = 100.0) -> 
             existing = landmarks[best_name].get(clean)
             if existing is None or abs(best_ratio - 0.5) < abs(existing - 0.5):
                 landmarks[best_name][clean] = round(best_ratio, 4)
+
+    # ── 传感器标识组合：将打散的标注点聚合成完整标识 ──
+    global _SENSOR_LANDMARKS
+    _SENSOR_LANDMARKS.clear()
+
+    # 收集未参与普通路标的标注点中的传感器片段
+    sensor_items = []
+    used_contents = set()
+    for name, lms in landmarks.items():
+        used_contents.update(lms.keys())
+
+    for item in cad_data:
+        coords = item.get('coordinates', {})
+        if not coords.get('x') or not coords.get('y'):
+            continue
+        content = item.get('content', '').strip()
+        if not content:
+            continue
+        # 跳过噪声（但保留传感器数字后缀 2/4）
+        clean = _normalize_subscript(content)
+        if clean not in {"2", "4"}:
+            if re.match(r'^[+\-]?\d+(\.\d+)?$', clean) or re.match(r'^(X|Y|Z)=', clean):
+                continue
+        if content in _NOISE_CONTENTS:
+            continue
+        # 跳过已作为普通路标的
+        if content in used_contents:
+            continue
+        # 只保留传感器片段
+        if not _is_sensor_fragment(content):
+            continue
+        sensor_items.append({
+            'content': content,
+            'x': coords['x'],
+            'y': coords['y'],
+        })
+
+    # 组合打散标识
+    sensor_groups = _group_sensor_fragments(sensor_items, max_spacing=10.0)
+
+    # 将组合结果投影到巷道
+    for sg in sensor_groups:
+        x, y = sg['x'], sg['y']
+        sensor_id = sg['combined_id']
+        stype = sg['sensor_type']
+
+        best_dist = float('inf')
+        best_name = None
+        best_ratio = 0.0
+        for name, line in tunnel_map.items():
+            ratio, dist = _project_ratio_2d(x, y, line)
+            if dist <= max_dist:
+                if dist < best_dist:
+                    best_dist = dist
+                    best_name = name
+                    best_ratio = ratio
+
+        if best_name:
+            if best_name not in _SENSOR_LANDMARKS:
+                _SENSOR_LANDMARKS[best_name] = {}
+            # 同巷道同标识去重（保留比例最合理的）
+            existing = _SENSOR_LANDMARKS[best_name].get(sensor_id)
+            if existing is None or abs(best_ratio - 0.5) < abs(existing['ratio'] - 0.5):
+                _SENSOR_LANDMARKS[best_name][sensor_id] = {
+                    'ratio': round(best_ratio, 4),
+                    'sensor_type': stype,
+                    'x': x,
+                    'y': y,
+                }
+
+    if sensor_groups:
+        total_sl = sum(len(v) for v in _SENSOR_LANDMARKS.values())
+        print(f"  → 传感器路标: {len(sensor_groups)} 组组合 → {total_sl} 个 ({len(_SENSOR_LANDMARKS)} 条巷道)", file=sys.stderr)
 
     return landmarks
 
@@ -2362,15 +2709,23 @@ def _match_devices(devices: list, candidates: list,
         representative_st = max(st_counts, key=st_counts.get) if st_counts else None
 
         # ── 路标定位：为没有显式距离的设备检查路标 ──
-        if _LANDMARKS:
+        # 先检查传感器路标（更精确），再检查普通路标
+        if _SENSOR_LANDMARKS or _LANDMARKS:
             new_entries = []
             landmark_ratios = []
             for device, match, cleaned, st, ed in entries:
                 if ed is None:
-                    ratio = _find_landmark_ratio(cleaned, name)
-                    if ratio is not None:
-                        ed = total_len * ratio
-                        landmark_ratios.append(ratio)
+                    # 先检查传感器路标
+                    sl_ratio, _, _ = _find_sensor_landmark_ratio(cleaned, name, st)
+                    if sl_ratio is not None:
+                        ed = total_len * sl_ratio
+                        landmark_ratios.append(sl_ratio)
+                    else:
+                        # 再检查普通路标
+                        ratio = _find_landmark_ratio(cleaned, name)
+                        if ratio is not None:
+                            ed = total_len * ratio
+                            landmark_ratios.append(ratio)
                 new_entries.append((device, match, cleaned, st, ed))
             entries = new_entries
             # 同组多设备共用同一路标时，按 1m 步长分散
@@ -2448,6 +2803,9 @@ def _match_devices(devices: list, candidates: list,
             if match.get("suspicious"):
                 result_entry["suspicious"] = True
                 result_entry["suspicious_reason"] = match.get("suspicious_reason")
+            # 保存传感器路标信息到结果
+            if match.get("candidate") and match["candidate"].get("_sensor_landmark"):
+                result_entry["_sensor_landmark"] = match["candidate"]["_sensor_landmark"]
             results.append(result_entry)
 
     wind_warnings = _check_wind_speed_spacing(groups)
@@ -2491,6 +2849,110 @@ def _generate_analysis_report(data_path: str) -> dict:
     total_devices = len(devices)
     tunnels = [c for c in candidates if c.get("category") == "tunnel"]
     workfaces = [c for c in candidates if c.get("category") == "workface"]
+
+    # ── cadData 分析 ──
+    cad_data = []
+    cad_type_distribution = Counter()
+    cad_dwg_distribution = Counter()
+    cad_tunnel_name_matches = 0
+    cad_device_desc_matches = 0
+    if isinstance(data, dict) and "cadData" in data and isinstance(data["cadData"], list):
+        cad_data = data["cadData"]
+        cad_type_distribution = Counter(item.get("typeName", "(无)") for item in cad_data)
+        cad_dwg_distribution = Counter(item.get("dwgID", "(无)") for item in cad_data)
+        # 统计 content 与巷道名/设备描述的文本关联
+        tunnel_names = {c.get("name", "") for c in tunnels if c.get("name")}
+        device_descs = {d.get("description", "") for d in devices if d.get("description")}
+        for item in cad_data:
+            content = str(item.get("content", ""))
+            for tn in tunnel_names:
+                if tn and tn in content:
+                    cad_tunnel_name_matches += 1
+                    break
+            for desc in device_descs:
+                if desc and (content in desc or desc in content):
+                    cad_device_desc_matches += 1
+                    break
+        # ── 构建 CAD 路标，填充 _SENSOR_LANDMARKS 和 _LANDMARKS ──
+        _LANDMARKS.clear()
+        _LANDMARKS.update(_build_landmarks(cad_data, data.get("tunnels", [])))
+
+        # ── CAD 内容分类统计 ──
+        import re as _re
+        _noise_contents = {
+            '值＜1.0%.', '23ppm。', '烟雾报警值：有烟', 'CO上报值：24ppm，上解值：',
+            '报警值≥1.0%,断电值≥1.5%,复电', '报警值≥1.0%,断电值≥1.0%,复电',
+            '风筒开停报警值：无风。', 'T2报警值≥1.0%,断电值≥1.0%,复电值＜1.0%.',
+            '图号', '资料来源', '制图', '审核', '日期', '比例尺', '图例', '说明',
+            '总工程师', '安全生产部', '天宝公司', '吴冬红', '2024年10月', '1:1000',
+            '2.断电范围:掘进巷道内全部非本质型安全电气设备',
+            '红沙梁矿井安全监控布置图', '窑街煤电集团酒泉天宝煤业有限公司',
+        }
+        _sensor_kws = {'CH4', 'CO', '烟雾', '风筒', '风速', '温度', '粉尘'}
+        _location_kw = '安装地点'
+        _station_kws = {'分站', '地面中心站'}
+        _chamber_kws = {'硐室', '等候室'}
+        _tunnel_kws_list = ['井', '巷', '石门', '大巷', '联络', '工作面', '车场', '水仓', '变电所', '泵站', '交岔点', '落底点']
+        _equip_kws = {'断电控制器', '双风机', '闭锁开关', '环网交换机', '局部通风机'}
+        cad_stats = {
+            'total': len(cad_data),
+            'noise': 0, 'numeric': 0, 'coordinate': 0,
+            'sensor_type': 0, 'location': 0, 'station': 0,
+            'chamber': 0, 'tunnel_name': 0, 'equipment': 0, 'other': 0,
+            'noise_detail': Counter(), 'sensor_detail': Counter(),
+            'location_detail': Counter(), 'tunnel_detail': Counter(),
+            'station_detail': Counter(), 'chamber_detail': Counter(),
+            'equip_detail': Counter(),
+        }
+        for item in cad_data:
+            c = str(item.get('content', '')).strip()
+            if not c:
+                continue
+            # 纯数字 / 坐标
+            stripped = c.replace('.', '').replace('-', '').replace(' ', '').replace('°', '')
+            if stripped.isdigit():
+                cad_stats['numeric'] += 1
+                continue
+            if c.startswith('Z=') or c.startswith('X=') or c.startswith('Y='):
+                cad_stats['coordinate'] += 1
+                continue
+            # 噪声（阈值 / 图签）
+            if c in _noise_contents or '报警值' in c or '断电值' in c or '复电值' in c or 'ppm' in c or (c.endswith('°') and stripped.isdigit()):
+                cad_stats['noise'] += 1
+                cad_stats['noise_detail'][c] += 1
+                continue
+            # 传感器类型
+            if any(kw in c for kw in _sensor_kws):
+                cad_stats['sensor_type'] += 1
+                cad_stats['sensor_detail'][c] += 1
+                continue
+            # 安装地点
+            if _location_kw in c:
+                cad_stats['location'] += 1
+                cad_stats['location_detail'][c] += 1
+                continue
+            # 分站
+            if any(kw in c for kw in _station_kws):
+                cad_stats['station'] += 1
+                cad_stats['station_detail'][c] += 1
+                continue
+            # 硐室
+            if any(kw in c for kw in _chamber_kws):
+                cad_stats['chamber'] += 1
+                cad_stats['chamber_detail'][c] += 1
+                continue
+            # 设备
+            if any(kw in c for kw in _equip_kws):
+                cad_stats['equipment'] += 1
+                cad_stats['equip_detail'][c] += 1
+                continue
+            # 巷道名（含巷道关键词但不含上述类别）
+            if any(kw in c for kw in _tunnel_kws_list):
+                cad_stats['tunnel_name'] += 1
+                cad_stats['tunnel_detail'][c] += 1
+                continue
+            # 其他
+            cad_stats['other'] += 1
 
     # mark_type 分布
     mark_types = Counter(d.get("mark_type") or "UNKNOWN" for d in devices)
@@ -2609,6 +3071,59 @@ def _generate_analysis_report(data_path: str) -> dict:
     print(_fmt_kv("巷道数 (候选):", f"{len(tunnels)} (系统命名排除: {len(generic_tunnel_names)}, 具名可用: {len(named_tunnels)})"), file=sys.stderr)
     print(_fmt_kv("工作面数 (候选):", len(workfaces)), file=sys.stderr)
     print(_fmt_kv("系统巷道排除示例:", ', '.join(generic_tunnel_names[:5]) if generic_tunnel_names else "无"), file=sys.stderr)
+
+    # 【CAD 数据】
+    print(f"\n【CAD 数据】", file=sys.stderr)
+    if cad_data:
+        print(_fmt_kv("CAD 标注点总数:", len(cad_data)), file=sys.stderr)
+        print(_fmt_kv("图纸数量:", f"{len(cad_dwg_distribution)} 张"), file=sys.stderr)
+        print(_fmt_kv("图纸类型分布:", " | ".join(f"{t}:{c}" for t, c in cad_type_distribution.most_common())), file=sys.stderr)
+        print(_fmt_kv("dwgID 分布:", " | ".join(f"{d}:{c}" for d, c in cad_dwg_distribution.most_common(3))), file=sys.stderr)
+        # 噪声 vs 有效
+        print(_fmt_kv("  ├─ 纯数字(高程):", f"{cad_stats['numeric']} ({cad_stats['numeric']/cad_stats['total']*100:.1f}%)"), file=sys.stderr)
+        print(_fmt_kv("  ├─ 坐标标注:", f"{cad_stats['coordinate']} ({cad_stats['coordinate']/cad_stats['total']*100:.1f}%)"), file=sys.stderr)
+        print(_fmt_kv("  ├─ 噪声(阈值/图签):", f"{cad_stats['noise']} ({cad_stats['noise']/cad_stats['total']*100:.1f}%)"), file=sys.stderr)
+        print(_fmt_kv("  └─ 有效路标:", f"{cad_stats['total']-cad_stats['numeric']-cad_stats['coordinate']-cad_stats['noise']} ({(cad_stats['total']-cad_stats['numeric']-cad_stats['coordinate']-cad_stats['noise'])/cad_stats['total']*100:.1f}%)"), file=sys.stderr)
+        # 路标分类
+        total_lm = sum(len(v) for v in _LANDMARKS.values())
+        if total_lm > 0:
+            print(_fmt_kv("路标覆盖:", f"{total_lm} 个路标 / {len(_LANDMARKS)} 条巷道"), file=sys.stderr)
+        # 内容分类详情
+        print(_fmt_kv("  传感器标注:", f"{cad_stats['sensor_type']} 条"), file=sys.stderr)
+        for c, cnt in cad_stats['sensor_detail'].most_common(5):
+            print(_fmt_kv(f"    {c}", f"x{cnt}"), file=sys.stderr)
+        print(_fmt_kv("  安装地点:", f"{cad_stats['location']} 条"), file=sys.stderr)
+        for c, cnt in cad_stats['location_detail'].most_common(5):
+            print(_fmt_kv(f"    {c}", f"x{cnt}"), file=sys.stderr)
+        print(_fmt_kv("  巷道名:", f"{cad_stats['tunnel_name']} 条"), file=sys.stderr)
+        for c, cnt in cad_stats['tunnel_detail'].most_common(5):
+            print(_fmt_kv(f"    {c}", f"x{cnt}"), file=sys.stderr)
+        print(_fmt_kv("  分站:", f"{cad_stats['station']} 条"), file=sys.stderr)
+        for c, cnt in cad_stats['station_detail'].most_common(5):
+            print(_fmt_kv(f"    {c}", f"x{cnt}"), file=sys.stderr)
+        print(_fmt_kv("  硐室:", f"{cad_stats['chamber']} 条"), file=sys.stderr)
+        for c, cnt in cad_stats['chamber_detail'].most_common(5):
+            print(_fmt_kv(f"    {c}", f"x{cnt}"), file=sys.stderr)
+        print(_fmt_kv("  设备:", f"{cad_stats['equipment']} 条"), file=sys.stderr)
+        for c, cnt in cad_stats['equip_detail'].most_common(5):
+            print(_fmt_kv(f"    {c}", f"x{cnt}"), file=sys.stderr)
+        if cad_stats['other'] > 0:
+            print(_fmt_kv("  其他:", cad_stats['other']), file=sys.stderr)
+        # 传感器路标统计（组合模式）
+        if _SENSOR_LANDMARKS:
+            total_sl = sum(len(v) for v in _SENSOR_LANDMARKS.values())
+            print(_fmt_kv("传感器路标组合:", f"{total_sl} 个 ({len(_SENSOR_LANDMARKS)} 条巷道)"), file=sys.stderr)
+            st_counts = {}
+            for tunnel_sensors in _SENSOR_LANDMARKS.values():
+                for info in tunnel_sensors.values():
+                    st = info.get("sensor_type", "未知")
+                    st_counts[st] = st_counts.get(st, 0) + 1
+            print(_fmt_kv("  类型分布:", " | ".join(f"{st}:{cnt}" for st, cnt in sorted(st_counts.items(), key=lambda x: -x[1]))), file=sys.stderr)
+    else:
+        print(_fmt_kv("状态:", "⚠ 无 cadData — 数据文件中未包含 CAD 图纸标注信息"), file=sys.stderr)
+        print(_fmt_kv("说明:", "CAD 数据由 8373 API 的 originData/cadData 提供，用于辅助定位验证"), file=sys.stderr)
+        print(_fmt_kv("图纸数量:", "0"), file=sys.stderr)
+        print(_fmt_kv("标注点数:", "0"), file=sys.stderr)
 
     # 【设备过滤】固定 2 行
     print(f"\n【设备过滤】", file=sys.stderr)
@@ -2758,6 +3273,18 @@ def _generate_analysis_report(data_path: str) -> dict:
             {"name": wf.get("workFaceName", "?"), "type": wf.get("type", "")}
             for wf in workfaces
         ],
+        "cadData": {
+            "has_cad_data": bool(cad_data),
+            "total_points": len(cad_data),
+            "dwg_count": len(cad_dwg_distribution),
+            "type_distribution": dict(cad_type_distribution),
+            "dwg_distribution": dict(cad_dwg_distribution),
+            "content_tunnel_name_matches": cad_tunnel_name_matches,
+            "content_device_desc_matches": cad_device_desc_matches,
+        } if cad_data else {
+            "has_cad_data": False,
+            "note": "数据文件中未包含 CAD 图纸标注信息（cadData 字段）",
+        },
     }
     report_path = os.path.join(
         os.path.dirname(os.path.abspath(data_path)),

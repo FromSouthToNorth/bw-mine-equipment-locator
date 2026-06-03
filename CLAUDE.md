@@ -27,7 +27,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 `locator.py` 并不直接调用 HTTP API，而是通过 **subprocess 委托**给另外两个 skill 的脚本：
 
 - `locator.py` 内定义 `PROJECT_ROOT` 向上回溯 4 层定位仓库根目录，再拼出 `bw_token_manager.py` 和 `strategy_api.py` 的绝对路径
-- 调用时使用 `_resolve_python_exe()` 自动探测带 `requests` 的 Python 解释器（优先级：`BW_LOCATOR_PYTHON` 环境变量 > `sys.executable` > `python3`/`python`/`py` > 历史 Windows 兜底路径）
+- 调用时使用 `_resolve_python_exe()`（locator.py:36）自动探测带 `requests` 的 Python 解释器（优先级：`BW_LOCATOR_PYTHON` 环境变量 > `sys.executable` > `python3`/`python`/`py` > 历史 Windows 兜底路径）
 - 所有 API 调用（token 获取、8373 拉取、8385 回写）均通过 `subprocess.run([_PYTHON_EXE, str(STRATEGY_API), ...])` 完成
 
 这意味着修改 `strategy_api.py` 或 `bw_token_manager.py` 会立即影响 locator 的行为，无需重新安装或编译。
@@ -50,24 +50,30 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
               ↓
     data/output/locator_result_<username>_<mineName>.json  (全量保存)
               ↓
-    宁缺毋滥过滤: _filter_low_confidence() → 仅 高+中 回写
+    回写过滤: _filter_low_confidence(include_low=True) → 全部回写，低置信度带警告
               ↓
          locator.py --writeback → 8385 API
               ↓
-         data/cache/match_cache.json (EXACT 匹配缓存)
+    data/cache/match_cache.json (EXACT 匹配缓存)
+    data/backup/data_8385_<mineName>_<timestamp>.json (回写前自动备份)
 ```
 
 - **match_cache.json**：高置信度（layer=EXACT）匹配自动缓存，键为 `{mark_type}:{description}`，下次运行时直接复用
 - **结果文件**：每次匹配自动保存到 `data/output/`，命名包含 username 和 mineName，**始终保存全量结果**（含低置信度），供后续审计
-- **宁缺毋滥原则**：回写 8385 时仅写入高+中置信度匹配，低置信度暂缓回写，需人工审查确认后再决定
+- **回写前备份**：回写 8385 前自动将当前 `originData` 备份到 `data/backup/`，以便出问题恢复
+- **低置信度行为**：当前代码使用 `include_low=True`，所有置信度结果均写入 8385，但 stderr 会醒目提示低置信度数量，用户可在确认环节取消
 
 ### CesiumJS 可视化
 
 匹配完成后，若系统安装了 `pyproj`，`locator.py` 自动调用 `data/output/generate_cesium_html.py` 生成 CesiumJS HTML（CGCS2000 → WGS84 坐标转换）。可用 `--html never` 跳过。
 
+辅助脚本（非主流程，独立使用）：
+- `data/output/generate_cesium_data.py` — 从 8373 数据 + CAD 标注生成 Cesium 可用的 JSON 数据（含仿射变换）
+- `data/output/export_geojson.py` — 将 Cesium 数据导出为 GeoJSON（LineString 巷道 + Point 设备）
+
 ### 规则审计注册表
 
-`locator.py` 文件末尾（line ~2460 起）有 `_RULES_REGISTRY` 字典，集中登记所有行业标准条款来源。修改 `_assign_distances`、`_SENSOR_TUNNEL_PREF` 等数据表时，必须同步更新此注册表。
+`locator.py` 中 `_RULES_REGISTRY` 字典（locator.py:4359）集中登记所有行业标准条款来源。修改 `_assign_distances`、`_SENSOR_TUNNEL_PREF` 等数据表时，必须同步更新此注册表。
 
 ---
 
@@ -93,6 +99,10 @@ python skill/bw-mine-equipment-locator/scripts/locator.py TESTUSER \
 # 审计报告：查看高风险/中风险匹配列表
 python skill/bw-mine-equipment-locator/scripts/locator.py TESTUSER \
   --load data/test/test_locator.json --match-only --output-mode audit
+
+# 只匹配指定设备（调试用）
+python skill/bw-mine-equipment-locator/scripts/locator.py TESTUSER \
+  --load data/test/test_locator.json --match-only --device-ids ID1,ID2
 ```
 
 ### 数据分析（不执行匹配）
@@ -109,6 +119,10 @@ python skill/bw-mine-equipment-locator/scripts/locator.py TESTUSER \
 # 从保存的结果 JSON 直接回写 8385，不重新匹配
 python skill/bw-mine-equipment-locator/scripts/locator.py <username> \
   --writeback data/output/locator_result_<username>_<mineName>.json
+
+# 跳过确认提示（自动化/CI）
+python skill/bw-mine-equipment-locator/scripts/locator.py <username> \
+  --writeback data/output/locator_result_<username>_<mineName>.json --yes
 ```
 
 ### 生成 CesiumJS 可视化
@@ -147,7 +161,14 @@ Claude 采用**两阶段交互流程**，不直接一键执行：
 
 触发关键词：`定位`、`设备定位`、`locator` + 用户名（`F\d+` 格式）
 
-**快捷跳过**：若用户明确说"直接跑"、"不用确认"、"自动跑完"，可跳过审查直接走完整流程。但脚本层面已启用**两阶段硬约束**：不加 `--yes` 时，即使 Claude 尝试一步执行，locator.py 也会物理拒绝匹配+回写一步完成，强制报错退出。只有显式 `--yes` 才能绕过（见下方"合并一步执行"）。
+**快捷跳过**：若用户明确说"直接跑"、"不用确认"、"自动跑完"，可跳过审查直接走完整流程。脚本层面有 `--yes` 可绕过确认提示：
+
+```bash
+python skill/bw-mine-equipment-locator/scripts/locator.py <username> \
+  --load data/output/data_8373_<mineName>.json --yes
+```
+
+> **跨平台约束说明**：`--yes` 是显式跳过确认的唯一方式。不加 `--yes` 时，locator.py 会在回写前交互式提示用户确认，无论运行在 Claude Code、人工终端或 CI 中，行为一致。
 
 ### 交互式运行流程
 
@@ -177,15 +198,32 @@ python skill/bw-mine-equipment-locator/scripts/locator.py <username> \
   --load data/output/data_8373_<mineName>.json --match-only
 ```
 
-匹配完成后 Claude 展示汇总 + **回写计划**（待回写/暂缓/暂缓样本），**等用户确认后**再执行 8385 回写。
+匹配完成后 Claude 展示汇总 + **回写计划**，**等用户确认后**再执行 8385 回写。
 
-回写时自动过滤：仅 高+中 置信度写入 8385，低置信度暂缓。
+Claude 应明确展示：
+- 匹配率、置信度分布（高/中/低）、未匹配原因分布
+- **回写计划**：待回写 N 条（含低置信度警告）、暂缓 M 条
+- 审查摘要（高/中风险匹配数）
 
-**一步到位（跳过审查）**：用户明确说"直接跑"时，可执行单命令（匹配+回写一步完成）：
+**重要**：locator 不会给重复 ID 加 `_1`、`_2` 后缀来回写。上游数据有重复 ID 时必须先到 BW-MES 后台清理。
+
+**注意：** `--match-only` 不会写 8385，只输出 JSON 到 stdout 和保存结果文件。
+
+### Step 4: 回写定位结果到策略 8385（--writeback）
+
+用户确认匹配结果后，执行**单独回写**：
+
 ```bash
 python skill/bw-mine-equipment-locator/scripts/locator.py <username> \
-  --load data/output/data_8373_<mineName>.json
+  --writeback data/output/locator_result_<username>_<mineName>.json
 ```
+
+- 从 Step 3 保存的结果文件加载完整数据
+- **回写前自动备份** `originData` 到 `data/backup/`
+- **低置信度包含在回写中**（`include_low=True`），stderr 会提示低置信度数量
+- 向 `ExecuteStrategyCom` 发起 POST 请求时发送全部结果
+- 回写前交互式确认：用户可取消；加 `--yes` 则自动跳过
+- 返回 `{"code": 100}` 表示成功
 
 #### 输出模式 (`--output-mode`)
 
@@ -197,7 +235,7 @@ python skill/bw-mine-equipment-locator/scripts/locator.py <username> \
 | `json-summary` | 汇总 JSON | 同 `summary` + `warnings[]`，stderr 打印人类可读表格 |
 | `audit` | 审计报告 | `summary` + `audit`（高风险/中风险匹配列表）+ `results[]` + `unmatched_devices[]` |
 
-**8385 回写仅包含 高+中 置信度结果**，低置信度暂缓。结果文件始终保存全量数据。不受 `--output-mode` 影响。
+结果文件始终保存全量数据。不受 `--output-mode` 影响。
 
 ### 命令行参数
 
@@ -205,8 +243,9 @@ python skill/bw-mine-equipment-locator/scripts/locator.py <username> \
 usage: locator.py [-h] [--load PATH] [--load-devices PATH]
                   [--load-tunnels PATH] [--load-workfaces PATH]
                   [--output-mode {full,summary,unmatched,json-summary,audit}]
-                  [--analyze PATH] [--match-only]
-                  [--writeback RESULT_JSON] [--html MODE]
+                  [--analyze PATH] [--html MODE] [-y]
+                  [--match-only] [--writeback RESULT_JSON]
+                  [--device-ids IDS] [--device-ids-file PATH]
                   username [DEVICES_FILE]
 
 positional arguments:
@@ -222,9 +261,13 @@ options:
                         unmatched=仅未匹配(含候选), json-summary=汇总JSON,
                         audit=审计报告(含风险匹配列表)
   --analyze PATH        分析 8373 数据文件的结构化报告（仅分析，不匹配退出）
+  --html MODE           CesiumJS 可视化: auto=自动, always=强制, never=跳过
+  -y, --yes             跳过回写前的覆盖确认提示（用于脚本自动化）
   --match-only          仅匹配不回写（展示汇总后等用户确认，再单独 --writeback）
   --writeback RESULT_JSON  从已保存的结果文件回写 8385，不重复匹配
-  --html MODE           CesiumJS 可视化: auto=自动, always=强制, never=跳过
+  --device-ids IDS      只匹配指定的设备 ID（逗号分隔），如 ID1,ID2,ID3
+  --device-ids-file PATH  从文件读取设备 ID 列表（JSON 数组 / 逗号分隔 /
+                        含 json:/text:/userinput: 前缀的标签行均可）
 ```
 
 ---
@@ -261,20 +304,18 @@ options:
     │   python locator.py <username>           │
     │     --load data_8373_<mineName>.json     │
     │     --match-only                         │
-    │   ① 系统巷道(巷道NNN)从候选池排除        │
-    │   ② 地面设备(area)跳过井下候选           │
-    │   ③ 缓存命中直接复用                     │
-    │   ④ 前缀剥离 → 别名扩展 → 编码提取      │
-    │   ⑤ LCS评分 + 偏好/编码/类型加分         │
-    │   ⑥ 选最佳匹配 → 置信度分层 → 坐标计算   │
+    │   ① 数据质量校验（去重/空值/重复ID检测） │
+    │   ② 系统巷道(巷道NNN)从候选池排除        │
+    │   ③ 地面设备(area+description)跳过井下   │
+    │   ④ 缓存命中直接复用                     │
+    │   ⑤ 前缀剥离 → 别名扩展 → 编码提取      │
+    │   ⑥ LCS评分 + 偏好/编码/类型加分         │
+    │   ⑦ 选最佳匹配 → 置信度分层 → 坐标计算   │
     │                                         │
     │ Claude 展示匹配汇总:                     │
     │   匹配率 / 置信度分布 / 未匹配原因        │
-    │   系统巷道排除数 / 设备密度分布           │
     │   **回写计划**（自动输出到 stderr）:       │
-    │     待回写: N 条 (高+中)                  │
-    │     暂缓回写: M 条 (低置信度, 宁缺毋滥)    │
-    │     暂缓样本 Top 5（每条含 score/lcs）     │
+    │     待回写: N 条 (含低置信度警告)         │
     │   **审查摘要**:                           │
     │     高风险匹配数 / 中风险匹配数           │
     │     风险类型: 短名称依赖 / 编码不一致      │
@@ -284,6 +325,8 @@ options:
     │ Step 4: 回写 8385（--writeback）         │
     │   python locator.py <username>           │
     │     --writeback locator_result_*.json    │
+    │   → 自动备份 originData                  │
+    │   → 全部结果回写（低置信度带警告）        │
     │   → code: 100 表示成功                   │
     └─────────────────────────────────────────┘
 ```
@@ -329,29 +372,29 @@ python skill/bw-mine-equipment-locator/scripts/locator.py <username> \
 
 对每个 device 的处理流程：
 
-1. **数据质量校验**
+1. **数据质量校验**（`_validate_devices`，locator.py:2241）
    - 相同 `id` + 相同 `description` → 正常去重（跳过重复）
    - 相同 `id` + **不同** `description` → **直接报错终止**，强制用户修复上游数据
    - 空 `description` → 跳过并警告
+   - 字段类型错误 → 跳过并警告
 2. **候选过滤（匹配前）**
    - 系统巷道名称（如"巷道136"）→ 直接从候选池排除，记录到 `generic_tunnels_skipped`
-   - 地面设备（area 含地面/洗选/磅房等关键词）→ 跳过所有井下候选
+   - 地面设备（`area` 含地面/洗选/磅房等关键词，或 `description` 含地面关键词）→ 跳过所有井下候选，但**井口设备例外**（`_is_shaft_mouth`，locator.py:538）
    - 匹配缓存命中（`match_cache.json`）→ 直接复用上次结果
 3. 从 `description` 提取地点名称（先[剥离前缀](#前缀剥离)），按[匹配逻辑](#匹配逻辑)在**候选名称**中找到最佳匹配
 4. **候选来源**（均来自 8373，已排除系统命名巷道）：
    - `tunnels` 数组中的 `name`（主候选，仅具名巷道）
    - `workfaces` 数组中的 `workFaceName`（补充候选）
-5. 按[坐标计算](#坐标计算)规则计算 (x, y, z)
-6. **Claude 展示匹配汇总 + 回写计划后必须等用户确认**，再进入 Step 4
+5. **可选：CAD 路标定位** — 若数据含 `cadData`，`_build_landmarks`（locator.py:1814）从 CAD 标注构建路标表，`_find_landmark_ratio`（locator.py:1992）将设备描述匹配到 CAD 路标位置，用于精确定位
+6. 按[坐标计算](#坐标计算)规则计算 (x, y, z)
+7. **Claude 展示匹配汇总后必须等用户确认**，再进入 Step 4
 
    Claude 应明确展示：
    - 匹配率、置信度分布（高/中/低）、未匹配原因分布
-   - **回写计划**：待回写 N 条（高+中）、暂缓 M 条（低置信度）、暂缓样本 Top 5
+   - **回写计划**：待回写 N 条（含低置信度数量警告）
    - 审查摘要（高/中风险匹配数）
 
 **重要**：locator 不会给重复 ID 加 `_1`、`_2` 后缀来回写。上游数据有重复 ID 时必须先到 BW-MES 后台清理。
-
-**注意：** 必须加 `--match-only`，否则脚本会自动回写 8385。`--match-only` 不会写数据库，只输出 JSON 到 stdout 和保存结果文件。
 
 ### Step 4: 回写定位结果到策略 8385（--writeback）
 
@@ -363,21 +406,20 @@ python skill/bw-mine-equipment-locator/scripts/locator.py <username> \
 ```
 
 - 从 Step 3 保存的结果文件加载完整数据
-- **宁缺毋滥过滤**：`_filter_low_confidence()` 拆分为待回写（高+中）和暂缓（低）
-- 向 `ExecuteStrategyCom` 发起 POST 请求时**仅发送高+中置信度结果**
-- 低置信度匹配保留在结果文件中供审计，不写入 8385
-- stderr 输出：待回写 N 条 | 暂缓 M 条（含样本明细）
+- **回写前备份**：`_backup_origin_data`（locator.py:3741）将当前 8385 `originData` 保存到 `data/backup/data_8385_<mineName>_<timestamp>.json`
+- **低置信度包含**：`_filter_low_confidence(include_low=True)` 将**全部结果**（高/中/低）标记为待回写，stderr 输出低置信度数量警告。用户可在确认环节取消
+- 向 `ExecuteStrategyCom` 发起 POST 请求
 - **回写确认时醒目提示覆盖风险**：必须用 ⚠️ 标记 + **粗体** 明确提示会覆盖的原始数据条数（如"⚠ 会覆盖原有 **76 条**标注数据"），用户确认后再执行
 - 返回 `{"code": 100}` 表示成功
 
-**合并一步执行（用户明确说"直接跑"时）：** 脚本层面已启用硬约束，不加 `--yes` 会报错退出。一步完成需要显式 `--yes`（同样仅回写高+中置信度）：
+**合并一步执行（用户明确说"直接跑"时）：** 需要显式 `--yes`：
 
 ```bash
 python skill/bw-mine-equipment-locator/scripts/locator.py <username> \
   --load data/output/data_8373_<mineName>.json --yes
 ```
 
-> **跨平台约束说明**：此硬约束写入 `locator.py` 代码，不依赖 Claude Code 的提示工程或记忆系统。无论运行在 Claude Code、OpenClaw、人工终端或 CI 中，行为一致。
+> 不加 `--yes` 时，即使不加 `--match-only`，脚本也会交互式提示确认回写。`--yes` 唯一用途是自动化/CI 跳过确认。
 
 ---
 
@@ -393,8 +435,11 @@ python skill/bw-mine-equipment-locator/scripts/locator.py <username> \
 │   │   └── test_locator.json
 │   ├── cache/            # 匹配缓存目录
 │   │   └── match_cache.json
+│   ├── backup/           # 回写前自动备份的 8385 数据
 │   ├── output/           # 8373 数据、locator 结果、CesiumJS HTML
 │   │   ├── generate_cesium_html.py
+│   │   ├── generate_cesium_data.py    # CAD → Cesium JSON（仿射变换）
+│   │   ├── export_geojson.py          # Cesium JSON → GeoJSON
 │   │   ├── data_8373_*.json
 │   │   └── locator_result_*.json
 │   └── sql/
@@ -409,7 +454,8 @@ python skill/bw-mine-equipment-locator/scripts/locator.py <username> \
     │   └── scripts/strategy_api.py
     └── bw-mine-equipment-locator/
         ├── SKILL.md
-        └── scripts/locator.py      # ~2500 行，核心逻辑与规则注册表
+        ├── INVOCATION_GUIDE.md
+        └── scripts/locator.py      # ~4475 行，核心逻辑与规则注册表
 ```
 
 ### 依赖
@@ -475,36 +521,40 @@ locator.py 启动时自动探测可用解释器，按优先级：
 | `tunnels[]` | `name` | tunnel |
 | `workfaces[]` | `workFaceName` | workface |
 
-**系统生成巷道名称过滤**：形如"巷道136"的名称为系统自动生成，无实际语义含义，设备描述不可能包含此类名称。`_extract_candidates` 阶段直接从候选池排除，避免产生无效低分匹配。被排除数量记录在输出 `summary.generic_tunnels_skipped` 和 `warnings[]` 中（`type: generic_tunnels_excluded`）。
+**系统生成巷道名称过滤**：形如"巷道136"的名称为系统自动生成，无实际语义含义，设备描述不可能包含此类名称。`_extract_candidates`（locator.py:2143）阶段直接从候选池排除，避免产生无效低分匹配。被排除数量记录在输出 `summary.generic_tunnels_skipped` 和 `warnings[]` 中（`type: generic_tunnels_excluded`）。
 
 ### 前缀剥离
 
-设备描述常带分站编号或编码前缀，匹配前需剥离（`PREFIX_PATTERNS`，locator.py:172-175）：
+设备描述常带分站编号或编码前缀，匹配前需剥离（`PREFIX_PATTERNS`，locator.py:268）：
 
 ```
-^\d+号分站(模拟量|开关量|多态量)[A-Za-z0-9_]+
-^其他\d+[A-Za-z0-9]*
+^\d+号分站(模拟量|开关量|多态量)\d{3}[A-Z]\d{2}
+^其他\d{6,}[A-Z]\d{2}
 ```
+
+收紧后只匹配通道编码格式，不吞位置编码（如 9308、C8302）。
 
 | 原始描述 | 剥离后 |
 | -------- | ------ |
 | `1号分站模拟量001A019308皮顺联络巷迎头激光甲烷瓦斯` | `皮顺联络巷迎头激光甲烷瓦斯` |
 | `其他999602085J00暗斜井猴车下口基站人数` | `暗斜井猴车下口基站人数` |
+| `14号分站开关量014D01回风暗斜井风门风门` | `回风暗斜井风门风门` |
 
 注：**编码提取在原始描述上做**（避免被前缀剥离误删），其他匹配在剥离后描述上做。
 
 ### sensor_type 推断
 
-设备字段缺 `sensor_type` 时，从描述关键词按顺序推断（`_infer_sensor_type`，locator.py:186-217）：
+设备字段缺 `sensor_type` 时，从描述关键词按顺序推断（`_infer_sensor_type`，locator.py:284）：
 
 `二氧化碳（CO2） > 氧气（O2） > 负压（风压） > 风速 > 烟雾 > 粉尘 > 温度 > 一氧化碳（CO/一氧化碳，排除 CO2） > 瓦斯（甲烷/CH4） > 开停 > 馈电 > 断电 > 人员定位（人数/人员） > 工业视频（工业视频/摄像头/视频监控/视频监测） > [兜底] mark_type=B16 → 工业视频`
 
 - 新增 `二氧化碳/氧气/负压` 优先于其他类型识别（基于 AQ 1029-2019 公开知识，条款号 TBD）。
 - **mark_type 与 sensor_type 是完全不同的概念**：B16 是系统大类（工业视频系统），sensor_type 应为设备类型 `工业视频`，不应混用。
+- **B16 兜底**：`mark_type=B16` 但描述无"摄像/视频"字样时，默认 sensor_type=`工业视频`（依据 MT/T 1201.6-2023 附录 A）。
 
 ### 编码提取
 
-`extract_workface_code`（locator.py:354-372），按优先级：
+`extract_workface_code`（locator.py:855），按优先级：
 1. **中文数字 + 采区/煤层/盘区/水平**：`九采区` → `9`、`七煤层` → `7`
 2. 字母+3-4 数字：`C8302`、`F1302`
 3. 负号+3-4 数字（水平标高）：`-490`、`-725`
@@ -517,7 +567,7 @@ locator.py 启动时自动探测可用解释器，按优先级：
 
 ### 别名映射
 
-`_TUNNEL_ALIAS_MAP`（locator.py:260-280）+ `_expand_aliases` — 匹配前对 description 和候选 name 双向扩展，解决简称/全称差异：
+`_TUNNEL_ALIAS_MAP`（locator.py:380）+ `_expand_aliases`（locator.py:407）— 匹配前对 description 和候选 name 双向扩展，解决简称/全称差异：
 
 | description 中出现 | 扩展为 |
 |---|---|
@@ -525,12 +575,28 @@ locator.py 启动时自动探测可用解释器，按优先级：
 | 胶运 | 胶运\|胶带运输\|进风巷\|胶运顺槽 |
 | 联络巷 | 联络巷\|联巷 |
 | 切巷 | 切巷\|切眼 |
+| 东大 | 东大\|东部\|东翼 |
 | 副井 | 副井\|副斜井 |
 | 主井 | 主井\|主斜井 |
 
+使用占位符避免递归替换（如"顺槽"不会二次替换"皮带顺槽"中的内容）。
+
+### 设备数据校验
+
+`_validate_devices`（locator.py:2241）— 数据加载后首先进行设备数据清洗：
+
+| 场景 | 处理 | 行为 |
+|------|------|------|
+| 相同 id + 相同 description | 去重（保留第一条） | 继续运行 |
+| 相同 id + **不同** description | **ValueError 终止程序** | 强制修复上游数据 |
+| 空 description | 跳过并 stderr 警告 | 继续运行 |
+| 字段类型错误 | 跳过并 stderr 警告 | 继续运行 |
+
+**绝不**给重复 ID 加 `_1`、`_2` 后缀。上游数据有重复 ID 时必须先到 BW-MES 后台清理后再运行定位。
+
 ### 评分公式
 
-`find_best_match`（locator.py:482-543）— **分层匹配策略**：
+`_score_candidates`（locator.py:1227）— **分层匹配策略**：
 
 ```
 score = round(LCS_长度(别名扩展后) × 10 / 候选名长度)
@@ -560,9 +626,9 @@ score = round(LCS_长度(别名扩展后) × 10 / 候选名长度)
 - LCS_PREF 最低门槛：**`LCS ≥ 2`**（防止单字符靠短名称膨胀分数）。LCS=2 时 score 需≥7 才给予中置信度，避免"轨道"等短 LCS 蹭 sensor_type 偏好蒙上中匹配
 - 平局判定：编码命中 > LCS 长 > 候选名长
 
-### sensor_type 巷道偏好（命中 +2）
+#### sensor_type 巷道偏好（命中 +2）
 
-`_SENSOR_TUNNEL_PREF`（locator.py:213-227）。基于 AQ 1029-2019 公开知识（条款号 TBD）+ 实际数据观察：
+`_SENSOR_TUNNEL_PREF`（locator.py:328）。基于 AQ 1029-2019 公开知识（条款号 TBD）+ 实际数据观察：
 
 | sensor_type | 偏好关键字 |
 | ----------- | ---------- |
@@ -582,7 +648,7 @@ score = round(LCS_长度(别名扩展后) × 10 / 候选名长度)
 
 ### 巷道类型匹配加分
 
-`_TUNNEL_TYPE_MATCH_BONUS`（locator.py:292-299）：
+`_TUNNEL_TYPE_MATCH_BONUS`（locator.py:648）：
 
 | 描述含 | 候选 type | 加分 |
 | ------ | --------- | ---- |
@@ -595,11 +661,12 @@ score = round(LCS_长度(别名扩展后) × 10 / 候选名长度)
 
 ### 地点语义惩罚（-10）
 
-`_LOCATION_SEMANTICS`（locator.py:441）— 描述含此关键字时，候选必须含其一，否则扣 10（并在 `_has_hard_semantic_conflict` 中直接拒绝）：
+`_LOCATION_SEMANTICS`（locator.py:550）— 描述含此关键字时，候选必须含其一，否则扣 10（并在 `_has_hard_semantic_conflict` 中直接拒绝）：
 
 | 描述含 | 候选必须含其一 |
 | ------ | -------------- |
 | 洗煤厂 | 洗煤厂 |
+| 选煤楼 | 选煤楼 |
 | 中央变电所 | 变电, 配电 |
 | 避难硐室 | 硐室 |
 | 硐室   | 硐室 |
@@ -625,16 +692,16 @@ score = round(LCS_长度(别名扩展后) × 10 / 候选名长度)
 
 ### 硬性语义冲突（直接 REJECT）
 
-`_has_hard_semantic_conflict`（locator.py:874）— 地点/功能词不一致时**直接拒绝**，宁缺毋滥。在 `_score_candidates` 分层判定前调用，冲突则 layer=REJECT。
+`_has_hard_semantic_conflict`（locator.py:979）— 地点/功能词不一致时**直接拒绝**，宁缺毋滥。在 `_score_candidates` 分层判定前调用，冲突则 layer=REJECT。
 
 **1. 地点锚定词冲突**：描述含地点限定词，候选必须含相同词。
 
-`_AREA_ANCHOR_RE` 匹配模式：
+`_AREA_ANCHOR_RE`（locator.py:968）匹配模式：
 - `[一二三四五六七八九十百千\d]+采区`（六采区、一采区等）
 - `[东西南北]翼`（西翼、北翼、东翼、南翼）
 - 特定巷道/地名：`暗斜井`、`哈拉沟`、`马蹄沟`、`马蹄坡`、`交岔点`（矿特有，后续按需扩展）
 
-**2. 功能互斥冲突**：
+**2. 功能互斥冲突**（`_check_functional_conflict`，locator.py:601）：
 | 描述含 | 候选若含以下词则冲突 |
 | ------ | -------------------- |
 | 底抽 | 回风、进风、皮顺、胶运 |
@@ -657,7 +724,7 @@ score = round(LCS_长度(别名扩展后) × 10 / 候选名长度)
 **7. 反向编码约束**：候选名含 specific code（3+位纯数字 / 字母+数字 / 负数水平），但描述完全不含候选的任何 specific code → REJECT。
 - 避免"三部强力皮带"靠"皮带"短 LCS 蹭到"8301皮带顺槽"等带工作面编码的候选
 - 同样保护 6301/6302/15103 等所有"短编码巷道"，防止主运输/装载站皮带误挂到工作面顺槽
-- specific code 提取正则：`-?\d{3,}` 或 `[A-Za-z]\d{2,}`，与 `_is_specific_code` 一致
+- specific code 提取正则：`-?\d{3,}` 或 `[A-Za-z]\d{2,}`，与 `_is_specific_code`（locator.py:1198）一致
 
 **8. `_LOCATION_SEMANTICS` 冲突**：描述含 `_LOCATION_SEMANTICS` 关键字但候选不含允许词时，直接拒绝（编码/LCS 无法掩盖）。|
 
@@ -677,7 +744,7 @@ score = round(LCS_长度(别名扩展后) × 10 / 候选名长度)
 
 ### mark_type → 系统大类
 
-`_MARK_TYPE_TO_SYSTEM`（locator.py:230-234）：
+`_MARK_TYPE_TO_SYSTEM`（locator.py:372）：
 
 | mark_type | 系统           |
 | --------- | -------------- |
@@ -689,29 +756,35 @@ score = round(LCS_长度(别名扩展后) × 10 / 候选名长度)
 
 ### area 语义过滤
 
-`_AREA_SURFACE_PATTERNS` + `_is_surface_area` — area 字段标记设备所属区域。匹配前判断语义：
+`_AREA_SURFACE_PATTERNS`（locator.py:462）+ `_is_surface_area`（locator.py:484）— area 字段标记设备所属区域。匹配前判断语义：
 - 若 area 含"地面/露天矿/洗选/销售/磅房/风机房/材料大库房/炸药库/计算机资源/档案室/队组楼/设备废料/井上"等地面关键词
 - → 直接跳过所有井下候选，标记为 `AREA_SURFACE` 未匹配
 - 避免地面设备（洗煤厂、磅房、地面机房硐室等）错误匹配到井下巷道/工作面
 
+### description 地面语义过滤
+
+`_DESCRIPTION_SURFACE_PATTERNS`（locator.py:498）+ `_is_surface_description`（locator.py:528）— 从 description 本身判断地面设施。与 area 过滤互补：
+- 若 description 含"地面/井上/洗煤厂/空压机房/风机房/通风机房/材料库/炸药库/磅房/销售/档案室/队组楼"等关键词
+- → 同样标记为地面设备，跳过井下候选
+
+**井口例外**：`_is_shaft_mouth`（locator.py:538）检测 "主井井口"/"副井井口"/"回风井井口"/"风井井口" 等模式。这类设备 area 虽标记为井上，但实际是井下斜井的入口点，应匹配到对应斜井起始位置，而非被 AREA_SURFACE 过滤掉。
+
 ### 置信度
 
-`_calc_confidence`（locator.py:1227-1235）— 基于分层 `layer`：
+`_calc_confidence`（locator.py:2578）— 基于分层 `layer`：
 
-| layer | 条件 | confidence | 回写行为 |
-|-------|------|------------|----------|
-| EXACT (1) | 编码精确命中（非通用前缀）且 lcs≥1 | 高 | 写入 8385 |
-| LCS_PREF (2) | 前缀模糊命中 或 score≥**(7 if LCS<3 else 5)**，**且 LCS≥2** | 中 | 写入 8385 |
-| LOW (3) | score≥2 但无编码/前缀命中 | 低 | **暂缓**（宁缺毋滥） |
-| REJECT (4) | score<2 或 硬性语义冲突 | 极低 | 不匹配 |
+| layer | 条件 | confidence |
+|-------|------|------------|
+| EXACT (1) | 编码精确命中（非通用前缀）且 lcs≥1 | 高 |
+| LCS_PREF (2) | 前缀模糊命中 或 score≥**(7 if LCS<3 else 5)**，**且 LCS≥2** | 中 |
+| LOW (3) | score≥2 但无编码/前缀命中 | 低 |
+| REJECT (4) | score<2 或 硬性语义冲突 | 极低(拒绝) |
 
-**宁缺毋滥原则**：`_filter_low_confidence()` (locator.py:613) 在回写前自动过滤「低」置信度匹配。只有「高」和「中」置信度的结果会被写入 8385。低置信度匹配保留在结果文件中供人工审查，审查后可手动筛选回写。此过滤在 `_save_and_writeback` 和 `_writeback_from_file` 两个路径均生效。
-
-回写时 stderr 会逐条展示暂缓样本（最多 8 条），包含 score、lcs 和描述摘要。
+**回写行为**：当前代码使用 `_filter_low_confidence(results_list, include_low=True)`（locator.py:3844, 3920），**全部置信度结果均参与回写**，stderr 会醒目提示低置信度数量（如"含 5 条低置信度 ⚠"）。用户可在确认环节取消。此行为与早期版本（仅高+中回写）不同。
 
 ### 未匹配拒绝原因
 
-`unmatched_devices` 中每个设备带 `reason` 字段（locator.py:1244-1282）：
+`unmatched_devices` 中每个设备带 `reason` 字段（locator.py:2819 附近）：
 
 | reason | 含义 |
 |--------|------|
@@ -725,43 +798,35 @@ score = round(LCS_长度(别名扩展后) × 10 / 候选名长度)
 
 ### 匹配缓存
 
-高置信度（layer=EXACT）匹配自动写入 `data/cache/match_cache.json`（locator.py:1084-1120）：
+高置信度（layer=EXACT）匹配自动写入 `data/cache/match_cache.json`（locator.py:2472-2513）：
 - 键：`{mark_type}:{description}`
 - 值：`{matched_name, candidate_id, score, timestamp}`
 - 下次运行时优先查缓存，命中则直接复用匹配结果
 
-**缓存语义校验**（locator.py:1637）：缓存命中时也会调用 `_has_hard_semantic_conflict` 检查。若缓存结果与当前描述存在硬性语义冲突（如地点/功能词不一致），则忽略缓存重新匹配。防止历史错误缓存被复用。
+**缓存语义校验**（locator.py:2610）：缓存命中时也会调用 `_has_hard_semantic_conflict` 检查。若缓存结果与当前描述存在硬性语义冲突（如地点/功能词不一致），则忽略缓存重新匹配。防止历史错误缓存被复用。
 
 ### 系统巷道过滤与告警
 
-**系统巷道排除**：`_is_generic_tunnel_name`（locator.py 新增）— 形如 `巷道\d+` 的名称在 `_extract_candidates` 阶段直接从候选池排除。
+**系统巷道排除**：`_is_generic_tunnel_name`（locator.py:521）— 形如 `巷道\d+` 或纯数字名（如"146"）的名称在 `_extract_candidates` 阶段直接从候选池排除。
 
 - 排除数量记录在 `summary.generic_tunnels_skipped`
 - 输出 JSON 中 `warnings` 数组包含 `type: generic_tunnels_excluded` 条目
 
 **无名巷道排除**：`name` 字段为空的巷道在候选提取阶段跳过（stderr 输出 `跳过 tunnels[N]: name 为空`）。排除数量记录在 `summary.unnamed_tunnels_skipped`。无名巷道是匹配率低的主因之一——这些巷道虽在数据库中有记录但缺少关键标识信息。
 
-### 回写计划与低置信度过滤
-
-`_filter_low_confidence()` (locator.py:613) — 在 8385 回写前自动将结果拆分为：
-- **待回写**：高 + 中置信度 → 发送到 8385 API
-- **暂缓回写**：低置信度 → 保留在结果文件，不写入 8385（宁缺毋滥）
-
-`_classify_low_confidence_reasons()` — 对暂缓项按原因分类统计（LCS过短/编码不在候选名中/无编码仅LCS）。
-
-stderr 报告新增两个区块：
-- **`【回写计划】`**：待回写 N 条 (高=A, 中=B) | 暂缓 M 条 + 原因分布
-- **`【暂缓回写样本】`**：Top 5 暂缓项，每条含 score/lcs/描述
-
-JSON 报告新增字段：
-- `writeback_plan`: `{ writeback_count, held_back_count, by_tier, held_back_reasons }`
-- `low_confidence_samples`: Top 5 低置信度匹配样本
-
 ### 风速间距检查
 
-`_check_wind_speed_spacing`（locator.py:1155-1195）— 同组风速传感器间距 < 10m 时告警：
+`_check_wind_speed_spacing`（locator.py:2525）— 同组风速传感器间距 < 10m 时告警：
 - AQ 1029-2019 7.2.1：测风站前后 10m 无分支
 - 输出 JSON 中 `warnings` 数组包含 `type: wind_speed_spacing` 条目
+
+### CAD 路标定位（可选增强）
+
+当 8373 数据包含 `cadData`（CAD 图纸标注点）时，locator.py 启用路标定位增强：
+
+1. **`_group_sensor_fragments`**（locator.py:1670）：将相邻 CAD 标注点聚合成完整传感器标识（如 "CH" + "4" → "CH4"，"T" + "CO" → "TCO"）
+2. **`_build_landmarks`**（locator.py:1814）：过滤噪声（高程数字、图签文字、报警阈值等），计算每个有意义标注点到最近巷道折线的投影比例，构建 `{tunnel_name: {landmark_name: ratio}}` 路标表
+3. **`_find_landmark_ratio`**（locator.py:1992）：设备描述匹配路标名称时，返回该路标在巷道上的投影比例，替代默认区间分配，实现更精确的定位
 
 ---
 
@@ -771,7 +836,7 @@ JSON 报告新增字段：
 
 ### 1. 分组键
 
-`group_key = (matched_name, keyword)`（locator.py:984-989）。`keyword` 由 `_classify_keyword`（locator.py:624-644）决定：
+`group_key = (matched_name, keyword)`（locator.py:2531）。`keyword` 由 `_classify_keyword`（locator.py:2118）决定：
 
 - `T1/T2/T0/T3/T4`（从描述提取）
 - `迎头` / `回风流`（描述含关键词）
@@ -783,7 +848,7 @@ JSON 报告新增字段：
 
 ### 2. 区间确定优先级
 
-`_assign_distances`（locator.py:478-590）：
+`_assign_distances`（locator.py:2013）：
 
 ```
 显式距离(米) > T 标识规则 > 巷道类型×sensor_type 规则 > AQ1029 距离规则 > 关键词区间 > sensor_type 默认百分比
@@ -793,7 +858,7 @@ JSON 报告新增字段：
 
 #### 2a. T 标识区间
 
-`_T_POSITION_RULES`（locator.py:243-249）：
+`_T_POSITION_RULES`（locator.py:450）：
 
 | T 标识 | 比例区间 | 精确米数（若 line 够长） | 含义 |
 | ------ | -------- | ----------------------- | ---- |
@@ -805,7 +870,7 @@ JSON 报告新增字段：
 
 #### 2b. 巷道类型 × sensor_type 规则
 
-`_TUNNEL_TYPE_RULES`（locator.py:263-288）：
+`_TUNNEL_TYPE_RULES`（locator.py:614）：
 
 | 巷道类型 | sensor | 方向 | 米数 | 容差 |
 | -------- | ------ | ---- | ---- | ---- |
@@ -828,7 +893,7 @@ JSON 报告新增字段：
 
 #### 2c. AQ1029 距离规则
 
-`_AQ1029_DISTANCE_RULES`（locator.py:315-323）：
+`_AQ1029_DISTANCE_RULES`（locator.py:676）：
 
 | keyword | sensor | 方向 | 米数 |
 | ------- | ------ | ---- | ---- |
@@ -875,9 +940,9 @@ JSON 报告新增字段：
 
 ### 3. 同组多设备分配
 
-`_distribute_in_zone`（locator.py:486-494）：
+`_distribute_in_zone`（locator.py:2029）：
 
-- **默认 1m 步长**（`step=1.0`，locator.py:479）从 `lo` 起递增。
+- **默认 1m 步长**（`step=1.0`）从 `lo` 起递增。
 - 区间放不下时退化为均匀分布：`step_adj = (hi-lo)/(count-1)`。
 - `count == 1` 取区间中点。
 - **B16 工业视频自定义步长**（MT/T 1201.6-2023 附录 A）：
@@ -895,7 +960,7 @@ JSON 报告新增字段：
 
 ### 4. z 轴安装高度
 
-`_SENSOR_INSTALL_HEIGHT`（locator.py:304-314）— 在折线插值的 z 上叠加传感器安装高度：
+`_SENSOR_INSTALL_HEIGHT`（locator.py:660）— 在折线插值的 z 上叠加传感器安装高度：
 
 | sensor_type | z 偏移 (m) | 依据 |
 | ----------- | ---------- | ---- |

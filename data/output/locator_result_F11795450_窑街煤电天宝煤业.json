@@ -3505,8 +3505,58 @@
       "line_percentage": 0.0
     },
     {
-      "id": "YJMDTBMY10121N5992",
-      "description": "天宝公司-主斜井维修点下部",
+      "id": "YJMDTBMY10121N5128",
+      "description": "天宝公司-单轨吊充电检修硐室回风流T2处",
+      "matched": true,
+      "matched_name": "单轨吊充电检修硐室",
+      "tunnel_id": "CC93DF87-1058-4383-89D6-D6235558CF0F",
+      "matched_type": "tunnel",
+      "tunnel_type": "0-普通巷道",
+      "coalbed": "0100",
+      "match_lcs": 9,
+      "match_score": 13,
+      "confidence": "中",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "area": "矿井",
+      "sysaliasname": "工业视频",
+      "coordinates": {
+        "x": 32551240.9125,
+        "y": 4620277.8741,
+        "z": 1723.475
+      },
+      "line_total_length": 115.76,
+      "distance_along_line": 107.07,
+      "line_percentage": 92.5
+    },
+    {
+      "id": "YJMDTBMY10121N5112",
+      "description": "天宝公司-副井绞车房",
+      "matched": true,
+      "matched_name": "副斜井",
+      "tunnel_id": "409316B8-ABA2-4248-9F02-38DC2DB96867",
+      "matched_type": "tunnel",
+      "tunnel_type": "14-副斜井",
+      "coalbed": "0100",
+      "match_lcs": 3,
+      "match_score": 10,
+      "confidence": "中",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "area": "矿井",
+      "sysaliasname": "工业视频",
+      "coordinates": {
+        "x": 32551813.6777,
+        "y": 4620250.0896,
+        "z": 1842.5507
+      },
+      "line_total_length": 750.35,
+      "distance_along_line": 375.17,
+      "line_percentage": 50.0
+    },
+    {
+      "id": "YJMDTBMY10121N6084",
+      "description": "天宝公司-主斜井防跑车(下)",
       "matched": true,
       "matched_name": "主斜井",
       "tunnel_id": "D077AB2D-917D-4457-8431-4F9BD4A72765",
@@ -3530,8 +3580,8 @@
       "line_percentage": 10.0
     },
     {
-      "id": "YJMDTBMY10121N6084",
-      "description": "天宝公司-主斜井防跑车(下)",
+      "id": "YJMDTBMY10121N6082",
+      "description": "天宝公司-主斜井防跑车(上)",
       "matched": true,
       "matched_name": "主斜井",
       "tunnel_id": "D077AB2D-917D-4457-8431-4F9BD4A72765",
@@ -3555,8 +3605,8 @@
       "line_percentage": 10.1
     },
     {
-      "id": "YJMDTBMY10121N6082",
-      "description": "天宝公司-主斜井防跑车(上)",
+      "id": "YJMDTBMY10121N5992",
+      "description": "天宝公司-主斜井维修点下部",
       "matched": true,
       "matched_name": "主斜井",
       "tunnel_id": "D077AB2D-917D-4457-8431-4F9BD4A72765",
@@ -3654,56 +3704,6 @@
       "line_total_length": 724.26,
       "distance_along_line": 76.43,
       "line_percentage": 10.6
-    },
-    {
-      "id": "YJMDTBMY10121N5128",
-      "description": "天宝公司-单轨吊充电检修硐室回风流T2处",
-      "matched": true,
-      "matched_name": "单轨吊充电检修硐室",
-      "tunnel_id": "CC93DF87-1058-4383-89D6-D6235558CF0F",
-      "matched_type": "tunnel",
-      "tunnel_type": "0-普通巷道",
-      "coalbed": "0100",
-      "match_lcs": 9,
-      "match_score": 13,
-      "confidence": "中",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "area": "矿井",
-      "sysaliasname": "工业视频",
-      "coordinates": {
-        "x": 32551240.9125,
-        "y": 4620277.8741,
-        "z": 1723.475
-      },
-      "line_total_length": 115.76,
-      "distance_along_line": 107.07,
-      "line_percentage": 92.5
-    },
-    {
-      "id": "YJMDTBMY10121N5112",
-      "description": "天宝公司-副井绞车房",
-      "matched": true,
-      "matched_name": "副斜井",
-      "tunnel_id": "409316B8-ABA2-4248-9F02-38DC2DB96867",
-      "matched_type": "tunnel",
-      "tunnel_type": "14-副斜井",
-      "coalbed": "0100",
-      "match_lcs": 3,
-      "match_score": 10,
-      "confidence": "中",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "area": "矿井",
-      "sysaliasname": "工业视频",
-      "coordinates": {
-        "x": 32551813.6777,
-        "y": 4620250.0896,
-        "z": 1842.5507
-      },
-      "line_total_length": 750.35,
-      "distance_along_line": 375.17,
-      "line_percentage": 50.0
     },
     {
       "id": "YJMDTBMY10140025007",
@@ -4479,127 +4479,6 @@
       "candidates": []
     },
     {
-      "id": "YJMDTBMY10121N4295",
-      "description": "天宝锅炉引风厂房1#引风机",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "sysaliasname": "工业视频",
-      "reason": "AREA_SURFACE",
-      "device_code": null,
-      "area": "地面",
-      "candidates": []
-    },
-    {
-      "id": "YJMDTBMY10121N4296",
-      "description": "天宝锅炉引风厂房2#引风机",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "sysaliasname": "工业视频",
-      "reason": "AREA_SURFACE",
-      "device_code": null,
-      "area": "地面",
-      "candidates": []
-    },
-    {
-      "id": "YJMDTBMY10121N4297",
-      "description": "天宝锅炉脱硫集控室二层水处理间",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "sysaliasname": "工业视频",
-      "reason": "AREA_SURFACE",
-      "device_code": null,
-      "area": "地面",
-      "candidates": []
-    },
-    {
-      "id": "YJMDTBMY10121N4298",
-      "description": "天宝锅炉房循环水泵房北侧",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "sysaliasname": "工业视频",
-      "reason": "AREA_SURFACE",
-      "device_code": null,
-      "area": "地面",
-      "candidates": []
-    },
-    {
-      "id": "YJMDTBMY10121N4299",
-      "description": "天宝锅炉脱硫控制室低压柜",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "sysaliasname": "工业视频",
-      "reason": "AREA_SURFACE",
-      "device_code": null,
-      "area": "地面",
-      "candidates": []
-    },
-    {
-      "id": "YJMDTBMY10121N4300",
-      "description": "天宝锅炉房低压室1#球机",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "sysaliasname": "工业视频",
-      "reason": "AREA_SURFACE",
-      "device_code": null,
-      "area": "地面",
-      "candidates": []
-    },
-    {
-      "id": "YJMDTBMY10121N4301",
-      "description": "天宝锅炉脱硝车间",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "sysaliasname": "工业视频",
-      "reason": "AREA_SURFACE",
-      "device_code": null,
-      "area": "地面",
-      "candidates": []
-    },
-    {
-      "id": "YJMDTBMY10121N4302",
-      "description": "天宝2#锅炉汽包压力表",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "sysaliasname": "工业视频",
-      "reason": "AREA_SURFACE",
-      "device_code": null,
-      "area": "地面",
-      "candidates": []
-    },
-    {
-      "id": "YJMDTBMY10121N4303",
-      "description": "天宝锅炉房七米平台西侧",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "sysaliasname": "工业视频",
-      "reason": "AREA_SURFACE",
-      "device_code": null,
-      "area": "地面",
-      "candidates": []
-    },
-    {
-      "id": "YJMDTBMY10121N4304",
-      "description": "天宝锅炉脱硫集控室二层框架压滤机",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "sysaliasname": "工业视频",
-      "reason": "AREA_SURFACE",
-      "device_code": null,
-      "area": "地面",
-      "candidates": []
-    },
-    {
-      "id": "YJMDTBMY10121N4305",
-      "description": "天宝2#锅炉给煤机",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "sysaliasname": "工业视频",
-      "reason": "AREA_SURFACE",
-      "device_code": null,
-      "area": "地面",
-      "candidates": []
-    },
-    {
       "id": "YJMDTBMY10121N4649",
       "description": "天宝煤业选煤厂311312皮带机尾",
       "mark_type": "B16",
@@ -4941,6 +4820,17 @@
       "candidates": []
     },
     {
+      "id": "YJMDTBMY10121N4303",
+      "description": "天宝锅炉房七米平台西侧",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "sysaliasname": "工业视频",
+      "reason": "AREA_SURFACE",
+      "device_code": null,
+      "area": "地面",
+      "candidates": []
+    },
+    {
       "id": "YJMDTBMY10121N4426",
       "description": "天宝设备用房主食品库房监控",
       "mark_type": "B16",
@@ -4987,6 +4877,17 @@
     {
       "id": "YJMDTBMY10121N5166",
       "description": "天宝公司-露天矿外排土场",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "sysaliasname": "工业视频",
+      "reason": "AREA_SURFACE",
+      "device_code": null,
+      "area": "地面",
+      "candidates": []
+    },
+    {
+      "id": "YJMDTBMY10121N4301",
+      "description": "天宝锅炉脱硝车间",
       "mark_type": "B16",
       "sensor_type": "工业视频",
       "sysaliasname": "工业视频",
@@ -5084,17 +4985,6 @@
       "candidates": []
     },
     {
-      "id": "YJMDTBMY10121N6029",
-      "description": "天宝联建楼-2楼东边通道",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "sysaliasname": "工业视频",
-      "reason": "AREA_SURFACE",
-      "device_code": null,
-      "area": "天宝地面安保",
-      "candidates": []
-    },
-    {
       "id": "YJMDTBMY10121N4414",
       "description": "天宝蓄水池西",
       "mark_type": "B16",
@@ -5117,17 +5007,6 @@
       "candidates": []
     },
     {
-      "id": "YJMDTBMY10121N6008",
-      "description": "天宝联建楼-1楼西门厅",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "sysaliasname": "工业视频",
-      "reason": "AREA_SURFACE",
-      "device_code": null,
-      "area": "天宝地面安保",
-      "candidates": []
-    },
-    {
       "id": "YJMDTBMY10121N4311",
       "description": "天宝锅炉房2#传输带东侧",
       "mark_type": "B16",
@@ -5147,17 +5026,6 @@
       "reason": "AREA_SURFACE",
       "device_code": "901",
       "area": "地面",
-      "candidates": []
-    },
-    {
-      "id": "YJMDTBMY10121N6011",
-      "description": "天宝联建楼-1楼西门厅北向",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "sysaliasname": "工业视频",
-      "reason": "AREA_SURFACE",
-      "device_code": null,
-      "area": "天宝地面安保",
       "candidates": []
     },
     {
@@ -5249,17 +5117,6 @@
       "candidates": []
     },
     {
-      "id": "YJMDTBMY10121N6023",
-      "description": "天宝联建楼-2楼西过道",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "sysaliasname": "工业视频",
-      "reason": "AREA_SURFACE",
-      "device_code": null,
-      "area": "天宝地面安保",
-      "candidates": []
-    },
-    {
       "id": "YJMDTBMY10121N4427",
       "description": "天宝设备用房丙类库房2监控",
       "mark_type": "B16",
@@ -5273,6 +5130,17 @@
     {
       "id": "YJMDTBMY10121N4308",
       "description": "天宝锅炉房2#传输带西侧",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "sysaliasname": "工业视频",
+      "reason": "AREA_SURFACE",
+      "device_code": null,
+      "area": "地面",
+      "candidates": []
+    },
+    {
+      "id": "YJMDTBMY10121N4298",
+      "description": "天宝锅炉房循环水泵房北侧",
       "mark_type": "B16",
       "sensor_type": "工业视频",
       "sysaliasname": "工业视频",
@@ -5326,6 +5194,17 @@
       "candidates": []
     },
     {
+      "id": "YJMDTBMY10121N4299",
+      "description": "天宝锅炉脱硫控制室低压柜",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "sysaliasname": "工业视频",
+      "reason": "AREA_SURFACE",
+      "device_code": null,
+      "area": "地面",
+      "candidates": []
+    },
+    {
       "id": "YJMDTBMY10121N4421",
       "description": "天宝设备用房主食品库房监控2",
       "mark_type": "B16",
@@ -5370,17 +5249,6 @@
       "candidates": []
     },
     {
-      "id": "YJMDTBMY10121N5998",
-      "description": "天宝联建楼-1楼洗衣房-1",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "sysaliasname": "工业视频",
-      "reason": "AREA_SURFACE",
-      "device_code": null,
-      "area": "天宝地面安保",
-      "candidates": []
-    },
-    {
       "id": "YJMDTBMY10121N4384",
       "description": "天宝职工宿舍三楼西南楼梯监控",
       "mark_type": "B16",
@@ -5400,17 +5268,6 @@
       "reason": "AREA_SURFACE",
       "device_code": null,
       "area": "地面",
-      "candidates": []
-    },
-    {
-      "id": "YJMDTBMY10121N6019",
-      "description": "天宝联建楼-2楼西过道",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "sysaliasname": "工业视频",
-      "reason": "AREA_SURFACE",
-      "device_code": null,
-      "area": "天宝地面安保",
       "candidates": []
     },
     {
@@ -5502,17 +5359,6 @@
       "candidates": []
     },
     {
-      "id": "YJMDTBMY10121N6018",
-      "description": "天宝联建楼-2楼西过道",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "sysaliasname": "工业视频",
-      "reason": "AREA_SURFACE",
-      "device_code": null,
-      "area": "天宝地面安保",
-      "candidates": []
-    },
-    {
       "id": "YJMDTBMY10121N4461",
       "description": "天宝变院内东（5号箱）",
       "mark_type": "B16",
@@ -5526,17 +5372,6 @@
     {
       "id": "YJMDTBMY10121N4385",
       "description": "天宝职工宿舍三楼东北楼梯监控",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "sysaliasname": "工业视频",
-      "reason": "AREA_SURFACE",
-      "device_code": null,
-      "area": "天宝地面安保",
-      "candidates": []
-    },
-    {
-      "id": "YJMDTBMY10121N6012",
-      "description": "天宝联建楼-1楼东门厅",
       "mark_type": "B16",
       "sensor_type": "工业视频",
       "sysaliasname": "工业视频",
@@ -5620,6 +5455,17 @@
       "reason": "AREA_SURFACE",
       "device_code": null,
       "area": "露天矿",
+      "candidates": []
+    },
+    {
+      "id": "YJMDTBMY10121N4300",
+      "description": "天宝锅炉房低压室1#球机",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "sysaliasname": "工业视频",
+      "reason": "AREA_SURFACE",
+      "device_code": null,
+      "area": "地面",
       "candidates": []
     },
     {
@@ -5777,17 +5623,6 @@
       "candidates": []
     },
     {
-      "id": "YJMDTBMY10121N6022",
-      "description": "天宝联建楼-2楼西过道",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "sysaliasname": "工业视频",
-      "reason": "AREA_SURFACE",
-      "device_code": null,
-      "area": "天宝地面安保",
-      "candidates": []
-    },
-    {
       "id": "YJMDTBMY10121N4455",
       "description": "天宝变10kV配电室西南角",
       "mark_type": "B16",
@@ -5843,17 +5678,6 @@
       "candidates": []
     },
     {
-      "id": "YJMDTBMY10121N5999",
-      "description": "天宝联建楼-1楼洗衣房-2",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "sysaliasname": "工业视频",
-      "reason": "AREA_SURFACE",
-      "device_code": null,
-      "area": "天宝地面安保",
-      "candidates": []
-    },
-    {
       "id": "YJMDTBMY10121N4391",
       "description": "天宝职工宿舍三楼西北楼梯监控",
       "mark_type": "B16",
@@ -5878,6 +5702,17 @@
     {
       "id": "YJMDTBMY10121N4462",
       "description": "天宝变电缆夹层东",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "sysaliasname": "工业视频",
+      "reason": "AREA_SURFACE",
+      "device_code": null,
+      "area": "地面",
+      "candidates": []
+    },
+    {
+      "id": "YJMDTBMY10121N4304",
+      "description": "天宝锅炉脱硫集控室二层框架压滤机",
       "mark_type": "B16",
       "sensor_type": "工业视频",
       "sysaliasname": "工业视频",
@@ -5973,6 +5808,17 @@
           "lcs": 1
         }
       ]
+    },
+    {
+      "id": "YJMDTBMY10121N4297",
+      "description": "天宝锅炉脱硫集控室二层水处理间",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "sysaliasname": "工业视频",
+      "reason": "AREA_SURFACE",
+      "device_code": null,
+      "area": "地面",
+      "candidates": []
     },
     {
       "id": "YJMDTBMY10121N4655",
@@ -6071,17 +5917,6 @@
       "reason": "AREA_SURFACE",
       "device_code": "307",
       "area": "地面",
-      "candidates": []
-    },
-    {
-      "id": "YJMDTBMY10121N5996",
-      "description": "天宝联建楼-1楼充电柜-3",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "sysaliasname": "工业视频",
-      "reason": "AREA_SURFACE",
-      "device_code": null,
-      "area": "天宝地面安保",
       "candidates": []
     },
     {
@@ -6206,17 +6041,6 @@
       "candidates": []
     },
     {
-      "id": "YJMDTBMY10121N5995",
-      "description": "天宝联建楼-1楼充电柜-2",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "sysaliasname": "工业视频",
-      "reason": "AREA_SURFACE",
-      "device_code": null,
-      "area": "天宝地面安保",
-      "candidates": []
-    },
-    {
       "id": "YJMDTBMY10121N4373",
       "description": "天宝综合楼三楼东楼梯",
       "mark_type": "B16",
@@ -6261,17 +6085,6 @@
       "candidates": []
     },
     {
-      "id": "YJMDTBMY10121N6017",
-      "description": "天宝联建楼-2楼西过道",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "sysaliasname": "工业视频",
-      "reason": "AREA_SURFACE",
-      "device_code": null,
-      "area": "天宝地面安保",
-      "candidates": []
-    },
-    {
       "id": "YJMDTBMY10121N5045",
       "description": "EVS_319",
       "mark_type": "B16",
@@ -6305,17 +6118,6 @@
       "candidates": []
     },
     {
-      "id": "YJMDTBMY10121N6021",
-      "description": "天宝联建楼-2楼西过道",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "sysaliasname": "工业视频",
-      "reason": "AREA_SURFACE",
-      "device_code": null,
-      "area": "天宝地面安保",
-      "candidates": []
-    },
-    {
       "id": "YJMDTBMY10121N4429",
       "description": "天宝设备用房副食品库房监控2",
       "mark_type": "B16",
@@ -6338,17 +6140,6 @@
       "candidates": []
     },
     {
-      "id": "YJMDTBMY10121N6014",
-      "description": "天宝联建楼-1楼南门厅",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "sysaliasname": "工业视频",
-      "reason": "AREA_SURFACE",
-      "device_code": null,
-      "area": "天宝地面安保",
-      "candidates": []
-    },
-    {
       "id": "YJMDTBMY10121N4407",
       "description": "天宝食堂洗菜池大",
       "mark_type": "B16",
@@ -6368,17 +6159,6 @@
       "reason": "AREA_SURFACE",
       "device_code": null,
       "area": "矿井",
-      "candidates": []
-    },
-    {
-      "id": "YJMDTBMY10121N6016",
-      "description": "天宝联建楼-2楼西过道",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "sysaliasname": "工业视频",
-      "reason": "AREA_SURFACE",
-      "device_code": null,
-      "area": "天宝地面安保",
       "candidates": []
     },
     {
@@ -6446,28 +6226,6 @@
           "lcs": 1
         }
       ]
-    },
-    {
-      "id": "YJMDTBMY10121N6010",
-      "description": "天宝联建楼-1楼西过道",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "sysaliasname": "工业视频",
-      "reason": "AREA_SURFACE",
-      "device_code": null,
-      "area": "天宝地面安保",
-      "candidates": []
-    },
-    {
-      "id": "YJMDTBMY10121N6003",
-      "description": "天宝联建楼-1楼高压室-1",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "sysaliasname": "工业视频",
-      "reason": "AREA_SURFACE",
-      "device_code": null,
-      "area": "天宝地面安保",
-      "candidates": []
     },
     {
       "id": "YJMDTBMY10121N4474",
@@ -6668,17 +6426,6 @@
       "candidates": []
     },
     {
-      "id": "YJMDTBMY10121N6004",
-      "description": "天宝联建楼-1楼高压室-2",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "sysaliasname": "工业视频",
-      "reason": "AREA_SURFACE",
-      "device_code": null,
-      "area": "天宝地面安保",
-      "candidates": []
-    },
-    {
       "id": "YJMDTBMY10121N5980",
       "description": "天宝公司--采坑积水池",
       "mark_type": "B16",
@@ -6753,17 +6500,6 @@
       "reason": "AREA_SURFACE",
       "device_code": null,
       "area": "露天矿",
-      "candidates": []
-    },
-    {
-      "id": "YJMDTBMY10121N6013",
-      "description": "天宝联建楼-1楼东门厅",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "sysaliasname": "工业视频",
-      "reason": "AREA_SURFACE",
-      "device_code": null,
-      "area": "天宝地面安保",
       "candidates": []
     },
     {
@@ -6866,17 +6602,6 @@
       "candidates": []
     },
     {
-      "id": "YJMDTBMY10121N6009",
-      "description": "天宝联建楼-1楼西过道",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "sysaliasname": "工业视频",
-      "reason": "AREA_SURFACE",
-      "device_code": null,
-      "area": "天宝地面安保",
-      "candidates": []
-    },
-    {
       "id": "YJMDTBMY10121N4624",
       "description": "天宝煤业选煤厂空压机冷干机",
       "mark_type": "B16",
@@ -6950,17 +6675,6 @@
       "sysaliasname": "工业视频",
       "reason": "AREA_SURFACE",
       "device_code": "102",
-      "area": "天宝地面安保",
-      "candidates": []
-    },
-    {
-      "id": "YJMDTBMY10121N6000",
-      "description": "天宝联建楼-1楼洗衣房-3",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "sysaliasname": "工业视频",
-      "reason": "AREA_SURFACE",
-      "device_code": null,
       "area": "天宝地面安保",
       "candidates": []
     },
@@ -7053,19 +6767,19 @@
       "candidates": []
     },
     {
-      "id": "YJMDTBMY10121N6026",
-      "description": "天宝联建楼-2楼东过道",
+      "id": "YJMDTBMY10121N4314",
+      "description": "天宝锅炉房低压室2#球机",
       "mark_type": "B16",
       "sensor_type": "工业视频",
       "sysaliasname": "工业视频",
       "reason": "AREA_SURFACE",
       "device_code": null,
-      "area": "天宝地面安保",
+      "area": "地面",
       "candidates": []
     },
     {
-      "id": "YJMDTBMY10121N4314",
-      "description": "天宝锅炉房低压室2#球机",
+      "id": "YJMDTBMY10121N4302",
+      "description": "天宝2#锅炉汽包压力表",
       "mark_type": "B16",
       "sensor_type": "工业视频",
       "sysaliasname": "工业视频",
@@ -7121,17 +6835,6 @@
     {
       "id": "YJMDTBMY10121N4689",
       "description": "天宝煤业选煤厂产品仓下配电室北",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "sysaliasname": "工业视频",
-      "reason": "AREA_SURFACE",
-      "device_code": null,
-      "area": "天宝地面安保",
-      "candidates": []
-    },
-    {
-      "id": "YJMDTBMY10121N5994",
-      "description": "天宝联建楼-1楼充电柜-1",
       "mark_type": "B16",
       "sensor_type": "工业视频",
       "sysaliasname": "工业视频",
@@ -7339,17 +7042,6 @@
       "candidates": []
     },
     {
-      "id": "YJMDTBMY10121N6028",
-      "description": "天宝联建楼-2楼东过道",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "sysaliasname": "工业视频",
-      "reason": "AREA_SURFACE",
-      "device_code": null,
-      "area": "天宝地面安保",
-      "candidates": []
-    },
-    {
       "id": "YJMDTBMY10121N4504",
       "description": "天宝4#库房东",
       "mark_type": "B16",
@@ -7405,39 +7097,6 @@
       "candidates": []
     },
     {
-      "id": "YJMDTBMY10121N6006",
-      "description": "天宝联建楼-1楼医务室",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "sysaliasname": "工业视频",
-      "reason": "AREA_SURFACE",
-      "device_code": null,
-      "area": "天宝地面安保",
-      "candidates": []
-    },
-    {
-      "id": "YJMDTBMY10121N6007",
-      "description": "天宝联建楼-1楼热交换",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "sysaliasname": "工业视频",
-      "reason": "AREA_SURFACE",
-      "device_code": null,
-      "area": "天宝地面安保",
-      "candidates": []
-    },
-    {
-      "id": "YJMDTBMY10121N6024",
-      "description": "天宝联建楼-2楼库房",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "sysaliasname": "工业视频",
-      "reason": "AREA_SURFACE",
-      "device_code": null,
-      "area": "天宝地面安保",
-      "candidates": []
-    },
-    {
       "id": "YJMDTBMY10121N4684",
       "description": "天宝103驱动间配电室1",
       "mark_type": "B16",
@@ -7468,6 +7127,17 @@
       "reason": "AREA_SURFACE",
       "device_code": null,
       "area": "天宝地面安保",
+      "candidates": []
+    },
+    {
+      "id": "YJMDTBMY10121N4296",
+      "description": "天宝锅炉引风厂房2#引风机",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "sysaliasname": "工业视频",
+      "reason": "AREA_SURFACE",
+      "device_code": null,
+      "area": "地面",
       "candidates": []
     },
     {
@@ -7603,6 +7273,17 @@
       "candidates": []
     },
     {
+      "id": "YJMDTBMY10121N4295",
+      "description": "天宝锅炉引风厂房1#引风机",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "sysaliasname": "工业视频",
+      "reason": "AREA_SURFACE",
+      "device_code": null,
+      "area": "地面",
+      "candidates": []
+    },
+    {
       "id": "YJMDTBMY10121N4653",
       "description": "天宝煤业选煤厂主厂房一楼门口",
       "mark_type": "B16",
@@ -7625,41 +7306,19 @@
       "candidates": []
     },
     {
-      "id": "YJMDTBMY10121N6020",
-      "description": "天宝联建楼-2楼西过道",
+      "id": "YJMDTBMY10121N4305",
+      "description": "天宝2#锅炉给煤机",
       "mark_type": "B16",
       "sensor_type": "工业视频",
       "sysaliasname": "工业视频",
       "reason": "AREA_SURFACE",
       "device_code": null,
-      "area": "天宝地面安保",
+      "area": "地面",
       "candidates": []
     },
     {
       "id": "YJMDTBMY10121N4376",
       "description": "天宝职工宿舍三楼东南楼梯监控",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "sysaliasname": "工业视频",
-      "reason": "AREA_SURFACE",
-      "device_code": null,
-      "area": "天宝地面安保",
-      "candidates": []
-    },
-    {
-      "id": "YJMDTBMY10121N6005",
-      "description": "天宝联建楼-1楼消控室",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "sysaliasname": "工业视频",
-      "reason": "AREA_SURFACE",
-      "device_code": null,
-      "area": "天宝地面安保",
-      "candidates": []
-    },
-    {
-      "id": "YJMDTBMY10121N6025",
-      "description": "天宝联建楼-2楼东过道",
       "mark_type": "B16",
       "sensor_type": "工业视频",
       "sysaliasname": "工业视频",
@@ -7699,17 +7358,6 @@
       "reason": "AREA_SURFACE",
       "device_code": null,
       "area": "露天矿",
-      "candidates": []
-    },
-    {
-      "id": "YJMDTBMY10121N6027",
-      "description": "天宝联建楼-2楼东过道",
-      "mark_type": "B16",
-      "sensor_type": "工业视频",
-      "sysaliasname": "工业视频",
-      "reason": "AREA_SURFACE",
-      "device_code": null,
-      "area": "天宝地面安保",
       "candidates": []
     },
     {
@@ -7933,8 +7581,30 @@
       "candidates": []
     },
     {
+      "id": "YJMDTBMY10121N6029",
+      "description": "天宝联建楼-2楼东边通道",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "sysaliasname": "工业视频",
+      "reason": "AREA_SURFACE",
+      "device_code": null,
+      "area": "天宝地面安保",
+      "candidates": []
+    },
+    {
       "id": "YJMDTBMY10121N6075",
       "description": "天宝职工宿舍五楼西北楼梯监控",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "sysaliasname": "工业视频",
+      "reason": "AREA_SURFACE",
+      "device_code": null,
+      "area": "天宝地面安保",
+      "candidates": []
+    },
+    {
+      "id": "YJMDTBMY10121N6008",
+      "description": "天宝联建楼-1楼西门厅",
       "mark_type": "B16",
       "sensor_type": "工业视频",
       "sysaliasname": "工业视频",
@@ -7977,6 +7647,17 @@
       ]
     },
     {
+      "id": "YJMDTBMY10121N6011",
+      "description": "天宝联建楼-1楼西门厅北向",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "sysaliasname": "工业视频",
+      "reason": "AREA_SURFACE",
+      "device_code": null,
+      "area": "天宝地面安保",
+      "candidates": []
+    },
+    {
       "id": "YJMDTBMY10121N6087",
       "description": "信息站监控",
       "mark_type": "B16",
@@ -7985,6 +7666,17 @@
       "reason": "AREA_SURFACE",
       "device_code": null,
       "area": "地面",
+      "candidates": []
+    },
+    {
+      "id": "YJMDTBMY10121N6023",
+      "description": "天宝联建楼-2楼西过道",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "sysaliasname": "工业视频",
+      "reason": "AREA_SURFACE",
+      "device_code": null,
+      "area": "天宝地面安保",
       "candidates": []
     },
     {
@@ -8098,8 +7790,52 @@
       "candidates": []
     },
     {
+      "id": "YJMDTBMY10121N5998",
+      "description": "天宝联建楼-1楼洗衣房-1",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "sysaliasname": "工业视频",
+      "reason": "AREA_SURFACE",
+      "device_code": null,
+      "area": "天宝地面安保",
+      "candidates": []
+    },
+    {
       "id": "YJMDTBMY10121N6033",
       "description": "天宝联建楼-3楼西过道",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "sysaliasname": "工业视频",
+      "reason": "AREA_SURFACE",
+      "device_code": null,
+      "area": "天宝地面安保",
+      "candidates": []
+    },
+    {
+      "id": "YJMDTBMY10121N6019",
+      "description": "天宝联建楼-2楼西过道",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "sysaliasname": "工业视频",
+      "reason": "AREA_SURFACE",
+      "device_code": null,
+      "area": "天宝地面安保",
+      "candidates": []
+    },
+    {
+      "id": "YJMDTBMY10121N6018",
+      "description": "天宝联建楼-2楼西过道",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "sysaliasname": "工业视频",
+      "reason": "AREA_SURFACE",
+      "device_code": null,
+      "area": "天宝地面安保",
+      "candidates": []
+    },
+    {
+      "id": "YJMDTBMY10121N6012",
+      "description": "天宝联建楼-1楼东门厅",
       "mark_type": "B16",
       "sensor_type": "工业视频",
       "sysaliasname": "工业视频",
@@ -8122,6 +7858,28 @@
     {
       "id": "YJMDTBMY10121N6030",
       "description": "天宝联建楼-2楼等候休息室-1",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "sysaliasname": "工业视频",
+      "reason": "AREA_SURFACE",
+      "device_code": null,
+      "area": "天宝地面安保",
+      "candidates": []
+    },
+    {
+      "id": "YJMDTBMY10121N6022",
+      "description": "天宝联建楼-2楼西过道",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "sysaliasname": "工业视频",
+      "reason": "AREA_SURFACE",
+      "device_code": null,
+      "area": "天宝地面安保",
+      "candidates": []
+    },
+    {
+      "id": "YJMDTBMY10121N5999",
+      "description": "天宝联建楼-1楼洗衣房-2",
       "mark_type": "B16",
       "sensor_type": "工业视频",
       "sysaliasname": "工业视频",
@@ -8186,6 +7944,17 @@
       "candidates": []
     },
     {
+      "id": "YJMDTBMY10121N5996",
+      "description": "天宝联建楼-1楼充电柜-3",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "sysaliasname": "工业视频",
+      "reason": "AREA_SURFACE",
+      "device_code": null,
+      "area": "天宝地面安保",
+      "candidates": []
+    },
+    {
       "id": "YJMDTBMY10121N6034",
       "description": "天宝联建楼-3楼西过道",
       "mark_type": "B16",
@@ -8205,6 +7974,83 @@
       "reason": "AREA_SURFACE",
       "device_code": null,
       "area": "矿井",
+      "candidates": []
+    },
+    {
+      "id": "YJMDTBMY10121N5995",
+      "description": "天宝联建楼-1楼充电柜-2",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "sysaliasname": "工业视频",
+      "reason": "AREA_SURFACE",
+      "device_code": null,
+      "area": "天宝地面安保",
+      "candidates": []
+    },
+    {
+      "id": "YJMDTBMY10121N6017",
+      "description": "天宝联建楼-2楼西过道",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "sysaliasname": "工业视频",
+      "reason": "AREA_SURFACE",
+      "device_code": null,
+      "area": "天宝地面安保",
+      "candidates": []
+    },
+    {
+      "id": "YJMDTBMY10121N6021",
+      "description": "天宝联建楼-2楼西过道",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "sysaliasname": "工业视频",
+      "reason": "AREA_SURFACE",
+      "device_code": null,
+      "area": "天宝地面安保",
+      "candidates": []
+    },
+    {
+      "id": "YJMDTBMY10121N6014",
+      "description": "天宝联建楼-1楼南门厅",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "sysaliasname": "工业视频",
+      "reason": "AREA_SURFACE",
+      "device_code": null,
+      "area": "天宝地面安保",
+      "candidates": []
+    },
+    {
+      "id": "YJMDTBMY10121N6016",
+      "description": "天宝联建楼-2楼西过道",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "sysaliasname": "工业视频",
+      "reason": "AREA_SURFACE",
+      "device_code": null,
+      "area": "天宝地面安保",
+      "candidates": []
+    },
+    {
+      "id": "YJMDTBMY10121N6010",
+      "description": "天宝联建楼-1楼西过道",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "sysaliasname": "工业视频",
+      "reason": "AREA_SURFACE",
+      "device_code": null,
+      "area": "天宝地面安保",
+      "candidates": []
+    },
+    {
+      "id": "YJMDTBMY10121N6003",
+      "description": "天宝联建楼-1楼高压室-1",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "sysaliasname": "工业视频",
+      "reason": "AREA_SURFACE",
+      "device_code": null,
+      "area": "天宝地面安保",
       "candidates": []
     },
     {
@@ -8232,6 +8078,17 @@
     {
       "id": "YJMDTBMY10121N6031",
       "description": "天宝联建楼-2楼等待休息室-2",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "sysaliasname": "工业视频",
+      "reason": "AREA_SURFACE",
+      "device_code": null,
+      "area": "天宝地面安保",
+      "candidates": []
+    },
+    {
+      "id": "YJMDTBMY10121N6004",
+      "description": "天宝联建楼-1楼高压室-2",
       "mark_type": "B16",
       "sensor_type": "工业视频",
       "sysaliasname": "工业视频",
@@ -8274,6 +8131,17 @@
       ]
     },
     {
+      "id": "YJMDTBMY10121N6013",
+      "description": "天宝联建楼-1楼东门厅",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "sysaliasname": "工业视频",
+      "reason": "AREA_SURFACE",
+      "device_code": null,
+      "area": "天宝地面安保",
+      "candidates": []
+    },
+    {
       "id": "YJMDTBMY10121N6077",
       "description": "天宝公司-档案室借阅室",
       "mark_type": "B16",
@@ -8307,6 +8175,17 @@
       ]
     },
     {
+      "id": "YJMDTBMY10121N6009",
+      "description": "天宝联建楼-1楼西过道",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "sysaliasname": "工业视频",
+      "reason": "AREA_SURFACE",
+      "device_code": null,
+      "area": "天宝地面安保",
+      "candidates": []
+    },
+    {
       "id": "YJMDTBMY10121N6109",
       "description": "天宝联建楼-井口信息站",
       "mark_type": "B16",
@@ -8338,6 +8217,39 @@
           "lcs": 1
         }
       ]
+    },
+    {
+      "id": "YJMDTBMY10121N6000",
+      "description": "天宝联建楼-1楼洗衣房-3",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "sysaliasname": "工业视频",
+      "reason": "AREA_SURFACE",
+      "device_code": null,
+      "area": "天宝地面安保",
+      "candidates": []
+    },
+    {
+      "id": "YJMDTBMY10121N6026",
+      "description": "天宝联建楼-2楼东过道",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "sysaliasname": "工业视频",
+      "reason": "AREA_SURFACE",
+      "device_code": null,
+      "area": "天宝地面安保",
+      "candidates": []
+    },
+    {
+      "id": "YJMDTBMY10121N5994",
+      "description": "天宝联建楼-1楼充电柜-1",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "sysaliasname": "工业视频",
+      "reason": "AREA_SURFACE",
+      "device_code": null,
+      "area": "天宝地面安保",
+      "candidates": []
     },
     {
       "id": "YJMDTBMY10121N6054",
@@ -8384,6 +8296,50 @@
       "candidates": []
     },
     {
+      "id": "YJMDTBMY10121N6028",
+      "description": "天宝联建楼-2楼东过道",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "sysaliasname": "工业视频",
+      "reason": "AREA_SURFACE",
+      "device_code": null,
+      "area": "天宝地面安保",
+      "candidates": []
+    },
+    {
+      "id": "YJMDTBMY10121N6006",
+      "description": "天宝联建楼-1楼医务室",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "sysaliasname": "工业视频",
+      "reason": "AREA_SURFACE",
+      "device_code": null,
+      "area": "天宝地面安保",
+      "candidates": []
+    },
+    {
+      "id": "YJMDTBMY10121N6007",
+      "description": "天宝联建楼-1楼热交换",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "sysaliasname": "工业视频",
+      "reason": "AREA_SURFACE",
+      "device_code": null,
+      "area": "天宝地面安保",
+      "candidates": []
+    },
+    {
+      "id": "YJMDTBMY10121N6024",
+      "description": "天宝联建楼-2楼库房",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "sysaliasname": "工业视频",
+      "reason": "AREA_SURFACE",
+      "device_code": null,
+      "area": "天宝地面安保",
+      "candidates": []
+    },
+    {
       "id": "YJMDTBMY10121N6039",
       "description": "天宝联建楼-3楼东过道",
       "mark_type": "B16",
@@ -8397,6 +8353,39 @@
     {
       "id": "YJMDTBMY10121N6032",
       "description": "天宝联建楼-3楼西过道",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "sysaliasname": "工业视频",
+      "reason": "AREA_SURFACE",
+      "device_code": null,
+      "area": "天宝地面安保",
+      "candidates": []
+    },
+    {
+      "id": "YJMDTBMY10121N6020",
+      "description": "天宝联建楼-2楼西过道",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "sysaliasname": "工业视频",
+      "reason": "AREA_SURFACE",
+      "device_code": null,
+      "area": "天宝地面安保",
+      "candidates": []
+    },
+    {
+      "id": "YJMDTBMY10121N6005",
+      "description": "天宝联建楼-1楼消控室",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "sysaliasname": "工业视频",
+      "reason": "AREA_SURFACE",
+      "device_code": null,
+      "area": "天宝地面安保",
+      "candidates": []
+    },
+    {
+      "id": "YJMDTBMY10121N6025",
+      "description": "天宝联建楼-2楼东过道",
       "mark_type": "B16",
       "sensor_type": "工业视频",
       "sysaliasname": "工业视频",
@@ -8480,6 +8469,17 @@
       "reason": "AREA_SURFACE",
       "device_code": null,
       "area": "矿井",
+      "candidates": []
+    },
+    {
+      "id": "YJMDTBMY10121N6027",
+      "description": "天宝联建楼-2楼东过道",
+      "mark_type": "B16",
+      "sensor_type": "工业视频",
+      "sysaliasname": "工业视频",
+      "reason": "AREA_SURFACE",
+      "device_code": null,
+      "area": "天宝地面安保",
       "candidates": []
     },
     {
