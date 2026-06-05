@@ -2104,6 +2104,29 @@ def _build_landmarks(cad_data: list, tunnels: list, max_dist: float = 100.0) -> 
     global _SENSOR_LANDMARKS
     _SENSOR_LANDMARKS.clear()
 
+    # ── 引线标注收集：\"安装地点：XXX\" 标签 ──
+    # 引线标签格式 1：文字标注直接指定所属巷道
+    # 引线格式 2（预留）：线段连接传感器→巷道（检测 to-be-implemented）
+    install_labels = []  # [{x, y, tunnel_name}]
+    for item in cad_data:
+        content = str(item.get('content', '')).strip()
+        if content.startswith('安装地点：'):
+            clean = content[5:]  # 去掉前缀
+            coords = item.get('coordinates', {})
+            if coords.get('x') and coords.get('y'):
+                # 尝试匹配到已知巷道名
+                matched_tunnel = None
+                for tname in tunnel_map:
+                    if tname in clean:
+                        matched_tunnel = tname
+                        break
+                if matched_tunnel:
+                    install_labels.append({
+                        'x': coords['x'], 'y': coords['y'],
+                        'tunnel_name': matched_tunnel,
+                        'content': clean,
+                    })
+
     # 收集未参与普通路标的标注点中的传感器片段
     sensor_items = []
     used_contents = set()
@@ -2140,11 +2163,31 @@ def _build_landmarks(cad_data: list, tunnels: list, max_dist: float = 100.0) -> 
     sensor_groups = _group_sensor_fragments(sensor_items, max_spacing=10.0)
 
     # 将组合结果投影到巷道
+    LEADER_LINE_MAX_DIST = 80.0  # 引线标签最大搜索距离（米）
     for sg in sensor_groups:
         x, y = sg['x'], sg['y']
         sensor_id = sg['combined_id']
         stype = sg['sensor_type']
 
+        # ── 引线标签匹配（格式1：安装地点标签）──
+        # 传感器组附近有\"安装地点：XXX\"标签时，直接用标签指定的巷道
+        tunnel_from_label = None
+        ratio_from_label = None
+        min_label_dist = LEADER_LINE_MAX_DIST
+        for lbl in install_labels:
+            d = math.sqrt((x - lbl['x']) ** 2 + (y - lbl['y']) ** 2)
+            if d < min_label_dist:
+                # 检查该标签的巷道是否真的接近传感器（避免误匹配）
+                if lbl['tunnel_name'] in tunnel_map:
+                    min_label_dist = d
+                    tunnel_from_label = lbl['tunnel_name']
+
+        if tunnel_from_label:
+            # 用标签指定的巷道进行投影
+            tl = tunnel_map[tunnel_from_label]
+            ratio_from_label, _ = _project_ratio_2d(x, y, tl)
+
+        # ── 投影到最近巷道（兜底逻辑）──
         best_dist = float('inf')
         best_name = None
         best_ratio = 0.0
@@ -2155,6 +2198,12 @@ def _build_landmarks(cad_data: list, tunnels: list, max_dist: float = 100.0) -> 
                     best_dist = dist
                     best_name = name
                     best_ratio = ratio
+
+        # 引线标签优先于最近巷道
+        if tunnel_from_label and ratio_from_label is not None:
+            best_name = tunnel_from_label
+            best_ratio = ratio_from_label
+            best_dist = min_label_dist
 
         if best_name:
             if best_name not in _SENSOR_LANDMARKS:
