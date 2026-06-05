@@ -1619,31 +1619,40 @@ _UNKNOWN_SENSOR_IDS = set()  # 已发现但未推断出类型的标识（暂时�
 # 硬编码基础映射（fallback — 化学式和已知标准缩写）
 # 运行时 _build_sensor_id_map() 会从这里拷贝然后叠加自学习结果
 _BASE_SENSOR_ID_MAP = {
-    # 化学拆分模式
+    # ── 不含前缀的化学式 ──
     "CH4": "瓦斯",    "CO": "一氧化碳",    "CO2": "二氧化碳",
     "O2": "氧气",     "H2": "氢气",         "NO2": "二氧化氮",
     "SO2": "二氧化硫", "NO": "一氧化氮",    "SO": "二氧化硫前缀",
-    # T 前缀模式
+    # ── T 前缀传感器（T = 设备标识前缀，CAD 常用模式）────
     "TCH4": "瓦斯",   "TCO": "一氧化碳",   "TCO2": "二氧化碳",
     "TO2": "氧气",    "TH2": "氢气",        "Tt": "温度",
-    "Tw": "瓦斯",     "Tv": "风速",         "TD": "断电",
-    "Tf": "粉尘",
-    # 拼音/英文缩写（预置常见缩写）
+    "Tw": "烟雾",     "Tv": "风速",         "TD": "粉尘",
+    "Tf": "风筒",     "TKD": "馈电",
+    # ── S 前缀传感器（S = 开关/状态类设备前缀）──
+    "SOS": "开停",    "SOC": "风门",
+    # ── 拼音/英文缩写 ──
     "YW": "烟雾",     "YWD": "烟雾",
-    # 中文传感器标识
+    "OS": "开停",     "OC": "风门",         "KD": "馈电",
+    # ── 中文传感器标识 ──
     "烟雾": "烟雾",   "风筒": "风筒",       "风速": "风速",
     "温度": "温度",   "粉尘": "粉尘",       "瓦斯": "瓦斯",
     "一氧化碳": "一氧化碳", "二氧化碳": "二氧化碳",
-    "氧气": "氧气",   "氢气": "氢气",
+    "氧气": "氧气",   "氢气": "氢气",       "开停": "开停",
+    "风门": "风门",   "馈电": "馈电",       "断电": "断电",
+    "风筒传感器": "风筒", "风筒末端": "风筒",
 }
 
 # ── 传感器标识片段聚合常量 ───────────────────────────────────────────
 # 化学前缀：能自己独立或与数字组合成传感器标识
-_CHEM_PREFIXES = {"CH", "CO", "O", "H", "NO", "SO"}
-# 化学后缀（数字）：与化学前缀组合用
+_CHEM_PREFIXES = {"CH", "CO", "O", "H", "NO", "SO", "OS", "OC", "KD"}
+# 数字后缀（与化学前缀/传感器前缀组合用）
 _CHEM_SUFFIXES = {"2", "4"}
-# T 前缀标记（传感器编号，不含 sensor_type 语义）
-_T_PREFIX = "T"
+# 传感器前缀标记（CAD 图纸上的设备类型标识前缀）
+_SENSOR_PREFIXES = {"T", "S"}
+# T 前缀的后缀（单字母，直接拼接即完整标识）
+_T_SUFFIXES = {"w", "f", "v", "D", "t", "KD", "CO"}
+# S 前缀的后缀（两字母，直接拼接即完整标识）
+_S_SUFFIXES = {"OS", "OC"}
 
 # ── 旧别名（向后兼容）─────────────────────────────────────────────
 _SENSOR_ID_TO_TYPE = _SENSOR_ID_MAP  # 引用动态映射（外部引用自动更新）
@@ -1736,28 +1745,33 @@ def _build_sensor_id_map(devices: list, cad_data: list = None):
 def _is_sensor_fragment(content: str) -> bool:
     """判断内容是否为可能的传感器标识片段。
 
-    通过两阶段检查：
-    1. 化学模式：化学前缀 + 数字后缀（CH/CO/O/H/NO/SO + 2/4）
-    2. 映射数据库：已经识别出的传感器标识（来自 _SENSOR_ID_MAP 或 _UNKNOWN_SENSOR_IDS）
-    3. T 前缀标记
-    4. 温度/其他后缀
+    支持 CAD 图纸上被拆散的传感器标注：
+    T 前缀 + 单字母后缀：T+w(烟雾)、T+f(风筒)、T+v(风速)、T+D(粉尘)、T+t(温度)
+    T + 化学前缀：T+CH、T+CO（可继续聚合数字形成 TCH4/TCO2）
+    T + 两字母后缀：T+KD(馈电)
+    S 前缀 + 两字母后缀：S+OS(开停)、S+OC(风门)
+    化学前缀 + 数字：CH+4、CO+2、O+2
+    完整标识：CH4、CO、YW 等
     """
     if not content:
         return False
     content = _normalize_subscript(content.strip())
-    # 化学前缀/后缀（聚合基础组件）
+    # 化学前缀/后缀
     if content in _CHEM_PREFIXES or content in _CHEM_SUFFIXES:
         return True
-    # T 前缀标记（传感器编号前缀）
-    if content == _T_PREFIX:
+    # 传感器前缀标记（T/S）
+    if content in _SENSOR_PREFIXES:
         return True
-    # 温度后缀
+    # T/S 后缀（单字母/两字母/物理量标识）
+    if content in _T_SUFFIXES or content in _S_SUFFIXES:
+        return True
+    # 温度后缀（中英文）
     if content in {"t", "温度"}:
         return True
     # 已是完整标识（来自动态映射）
     if content in _SENSOR_ID_MAP:
         return True
-    # 干净的模式匹配：2-4字符含字母的标识（非纯数字，非噪声坐标）
+    # 干净的模式匹配：2-4字符含字母的标识
     if re.match(r'^[A-Za-z]{2,4}\d*$', content):
         _UNKNOWN_SENSOR_IDS.add(content)
         return True
@@ -1765,34 +1779,50 @@ def _is_sensor_fragment(content: str) -> bool:
 
 
 def _can_combine(contents: list, new_content: str) -> bool:
-    """判断 new_content 是否可以与当前片段列表组合成完整标识。
-    使用动态 _SENSOR_ID_MAP + 化学组合规则验证组合有效性。
+    """判断 new_content 是否可以与当前片段列表组合成完整传感器标识。
+
+    支持的 CAD 打散模式：
+    - 化学式：CH+4→CH4, CO+2→CO2, O+2→O2
+    - T 前缀+单字母：T+w→Tw(烟雾), T+f→Tf(风筒), T+v→Tv(风速), T+D→TD(粉尘), T+t→Tt(温度)
+    - T 前缀+两字母：T+KD→TKD(馈电), T+CO→TCO(一氧化碳)
+    - T+化学前缀+数字：T+CH+4→TCH4, T+CO+2→TCO2, T+O+2→TO2
+    - S 前缀+两字母：S+OS→SOS(开停), S+OC→SOC(风门)
     """
     all_c = contents + [new_content]
     n = len(all_c)
 
-    # 化学模式：化学前缀 + 数字
+    # 规则1: 化学前缀 + 数字 → CH4/CO2/O2 等
     if n == 2:
         c1, c2 = all_c[0], all_c[1]
         if c1 in _CHEM_PREFIXES and c2 in _CHEM_SUFFIXES:
             combined = c1 + c2
             return combined in _SENSOR_ID_MAP or combined in _UNKNOWN_SENSOR_IDS
 
-    # T 前缀 + 化学前缀/温度（中间态，可继续聚合数字）
+    # 规则2: T/S 前缀 + 后缀
     if n == 2:
         c1, c2 = all_c[0], all_c[1]
-        if c1 == _T_PREFIX and (c2 in _CHEM_PREFIXES or c2 in {"t", "温度"}):
-            return True
-            # T + 温度后缀 → 直接检查完整标识
-            if c2 in {"t", "温度"}:
-                combined = "T" + c2
-                return combined in _SENSOR_ID_TO_TYPE
+        if c1 in _SENSOR_PREFIXES:
+            # T+单字母后缀 (w/f/v/D/t) → 直接验证完整标识
+            if c2 in _T_SUFFIXES:
+                combined = c1 + c2
+                return combined in _SENSOR_ID_MAP
+        if c1 == "S":
+            # S+两字母后缀 (OS/OC) → 直接验证
+            if c2 in _S_SUFFIXES:
+                combined = c1 + c2
+                return combined in _SENSOR_ID_MAP
 
-    # 规则3: T + 化学前缀 + 数字
+    # 规则3: T 前缀 + 化学前缀（中间态，后续可加数字形成 TCH4/TCO2 等）
+    if n == 2:
+        c1, c2 = all_c[0], all_c[1]
+        if c1 in _SENSOR_PREFIXES and c2 in _CHEM_PREFIXES:
+            return True
+
+    # 规则4: T + 化学前缀 + 数字 → TCH4/TCO2/TO2
     if n == 3:
         c1, c2, c3 = all_c[0], all_c[1], all_c[2]
-        if c1 == _T_PREFIX and c2 in _CHEM_PREFIXES and c3 in _CHEM_SUFFIXES:
-            combined = "T" + c2 + c3
+        if c1 in _SENSOR_PREFIXES and c2 in _CHEM_PREFIXES and c3 in _CHEM_SUFFIXES:
+            combined = c1 + c2 + c3
             return combined in _SENSOR_ID_MAP
 
     return False
@@ -1824,12 +1854,19 @@ def _group_sensor_fragments(cad_items: list, max_spacing: float = 10.0) -> list:
         content = _normalize_subscript(start_item.get('content', '').strip())
         if not _is_sensor_fragment(content):
             return None
-        if content not in {"CH", "CO", "O", "H", "NO", "SO", "T"}:
+        # 只有前缀类型才能作为聚合起始点（T/S/CH/CO/O/H/NO/SO）
+        can_start = content in _SENSOR_PREFIXES or content in _CHEM_PREFIXES
+        if not can_start:
             return None
+
+        # 坐标访问辅助：兼容 item.x/item.y 和 item.coordinates.x/coordinates.y 两种格式
+        def _xy(it):
+            c = it.get('coordinates', {})
+            return (c.get('x') or it.get('x', 0), c.get('y') or it.get('y', 0))
 
         group = [start_item]
         local_used = {start_idx}
-        cx, cy = start_item.get('x', 0), start_item.get('y', 0)
+        cx, cy = _xy(start_item)
 
         while True:
             best_j = None
@@ -1842,7 +1879,7 @@ def _group_sensor_fragments(cad_items: list, max_spacing: float = 10.0) -> list:
                 other_content = _normalize_subscript(other.get('content', '').strip())
                 if not _is_sensor_fragment(other_content):
                     continue
-                ox, oy = other.get('x', 0), other.get('y', 0)
+                ox, oy = _xy(other)
                 dist = math.sqrt((cx - ox) ** 2 + (cy - oy) ** 2)
                 if dist < best_dist and _can_combine(current_contents, other_content):
                     best_j = j
@@ -1853,8 +1890,8 @@ def _group_sensor_fragments(cad_items: list, max_spacing: float = 10.0) -> list:
 
             group.append(items[best_j])
             local_used.add(best_j)
-            cx = sum(it.get('x', 0) for it in group) / len(group)
-            cy = sum(it.get('y', 0) for it in group) / len(group)
+            cx = sum(_xy(it)[0] for it in group) / len(group)
+            cy = sum(_xy(it)[1] for it in group) / len(group)
 
         # 组合组内片段
         combined_id = "".join(_normalize_subscript(it.get('content', '').strip()) for it in group)
@@ -1862,8 +1899,8 @@ def _group_sensor_fragments(cad_items: list, max_spacing: float = 10.0) -> list:
         if sensor_type:
             for idx in local_used:
                 used.add(idx)
-            avg_x = sum(it.get('x', 0) for it in group) / len(group)
-            avg_y = sum(it.get('y', 0) for it in group) / len(group)
+            avg_x = sum(_xy(it)[0] for it in group) / len(group)
+            avg_y = sum(_xy(it)[1] for it in group) / len(group)
             return {
                 "combined_id": combined_id,
                 "sensor_type": sensor_type,
@@ -1873,20 +1910,20 @@ def _group_sensor_fragments(cad_items: list, max_spacing: float = 10.0) -> list:
             }
         return None
 
-    # 第一轮：优先处理 T 标注（尝试 T + CH + 4 等三三组合）
+    # 第一轮：T/S 前缀标注（T + 后缀, S + 后缀, T + CH + 4 等）
     for i, item in enumerate(items):
         content = _normalize_subscript(item.get('content', '').strip())
-        if content == "T":
+        if content in _SENSOR_PREFIXES:
             result = _try_combine(i, item)
             if result:
                 groups.append(result)
 
-    # 第二轮：处理剩余化学前缀标注（CH + 4, CO + 2 等）
+    # 第二轮：化学前缀标注（CH + 4, CO + 2, O + 2 等）
     for i, item in enumerate(items):
         if i in used:
             continue
         content = _normalize_subscript(item.get('content', '').strip())
-        if content in {"CH", "CO", "O", "H", "NO", "SO"}:
+        if content in _CHEM_PREFIXES:
             result = _try_combine(i, item)
             if result:
                 groups.append(result)
