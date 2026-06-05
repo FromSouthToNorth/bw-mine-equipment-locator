@@ -297,7 +297,7 @@ def _infer_sensor_type(description: str, mark_type: str = None) -> str:
         return "负压"
     if "风速" in d:
         return "风速"
-    if "烟雾" in d:
+    if "烟雾" in d or "YW" in d:
         return "烟雾"
     if "粉尘" in d:
         return "粉尘"
@@ -1240,6 +1240,10 @@ def _score_candidates(cleaned: str, candidates: list, sensor_type: str = None,
     device_coalbed = coalbed_map.get(device_code, "") if coalbed_map and device_code else ""
     cleaned_variants = _expand_aliases(cleaned)
 
+    # 清理上设备残留在 candidate 上的 _sensor_landmark（避免跨设备共享污染）
+    for c in candidates:
+        c.pop("_sensor_landmark", None)
+
     # 特定编码硬过滤：device_code 足够具体（3+位数字/含字母/负数水平），
     # 但任何候选名/tunnelId 都不包含该编码 → 全部标 REJECT，由上层归为 CODE_MISMATCH。
     # 注意：若编码仅出现在被语义冲突阻断的候选中，仍视为缺失（宁缺毋滥）。
@@ -1595,38 +1599,55 @@ def _strip_t_id(name: str) -> str:
 # 将 CAD 图纸上打散的传感器标识（如 CH+4→CH4, T+CH+4→TCH4）聚合成完整标识，
 # 作为传感器路标辅助设备匹配和精确定位。
 
-_SENSOR_LANDMARKS = {}  # {tunnel_name: {sensor_id: {"ratio": float, "sensor_type": str, "x": x, "y": y}}}
-
-# 组合后的传感器标识 → sensor_type 映射
-_SENSOR_ID_TO_TYPE = {
-    # 化学拆分模式
-    "CH4": "瓦斯",
-    "CO": "一氧化碳",
-    "CO2": "二氧化碳",
-    "O2": "氧气",
-    "H2": "氢气",
-    "NO2": "二氧化氮",
-    "SO2": "二氧化硫",
-    "NO": "一氧化氮",
-    "SO": "二氧化硫前缀",
-    # T 前缀模式（T = 传感器编号前缀）
-    "TCH4": "瓦斯",
-    "TCO": "一氧化碳",
-    "TCO2": "二氧化碳",
-    "TO2": "氧气",
-    "TH2": "氢气",
-    "Tt": "温度",
-    "Tw": "瓦斯",
-    "Tv": "风速",
-    "TD": "断电",
-    "Tf": "粉尘",
-}
-
 # Unicode 下标数字 → 普通数字
 _SUBSCRIPT_DIGITS = {
     '₀': '0', '₁': '1', '₂': '2', '₃': '3', '₄': '4',
     '₅': '5', '₆': '6', '₇': '7', '₈': '8', '₉': '9',
 }
+
+# ── 传感器标识发现系统 ────────────────────────────────────────────────
+# 从输入数据（设备描述 + CAD 标注）动态学习传感器标识→类型映射，
+# 避免硬编码列表遗漏新标识（如 YW、YWD 等）。
+#
+# _SENSOR_ID_MAP: 运行时动态构建的 {标识: sensor_type} 映射
+# _BASE_SENSOR_ID_MAP: 硬编码 fallback（化学式、已知缩写）
+# _UNKNOWN_SENSOR_IDS: 尚未能推断 sensor_type 的标识集合（等待设备数据补充）
+
+_SENSOR_ID_MAP = {}          # 动态 {sensor_id: sensor_type}（自学习 + fallback）
+_UNKNOWN_SENSOR_IDS = set()  # 已发现但未推断出类型的标识（暂时不参与定位）
+
+# 硬编码基础映射（fallback — 化学式和已知标准缩写）
+# 运行时 _build_sensor_id_map() 会从这里拷贝然后叠加自学习结果
+_BASE_SENSOR_ID_MAP = {
+    # 化学拆分模式
+    "CH4": "瓦斯",    "CO": "一氧化碳",    "CO2": "二氧化碳",
+    "O2": "氧气",     "H2": "氢气",         "NO2": "二氧化氮",
+    "SO2": "二氧化硫", "NO": "一氧化氮",    "SO": "二氧化硫前缀",
+    # T 前缀模式
+    "TCH4": "瓦斯",   "TCO": "一氧化碳",   "TCO2": "二氧化碳",
+    "TO2": "氧气",    "TH2": "氢气",        "Tt": "温度",
+    "Tw": "瓦斯",     "Tv": "风速",         "TD": "断电",
+    "Tf": "粉尘",
+    # 拼音/英文缩写（预置常见缩写）
+    "YW": "烟雾",     "YWD": "烟雾",
+    # 中文传感器标识
+    "烟雾": "烟雾",   "风筒": "风筒",       "风速": "风速",
+    "温度": "温度",   "粉尘": "粉尘",       "瓦斯": "瓦斯",
+    "一氧化碳": "一氧化碳", "二氧化碳": "二氧化碳",
+    "氧气": "氧气",   "氢气": "氢气",
+}
+
+# ── 传感器标识片段聚合常量 ───────────────────────────────────────────
+# 化学前缀：能自己独立或与数字组合成传感器标识
+_CHEM_PREFIXES = {"CH", "CO", "O", "H", "NO", "SO"}
+# 化学后缀（数字）：与化学前缀组合用
+_CHEM_SUFFIXES = {"2", "4"}
+# T 前缀标记（传感器编号，不含 sensor_type 语义）
+_T_PREFIX = "T"
+
+# ── 旧别名（向后兼容）─────────────────────────────────────────────
+_SENSOR_ID_TO_TYPE = _SENSOR_ID_MAP  # 引用动态映射（外部引用自动更新）
+_SENSOR_LANDMARKS = {}  # {tunnel_name: {sensor_id: {"ratio": float, "sensor_type": str, "x": x, "y": y}}}
 
 
 def _normalize_subscript(text: str) -> str:
@@ -1639,46 +1660,129 @@ def _normalize_subscript(text: str) -> str:
     return ''.join(result)
 
 
+def _build_sensor_id_map(devices: list, cad_data: list = None):
+    """从设备描述和 CAD 标注自动学习传感器标识→类型映射。
+
+    启动时调用，以 _BASE_SENSOR_ID_MAP 为基础，从数据中自动发现
+    新的传感器标识缩写（如 YW→烟雾），避免人工补充硬编码列表。
+
+    来源：
+    1. devices: 从 sensor_type 明确标注的设备描述中提取缩写词
+    2. cad_data: 从 CAD 标注内容中识别孤立标识（尝试与 sensor_type 关联）
+    3. _BASE_SENSOR_ID_MAP: 作为硬编码 fallback
+
+    Args:
+        devices: 设备列表 [{id, description, sensor_type, ...}]
+        cad_data: CAD 标注列表 [{content, ...}]
+    """
+    global _SENSOR_ID_MAP, _UNKNOWN_SENSOR_IDS
+    _SENSOR_ID_MAP.update(_BASE_SENSOR_ID_MAP)
+    _UNKNOWN_SENSOR_IDS.clear()
+
+    if not devices:
+        return
+
+    # ── 来源1：从设备描述提取缩写词 ──
+    # sensor_type 明确标注的设备 → 从描述/area 提取可能的缩写词
+    # 模式：2-4字符的大写字母组合（如 YW、YWD、CH4、CO2）
+    import re
+    abbrev_pat = re.compile(r'([A-Z]{2,4})')  # 2-4 连续大写字母
+    chem_pat = re.compile(r'([A-Z][a-z]?\d*)')  # 化学式：字母+可选数字
+
+    st_to_ids = {}  # {sensor_type: [id1, id2, ...]}
+    for dev in devices:
+        st = dev.get("sensor_type", "") or ""
+        if not st:
+            continue
+        # 从 description 和 area 提取候选缩写
+        for field in [dev.get("description", ""), dev.get("area", "")]:
+            text = str(field or "")
+            # 大写缩写 (YW, YWD, CJ...)
+            for m in abbrev_pat.finditer(text):
+                aid = m.group(1)
+                if aid not in _SENSOR_ID_MAP or _SENSOR_ID_MAP[aid] == aid:
+                    st_to_ids.setdefault(st, set()).add(aid)
+            # 化学式 (CH4, CO2, O2...)
+            for m in chem_pat.finditer(text):
+                aid = m.group(1)
+                if len(aid) >= 2 and aid not in _SENSOR_ID_MAP:
+                    # 排除纯数字和噪声词
+                    if not aid.isdigit() and aid not in {"瓦斯", "甲烷", "分站", "位置"}:
+                        st_to_ids.setdefault(st, set()).add(aid)
+
+    # 将提取的缩写→类型关系加入动态映射
+    for st, aids in st_to_ids.items():
+        for aid in aids:
+            existing = _SENSOR_ID_MAP.get(aid)
+            if existing and existing != aid:
+                continue  # 已有明确的类型映射，跳过
+            _SENSOR_ID_MAP[aid] = st
+
+    # ── 来源2：从 CAD 标注识别未映射的传感器标识 ──
+    if cad_data:
+        for item in cad_data:
+            content = str(item.get("content", "")).strip()
+            if not content:
+                continue
+            norm = _normalize_subscript(content)
+            # 1-4字符的字母/字母数字组合（过滤纯数字、噪声坐标）
+            if re.match(r'^[A-Za-z][A-Za-z0-9]{0,3}$', norm):
+                if norm not in _SENSOR_ID_MAP and not norm.isdigit():
+                    _UNKNOWN_SENSOR_IDS.add(norm)
+
+    # 暂时忽略 _UNKNOWN_SENSOR_IDS（后续可以从 sensor_type 反查补充）
+
+
 def _is_sensor_fragment(content: str) -> bool:
-    """判断内容是否为可能的传感器标识片段。"""
+    """判断内容是否为可能的传感器标识片段。
+
+    通过两阶段检查：
+    1. 化学模式：化学前缀 + 数字后缀（CH/CO/O/H/NO/SO + 2/4）
+    2. 映射数据库：已经识别出的传感器标识（来自 _SENSOR_ID_MAP 或 _UNKNOWN_SENSOR_IDS）
+    3. T 前缀标记
+    4. 温度/其他后缀
+    """
     if not content:
         return False
     content = _normalize_subscript(content.strip())
-    # 化学前缀/后缀
-    if content in {"CH", "CO", "O", "H", "NO", "SO", "2", "4"}:
+    # 化学前缀/后缀（聚合基础组件）
+    if content in _CHEM_PREFIXES or content in _CHEM_SUFFIXES:
         return True
-    # T 前缀
-    if content == "T":
+    # T 前缀标记（传感器编号前缀）
+    if content == _T_PREFIX:
         return True
     # 温度后缀
     if content in {"t", "温度"}:
         return True
-    # 已经是完整标识
-    if content in _SENSOR_ID_TO_TYPE:
+    # 已是完整标识（来自动态映射）
+    if content in _SENSOR_ID_MAP:
+        return True
+    # 干净的模式匹配：2-4字符含字母的标识（非纯数字，非噪声坐标）
+    if re.match(r'^[A-Za-z]{2,4}\d*$', content):
+        _UNKNOWN_SENSOR_IDS.add(content)
         return True
     return False
 
 
 def _can_combine(contents: list, new_content: str) -> bool:
-    """判断 new_content 是否可以与当前片段列表组合成完整标识。"""
+    """判断 new_content 是否可以与当前片段列表组合成完整标识。
+    使用动态 _SENSOR_ID_MAP + 化学组合规则验证组合有效性。
+    """
     all_c = contents + [new_content]
     n = len(all_c)
 
-    # 规则1: 化学前缀 + 数字
+    # 化学模式：化学前缀 + 数字
     if n == 2:
         c1, c2 = all_c[0], all_c[1]
-        if c1 in {"CH", "CO", "O", "H", "NO", "SO"} and c2 in {"2", "4"}:
-            # 验证组合结果是否有效
+        if c1 in _CHEM_PREFIXES and c2 in _CHEM_SUFFIXES:
             combined = c1 + c2
-            return combined in _SENSOR_ID_TO_TYPE
+            return combined in _SENSOR_ID_MAP or combined in _UNKNOWN_SENSOR_IDS
 
-    # 规则2: T 前缀 + 化学前缀/温度
+    # T 前缀 + 化学前缀/温度（中间态，可继续聚合数字）
     if n == 2:
         c1, c2 = all_c[0], all_c[1]
-        if c1 == "T":
-            # T + 化学前缀 → 中间态（后续可加数字形成 TCH4/TCO2 等）
-            if c2 in {"CH", "CO", "O", "H", "NO", "SO"}:
-                return True
+        if c1 == _T_PREFIX and (c2 in _CHEM_PREFIXES or c2 in {"t", "温度"}):
+            return True
             # T + 温度后缀 → 直接检查完整标识
             if c2 in {"t", "温度"}:
                 combined = "T" + c2
@@ -1687,9 +1791,9 @@ def _can_combine(contents: list, new_content: str) -> bool:
     # 规则3: T + 化学前缀 + 数字
     if n == 3:
         c1, c2, c3 = all_c[0], all_c[1], all_c[2]
-        if c1 == "T" and c2 in {"CH", "CO", "O", "H", "NO", "SO"} and c3 in {"2", "4"}:
+        if c1 == _T_PREFIX and c2 in _CHEM_PREFIXES and c3 in _CHEM_SUFFIXES:
             combined = "T" + c2 + c3
-            return combined in _SENSOR_ID_TO_TYPE
+            return combined in _SENSOR_ID_MAP
 
     return False
 
@@ -1907,9 +2011,9 @@ def _build_landmarks(cad_data: list, tunnels: list, max_dist: float = 100.0) -> 
         if clean.startswith('(兼') and clean.endswith(')'):
             clean = clean[1:-1]
 
-        # 只保留有巷道关键词的 或 传感器位置标注（CH4(T1)、风筒、CO 等）
-        _SENSOR_POS_MARKS = ('CH4', 'CO', '风筒', '烟雾', '温度', '粉尘')
-        is_sensor_pos = any(m in clean for m in _SENSOR_POS_MARKS)
+        # 只保留有巷道关键词的 或 传感器位置标注
+        # 使用动态 _SENSOR_ID_MAP 自动识别所有已知传感器标识
+        is_sensor_pos = any(sid in clean for sid in _SENSOR_ID_MAP)
         if not any(kw in clean for kw in _TUNNEL_KWS) and not is_sensor_pos:
             continue
 
@@ -2038,7 +2142,7 @@ def _build_landmarks(cad_data: list, tunnels: list, max_dist: float = 100.0) -> 
 
 
 def _find_landmark_ratio(description: str, tunnel_name: str,
-                         t_keyword: str = None) -> tuple:
+                         t_keyword: str = None, sensor_type: str = None) -> tuple:
     """
     检查设备描述是否包含当前巷道上的路标。
     如果包含，返回路标在折线上的投影比例（0-1）；否则返回 None。
@@ -2047,6 +2151,8 @@ def _find_landmark_ratio(description: str, tunnel_name: str,
     Args:
         t_keyword: 设备描述中的 T 标识（如 "T1"）。若提供，则只匹配
                    同样包含该 T 标识的路标（避免 "CH4" 路标覆盖 "CH4(T1)" 设备）。
+        sensor_type: 设备传感器类型。用于 type_match 回退：当路标名是传感器缩写
+                     （如 YW→烟雾）但未在描述中出现时，按类型匹配。
     """
     if not _LANDMARKS or tunnel_name not in _LANDMARKS:
         return None, None
@@ -2111,6 +2217,17 @@ def _find_landmark_ratio(description: str, tunnel_name: str,
                     fb_len = lm_len
         best_match = fb_match
         best_name = fb_name
+    # sensor_type 回退：路标名是传感器缩写（如 YW→烟雾、CH4→瓦斯）
+    # 设备描述可能不含缩写但 sensor_type 与路标一致
+    if best_match is None and sensor_type:
+        for landmark_name, ratio in tunnel_landmarks.items():
+            lm_st = _SENSOR_ID_TO_TYPE.get(landmark_name)
+            if lm_st == sensor_type:
+                lm_len = len(landmark_name)
+                if _is_better(lm_len, ratio, best_len, best_match):
+                    best_match = ratio
+                    best_name = landmark_name
+                    best_len = lm_len
     return best_match, best_name
 
 
@@ -2833,7 +2950,7 @@ def _match_devices(devices: list, candidates: list,
                         landmark_ratios.append(sl_ratio)
                     else:
                         # 再检查普通路标
-                        ratio, lm_name = _find_landmark_ratio(cleaned, name, t_keyword=t_kw)
+                        ratio, lm_name = _find_landmark_ratio(cleaned, name, t_keyword=t_kw, sensor_type=st)
                         if ratio is not None:
                             ed = total_len * ratio
                             landmark_ratios.append(ratio)
@@ -4293,6 +4410,7 @@ def main():
                 if "cadData" in data:
                     cad_data = data["cadData"]
                     cad_data_count = len(cad_data)
+                    _build_sensor_id_map(devices, cad_data)
                     _LANDMARKS.clear()
                     _LANDMARKS.update(_build_landmarks(cad_data, data.get("tunnels", [])))
                     total_lm = sum(len(v) for v in _LANDMARKS.values())
@@ -4381,6 +4499,7 @@ def main():
                 if isinstance(raw_data, dict) and "cadData" in raw_data:
                     cad_data = raw_data["cadData"]
                     cad_data_count = len(cad_data)
+                    _build_sensor_id_map(devices, cad_data)
                     _LANDMARKS.clear()
                     _LANDMARKS.update(_build_landmarks(cad_data, raw_data.get("tunnels", [])))
                     total_lm = sum(len(v) for v in _LANDMARKS.values())
