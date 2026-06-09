@@ -58,7 +58,7 @@ python skill/bw-mine-equipment-locator/scripts/locator.py TESTUSER \
 
 | 调用 | 触发方式 | 用途 |
 |------|---------|------|
-| `bw_token_manager.py <username>` | `subprocess.run` | Step 1: 获取 Token + mineName |
+| `bw_token_manager.py --username <username> --output json` | `subprocess.run` | Step 1: 获取 Token + mineName |
 | `strategy_api.py get_json --id 8373` | `subprocess.run` | Step 2: 拉取设备/巷道/工作面数据 |
 | `strategy_api.py execute --id 8385` | `subprocess.run` | Step 4: 回写定位结果 |
 
@@ -66,9 +66,15 @@ python skill/bw-mine-equipment-locator/scripts/locator.py TESTUSER \
 
 **仅 `skill/bw-mine-equipment-locator/` 下文件可修改**（核心：`locator.py`）。  
 **`bw-token-manager` 和 `bw-strategy-api-caller` 禁止修改**。Bug 绕过方式：
-- Token 失败 → 直接调 API 或手写 Python 脚本
+- Token 失败 → 直接调 API `http://192.168.133.110:33382/bwRuleNode/getUserToken?username=...`
 - API 异常 → 用 `curl`/`requests` 直接调，或另写独立脚本
 - 参数变更 → 在 `locator.py` subprocess 参数中适配
+
+### ⚠️ 已知外部 Skill 问题
+
+**bw-token-manager** 有重复函数定义 bug（`get_cache_path`、`fetch_tokens_by_username` 等在 `main()` 前后各定义了一次），`python bw_token_manager.py --username X` 报 `get_cache_path is not defined`。**不要修复**— 在 locator.py 中用 `_fetch_token_direct()` 绕过 API 直取。
+
+**strategy_api.py** 从 `bw_tokens.json` 读缓存时 key 是裸 username（如 `F09795450`），不是 `user:F09795450`。回写时需手动写入此 key 或确保 locator 的 `_fetch_token_direct()` 已缓存。
 
 ### 数据流
 
@@ -118,7 +124,7 @@ python skill/bw-mine-equipment-locator/scripts/locator.py TESTUSER \
     └── bw-mine-equipment-locator/
         ├── SKILL.md            # 完整匹配逻辑参考
         ├── INVOCATION_GUIDE.md  # 调用提示词大全
-        └── scripts/locator.py  # ~4500 行，核心逻辑
+        └── scripts/locator.py  # ~5000 行，核心逻辑
 ```
 
 ---
@@ -234,7 +240,10 @@ python skill/bw-mine-equipment-locator/scripts/locator.py <username> \
 
 ```
 score = round(LCS长度(别名扩展后) × 10 / 候选名长度)
-      + 8  (CAD 路标匹配)
+      + 8  (普通 CAD 路标匹配)
+      + 10 (传感器路标 exact 匹配: 标识+sensor_type 一致)
+      + 5  (传感器路标 partial 匹配: 仅标识一致)
+      + 3  (传感器路标 type_match: sensor_type 一致但无标识)
       + 2  (sensor_type 巷道偏好, LCS≥2)
       + 5  (编码精确命中, 通用前缀仅+1)
       + 3  (编码前缀模糊匹配)
@@ -260,10 +269,66 @@ score = round(LCS长度(别名扩展后) × 10 / 候选名长度)
 ### 坐标计算优先级
 
 ```
-显式距离(米) > CAD 路标定位 > T标识规则 > 
+显式距离(米) > 传感器路标定位 > CAD 路标定位 > T标识规则 > 
 巷道类型×sensor_type 规则 > AQ1029 距离规则 > 
 关键词区间 > sensor_type 默认百分比
 ```
+
+传感器路标（`_find_sensor_landmark_ratio`, `~L1959`）精确到 CAD 图纸上的传感器标注位置（如 CH4、TV、J/K），优先于普通路标。
+
+---
+
+## CAD 传感器标识片段聚合系统
+
+CAD 图纸上位号标注经常被拆散为独立字符（如 `T` + `CH` + `4` → `TCH4`(瓦斯)）。以下模块自动发现和聚合这些碎片：
+
+### 关键常量 (`~L1625-1667`)
+
+| 变量 | 用途 |
+|------|------|
+| `_BASE_SENSOR_ID_MAP` | 硬编码 {标识: sensor_type} fallback（`CH4`→瓦斯, `V`→风速, `T`→温度, `J/K`→断电/馈电 等） |
+| `_SENSOR_ID_MAP` | 运行时动态映射 = `_BASE_SENSOR_ID_MAP` + 自学习结果 |
+| `_CHEM_PREFIXES` | 化学前缀 `{CH, CO, O, H, NO, SO, OS, OC, KD}` |
+| `_SENSOR_PREFIXES` | 传感器前缀 `{T, S}` |
+| `_SENSOR_LANDMARKS` | 聚合后的路标 `{tunnel_name: {sensor_id: {ratio, sensor_type, x, y}}}` |
+
+### 关键函数
+
+| 函数 | L# | 作用 |
+|------|-----|------|
+| `_build_sensor_id_map()` | 1680 | 从设备+CadData 学习标识→类型映射 |
+| `_is_sensor_fragment()` | 1753 | 判断 CAD 标注是否为传感器片段 |
+| `_can_combine()` | 1789 | 判断两片段能否组合 (CH+4→CH4, T+w→Tw 等) |
+| `_group_sensor_fragments()` | 1839 | 贪心聚合碎片 → 完整标识 |
+| `_find_sensor_landmark_ratio()` | 1959 | 设备描述匹配隧道上的传感器路标 |
+| `_build_landmarks()` | ~L2010 | 构建全部路标（普通+传感器） |
+
+### 聚合流程
+
+```
+CAD标注 → _is_sensor_fragment() 过滤 → sensor_items[]
+  → _group_sensor_fragments() 三段聚合:
+     第1段: T/S 前缀 (T+CH+4→TCH4, T+V→TV, T+w→Tw)
+     第2段: 化学前缀 (CH+4→CH4, CO+2→CO2)
+     第3段: 独立标识符 (J/K, YW, V, T 等已在 _SENSOR_ID_MAP 中的)
+  → 投影到最近隧道 → _SENSOR_LANDMARKS[tunnel][id]
+```
+
+### 添加新传感器标识
+
+1. 在 `_BASE_SENSOR_ID_MAP` 添加映射
+2. 如果是纯前缀片段 → 加入 `_CHEM_PREFIXES` / `_SENSOR_PREFIXES`
+3. 如果是 T/S 后缀 → 加入 `_T_SUFFIXES` / `_S_SUFFIXES`
+4. 如果是独立完整标识（如 `J/K`）→ 只需加入 `_BASE_SENSOR_ID_MAP`，第三段自动处理
+5. 单字符标识需要**边界匹配**保护（`_find_sensor_landmark_ratio` 中的 `len(sensor_id) == 1` 分支），并排除 regular landmark 阶段的消费（`is_sensor_pos` 过滤 `len(sid) >= 2`）
+
+### 复合类型
+
+路标可用于多种 sensor_type 时，用 `/` 分隔：`"J/K": "断电/馈电"`。`_find_sensor_landmark_ratio` 的 type_match 分支会按 `/` 拆分匹配。
+
+### `_sensor_landmark` 共享污染对策
+
+`_score_candidates()` 将 `_sensor_landmark` 写到共享的 `candidate` dict 上。为防止后续设备覆盖，`find_best_match()` 在返回前复制到 match dict 级别。结果构建时**只读 match dict**，不 fallback 到 candidate。
 
 **详细规则表**（评分常量、冲突规则、坐标区间、安装高度）见：
 - `locator.py` 中对应的字典/函数（行号见下方注册表）
@@ -299,7 +364,7 @@ score = round(LCS长度(别名扩展后) × 10 / 候选名长度)
 
 ### 规则审计注册表
 
-`locator.py` 中 `_RULES_REGISTRY`（`locator.py:4359`）集中登记所有行业标准条款来源。修改 `_assign_distances`、`_SENSOR_TUNNEL_PREF` 等数据表时**必须同步更新注册表**。
+`locator.py` 中 `_RULES_REGISTRY`（`locator.py:4862`）集中登记所有行业标准条款来源。修改 `_assign_distances`、`_SENSOR_TUNNEL_PREF` 等数据表时**必须同步更新注册表**。
 
 ---
 

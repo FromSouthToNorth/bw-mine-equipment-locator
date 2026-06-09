@@ -551,8 +551,8 @@ _LOCATION_SEMANTICS = {
     "洗煤厂": {"allow": ["洗煤厂"], "penalty": -10},
     "选煤楼": {"allow": ["选煤楼"], "penalty": -10},
     "中央变电所": {"allow": ["变电", "配电"], "penalty": -10},
-    "避难硐室": {"allow": ["硐室"], "penalty": -10},
-    "硐室": {"allow": ["硐室"], "penalty": -10},
+    "避难硐室": {"allow": ["硐室", "避难"], "penalty": -10},
+    "硐室": {"allow": ["硐室", "大巷", "斜巷", "顺槽"], "penalty": -10},
     "井口": {"allow": ["井口", "井筒", "副井", "主井", "斜井"], "penalty": -10},
     "地面": {"allow": ["地面", "洗煤厂", "空压机房"], "penalty": -10},
     "通风机": {"allow": ["通风", "风机", "通风机"], "penalty": -10},
@@ -561,19 +561,19 @@ _LOCATION_SEMANTICS = {
     "排矸": {"allow": ["排矸"], "penalty": -10},
     "联巷": {"allow": ["联巷", "联络巷"], "penalty": -10},
     "联络巷": {"allow": ["联巷", "联络巷"], "penalty": -10},
-    "泵站": {"allow": ["泵站", "泵房"], "penalty": -10},
-    "泵房": {"allow": ["泵站", "泵房"], "penalty": -10},
-    "瓦斯泵站": {"allow": ["瓦斯泵站", "瓦斯泵房", "瓦斯抽放泵站", "移动式瓦斯泵站", "瓦斯抽放"], "penalty": -10},
-    "瓦斯泵房": {"allow": ["瓦斯泵站", "瓦斯泵房", "瓦斯抽放泵站", "移动式瓦斯泵站", "瓦斯抽放"], "penalty": -10},
+    "泵站": {"allow": ["泵站", "泵房", "大巷", "斜巷", "顺槽", "硐室"], "penalty": -10},
+    "泵房": {"allow": ["泵站", "泵房", "大巷", "斜巷", "顺槽", "硐室"], "penalty": -10},
+    "瓦斯泵站": {"allow": ["瓦斯泵站", "瓦斯泵房", "瓦斯抽放泵站", "移动式瓦斯泵站", "瓦斯抽放", "大巷", "斜巷"], "penalty": -10},
+    "瓦斯泵房": {"allow": ["瓦斯泵站", "瓦斯泵房", "瓦斯抽放泵站", "移动式瓦斯泵站", "瓦斯抽放", "大巷", "斜巷"], "penalty": -10},
     "运输巷": {"allow": ["运输巷", "运输大巷"], "penalty": -10},
-    "充电硐室": {"allow": ["充电硐室", "充电站"], "penalty": -10},
-    "煤仓": {"allow": ["煤仓"], "penalty": -10},
+    "充电硐室": {"allow": ["充电硐室", "充电站", "大巷", "斜巷", "顺槽"], "penalty": -10},
+    "煤仓": {"allow": ["煤仓", "大巷", "皮带"], "penalty": -10},
     "探巷": {"allow": ["探巷"], "penalty": -10},
-    "集控仓": {"allow": ["仓", "硐室", "室"], "penalty": -10},
-    "皮带": {"allow": ["皮带", "运输", "输送机", "机头", "机尾", "转载", "胶运", "顺槽"], "penalty": -10},
-    "机头": {"allow": ["机头", "皮带", "运输", "输送机", "顺槽", "胶运"], "penalty": -10},
-    "压带轮": {"allow": ["皮带", "运输", "输送机", "顺槽", "机轨"], "penalty": -10},
-    "卸料器": {"allow": ["皮带", "运输", "输送机", "煤仓", "转载", "顺槽"], "penalty": -10},
+    "集控仓": {"allow": ["仓", "硐室", "室", "大巷", "皮带"], "penalty": -10},
+    "皮带": {"allow": ["皮带", "运输", "输送机", "机头", "机尾", "转载", "胶运", "顺槽", "大巷", "斜巷"], "penalty": -10},
+    "机头": {"allow": ["机头", "皮带", "运输", "输送机", "顺槽", "胶运", "大巷", "斜巷"], "penalty": -10},
+    "压带轮": {"allow": ["皮带", "运输", "输送机", "顺槽", "机轨", "大巷"], "penalty": -10},
+    "卸料器": {"allow": ["皮带", "运输", "输送机", "煤仓", "转载", "顺槽", "大巷"], "penalty": -10},
     "运输大巷": {"allow": ["运输", "大巷", "皮带", "轨道", "顺槽", "胶运"], "penalty": -10},
     "候车室": {"allow": ["候车室", "车场"], "penalty": -10},
     "机轨": {"allow": ["机轨", "机轨运输"], "penalty": -10},
@@ -856,7 +856,8 @@ def extract_workface_code(description: str) -> str:
     """提取工作面/地点编码，如 C8302、9209、F1302、-490、-725，支持中文数字（九采区→9）。
 
     优先级:字母+数字 > 水平标高 > 4 位纯数字 > 中文数字采区 > 3 位纯数字。
-    中文数字降为兜底:形如 `一采区5402095P80F1302皮顺` 应当返回 `F1302` 而非 `1`。"""
+    中文数字降为兜底:形如 `一采区5402095P80F1302皮顺` 应当返回 `F1302` 而非 `1`。
+    返回前自动去前导零：B15 人员定位描述中 `0315`→`315`, `01501`→`1501`。"""
     # 1. 字母+数字格式（如 C8302、F1302）— 最具体,最高优先级
     m = re.search(r'([A-Z]\d{3,4})', description)
     if m:
@@ -866,9 +867,10 @@ def extract_workface_code(description: str) -> str:
     if m:
         return m.group(1)
     # 3-6. 纯数字编号：排除分站编号、电压值、距离值等常见误提取上下文
-    # 先收集所有 3-5 位数字，按长度降序排列，排除重叠范围和问题上下文后返回
+    # 收集所有 3 位及以上数字，按长度降序排列，排除重叠范围和问题上下文后返回
+    # 不限上限：B15 描述中 0150114→150114 为 7 位前导零格式
     all_matches = []
-    for m in re.finditer(r'(?<![A-Z])\d{3,5}(?![A-Z])', description):
+    for m in re.finditer(r'(?<![A-Z])\d{3,}(?![A-Z])', description):
         all_matches.append((m.group(), m.start(), m.end()))
     # 按长度降序、位置升序排列
     all_matches.sort(key=lambda x: (-len(x[0]), x[1]))
@@ -895,7 +897,17 @@ def extract_workface_code(description: str) -> str:
         if '传感器' in description[max(0, start-5):start]:
             excluded_ranges.append((start, end))
             continue
-        return num
+        # 去前导零/B15 格式号后再返回：
+        #   0315→315, 01501→1501, 21501→1501 (B15 第二段分隔符 2)
+        stripped = num.lstrip('0')
+        if len(stripped) >= 2 and stripped[0] == '2':
+            alt = stripped.lstrip('2')
+            if len(alt) >= 2:
+                return alt
+        if len(stripped) >= 2:
+            return stripped
+        excluded_ranges.append((start, end))
+        continue
     # 7. 中文数字 + 采区/煤层/盘区/水平 (兜底)
     for cn_char, digit in _CN_NUMERALS.items():
         pattern = re.escape(cn_char) + r'(采区|煤层|盘区|水平)'
@@ -1069,6 +1081,8 @@ def _has_hard_semantic_conflict(description: str, candidate_name: str) -> bool:
     # 5. 通用巷道类型名冲突：描述和候选含同一通用类型名但限定语不同 → REJECT
     # 避免"保安煤矿皮带大巷"匹配到"沿9号煤皮带大巷"(LCS=4仅在通用"皮带大巷"上)，
     # 或"保安煤矿轨道斜巷"匹配到"9号煤轨道斜巷"等。类似联络巷同名异址规则。
+    # 容忍常见修饰词差异（如"辅助"）：1501南翼回风大巷 ↔ 1501南翼辅助回风大巷
+    _TUNNEL_PREFIX_MODIFIERS = {"辅助", "临时", "永久", "专用"}
     for _tt_pattern in [r'(.+?)大巷', r'(.+?)斜巷', r'(.+?)顺槽',
                         r'(.+?)(?:底抽巷|高抽巷)', r'(.+?)回风巷',
                         r'(.+?)进风巷', r'(.+?)运输巷']:
@@ -1077,11 +1091,19 @@ def _has_hard_semantic_conflict(description: str, candidate_name: str) -> bool:
         if desc_tt and cand_tt:
             desc_prefix_tt = desc_tt.group(1).strip()
             cand_prefix_tt = cand_tt.group(1).strip()
-            if (desc_prefix_tt and cand_prefix_tt
-                    and len(desc_prefix_tt) >= 2 and len(cand_prefix_tt) >= 2
-                    and desc_prefix_tt != cand_prefix_tt
-                    and cand_prefix_tt not in desc_prefix_tt
-                    and desc_prefix_tt not in cand_prefix_tt):
+            # 规范化：移除可容忍修饰词后再比较
+            norm_desc = desc_prefix_tt
+            norm_cand = cand_prefix_tt
+            for mod in _TUNNEL_PREFIX_MODIFIERS:
+                norm_desc = norm_desc.replace(mod, "")
+                norm_cand = norm_cand.replace(mod, "")
+            norm_desc = norm_desc.strip()
+            norm_cand = norm_cand.strip()
+            if (norm_desc and norm_cand
+                    and len(norm_desc) >= 2 and len(norm_cand) >= 2
+                    and norm_desc != norm_cand
+                    and norm_cand not in norm_desc
+                    and norm_desc not in norm_cand):
                 return True
 
     # 7. 反向编码约束：候选含 specific code（如 8301/6301/15103）但描述完全不含 → REJECT
@@ -1224,10 +1246,29 @@ def _is_generic_code(code: str, code_to_candidates: dict, candidates: list) -> b
     return len(unique_names) > 3
 
 
+def _is_pure_code_description(description: str) -> bool:
+    """判断描述是否为纯设备编码格式（如 YJMDTBMY10120414）。
+
+    特征：无中文字符，同时包含字母和数字，长度>8。
+    这类描述不含可解读的语义信息，从其中提取的编码（如 Y1012）是设备自身编号，
+    不是地点编码，不应触发 specific code 硬过滤（-20 惩罚 / REJECT）。
+    """
+    if not description or len(description) <= 8:
+        return False
+    # 有中文字符 → 有语义，不是纯编码
+    if re.search(r'[一-鿿]', description):
+        return False
+    # 必须同时包含字母和数字
+    if not re.search(r'[A-Za-z]', description) or not re.search(r'\d', description):
+        return False
+    return True
+
+
 def _score_candidates(cleaned: str, candidates: list, sensor_type: str = None,
                       device_code: str = None, code_to_candidates: dict = None,
                       prefix_to_candidates: dict = None,
-                      coalbed_map: dict = None, mark_type: str = None) -> list:
+                      coalbed_map: dict = None, mark_type: str = None,
+                      area: str = None) -> list:
     """
     对 candidates 逐一打分并分层，返回完整排序列表。
     每项为 {"candidate": cand, "name": str, "lcs": int, "score": int, "layer": int, "pref_count": int, "idx": int}。
@@ -1239,6 +1280,9 @@ def _score_candidates(cleaned: str, candidates: list, sensor_type: str = None,
         prefix_indices = set(prefix_to_candidates.get(device_code, []))
     device_coalbed = coalbed_map.get(device_code, "") if coalbed_map and device_code else ""
     cleaned_variants = _expand_aliases(cleaned)
+    area_variants = _expand_aliases(area) if area and area != cleaned else ()
+    has_area = bool(area_variants)
+    is_pure_code = _is_pure_code_description(cleaned)
 
     # 清理上设备残留在 candidate 上的 _sensor_landmark（避免跨设备共享污染）
     for c in candidates:
@@ -1247,8 +1291,10 @@ def _score_candidates(cleaned: str, candidates: list, sensor_type: str = None,
     # 特定编码硬过滤：device_code 足够具体（3+位数字/含字母/负数水平），
     # 但任何候选名/tunnelId 都不包含该编码 → 全部标 REJECT，由上层归为 CODE_MISMATCH。
     # 注意：若编码仅出现在被语义冲突阻断的候选中，仍视为缺失（宁缺毋滥）。
+    # 豁免：纯编码描述（如 YJMDTBMY10120414）提取的编码是设备自身编号，不是地点编码，
+    # 不应触发硬过滤。
     specific_code_missing = False
-    if device_code and _is_specific_code(device_code):
+    if device_code and _is_specific_code(device_code) and not is_pure_code:
         has_anywhere = False
         for c in candidates:
             name = c.get("name") or ""
@@ -1274,21 +1320,63 @@ def _score_candidates(cleaned: str, candidates: list, sensor_type: str = None,
             longest_common_substring_len(cv, name)
             for cv in cleaned_variants
         )
+        # area 辅助 LCS：area 包含位置信息时（如"中央辅运大巷"），用它补充匹配
+        if has_area:
+            area_lcs = max(
+                longest_common_substring_len(av, name)
+                for av in area_variants
+            )
+            lcs_len = max(lcs_len, area_lcs)
         score = round(lcs_len * 10 / len(name)) if name else 0
 
         # 路标匹配加分：描述包含该巷道的路标 → 强加分，帮助低 LCS 匹配
         # 支持组合路标部分匹配（如 "CH4（T2)" 中的 "CH4" 匹配 "总回风CH4"）
+        # 注意：纯传感器标识路标（CH4、CO、O2 等）不在此处加分，它们由下方
+        # 传感器路标匹配（_find_sensor_landmark_ratio）处理，避免 +8 误救错巷道。
         if _LANDMARKS and name in _LANDMARKS:
             norm_clean = _norm_lm(cleaned)
+            norm_area = _norm_lm(area) if area else ""
             for landmark_name in _LANDMARKS[name]:
+                # 跳过纯传感器标识路标（如 CH4、CO、O2、YW），交给传感器路标系统
+                # 需归一化后判断：CH4。→ CH4 也是传感器标识
                 norm_lm = _norm_lm(landmark_name)
+                if norm_lm in _SENSOR_ID_MAP:
+                    continue
+                # 跳过含 T 标识的路标：T 标识属于传感器位置标注，
+                # 应由 _find_sensor_landmark_ratio 处理，不应在普通路标匹配中加分
+                if _has_t_id(norm_lm):
+                    continue
+                # 跳过指向其他巷道的路标：路标名包含另一个候选的完整名称时
+                # （如回风斜井上的"中央回风大巷掘面"包含"中央回风大巷"）
+                skip_for_other_tunnel = False
+                for other_cand in candidates:
+                    other_name = other_cand.get("name", "")
+                    if other_name and other_name != name and len(other_name) >= 4:
+                        if other_name in norm_lm:
+                            skip_for_other_tunnel = True
+                            break
+                if skip_for_other_tunnel:
+                    continue
                 matched = norm_lm in norm_clean
+                if not matched and norm_area:
+                    matched = norm_lm in norm_area
                 if not matched and '、' in norm_lm:
                     matched = any(p in norm_clean for p in norm_lm.split('、') if len(p) >= 2)
+                    if not matched and norm_area:
+                        matched = any(p in norm_area for p in norm_lm.split('、') if len(p) >= 2)
                 # T 标识路标：无 T 设备允许部分匹配（如 CH4 匹配 CH4(T2)）
+                # T 标识剥离后如果剩下的是纯传感器标识，也跳过（由传感器路标系统处理）
+                # 额外检查：剥离后的 sensor_part 包含已知传感器标识子串时也应跳过
+                # （如 "面CH4(T1)" → "面CH4" 包含 "CH4"，本质还是传感器路标）
                 if not matched and _has_t_id(norm_lm):
                     sensor_part = _strip_t_id(norm_lm)
-                    if sensor_part and sensor_part in norm_clean:
+                    if sensor_part:
+                        if sensor_part in _SENSOR_ID_MAP:
+                            continue
+                        # sensor_part 包含已知传感器标识子串（如 "面CH4" 包含 "CH4"）
+                        if any(sid in sensor_part for sid in _SENSOR_ID_MAP if len(sid) >= 2):
+                            continue
+                    if sensor_part and (sensor_part in norm_clean or (norm_area and sensor_part in norm_area)):
                         matched = True
                 if matched:
                     score += 8  # 强加分，使路标匹配的设备得分超过语义惩罚
@@ -1366,7 +1454,8 @@ def _score_candidates(cleaned: str, candidates: list, sensor_type: str = None,
 
         # 特定编码强制约束：specific code 必须在候选名或 tunnelId 中出现
         # 避免 "1460排矸" 匹配到不含 1460 的 "排矸"（短名称依赖+LCS 膨胀）
-        if device_code and _is_specific_code(device_code):
+        # 豁免：纯编码描述提取的编码是设备自身编号，不应触发此惩罚
+        if device_code and _is_specific_code(device_code) and not is_pure_code:
             if not _code_in_name(device_code, name) and device_code not in (cand.get("tunnelId") or ""):
                 score -= 20
 
@@ -1427,7 +1516,8 @@ def _score_candidates(cleaned: str, candidates: list, sensor_type: str = None,
 def find_best_match(cleaned: str, candidates: list, sensor_type: str = None,
                      device_code: str = None, code_to_candidates: dict = None,
                      prefix_to_candidates: dict = None,
-                     coalbed_map: dict = None, mark_type: str = None):
+                     coalbed_map: dict = None, mark_type: str = None,
+                     area: str = None):
     """
     在 candidates 中找最佳匹配项（分层策略）。
     评分规则：LCS(别名扩展后) + sensor_type 加权 + 编码匹配(含前缀模糊) + 巷道类型匹配 + 语义过滤 + coalbed 验证。
@@ -1438,6 +1528,7 @@ def find_best_match(cleaned: str, candidates: list, sensor_type: str = None,
         device_code=device_code, code_to_candidates=code_to_candidates,
         prefix_to_candidates=prefix_to_candidates,
         coalbed_map=coalbed_map, mark_type=mark_type,
+        area=area,
     )
     filtered = [s for s in scored if s["layer"] != _MATCH_LAYER_REJECT]
     if not filtered:
@@ -1461,6 +1552,10 @@ def find_best_match(cleaned: str, candidates: list, sensor_type: str = None,
         "suspicious": best.get("suspicious", False),
         "suspicious_reason": best.get("suspicious_reason"),
     }
+    # 将传感器路标从共享 candidate 复制到 best_out，防止后续设备覆盖
+    _sl = best["candidate"].get("_sensor_landmark")
+    if _sl:
+        best_out["_sensor_landmark"] = _sl
     return best_out, scored
 
 
@@ -1633,6 +1728,10 @@ _BASE_SENSOR_ID_MAP = {
     # ── 拼音/英文缩写 ──
     "YW": "烟雾",     "YWD": "烟雾",
     "OS": "开停",     "OC": "风门",         "KD": "馈电",
+    # ── CAD 单字符传感器标注（大写）──
+    "V": "风速",      "TV": "风速",         # V = 风速 (CAD 常用简写)
+    "T": "温度",                                                # T = 温度 (CAD 单独标注, 无后缀时)
+    "J/K": "断电/馈电",                                          # J/K = 接线盒开关 (断电+馈电共用标注)
     # ── 中文传感器标识 ──
     "烟雾": "烟雾",   "风筒": "风筒",       "风速": "风速",
     "温度": "温度",   "粉尘": "粉尘",       "瓦斯": "瓦斯",
@@ -1650,7 +1749,7 @@ _CHEM_SUFFIXES = {"2", "4"}
 # 传感器前缀标记（CAD 图纸上的设备类型标识前缀）
 _SENSOR_PREFIXES = {"T", "S"}
 # T 前缀的后缀（单字母，直接拼接即完整标识）
-_T_SUFFIXES = {"w", "f", "v", "D", "t", "KD", "CO"}
+_T_SUFFIXES = {"w", "f", "v", "V", "D", "t", "KD", "CO"}
 # S 前缀的后缀（两字母，直接拼接即完整标识）
 _S_SUFFIXES = {"OS", "OC"}
 
@@ -1847,6 +1946,13 @@ def _group_sensor_fragments(cad_items: list, max_spacing: float = 10.0) -> list:
     used = set()
     groups = []
 
+    # 坐标访问辅助：兼容 item.x/item.y 和 item.coordinates.x/coordinates.y 两种格式
+    def _xy(it):
+        c = it.get('coordinates')
+        if c is not None:
+            return (c.get('x', 0), c.get('y', 0))
+        return (it.get('x', 0), it.get('y', 0))
+
     def _try_combine(start_idx, start_item):
         """从起始点开始贪心组合，返回组合结果或 None。"""
         if start_idx in used:
@@ -1858,11 +1964,6 @@ def _group_sensor_fragments(cad_items: list, max_spacing: float = 10.0) -> list:
         can_start = content in _SENSOR_PREFIXES or content in _CHEM_PREFIXES
         if not can_start:
             return None
-
-        # 坐标访问辅助：兼容 item.x/item.y 和 item.coordinates.x/coordinates.y 两种格式
-        def _xy(it):
-            c = it.get('coordinates', {})
-            return (c.get('x') or it.get('x', 0), c.get('y') or it.get('y', 0))
 
         group = [start_item]
         local_used = {start_idx}
@@ -1928,6 +2029,23 @@ def _group_sensor_fragments(cad_items: list, max_spacing: float = 10.0) -> list:
             if result:
                 groups.append(result)
 
+    # 第三轮：独立完整标识符（如 J/K, YW, V, T 等已在 _SENSOR_ID_MAP 中）
+    # 不需要聚合即可直接识别
+    for i, item in enumerate(items):
+        if i in used:
+            continue
+        content = _normalize_subscript(item.get('content', '').strip())
+        if content in _SENSOR_ID_TO_TYPE:
+            used.add(i)
+            xy = _xy(item)
+            groups.append({
+                "combined_id": content,
+                "sensor_type": _SENSOR_ID_TO_TYPE[content],
+                "x": xy[0],
+                "y": xy[1],
+                "components": [content],
+            })
+
     return groups
 
 
@@ -1958,27 +2076,35 @@ def _find_sensor_landmark_ratio(description: str, tunnel_name: str,
 
     # 1. 直接标识匹配（传感器标识在设备描述中）
     for sensor_id, info in tunnel_sensors.items():
-        if sensor_id in description:
-            matched_st = info.get("sensor_type")
-            # T 标识精确过滤：设备有 T 标识时，路标名也必须包含该 T 标识
-            if t_keyword and t_keyword not in sensor_id:
+        # 单字符标识边界匹配：避免 "T" 命中 "T1"/"T2" 等 T 标识设备
+        if len(sensor_id) == 1:
+            # 单字符后不能跟数字/大写字母/小写传感器后缀
+            if not re.search(r'(?<![A-Za-z])' + re.escape(sensor_id) + r'(?![0-9A-Za-z])', description):
                 continue
-            # 长度优先：更长的标识更具体（TCH4 > CH4）
-            if len(sensor_id) > best_len:
-                best_len = len(sensor_id)
-                best_ratio = info.get("ratio")
-                best_sensor_type = matched_st
-                if sensor_type and matched_st == sensor_type:
-                    best_confidence = "exact"
-                else:
-                    best_confidence = "partial"
+        elif sensor_id not in description:
+            continue
+        matched_st = info.get("sensor_type")
+        # T 标识精确过滤：设备有 T 标识时，路标名也必须包含该 T 标识
+        if t_keyword and t_keyword not in sensor_id:
+            continue
+        # 长度优先：更长的标识更具体（TCH4 > CH4）
+        if len(sensor_id) > best_len:
+            best_len = len(sensor_id)
+            best_ratio = info.get("ratio")
+            best_sensor_type = matched_st
+            if sensor_type and matched_st == sensor_type:
+                best_confidence = "exact"
+            else:
+                best_confidence = "partial"
 
     # 2. sensor_type 类型匹配（描述不含标识，但类型一致）
+    # 支持复合类型：路标的 sensor_type 可以是 "A/B" 形式，匹配 A 或 B
     if best_confidence is None and sensor_type:
         type_matches = []
         for sensor_id, info in tunnel_sensors.items():
-            if info.get("sensor_type") == sensor_type:
-                type_matches.append((info.get("ratio"), info.get("sensor_type")))
+            # 复合类型："断电/馈电" → 匹配 断电 或 馈电
+            if sensor_type in info.get("sensor_type", "").split("/"):
+                type_matches.append((info.get("ratio"), sensor_type))
         if type_matches:
             # 选择比例最接近 0.5 的（巷道中间最可能安装该类型传感器）
             type_matches.sort(key=lambda x: abs(x[0] - 0.5))
@@ -2050,7 +2176,12 @@ def _build_landmarks(cad_data: list, tunnels: list, max_dist: float = 100.0) -> 
 
         # 只保留有巷道关键词的 或 传感器位置标注
         # 使用动态 _SENSOR_ID_MAP 自动识别所有已知传感器标识
-        is_sensor_pos = any(sid in clean for sid in _SENSOR_ID_MAP)
+        # 排除单字符标识（如 V）和独立传感器标识（如 J/K），留给传感器片段聚合阶段处理
+        stripped = clean.strip()
+        is_sensor_pos = any(
+            sid in clean and stripped != sid
+            for sid in _SENSOR_ID_MAP if len(sid) >= 2
+        )
         if not any(kw in clean for kw in _TUNNEL_KWS) and not is_sensor_pos:
             continue
 
@@ -2946,11 +3077,13 @@ def _match_devices(devices: list, candidates: list,
             })
             continue
 
+        area = device.get("area")
         match, all_scored = find_best_match(cleaned, candidates, sensor_type=sensor_type,
                                              device_code=device_code,
                                              code_to_candidates=code_to_candidates,
                                              prefix_to_candidates=prefix_to_candidates,
-                                             coalbed_map=coalbed_map, mark_type=mark_type)
+                                             coalbed_map=coalbed_map, mark_type=mark_type,
+                                             area=area)
         if match is None:
             reason = REJECT_LOW_LCS
             if not candidates:
@@ -3123,8 +3256,11 @@ def _match_devices(devices: list, candidates: list,
                 result_entry["suspicious"] = True
                 result_entry["suspicious_reason"] = match.get("suspicious_reason")
             # 保存传感器路标信息到结果
-            if match.get("candidate") and match["candidate"].get("_sensor_landmark"):
-                result_entry["_sensor_landmark"] = match["candidate"]["_sensor_landmark"]
+            # 仅从 match 级别读取（find_best_match 已将值从共享 candidate 复制出来）
+            # 不做 candidate fallback — 避免跨设备共享污染
+            sl = match.get("_sensor_landmark")
+            if sl:
+                result_entry["_sensor_landmark"] = sl
             # 保存 CAD 路标原始 ID 到结果（per-device，避免共享 candidate 覆盖）
             dev_cad_id = lm_cad_ids.get(device.get('id', ''))
             if dev_cad_id:
